@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Lernen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>NextGen Lernen</h1>
+        <p>Modernes Lernen mit KI-Unterstützung</p>
+    </header>
+    <main>
+        <div class="service">
+            <a href="ai-learning.html">AI Learning Assistance</a>
+        </div>
+        <div class="service">
+            <a href="#">Personalized Study Planner</a>
+        </div>
+        <div class="service">
+            <a href="#">Teacher Tools</a>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 NextGen Lernen. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
