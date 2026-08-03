@@ -1,0 +1,79 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="lp-stats section color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="lp-stats__grid">
+    {%- for i in (1..4) -%}
+      {%- assign num_key = 'num_' | append: i -%}
+      {%- assign suffix_key = 'suffix_' | append: i -%}
+      {%- assign label_key = 'label_' | append: i -%}
+      {%- assign num = section.settings[num_key] -%}
+      {%- if num != blank -%}
+        <div class="lp-stats__item">
+          <div class="lp-stats__n">
+            <span class="lp-count" data-target="{{ num }}" data-suffix="{{ section.settings[suffix_key] | escape }}">{{ num }}{{ section.settings[suffix_key] }}</span>
+          </div>
+          <div class="lp-stats__label">{{ section.settings[label_key] | escape }}</div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .lp-stats__grid {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .lp-stats__n {
+    font-family: var(--font-accent--family);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--lp-cobalt, #3157FF);
+    font-variant-numeric: tabular-nums;
+  }
+  .lp-stats__label {
+    margin-top: 6px;
+    font-family: var(--font-subheading--family);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgb(from var(--color-foreground) r g b / 72%);
+  }
+  @media (max-width: 749px) {
+    .lp-stats__grid { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Zahlenband",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "number", "id": "num_1", "label": "Zahl 1", "default": 99 },
+    { "type": "text", "id": "suffix_1", "label": "Suffix 1", "default": "+" },
+    { "type": "text", "id": "label_1", "label": "Label 1", "default": "Werke" },
+    { "type": "number", "id": "num_2", "label": "Zahl 2", "default": 8 },
+    { "type": "text", "id": "suffix_2", "label": "Suffix 2" },
+    { "type": "text", "id": "label_2", "label": "Label 2", "default": "Kollektionen" },
+    { "type": "number", "id": "num_3", "label": "Zahl 3", "default": 14 },
+    { "type": "text", "id": "suffix_3", "label": "Suffix 3" },
+    { "type": "text", "id": "label_3", "label": "Label 3", "default": "Tage Widerrufsrecht" },
+    { "type": "number", "id": "num_4", "label": "Zahl 4", "default": 2 },
+    { "type": "text", "id": "suffix_4", "label": "Suffix 4" },
+    { "type": "text", "id": "label_4", "label": "Label 4", "default": "Jahre Gewährleistung" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 }
+  ],
+  "presets": [{ "name": "Zahlenband" }]
+}
+{% endschema %}

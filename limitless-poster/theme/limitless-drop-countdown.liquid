@@ -1,0 +1,130 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="lp-drop section color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="lp-drop__inner">
+    <div class="lp-drop__content">
+      <div class="lp-drop__kicker">{{ section.settings.kicker | escape }}</div>
+      <h2 class="lp-drop__heading">
+        {{ section.settings.heading_solid | escape }}
+        <span class="lp-outline">{{ section.settings.heading_outline | escape }}</span>
+      </h2>
+      <div class="lp-drop__text">{{ section.settings.text }}</div>
+      <a href="{{ section.settings.link | default: '/collections/new-drop' }}" class="button lp-drop__cta">{{ section.settings.cta_label | escape }}</a>
+    </div>
+    {%- if section.settings.deadline != blank -%}
+      <div class="lp-drop__count" data-lp-deadline="{{ section.settings.deadline | escape }}" hidden>
+        <div><span data-cd="d">–</span><em>Tage</em></div>
+        <div><span data-cd="h">–</span><em>Std</em></div>
+        <div><span data-cd="m">–</span><em>Min</em></div>
+        <div class="lp-drop__sec"><span data-cd="s">–</span><em>Sek</em></div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .lp-drop__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .lp-drop__kicker {
+    font-family: var(--font-subheading--family);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lp-cobalt-bright, #6E8CFF);
+    margin-bottom: 14px;
+  }
+  .lp-drop__heading {
+    font-family: var(--font-accent--family);
+    letter-spacing: -0.01em;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: 0 0 14px;
+  }
+  .lp-drop__text { max-width: 460px; opacity: 0.8; margin-bottom: 22px; }
+  .lp-drop__text p { margin: 0; }
+  .lp-drop__count {
+    display: flex;
+    gap: 26px;
+    font-family: var(--font-accent--family);
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+  }
+  .lp-drop__count em {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-subheading--family);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-top: 8px;
+  }
+  .lp-drop__sec span { color: var(--lp-cobalt-bright, #6E8CFF); }
+  @media (max-width: 749px) {
+    .lp-drop__inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<script>
+  (function () {
+    var setup = function () {
+      document.querySelectorAll('[data-lp-deadline]:not([data-lp-cd-init])').forEach(function (el) {
+        el.setAttribute('data-lp-cd-init', '');
+        var raw = el.getAttribute('data-lp-deadline').trim().replace(' ', 'T');
+        var target = new Date(raw);
+        if (isNaN(target.getTime()) || target.getTime() <= Date.now()) return;
+        var q = function (k) { return el.querySelector('[data-cd="' + k + '"]'); };
+        var pad = function (n) { return String(n).padStart(2, '0'); };
+        var tick = function () {
+          var d = target.getTime() - Date.now();
+          if (d <= 0) { el.hidden = true; clearInterval(iv); return; }
+          q('d').textContent = pad(Math.floor(d / 864e5));
+          q('h').textContent = pad(Math.floor(d / 36e5) % 24);
+          q('m').textContent = pad(Math.floor(d / 6e4) % 60);
+          q('s').textContent = pad(Math.floor(d / 1e3) % 60);
+        };
+        tick();
+        el.hidden = false;
+        var iv = setInterval(tick, 1000);
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+    document.addEventListener('shopify:section:load', setup);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "New-Drop-Banner",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "NEW DROP" },
+    { "type": "text", "id": "heading_solid", "label": "Überschrift", "default": "Neue Motive." },
+    { "type": "text", "id": "heading_outline", "label": "Überschrift (Outline)", "default": "Regelmäßig." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Frisch kuratierte Motive, sauber gerahmt. Wer den Newsletter abonniert, sieht jeden Drop zuerst.</p>" },
+    { "type": "text", "id": "deadline", "label": "Countdown-Ziel (JJJJ-MM-TT HH:MM, leer = kein Countdown)", "info": "Beispiel: 2026-09-01 18:00" },
+    { "type": "text", "id": "cta_label", "label": "Button-Text", "default": "New Drop ansehen" },
+    { "type": "url", "id": "link", "label": "Button-Link" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-3" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 }
+  ],
+  "presets": [{ "name": "New-Drop-Banner" }]
+}
+{% endschema %}
