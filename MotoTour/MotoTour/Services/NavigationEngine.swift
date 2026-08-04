@@ -31,6 +31,9 @@ final class NavigationEngine {
     private var lastClosureCheck = Date.distantPast
     private var offRouteSince: Date?
     private var knownClosureIDs: Set<String> = []
+    /// Ob diese Engine gerade einen Dauerbetrieb-Slot im LocationService hält
+    /// (verhindert doppeltes Abmelden bei Ankunft + Beenden).
+    private var holdsContinuousMode = false
 
     var currentInstruction: String {
         guard let route, currentStepIndex < route.steps.count else { return "Dem Straßenverlauf folgen" }
@@ -63,6 +66,7 @@ final class NavigationEngine {
         self.knownClosureIDs = Set(news.events.compactMap { $0.coordinate != nil ? $0.id : nil })
 
         locationService.setContinuousMode(true)
+        holdsContinuousMode = true
 
         tickTask = Task { [weak self] in
             while let self, !Task.isCancelled, self.state == .navigating {
@@ -76,12 +80,18 @@ final class NavigationEngine {
     func stop() {
         tickTask?.cancel()
         tickTask = nil
-        locationService?.setContinuousMode(false)
+        releaseContinuousMode()
         state = .idle
         route = nil
         banner = nil
         isRerouting = false
         offRouteSince = nil
+    }
+
+    private func releaseContinuousMode() {
+        guard holdsContinuousMode else { return }
+        holdsContinuousMode = false
+        locationService?.setContinuousMode(false)
     }
 
     // MARK: - Fortschritt
@@ -106,8 +116,8 @@ final class NavigationEngine {
         // Ankunft erkannt?
         if Geo.distance(position, route.destination.cl) < 40 {
             state = .arrived
-            banner = "Ziel erreicht 🏁"
-            locationService?.setContinuousMode(false)
+            banner = "Ziel erreicht"
+            releaseContinuousMode()
             tickTask?.cancel()
             return
         }
@@ -152,7 +162,7 @@ final class NavigationEngine {
               Date().timeIntervalSince(lastClosureCheck) > 180 else { return }
         lastClosureCheck = Date()
 
-        await news.refresh()
+        await news.refresh(force: true)
         let remainingPath = remainingCoordinates(of: route)
         let onRoute = RoutingService.closures(news.blockingEvents,
                                               near: remainingPath,
@@ -202,6 +212,10 @@ final class NavigationEngine {
                 }
             } catch {
                 self.banner = "Neuberechnung fehlgeschlagen – folge weiter der alten Route"
+                Task { [weak self] in
+                    try? await Task.sleep(nanoseconds: 8_000_000_000)
+                    if self?.isRerouting == false { self?.banner = nil }
+                }
             }
             self.isRerouting = false
         }

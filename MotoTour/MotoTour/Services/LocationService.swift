@@ -26,6 +26,9 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     var speed: Double { max(0, currentLocation?.speed ?? 0) }
 
     private let manager = CLLocationManager()
+    /// Anzahl aktiver Dauerbetrieb-Verbraucher (Navigation, Aufzeichnung) –
+    /// Hintergrund-Updates werden erst abgeschaltet, wenn keiner mehr aktiv ist.
+    private var continuousConsumers = 0
 
     override init() {
         super.init()
@@ -50,14 +53,16 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     }
 
     func stopUpdating() {
-        if !isRecording {
+        if !isRecording && continuousConsumers == 0 {
             manager.stopUpdatingLocation()
         }
     }
 
-    /// Hintergrund-Updates für Navigation/Aufzeichnung aktivieren bzw. deaktivieren.
+    /// Hintergrund-Updates für Navigation/Aufzeichnung an-/abmelden (referenzgezählt,
+    /// damit z. B. das Beenden der Navigation eine laufende Aufzeichnung nicht abwürgt).
     func setContinuousMode(_ on: Bool) {
         if on {
+            continuousConsumers += 1
             if authorization == .authorizedWhenInUse || authorization == .authorizedAlways {
                 manager.allowsBackgroundLocationUpdates = true
                 manager.pausesLocationUpdatesAutomatically = false
@@ -65,8 +70,11 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
             }
             manager.startUpdatingLocation()
         } else {
-            manager.allowsBackgroundLocationUpdates = false
-            manager.pausesLocationUpdatesAutomatically = true
+            continuousConsumers = max(0, continuousConsumers - 1)
+            if continuousConsumers == 0 {
+                manager.allowsBackgroundLocationUpdates = false
+                manager.pausesLocationUpdatesAutomatically = true
+            }
         }
     }
 

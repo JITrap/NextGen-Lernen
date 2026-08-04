@@ -93,7 +93,7 @@ final class RoutingService {
         for i in 1..<stops.count {
             let segment = try await bestSegment(from: stops[i - 1], to: stops[i],
                                                 profile: profile, settings: settings)
-            let coords = segment.polylineCoordinates
+            let coords = segment.coordinates
             if allCoords.isEmpty {
                 allCoords = coords
             } else {
@@ -126,7 +126,7 @@ final class RoutingService {
     private func bestSegment(from start: CLLocationCoordinate2D,
                              to end: CLLocationCoordinate2D,
                              profile: RouteProfile,
-                             settings: AppSettings) async throws -> MKRoute {
+                             settings: AppSettings) async throws -> RouteCandidate {
         let directRoutes = try await requestRoutes(from: start, to: end, via: nil, settings: settings)
         guard let fastest = directRoutes.min(by: { $0.expectedTravelTime < $1.expectedTravelTime }) else {
             throw RoutingError.noRoute
@@ -138,7 +138,7 @@ final class RoutingService {
 
         // Kandidaten: direkte Alternativen + Umwege über seitlich versetzte Zwischenpunkte.
         var candidates = directRoutes
-        let directCoords = fastest.polylineCoordinates
+        let directCoords = fastest.coordinates
         if directCoords.count > 2, fastest.distance > 3000 {
             let third = directCoords[directCoords.count / 3]
             let twoThird = directCoords[(2 * directCoords.count) / 3]
@@ -159,19 +159,19 @@ final class RoutingService {
         let budget = fastest.distance * profile.detourBudget
         let allowed = candidates.filter { $0.distance <= budget }
         let pool = allowed.isEmpty ? candidates : allowed
-        return pool.max(by: { Geo.curviness(of: $0.polylineCoordinates) < Geo.curviness(of: $1.polylineCoordinates) }) ?? fastest
+        return pool.max(by: { Geo.curviness(of: $0.coordinates) < Geo.curviness(of: $1.coordinates) }) ?? fastest
     }
 
     /// Einzelne MKDirections-Anfrage; bei `via` wird die Route über den Zwischenpunkt zusammengesetzt.
     private func requestRoutes(from start: CLLocationCoordinate2D,
                                to end: CLLocationCoordinate2D,
                                via: CLLocationCoordinate2D?,
-                               settings: AppSettings) async throws -> [MKRoute] {
+                               settings: AppSettings) async throws -> [RouteCandidate] {
         if let via {
             let first = try await requestRoutes(from: start, to: via, via: nil, settings: settings)
             let second = try await requestRoutes(from: via, to: end, via: nil, settings: settings)
             guard let a = first.first, let b = second.first else { throw RoutingError.noRoute }
-            return [StitchedRoute(segments: [a, b])]
+            return [RouteCandidate(segments: [a, b])]
         }
 
         let request = MKDirections.Request()
@@ -185,7 +185,7 @@ final class RoutingService {
         do {
             let response = try await MKDirections(request: request).calculate()
             guard !response.routes.isEmpty else { throw RoutingError.noRoute }
-            return response.routes
+            return response.routes.map(RouteCandidate.init)
         } catch let error as RoutingError {
             throw error
         } catch {
@@ -274,38 +274,40 @@ extension MKRoute {
     }
 }
 
-/// Zusammengesetzte Route aus zwei Teilrouten (für Zwischenpunkt-Umwege).
-private final class StitchedRoute: MKRoute {
-    private let _polyline: MKPolyline
-    private let _distance: CLLocationDistance
-    private let _time: TimeInterval
-    private let _steps: [MKRoute.Step]
+/// Leichtgewichtiger Routen-Kandidat statt MKRoute-Subklasse – MKRoute darf laut
+/// Apple-Dokumentation nur von MKDirections erzeugt werden.
+private struct RouteCandidate {
+    var coordinates: [CLLocationCoordinate2D]
+    var distance: CLLocationDistance
+    var expectedTravelTime: TimeInterval
+    var steps: [MKRoute.Step]
 
-    init(segments: [MKRoute]) {
+    init(route: MKRoute) {
+        self.coordinates = route.polylineCoordinates
+        self.distance = route.distance
+        self.expectedTravelTime = route.expectedTravelTime
+        self.steps = route.steps
+    }
+
+    /// Zusammengesetzte Route aus Teilrouten (für Zwischenpunkt-Umwege).
+    init(segments: [RouteCandidate]) {
         var coords: [CLLocationCoordinate2D] = []
         var distance = 0.0
         var time = 0.0
         var steps: [MKRoute.Step] = []
         for segment in segments {
-            let segmentCoords = segment.polylineCoordinates
             if coords.isEmpty {
-                coords = segmentCoords
+                coords = segment.coordinates
             } else {
-                coords.append(contentsOf: segmentCoords.dropFirst())
+                coords.append(contentsOf: segment.coordinates.dropFirst())
             }
             distance += segment.distance
             time += segment.expectedTravelTime
             steps.append(contentsOf: segment.steps)
         }
-        self._polyline = MKPolyline(coordinates: coords, count: coords.count)
-        self._distance = distance
-        self._time = time
-        self._steps = steps
-        super.init()
+        self.coordinates = coords
+        self.distance = distance
+        self.expectedTravelTime = time
+        self.steps = steps
     }
-
-    override var polyline: MKPolyline { _polyline }
-    override var distance: CLLocationDistance { _distance }
-    override var expectedTravelTime: TimeInterval { _time }
-    override var steps: [MKRoute.Step] { _steps }
 }
