@@ -1,0 +1,164 @@
+{% doc %}
+  LimitlessPoster — Displate-Style Produktgalerie.
+
+  Stage + Thumbnail-Rail (links, mobil unter der Stage). Startansicht = 3D.
+  Ansichten: 3D (Metafield custom.poster_3d, Farbe folgt der Variante) ·
+  Detail-Tour (custom.poster_detail) · Produktbild der gewählten Variante ·
+  2 Raum-Mockups. Serverseitig pro Variante gerendert — der Varianten-Morph
+  aktualisiert Bilder und GLB-Farbe automatisch; limitless-experience.js
+  übernimmt Interaktion (Panelwechsel, model-viewer, Zoom-Tour).
+
+  @param {object} product - Produkt
+{% enddoc %}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+
+  assign fcolor = 'black'
+  for option in product.options_with_values
+    assign oname = option.name | downcase
+    if oname == 'color' or oname == 'farbe'
+      case forloop.index
+        when 1
+          assign cval = variant.option1
+        when 2
+          assign cval = variant.option2
+        when 3
+          assign cval = variant.option3
+      endcase
+    endif
+  endfor
+  assign cval = cval | default: '' | downcase
+  if cval contains 'white' or cval contains 'weiß' or cval contains 'weiss'
+    assign fcolor = 'white'
+  endif
+
+  assign glb = ''
+  assign p3d = product.metafields.custom.poster_3d.value
+  if p3d
+    assign glb = p3d[fcolor]
+  endif
+  if glb == blank
+    assign glb = product.metafields.custom.poster_3d_url.value
+  endif
+
+  assign dd = product.metafields.custom.poster_detail.value
+
+  assign stage_ratio = 0.8
+  if dd and dd.region
+    assign rw = dd.region[2] | minus: dd.region[0]
+    assign rh = dd.region[3] | minus: dd.region[1]
+    if rh > 0
+      assign stage_ratio = rw | divided_by: rh | at_least: 0.72 | at_most: 1.35
+    endif
+  endif
+
+  assign vimg = variant.featured_image | default: product.featured_image
+
+  assign mock_a = blank
+  assign mock_b = blank
+  for m in product.media
+    if m.media_type == 'image'
+      if m.alt contains 'Wohnbeispiel' and mock_a == blank
+        assign mock_a = m
+      elsif m.alt contains 'Studio' and mock_b == blank
+        assign mock_b = m
+      endif
+    endif
+  endfor
+-%}
+<div
+  class="lp-gallery"
+  data-lp-gallery
+  data-color="{{ fcolor }}"
+>
+  <script type="application/json" data-lp-data>
+    {"glb": {{ glb | json }}, "detail": {% if dd %}{{ dd | json }}{% else %}null{% endif %}, "title": {{ product.title | json }}, "color": {{ fcolor | json }}}
+  </script>
+
+  <div class="lp-gallery__stage" style="--lp-stage-ratio: {{ stage_ratio }}">
+    {%- assign first_done = false -%}
+    {%- if glb != blank -%}
+      <section
+        class="lp-panel lp-panel--3d"
+        data-panel="3d"
+        role="tabpanel"
+        aria-label="Interaktive 3D-Ansicht"
+      >
+        <div class="lp-3d-mount" data-poster="{% if vimg %}{{ vimg | image_url: width: 1200 }}{% endif %}"></div>
+        <div class="lp-3d-loading" data-lp-3d-loading><span class="lp-spin"></span> 3D-Ansicht lädt…</div>
+        <button type="button" class="lp-stage-fs" data-lp-fs aria-label="3D im Vollbild ansehen">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8V3h5M12 3h5v5M17 12v5h-5M8 17H3v-5"/></svg>
+        </button>
+        <p class="lp-stage-hint">Ziehen zum Drehen · Scrollen zum Zoomen</p>
+      </section>
+      {%- assign first_done = true -%}
+    {%- endif -%}
+
+    {%- if dd -%}
+      <section
+        class="lp-panel lp-panel--detail"
+        data-panel="detail"
+        role="tabpanel"
+        aria-label="Produktdetails mit Zoom"
+        {% if first_done %}hidden{% endif %}
+      ></section>
+      {%- assign first_done = true -%}
+    {%- endif -%}
+
+    {%- if vimg -%}
+      <section class="lp-panel lp-panel--img" data-panel="img-v" role="tabpanel" aria-label="Produktbild" {% if first_done %}hidden{% endif %}>
+        <img src="{{ vimg | image_url: width: 1800 }}" alt="{{ vimg.alt | default: product.title | escape }}" loading="lazy">
+      </section>
+      {%- assign first_done = true -%}
+    {%- endif -%}
+
+    {%- if mock_a != blank -%}
+      <section class="lp-panel lp-panel--img" data-panel="img-a" role="tabpanel" aria-label="Wohnbeispiel" {% if first_done %}hidden{% endif %}>
+        <img src="{{ mock_a.preview_image | image_url: width: 1800 }}" alt="{{ mock_a.alt | escape }}" loading="lazy">
+      </section>
+      {%- assign first_done = true -%}
+    {%- endif -%}
+
+    {%- if mock_b != blank -%}
+      <section class="lp-panel lp-panel--img" data-panel="img-b" role="tabpanel" aria-label="Studio-Ansicht" {% if first_done %}hidden{% endif %}>
+        <img src="{{ mock_b.preview_image | image_url: width: 1800 }}" alt="{{ mock_b.alt | escape }}" loading="lazy">
+      </section>
+    {%- endif -%}
+  </div>
+
+  <div class="lp-gallery__rail" role="tablist" aria-label="Produktansichten">
+    {%- assign first_thumb = true -%}
+    {%- if glb != blank -%}
+      <button type="button" class="lp-thumb lp-thumb--3d" role="tab" data-target="3d" aria-selected="true" aria-label="3D-Ansicht">
+        {%- if vimg %}<img src="{{ vimg | image_url: width: 180 }}" alt="">{% endif -%}
+        <span class="lp-thumb-badge">3D</span>
+      </button>
+      {%- assign first_thumb = false -%}
+    {%- endif -%}
+    {%- if dd -%}
+      <button type="button" class="lp-thumb" role="tab" data-target="detail" aria-selected="{% if first_thumb %}true{% else %}false{% endif %}" aria-label="Details ansehen">
+        <img src="{{ dd.img | append: '&width=180' }}" alt="">
+        <span class="lp-thumb-badge lp-thumb-badge--plus">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="5" x2="10" y2="15"/><line x1="5" y1="10" x2="15" y2="10"/></svg>
+        </span>
+      </button>
+      {%- assign first_thumb = false -%}
+    {%- endif -%}
+    {%- if vimg -%}
+      <button type="button" class="lp-thumb" role="tab" data-target="img-v" aria-selected="{% if first_thumb %}true{% else %}false{% endif %}" aria-label="Produktbild">
+        <img src="{{ vimg | image_url: width: 180 }}" alt="">
+      </button>
+      {%- assign first_thumb = false -%}
+    {%- endif -%}
+    {%- if mock_a != blank -%}
+      <button type="button" class="lp-thumb" role="tab" data-target="img-a" aria-selected="false" aria-label="Wohnbeispiel">
+        <img src="{{ mock_a.preview_image | image_url: width: 180 }}" alt="">
+      </button>
+    {%- endif -%}
+    {%- if mock_b != blank -%}
+      <button type="button" class="lp-thumb" role="tab" data-target="img-b" aria-selected="false" aria-label="Studio-Ansicht">
+        <img src="{{ mock_b.preview_image | image_url: width: 180 }}" alt="">
+      </button>
+    {%- endif -%}
+  </div>
+</div>
