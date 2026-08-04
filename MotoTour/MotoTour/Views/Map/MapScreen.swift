@@ -28,6 +28,11 @@ struct MapScreen: View {
     @State private var showTrafficEvents = true
     @State private var selectedEvent: ClosureEvent?
 
+    // Eigene Sperrung melden
+    @State private var reportModeEnabled = false
+    @State private var pendingReportCoordinate: CLLocationCoordinate2D?
+    @State private var reportName = ""
+
     // POI-Suche
     @State private var poiItems: [MKMapItem] = []
     @State private var activePOICategory: POICategory?
@@ -50,9 +55,13 @@ struct MapScreen: View {
                 visibleRegion = context.region
             }
             .onTapGesture { point in
-                guard tapPlanningEnabled,
-                      let coordinate = proxy.convert(point, from: .local) else { return }
-                handlePlanningTap(coordinate)
+                guard let coordinate = proxy.convert(point, from: .local) else { return }
+                if reportModeEnabled {
+                    pendingReportCoordinate = coordinate
+                    reportName = ""
+                } else if tapPlanningEnabled {
+                    handlePlanningTap(coordinate)
+                }
             }
         }
         .overlay(alignment: .topLeading) { topLeadingControls }
@@ -63,9 +72,38 @@ struct MapScreen: View {
             TrafficEventDetailSheet(event: event)
                 .presentationDetents([.medium, .large])
         }
+        .alert("Sperrung melden", isPresented: reportAlertBinding) {
+            TextField("Beschreibung (z. B. B51 bei Ort gesperrt)", text: $reportName)
+            Button("Melden") {
+                if let coordinate = pendingReportCoordinate {
+                    newsService.addUserClosure(name: reportName, at: coordinate)
+                }
+                pendingReportCoordinate = nil
+                reportModeEnabled = false
+            }
+            Button("Abbrechen", role: .cancel) {
+                pendingReportCoordinate = nil
+            }
+        } message: {
+            Text("Die Stelle wird als Vollsperrung gespeichert und bei jeder Routenplanung automatisch umfahren.")
+        }
         .onAppear { locationService.startUpdating() }
         .onDisappear { locationService.stopUpdating() }
-        .task { await newsService.refresh() }
+        .task(id: locationService.currentLocation == nil) {
+            await newsService.refresh()
+            if let location = locationService.currentLocation {
+                await newsService.refreshRegional(around: location.coordinate)
+            }
+        }
+    }
+
+    private var reportAlertBinding: Binding<Bool> {
+        Binding(
+            get: { pendingReportCoordinate != nil },
+            set: { showing in
+                if !showing { pendingReportCoordinate = nil }
+            }
+        )
     }
 
     // MARK: - Karteninhalt
@@ -111,7 +149,7 @@ struct MapScreen: View {
                                 .font(.system(size: 13, weight: .bold))
                                 .foregroundStyle(event.kind == .warnung ? Color.black : Color.white)
                                 .padding(6)
-                                .background(eventColor(event.kind), in: Circle())
+                                .background(event.source == .nutzer ? Color.purple : eventColor(event.kind), in: Circle())
                                 .shadow(radius: 2)
                         }
                     }
@@ -129,7 +167,7 @@ struct MapScreen: View {
 
     /// Meldungen mit Koordinate im sichtbaren Kartenausschnitt (begrenzt, damit die Karte flüssig bleibt).
     private var visibleEvents: [ClosureEvent] {
-        let withCoordinate = newsService.events.filter { $0.coordinate != nil }
+        let withCoordinate = newsService.allEvents.filter { $0.coordinate != nil }
         guard let region = visibleRegion else { return Array(withCoordinate.prefix(120)) }
         let halfLat = region.span.latitudeDelta / 2
         let halfLon = region.span.longitudeDelta / 2
@@ -173,6 +211,17 @@ struct MapScreen: View {
                     .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
             }
             .accessibilityLabel("POI-Suche")
+
+            Button {
+                reportModeEnabled.toggle()
+            } label: {
+                Image(systemName: reportModeEnabled ? "exclamationmark.bubble.fill" : "exclamationmark.bubble")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundStyle(reportModeEnabled ? Color.purple : Color.secondary)
+                    .frame(width: 44, height: 44)
+                    .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
+            }
+            .accessibilityLabel(reportModeEnabled ? "Melde-Modus beenden" : "Sperrung melden")
         }
         .padding(.leading, 8)
         .padding(.top, 8)
@@ -180,6 +229,14 @@ struct MapScreen: View {
 
     private var statusOverlays: some View {
         VStack(spacing: 8) {
+            if reportModeEnabled {
+                Text("Melde-Modus: Tippe auf die gesperrte Stelle")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(Color.purple.opacity(0.9), in: Capsule())
+            }
             if tapPlanningEnabled {
                 Text(planningHint)
                     .font(.footnote.weight(.semibold))
@@ -382,6 +439,7 @@ private func eventColor(_ kind: ClosureEvent.Kind) -> Color {
 private struct TrafficEventDetailSheet: View {
     let event: ClosureEvent
     @Environment(\.dismiss) private var dismiss
+    @Environment(TrafficNewsService.self) private var newsService
 
     var body: some View {
         NavigationStack {
@@ -401,11 +459,22 @@ private struct TrafficEventDetailSheet: View {
                     if let date = event.startDate {
                         LabeledContent("Beginn", value: Format.shortDate(date))
                     }
+                    LabeledContent("Quelle", value: event.source.label)
                 }
                 if !event.descriptionLines.isEmpty {
                     Section("Details") {
                         ForEach(Array(event.descriptionLines.enumerated()), id: \.offset) { _, line in
                             Text(line)
+                        }
+                    }
+                }
+                if event.source == .nutzer {
+                    Section {
+                        Button(role: .destructive) {
+                            newsService.removeUserClosure(eventID: event.id)
+                            dismiss()
+                        } label: {
+                            Label("Meldung löschen", systemImage: "trash")
                         }
                     }
                 }

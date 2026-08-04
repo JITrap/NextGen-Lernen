@@ -162,8 +162,22 @@ struct ClosureEvent: Identifiable, Hashable {
         }
     }
 
+    enum Source: String, CaseIterable {
+        case autobahnAPI
+        case osm
+        case nutzer
+
+        var label: String {
+            switch self {
+            case .autobahnAPI: return "Autobahn GmbH des Bundes"
+            case .osm: return "OpenStreetMap"
+            case .nutzer: return "Eigene Meldung"
+            }
+        }
+    }
+
     var id: String
-    var roadId: String              // z. B. "A7"
+    var roadId: String              // z. B. "A7" oder "B51"
     var title: String
     var subtitle: String
     var kind: Kind
@@ -171,6 +185,16 @@ struct ClosureEvent: Identifiable, Hashable {
     var descriptionLines: [String]
     var isBlocking: Bool            // Vollsperrung ja/nein
     var startDate: Date?
+    var source: Source = .autobahnAPI
+}
+
+/// Vom Nutzer selbst gemeldete Sperrung (z. B. auf einer Landstraße).
+/// Wird dauerhaft gespeichert und bei jeder Routenplanung umfahren.
+struct UserClosure: Codable, Identifiable, Hashable {
+    var id: UUID = UUID()
+    var name: String
+    var coordinate: Coordinate
+    var createdAt: Date = Date()
 }
 
 // MARK: - Gesamtstatistik

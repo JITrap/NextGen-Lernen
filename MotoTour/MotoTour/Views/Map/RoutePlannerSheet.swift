@@ -198,12 +198,16 @@ struct RoutePlannerSheet: View {
         routeSaved = false
         Task { @MainActor in
             do {
+                // Landstraßen-Meldungen (OpenStreetMap) für den Korridor der Route nachladen,
+                // damit auch B-/L-Straßen-Sperrungen umfahren werden.
+                await newsService.refresh()
+                await newsService.refreshRegional(for: [start.cl, destination.cl] + vias)
                 let route = try await routing.planRoute(from: start.cl,
                                                         to: destination.cl,
                                                         via: vias,
                                                         profile: selectedProfile,
                                                         settings: settings,
-                                                        closures: newsService.events)
+                                                        closures: newsService.allEvents)
                 plannedRoute = route
                 zoomToRoute(route)
             } catch {

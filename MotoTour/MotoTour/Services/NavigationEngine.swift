@@ -63,7 +63,7 @@ final class NavigationEngine {
         self.remainingDistance = route.distance
         self.remainingTime = route.expectedTravelTime
         self.banner = nil
-        self.knownClosureIDs = Set(news.events.compactMap { $0.coordinate != nil ? $0.id : nil })
+        self.knownClosureIDs = Set(news.allEvents.compactMap { $0.coordinate != nil ? $0.id : nil })
 
         locationService.setContinuousMode(true)
         holdsContinuousMode = true
@@ -162,8 +162,9 @@ final class NavigationEngine {
               Date().timeIntervalSince(lastClosureCheck) > 180 else { return }
         lastClosureCheck = Date()
 
-        await news.refresh(force: true)
         let remainingPath = remainingCoordinates(of: route)
+        await news.refresh(force: true)
+        await news.refreshRegional(for: remainingPath, force: true)
         let onRoute = RoutingService.closures(news.blockingEvents,
                                               near: remainingPath,
                                               threshold: settings.closureRouteThreshold)
@@ -198,7 +199,7 @@ final class NavigationEngine {
                 let updated = try await routing.recalculate(route: route,
                                                             from: position,
                                                             settings: settings,
-                                                            closures: news.events)
+                                                            closures: news.allEvents)
                 if self.state == .navigating {
                     self.route = updated
                     self.currentStepIndex = 0

@@ -4,11 +4,13 @@ import SwiftUI
 /// von der kostenlosen Autobahn-API des Bundes.
 struct NewsScreen: View {
     @Environment(TrafficNewsService.self) private var newsService
+    @Environment(LocationService.self) private var locationService
 
     private enum NewsFilter: String, CaseIterable, Identifiable {
         case alle = "Alle"
         case sperrungen = "Sperrungen"
         case baustellen = "Baustellen"
+        case landstrassen = "Landstraßen"
 
         var id: String { rawValue }
     }
@@ -21,7 +23,12 @@ struct NewsScreen: View {
             content
                 .navigationTitle("Verkehrsmeldungen")
                 .searchable(text: $searchText, prompt: "Straße oder Titel")
-                .task { await newsService.refresh() }
+                .task(id: locationService.currentLocation == nil) {
+                    await newsService.refresh()
+                    if let location = locationService.currentLocation {
+                        await newsService.refreshRegional(around: location.coordinate)
+                    }
+                }
         }
     }
 
@@ -29,7 +36,7 @@ struct NewsScreen: View {
 
     @ViewBuilder
     private var content: some View {
-        if newsService.isLoading && newsService.events.isEmpty {
+        if newsService.isLoading && newsService.allEvents.isEmpty {
             ProgressView("Lade Meldungen …")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
@@ -71,6 +78,9 @@ struct NewsScreen: View {
         .listStyle(.insetGrouped)
         .refreshable {
             await newsService.refresh(force: true)
+            if let location = locationService.currentLocation {
+                await newsService.refreshRegional(around: location.coordinate, force: true)
+            }
         }
         .overlay {
             if filteredEvents.isEmpty && !newsService.isLoading && newsService.lastError == nil {
@@ -145,7 +155,8 @@ struct NewsScreen: View {
             if let updated = newsService.lastUpdated {
                 Text("Stand: \(Format.shortDate(updated))")
             }
-            Text("Daten: Autobahn GmbH des Bundes (kostenlos)")
+            Text("Autobahnen: Autobahn GmbH des Bundes · Landstraßen: © OpenStreetMap-Mitwirkende")
+            Text("Alle Quellen kostenlos. Landstraßen-Meldungen werden im Umkreis von 60 km geladen.")
         }
         .font(.footnote)
         .foregroundStyle(.secondary)
@@ -155,7 +166,7 @@ struct NewsScreen: View {
     // MARK: - Filter & Farben
 
     private var filteredEvents: [ClosureEvent] {
-        var result = newsService.events
+        var result = newsService.allEvents
         switch filter {
         case .alle:
             break
@@ -163,6 +174,8 @@ struct NewsScreen: View {
             result = result.filter { $0.kind == .sperrung }
         case .baustellen:
             result = result.filter { $0.kind == .baustelle }
+        case .landstrassen:
+            result = result.filter { $0.source == .osm || $0.source == .nutzer }
         }
         let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !query.isEmpty else { return result }

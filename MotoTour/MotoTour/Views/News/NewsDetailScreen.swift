@@ -7,6 +7,8 @@ struct NewsDetailScreen: View {
     let event: ClosureEvent
 
     @Environment(AppSettings.self) private var settings
+    @Environment(TrafficNewsService.self) private var newsService
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ScrollView {
@@ -29,6 +31,21 @@ struct NewsDetailScreen: View {
 
                 if let coordinate = event.coordinate {
                     mapSection(coordinate: coordinate)
+                }
+
+                Label("Quelle: \(event.source.label)", systemImage: "info.circle")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+
+                if event.source == .nutzer {
+                    Button(role: .destructive) {
+                        newsService.removeUserClosure(eventID: event.id)
+                        dismiss()
+                    } label: {
+                        Label("Eigene Meldung löschen", systemImage: "trash")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
                 }
             }
             .padding()

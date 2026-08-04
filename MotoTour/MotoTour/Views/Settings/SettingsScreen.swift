@@ -93,8 +93,10 @@ struct SettingsScreen: View {
                           systemImage: "heart.fill")
                     Label("Routing & Karten: Apple Karten",
                           systemImage: "map")
-                    Label("Verkehrsmeldungen: Autobahn GmbH des Bundes (autobahn.de)",
+                    Label("Verkehrsmeldungen Autobahn: Autobahn GmbH des Bundes (autobahn.de)",
                           systemImage: "exclamationmark.triangle")
+                    Label("Landstraßen-Sperrungen & Baustellen: © OpenStreetMap-Mitwirkende",
+                          systemImage: "road.lanes.curved.right")
                     Label("Deine Touren bleiben nur auf deinem Gerät",
                           systemImage: "lock.shield")
                     HStack {
