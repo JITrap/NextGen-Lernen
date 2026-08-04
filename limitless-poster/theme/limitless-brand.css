@@ -274,6 +274,8 @@ html.lp-motion .lp-reveal.lp-inview {
   pointer-events: none;
 }
 .lp-xp-badge--outline {
+  left: auto;
+  right: 12px;
   background: rgba(252, 251, 247, 0.92);
   color: #0B0B0C;
   border: 1px solid #0B0B0C;
@@ -371,6 +373,9 @@ html.lp-motion .lp-reveal.lp-inview {
 }
 
 /* Caption-Leiste (Zoom-Zustand) */
+.lp-xp-caption[hidden] {
+  display: none;
+}
 .lp-xp-caption {
   position: absolute;
   inset-inline: 0;
