@@ -74,9 +74,9 @@
     mv.setAttribute('exposure', '1.05');
     mv.setAttribute('shadow-intensity', '1');
     mv.setAttribute('shadow-softness', '0.9');
-    mv.setAttribute('camera-orbit', '18deg 82deg 102%');
+    mv.setAttribute('camera-orbit', '18deg 82deg 108%');
     mv.setAttribute('min-camera-orbit', 'auto auto 55%');
-    mv.setAttribute('max-camera-orbit', 'auto auto 150%');
+    mv.setAttribute('max-camera-orbit', 'auto auto 160%');
     mv.setAttribute('touch-action', 'pan-y');
     mv.setAttribute('ar', '');
     mv.setAttribute('ar-modes', 'webxr scene-viewer');
@@ -342,10 +342,43 @@
     });
   }
 
+  /* ---------- Variantenwechsel ----------
+     Horizons variant-picker.js morpht nur den Picker und feuert danach
+     'variant:update' mit dem frisch gerenderten Dokument der Produktseite.
+     Unser Snippet rendert pro Variante serverseitig (Bild, Seitenverhältnis,
+     GLB-Farbe) — wir übernehmen die neue Galerie daraus komplett. */
+
+  function onVariantUpdate(event) {
+    var data = event.detail && event.detail.data;
+    if (!data || !data.html || !data.html.querySelector) return;
+    var next = data.html.querySelector('[data-lp-gallery]');
+    if (!next) return;
+    var pid = data.productId ? String(data.productId) : '';
+    document.querySelectorAll('[data-lp-gallery]').forEach(function (root) {
+      var rid = root.getAttribute('data-product-id') || '';
+      if (pid && rid && pid !== rid) return;
+      var fresh = next.cloneNode(true);
+      root.replaceWith(fresh);
+      sync(fresh);
+      if (overlay && !overlay.hasAttribute('hidden')) {
+        var d = readData(fresh);
+        var mv = overlay.querySelector('model-viewer');
+        if (mv && d.glb && mv.getAttribute('src') !== d.glb) {
+          mv.setAttribute('src', d.glb);
+        }
+        if (d.title) {
+          overlay.querySelector('.lp-xp-overlay-title').textContent = d.title;
+          overlay.setAttribute('aria-label', '3D-Ansicht — ' + d.title);
+        }
+      }
+    });
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAll);
   } else {
     initAll();
   }
   document.addEventListener('shopify:section:load', initAll);
+  document.addEventListener('variant:update', onVariantUpdate);
 })();

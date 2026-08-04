@@ -1,0 +1,1730 @@
+{
+ "all-or-nothing-soccer-poster-framed-vertical-sports-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "become-unstoppable-framed-poster-motivational-sports-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8625
+   ],
+   "aspect": 0.693
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "believe-in-yourself-poster-motivational-sports-trophy-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "class-intensity-grit-tennis-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.21375,
+    0.1375,
+    0.79,
+    0.8
+   ],
+   "aspect": 0.8698
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "discipline-motivational-poster-gym-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "discipline-soccer-poster-motivational-framed-sports-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.2125,
+    0.19875,
+    0.79125,
+    0.8
+   ],
+   "aspect": 0.9626
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "ferrari-scuderia-formula-1-vertical-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.13625,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.693
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "focus-framed-poster-motivational-gym-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.22,
+    0.29,
+    0.78,
+    0.70875
+   ],
+   "aspect": 1.3373
+  },
+  "new": {
+   "crop_rel": [
+    0.12986,
+    0.19986,
+    0.87014,
+    0.79914
+   ],
+   "aspect": 1.2353,
+   "orientation": "landscape",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.14,
+    0.79125,
+    0.8
+   ],
+   "aspect": 0.7898
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-aerial-yacht-wake-ocean-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-be-different-michael-jordan-basketball-print": {
+  "old": {
+   "crop_rel": [
+    0.1475,
+    0.29,
+    0.8575,
+    0.79
+   ],
+   "aspect": 1.42
+  },
+  "new": {
+   "crop_rel": [
+    0.12986,
+    0.19986,
+    0.87014,
+    0.79914
+   ],
+   "aspect": 1.2353,
+   "orientation": "landscape",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-crystal-gloved-hand-ok-sign-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-ferrari-and-white-stallion-art-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-focus-on-you-black-panther-wall-art-vertical": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.2425,
+    0.18625,
+    0.79,
+    0.8625
+   ],
+   "aspect": 0.8096
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-its-more-than-football-soccer-team-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-never-forgetting-where-we-came-from-space-surfer-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-no-risk-no-story-basketball-art-print": {
+  "old": {
+   "crop_rel": [
+    0.27625,
+    0.1975,
+    0.72375,
+    0.8475
+   ],
+   "aspect": 0.6885
+  },
+  "new": {
+   "crop_rel": [
+    0.21061,
+    0.13162,
+    0.78939,
+    0.86538
+   ],
+   "aspect": 0.7888,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.21125,
+    0.13625,
+    0.7375,
+    0.8
+   ],
+   "aspect": 0.7928
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-the-perfect-time-never-comes-motivational-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.7925,
+    0.8
+   ],
+   "aspect": 0.8795
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-the-world-is-yours-motivational-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-the-world-rewards-action-motivational-space-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.225,
+    0.2075,
+    0.7725,
+    0.78875
+   ],
+   "aspect": 0.9419
+  },
+  "new": {
+   "crop_rel": [
+    0.22721,
+    0.13221,
+    0.77179,
+    0.86579
+   ],
+   "aspect": 0.7424,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 15,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait": {
+  "old": {
+   "crop_rel": [
+    0.15125,
+    0.21125,
+    0.86125,
+    0.70875
+   ],
+   "aspect": 1.4271
+  },
+  "new": {
+   "crop_rel": [
+    0.12986,
+    0.19986,
+    0.87014,
+    0.79914
+   ],
+   "aspect": 1.2353,
+   "orientation": "landscape",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-whatever-it-takes-motivational-portrait-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.7925,
+    0.8
+   ],
+   "aspect": 0.8795
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-poster-you-can-always-be-better-golf-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.285,
+    0.19,
+    0.77625,
+    0.80875
+   ],
+   "aspect": 0.7939
+  },
+  "new": {
+   "crop_rel": [
+    0.22482,
+    0.12982,
+    0.77517,
+    0.86917
+   ],
+   "aspect": 0.7444,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.7925,
+    0.8275
+   ],
+   "aspect": 0.8445
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "goat-framed-poster-vintage-sports-portrait-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.85
+   ],
+   "aspect": 0.7063
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "horizontal-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.22,
+    0.29,
+    0.8625,
+    0.74125
+   ],
+   "aspect": 1.4238
+  },
+  "new": {
+   "crop_rel": [
+    0.12986,
+    0.19986,
+    0.87014,
+    0.79914
+   ],
+   "aspect": 1.2353,
+   "orientation": "landscape",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "in-god-we-trust-basketball-poster": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8475
+   ],
+   "aspect": 0.7091
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "just-do-it-aviation-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.21,
+    0.1575,
+    0.79125,
+    0.8
+   ],
+   "aspect": 0.9047
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "leopard-on-branch-black-white-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.14125,
+    0.2075,
+    0.78,
+    0.79125
+   ],
+   "aspect": 1.0942
+  },
+  "new": {
+   "crop_rel": [
+    0.12986,
+    0.19986,
+    0.87014,
+    0.79914
+   ],
+   "aspect": 1.2353,
+   "orientation": "landscape",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "marlboro-f1-racing-car-poster-horizontal-framed-print": {
+  "old": {
+   "crop_rel": [
+    0.22,
+    0.29,
+    0.78,
+    0.73875
+   ],
+   "aspect": 1.2479
+  },
+  "new": {
+   "crop_rel": [
+    0.12986,
+    0.19986,
+    0.87014,
+    0.79914
+   ],
+   "aspect": 1.2353,
+   "orientation": "landscape",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "messi-make-them-wonder-soccer-poster": {
+  "old": {
+   "crop_rel": [
+    0.225,
+    0.13,
+    0.695,
+    0.78875
+   ],
+   "aspect": 0.7135
+  },
+  "new": {
+   "crop_rel": [
+    0.22721,
+    0.13221,
+    0.77179,
+    0.86579
+   ],
+   "aspect": 0.7424,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 5,
+   "aspect_sane": true
+  }
+ },
+ "money-follows-value-framed-poster-motivational-office-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.21125,
+    0.14375,
+    0.70875,
+    0.86
+   ],
+   "aspect": 0.6946
+  },
+  "new": {
+   "crop_rel": [
+    0.20814,
+    0.13714,
+    0.78986,
+    0.86086
+   ],
+   "aspect": 0.8038,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 54,
+   "aspect_sane": true
+  }
+ },
+ "money-talks-framed-poster-benjamin-franklin-eye-art-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "monochrome-soccer-poster-black-white-framed-player-print": {
+  "old": {
+   "crop_rel": [
+    0.285,
+    0.19,
+    0.715,
+    0.8675
+   ],
+   "aspect": 0.6347
+  },
+  "new": {
+   "crop_rel": [
+    0.22482,
+    0.12982,
+    0.77517,
+    0.86917
+   ],
+   "aspect": 0.7444,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art": {
+  "old": {
+   "crop_rel": [
+    0.225,
+    0.13,
+    0.695,
+    0.78875
+   ],
+   "aspect": 0.7135
+  },
+  "new": {
+   "crop_rel": [
+    0.22721,
+    0.13221,
+    0.77179,
+    0.86579
+   ],
+   "aspect": 0.7424,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 3,
+   "aspect_sane": true
+  }
+ },
+ "motivational-framed-poster-its-not-over-until-i-win": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.86
+   ],
+   "aspect": 0.6957
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print": {
+  "old": {
+   "crop_rel": [
+    0.23875,
+    0.19,
+    0.77375,
+    0.83625
+   ],
+   "aspect": 0.8279
+  },
+  "new": {
+   "crop_rel": [
+    0.22482,
+    0.12982,
+    0.77517,
+    0.86917
+   ],
+   "aspect": 0.7444,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-poster-i-always-win-vertical-framed-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-poster-no-excuses-just-results-vertical-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.19875,
+    0.7925,
+    0.8
+   ],
+   "aspect": 0.9709
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-poster-set-your-own-standard-vertical-framed-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.7925,
+    0.8175
+   ],
+   "aspect": 0.8569
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-soccer-poster-do-it-alone-framed-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.23875,
+    0.1325,
+    0.77,
+    0.84375
+   ],
+   "aspect": 0.7469
+  },
+  "new": {
+   "crop_rel": [
+    0.22482,
+    0.12982,
+    0.77517,
+    0.86917
+   ],
+   "aspect": 0.7444,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.19875,
+    0.7925,
+    0.8
+   ],
+   "aspect": 0.9709
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print": {
+  "old": {
+   "crop_rel": [
+    0.225,
+    0.13,
+    0.695,
+    0.78875
+   ],
+   "aspect": 0.7135
+  },
+  "new": {
+   "crop_rel": [
+    0.22721,
+    0.13221,
+    0.77179,
+    0.86579
+   ],
+   "aspect": 0.7424,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 20,
+   "aspect_sane": true
+  }
+ },
+ "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.79125,
+    0.8
+   ],
+   "aspect": 0.8776
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "poster-i-win-thats-what-i-do-motivational-photo-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8625
+   ],
+   "aspect": 0.693
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "poster-motivational-soccer-print-your-dreams-need-you": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.82625
+   ],
+   "aspect": 0.7331
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "poster-surreal-horse-vintage-car-art-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8625
+   ],
+   "aspect": 0.693
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "poster-the-goal-never-moves-soccer-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.2125,
+    0.1375,
+    0.75875,
+    0.83125
+   ],
+   "aspect": 0.7874
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "racing-poster-no-risk-no-story-framed-motorsport-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.21,
+    0.13625,
+    0.73,
+    0.8625
+   ],
+   "aspect": 0.716
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "roaring-jaguar-floral-poster": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.7925,
+    0.83375
+   ],
+   "aspect": 0.8369
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.86125
+   ],
+   "aspect": 0.6943
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "self-respect-framed-poster-vintage-godfather-quote-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed": {
+  "old": {
+   "crop_rel": [
+    0.225,
+    0.13,
+    0.695,
+    0.78875
+   ],
+   "aspect": 0.7135
+  },
+  "new": {
+   "crop_rel": [
+    0.22721,
+    0.13221,
+    0.77179,
+    0.86579
+   ],
+   "aspect": 0.7424,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 7,
+   "aspect_sane": true
+  }
+ },
+ "they-doubt-me-i-deliver": {
+  "old": {
+   "crop_rel": [
+    0.29,
+    0.1925,
+    0.71,
+    0.805
+   ],
+   "aspect": 0.6857
+  },
+  "new": {
+   "crop_rel": [
+    0.23151,
+    0.13351,
+    0.76849,
+    0.86449
+   ],
+   "aspect": 0.7346,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "trust-god-poster": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "vertical-poster-fuck-them-all-street-art-money-throwing-print": {
+  "old": {
+   "crop_rel": [
+    0.21125,
+    0.1425,
+    0.76375,
+    0.86125
+   ],
+   "aspect": 0.7687
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.225,
+    0.1325,
+    0.695,
+    0.78875
+   ],
+   "aspect": 0.7162
+  },
+  "new": {
+   "crop_rel": [
+    0.22721,
+    0.13221,
+    0.77179,
+    0.86579
+   ],
+   "aspect": 0.7424,
+   "orientation": "portrait",
+   "inset_mode": "safe",
+   "bright_segs": 29,
+   "aspect_sane": true
+  }
+ },
+ "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.7925,
+    0.8
+   ],
+   "aspect": 0.8795
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.19875,
+    0.73,
+    0.86375
+   ],
+   "aspect": 0.7838
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor": {
+  "old": {
+   "crop_rel": [
+    0.20875,
+    0.13625,
+    0.73,
+    0.86375
+   ],
+   "aspect": 0.7165
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "whatever-it-takes-framed-poster-motivational-bedroom-wall-art": {
+  "old": {
+   "crop_rel": [
+    0.27,
+    0.19875,
+    0.73,
+    0.8
+   ],
+   "aspect": 0.7651
+  },
+  "new": {
+   "crop_rel": [
+    0.20182,
+    0.12982,
+    0.79917,
+    0.86917
+   ],
+   "aspect": 0.8079,
+   "orientation": "portrait",
+   "inset_mode": "bar",
+   "bright_segs": 0,
+   "aspect_sane": true
+  }
+ },
+ "wimbledon-tennis-court-framed-poster": {
+  "old": {
+   "crop_rel": [
+    0.13625,
+    0.31,
+    0.75875,
+    0.715
+   ],
+   "aspect": 1.537
+  },
+  "new": {
+   "crop_rel": [
+    0.13715,
+    0.20715,
+    0.86186,
+    0.79085
+   ],
+   "aspect": 1.2416,
+   "orientation": "landscape",
+   "inset_mode": "safe",
+   "bright_segs": 31,
+   "aspect_sane": true
+  }
+ }
+}

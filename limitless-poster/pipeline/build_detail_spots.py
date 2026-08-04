@@ -18,7 +18,7 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 MANIFEST = os.path.join(ROOT, "manifest")
 
 BAR_RATIO = 0.035  # Rahmenleiste relativ zur langen Posterseite
-PAD_RATIO = 0.10   # Luft um den Rahmen in der Kachel
+PAD_RATIO = 0.14   # Luft um den Rahmen in der Kachel
 
 
 def compute(entry):

@@ -33,20 +33,20 @@
   "media_id": "gid://shopify/MediaImage/63950524285261",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/11865226809488310922_2048.jpg?v=1785668712",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787996598605",
   "title": "Whatever It Takes – Typo-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/whatever-it-takes-framed-poster-motivational-bedroom-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -63,20 +63,20 @@
   "media_id": "gid://shopify/MediaImage/63950999585101",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/116340454940962633_2048.jpg?v=1785669960",
   "crop_rel": [
-   0.21,
-   0.13625,
-   0.73,
-   0.8625
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.716,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10788006920525",
   "title": "No Risk No Story – Racing-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/racing-poster-no-risk-no-story-framed-motorsport-wall-art.jpg",
   "art_size": [
-   1065,
-   1487
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -93,20 +93,20 @@
   "media_id": "gid://shopify/MediaImage/63951646490957",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/1263619050879227284_2048.jpg?v=1785675085",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.7925,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8795,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10788045390157",
   "title": "The Perfect Time Never Comes – Trader-Meme-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-the-perfect-time-never-comes-motivational-wall-art.jpg",
   "art_size": [
-   1196,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -153,20 +153,20 @@
   "media_id": "gid://shopify/MediaImage/63478599418189",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5769415566435163303_2048.jpg?v=1783994748",
   "crop_rel": [
-   0.22,
-   0.29,
-   0.8625,
-   0.74125
+   0.12986,
+   0.19986,
+   0.87014,
+   0.79914
   ],
-  "aspect": 1.4238,
+  "aspect": 1.2353,
   "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10753336901965",
   "title": "Vintage Formula 1 – Racing-Poster im Ölgemälde-Stil",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/horizontal-framed-poster.jpg",
   "art_size": [
-   1316,
-   925
+   1517,
+   1227
   ],
   "art_done": true,
   "glb_done": true,
@@ -183,20 +183,20 @@
   "media_id": "gid://shopify/MediaImage/63496128823629",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/2884826247830250649_2048.jpg?v=1784067506",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10754859041101",
   "title": "Yacht auf offener See – Ozean-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-aerial-yacht-wake-ocean-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -213,20 +213,20 @@
   "media_id": "gid://shopify/MediaImage/63496261206349",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/4995515371263052125_2048.jpg?v=1784068249",
   "crop_rel": [
-   0.225,
-   0.2075,
-   0.7725,
-   0.78875
+   0.22721,
+   0.13221,
+   0.77179,
+   0.86579
   ],
-  "aspect": 0.9419,
-  "orientation": "square",
+  "aspect": 0.7424,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10754905014605",
   "title": "The World Rewards Action – Space-Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-the-world-rewards-action-motivational-space-wall-art.jpg",
   "art_size": [
-   1122,
-   1191
+   1115,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -243,20 +243,20 @@
   "media_id": "gid://shopify/MediaImage/63497254273357",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/13055377406832466345_2048.jpg?v=1784071938",
   "crop_rel": [
-   0.225,
-   0.13,
-   0.695,
-   0.78875
+   0.22721,
+   0.13221,
+   0.77179,
+   0.86579
   ],
-  "aspect": 0.7135,
+  "aspect": 0.7424,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755130753357",
   "title": "Make Them Wonder – Messi Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/messi-make-them-wonder-soccer-poster.jpg",
   "art_size": [
-   963,
-   1349
+   1115,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -273,20 +273,20 @@
   "media_id": "gid://shopify/MediaImage/63497268986189",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/3591782648877721640_2048.jpg?v=1784071987",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8625
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.693,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755131310413",
   "title": "Become Unstoppable – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/become-unstoppable-framed-poster-motivational-sports-wall-art.jpg",
   "art_size": [
-   943,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -333,20 +333,20 @@
   "media_id": "gid://shopify/MediaImage/63497284616525",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/16196984636649000110_2048.jpg?v=1784072073",
   "crop_rel": [
-   0.21125,
-   0.13625,
-   0.7375,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7928,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755132391757",
   "title": "Start Unknown, Finish Unforgettable – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art.jpg",
   "art_size": [
-   1078,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -363,20 +363,20 @@
   "media_id": "gid://shopify/MediaImage/63497291104589",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/16619119596962699982_2048.jpg?v=1784072114",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755132883277",
   "title": "Set Your Own Standard – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-poster-set-your-own-standard-vertical-framed-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -393,20 +393,20 @@
   "media_id": "gid://shopify/MediaImage/63497300345165",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/4051709958486666593_2048.jpg?v=1784072155",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.86125
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.6943,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755133407565",
   "title": "Sacrifice Today, Own Tomorrow – Boxing-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/sacrifice-today-own-tomorrow-framed-motivational-boxing-poster.jpg",
   "art_size": [
-   943,
-   1356
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -423,20 +423,20 @@
   "media_id": "gid://shopify/MediaImage/63497308275021",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/6404946544716098854_2048.jpg?v=1784072196",
   "crop_rel": [
-   0.20875,
-   0.19875,
-   0.7925,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.9709,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755133997389",
   "title": "No Excuses, Just Results – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-poster-no-excuses-just-results-vertical-wall-art.jpg",
   "art_size": [
-   1196,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -453,20 +453,20 @@
   "media_id": "gid://shopify/MediaImage/63497271902541",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/15969909043381809205_2048.jpg?v=1784072009",
   "crop_rel": [
-   0.21125,
-   0.14375,
-   0.70875,
-   0.86
+   0.20814,
+   0.13714,
+   0.78986,
+   0.86086
   ],
-  "aspect": 0.6946,
+  "aspect": 0.8038,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755134456141",
   "title": "Money Follows Value – Office-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/money-follows-value-framed-poster-motivational-office-wall-art.jpg",
   "art_size": [
-   1019,
-   1467
+   1191,
+   1483
   ],
   "art_done": true,
   "glb_done": true,
@@ -483,20 +483,20 @@
   "media_id": "gid://shopify/MediaImage/63497278587213",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/3428240979349454862_2048.jpg?v=1784072045",
   "crop_rel": [
-   0.225,
-   0.13,
-   0.695,
-   0.78875
+   0.22721,
+   0.13221,
+   0.77179,
+   0.86579
   ],
-  "aspect": 0.7135,
+  "aspect": 0.7424,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755135242573",
   "title": "Stay Hungry – Gym-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/stay-hungry-poster-motivational-fitness-wall-art-vertical-framed.jpg",
   "art_size": [
-   963,
-   1349
+   1115,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -513,20 +513,20 @@
   "media_id": "gid://shopify/MediaImage/63500048826701",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/289098523839139380_2048.jpg?v=1784084528",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.7925,
-   0.8175
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8569,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755470229837",
   "title": "Prove Yourself Right – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office.jpg",
   "art_size": [
-   1196,
-   1395
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -543,20 +543,20 @@
   "media_id": "gid://shopify/MediaImage/63500060721485",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/16324048628610205716_2048.jpg?v=1784084665",
   "crop_rel": [
-   0.225,
-   0.13,
-   0.695,
-   0.78875
+   0.22721,
+   0.13221,
+   0.77179,
+   0.86579
   ],
-  "aspect": 0.7135,
+  "aspect": 0.7424,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755472097613",
   "title": "The Hard Way Builds the Strongest – Fight-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art.jpg",
   "art_size": [
-   963,
-   1349
+   1115,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -573,20 +573,20 @@
   "media_id": "gid://shopify/MediaImage/63500065374541",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/12393284663667629139_2048.jpg?v=1784084876",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755473211725",
   "title": "The Goal Never Moves – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/poster-the-goal-never-moves-soccer-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -603,20 +603,20 @@
   "media_id": "gid://shopify/MediaImage/63500069830989",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/12886076684129333681_2048.jpg?v=1784085074",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.82625
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7331,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10755474063693",
   "title": "Your Dreams Need You – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/poster-motivational-soccer-print-your-dreams-need-you.jpg",
   "art_size": [
-   943,
-   1285
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -693,20 +693,20 @@
   "media_id": "gid://shopify/MediaImage/63584267108685",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/10701080374592446189_2048.jpg?v=1784335854",
   "crop_rel": [
-   0.225,
-   0.1325,
-   0.695,
-   0.78875
+   0.22721,
+   0.13221,
+   0.77179,
+   0.86579
   ],
-  "aspect": 0.7162,
+  "aspect": 0.7424,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10761777480013",
   "title": "Pressure Makes Diamonds – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art.jpg",
   "art_size": [
-   963,
-   1344
+   1115,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -783,20 +783,20 @@
   "media_id": "gid://shopify/MediaImage/63585038238029",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/13606968642054695396_2048.jpg?v=1784336554",
   "crop_rel": [
-   0.21,
-   0.1575,
-   0.79125,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.9047,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10761878536525",
   "title": "Just Do It – Aviation-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/just-do-it-aviation-framed-poster.jpg",
   "art_size": [
-   1190,
-   1316
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -813,20 +813,20 @@
   "media_id": "gid://shopify/MediaImage/63585306116429",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/17221735616289423422_2048.jpg?v=1784336793",
   "crop_rel": [
-   0.27,
-   0.14,
-   0.79125,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7898,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10761912746317",
   "title": "You Were Born an Original – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy.jpg",
   "art_size": [
-   1068,
-   1352
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -843,20 +843,20 @@
   "media_id": "gid://shopify/MediaImage/63585320567117",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5711360749380948326_2048.jpg?v=1784337005",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10761913172301",
   "title": "You vs You – Berg-Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -873,20 +873,20 @@
   "media_id": "gid://shopify/MediaImage/63585597522253",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/6214287368771307157_2048.jpg?v=1784337150",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.7925,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8795,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10761946267981",
   "title": "Whatever It Takes – Portrait-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-whatever-it-takes-motivational-portrait-wall-art.jpg",
   "art_size": [
-   1196,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -903,20 +903,20 @@
   "media_id": "gid://shopify/MediaImage/63585893450061",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/2494169982913288558_2048.jpg?v=1784337475",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762022322509",
   "title": "Work So Hard They Think You're Crazy – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -933,20 +933,20 @@
   "media_id": "gid://shopify/MediaImage/63585923694925",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/15491533975693614584_2048.jpg?v=1784337756",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762023567693",
   "title": "I Always Win – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-poster-i-always-win-vertical-framed-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -963,20 +963,20 @@
   "media_id": "gid://shopify/MediaImage/63586464301389",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5825701654652664009_2048.jpg?v=1784338042",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762093166925",
   "title": "Believe in Yourself – Pokal-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/believe-in-yourself-poster-motivational-sports-trophy-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -993,20 +993,20 @@
   "media_id": "gid://shopify/MediaImage/63586530230605",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5186214301385320049_2048.jpg?v=1784338225",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8625
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.693,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762095624525",
   "title": "I Win, That's What I Do – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/poster-i-win-thats-what-i-do-motivational-photo-wall-art.jpg",
   "art_size": [
-   943,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1023,20 +1023,20 @@
   "media_id": "gid://shopify/MediaImage/63586760720717",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/9490768698534137088_2048.jpg?v=1784338411",
   "crop_rel": [
-   0.23875,
-   0.19,
-   0.77375,
-   0.83625
+   0.22482,
+   0.12982,
+   0.77517,
+   0.86917
   ],
-  "aspect": 0.8279,
+  "aspect": 0.7444,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762128752973",
   "title": "I Don't Know How, But I Will – Gym-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print.jpg",
   "art_size": [
-   1096,
-   1323
+   1127,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1173,20 +1173,20 @@
   "media_id": "gid://shopify/MediaImage/63587734946125",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/11169525896521375458_2048.jpg?v=1784341814",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.7925,
-   0.83375
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8369,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762174300493",
   "title": "Jaguar in Blüten – Wildlife-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/roaring-jaguar-floral-poster.jpg",
   "art_size": [
-   1196,
-   1428
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1233,20 +1233,20 @@
   "media_id": "gid://shopify/MediaImage/63587744743757",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/8904229224230565460_2048.jpg?v=1784342238",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762174923085",
   "title": "Haie vor der Küste – Ozean-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1293,20 +1293,20 @@
   "media_id": "gid://shopify/MediaImage/63587765059917",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/17329797245789570096_2048.jpg?v=1784342636",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.73,
-   0.86375
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7165,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762176790861",
   "title": "Vintage-Sportwagen & Pferd – Retro-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/vintage-sports-car-horse-art-poster-retro-automotive-wall-decor.jpg",
   "art_size": [
-   1068,
-   1489
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1323,20 +1323,20 @@
   "media_id": "gid://shopify/MediaImage/63587774660941",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/12173976841736652676_2048.jpg?v=1784342764",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8625
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.693,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762178003277",
   "title": "Pferd & Oldtimer – Surreal-Art-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/poster-surreal-horse-vintage-car-art-print.jpg",
   "art_size": [
-   943,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1353,20 +1353,20 @@
   "media_id": "gid://shopify/MediaImage/63588197400909",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/3098404702223183945_2048.jpg?v=1784343410",
   "crop_rel": [
-   0.20875,
-   0.19875,
-   0.73,
-   0.86375
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7838,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762179182925",
   "title": "Vintage Porsche & Karussellpferd – Retro-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art.jpg",
   "art_size": [
-   1068,
-   1361
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1413,20 +1413,20 @@
   "media_id": "gid://shopify/MediaImage/63588199858509",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/13086475963289716007_2048.jpg?v=1784343475",
   "crop_rel": [
-   0.14125,
-   0.2075,
-   0.78,
-   0.79125
+   0.12986,
+   0.19986,
+   0.87014,
+   0.79914
   ],
-  "aspect": 1.0942,
-  "orientation": "square",
+  "aspect": 1.2353,
+  "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762181378381",
   "title": "Leopard auf Ast – Schwarz-Weiß-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/leopard-on-branch-black-white-framed-poster.jpg",
   "art_size": [
-   1308,
-   1196
+   1517,
+   1227
   ],
   "art_done": true,
   "glb_done": true,
@@ -1503,20 +1503,20 @@
   "media_id": "gid://shopify/MediaImage/63588292067661",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/9952238428848533570_2048.jpg?v=1784344403",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762192781645",
   "title": "Ferrari & weißer Hengst – Auto-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-ferrari-and-white-stallion-art-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1563,20 +1563,20 @@
   "media_id": "gid://shopify/MediaImage/63588294754637",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/10666559660448039268_2048.jpg?v=1784344487",
   "crop_rel": [
-   0.22,
-   0.29,
-   0.78,
-   0.73875
+   0.12986,
+   0.19986,
+   0.87014,
+   0.79914
   ],
-  "aspect": 1.2479,
+  "aspect": 1.2353,
   "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762195927373",
   "title": "Marlboro F1 – Racing-Poster (Querformat)",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/marlboro-f1-racing-car-poster-horizontal-framed-print.jpg",
   "art_size": [
-   1147,
-   919
+   1517,
+   1227
   ],
   "art_done": true,
   "glb_done": true,
@@ -1593,20 +1593,20 @@
   "media_id": "gid://shopify/MediaImage/63588295967053",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/15402011646893369411_2048.jpg?v=1784344532",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10762196123981",
   "title": "The World Is Yours – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-the-world-is-yours-motivational-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1623,20 +1623,20 @@
   "media_id": "gid://shopify/MediaImage/63944972730701",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/808738050506532619_2048.jpg?v=1785630473",
   "crop_rel": [
-   0.13625,
-   0.31,
-   0.75875,
-   0.715
+   0.13715,
+   0.20715,
+   0.86186,
+   0.79085
   ],
-  "aspect": 1.537,
+  "aspect": 1.2416,
   "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787875193165",
   "title": "Wimbledon von oben – Tennis-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/wimbledon-tennis-court-framed-poster.jpg",
   "art_size": [
-   1274,
-   830
+   1485,
+   1195
   ],
   "art_done": true,
   "glb_done": true,
@@ -1653,20 +1653,20 @@
   "media_id": "gid://shopify/MediaImage/63945002680653",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/13819020189112873324_2048.jpg?v=1785630925",
   "crop_rel": [
-   0.21375,
-   0.1375,
-   0.79,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8698,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787875389773",
   "title": "Class. Intensity. Grit. – Tennis-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/class-intensity-grit-tennis-framed-poster.jpg",
   "art_size": [
-   1180,
-   1357
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1713,20 +1713,20 @@
   "media_id": "gid://shopify/MediaImage/63945454649677",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/4887707215035196759_2048.jpg?v=1785632503",
   "crop_rel": [
-   0.285,
-   0.19,
-   0.77625,
-   0.80875
+   0.22482,
+   0.12982,
+   0.77517,
+   0.86917
   ],
-  "aspect": 0.7939,
+  "aspect": 0.7444,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787889545549",
   "title": "You Can Always Be Better – Golf-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-you-can-always-be-better-golf-wall-art.jpg",
   "art_size": [
-   1006,
-   1267
+   1127,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1743,20 +1743,20 @@
   "media_id": "gid://shopify/MediaImage/63945456648525",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/8641994320525829850_2048.jpg?v=1785632551",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787889611085",
   "title": "Risk Is Better Than Regret – Tennis-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-risk-is-better-than-regret-tennis-photo-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1773,20 +1773,20 @@
   "media_id": "gid://shopify/MediaImage/63945458385229",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/3089275197995290047_2048.jpg?v=1785632595",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787889643853",
   "title": "Discipline – Gym-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/discipline-motivational-poster-gym-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1803,20 +1803,20 @@
   "media_id": "gid://shopify/MediaImage/63945460351309",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/15411693897259518720_2048.jpg?v=1785632639",
   "crop_rel": [
-   0.1475,
-   0.29,
-   0.8575,
-   0.79
+   0.12986,
+   0.19986,
+   0.87014,
+   0.79914
   ],
-  "aspect": 1.42,
+  "aspect": 1.2353,
   "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787889742157",
   "title": "Be Different – Jordan Basketball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-be-different-michael-jordan-basketball-print.jpg",
   "art_size": [
-   1454,
-   1024
+   1517,
+   1227
   ],
   "art_done": true,
   "glb_done": true,
@@ -1833,20 +1833,20 @@
   "media_id": "gid://shopify/MediaImage/63945462382925",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/13079289184841154206_2048.jpg?v=1785632683",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787889938765",
   "title": "Luke 1:37 – Faith & Sports Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1863,20 +1863,20 @@
   "media_id": "gid://shopify/MediaImage/63945464643917",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/14626742262511457586_2048.jpg?v=1785632723",
   "crop_rel": [
-   0.20875,
-   0.19875,
-   0.7925,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.9709,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787889971533",
   "title": "If You Quit, Everyone Was Right – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster.jpg",
   "art_size": [
-   1196,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1893,20 +1893,20 @@
   "media_id": "gid://shopify/MediaImage/63945467101517",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/6135693673802410448_2048.jpg?v=1785632768",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890233677",
   "title": "All or Nothing – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/all-or-nothing-soccer-poster-framed-vertical-sports-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1923,20 +1923,20 @@
   "media_id": "gid://shopify/MediaImage/63945471656269",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/206356004005585979_2048.jpg?v=1785632932",
   "crop_rel": [
-   0.27625,
-   0.1975,
-   0.72375,
-   0.8475
+   0.21061,
+   0.13162,
+   0.78939,
+   0.86538
   ],
-  "aspect": 0.6885,
+  "aspect": 0.7888,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890299213",
   "title": "No Risk No Story – Basketball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-no-risk-no-story-basketball-art-print.jpg",
   "art_size": [
-   917,
-   1331
+   1185,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -1953,20 +1953,20 @@
   "media_id": "gid://shopify/MediaImage/63945487810893",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/2148517006931536093_2048.jpg?v=1785633636",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8475
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7091,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890331981",
   "title": "In God We Trust – Basketball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/in-god-we-trust-basketball-poster.jpg",
   "art_size": [
-   943,
-   1328
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -1983,20 +1983,20 @@
   "media_id": "gid://shopify/MediaImage/63945567273293",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/7273060066296069696_2048.jpg?v=1785634276",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.79125,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8776,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890397517",
   "title": "No Risk, No Porsche – Retro-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art.jpg",
   "art_size": [
-   1193,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2013,20 +2013,20 @@
   "media_id": "gid://shopify/MediaImage/63945573663053",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5281956092429048829_2048.jpg?v=1785634319",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890430285",
   "title": "Self Respect – Vintage-Quote-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/self-respect-framed-poster-vintage-godfather-quote-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2043,20 +2043,20 @@
   "media_id": "gid://shopify/MediaImage/63945579331917",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/4700412735070562471_2048.jpg?v=1785634369",
   "crop_rel": [
-   0.21125,
-   0.1425,
-   0.76375,
-   0.86125
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7687,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890463053",
   "title": "Fuck Them All – Street-Art-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/vertical-poster-fuck-them-all-street-art-money-throwing-print.jpg",
   "art_size": [
-   1132,
-   1472
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2073,20 +2073,20 @@
   "media_id": "gid://shopify/MediaImage/63945593291085",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/11006587245060047278_2048.jpg?v=1785634412",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.7925,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8795,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890495821",
   "title": "The Perfect Time Never Comes – World-Is-Yours-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours.jpg",
   "art_size": [
-   1196,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2103,20 +2103,20 @@
   "media_id": "gid://shopify/MediaImage/63945596633421",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5331812788730548080_2048.jpg?v=1785634453",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890528589",
   "title": "Money Talks – Franklin Money-Art-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/money-talks-framed-poster-benjamin-franklin-eye-art-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2133,20 +2133,20 @@
   "media_id": "gid://shopify/MediaImage/63945546760525",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/6658870308274627797_2048.jpg?v=1785634102",
   "crop_rel": [
-   0.285,
-   0.19,
-   0.715,
-   0.8675
+   0.22482,
+   0.12982,
+   0.77517,
+   0.86917
   ],
-  "aspect": 0.6347,
+  "aspect": 0.7444,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890626893",
   "title": "Monochrome Player – Fußball-Poster in Schwarz-Weiß",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/monochrome-soccer-poster-black-white-framed-player-print.jpg",
   "art_size": [
-   881,
-   1387
+   1127,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2163,20 +2163,20 @@
   "media_id": "gid://shopify/MediaImage/63945565569357",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5895917477832986801_2048.jpg?v=1785634267",
   "crop_rel": [
-   0.15125,
-   0.21125,
-   0.86125,
-   0.70875
+   0.12986,
+   0.19986,
+   0.87014,
+   0.79914
   ],
-  "aspect": 1.4271,
+  "aspect": 1.2353,
   "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890659661",
   "title": "Tutto Passa – Mediterranes Vintage-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait.jpg",
   "art_size": [
-   1454,
-   1019
+   1517,
+   1227
   ],
   "art_done": true,
   "glb_done": true,
@@ -2193,20 +2193,20 @@
   "media_id": "gid://shopify/MediaImage/63945600303437",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/11204804102164462035_2048.jpg?v=1785634496",
   "crop_rel": [
-   0.2125,
-   0.1375,
-   0.75875,
-   0.83125
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7874,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787890692429",
   "title": "Pressure Is a Privilege – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/pressure-is-a-privilege-framed-poster-motivational-sports-wall-art.jpg",
   "art_size": [
-   1118,
-   1421
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2223,20 +2223,20 @@
   "media_id": "gid://shopify/MediaImage/63950305001805",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/14992875667711282481_2048.jpg?v=1785666139",
   "crop_rel": [
-   0.2125,
-   0.19875,
-   0.79125,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.9626,
-  "orientation": "square",
+  "aspect": 0.8079,
+  "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787970908493",
   "title": "Discipline – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/discipline-soccer-poster-motivational-framed-sports-wall-art.jpg",
   "art_size": [
-   1185,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2283,20 +2283,20 @@
   "media_id": "gid://shopify/MediaImage/63950357627213",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/11478766789420229704_2048.jpg?v=1785666914",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787975987533",
   "title": "It's More Than Football – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-its-more-than-football-soccer-team-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2313,20 +2313,20 @@
   "media_id": "gid://shopify/MediaImage/63950360445261",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/8448380566725318659_2048.jpg?v=1785666956",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787976347981",
   "title": "Never Forgetting Where We Came From – Space-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-never-forgetting-where-we-came-from-space-surfer-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2373,20 +2373,20 @@
   "media_id": "gid://shopify/MediaImage/63950391837005",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/5390862504043972454_2048.jpg?v=1785667040",
   "crop_rel": [
-   0.27,
-   0.13625,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.693,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787977298253",
   "title": "Scuderia Ferrari – F1-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/ferrari-scuderia-formula-1-vertical-framed-poster.jpg",
   "art_size": [
-   943,
-   1359
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2433,20 +2433,20 @@
   "media_id": "gid://shopify/MediaImage/63950405042509",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/2676971773515316079_2048.jpg?v=1785667243",
   "crop_rel": [
-   0.20875,
-   0.13625,
-   0.7925,
-   0.8275
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8445,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787980640589",
   "title": "World Cup Moment – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art.jpg",
   "art_size": [
-   1196,
-   1415
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2493,20 +2493,20 @@
   "media_id": "gid://shopify/MediaImage/63950454522189",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/82976463301501881_2048.jpg?v=1785667578",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.85
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7063,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787981754701",
   "title": "GOAT – Vintage-Portrait-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/goat-framed-poster-vintage-sports-portrait-wall-art.jpg",
   "art_size": [
-   943,
-   1333
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2523,20 +2523,20 @@
   "media_id": "gid://shopify/MediaImage/63950463729997",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/11090546668160758367_2048.jpg?v=1785667725",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787984113997",
   "title": "Focus on You – Panther-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-focus-on-you-black-panther-wall-art-vertical.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2583,20 +2583,20 @@
   "media_id": "gid://shopify/MediaImage/63950482276685",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/3159317662178009140_2048.jpg?v=1785668022",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787986669901",
   "title": "What's Behind You Doesn't Matter – Racing-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2613,20 +2613,20 @@
   "media_id": "gid://shopify/MediaImage/63950489846093",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/206422978076889604_2048.jpg?v=1785668128",
   "crop_rel": [
-   0.2425,
-   0.18625,
-   0.79,
-   0.8625
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.8096,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787988308301",
   "title": "God Is With Me, I Can't Lose – Faith-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art.jpg",
   "art_size": [
-   1121,
-   1385
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2673,20 +2673,20 @@
   "media_id": "gid://shopify/MediaImage/63950506393933",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/4210601296987369117_2048.jpg?v=1785668397",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787992240461",
   "title": "Trust God – Faith-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/trust-god-poster.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2733,20 +2733,20 @@
   "media_id": "gid://shopify/MediaImage/63950518681933",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/39220071950052143_2048.jpg?v=1785668613",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.86
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.6957,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787994992973",
   "title": "It's Not Over Until I Win – Motivationsposter",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-framed-poster-its-not-over-until-i-win.jpg",
   "art_size": [
-   943,
-   1354
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2763,20 +2763,20 @@
   "media_id": "gid://shopify/MediaImage/63950532739405",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/3700627395371391931_2048.jpg?v=1785668850",
   "crop_rel": [
-   0.27,
-   0.19875,
-   0.73,
-   0.8
+   0.20182,
+   0.12982,
+   0.79917,
+   0.86917
   ],
-  "aspect": 0.7651,
+  "aspect": 0.8079,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10787998400845",
   "title": "Crystal OK – Art-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/framed-poster-crystal-gloved-hand-ok-sign-wall-art.jpg",
   "art_size": [
-   943,
-   1231
+   1223,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2793,20 +2793,20 @@
   "media_id": "gid://shopify/MediaImage/63950983856461",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/10750309383263554148_2048.jpg?v=1785669736",
   "crop_rel": [
-   0.22,
-   0.29,
-   0.78,
-   0.70875
+   0.12986,
+   0.19986,
+   0.87014,
+   0.79914
   ],
-  "aspect": 1.3373,
+  "aspect": 1.2353,
   "orientation": "landscape",
   "framed_source": true,
   "gid": "gid://shopify/Product/10788000563533",
   "title": "Focus – Gym-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/focus-framed-poster-motivational-gym-wall-art.jpg",
   "art_size": [
-   1147,
-   858
+   1517,
+   1227
   ],
   "art_done": true,
   "glb_done": true,
@@ -2853,20 +2853,20 @@
   "media_id": "gid://shopify/MediaImage/63950989951309",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/7100104888532125792_2048.jpg?v=1785669823",
   "crop_rel": [
-   0.23875,
-   0.1325,
-   0.77,
-   0.84375
+   0.22482,
+   0.12982,
+   0.77517,
+   0.86917
   ],
-  "aspect": 0.7469,
+  "aspect": 0.7444,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10788002824525",
   "title": "Do It Alone – Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-soccer-poster-do-it-alone-framed-wall-art.jpg",
   "art_size": [
-   1088,
-   1457
+   1127,
+   1515
   ],
   "art_done": true,
   "glb_done": true,
@@ -2913,20 +2913,20 @@
   "media_id": "gid://shopify/MediaImage/63950997061965",
   "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/6959268023937492925_2048.jpg?v=1785669913",
   "crop_rel": [
-   0.225,
-   0.13,
-   0.695,
-   0.78875
+   0.22721,
+   0.13221,
+   0.77179,
+   0.86579
   ],
-  "aspect": 0.7135,
+  "aspect": 0.7424,
   "orientation": "portrait",
   "framed_source": true,
   "gid": "gid://shopify/Product/10788005445965",
   "title": "It's You vs You – Ronaldo Fußball-Poster",
   "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print.jpg",
   "art_size": [
-   963,
-   1349
+   1115,
+   1503
   ],
   "art_done": true,
   "glb_done": true,
@@ -2968,5 +2968,57 @@
    "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../mockups/get-up-we-aint-rich-yet-motivational-wall-poster-room2.jpg"
   ],
   "glb_cdn_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/poster-3d-get-up-we-aint-rich-yet-motivational-wall-poster.glb"
+ },
+ "they-doubt-me-i-deliver": {
+  "media_id": "gid://shopify/MediaImage/63989485011277",
+  "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/13683113285103522742_2048.jpg?v=1785866675",
+  "crop_rel": [
+   0.23151,
+   0.13351,
+   0.76849,
+   0.86449
+  ],
+  "aspect": 0.7346,
+  "orientation": "portrait",
+  "framed_source": true,
+  "gid": "gid://shopify/Product/10792468808013",
+  "title": "They Doubt Me I Deliver",
+  "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/they-doubt-me-i-deliver.jpg",
+  "art_size": [
+   1099,
+   1497
+  ],
+  "art_done": true,
+  "mockups_done": true,
+  "mockup_paths": [
+   "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../mockups/they-doubt-me-i-deliver-room1.jpg",
+   "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../mockups/they-doubt-me-i-deliver-room2.jpg"
+  ]
+ },
+ "motivational-quote-vertical-framed-poster-black-text-on-white-canvas": {
+  "media_id": "gid://shopify/MediaImage/63989487337805",
+  "media_url": "https://cdn.shopify.com/s/files/1/0976/9979/1181/files/9393784431005845525_2048.jpg?v=1785866700",
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "aspect": 0.8024,
+  "orientation": "portrait",
+  "framed_source": true,
+  "gid": "gid://shopify/Product/10792468840781",
+  "title": "Motivational Quote Vertical Framed Poster — Black Text on White Canvas",
+  "art_path": "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../art/products/motivational-quote-vertical-framed-poster-black-text-on-white-canvas.jpg",
+  "art_size": [
+   1196,
+   1489
+  ],
+  "art_done": true,
+  "mockups_done": true,
+  "mockup_paths": [
+   "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../mockups/motivational-quote-vertical-framed-poster-black-text-on-white-canvas-room1.jpg",
+   "/tmp/claude-0/-home-user-NextGen-Lernen/63ab0ad8-60a3-581d-81ff-d61970094d1f/scratchpad/pipeline/../mockups/motivational-quote-vertical-framed-poster-black-text-on-white-canvas-room2.jpg"
+  ]
  }
 }
