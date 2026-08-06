@@ -6,8 +6,7 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
+ */{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -1309,7 +1308,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/LP_editorial_room.jpg",
+            "image": "shopify://shop_images/lp-editorial-v3.jpg",
             "link": "",
             "image_position": "cover"
           }
