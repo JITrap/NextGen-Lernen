@@ -81,7 +81,7 @@ class Bucket {
     const base = this.pos.length / 3;
     for (const p of [a, b, c, d]) this.pos.push(...p);
     for (let i = 0; i < 4; i++) this.nrm.push(...n);
-    for (const t of uvs) this.uv.push(t[0], 1 - t[1]);
+    for (const t of uvs) this.uv.push(t[0], t[1]);
     this.idx.push(base, base + 1, base + 2, base, base + 2, base + 3);
   }
   tri(a, b, c, uvs) {
@@ -92,7 +92,7 @@ class Bucket {
     const base = this.pos.length / 3;
     for (const p of [a, b, c]) this.pos.push(...p);
     for (let i = 0; i < 3; i++) this.nrm.push(...n);
-    for (const t of uvs) this.uv.push(t[0], 1 - t[1]);
+    for (const t of uvs) this.uv.push(t[0], t[1]);
     this.idx.push(base, base + 1, base + 2);
   }
 }
@@ -143,8 +143,8 @@ export function buildGeometry(classKey, orientation) {
   Q(back, [-bw, bh, zBoard], [-bw, -bh, zBoard], [-bw, -bh, zB], [-bw, bh, zB]);
   Q(back, [bw, bh, zB], [bw, -bh, zB], [bw, -bh, zBoard], [bw, bh, zBoard]);
   // board back face, facing −Z (u/v full kraft texture)
-  back.quad([-bw, bh, zBoard], [-bw, -bh, zBoard], [bw, -bh, zBoard], [bw, bh, zBoard],
-    [[0, 0], [0, 1], [1, 1], [1, 0]]);
+  back.quad([-bw, bh, zBoard], [bw, bh, zBoard], [bw, -bh, zBoard], [-bw, -bh, zBoard],
+    [[0, 0], [1, 0], [1, 1], [0, 1]]);
 
   // artwork, facing +Z, full texture
   art.quad([-iw, ih, zArt], [-iw, -ih, zArt], [iw, -ih, zArt], [iw, ih, zArt],
@@ -156,7 +156,7 @@ export function buildGeometry(classKey, orientation) {
   // sawtooth hanger: plate + teeth, top-center of board, proud toward −Z
   const hy = bh - 0.018, hw = 0.025, hh = 0.006, zH = zBoard - 0.002;
   const uv0 = [[0.1, 0.1], [0.1, 0.9], [0.9, 0.9], [0.9, 0.1]];
-  metal.quad([-hw, hy + hh, zH], [-hw, hy - hh, zH], [hw, hy - hh, zH], [hw, hy + hh, zH], uv0); // face −Z
+  metal.quad([-hw, hy + hh, zH], [hw, hy + hh, zH], [hw, hy - hh, zH], [-hw, hy - hh, zH], uv0); // face −Z
   // plate sides
   metal.quad([-hw, hy + hh, zBoard], [-hw, hy + hh, zH], [hw, hy + hh, zH], [hw, hy + hh, zBoard], uv0);
   metal.quad([-hw, hy - hh, zH], [-hw, hy - hh, zBoard], [hw, hy - hh, zBoard], [hw, hy - hh, zH], uv0);
@@ -166,14 +166,14 @@ export function buildGeometry(classKey, orientation) {
   const teeth = 9, tw = (2 * hw) / teeth;
   for (let i = 0; i < teeth; i++) {
     const x0 = -hw + i * tw;
-    metal.tri([x0, hy - hh, zH], [x0 + tw / 2, hy - hh - 0.004, zH], [x0 + tw, hy - hh, zH],
-      [[0.2, 0.2], [0.5, 0.8], [0.8, 0.2]]);
+    metal.tri([x0, hy - hh, zH], [x0 + tw, hy - hh, zH], [x0 + tw / 2, hy - hh - 0.004, zH],
+      [[0.2, 0.2], [0.8, 0.2], [0.5, 0.8]]);
   }
 
   // label: bottom-center of board, slightly proud, facing −Z (70×35mm)
   const lw = 0.035, lh = 0.0175, ly = -(bh - 0.030), zL = zBoard - 0.0002;
-  label.quad([-lw, ly + lh, zL], [-lw, ly - lh, zL], [lw, ly - lh, zL], [lw, ly + lh, zL],
-    [[0, 0], [0, 1], [1, 1], [1, 0]]);
+  label.quad([-lw, ly + lh, zL], [lw, ly + lh, zL], [lw, ly - lh, zL], [-lw, ly - lh, zL],
+    [[0, 0], [1, 0], [1, 1], [0, 1]]);
 
   return { wood, art, glass, back, metal, label, dims: { W: 2 * ow, H: 2 * oh } };
 }

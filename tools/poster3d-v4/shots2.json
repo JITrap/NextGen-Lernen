@@ -1,0 +1,5 @@
+[
+  { "glb": "out/lp4-they-doubt-me-i-deliver-black-c34.glb", "orbit": "180deg 95deg 40%", "out": "out/shot-label.png" },
+  { "glb": "out/lp4-they-doubt-me-i-deliver-black-c34.glb", "orbit": "80deg 88deg 75%", "out": "out/shot-graze.png" },
+  { "glb": "out/lp4-they-doubt-me-i-deliver-white-c34.glb", "orbit": "0deg 85deg 55%", "out": "out/shot-zoom-white.png" }
+]

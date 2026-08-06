@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script type="module" src="./vendor-model-viewer.min.js"></script>
+<style>body{margin:0;background:#F4F1EA}model-viewer{width:900px;height:900px;--poster-color:transparent}</style>
+</head><body>
+<model-viewer id="mv" src="" environment-image="./shared/studio.hdr" tone-mapping="neutral" exposure="1.05"
+  shadow-intensity="1" shadow-softness="0.9" camera-controls interpolation-decay="150"></model-viewer>
+<script>
+  const p = new URLSearchParams(location.search);
+  const mv = document.getElementById('mv');
+  mv.src = p.get('glb') || 'out/lp4-they-doubt-me-i-deliver-black-c34.glb';
+  mv.cameraOrbit = p.get('orbit') || '18deg 82deg 108%';
+  window.mvReady = new Promise(res => mv.addEventListener('load', () => setTimeout(res, 600)));
+</script>
+</body></html>

@@ -32,10 +32,41 @@
     assign fcolor = 'white'
   endif
 
+  assign sval = ''
+  for option in product.options_with_values
+    assign oname = option.name | downcase
+    if oname == 'size' or oname == 'größe' or oname == 'groesse'
+      case forloop.index
+        when 1
+          assign sval = variant.option1
+        when 2
+          assign sval = variant.option2
+        when 3
+          assign sval = variant.option3
+      endcase
+    endif
+  endfor
+
   assign glb = ''
-  assign p3d = product.metafields.custom.poster_3d.value
-  if p3d
-    assign glb = p3d[fcolor]
+  assign scls = ''
+  assign cmap = ''
+  assign lp_env = ''
+  assign p3d4 = product.metafields.custom.poster_3d_v4.value
+  if p3d4
+    assign scls = p3d4.sizes[sval] | default: p3d4.default
+    assign cmap = p3d4[fcolor]
+    if cmap
+      assign glb = cmap[scls]
+    endif
+    if glb != blank
+      assign lp_env = 'https://cdn.shopify.com/s/files/1/0976/9979/1181/files/lp4-studio-env.hdr?v=1786025908'
+    endif
+  endif
+  if glb == blank
+    assign p3d = product.metafields.custom.poster_3d.value
+    if p3d
+      assign glb = p3d[fcolor]
+    endif
   endif
   if glb == blank
     assign glb = product.metafields.custom.poster_3d_url.value
@@ -44,7 +75,21 @@
   assign dd = product.metafields.custom.poster_detail.value
 
   assign stage_ratio = 0.8
-  if dd and dd.region
+  if scls != blank and glb != blank
+    case scls
+      when 'c23'
+        assign stage_ratio = 0.667
+      when 'c34'
+        assign stage_ratio = 0.75
+      when 'c1114'
+        assign stage_ratio = 0.786
+      when 'c45'
+        assign stage_ratio = 0.8
+    endcase
+    if p3d4.orientation == 'landscape'
+      assign stage_ratio = 1.0 | divided_by: stage_ratio
+    endif
+  elsif dd and dd.region
     assign rw = dd.region[2] | minus: dd.region[0]
     assign rh = dd.region[3] | minus: dd.region[1]
     if rh > 0
@@ -73,7 +118,7 @@
   data-color="{{ fcolor }}"
 >
   <script type="application/json" data-lp-data>
-    {"glb": {{ glb | json }}, "detail": {% if dd %}{{ dd | json }}{% else %}null{% endif %}, "title": {{ product.title | json }}, "color": {{ fcolor | json }}}
+    {"glb": {{ glb | json }}, "detail": {% if dd %}{{ dd | json }}{% else %}null{% endif %}, "title": {{ product.title | json }}, "color": {{ fcolor | json }}, "size": {{ sval | json }}, "env": {% if lp_env != blank %}{{ lp_env | json }}{% else %}null{% endif %}, "map": {% if cmap != blank %}{{ cmap | json }}{% else %}null{% endif %}}
   </script>
 
   <div class="lp-gallery__stage" style="--lp-stage-ratio: {{ stage_ratio }}">

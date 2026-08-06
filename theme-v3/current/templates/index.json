@@ -329,185 +329,79 @@
       }
     },
     "collection_list_lp": {
-      "type": "collection-list",
+      "type": "limitless-collection-tiles",
       "blocks": {
-        "group_header": {
-          "type": "group",
-          "name": "t:names.header",
+        "tile_new_drop": {
+          "type": "tile",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 8,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 16,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "cl_eyebrow": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>ACHT KOLLEKTIONEN</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h6",
-                "font": "var(--font-subheading--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "loose",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "cl_heading": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h2>Finde deinen Stil</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h2",
-                "font": "var(--font-accent--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground-heading)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "cl_eyebrow",
-            "cl_heading"
-          ]
+            "collection": "new-drop",
+            "cover": "shopify://shop_images/lp-cover-new-drop.jpg"
+          }
         },
-        "static-collection-card": {
-          "type": "_collection-card",
-          "name": "t:names.collection_card",
-          "static": true,
+        "tile_apex_motorsport_cars": {
+          "type": "tile",
           "settings": {
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-end",
-            "placement": "on_image",
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0
-          },
-          "blocks": {
-            "collection-card-image": {
-              "type": "_collection-card-image",
-              "name": "t:names.collection_card_image",
-              "static": true,
-              "settings": {
-                "image_ratio": "portrait"
-              }
-            },
-            "collection-title": {
-              "type": "collection-title",
-              "name": "t:names.collection_title",
-              "settings": {
-                "type_preset": "h6",
-                "font": "var(--font-accent--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "loose",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "background": true,
-                "background_color": "#FCFBF7",
-                "padding-block-start": 6,
-                "padding-block-end": 6,
-                "padding-inline-start": 10,
-                "padding-inline-end": 10
-              }
-            }
-          },
-          "block_order": [
-            "collection-title"
-          ]
+            "collection": "apex-motorsport-cars",
+            "cover": "shopify://shop_images/lp-cover-apex-motorsport-cars.jpg"
+          }
+        },
+        "tile_grit_boxing_mma": {
+          "type": "tile",
+          "settings": {
+            "collection": "grit-boxing-mma",
+            "cover": "shopify://shop_images/lp-cover-grit-boxing-mma.jpg"
+          }
+        },
+        "tile_legends_sports_icons": {
+          "type": "tile",
+          "settings": {
+            "collection": "legends-sports-icons",
+            "cover": "shopify://shop_images/lp-cover-legends-sports-icons.jpg"
+          }
+        },
+        "tile_mindset_words_ambition": {
+          "type": "tile",
+          "settings": {
+            "collection": "mindset-words-ambition",
+            "cover": "shopify://shop_images/lp-cover-mindset-words-ambition.jpg"
+          }
+        },
+        "tile_still_quiet_luxury": {
+          "type": "tile",
+          "settings": {
+            "collection": "still-quiet-luxury",
+            "cover": "shopify://shop_images/lp-cover-still-quiet-luxury.jpg"
+          }
+        },
+        "tile_heritage_timeless_classics": {
+          "type": "tile",
+          "settings": {
+            "collection": "heritage-timeless-classics",
+            "cover": "shopify://shop_images/lp-cover-heritage-timeless-classics.jpg"
+          }
+        },
+        "tile_icons_music_culture": {
+          "type": "tile",
+          "settings": {
+            "collection": "icons-music-culture",
+            "cover": "shopify://shop_images/lp-cover-icons-music-culture.jpg"
+          }
         }
       },
       "block_order": [
-        "group_header"
+        "tile_new_drop",
+        "tile_apex_motorsport_cars",
+        "tile_grit_boxing_mma",
+        "tile_legends_sports_icons",
+        "tile_mindset_words_ambition",
+        "tile_still_quiet_luxury",
+        "tile_heritage_timeless_classics",
+        "tile_icons_music_culture"
       ],
-      "name": "t:names.collections_grid",
       "settings": {
-        "collection_list": [
-          "new-drop",
-          "apex-motorsport-cars",
-          "grit-boxing-mma",
-          "legends-sports-icons",
-          "mindset-words-ambition",
-          "still-quiet-luxury",
-          "heritage-timeless-classics",
-          "icons-music-culture"
-        ],
-        "layout_type": "grid",
-        "carousel_on_mobile": true,
+        "eyebrow": "ACHT KOLLEKTIONEN",
+        "heading": "Finde deinen Stil",
         "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "max_collections": 8,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "gap": 20,
         "color_scheme": "scheme-1",
         "padding-block-start": 64,
         "padding-block-end": 48

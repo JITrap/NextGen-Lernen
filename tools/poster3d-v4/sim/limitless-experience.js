@@ -361,7 +361,7 @@
       '<path d="M106 ' + (floorY - 51) + ' a10 10 0 0 1 20 0" fill="none" stroke="currentColor" stroke-opacity="0.65" stroke-width="2"/>' +
       /* Person (1,75 m) */
       '<circle cx="500" cy="' + (floorY - 147 + 11) + '" r="11" fill="none" stroke="currentColor" stroke-opacity="0.65" stroke-width="2"/>' +
-      '<path d="M500 ' + (floorY - 147 + 22) + ' v58 m0 0 -12 67 m12 -67 12 67 m-12 -105 -13 30 m13 -30 13 30" fill="none" stroke="currentColor" stroke-opacity="0.65" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path d="M500 ' + (floorY - 147 + 22) + ' v62 m0 0 -14 63 m14 -63 14 63 m-14 -101 -18 34 m18 -34 18 34" fill="none" stroke="currentColor" stroke-opacity="0.65" stroke-width="2" stroke-linecap="round"/>' +
       /* Poster maßstabsgetreu */
       '<rect x="' + px.toFixed(1) + '" y="' + py.toFixed(1) + '" width="' + pw.toFixed(1) + '" height="' + ph.toFixed(1) + '" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="2.4"/>' +
       '</svg>' +
