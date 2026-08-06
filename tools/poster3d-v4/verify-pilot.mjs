@@ -27,12 +27,22 @@ async function waitForMV(page, timeout = 45000) {
   }, { timeout }).then(() => true).catch(() => false);
 }
 
+async function login(page) {
+  await page.goto('https://limitlessposter.com/password', { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(() => {});
+  await page.evaluate(async () => {
+    const body = new URLSearchParams({ form_type: 'storefront_password', utf8: '\u2713', password: 'shieya' });
+    await fetch('/password', { method: 'POST', body, headers: { 'content-type': 'application/x-www-form-urlencoded' } }).catch(() => {});
+  });
+  await page.waitForTimeout(400);
+}
+
 async function run() {
   const report = [];
 
   // --- Desktop: they-doubt-me-i-deliver ---
   {
     const { page, errors } = await newPage({ width: 1440, height: 900 });
+    await login(page);
     await page.goto(BASE + 'they-doubt-me-i-deliver' + PREVIEW, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForTimeout(1500);
     const glbSrc = await page.evaluate(() => {
@@ -95,6 +105,7 @@ async function run() {
   // --- Desktop: its-not-over — Größenwechsel ---
   {
     const { page, errors } = await newPage({ width: 1440, height: 900 });
+    await login(page);
     await page.goto(BASE + 'motivational-framed-poster-its-not-over-until-i-win' + PREVIEW, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForTimeout(1500);
     const before = await page.evaluate(() => {
@@ -129,6 +140,7 @@ async function run() {
   // --- Desktop: F1 landscape ---
   {
     const { page, errors } = await newPage({ width: 1440, height: 900 });
+    await login(page);
     await page.goto(BASE + 'horizontal-framed-poster' + PREVIEW, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForTimeout(1500);
     const loaded = await waitForMV(page);
@@ -147,6 +159,7 @@ async function run() {
   // --- Mobil ---
   {
     const { page, errors } = await newPage({ width: 390, height: 844 });
+    await login(page);
     await page.goto(BASE + 'they-doubt-me-i-deliver' + PREVIEW, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForTimeout(2000);
     const loaded = await waitForMV(page);
@@ -154,6 +167,39 @@ async function run() {
     await page.waitForTimeout(800);
     await page.screenshot({ path: `${OUT}/doubt-mobile.png`, fullPage: false });
     report.push(['mobil: Fehler', errors.length ? errors.slice(0, 4) : 'keine']);
+    await page.close();
+  }
+
+  // --- Homepage: Kachel-Sektion + Stats ---
+  {
+    const { page, errors } = await newPage({ width: 1440, height: 900 });
+    await login(page);
+    await page.goto('https://limitlessposter.com/?preview_theme_id=194124087629', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForTimeout(2500);
+    const tiles = await page.locator('.lp-tile').count();
+    report.push(['home: Kategorie-Kacheln (soll 8)', tiles]);
+    const tileImg = await page.evaluate(() => document.querySelector('.lp-tile img')?.currentSrc?.split('/').pop().split('?')[0] || null);
+    report.push(['home: erstes Kachelbild', tileImg]);
+    const stats = await page.evaluate(() => Array.from(document.querySelectorAll('.lp-stats__label')).map(e => e.textContent.trim()));
+    report.push(['home: Stats-Labels', JSON.stringify(stats)]);
+    const tilesSection = page.locator('.lp-tiles');
+    if (await tilesSection.count()) await tilesSection.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1200);
+    await page.screenshot({ path: `${OUT}/home-tiles.png` });
+    report.push(['home: Fehler', errors.length ? errors.slice(0, 4) : 'keine']);
+    await page.close();
+  }
+
+  // --- Queens-Seite ---
+  {
+    const { page, errors } = await newPage({ width: 1440, height: 900 });
+    await login(page);
+    await page.goto('https://limitlessposter.com/collections/queens-feminine-energy?preview_theme_id=194124087629', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForTimeout(2500);
+    const lily = await page.evaluate(() => !!document.querySelector('main svg, .lp-queens-lily, [class*="queens"] svg'));
+    report.push(['queens: Lilien-SVG vorhanden', lily]);
+    await page.screenshot({ path: `${OUT}/queens-onsite.png` });
+    report.push(['queens: Fehler', errors.length ? errors.slice(0, 4) : 'keine']);
     await page.close();
   }
 

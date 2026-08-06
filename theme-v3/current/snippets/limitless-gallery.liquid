@@ -103,9 +103,9 @@
   assign mock_b = blank
   for m in product.media
     if m.media_type == 'image'
-      if m.alt contains 'Wohnbeispiel' and mock_a == blank
+      if m.alt contains 'Wohnbeispiel'
         assign mock_a = m
-      elsif m.alt contains 'Studio' and mock_b == blank
+      elsif m.alt contains 'Studio'
         assign mock_b = m
       endif
     endif
