@@ -1,0 +1,82 @@
+{
+  "frontpage": {
+    "id": "gid://shopify/Collection/663207280973",
+    "title": "Startseite",
+    "products": ["they-doubt-me-i-deliver"]
+  },
+  "bestseller": {
+    "id": "gid://shopify/Collection/663243260237",
+    "title": "Bestseller",
+    "products": []
+  },
+  "statements": {
+    "id": "gid://shopify/Collection/663243293005",
+    "title": "Statements",
+    "products": ["they-doubt-me-i-deliver"]
+  },
+  "sports": {
+    "id": "gid://shopify/Collection/663243325773",
+    "title": "Sports",
+    "products": []
+  },
+  "film-series": {
+    "id": "gid://shopify/Collection/663243358541",
+    "title": "Film & Series",
+    "products": []
+  },
+  "artists": {
+    "id": "gid://shopify/Collection/663243391309",
+    "title": "Artists",
+    "products": []
+  },
+  "quotes": {
+    "id": "gid://shopify/Collection/663243424077",
+    "title": "Quotes",
+    "products": []
+  },
+  "queens-feminine-energy": {
+    "id": "gid://shopify/Collection/663275897165",
+    "title": "QUEENS — Feminine Energy",
+    "products": []
+  },
+  "apex-motorsport-cars": {
+    "id": "gid://shopify/Collection/665889505613",
+    "title": "APEX — Motorsport & Cars",
+    "products": []
+  },
+  "grit-boxing-mma": {
+    "id": "gid://shopify/Collection/665889571149",
+    "title": "GRIT — Boxing & MMA",
+    "products": []
+  },
+  "legends-sports-icons": {
+    "id": "gid://shopify/Collection/665889603917",
+    "title": "LEGENDS — Sports Icons",
+    "products": []
+  },
+  "icons-music-culture": {
+    "id": "gid://shopify/Collection/665889636685",
+    "title": "ICONS — Music & Culture",
+    "products": []
+  },
+  "mindset-words-ambition": {
+    "id": "gid://shopify/Collection/665889669453",
+    "title": "MINDSET — Words & Ambition",
+    "products": []
+  },
+  "still-quiet-luxury": {
+    "id": "gid://shopify/Collection/665889702221",
+    "title": "STILL — Quiet Luxury",
+    "products": []
+  },
+  "heritage-timeless-classics": {
+    "id": "gid://shopify/Collection/665889800525",
+    "title": "HERITAGE — Timeless Classics",
+    "products": []
+  },
+  "new-drop": {
+    "id": "gid://shopify/Collection/666102137165",
+    "title": "New Drop",
+    "products": []
+  }
+}
