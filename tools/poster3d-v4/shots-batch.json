@@ -1,0 +1,6 @@
+[
+  { "glb": "out/batch/lp4-roaring-jaguar-floral-poster-black-c23.glb", "orbit": "18deg 82deg 105%", "out": "out/verify/spot1.png" },
+  { "glb": "out/batch/lp4-swan-lake-framed-art-print-serene-watercolor-swan-poster-white-c45.glb", "orbit": "0deg 85deg 100%", "out": "out/verify/spot2.png" },
+  { "glb": "out/batch/lp4-marlboro-f1-racing-car-poster-horizontal-framed-print-black-c23.glb", "orbit": "18deg 82deg 105%", "out": "out/verify/spot3.png" },
+  { "glb": "out/batch/lp4-motivational-quote-vertical-framed-poster-black-text-on-white-canvas-black-c34.glb", "orbit": "0deg 85deg 100%", "out": "out/verify/spot4.png" }
+]

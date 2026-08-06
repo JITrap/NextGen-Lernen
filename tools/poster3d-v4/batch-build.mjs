@@ -44,8 +44,16 @@ for (const p of queue) {
     const res = await fetch(p.image);
     if (!res.ok) throw new Error('fetch ' + res.status);
     const src = Buffer.from(await res.arrayBuffer());
-    const det = await detectArtwork(src);
-    if (det.warn) throw new Error('Erkennung unplausibel: ' + JSON.stringify({ artAspect: det.artAspect, frameRatio: det.frameRatio }));
+    const overridesPath = resolve(ROOT, 'out/overrides.json');
+    const overrides = existsSync(overridesPath) ? JSON.parse(readFileSync(overridesPath, 'utf8')) : {};
+    let det;
+    if (overrides[p.handle]) {
+      const o = overrides[p.handle];
+      det = { art: o.art, artAspect: o.artAspect || (o.art.x1 - o.art.x0) / (o.art.y1 - o.art.y0), artPx: [o.art.x1 - o.art.x0, o.art.y1 - o.art.y0] };
+    } else {
+      det = await detectArtwork(src);
+      if (det.warn) throw new Error('Erkennung unplausibel: ' + JSON.stringify({ artAspect: det.artAspect, frameRatio: det.frameRatio }));
+    }
     const orientation = det.artAspect < 1 ? 'portrait' : 'landscape';
     const sizeMap = {};
     for (const s of p.sizes) {
