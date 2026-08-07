@@ -1,0 +1,110 @@
+{
+ "imgDir": "/home/user/NextGen-Lernen/tools/mockups/out-photo",
+ "products": [
+  {
+   "handle": "horizontal-framed-poster",
+   "id": "gid://shopify/Product/10753336901965",
+   "title": "Vintage Formula 1 – Racing-Poster im Ölgemälde-Stil",
+   "wohnbeispiel": "horizontal-framed-poster-wohnbeispiel.jpg",
+   "studio": "horizontal-framed-poster-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-aerial-yacht-wake-ocean-print",
+   "id": "gid://shopify/Product/10754859041101",
+   "title": "Yacht auf offener See – Ozean-Poster",
+   "wohnbeispiel": "framed-poster-aerial-yacht-wake-ocean-print-wohnbeispiel.jpg",
+   "studio": "framed-poster-aerial-yacht-wake-ocean-print-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-the-world-rewards-action-motivational-space-wall-art",
+   "id": "gid://shopify/Product/10754905014605",
+   "title": "The World Rewards Action – Space-Motivationsposter",
+   "wohnbeispiel": "framed-poster-the-world-rewards-action-motivational-space-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-the-world-rewards-action-motivational-space-wall-art-studio.jpg"
+  },
+  {
+   "handle": "messi-make-them-wonder-soccer-poster",
+   "id": "gid://shopify/Product/10755130753357",
+   "title": "Make Them Wonder – Messi Fußball-Poster",
+   "wohnbeispiel": "messi-make-them-wonder-soccer-poster-wohnbeispiel.jpg",
+   "studio": "messi-make-them-wonder-soccer-poster-studio.jpg"
+  },
+  {
+   "handle": "become-unstoppable-framed-poster-motivational-sports-wall-art",
+   "id": "gid://shopify/Product/10755131310413",
+   "title": "Become Unstoppable – Motivationsposter",
+   "wohnbeispiel": "become-unstoppable-framed-poster-motivational-sports-wall-art-wohnbeispiel.jpg",
+   "studio": "become-unstoppable-framed-poster-motivational-sports-wall-art-studio.jpg"
+  },
+  {
+   "handle": "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art",
+   "id": "gid://shopify/Product/10755131834701",
+   "title": "Stay Focused, Stay Dangerous – Fitness-Poster",
+   "wohnbeispiel": "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-wohnbeispiel.jpg",
+   "studio": "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art",
+   "id": "gid://shopify/Product/10755132391757",
+   "title": "Start Unknown, Finish Unforgettable – Motivationsposter",
+   "wohnbeispiel": "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-studio.jpg"
+  },
+  {
+   "handle": "motivational-poster-set-your-own-standard-vertical-framed-art",
+   "id": "gid://shopify/Product/10755132883277",
+   "title": "Set Your Own Standard – Motivationsposter",
+   "wohnbeispiel": "motivational-poster-set-your-own-standard-vertical-framed-art-wohnbeispiel.jpg",
+   "studio": "motivational-poster-set-your-own-standard-vertical-framed-art-studio.jpg"
+  },
+  {
+   "handle": "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster",
+   "id": "gid://shopify/Product/10755133407565",
+   "title": "Sacrifice Today, Own Tomorrow – Boxing-Poster",
+   "wohnbeispiel": "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-wohnbeispiel.jpg",
+   "studio": "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-studio.jpg"
+  },
+  {
+   "handle": "motivational-poster-no-excuses-just-results-vertical-wall-art",
+   "id": "gid://shopify/Product/10755133997389",
+   "title": "No Excuses, Just Results – Motivationsposter",
+   "wohnbeispiel": "motivational-poster-no-excuses-just-results-vertical-wall-art-wohnbeispiel.jpg",
+   "studio": "motivational-poster-no-excuses-just-results-vertical-wall-art-studio.jpg"
+  },
+  {
+   "handle": "money-follows-value-framed-poster-motivational-office-wall-art",
+   "id": "gid://shopify/Product/10755134456141",
+   "title": "Money Follows Value – Office-Poster",
+   "wohnbeispiel": "money-follows-value-framed-poster-motivational-office-wall-art-wohnbeispiel.jpg",
+   "studio": "money-follows-value-framed-poster-motivational-office-wall-art-studio.jpg"
+  },
+  {
+   "handle": "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed",
+   "id": "gid://shopify/Product/10755135242573",
+   "title": "Stay Hungry – Gym-Poster",
+   "wohnbeispiel": "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-wohnbeispiel.jpg",
+   "studio": "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-studio.jpg"
+  },
+  {
+   "handle": "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office",
+   "id": "gid://shopify/Product/10755470229837",
+   "title": "Prove Yourself Right – Motivationsposter",
+   "wohnbeispiel": "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-wohnbeispiel.jpg",
+   "studio": "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-studio.jpg"
+  },
+  {
+   "handle": "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art",
+   "id": "gid://shopify/Product/10755472097613",
+   "title": "The Hard Way Builds the Strongest – Fight-Poster",
+   "wohnbeispiel": "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-wohnbeispiel.jpg",
+   "studio": "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-studio.jpg"
+  },
+  {
+   "handle": "poster-the-goal-never-moves-soccer-wall-art",
+   "id": "gid://shopify/Product/10755473211725",
+   "title": "The Goal Never Moves – Fußball-Poster",
+   "wohnbeispiel": "poster-the-goal-never-moves-soccer-wall-art-wohnbeispiel.jpg",
+   "studio": "poster-the-goal-never-moves-soccer-wall-art-studio.jpg"
+  }
+ ]
+}

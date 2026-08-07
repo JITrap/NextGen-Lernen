@@ -1,0 +1,110 @@
+{
+ "imgDir": "/home/user/NextGen-Lernen/tools/mockups/out-photo",
+ "products": [
+  {
+   "handle": "framed-poster-ferrari-and-white-stallion-art-print",
+   "id": "gid://shopify/Product/10762192781645",
+   "title": "Ferrari & weißer Hengst – Auto-Poster",
+   "wohnbeispiel": "framed-poster-ferrari-and-white-stallion-art-print-wohnbeispiel.jpg",
+   "studio": "framed-poster-ferrari-and-white-stallion-art-print-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-watching-eyes-money-tear-wall-art-horizontal",
+   "id": "gid://shopify/Product/10762193961293",
+   "title": "Watching Eyes – Money-Art-Poster (Querformat)",
+   "wohnbeispiel": "framed-poster-watching-eyes-money-tear-wall-art-horizontal-wohnbeispiel.jpg",
+   "studio": "framed-poster-watching-eyes-money-tear-wall-art-horizontal-studio.jpg"
+  },
+  {
+   "handle": "marlboro-f1-racing-car-poster-horizontal-framed-print",
+   "id": "gid://shopify/Product/10762195927373",
+   "title": "Marlboro F1 – Racing-Poster (Querformat)",
+   "wohnbeispiel": "marlboro-f1-racing-car-poster-horizontal-framed-print-wohnbeispiel.jpg",
+   "studio": "marlboro-f1-racing-car-poster-horizontal-framed-print-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-the-world-is-yours-motivational-wall-art",
+   "id": "gid://shopify/Product/10762196123981",
+   "title": "The World Is Yours – Motivationsposter",
+   "wohnbeispiel": "framed-poster-the-world-is-yours-motivational-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-the-world-is-yours-motivational-wall-art-studio.jpg"
+  },
+  {
+   "handle": "wimbledon-tennis-court-framed-poster",
+   "id": "gid://shopify/Product/10787875193165",
+   "title": "Wimbledon von oben – Tennis-Poster",
+   "wohnbeispiel": "wimbledon-tennis-court-framed-poster-wohnbeispiel.jpg",
+   "studio": "wimbledon-tennis-court-framed-poster-studio.jpg"
+  },
+  {
+   "handle": "class-intensity-grit-tennis-framed-poster",
+   "id": "gid://shopify/Product/10787875389773",
+   "title": "Class. Intensity. Grit. – Tennis-Poster",
+   "wohnbeispiel": "class-intensity-grit-tennis-framed-poster-wohnbeispiel.jpg",
+   "studio": "class-intensity-grit-tennis-framed-poster-studio.jpg"
+  },
+  {
+   "handle": "tennis-court-framed-poster-aerial-tennis-match-wall-art",
+   "id": "gid://shopify/Product/10787875520845",
+   "title": "Tennis Court Aerial – Tennis-Poster",
+   "wohnbeispiel": "tennis-court-framed-poster-aerial-tennis-match-wall-art-wohnbeispiel.jpg",
+   "studio": "tennis-court-framed-poster-aerial-tennis-match-wall-art-studio.jpg"
+  },
+  {
+   "handle": "tennis-court-framed-poster-aerial-green-court-art-print",
+   "id": "gid://shopify/Product/10787875553613",
+   "title": "Green Court von oben – Tennis-Poster",
+   "wohnbeispiel": "tennis-court-framed-poster-aerial-green-court-art-print-wohnbeispiel.jpg",
+   "studio": "tennis-court-framed-poster-aerial-green-court-art-print-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-you-can-always-be-better-golf-wall-art",
+   "id": "gid://shopify/Product/10787889545549",
+   "title": "You Can Always Be Better – Golf-Poster",
+   "wohnbeispiel": "framed-poster-you-can-always-be-better-golf-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-you-can-always-be-better-golf-wall-art-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art",
+   "id": "gid://shopify/Product/10787889611085",
+   "title": "Risk Is Better Than Regret – Tennis-Poster",
+   "wohnbeispiel": "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art-studio.jpg"
+  },
+  {
+   "handle": "discipline-motivational-poster-gym-wall-art",
+   "id": "gid://shopify/Product/10787889643853",
+   "title": "Discipline – Gym-Poster",
+   "wohnbeispiel": "discipline-motivational-poster-gym-wall-art-wohnbeispiel.jpg",
+   "studio": "discipline-motivational-poster-gym-wall-art-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-be-different-michael-jordan-basketball-print",
+   "id": "gid://shopify/Product/10787889742157",
+   "title": "Be Different – Jordan Basketball-Poster",
+   "wohnbeispiel": "framed-poster-be-different-michael-jordan-basketball-print-wohnbeispiel.jpg",
+   "studio": "framed-poster-be-different-michael-jordan-basketball-print-studio.jpg"
+  },
+  {
+   "handle": "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print",
+   "id": "gid://shopify/Product/10787889938765",
+   "title": "Luke 1:37 – Faith & Sports Poster",
+   "wohnbeispiel": "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print-wohnbeispiel.jpg",
+   "studio": "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print-studio.jpg"
+  },
+  {
+   "handle": "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster",
+   "id": "gid://shopify/Product/10787889971533",
+   "title": "If You Quit, Everyone Was Right – Fußball-Poster",
+   "wohnbeispiel": "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster-wohnbeispiel.jpg",
+   "studio": "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster-studio.jpg"
+  },
+  {
+   "handle": "all-or-nothing-soccer-poster-framed-vertical-sports-print",
+   "id": "gid://shopify/Product/10787890233677",
+   "title": "All or Nothing – Fußball-Poster",
+   "wohnbeispiel": "all-or-nothing-soccer-poster-framed-vertical-sports-print-wohnbeispiel.jpg",
+   "studio": "all-or-nothing-soccer-poster-framed-vertical-sports-print-studio.jpg"
+  }
+ ]
+}

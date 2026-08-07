@@ -1,0 +1,82 @@
+{
+ "imgDir": "/home/user/NextGen-Lernen/tools/mockups/out-photo",
+ "products": [
+  {
+   "handle": "framed-poster-crystal-gloved-hand-ok-sign-wall-art",
+   "id": "gid://shopify/Product/10787998400845",
+   "title": "Crystal OK – Art-Poster",
+   "wohnbeispiel": "framed-poster-crystal-gloved-hand-ok-sign-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-crystal-gloved-hand-ok-sign-wall-art-studio.jpg"
+  },
+  {
+   "handle": "focus-framed-poster-motivational-gym-wall-art",
+   "id": "gid://shopify/Product/10788000563533",
+   "title": "Focus – Gym-Poster",
+   "wohnbeispiel": "focus-framed-poster-motivational-gym-wall-art-wohnbeispiel.jpg",
+   "studio": "focus-framed-poster-motivational-gym-wall-art-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-bold-red-graffiti-portrait",
+   "id": "gid://shopify/Product/10788002595149",
+   "title": "Red Graffiti – Portrait-Poster",
+   "wohnbeispiel": "framed-poster-bold-red-graffiti-portrait-wohnbeispiel.jpg",
+   "studio": "framed-poster-bold-red-graffiti-portrait-studio.jpg"
+  },
+  {
+   "handle": "motivational-soccer-poster-do-it-alone-framed-wall-art",
+   "id": "gid://shopify/Product/10788002824525",
+   "title": "Do It Alone – Fußball-Poster",
+   "wohnbeispiel": "motivational-soccer-poster-do-it-alone-framed-wall-art-wohnbeispiel.jpg",
+   "studio": "motivational-soccer-poster-do-it-alone-framed-wall-art-studio.jpg"
+  },
+  {
+   "handle": "framed-portrait-poster-minimal-black-white-signature-art",
+   "id": "gid://shopify/Product/10788004168013",
+   "title": "Signature – Minimal-Portrait-Poster",
+   "wohnbeispiel": "framed-portrait-poster-minimal-black-white-signature-art-wohnbeispiel.jpg",
+   "studio": "framed-portrait-poster-minimal-black-white-signature-art-studio.jpg"
+  },
+  {
+   "handle": "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print",
+   "id": "gid://shopify/Product/10788005445965",
+   "title": "It's You vs You – Ronaldo Fußball-Poster",
+   "wohnbeispiel": "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print-wohnbeispiel.jpg",
+   "studio": "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print-studio.jpg"
+  },
+  {
+   "handle": "racing-poster-no-risk-no-story-framed-motorsport-wall-art",
+   "id": "gid://shopify/Product/10788006920525",
+   "title": "No Risk No Story – Racing-Poster",
+   "wohnbeispiel": "racing-poster-no-risk-no-story-framed-motorsport-wall-art-wohnbeispiel.jpg",
+   "studio": "racing-poster-no-risk-no-story-framed-motorsport-wall-art-studio.jpg"
+  },
+  {
+   "handle": "get-up-we-aint-rich-yet-motivational-wall-poster",
+   "id": "gid://shopify/Product/10788044996941",
+   "title": "Get Up, We Ain't Rich Yet – Motivationsposter",
+   "wohnbeispiel": "get-up-we-aint-rich-yet-motivational-wall-poster-wohnbeispiel.jpg",
+   "studio": "get-up-we-aint-rich-yet-motivational-wall-poster-studio.jpg"
+  },
+  {
+   "handle": "framed-poster-the-perfect-time-never-comes-motivational-wall-art",
+   "id": "gid://shopify/Product/10788045390157",
+   "title": "The Perfect Time Never Comes – Trader-Meme-Poster",
+   "wohnbeispiel": "framed-poster-the-perfect-time-never-comes-motivational-wall-art-wohnbeispiel.jpg",
+   "studio": "framed-poster-the-perfect-time-never-comes-motivational-wall-art-studio.jpg"
+  },
+  {
+   "handle": "they-doubt-me-i-deliver",
+   "id": "gid://shopify/Product/10792468808013",
+   "title": "They Doubt Me I Deliver",
+   "wohnbeispiel": "they-doubt-me-i-deliver-wohnbeispiel.jpg",
+   "studio": "they-doubt-me-i-deliver-studio.jpg"
+  },
+  {
+   "handle": "motivational-quote-vertical-framed-poster-black-text-on-white-canvas",
+   "id": "gid://shopify/Product/10792468840781",
+   "title": "Motivational Quote Vertical Framed Poster — Black Text on White Canvas",
+   "wohnbeispiel": "motivational-quote-vertical-framed-poster-black-text-on-white-canvas-wohnbeispiel.jpg",
+   "studio": "motivational-quote-vertical-framed-poster-black-text-on-white-canvas-studio.jpg"
+  }
+ ]
+}
