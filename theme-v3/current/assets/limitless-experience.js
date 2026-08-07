@@ -7,7 +7,8 @@
   'use strict';
 
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var MV_SRC = 'https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js';
+  var MV_SRC = 'https://cdn.shopify.com/s/files/1/0976/9979/1181/files/lp5-model-viewer.min.js?v=1786123026';
+  var MV_FALLBACK = 'https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js';
   var ZOOM = 2.4;
   var TOUR = ['rahmen', 'glas', 'design', 'rueckseite'];
   var BACK_ORBIT = '198deg 82deg 108%';
@@ -57,6 +58,13 @@
         s.type = 'module';
         s.src = MV_SRC;
         s.onload = resolve;
+        s.onerror = function () {
+          var f = document.createElement('script');
+          f.type = 'module';
+          f.src = MV_FALLBACK;
+          f.onload = resolve;
+          document.head.appendChild(f);
+        };
         document.head.appendChild(s);
       });
     }
