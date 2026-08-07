@@ -117,6 +117,14 @@
   data-product-id="{{ product.id }}"
   data-color="{{ fcolor }}"
 >
+  {%- if glb != blank -%}
+    <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
+    <link rel="modulepreload" href="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" crossorigin>
+    <link rel="preload" as="fetch" href="{{ glb }}" crossorigin="anonymous">
+    {%- if lp_env != blank -%}
+      <link rel="preload" as="fetch" href="{{ lp_env }}" crossorigin="anonymous">
+    {%- endif -%}
+  {%- endif -%}
   <script type="application/json" data-lp-data>
     {"glb": {{ glb | json }}, "detail": {% if dd %}{{ dd | json }}{% else %}null{% endif %}, "title": {{ product.title | json }}, "color": {{ fcolor | json }}, "size": {{ sval | json }}, "env": {% if lp_env != blank %}{{ lp_env | json }}{% else %}null{% endif %}, "map": {% if cmap != blank %}{{ cmap | json }}{% else %}null{% endif %}}
   </script>

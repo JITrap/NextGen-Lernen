@@ -1,0 +1,51 @@
+{
+  "bedroom-feminine.jpg": {
+    "source": "https://www.pexels.com/photo/elegant-interior-of-cozy-bedroom-6207825/",
+    "photographer": "Max Vakhtbovych",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1467
+  },
+  "gym.jpg": {
+    "source": "https://www.pexels.com/photo/spacious-gym-area-11593501/",
+    "photographer": "Curtis Adams",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1467
+  },
+  "office.jpg": {
+    "source": "https://www.pexels.com/photo/a-minimalist-workspace-4256211/",
+    "photographer": "Zarak Khan",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1511
+  },
+  "living-minimal.jpg": {
+    "source": "https://www.pexels.com/photo/beige-couch-with-throw-pillows-beside-a-wooden-chest-of-drawers-12277021/",
+    "photographer": "dada_design",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1238
+  },
+  "loft.jpg": {
+    "source": "https://www.pexels.com/photo/minimalistic-living-room-interior-6615908/",
+    "photographer": "Ksenia Chernaya",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 3296
+  },
+  "living-warm.jpg": {
+    "source": "https://www.pexels.com/photo/modern-living-room-19966766/",
+    "photographer": "Alex Tyson",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1467
+  },
+  "hallway.jpg": {
+    "source": "https://www.pexels.com/photo/interior-of-entrance-hall-in-apartment-6312074/",
+    "photographer": "Max Vakhtbovych",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1525
+  }
+}

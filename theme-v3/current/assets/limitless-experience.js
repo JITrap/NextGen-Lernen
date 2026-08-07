@@ -150,8 +150,44 @@
         };
         if (mv.loaded) go();
         else mv.addEventListener('load', go, { once: true });
+        showBackCard(root);
       });
     });
+  }
+
+  /* Info-Karte zur Rückseite direkt im 3D-Panel — mit Weg zurück zur Tour. */
+  function removeBackCard(root) {
+    var c = root.querySelector('.lp-dcard--back');
+    if (c) c.remove();
+  }
+
+  function showBackCard(root) {
+    var panel = root.querySelector('.lp-panel--3d');
+    if (!panel || panel.querySelector('.lp-dcard--back')) return;
+    var card = el('div', 'lp-dcard lp-dcard--back');
+    card.setAttribute('data-side', 'left');
+    card.style.setProperty('--cy', '50%');
+    card.innerHTML =
+      '<div class="lp-dcard-head"><strong class="lp-dcard-title">' + SPOTS.rueckseite.label + '</strong>' +
+      '<span class="lp-dcard-idx">04/04</span></div>' +
+      '<p class="lp-dcard-text">' + SPOTS.rueckseite.text + '</p>' +
+      '<div class="lp-dcard-nav">' +
+      '<button type="button" class="lp-dcard-btn" data-dback-tour aria-label="Zurück zur Detail-Tour">' +
+      '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6"/></svg></button>' +
+      '<button type="button" class="lp-dcard-btn lp-dcard-close" data-dback-close aria-label="Hinweis schließen">' +
+      '<svg viewBox="0 0 20 20" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button>' +
+      '</div>';
+    card.addEventListener('click', function (e) {
+      var mv = root.querySelector('.lp-3d-mount model-viewer');
+      if (e.target.closest('[data-dback-tour]')) {
+        removeBackCard(root);
+        if (mv) mv.setAttribute('camera-orbit', '18deg 82deg 108%');
+        activate(root, 'detail');
+      } else if (e.target.closest('[data-dback-close]')) {
+        removeBackCard(root);
+      }
+    });
+    panel.appendChild(card);
   }
 
   /* ---------- Fullscreen-Overlay ---------- */
@@ -371,6 +407,7 @@
   /* ---------- Panelwechsel ---------- */
 
   function activate(root, id) {
+    if (id !== '3d') removeBackCard(root);
     var found = false;
     root.querySelectorAll('.lp-panel').forEach(function (p) {
       var on = p.getAttribute('data-panel') === id;

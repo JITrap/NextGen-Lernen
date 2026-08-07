@@ -18,6 +18,7 @@ const argVal = k => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : n
 const LIMIT = parseInt(argVal('--limit') || '0', 10);
 const ONLY = (argVal('--only') || '').split(',').filter(Boolean);
 const FORCE = args.includes('--force');
+const NO_MOCKUPS = args.includes('--no-mockups');
 
 const products = JSON.parse(readFileSync(resolve(ROOT, 'products.json'), 'utf8'));
 const manifest = existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, 'utf8')) : {};
@@ -69,15 +70,18 @@ for (const p of queue) {
     for (const cls of classes) {
       const art = await bakeArtwork(src, det.art, cls, orientation);
       for (const color of ['black', 'white']) {
-        const file = `lp4-${p.handle}-${color}-${cls}.glb`;
+        const file = `lp5-${p.handle}-${color}-${cls}.glb`;
         const r = await buildGlb({ outPath: resolve(OUT, file), artworkJpeg: art, labelPng: label, color, classKey: cls, orientation });
         entry.glbs.push({ file, color, cls, bytes: r.bytes });
       }
     }
-    // Mockups aus dem Default-Klasse-GLB (schwarz)
-    const defGlb = resolve(OUT, `lp4-${p.handle}-black-${entry.default}.glb`);
-    const mocks = await composeMockups(defGlb, p.handle, orientation);
-    entry.mockups = mocks.map(f => f.split('/').pop());
+    if (NO_MOCKUPS) {
+      entry.mockups = (manifest[p.handle] && manifest[p.handle].mockups) || [];
+    } else {
+      const defGlb = resolve(OUT, `lp5-${p.handle}-black-${entry.default}.glb`);
+      const mocks = await composeMockups(defGlb, p.handle, orientation);
+      entry.mockups = mocks.map(f => f.split('/').pop());
+    }
     entry.status = 'built';
     manifest[p.handle] = entry;
     save();

@@ -14,11 +14,14 @@
 
     <a
       class="lp-scrollshow__poster"
+      {%- if section.settings.image != blank %} style="aspect-ratio: {{ section.settings.image.aspect_ratio }}"{% endif -%}
       {% if sp != blank %}href="{{ sp.url }}"{% endif %}
       aria-label="{{ sp.title | default: 'Poster' | escape }}"
     >
       <span class="lp-scrollshow__frame">
-        {%- if sp != blank and sp.featured_image != blank -%}
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', class: 'lp-scrollshow__img' }}
+        {%- elsif sp != blank and sp.featured_image != blank -%}
           {{ sp.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', class: 'lp-scrollshow__img' }}
         {%- else -%}
           {{ 'product-1' | placeholder_svg_tag: 'lp-scrollshow__img' }}
@@ -195,6 +198,7 @@
   "name": "Scroll-Showcase",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
+    { "type": "image_picker", "id": "image", "label": "Bild (überschreibt Produktbild)" },
     { "type": "product", "id": "product", "label": "Poster" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "NEW DROP" },
     { "type": "text", "id": "heading", "label": "Überschrift", "default": "Ein Motiv. Deine Wand." },

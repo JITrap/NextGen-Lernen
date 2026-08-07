@@ -30,7 +30,7 @@ export function classForSize(wIn, hIn) {
 
 // ---------- texture bakes ----------
 
-export async function bakeArtwork(srcBuffer, artRect, classKey, orientation, { texMax = 4096, quality = 87 } = {}) {
+export async function bakeArtwork(srcBuffer, artRect, classKey, orientation, { texMax = 2048, quality = 82 } = {}) {
   const { aspect } = CLASSES[classKey];
   const target = orientation === 'landscape' ? 1 / aspect : aspect; // W/H
   const cw = artRect.x1 - artRect.x0, ch = artRect.y1 - artRect.y0;
@@ -59,7 +59,7 @@ export function bakeLabel(title) {
   <text x="256" y="86" text-anchor="middle" font-family="Space Grotesk" font-size="44" letter-spacing="6" fill="#0B0B0C">LIMITLESSPOSTER</text>
   <rect x="96" y="112" width="320" height="3" fill="#3157FF"/>
   <text x="256" y="162" text-anchor="middle" font-family="Space Grotesk" font-size="26" fill="#0B0B0C">${short}</text>
-  <text x="256" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="20" letter-spacing="2" fill="#55575C">limitlessposter.com · Printed in EU</text>
+  <text x="256" y="216" text-anchor="middle" font-family="Space Grotesk" font-size="20" letter-spacing="2" fill="#55575C">limitlessposter.com</text>
 </svg>`;
   const r = new Resvg(svg, {
     font: { fontFiles: [resolve(ROOT, 'fonts/SpaceGrotesk.ttf')], loadSystemFonts: true, defaultFontFamily: 'Space Grotesk' },
