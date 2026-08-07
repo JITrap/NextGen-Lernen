@@ -13,7 +13,8 @@ const P3D = resolve(ROOT, '../poster3d-v4');
 export async function renderPosterPng(glbPath, orientation = 'portrait') {
   const html = `<!doctype html><html><head><meta charset="utf-8">
 <script type="module" src="/vendor-model-viewer.min.js"></script>
-<style>html,body{margin:0;background:transparent}model-viewer{width:1400px;height:1400px;--poster-color:transparent;background:transparent}</style>
+<style>html,body{margin:0;background:transparent}model-viewer{width:1400px;height:1400px;--poster-color:transparent;background:transparent}
+model-viewer::part(default-progress-bar),model-viewer::part(default-progress-mask){display:none}</style>
 </head><body>
 <model-viewer id="mv" src="/GLB" environment-image="/shared/studio.hdr" tone-mapping="neutral" exposure="1.02"
   shadow-intensity="0" camera-orbit="0deg 88deg 102%" interaction-prompt="none" disable-zoom></model-viewer>
@@ -36,7 +37,7 @@ export async function renderPosterPng(glbPath, orientation = 'portrait') {
   await page.evaluate(() => window.mvReady);
   const buf = await page.screenshot({ omitBackground: true });
   await browser.close(); server.close();
-  return sharp(buf).trim().png().toBuffer();
+  return sharp(buf).trim({ threshold: 25 }).png().toBuffer();
 }
 
 export async function composeMockups(glbPath, handle, orientation = 'portrait') {
