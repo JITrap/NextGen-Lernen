@@ -1,0 +1,3182 @@
+{
+ "all-or-nothing-soccer-poster-framed-vertical-sports-print": {
+  "handle": "all-or-nothing-soccer-poster-framed-vertical-sports-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "become-unstoppable-framed-poster-motivational-sports-wall-art": {
+  "handle": "become-unstoppable-framed-poster-motivational-sports-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.0084
+  ],
+  "suspect": true
+ },
+ "believe-in-yourself-poster-motivational-sports-trophy-wall-art": {
+  "handle": "believe-in-yourself-poster-motivational-sports-trophy-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "black-doberman-among-sheep-poster-monochrome-animal-wall-art": {
+  "handle": "black-doberman-among-sheep-poster-monochrome-animal-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8625
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0084
+  ],
+  "suspect": false
+ },
+ "class-intensity-grit-tennis-framed-poster": {
+  "handle": "class-intensity-grit-tennis-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.21375,
+   0.1375,
+   0.79,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.015,
+   0.0097,
+   0.0115,
+   0.087
+  ],
+  "suspect": true
+ },
+ "discipline-motivational-poster-gym-wall-art": {
+  "handle": "discipline-motivational-poster-gym-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "discipline-soccer-poster-motivational-framed-sports-wall-art": {
+  "handle": "discipline-soccer-poster-motivational-framed-sports-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.2125,
+   0.19875,
+   0.79125,
+   0.8
+  ],
+  "flags": [
+   "aspect",
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0134,
+   0.0867,
+   0.01,
+   0.087
+  ],
+  "suspect": true
+ },
+ "dont-quit-framed-poster-minimal-motivational-wall-art": {
+  "handle": "dont-quit-framed-poster-minimal-motivational-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "dressage-horse-poster-equestrian-art-print-vertical-framed": {
+  "handle": "dressage-horse-poster-equestrian-art-print-vertical-framed",
+  "framed_source": true,
+  "crop_rel": [
+   0.2525,
+   0.1225,
+   0.74875,
+   0.8775
+  ],
+  "flags": [],
+  "bbox": [
+   230,
+   102,
+   770,
+   897
+  ],
+  "expected_rel": [
+   0.2578,
+   0.1298,
+   0.7422,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0067,
+   0.0092,
+   0.0083,
+   0.0105
+  ],
+  "suspect": false
+ },
+ "ferrari-scuderia-formula-1-vertical-framed-poster": {
+  "handle": "ferrari-scuderia-formula-1-vertical-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.13625,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0081,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "floral-motivational-poster-your-only-limit-is-your-mind-vertical-framed-art": {
+  "handle": "floral-motivational-poster-your-only-limit-is-your-mind-vertical-framed-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "focus-framed-poster-motivational-gym-wall-art": {
+  "handle": "focus-framed-poster-motivational-gym-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.22,
+   0.29,
+   0.78,
+   0.70875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.1132,
+   0.1132,
+   0.1132,
+   0.1136
+  ],
+  "suspect": true
+ },
+ "framed-black-white-portrait-poster-minimalist-signed-headshot-art": {
+  "handle": "framed-black-white-portrait-poster-minimalist-signed-headshot-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "framed-football-legends-poster-neymar-cristiano-messi-trio-print": {
+  "handle": "framed-football-legends-poster-neymar-cristiano-messi-trio-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.1375,
+   0.20625,
+   0.86375,
+   0.79125
+  ],
+  "flags": [],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0096,
+   0.008,
+   0.008,
+   0.0099
+  ],
+  "suspect": false
+ },
+ "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy": {
+  "handle": "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.14,
+   0.79125,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0128,
+   0.01,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-portrait-poster-minimal-black-white-signature-art": {
+  "handle": "framed-portrait-poster-minimal-black-white-signature-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art": {
+  "handle": "framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "framed-poster-aerial-yacht-wake-ocean-print": {
+  "handle": "framed-poster-aerial-yacht-wake-ocean-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-be-different-michael-jordan-basketball-print": {
+  "handle": "framed-poster-be-different-michael-jordan-basketball-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.1475,
+   0.29,
+   0.8575,
+   0.79
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0222,
+   0.1132,
+   0.0159,
+   0.0115
+  ],
+  "suspect": true
+ },
+ "framed-poster-bold-red-graffiti-portrait": {
+  "handle": "framed-poster-bold-red-graffiti-portrait",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "framed-poster-crystal-gloved-hand-ok-sign-wall-art": {
+  "handle": "framed-poster-crystal-gloved-hand-ok-sign-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art": {
+  "handle": "framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "framed-poster-ferrari-and-white-stallion-art-print": {
+  "handle": "framed-poster-ferrari-and-white-stallion-art-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-focus-on-you-black-panther-wall-art-vertical": {
+  "handle": "framed-poster-focus-on-you-black-panther-wall-art-vertical",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art": {
+  "handle": "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.2425,
+   0.18625,
+   0.79,
+   0.8625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0512,
+   0.071,
+   0.0115,
+   0.0084
+  ],
+  "suspect": true
+ },
+ "framed-poster-its-more-than-football-soccer-team-wall-art": {
+  "handle": "framed-poster-its-more-than-football-soccer-team-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-just-do-some-creative-shits-bold-typographic-art-print": {
+  "handle": "framed-poster-just-do-some-creative-shits-bold-typographic-art-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.2125,
+   0.14125,
+   0.79,
+   0.86125
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0134,
+   0.0144,
+   0.0115,
+   0.01
+  ],
+  "suspect": false
+ },
+ "framed-poster-messi-black-white-portrait-wall-art": {
+  "handle": "framed-poster-messi-black-white-portrait-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.1375,
+   0.2075,
+   0.86375,
+   0.79125
+  ],
+  "flags": [],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0096,
+   0.0096,
+   0.008,
+   0.0099
+  ],
+  "suspect": false
+ },
+ "framed-poster-never-forgetting-where-we-came-from-space-surfer-print": {
+  "handle": "framed-poster-never-forgetting-where-we-came-from-space-surfer-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-no-risk-no-story-basketball-art-print": {
+  "handle": "framed-poster-no-risk-no-story-basketball-art-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27625,
+   0.1975,
+   0.72375,
+   0.8475
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   183,
+   104,
+   817,
+   893
+  ],
+  "expected_rel": [
+   0.2106,
+   0.1316,
+   0.7894,
+   0.8654
+  ],
+  "edge_dev": [
+   0.0832,
+   0.0835,
+   0.0832,
+   0.0227
+  ],
+  "suspect": true
+ },
+ "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art": {
+  "handle": "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art": {
+  "handle": "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.21125,
+   0.13625,
+   0.7375,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0119,
+   0.0081,
+   0.0776,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-the-perfect-time-never-comes-motivational-wall-art": {
+  "handle": "framed-poster-the-perfect-time-never-comes-motivational-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-the-world-is-yours-motivational-wall-art": {
+  "handle": "framed-poster-the-world-is-yours-motivational-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-the-world-rewards-action-motivational-space-wall-art": {
+  "handle": "framed-poster-the-world-rewards-action-motivational-space-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.2075,
+   0.7725,
+   0.78875
+  ],
+  "flags": [
+   "aspect",
+   "bbox-dev"
+  ],
+  "bbox": [
+   222,
+   127,
+   777,
+   871
+  ],
+  "expected_rel": [
+   0.248,
+   0.153,
+   0.751,
+   0.845
+  ],
+  "edge_dev": [
+   0.031,
+   0.0732,
+   0.029,
+   0.0756
+  ],
+  "suspect": true
+ },
+ "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait": {
+  "handle": "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait",
+  "framed_source": true,
+  "crop_rel": [
+   0.15125,
+   0.21125,
+   0.86125,
+   0.70875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0269,
+   0.0143,
+   0.0112,
+   0.1136
+  ],
+  "suspect": true
+ },
+ "framed-poster-watching-eyes-money-tear-wall-art-horizontal": {
+  "handle": "framed-poster-watching-eyes-money-tear-wall-art-horizontal",
+  "framed_source": true,
+  "crop_rel": [
+   0.1375,
+   0.20625,
+   0.86375,
+   0.79125
+  ],
+  "flags": [],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0096,
+   0.008,
+   0.008,
+   0.0099
+  ],
+  "suspect": false
+ },
+ "framed-poster-whatever-it-takes-motivational-portrait-wall-art": {
+  "handle": "framed-poster-whatever-it-takes-motivational-portrait-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art": {
+  "handle": "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "framed-poster-you-can-always-be-better-golf-wall-art": {
+  "handle": "framed-poster-you-can-always-be-better-golf-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.285,
+   0.19,
+   0.77625,
+   0.80875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   197,
+   102,
+   803,
+   897
+  ],
+  "expected_rel": [
+   0.2248,
+   0.1298,
+   0.7752,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0757,
+   0.0757,
+   0.0014,
+   0.076
+  ],
+  "suspect": true
+ },
+ "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art": {
+  "handle": "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8275
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0524
+  ],
+  "suspect": true
+ },
+ "get-up-we-aint-rich-yet-motivational-wall-poster": {
+  "handle": "get-up-we-aint-rich-yet-motivational-wall-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8625
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0084
+  ],
+  "suspect": false
+ },
+ "go-get-that-dream-leopard-poster": {
+  "handle": "go-get-that-dream-leopard-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "goat-framed-poster-vintage-sports-portrait-wall-art": {
+  "handle": "goat-framed-poster-vintage-sports-portrait-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.85
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.0241
+  ],
+  "suspect": true
+ },
+ "horizontal-framed-poster": {
+  "handle": "horizontal-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.22,
+   0.29,
+   0.8625,
+   0.74125
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.1132,
+   0.1132,
+   0.0096,
+   0.0727
+  ],
+  "suspect": true
+ },
+ "in-god-we-trust-basketball-poster": {
+  "handle": "in-god-we-trust-basketball-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8475
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.0273
+  ],
+  "suspect": true
+ },
+ "inspirational-racing-poster-they-overlooked-me-god-didn-t-vertical-framed-print": {
+  "handle": "inspirational-racing-poster-they-overlooked-me-god-didn-t-vertical-framed-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.13,
+   0.77375,
+   0.8675
+  ],
+  "flags": [],
+  "bbox": [
+   197,
+   102,
+   803,
+   897
+  ],
+  "expected_rel": [
+   0.2248,
+   0.1298,
+   0.7752,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0002,
+   0.0002,
+   0.0018,
+   0.0021
+  ],
+  "suspect": false
+ },
+ "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print": {
+  "handle": "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "jesus-headband-poster-black-white-signed-athlete-portrait-wall-art": {
+  "handle": "jesus-headband-poster-black-white-signed-athlete-portrait-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "just-do-it-aviation-framed-poster": {
+  "handle": "just-do-it-aviation-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.21,
+   0.1575,
+   0.79125,
+   0.8
+  ],
+  "flags": [
+   "aspect",
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0103,
+   0.0348,
+   0.01,
+   0.087
+  ],
+  "suspect": true
+ },
+ "la-dolce-vita-framed-poster-italian-phrase-wall-art": {
+  "handle": "la-dolce-vita-framed-poster-italian-phrase-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "leopard-on-branch-black-white-framed-poster": {
+  "handle": "leopard-on-branch-black-white-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.14125,
+   0.2075,
+   0.78,
+   0.79125
+  ],
+  "flags": [
+   "aspect",
+   "bbox-dev"
+  ],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0143,
+   0.0096,
+   0.1132,
+   0.0099
+  ],
+  "suspect": true
+ },
+ "leopard-on-branch-framed-poster-minimalist-wildlife-wall-art": {
+  "handle": "leopard-on-branch-framed-poster-minimalist-wildlife-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8625
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0084
+  ],
+  "suspect": false
+ },
+ "marlboro-f1-racing-car-poster-horizontal-framed-print": {
+  "handle": "marlboro-f1-racing-car-poster-horizontal-framed-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.22,
+   0.29,
+   0.78,
+   0.73875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.1132,
+   0.1132,
+   0.1132,
+   0.0759
+  ],
+  "suspect": true
+ },
+ "messi-make-them-wonder-soccer-poster": {
+  "handle": "messi-make-them-wonder-soccer-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.13,
+   0.695,
+   0.78875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   222,
+   127,
+   777,
+   871
+  ],
+  "expected_rel": [
+   0.248,
+   0.153,
+   0.751,
+   0.845
+  ],
+  "edge_dev": [
+   0.031,
+   0.031,
+   0.0752,
+   0.0756
+  ],
+  "suspect": true
+ },
+ "money-follows-value-framed-poster-motivational-office-wall-art": {
+  "handle": "money-follows-value-framed-poster-motivational-office-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.21125,
+   0.14375,
+   0.70875,
+   0.86
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   203,
+   132,
+   795,
+   866
+  ],
+  "expected_rel": [
+   0.2287,
+   0.1577,
+   0.7693,
+   0.8403
+  ],
+  "edge_dev": [
+   0.0238,
+   0.019,
+   0.0825,
+   0.0268
+  ],
+  "suspect": true
+ },
+ "money-talks-framed-poster-benjamin-franklin-eye-art-print": {
+  "handle": "money-talks-framed-poster-benjamin-franklin-eye-art-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "monochrome-soccer-poster-black-white-framed-player-print": {
+  "handle": "monochrome-soccer-poster-black-white-framed-player-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.285,
+   0.19,
+   0.715,
+   0.8675
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   197,
+   102,
+   803,
+   897
+  ],
+  "expected_rel": [
+   0.2248,
+   0.1298,
+   0.7752,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0757,
+   0.0757,
+   0.0757,
+   0.0021
+  ],
+  "suspect": true
+ },
+ "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art": {
+  "handle": "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.13,
+   0.695,
+   0.78875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   222,
+   127,
+   777,
+   871
+  ],
+  "expected_rel": [
+   0.248,
+   0.153,
+   0.751,
+   0.845
+  ],
+  "edge_dev": [
+   0.031,
+   0.031,
+   0.0752,
+   0.0756
+  ],
+  "suspect": true
+ },
+ "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art": {
+  "handle": "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.2125,
+   0.13875,
+   0.79125,
+   0.8625
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0134,
+   0.0112,
+   0.01,
+   0.0084
+  ],
+  "suspect": false
+ },
+ "motivational-framed-poster-its-not-over-until-i-win": {
+  "handle": "motivational-framed-poster-its-not-over-until-i-win",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.86
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.0115
+  ],
+  "suspect": true
+ },
+ "motivational-framed-poster-the-only-limit-is-your-mind-black-white-wall-art": {
+  "handle": "motivational-framed-poster-the-only-limit-is-your-mind-black-white-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print": {
+  "handle": "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.23875,
+   0.19,
+   0.77375,
+   0.83625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   197,
+   102,
+   803,
+   897
+  ],
+  "expected_rel": [
+   0.2248,
+   0.1298,
+   0.7752,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0175,
+   0.0757,
+   0.0018,
+   0.0414
+  ],
+  "suspect": true
+ },
+ "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art": {
+  "handle": "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "motivational-poster-i-always-win-vertical-framed-wall-art": {
+  "handle": "motivational-poster-i-always-win-vertical-framed-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "motivational-poster-it-s-never-too-late-to-lock-in-black-white-portrait-art": {
+  "handle": "motivational-poster-it-s-never-too-late-to-lock-in-black-white-portrait-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "motivational-poster-no-excuses-just-results-vertical-wall-art": {
+  "handle": "motivational-poster-no-excuses-just-results-vertical-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.19875,
+   0.7925,
+   0.8
+  ],
+  "flags": [
+   "aspect",
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0867,
+   0.0084,
+   0.087
+  ],
+  "suspect": true
+ },
+ "motivational-poster-set-your-own-standard-vertical-framed-art": {
+  "handle": "motivational-poster-set-your-own-standard-vertical-framed-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office": {
+  "handle": "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8175
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.065
+  ],
+  "suspect": true
+ },
+ "motivational-quote-vertical-framed-poster-black-text-on-white-canvas": {
+  "handle": "motivational-quote-vertical-framed-poster-black-text-on-white-canvas",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86375
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0068
+  ],
+  "suspect": false
+ },
+ "motivational-soccer-poster-do-it-alone-framed-wall-art": {
+  "handle": "motivational-soccer-poster-do-it-alone-framed-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.23875,
+   0.1325,
+   0.77,
+   0.84375
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   197,
+   102,
+   803,
+   897
+  ],
+  "expected_rel": [
+   0.2248,
+   0.1298,
+   0.7752,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0175,
+   0.0034,
+   0.0065,
+   0.032
+  ],
+  "suspect": true
+ },
+ "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster": {
+  "handle": "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.19875,
+   0.7925,
+   0.8
+  ],
+  "flags": [
+   "aspect",
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0867,
+   0.0084,
+   0.087
+  ],
+  "suspect": true
+ },
+ "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print": {
+  "handle": "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.13,
+   0.695,
+   0.78875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   222,
+   127,
+   777,
+   871
+  ],
+  "expected_rel": [
+   0.248,
+   0.153,
+   0.751,
+   0.845
+  ],
+  "edge_dev": [
+   0.031,
+   0.031,
+   0.0752,
+   0.0756
+  ],
+  "suspect": true
+ },
+ "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art": {
+  "handle": "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.79125,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.01,
+   0.087
+  ],
+  "suspect": true
+ },
+ "no-risk-no-story-poster-whimsical-baby-photo-wall-art": {
+  "handle": "no-risk-no-story-poster-whimsical-baby-photo-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8625
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0084
+  ],
+  "suspect": false
+ },
+ "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print": {
+  "handle": "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "poster-i-win-thats-what-i-do-motivational-photo-wall-art": {
+  "handle": "poster-i-win-thats-what-i-do-motivational-photo-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.0084
+  ],
+  "suspect": true
+ },
+ "poster-motivational-soccer-print-your-dreams-need-you": {
+  "handle": "poster-motivational-soccer-print-your-dreams-need-you",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.82625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.054
+  ],
+  "suspect": true
+ },
+ "poster-surreal-horse-vintage-car-art-print": {
+  "handle": "poster-surreal-horse-vintage-car-art-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.0084
+  ],
+  "suspect": true
+ },
+ "poster-the-goal-never-moves-soccer-wall-art": {
+  "handle": "poster-the-goal-never-moves-soccer-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art": {
+  "handle": "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.2125,
+   0.1375,
+   0.75875,
+   0.83125
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0134,
+   0.0097,
+   0.0508,
+   0.0477
+  ],
+  "suspect": true
+ },
+ "race-track-art-poster-framed-vertical-print-with-formula-car-loop-design": {
+  "handle": "race-track-art-poster-framed-vertical-print-with-formula-car-loop-design",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.86125
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.01
+  ],
+  "suspect": false
+ },
+ "racing-poster-no-risk-no-story-framed-motorsport-wall-art": {
+  "handle": "racing-poster-no-risk-no-story-framed-motorsport-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.21,
+   0.13625,
+   0.73,
+   0.8625
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0103,
+   0.0081,
+   0.087,
+   0.0084
+  ],
+  "suspect": true
+ },
+ "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print": {
+  "handle": "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "red-icon-music-poster": {
+  "handle": "red-icon-music-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.215,
+   0.1425,
+   0.79,
+   0.86
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0166,
+   0.0159,
+   0.0115,
+   0.0115
+  ],
+  "suspect": false
+ },
+ "roaring-jaguar-floral-poster": {
+  "handle": "roaring-jaguar-floral-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.83375
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0446
+  ],
+  "suspect": true
+ },
+ "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster": {
+  "handle": "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.86125
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.01
+  ],
+  "suspect": true
+ },
+ "self-respect-framed-poster-vintage-godfather-quote-wall-art": {
+  "handle": "self-respect-framed-poster-vintage-godfather-quote-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed": {
+  "handle": "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.13,
+   0.695,
+   0.78875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   222,
+   127,
+   777,
+   871
+  ],
+  "expected_rel": [
+   0.248,
+   0.153,
+   0.751,
+   0.845
+  ],
+  "edge_dev": [
+   0.031,
+   0.031,
+   0.0752,
+   0.0756
+  ],
+  "suspect": true
+ },
+ "swan-lake-framed-art-print-serene-watercolor-swan-poster": {
+  "handle": "swan-lake-framed-art-print-serene-watercolor-swan-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8625
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.0084
+  ],
+  "suspect": false
+ },
+ "tennis-court-framed-poster-aerial-green-court-art-print": {
+  "handle": "tennis-court-framed-poster-aerial-green-court-art-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.21,
+   0.13875,
+   0.79,
+   0.86125
+  ],
+  "flags": [],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0103,
+   0.0112,
+   0.0115,
+   0.01
+  ],
+  "suspect": false
+ },
+ "tennis-court-framed-poster-aerial-tennis-match-wall-art": {
+  "handle": "tennis-court-framed-poster-aerial-tennis-match-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.1425,
+   0.20875,
+   0.8625,
+   0.78875
+  ],
+  "flags": [],
+  "bbox": [
+   102,
+   172,
+   898,
+   827
+  ],
+  "expected_rel": [
+   0.1299,
+   0.1999,
+   0.8701,
+   0.7991
+  ],
+  "edge_dev": [
+   0.0159,
+   0.0112,
+   0.0096,
+   0.0131
+  ],
+  "suspect": false
+ },
+ "they-doubt-me-i-deliver": {
+  "handle": "they-doubt-me-i-deliver",
+  "framed_source": true,
+  "crop_rel": [
+   0.29,
+   0.1925,
+   0.71,
+   0.805
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   204,
+   106,
+   796,
+   892
+  ],
+  "expected_rel": [
+   0.2315,
+   0.1335,
+   0.7685,
+   0.8645
+  ],
+  "edge_dev": [
+   0.0744,
+   0.0751,
+   0.0744,
+   0.0757
+  ],
+  "suspect": true
+ },
+ "trust-god-poster": {
+  "handle": "trust-god-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "vertical-poster-fuck-them-all-street-art-money-throwing-print": {
+  "handle": "vertical-poster-fuck-them-all-street-art-money-throwing-print",
+  "framed_source": true,
+  "crop_rel": [
+   0.21125,
+   0.1425,
+   0.76375,
+   0.86125
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0119,
+   0.0159,
+   0.0446,
+   0.01
+  ],
+  "suspect": true
+ },
+ "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art": {
+  "handle": "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.225,
+   0.1325,
+   0.695,
+   0.78875
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   222,
+   127,
+   777,
+   871
+  ],
+  "expected_rel": [
+   0.248,
+   0.153,
+   0.751,
+   0.845
+  ],
+  "edge_dev": [
+   0.031,
+   0.0276,
+   0.0752,
+   0.0756
+  ],
+  "suspect": true
+ },
+ "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours": {
+  "handle": "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.7925,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.0084,
+   0.087
+  ],
+  "suspect": true
+ },
+ "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art": {
+  "handle": "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.19875,
+   0.73,
+   0.86375
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0867,
+   0.087,
+   0.0068
+  ],
+  "suspect": true
+ },
+ "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor": {
+  "handle": "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor",
+  "framed_source": true,
+  "crop_rel": [
+   0.20875,
+   0.13625,
+   0.73,
+   0.86375
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0087,
+   0.0081,
+   0.087,
+   0.0068
+  ],
+  "suspect": true
+ },
+ "whatever-it-takes-framed-poster-motivational-bedroom-wall-art": {
+  "handle": "whatever-it-takes-framed-poster-motivational-bedroom-wall-art",
+  "framed_source": true,
+  "crop_rel": [
+   0.27,
+   0.19875,
+   0.73,
+   0.8
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   174,
+   102,
+   827,
+   897
+  ],
+  "expected_rel": [
+   0.2018,
+   0.1298,
+   0.7992,
+   0.8692
+  ],
+  "edge_dev": [
+   0.0858,
+   0.0867,
+   0.087,
+   0.087
+  ],
+  "suspect": true
+ },
+ "wimbledon-tennis-court-framed-poster": {
+  "handle": "wimbledon-tennis-court-framed-poster",
+  "framed_source": true,
+  "crop_rel": [
+   0.13625,
+   0.31,
+   0.75875,
+   0.715
+  ],
+  "flags": [
+   "bbox-dev"
+  ],
+  "bbox": [
+   132,
+   202,
+   867,
+   796
+  ],
+  "expected_rel": [
+   0.1577,
+   0.2277,
+   0.8413,
+   0.7703
+  ],
+  "edge_dev": [
+   0.0292,
+   0.1119,
+   0.1123,
+   0.0752
+  ],
+  "suspect": true
+ }
+}

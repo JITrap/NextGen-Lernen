@@ -1,0 +1,14 @@
+{% comment %}
+  LimitlessPoster: Horizon-Galerie ersetzt durch die Displate-Style-Galerie
+  (3D zuerst, Thumbnail-Rail, Detail-Tour). Original-Implementierung liegt
+  in der Theme-Historie (product-media-gallery-content).
+{% endcomment %}
+{% render 'limitless-gallery', product: closest.product %}
+
+{% schema %}
+{
+  "name": "t:names.product_media",
+  "tag": null,
+  "settings": []
+}
+{% endschema %}
