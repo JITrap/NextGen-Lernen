@@ -168,7 +168,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Kostenloser Versand ab 50 €</p>",
+            "text": "<p>Kostenloser Versand in DE &amp; EU</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
