@@ -47,7 +47,7 @@
  "motivational-quote-vertical-framed-poster-black-text-on-white-canvas": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-quote-vertical-framed-poster-black-text-on-white-canvas-wohnbeispiel.jpg",
    "motivational-quote-vertical-framed-poster-black-text-on-white-canvas-studio.jpg"
@@ -865,8 +865,8 @@
  },
  "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print-wohnbeispiel.jpg",
    "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print-studio.jpg"
@@ -874,8 +874,8 @@
  },
  "racing-poster-no-risk-no-story-framed-motorsport-wall-art": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "racing-poster-no-risk-no-story-framed-motorsport-wall-art-wohnbeispiel.jpg",
    "racing-poster-no-risk-no-story-framed-motorsport-wall-art-studio.jpg"
@@ -884,7 +884,7 @@
  "get-up-we-aint-rich-yet-motivational-wall-poster": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "get-up-we-aint-rich-yet-motivational-wall-poster-wohnbeispiel.jpg",
    "get-up-we-aint-rich-yet-motivational-wall-poster-studio.jpg"
@@ -893,7 +893,7 @@
  "framed-poster-the-perfect-time-never-comes-motivational-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-the-perfect-time-never-comes-motivational-wall-art-wohnbeispiel.jpg",
    "framed-poster-the-perfect-time-never-comes-motivational-wall-art-studio.jpg"
@@ -901,8 +901,8 @@
  },
  "they-doubt-me-i-deliver": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "they-doubt-me-i-deliver-wohnbeispiel.jpg",
    "they-doubt-me-i-deliver-studio.jpg"
