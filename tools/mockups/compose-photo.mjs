@@ -122,7 +122,7 @@ for (const p of queue) {
     const pm = await sharp(posterBuf).metadata();
     const ratio = pm.width / pm.height;
     const primary = resolveScene(handleScene.get(p.handle) || FALLBACK_SCENE, ratio);
-    let second = primary === 'living-minimal' ? 'office' : 'living-minimal';
+    let second = primary === 'living-cozy' ? 'living-minimal' : 'living-cozy';
     second = resolveScene(second, ratio);
     const outA = resolve(OUT, `${p.handle}-wohnbeispiel.jpg`);
     const outB = resolve(OUT, `${p.handle}-studio.jpg`);

@@ -20,11 +20,11 @@ const ovPath = resolve(ROOT, '../poster3d-v4/out/overrides.json');
 const overrides = existsSync(ovPath) ? JSON.parse(readFileSync(ovPath, 'utf8')) : {};
 
 const CATS = [
-  { handle: 'new-drop', hero: 'they-doubt-me-i-deliver', eyebrow: 'DIE NEUESTEN MOTIVE', name: 'NEW DROP', index: '01' },
+  { handle: 'new-drop', hero: 'framed-poster-focus-on-you-black-panther-wall-art-vertical', eyebrow: 'DIE NEUESTEN MOTIVE', name: 'NEW DROP', index: '01' },
   { handle: 'apex-motorsport-cars', hero: 'ferrari-scuderia-formula-1-vertical-framed-poster', eyebrow: 'MOTORSPORT & CARS', name: 'APEX', index: '02' },
   { handle: 'grit-boxing-mma', hero: 'sacrifice-today-own-tomorrow-framed-motivational-boxing-poster', eyebrow: 'BOXING & MMA', name: 'GRIT', index: '03' },
   { handle: 'legends-sports-icons', hero: 'framed-poster-messi-black-white-portrait-wall-art', eyebrow: 'SPORTS ICONS', name: 'LEGENDS', index: '04' },
-  { handle: 'mindset-words-ambition', hero: 'motivational-quote-vertical-framed-poster-black-text-on-white-canvas', eyebrow: 'WORDS & AMBITION', name: 'MINDSET', index: '05' },
+  { handle: 'mindset-words-ambition', hero: 'motivational-poster-no-excuses-just-results-vertical-wall-art', eyebrow: 'WORDS & AMBITION', name: 'MINDSET', index: '05' },
   { handle: 'still-quiet-luxury', hero: 'leopard-on-branch-framed-poster-minimalist-wildlife-wall-art', eyebrow: 'QUIET LUXURY', name: 'STILL', index: '06' },
   { handle: 'heritage-timeless-classics', hero: 'no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art', eyebrow: 'TIMELESS CLASSICS', name: 'HERITAGE', index: '07' },
   { handle: 'icons-music-culture', hero: 'framed-poster-crystal-gloved-hand-ok-sign-wall-art', eyebrow: 'MUSIC & CULTURE', name: 'ICONS', index: '08' },

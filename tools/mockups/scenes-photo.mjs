@@ -4,20 +4,17 @@
    slope kippt Ober-/Unterkante, taper verjüngt die ferne Kante. */
 
 export const SCENES = {
-  'living-warm': {
-    file: 'rooms/living-warm.jpg',
-    // Ersetzt den vorhandenen Rahmen an der Wand: Quad muss ihn überdecken.
-    mode: 'cover',
-    rect: { x0: 985, y0: 385, x1: 1305, y1: 805 },
-    margin: 14,
+  'living-cozy': {
+    file: 'rooms-frontal/living-cozy.jpg',
+    mode: 'bottom', cx: 895, bottomY: 1290, ppm: 410,
+    wPortrait: 0.75, wLandscape: 1.0,
     slope: 0, taper: 0,
-    light: 'brightness(0.97)',
-    shadow: '0 14px 26px rgba(11,11,12,0.30)',
+    light: 'brightness(1.0)',
+    shadow: '0 14px 26px rgba(60,45,30,0.30)',
   },
   office: {
     file: 'rooms/office.jpg',
-    mode: 'top',                       // Oberkante fix (deckt den mittleren Bestandsrahmen ab)
-    cx: 1100, topY: 228, ppm: 870,
+    mode: 'top', cx: 1100, topY: 228, ppm: 870,
     wPortrait: 0.47, wLandscape: 0.66,
     slope: 0, taper: 0,
     light: 'brightness(1.0)',
@@ -25,39 +22,45 @@ export const SCENES = {
   },
   'living-minimal': {
     file: 'rooms/living-minimal.jpg',
-    mode: 'bottom',                    // Unterkante fix über dem Sofa
-    cx: 1450, bottomY: 555, ppm: 590,
+    mode: 'bottom', cx: 1450, bottomY: 555, ppm: 590,
     wPortrait: 0.55, wLandscape: 0.85,
     slope: 0, taper: 0,
     light: 'brightness(1.0)',
     shadow: '0 14px 26px rgba(11,11,12,0.24)',
   },
-  gym: {
-    file: 'rooms/gym.jpg',
-    mode: 'center',
-    cx: 1080, cy: 570, ppm: 300,
-    wPortrait: 0.57, wLandscape: 0.66,
-    slope: 0.02, taper: 0.0002,
-    light: 'brightness(0.96)',
-    shadow: '0 10px 20px rgba(11,11,12,0.30)',
-  },
-  loft: {
-    file: 'rooms/loft.jpg',
-    mode: 'bottom',
-    cx: 1360, bottomY: 1860, ppm: 450,
-    wPortrait: 0.70, wLandscape: 1.05,
+  'living-warm': {
+    file: 'rooms/living-warm.jpg',
+    mode: 'cover',
+    rect: { x0: 985, y0: 385, x1: 1305, y1: 805 },
+    margin: 14,
     slope: 0, taper: 0,
-    light: 'brightness(0.84) saturate(0.97)',
-    shadow: '0 18px 34px rgba(0,0,0,0.45)',
+    light: 'brightness(0.97)',
+    shadow: '0 14px 26px rgba(11,11,12,0.30)',
+  },
+  'gym-frontal': {
+    file: 'rooms-frontal/gym-frontal.jpg',
+    mode: 'cover',
+    rect: { x0: 129, y0: 838, x1: 492, y1: 1191 },
+    margin: 16,
+    slope: 0, taper: 0,
+    light: 'brightness(0.94)',
+    shadow: '0 12px 22px rgba(0,0,0,0.45)',
+  },
+  'loft-frontal': {
+    file: 'rooms-frontal/loft-frontal.jpg',
+    mode: 'center', cx: 775, cy: 335, ppm: 460,
+    wPortrait: 0.61, wLandscape: 1.0,
+    slope: 0, taper: 0,
+    light: 'brightness(0.92)',
+    shadow: '0 14px 26px rgba(0,0,0,0.5)',
   },
   'bedroom-feminine': {
-    file: 'rooms/bedroom-feminine.jpg',
-    mode: 'center',
-    cx: 535, cy: 600, ppm: 300,
-    wPortrait: 0.61, wLandscape: 0.61,  // Landscape wird ohnehin umgeleitet
-    slope: 0.02, taper: -0.0007,
-    light: 'brightness(1.04)',
-    shadow: '10px 12px 24px rgba(120,90,90,0.35)',
+    file: 'rooms-frontal/bedroom-feminine.jpg',
+    mode: 'bottom', cx: 1700, bottomY: 1100, ppm: 750,
+    wPortrait: 0.61, wLandscape: 0.61,
+    slope: 0, taper: 0,
+    light: 'brightness(1.03)',
+    shadow: '0 16px 30px rgba(90,70,60,0.28)',
   },
 };
 
@@ -96,24 +99,24 @@ export function quadFor(scene, ratio) {
 /* Kategorie→Szene. Priorität, falls ein Produkt in mehreren Kollektionen ist. */
 export const CATEGORY_SCENES = [
   ['queens-feminine-energy', 'bedroom-feminine'],
-  ['grit-boxing-mma', 'gym'],
-  ['apex-motorsport-cars', 'loft'],
-  ['icons-music-culture', 'loft'],
-  ['heritage-timeless-classics', 'living-warm'],
+  ['grit-boxing-mma', 'gym-frontal'],
+  ['apex-motorsport-cars', 'loft-frontal'],
+  ['icons-music-culture', 'loft-frontal'],
+  ['heritage-timeless-classics', 'living-cozy'],
   ['still-quiet-luxury', 'living-minimal'],
-  ['legends-sports-icons', 'gym'],
+  ['legends-sports-icons', 'gym-frontal'],
   ['mindset-words-ambition', 'office'],
-  ['film-series', 'loft'],
-  ['artists', 'loft'],
-  ['sports', 'gym'],
+  ['film-series', 'loft-frontal'],
+  ['artists', 'loft-frontal'],
+  ['sports', 'gym-frontal'],
   ['statements', 'office'],
   ['quotes', 'office'],
 ];
-export const FALLBACK_SCENE = 'living-warm';
+export const FALLBACK_SCENE = 'living-cozy';
 
 /* Sonderfälle: Szenen, die bestimmte Formate nicht tragen. */
 export function resolveScene(sceneKey, ratio) {
-  if (ratio >= 1 && sceneKey === 'bedroom-feminine') return 'living-minimal';
-  if (ratio >= 1 && sceneKey === 'gym') return 'loft';
+  if (ratio >= 1 && sceneKey === 'bedroom-feminine') return 'living-cozy';
+  if (ratio >= 1 && sceneKey === 'gym-frontal') return 'loft-frontal';
   return sceneKey;
 }

@@ -55,8 +55,8 @@
  },
  "horizontal-framed-poster": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "horizontal-framed-poster-wohnbeispiel.jpg",
    "horizontal-framed-poster-studio.jpg"
@@ -65,7 +65,7 @@
  "framed-poster-aerial-yacht-wake-ocean-print": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "framed-poster-aerial-yacht-wake-ocean-print-wohnbeispiel.jpg",
    "framed-poster-aerial-yacht-wake-ocean-print-studio.jpg"
@@ -74,7 +74,7 @@
  "framed-poster-the-world-rewards-action-motivational-space-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-the-world-rewards-action-motivational-space-wall-art-wohnbeispiel.jpg",
    "framed-poster-the-world-rewards-action-motivational-space-wall-art-studio.jpg"
@@ -82,8 +82,8 @@
  },
  "messi-make-them-wonder-soccer-poster": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "messi-make-them-wonder-soccer-poster-wohnbeispiel.jpg",
    "messi-make-them-wonder-soccer-poster-studio.jpg"
@@ -92,7 +92,7 @@
  "become-unstoppable-framed-poster-motivational-sports-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "become-unstoppable-framed-poster-motivational-sports-wall-art-wohnbeispiel.jpg",
    "become-unstoppable-framed-poster-motivational-sports-wall-art-studio.jpg"
@@ -100,8 +100,8 @@
  },
  "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-wohnbeispiel.jpg",
    "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-studio.jpg"
@@ -110,7 +110,7 @@
  "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-wohnbeispiel.jpg",
    "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-studio.jpg"
@@ -119,7 +119,7 @@
  "motivational-poster-set-your-own-standard-vertical-framed-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-poster-set-your-own-standard-vertical-framed-art-wohnbeispiel.jpg",
    "motivational-poster-set-your-own-standard-vertical-framed-art-studio.jpg"
@@ -127,8 +127,8 @@
  },
  "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-wohnbeispiel.jpg",
    "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-studio.jpg"
@@ -137,7 +137,7 @@
  "motivational-poster-no-excuses-just-results-vertical-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-poster-no-excuses-just-results-vertical-wall-art-wohnbeispiel.jpg",
    "motivational-poster-no-excuses-just-results-vertical-wall-art-studio.jpg"
@@ -146,7 +146,7 @@
  "money-follows-value-framed-poster-motivational-office-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "money-follows-value-framed-poster-motivational-office-wall-art-wohnbeispiel.jpg",
    "money-follows-value-framed-poster-motivational-office-wall-art-studio.jpg"
@@ -154,8 +154,8 @@
  },
  "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-wohnbeispiel.jpg",
    "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-studio.jpg"
@@ -164,7 +164,7 @@
  "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-wohnbeispiel.jpg",
    "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-studio.jpg"
@@ -172,8 +172,8 @@
  },
  "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-wohnbeispiel.jpg",
    "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-studio.jpg"
@@ -181,8 +181,8 @@
  },
  "poster-the-goal-never-moves-soccer-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "poster-the-goal-never-moves-soccer-wall-art-wohnbeispiel.jpg",
    "poster-the-goal-never-moves-soccer-wall-art-studio.jpg"
@@ -190,8 +190,8 @@
  },
  "poster-motivational-soccer-print-your-dreams-need-you": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "poster-motivational-soccer-print-your-dreams-need-you-wohnbeispiel.jpg",
    "poster-motivational-soccer-print-your-dreams-need-you-studio.jpg"
