@@ -111,7 +111,7 @@ export function buildGeometry(classKey, orientation) {
   const zBoard = -0.0095;                  // board back surface (recessed 1.5mm)
 
   const wood = new Bucket(), art = new Bucket(), glass = new Bucket(),
-    back = new Bucket(), metal = new Bucket(), label = new Bucket();
+    back = new Bucket(), metal = new Bucket(), label = new Bucket(), tape = new Bucket();
 
   const um = p => [(p[0] + ow) / (2 * ow), (p[1] + oh) / (2 * oh)]; // planar map
   const Q = (bkt, a, b, c, d) => bkt.quad(a, b, c, d, [um(a), um(b), um(c), um(d)]);
@@ -153,29 +153,48 @@ export function buildGeometry(classKey, orientation) {
   glass.quad([-iw, ih, zGlass], [-iw, -ih, zGlass], [iw, -ih, zGlass], [iw, ih, zGlass],
     [[0, 0], [0, 1], [1, 1], [1, 0]]);
 
-  // sawtooth hanger: plate + teeth, top-center of board, proud toward −Z
-  const hy = bh - 0.018, hw = 0.025, hh = 0.006, zH = zBoard - 0.002;
+  // Zwei schwarze Zackenaufhänger in den oberen Ecken (wie beim echten Produkt)
+  const hw = 0.016, hh = 0.0075, zH = zBoard - 0.002;
   const uv0 = [[0.1, 0.1], [0.1, 0.9], [0.9, 0.9], [0.9, 0.1]];
-  metal.quad([-hw, hy + hh, zH], [hw, hy + hh, zH], [hw, hy - hh, zH], [-hw, hy - hh, zH], uv0); // face −Z
-  // plate sides
-  metal.quad([-hw, hy + hh, zBoard], [-hw, hy + hh, zH], [hw, hy + hh, zH], [hw, hy + hh, zBoard], uv0);
-  metal.quad([-hw, hy - hh, zH], [-hw, hy - hh, zBoard], [hw, hy - hh, zBoard], [hw, hy - hh, zH], uv0);
-  metal.quad([-hw, hy + hh, zBoard], [-hw, hy - hh, zBoard], [-hw, hy - hh, zH], [-hw, hy + hh, zH], uv0);
-  metal.quad([hw, hy + hh, zH], [hw, hy - hh, zH], [hw, hy - hh, zBoard], [hw, hy + hh, zBoard], uv0);
-  // teeth: 9 downward triangles along the plate's lower edge, in plane zH
-  const teeth = 9, tw = (2 * hw) / teeth;
-  for (let i = 0; i < teeth; i++) {
-    const x0 = -hw + i * tw;
-    metal.tri([x0, hy - hh, zH], [x0 + tw, hy - hh, zH], [x0 + tw / 2, hy - hh - 0.004, zH],
-      [[0.2, 0.2], [0.8, 0.2], [0.5, 0.8]]);
-  }
+  const hangerAt = (cx) => {
+    const hy = bh - 0.030;
+    metal.quad([cx - hw, hy + hh, zH], [cx + hw, hy + hh, zH], [cx + hw, hy - hh, zH], [cx - hw, hy - hh, zH], uv0);
+    metal.quad([cx - hw, hy + hh, zBoard], [cx - hw, hy + hh, zH], [cx + hw, hy + hh, zH], [cx + hw, hy + hh, zBoard], uv0);
+    metal.quad([cx - hw, hy - hh, zH], [cx - hw, hy - hh, zBoard], [cx + hw, hy - hh, zBoard], [cx + hw, hy - hh, zH], uv0);
+    metal.quad([cx - hw, hy + hh, zBoard], [cx - hw, hy - hh, zBoard], [cx - hw, hy - hh, zH], [cx - hw, hy + hh, zH], uv0);
+    metal.quad([cx + hw, hy + hh, zH], [cx + hw, hy - hh, zH], [cx + hw, hy - hh, zBoard], [cx + hw, hy + hh, zBoard], uv0);
+    const teeth = 7, tw = (2 * hw) / teeth;
+    for (let i = 0; i < teeth; i++) {
+      const x0 = cx - hw + i * tw;
+      metal.tri([x0, hy - hh, zH], [x0 + tw, hy - hh, zH], [x0 + tw / 2, hy - hh - 0.0035, zH],
+        [[0.2, 0.2], [0.8, 0.2], [0.5, 0.8]]);
+    }
+  };
+  hangerAt(-(bw - 0.045));
+  hangerAt(bw - 0.045);
 
-  // label: bottom-center of board, slightly proud, facing −Z (70×35mm)
-  const lw = 0.035, lh = 0.0175, ly = -(bh - 0.030), zL = zBoard - 0.0002;
-  label.quad([-lw, ly + lh, zL], [lw, ly + lh, zL], [lw, ly - lh, zL], [-lw, ly - lh, zL],
-    [[0, 0], [1, 0], [1, 1], [0, 1]]);
+  // Vier weiße Wandabstandshalter (runde Puffer) mit Kreppband-Streifen
+  const discAt = (cx, cy) => {
+    const r = 0.015, zD = zBoard - 0.0035, seg = 10;
+    for (let i = 0; i < seg; i++) {
+      const a0 = (i / seg) * Math.PI * 2, a1 = ((i + 1) / seg) * Math.PI * 2;
+      const p0 = [cx + r * Math.cos(a0), cy + r * Math.sin(a0)], p1 = [cx + r * Math.cos(a1), cy + r * Math.sin(a1)];
+      // Deckfläche (−Z)
+      label.tri([cx, cy, zD], [p1[0], p1[1], zD], [p0[0], p0[1], zD], [[0.5, 0.5], [0.8, 0.5], [0.5, 0.8]]);
+      // Mantel
+      label.quad([p0[0], p0[1], zBoard], [p0[0], p0[1], zD], [p1[0], p1[1], zD], [p1[0], p1[1], zBoard], uv0);
+    }
+    // Kreppband quer über den Puffer (dünner Streifen, minimal über der Deckfläche)
+    const tw2 = 0.010, tl = 0.030, zT = zD - 0.0004;
+    tape.quad([cx - tl, cy + tw2, zT], [cx + tl, cy + tw2, zT], [cx + tl, cy - tw2, zT], [cx - tl, cy - tw2, zT],
+      [[0, 0], [1, 0], [1, 1], [0, 1]]);
+  };
+  discAt(-(bw - 0.05), -(bh - 0.05));
+  discAt(bw - 0.05, -(bh - 0.05));
+  discAt(-(bw - 0.045), 0);
+  discAt(bw - 0.045, bh * 0.35);
 
-  return { wood, art, glass, back, metal, label, dims: { W: 2 * ow, H: 2 * oh } };
+  return { wood, art, glass, back, metal, label, tape, dims: { W: 2 * ow, H: 2 * oh } };
 }
 
 // ---------- assembly ----------
@@ -191,9 +210,8 @@ export async function buildGlb({ outPath, artworkJpeg, labelPng, color = 'black'
   const specExt = doc.createExtension(KHRMaterialsSpecular);
 
   const woodTex = doc.createTexture('wood').setImage(readFileSync(resolve(ROOT, `shared/wood-${color}.jpg`))).setMimeType('image/jpeg');
-  const kraftTex = doc.createTexture('kraft').setImage(readFileSync(resolve(ROOT, 'shared/kraft.jpg'))).setMimeType('image/jpeg');
+  const kraftTex = doc.createTexture('mdf').setImage(readFileSync(resolve(ROOT, 'shared/mdf.jpg'))).setMimeType('image/jpeg');
   const artTex = doc.createTexture('artwork').setImage(artworkJpeg).setMimeType('image/jpeg');
-  const labelTex = doc.createTexture('label').setImage(labelPng).setMimeType('image/png');
 
   const matWood = doc.createMaterial('wood').setBaseColorTexture(woodTex)
     .setRoughnessFactor(color === 'black' ? 0.45 : 0.55).setMetallicFactor(0);
@@ -206,13 +224,15 @@ export async function buildGlb({ outPath, artworkJpeg, labelPng, color = 'black'
   matGlass.setExtension('KHR_materials_specular', specExt.createSpecular().setSpecularFactor(1.0));
   const matBack = doc.createMaterial('back').setBaseColorTexture(kraftTex)
     .setRoughnessFactor(0.85).setMetallicFactor(0.05);
-  const matMetal = doc.createMaterial('metal').setBaseColorFactor([0.83, 0.84, 0.86, 1])
-    .setRoughnessFactor(0.35).setMetallicFactor(1);
-  const matLabel = doc.createMaterial('label').setBaseColorTexture(labelTex)
-    .setRoughnessFactor(0.8).setMetallicFactor(0);
+  const matMetal = doc.createMaterial('hanger').setBaseColorFactor([0.09, 0.09, 0.10, 1])
+    .setRoughnessFactor(0.55).setMetallicFactor(0);
+  const matLabel = doc.createMaterial('spacer').setBaseColorFactor([0.96, 0.96, 0.95, 1])
+    .setRoughnessFactor(0.45).setMetallicFactor(0);
+  const matTape = doc.createMaterial('tape').setBaseColorFactor([0.92, 0.87, 0.62, 1])
+    .setRoughnessFactor(0.7).setMetallicFactor(0);
 
   const mesh = doc.createMesh('poster');
-  const pairs = [['wood', matWood], ['art', matArt], ['glass', matGlass], ['back', matBack], ['metal', matMetal], ['label', matLabel]];
+  const pairs = [['wood', matWood], ['art', matArt], ['glass', matGlass], ['back', matBack], ['metal', matMetal], ['label', matLabel], ['tape', matTape]];
   for (const [key, mat] of pairs) {
     const b = geo[key];
     const prim = doc.createPrimitive()

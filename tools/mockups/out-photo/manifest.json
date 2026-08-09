@@ -10,8 +10,8 @@
  },
  "marlboro-f1-racing-car-poster-horizontal-framed-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "marlboro-f1-racing-car-poster-horizontal-framed-print-wohnbeispiel.jpg",
    "marlboro-f1-racing-car-poster-horizontal-framed-print-studio.jpg"
@@ -19,8 +19,8 @@
  },
  "framed-poster-messi-black-white-portrait-wall-art": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-messi-black-white-portrait-wall-art-wohnbeispiel.jpg",
    "framed-poster-messi-black-white-portrait-wall-art-studio.jpg"
@@ -28,8 +28,8 @@
  },
  "discipline-motivational-poster-gym-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "discipline-motivational-poster-gym-wall-art-wohnbeispiel.jpg",
    "discipline-motivational-poster-gym-wall-art-studio.jpg"
@@ -37,8 +37,8 @@
  },
  "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art-wohnbeispiel.jpg",
    "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art-studio.jpg"
@@ -470,7 +470,7 @@
  "framed-poster-the-world-is-yours-motivational-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-the-world-is-yours-motivational-wall-art-wohnbeispiel.jpg",
    "framed-poster-the-world-is-yours-motivational-wall-art-studio.jpg"
@@ -479,7 +479,7 @@
  "wimbledon-tennis-court-framed-poster": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "wimbledon-tennis-court-framed-poster-wohnbeispiel.jpg",
    "wimbledon-tennis-court-framed-poster-studio.jpg"
@@ -487,8 +487,8 @@
  },
  "class-intensity-grit-tennis-framed-poster": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "class-intensity-grit-tennis-framed-poster-wohnbeispiel.jpg",
    "class-intensity-grit-tennis-framed-poster-studio.jpg"
@@ -497,7 +497,7 @@
  "tennis-court-framed-poster-aerial-tennis-match-wall-art": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "tennis-court-framed-poster-aerial-tennis-match-wall-art-wohnbeispiel.jpg",
    "tennis-court-framed-poster-aerial-tennis-match-wall-art-studio.jpg"
@@ -506,7 +506,7 @@
  "tennis-court-framed-poster-aerial-green-court-art-print": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "tennis-court-framed-poster-aerial-green-court-art-print-wohnbeispiel.jpg",
    "tennis-court-framed-poster-aerial-green-court-art-print-studio.jpg"
@@ -514,8 +514,8 @@
  },
  "framed-poster-you-can-always-be-better-golf-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-you-can-always-be-better-golf-wall-art-wohnbeispiel.jpg",
    "framed-poster-you-can-always-be-better-golf-wall-art-studio.jpg"
@@ -523,8 +523,8 @@
  },
  "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art-wohnbeispiel.jpg",
    "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art-studio.jpg"
@@ -532,8 +532,8 @@
  },
  "framed-poster-be-different-michael-jordan-basketball-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-be-different-michael-jordan-basketball-print-wohnbeispiel.jpg",
    "framed-poster-be-different-michael-jordan-basketball-print-studio.jpg"
@@ -542,7 +542,7 @@
  "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print-wohnbeispiel.jpg",
    "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print-studio.jpg"
@@ -550,8 +550,8 @@
  },
  "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster-wohnbeispiel.jpg",
    "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster-studio.jpg"
@@ -559,8 +559,8 @@
  },
  "all-or-nothing-soccer-poster-framed-vertical-sports-print": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "all-or-nothing-soccer-poster-framed-vertical-sports-print-wohnbeispiel.jpg",
    "all-or-nothing-soccer-poster-framed-vertical-sports-print-studio.jpg"
@@ -568,8 +568,8 @@
  },
  "framed-poster-no-risk-no-story-basketball-art-print": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-no-risk-no-story-basketball-art-print-wohnbeispiel.jpg",
    "framed-poster-no-risk-no-story-basketball-art-print-studio.jpg"
@@ -577,8 +577,8 @@
  },
  "in-god-we-trust-basketball-poster": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "in-god-we-trust-basketball-poster-wohnbeispiel.jpg",
    "in-god-we-trust-basketball-poster-studio.jpg"
@@ -586,7 +586,7 @@
  },
  "self-respect-framed-poster-vintage-godfather-quote-wall-art": {
   "status": "done",
-  "primary": "living-warm",
+  "primary": "living-cozy",
   "second": "living-minimal",
   "files": [
    "self-respect-framed-poster-vintage-godfather-quote-wall-art-wohnbeispiel.jpg",
@@ -596,7 +596,7 @@
  "vertical-poster-fuck-them-all-street-art-money-throwing-print": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "vertical-poster-fuck-them-all-street-art-money-throwing-print-wohnbeispiel.jpg",
    "vertical-poster-fuck-them-all-street-art-money-throwing-print-studio.jpg"
@@ -605,7 +605,7 @@
  "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours-wohnbeispiel.jpg",
    "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours-studio.jpg"
@@ -613,8 +613,8 @@
  },
  "money-talks-framed-poster-benjamin-franklin-eye-art-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "money-talks-framed-poster-benjamin-franklin-eye-art-print-wohnbeispiel.jpg",
    "money-talks-framed-poster-benjamin-franklin-eye-art-print-studio.jpg"
@@ -622,8 +622,8 @@
  },
  "monochrome-soccer-poster-black-white-framed-player-print": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "monochrome-soccer-poster-black-white-framed-player-print-wohnbeispiel.jpg",
    "monochrome-soccer-poster-black-white-framed-player-print-studio.jpg"
@@ -631,7 +631,7 @@
  },
  "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait": {
   "status": "done",
-  "primary": "living-warm",
+  "primary": "living-cozy",
   "second": "living-minimal",
   "files": [
    "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait-wohnbeispiel.jpg",
@@ -641,7 +641,7 @@
  "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art-wohnbeispiel.jpg",
    "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art-studio.jpg"
@@ -649,8 +649,8 @@
  },
  "discipline-soccer-poster-motivational-framed-sports-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "discipline-soccer-poster-motivational-framed-sports-wall-art-wohnbeispiel.jpg",
    "discipline-soccer-poster-motivational-framed-sports-wall-art-studio.jpg"
@@ -658,8 +658,8 @@
  },
  "framed-black-white-portrait-poster-minimalist-signed-headshot-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-black-white-portrait-poster-minimalist-signed-headshot-art-wohnbeispiel.jpg",
    "framed-black-white-portrait-poster-minimalist-signed-headshot-art-studio.jpg"
@@ -667,8 +667,8 @@
  },
  "framed-poster-its-more-than-football-soccer-team-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-its-more-than-football-soccer-team-wall-art-wohnbeispiel.jpg",
    "framed-poster-its-more-than-football-soccer-team-wall-art-studio.jpg"
@@ -677,7 +677,7 @@
  "framed-poster-never-forgetting-where-we-came-from-space-surfer-print": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-never-forgetting-where-we-came-from-space-surfer-print-wohnbeispiel.jpg",
    "framed-poster-never-forgetting-where-we-came-from-space-surfer-print-studio.jpg"
@@ -685,8 +685,8 @@
  },
  "race-track-art-poster-framed-vertical-print-with-formula-car-loop-design": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "race-track-art-poster-framed-vertical-print-with-formula-car-loop-design-wohnbeispiel.jpg",
    "race-track-art-poster-framed-vertical-print-with-formula-car-loop-design-studio.jpg"
@@ -694,8 +694,8 @@
  },
  "ferrari-scuderia-formula-1-vertical-framed-poster": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "ferrari-scuderia-formula-1-vertical-framed-poster-wohnbeispiel.jpg",
    "ferrari-scuderia-formula-1-vertical-framed-poster-studio.jpg"
@@ -703,8 +703,8 @@
  },
  "framed-football-legends-poster-neymar-cristiano-messi-trio-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-football-legends-poster-neymar-cristiano-messi-trio-print-wohnbeispiel.jpg",
    "framed-football-legends-poster-neymar-cristiano-messi-trio-print-studio.jpg"
@@ -712,8 +712,8 @@
  },
  "jesus-headband-poster-black-white-signed-athlete-portrait-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "jesus-headband-poster-black-white-signed-athlete-portrait-wall-art-wohnbeispiel.jpg",
    "jesus-headband-poster-black-white-signed-athlete-portrait-wall-art-studio.jpg"
@@ -721,8 +721,8 @@
  },
  "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art-wohnbeispiel.jpg",
    "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art-studio.jpg"
@@ -730,7 +730,7 @@
  },
  "goat-framed-poster-vintage-sports-portrait-wall-art": {
   "status": "done",
-  "primary": "living-warm",
+  "primary": "living-cozy",
   "second": "living-minimal",
   "files": [
    "goat-framed-poster-vintage-sports-portrait-wall-art-wohnbeispiel.jpg",
@@ -740,7 +740,7 @@
  "framed-poster-focus-on-you-black-panther-wall-art-vertical": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "framed-poster-focus-on-you-black-panther-wall-art-vertical-wohnbeispiel.jpg",
    "framed-poster-focus-on-you-black-panther-wall-art-vertical-studio.jpg"
@@ -749,7 +749,7 @@
  "floral-motivational-poster-your-only-limit-is-your-mind-vertical-framed-art": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "floral-motivational-poster-your-only-limit-is-your-mind-vertical-framed-art-wohnbeispiel.jpg",
    "floral-motivational-poster-your-only-limit-is-your-mind-vertical-framed-art-studio.jpg"

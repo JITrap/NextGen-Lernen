@@ -27,7 +27,7 @@
     },
     rueckseite: {
       label: 'Rückseite',
-      text: 'Stabile Rückwand mit Zackenaufhänger und Marken-Label — auspacken, aufhängen, fertig.'
+      text: 'MDF-Rückwand mit zwei Zackenaufhängern und Wandabstandshaltern — auspacken, aufhängen, fertig.'
     }
   };
 
