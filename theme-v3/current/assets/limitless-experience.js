@@ -274,6 +274,12 @@
 
     var canvas = el('div', 'lp-detail-canvas');
     var img = document.createElement('img');
+    img.addEventListener('load', function () {
+      if (img.naturalWidth && img.naturalHeight) {
+        panel.style.setProperty('--lp-detail-ratio',
+          ((rw * img.naturalWidth) / (rh * img.naturalHeight)).toFixed(4));
+      }
+    });
     img.src = dd.img;
     img.alt = '';
     img.draggable = false;

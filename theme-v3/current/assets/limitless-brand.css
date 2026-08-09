@@ -550,12 +550,12 @@ html.lp-motion .lp-reveal.lp-inview {
   top: var(--cy, 50%);
   transform: translateY(-50%);
   z-index: 3;
-  width: min(330px, 82%);
-  background: rgba(11, 11, 12, 0.88);
+  width: min(390px, 88%);
+  background: rgba(11, 11, 12, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  color: #F4F1EA;
-  padding: 18px 20px;
+  color: #F7F4EE;
+  padding: 22px 24px;
   border-left: 3px solid var(--lp-cobalt, #3157FF);
 }
 .lp-dcard[hidden] {
@@ -579,20 +579,20 @@ html.lp-motion .lp-reveal.lp-inview {
 }
 .lp-dcard-title {
   font-family: var(--font-accent--family, inherit);
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .lp-dcard-idx {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.12em;
   color: #B9BBC0;
 }
 .lp-dcard-text {
-  margin: 10px 0 14px;
-  font-size: 1rem;
-  line-height: 1.55;
+  margin: 12px 0 16px;
+  font-size: 1.125rem;
+  line-height: 1.6;
 }
 .lp-dcard-nav {
   display: flex;
