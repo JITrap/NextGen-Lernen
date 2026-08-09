@@ -159,78 +159,90 @@ async function movePin(page, pinId, handle) {
   const url = `https://www.pinterest.com/pin/${pinId}/`;
   console.log('Opening pin', pinId, handle);
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await wait(4000);
+  await wait(3500);
 
-  // Find edit (pencil) icon/button
-  const editSelectors = [
-    'div[data-test-id="pin-edit-button"]',
-    'button[aria-label="Bearbeiten"]',
-    'button[aria-label="Edit"]',
-    'a[href*="/pin/"][href*="/edit/"]',
-  ];
-  let editEl = null;
-  for (const sel of editSelectors) {
-    const el = await page.$(sel);
-    if (el) { editEl = el; break; }
+  // Already on target board? (board name shown in the top dropdown next to Merken)
+  const alreadyThere = await page.evaluate((name) => document.body.innerText.includes(name), BOARD_NAME);
+  if (alreadyThere) {
+    // Could be coincidental text elsewhere; do a stricter check via the board-select button
+    const btnText = await page.locator('[data-test-id="PinBetterSaveDropdown"]').first().innerText().catch(() => '');
+    if (btnText.trim() === BOARD_NAME) {
+      console.log('Already on target board:', pinId);
+      return true;
+    }
   }
-  if (!editEl) {
-    await page.screenshot({ path: path.join(shotDir, `dbg-noedit-${pinId}.jpg`) });
-    console.log('No edit button found for', pinId);
+
+  // Open "Mehr Aktionen" (more actions) menu
+  const moreBtn = page.getByLabel('Mehr Aktionen').first();
+  if (!(await moreBtn.count())) {
+    await page.screenshot({ path: path.join(shotDir, `dbg-nomore-${pinId}.jpg`) });
+    console.log('No "Mehr Aktionen" button found for', pinId);
     return false;
   }
-  await editEl.click();
-  await wait(3000);
+  await moreBtn.click();
+  await wait(1500);
+
+  const editItem = page.getByText('Pin bearbeiten', { exact: true }).first();
+  if (!(await editItem.count())) {
+    await page.screenshot({ path: path.join(shotDir, `dbg-noeditmenu-${pinId}.jpg`) });
+    console.log('No "Pin bearbeiten" menu item for', pinId);
+    return false;
+  }
+  await editItem.click();
+  await wait(2500);
   await page.screenshot({ path: path.join(shotDir, `dbg-edit-${pinId}.jpg`) });
 
-  // Open board dropdown
-  const boardDropdownSelectors = [
-    'div[data-test-id="board-dropdown-select-button"]',
-    'button[data-test-id="board-dropdown-select-button"]',
-  ];
-  let dd = null;
-  for (const sel of boardDropdownSelectors) {
-    const el = await page.$(sel);
-    if (el) { dd = el; break; }
-  }
-  if (!dd) {
-    console.log('No board dropdown found for', pinId);
+  const dialog = page.getByRole('dialog');
+  if (!(await dialog.count())) {
+    console.log('No edit dialog appeared for', pinId);
     return false;
   }
-  await dd.click();
-  await wait(2000);
-  await page.screenshot({ path: path.join(shotDir, `dbg-boarddd-${pinId}.jpg`) });
 
-  // Type board name into search box if present
-  const searchBox = await page.locator('input[placeholder*="Suche" i], input[placeholder*="Search" i]').first();
-  if (await searchBox.count()) {
-    await searchBox.fill(BOARD_NAME);
-    await wait(1500);
+  // Open the board dropdown inside the dialog (stable data-test-id wrapper)
+  const ddButton = dialog.locator('[data-test-id="edit-board"] [role="button"]').first();
+  if (!(await ddButton.count())) {
+    await page.screenshot({ path: path.join(shotDir, `dbg-noddbtn-${pinId}.jpg`) });
+    console.log('No board dropdown button for', pinId);
+    return false;
   }
+  await ddButton.click({ timeout: 10000 });
+  await wait(1200);
+
+  const search = dialog.locator('input[placeholder="Suchen"]').first();
+  if (!(await search.count())) {
+    await page.screenshot({ path: path.join(shotDir, `dbg-nosearch-${pinId}.jpg`) });
+    console.log('No board search box for', pinId);
+    return false;
+  }
+  await search.fill(BOARD_NAME);
+  await wait(1500);
   await page.screenshot({ path: path.join(shotDir, `dbg-boardsearch-${pinId}.jpg`) });
 
-  const boardOption = await page.getByText(BOARD_NAME, { exact: true }).first();
+  const boardOption = dialog.getByText(BOARD_NAME, { exact: true }).first();
   if (!(await boardOption.count())) {
     console.log('Board option not found in dropdown for', pinId);
     return false;
   }
   await boardOption.click();
-  await wait(2000);
+  await wait(1000);
 
-  // Save
-  const saveBtn = await page.getByRole('button', { name: /Speichern|Save|Fertig|Done/i }).last();
-  if (await saveBtn.count()) {
-    await saveBtn.click();
-    await wait(3000);
+  const saveBtn = dialog.locator('[data-test-id="edit-pin-save"] button').first();
+  if (!(await saveBtn.count())) {
+    console.log('No save button in dialog for', pinId);
+    return false;
   }
+  await saveBtn.click();
+  await wait(3500);
   await page.screenshot({ path: path.join(shotDir, `dbg-saved-${pinId}.jpg`) });
 
-  // Verify
+  // Verify: reload pin page and check the board-select button text equals target board
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await wait(3000);
-  const bodyText = await page.evaluate(() => document.body.innerText);
-  const ok = bodyText.includes(BOARD_NAME);
+  const btnTextAfter = await page.locator('[data-test-id="PinBetterSaveDropdown"]').first().innerText().catch(() => '');
+  const ok = btnTextAfter.trim() === BOARD_NAME;
   if (!ok) {
     await page.screenshot({ path: path.join(shotDir, `dbg-verifyfail-${pinId}.jpg`) });
+    console.log('Verify failed for', pinId, 'got board text:', JSON.stringify(btnTextAfter));
   }
   return ok;
 }
