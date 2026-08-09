@@ -806,3 +806,8 @@ html.lp-motion .lp-reveal.lp-inview {
 @keyframes lp-card-in-mobile {
   from { opacity: 0; transform: translateY(10px); }
 }
+
+/* — Produktkarten: nur das Hauptbild (kein Varianten-Karussell auf der Karte) — */
+product-card .card-gallery slideshow-arrows { display: none !important; }
+product-card .card-gallery slideshow-slides { overflow: hidden !important; scroll-snap-type: none !important; }
+product-card .card-gallery slideshow-slides > *:not(:first-child) { display: none !important; }
