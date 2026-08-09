@@ -15,11 +15,28 @@ export async function routeThroughNode(context) {
   const storeSetCookies = (url, res) => {
     const list = res.headers.getSetCookie ? res.headers.getSetCookie() : [];
     const host = new URL(url).hostname;
+    const forBrowser = [];
     for (const sc of list) {
-      const [pair] = sc.split(';');
+      const parts = sc.split(';');
+      const [pair] = parts;
       const eq = pair.indexOf('=');
-      if (eq > 0) jarFor(host).set(pair.slice(0, eq).trim(), pair.slice(eq + 1).trim());
+      if (eq <= 0) continue;
+      const name = pair.slice(0, eq).trim(), value = pair.slice(eq + 1).trim();
+      jarFor(host).set(name, value);
+      // Auch in den Browser-Context spiegeln, damit document.cookie (CSRF-Flows) funktioniert.
+      const attrs = Object.fromEntries(parts.slice(1).map(p => {
+        const i = p.indexOf('=');
+        return i > 0 ? [p.slice(0, i).trim().toLowerCase(), p.slice(i + 1).trim()] : [p.trim().toLowerCase(), true];
+      }));
+      forBrowser.push({
+        name, value,
+        domain: attrs.domain ? String(attrs.domain).replace(/^\./, '.') : host,
+        path: attrs.path || '/',
+        secure: true,
+        httpOnly: 'httponly' in attrs,
+      });
     }
+    if (forBrowser.length) context.addCookies(forBrowser).catch(() => {});
   };
   const cookieHeader = async (url) => {
     const host = new URL(url).hostname;

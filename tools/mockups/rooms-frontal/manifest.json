@@ -1,0 +1,56 @@
+{
+  "bedroom-feminine.jpg": {
+    "source": "https://www.pexels.com/photo/modern-bedroom-interior-with-elegant-decor-36482942/",
+    "photographer": "Taiye Salawu",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 3300,
+    "scene": "bedroom-feminine",
+    "frontal_check": "Wand exakt parallel zur Bildebene, keine fluchtenden Linien. Blush-rosa Bett zentriert, grosse freie weisse Wandflaeche rechts vom Kopfteil sowie darueber. Warmes, bewohntes Schlafzimmer mit goldener Nachttischlampe."
+  },
+  "gym-frontal.jpg": {
+    "source": "https://www.pexels.com/photo/a-squat-rack-at-a-home-gym-14440147/",
+    "photographer": "Chris Brown",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 2933,
+    "scene": "gym-frontal",
+    "frontal_check": "Dunkle Backsteinwand komplett frontal fotografiert, Squat Rack mittig, keine Perspektivverzerrung. Echtes Garagen-Home-Gym mit Gewichten/Bank statt 3D-Render - passt als 'dunkle Wand + Hantel'-Variante fuer Sport/Grit."
+  },
+  "loft-frontal.jpg": {
+    "source": "https://www.pexels.com/photo/gray-couch-in-a-living-room-6970061/",
+    "photographer": "Max Vakhtbovych",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 1468,
+    "scene": "loft-frontal",
+    "frontal_check": "Schwarze strukturierte Akzentwand exakt frontal, kein Fluchtpunkt sichtbar. Moody/dunkler Loft-Charakter mit Kaminnische, Sofa im Vordergrund. Wand ist unbedeckt (keine vorhandene Kunst) - viel Flaeche fuer Poster-Overlay."
+  },
+  "living-cozy.jpg": {
+    "source": "https://www.pexels.com/photo/sofa-covered-with-a-beige-throw-in-a-modern-apartment-5853819/",
+    "photographer": "cottonbro studio",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 3300,
+    "scene": "living-cozy",
+    "frontal_check": "Kernreferenz fuer Displate-Aesthetik: warme, weisse/beige Wand komplett frontal (Kranzleiste horizontal, keine Fluchtlinien), Sofa mit Wolldecke + Kissen, echte Zimmerpflanze, warmes Streiflicht. Obere ~55% der Wand komplett frei fuer Poster."
+  },
+  "music-corner.jpg": {
+    "source": "https://www.pexels.com/photo/classic-acoustic-guitar-14930349/",
+    "photographer": "Tuğba Kobal Yılmaz",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 2558,
+    "scene": "music-corner (optional / Icons-Jugend-Vibe)",
+    "frontal_check": "Flache blaugraue Wand exakt frontal, keine Verzerrung. Rote Akustikgitarre + 'MUSIC'-Wandschild mit Lichterkette als Jugend-/Musik-Detail. Ausreichend freie Wandflaeche mittig/oben fuer Poster."
+  },
+  "reading-nook.jpg": {
+    "source": "https://www.pexels.com/photo/cozy-corner-with-lamp-and-modern-art-31224318/",
+    "photographer": "Eyüpcan Timur",
+    "license": "Pexels",
+    "width": 2200,
+    "height": 3300,
+    "scene": "reading-nook (optional / Still)",
+    "frontal_check": "Ruhige, frontale Wand (keine Fluchtlinien), Sessel + Stehlampe, warmes Kunstlicht. Vorhandenes Bild links, rechte Haelfte der Wand frei fuer Poster-Platzierung."
+  }
+}
