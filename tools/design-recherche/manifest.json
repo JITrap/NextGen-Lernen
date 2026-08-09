@@ -23,14 +23,14 @@
   },
   {
     "nr": 3,
-    "datei": "downloads/03-vintage-car-headlight.jpg",
-    "breite_px": 6016,
-    "hoehe_px": 4016,
-    "quelle-url": "https://commons.wikimedia.org/wiki/File:Vintage_car_headlight_(Unsplash).jpg",
-    "fotograf": "Dominik Martin (Unsplash, via Wikimedia Commons)",
+    "datei": "downloads/03-vintage-car-garage.jpg",
+    "breite_px": 7864,
+    "hoehe_px": 4580,
+    "quelle-url": "https://commons.wikimedia.org/wiki/File:Vintage_car_garage_(Unsplash).jpg",
+    "fotograf": "Unsplash-Fotograf (via Wikimedia Commons)",
     "lizenz": "CC0 1.0",
     "kategorie": "Autos/Motorsport",
-    "motiv-kurz": "Detailaufnahme Scheinwerfer Oldtimer"
+    "motiv-kurz": "Oldtimer in dunkler Werkstatt, dramatisches Ruecklicht-Glühen (ersetzt: Original zeigte sichtbares Markenlogo)"
   },
   {
     "nr": 4,
@@ -299,12 +299,12 @@
   {
     "nr": 28,
     "datei": "downloads/28-whippet-painting-baker.png",
-    "breite_px": 2000,
-    "hoehe_px": 2000,
+    "breite_px": 1820,
+    "hoehe_px": 1720,
     "quelle-url": "https://commons.wikimedia.org/wiki/File:A_Whippet_-_William_Weaver_Baker_-_313-1977-332.png",
     "fotograf": "William Weaver Baker (Yale Center for British Art)",
     "lizenz": "Public Domain",
     "kategorie": "Tiere",
-    "motiv-kurz": "'A Whippet' - Windhund-Portrait (Gemaelde)"
+    "motiv-kurz": "Windhund im Profil, historische Glasplatten-Studioaufnahme (auf Bildinhalt zugeschnitten, Archiv-Rahmen mit Beschriftung entfernt)"
   }
 ]
