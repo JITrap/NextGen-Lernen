@@ -757,8 +757,8 @@
  },
  "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print-wohnbeispiel.jpg",
    "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print-studio.jpg"
@@ -767,7 +767,7 @@
  "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art-wohnbeispiel.jpg",
    "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art-studio.jpg"
@@ -775,8 +775,8 @@
  },
  "inspirational-racing-poster-they-overlooked-me-god-didn-t-vertical-framed-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "inspirational-racing-poster-they-overlooked-me-god-didn-t-vertical-framed-print-wohnbeispiel.jpg",
    "inspirational-racing-poster-they-overlooked-me-god-didn-t-vertical-framed-print-studio.jpg"
@@ -785,7 +785,7 @@
  "trust-god-poster": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "trust-god-poster-wohnbeispiel.jpg",
    "trust-god-poster-studio.jpg"
@@ -793,8 +793,8 @@
  },
  "red-icon-music-poster": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "red-icon-music-poster-wohnbeispiel.jpg",
    "red-icon-music-poster-studio.jpg"
@@ -803,7 +803,7 @@
  "motivational-framed-poster-its-not-over-until-i-win": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-framed-poster-its-not-over-until-i-win-wohnbeispiel.jpg",
    "motivational-framed-poster-its-not-over-until-i-win-studio.jpg"
@@ -812,7 +812,7 @@
  "whatever-it-takes-framed-poster-motivational-bedroom-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "whatever-it-takes-framed-poster-motivational-bedroom-wall-art-wohnbeispiel.jpg",
    "whatever-it-takes-framed-poster-motivational-bedroom-wall-art-studio.jpg"
@@ -820,8 +820,8 @@
  },
  "framed-poster-crystal-gloved-hand-ok-sign-wall-art": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-crystal-gloved-hand-ok-sign-wall-art-wohnbeispiel.jpg",
    "framed-poster-crystal-gloved-hand-ok-sign-wall-art-studio.jpg"
@@ -829,8 +829,8 @@
  },
  "focus-framed-poster-motivational-gym-wall-art": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "focus-framed-poster-motivational-gym-wall-art-wohnbeispiel.jpg",
    "focus-framed-poster-motivational-gym-wall-art-studio.jpg"
@@ -838,8 +838,8 @@
  },
  "framed-poster-bold-red-graffiti-portrait": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-bold-red-graffiti-portrait-wohnbeispiel.jpg",
    "framed-poster-bold-red-graffiti-portrait-studio.jpg"
@@ -847,8 +847,8 @@
  },
  "motivational-soccer-poster-do-it-alone-framed-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "motivational-soccer-poster-do-it-alone-framed-wall-art-wohnbeispiel.jpg",
    "motivational-soccer-poster-do-it-alone-framed-wall-art-studio.jpg"
@@ -856,8 +856,8 @@
  },
  "framed-portrait-poster-minimal-black-white-signature-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-portrait-poster-minimal-black-white-signature-art-wohnbeispiel.jpg",
    "framed-portrait-poster-minimal-black-white-signature-art-studio.jpg"
