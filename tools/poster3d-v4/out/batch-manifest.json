@@ -24,52 +24,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-horizontal-framed-poster-black-c1114.glb",
+    "file": "lp6-horizontal-framed-poster-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 544916
+    "bytes": 701032
    },
    {
-    "file": "lp5-horizontal-framed-poster-white-c1114.glb",
+    "file": "lp6-horizontal-framed-poster-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 510980
+    "bytes": 667088
    },
    {
-    "file": "lp5-horizontal-framed-poster-black-c23.glb",
+    "file": "lp6-horizontal-framed-poster-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 481700
+    "bytes": 637812
    },
    {
-    "file": "lp5-horizontal-framed-poster-white-c23.glb",
+    "file": "lp6-horizontal-framed-poster-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 447764
+    "bytes": 603868
    },
    {
-    "file": "lp5-horizontal-framed-poster-black-c45.glb",
+    "file": "lp6-horizontal-framed-poster-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 546760
+    "bytes": 702876
    },
    {
-    "file": "lp5-horizontal-framed-poster-white-c45.glb",
+    "file": "lp6-horizontal-framed-poster-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 512824
+    "bytes": 668932
    },
    {
-    "file": "lp5-horizontal-framed-poster-black-c34.glb",
+    "file": "lp6-horizontal-framed-poster-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 527156
+    "bytes": 683268
    },
    {
-    "file": "lp5-horizontal-framed-poster-white-c34.glb",
+    "file": "lp6-horizontal-framed-poster-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 493220
+    "bytes": 649324
    }
   ],
   "mockups": [
@@ -103,52 +103,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-black-c1114.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 615852
+    "bytes": 772480
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-white-c1114.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 581916
+    "bytes": 738536
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-black-c23.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 563072
+    "bytes": 719700
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-white-c23.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 529136
+    "bytes": 685756
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-black-c45.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 618572
+    "bytes": 775196
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-white-c45.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 584636
+    "bytes": 741252
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-black-c34.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 604928
+    "bytes": 761556
    },
    {
-    "file": "lp5-framed-poster-aerial-yacht-wake-ocean-print-white-c34.glb",
+    "file": "lp6-framed-poster-aerial-yacht-wake-ocean-print-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 570992
+    "bytes": 727612
    }
   ],
   "mockups": [
@@ -182,52 +182,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c1114.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 344292
+    "bytes": 500000
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c1114.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 310356
+    "bytes": 466056
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c23.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 308704
+    "bytes": 464412
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c23.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 274768
+    "bytes": 430468
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c45.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 349244
+    "bytes": 504948
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c45.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 315308
+    "bytes": 471004
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c34.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 332920
+    "bytes": 488628
    },
    {
-    "file": "lp5-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c34.glb",
+    "file": "lp6-framed-poster-the-world-rewards-action-motivational-space-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 298984
+    "bytes": 454684
    }
   ],
   "mockups": [
@@ -261,52 +261,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-black-c1114.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 528548
+    "bytes": 684360
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-white-c1114.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 494612
+    "bytes": 650416
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-black-c23.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 476960
+    "bytes": 632772
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-white-c23.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 443024
+    "bytes": 598828
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-black-c45.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 531324
+    "bytes": 687132
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-white-c45.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 497388
+    "bytes": 653188
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-black-c34.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 519088
+    "bytes": 674900
    },
    {
-    "file": "lp5-messi-make-them-wonder-soccer-poster-white-c34.glb",
+    "file": "lp6-messi-make-them-wonder-soccer-poster-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 485152
+    "bytes": 640956
    }
   ],
   "mockups": [
@@ -340,52 +340,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c1114.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 400620
+    "bytes": 556544
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c1114.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 366684
+    "bytes": 522600
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c23.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 368920
+    "bytes": 524844
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c23.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 334984
+    "bytes": 490900
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c45.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 403316
+    "bytes": 559236
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c45.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 369380
+    "bytes": 525292
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c34.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 395696
+    "bytes": 551620
    },
    {
-    "file": "lp5-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c34.glb",
+    "file": "lp6-become-unstoppable-framed-poster-motivational-sports-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 361760
+    "bytes": 517676
    }
   ],
   "mockups": [
@@ -419,52 +419,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c1114.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 426036
+    "bytes": 582240
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c1114.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 392100
+    "bytes": 548296
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c23.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 379592
+    "bytes": 535796
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c23.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 345656
+    "bytes": 501852
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c45.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 428796
+    "bytes": 584996
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c45.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 394860
+    "bytes": 551052
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c34.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 417528
+    "bytes": 573732
    },
    {
-    "file": "lp5-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c34.glb",
+    "file": "lp6-motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 383592
+    "bytes": 539788
    }
   ],
   "mockups": [
@@ -498,52 +498,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c1114.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 278308
+    "bytes": 434680
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c1114.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 244372
+    "bytes": 400736
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c23.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 251536
+    "bytes": 407908
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c23.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 217600
+    "bytes": 373964
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c45.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 281732
+    "bytes": 438100
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c45.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 247796
+    "bytes": 404156
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c34.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 271128
+    "bytes": 427500
    },
    {
-    "file": "lp5-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c34.glb",
+    "file": "lp6-framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 237192
+    "bytes": 393556
    }
   ],
   "mockups": [
@@ -577,52 +577,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-black-c1114.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 259604
+    "bytes": 415336
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-white-c1114.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 225668
+    "bytes": 381392
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-black-c23.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 245248
+    "bytes": 400980
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-white-c23.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 211312
+    "bytes": 367036
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-black-c45.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 262636
+    "bytes": 418364
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-white-c45.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 228700
+    "bytes": 384420
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-black-c34.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 250512
+    "bytes": 406244
    },
    {
-    "file": "lp5-motivational-poster-set-your-own-standard-vertical-framed-art-white-c34.glb",
+    "file": "lp6-motivational-poster-set-your-own-standard-vertical-framed-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 216576
+    "bytes": 372300
    }
   ],
   "mockups": [
@@ -656,52 +656,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c1114.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 241860
+    "bytes": 397880
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c1114.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 207924
+    "bytes": 363936
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c23.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 230416
+    "bytes": 386436
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c23.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 196480
+    "bytes": 352492
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c45.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 241340
+    "bytes": 397356
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c45.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 207404
+    "bytes": 363412
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c34.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 241704
+    "bytes": 397724
    },
    {
-    "file": "lp5-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c34.glb",
+    "file": "lp6-sacrifice-today-own-tomorrow-framed-motivational-boxing-poster-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 207768
+    "bytes": 363780
    }
   ],
   "mockups": [
@@ -735,52 +735,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c1114.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 209332
+    "bytes": 365256
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c1114.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 175396
+    "bytes": 331312
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c23.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 193792
+    "bytes": 349716
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c23.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 159856
+    "bytes": 315772
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c45.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 211340
+    "bytes": 367260
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c45.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 177404
+    "bytes": 333316
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c34.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 204408
+    "bytes": 360332
    },
    {
-    "file": "lp5-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c34.glb",
+    "file": "lp6-motivational-poster-no-excuses-just-results-vertical-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 170472
+    "bytes": 326388
    }
   ],
   "mockups": [
@@ -814,52 +814,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-black-c1114.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 361444
+    "bytes": 518064
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-white-c1114.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 327508
+    "bytes": 484120
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-black-c23.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 329688
+    "bytes": 486308
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-white-c23.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 295752
+    "bytes": 452364
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-black-c45.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 362268
+    "bytes": 518884
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-white-c45.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 328332
+    "bytes": 484940
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-black-c34.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 355656
+    "bytes": 512276
    },
    {
-    "file": "lp5-money-follows-value-framed-poster-motivational-office-wall-art-white-c34.glb",
+    "file": "lp6-money-follows-value-framed-poster-motivational-office-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 321720
+    "bytes": 478332
    }
   ],
   "mockups": [
@@ -893,52 +893,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c1114.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 234348
+    "bytes": 392256
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c1114.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 200412
+    "bytes": 358312
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c23.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 222552
+    "bytes": 380460
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c23.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 188616
+    "bytes": 346516
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c45.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 236172
+    "bytes": 394076
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c45.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 202236
+    "bytes": 360132
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c34.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 229016
+    "bytes": 386924
    },
    {
-    "file": "lp5-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c34.glb",
+    "file": "lp6-stay-hungry-poster-motivational-fitness-wall-art-vertical-framed-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 195080
+    "bytes": 352980
    }
   ],
   "mockups": [
@@ -972,52 +972,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c1114.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 351324
+    "bytes": 507440
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c1114.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 317388
+    "bytes": 473496
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c23.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 321528
+    "bytes": 477644
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c23.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 287592
+    "bytes": 443700
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c45.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 353524
+    "bytes": 509636
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c45.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 319588
+    "bytes": 475692
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c34.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 344704
+    "bytes": 500820
    },
    {
-    "file": "lp5-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c34.glb",
+    "file": "lp6-motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 310768
+    "bytes": 466876
    }
   ],
   "mockups": [
@@ -1051,52 +1051,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c1114.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 290476
+    "bytes": 446600
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c1114.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 256540
+    "bytes": 412656
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c23.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 261840
+    "bytes": 417964
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c23.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 227904
+    "bytes": 384020
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c45.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 293804
+    "bytes": 449924
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c45.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 259868
+    "bytes": 415980
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c34.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 281216
+    "bytes": 437340
    },
    {
-    "file": "lp5-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c34.glb",
+    "file": "lp6-motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 247280
+    "bytes": 403396
    }
   ],
   "mockups": [
@@ -1130,52 +1130,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-black-c1114.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 377788
+    "bytes": 534360
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-white-c1114.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 343852
+    "bytes": 500416
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-black-c23.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 347792
+    "bytes": 504364
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-white-c23.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 313856
+    "bytes": 470420
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-black-c45.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 379340
+    "bytes": 535908
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-white-c45.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 345404
+    "bytes": 501964
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-black-c34.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 373272
+    "bytes": 529844
    },
    {
-    "file": "lp5-poster-the-goal-never-moves-soccer-wall-art-white-c34.glb",
+    "file": "lp6-poster-the-goal-never-moves-soccer-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 339336
+    "bytes": 495900
    }
   ],
   "mockups": [
@@ -1209,52 +1209,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-black-c1114.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 353908
+    "bytes": 510312
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-white-c1114.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 319972
+    "bytes": 476368
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-black-c23.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 321552
+    "bytes": 477956
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-white-c23.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 287616
+    "bytes": 444012
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-black-c45.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 354964
+    "bytes": 511364
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-white-c45.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 321028
+    "bytes": 477420
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-black-c34.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 347104
+    "bytes": 503508
    },
    {
-    "file": "lp5-poster-motivational-soccer-print-your-dreams-need-you-white-c34.glb",
+    "file": "lp6-poster-motivational-soccer-print-your-dreams-need-you-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 313168
+    "bytes": 469564
    }
   ],
   "mockups": [
@@ -1288,52 +1288,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-black-c1114.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 128412
+    "bytes": 284788
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-white-c1114.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 94472
+    "bytes": 250844
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-black-c23.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 123328
+    "bytes": 279704
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-white-c23.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 89392
+    "bytes": 245760
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-black-c45.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 128580
+    "bytes": 284956
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-white-c45.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 94640
+    "bytes": 251012
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-black-c34.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 125336
+    "bytes": 281716
    },
    {
-    "file": "lp5-dont-quit-framed-poster-minimal-motivational-wall-art-white-c34.glb",
+    "file": "lp6-dont-quit-framed-poster-minimal-motivational-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 91396
+    "bytes": 247772
    }
   ],
   "mockups": [
@@ -1367,52 +1367,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c1114.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 144460
+    "bytes": 300820
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c1114.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 110524
+    "bytes": 266876
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c23.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 139400
+    "bytes": 295760
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c23.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 105464
+    "bytes": 261816
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c45.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 145268
+    "bytes": 301628
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c45.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 111332
+    "bytes": 267684
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c34.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 141144
+    "bytes": 297508
    },
    {
-    "file": "lp5-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c34.glb",
+    "file": "lp6-framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 107208
+    "bytes": 263564
    }
   ],
   "mockups": [
@@ -1446,52 +1446,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c1114.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 211796
+    "bytes": 367408
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c1114.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 177860
+    "bytes": 333464
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c23.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 202280
+    "bytes": 357892
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c23.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 168344
+    "bytes": 323948
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c45.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 213676
+    "bytes": 369284
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c45.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 179740
+    "bytes": 335340
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c34.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 208224
+    "bytes": 363836
    },
    {
-    "file": "lp5-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c34.glb",
+    "file": "lp6-vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 174288
+    "bytes": 329892
    }
   ],
   "mockups": [
@@ -1525,52 +1525,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c1114.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 164396
+    "bytes": 320652
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c1114.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 130460
+    "bytes": 286708
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c23.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 157184
+    "bytes": 313440
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c23.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 123248
+    "bytes": 279496
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c45.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 165276
+    "bytes": 321532
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c45.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 131340
+    "bytes": 287588
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c34.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 160720
+    "bytes": 316980
    },
    {
-    "file": "lp5-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c34.glb",
+    "file": "lp6-framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 126784
+    "bytes": 283036
    }
   ],
   "mockups": [
@@ -1604,52 +1604,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c1114.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 203180
+    "bytes": 360896
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c1114.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 169244
+    "bytes": 326952
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c23.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 196072
+    "bytes": 353788
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c23.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 162136
+    "bytes": 319844
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c45.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 205556
+    "bytes": 363268
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c45.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 171620
+    "bytes": 329324
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c34.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 199424
+    "bytes": 357140
    },
    {
-    "file": "lp5-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c34.glb",
+    "file": "lp6-la-dolce-vita-framed-poster-italian-phrase-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 165488
+    "bytes": 323196
    }
   ],
   "mockups": [
@@ -1683,52 +1683,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-black-c1114.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 234500
+    "bytes": 392416
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-white-c1114.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 200564
+    "bytes": 358472
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-black-c23.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 214592
+    "bytes": 372508
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-white-c23.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 180656
+    "bytes": 338564
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-black-c45.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 235540
+    "bytes": 393452
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-white-c45.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 201604
+    "bytes": 359508
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-black-c34.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 227712
+    "bytes": 385628
    },
    {
-    "file": "lp5-just-do-it-aviation-framed-poster-white-c34.glb",
+    "file": "lp6-just-do-it-aviation-framed-poster-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 193776
+    "bytes": 351684
    }
   ],
   "mockups": [
@@ -1762,52 +1762,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c1114.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 201780
+    "bytes": 357672
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c1114.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 167844
+    "bytes": 323728
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c23.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 194224
+    "bytes": 350116
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c23.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 160288
+    "bytes": 316172
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c45.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 203476
+    "bytes": 359364
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c45.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 169540
+    "bytes": 325420
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c34.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 199720
+    "bytes": 355612
    },
    {
-    "file": "lp5-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c34.glb",
+    "file": "lp6-framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 165784
+    "bytes": 321668
    }
   ],
   "mockups": [
@@ -1841,52 +1841,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c1114.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 292404
+    "bytes": 448896
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c1114.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 258468
+    "bytes": 414952
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c23.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 271856
+    "bytes": 428348
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c23.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 237920
+    "bytes": 394404
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c45.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 296076
+    "bytes": 452564
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c45.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 262140
+    "bytes": 418620
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c34.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 285344
+    "bytes": 441836
    },
    {
-    "file": "lp5-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c34.glb",
+    "file": "lp6-motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 251408
+    "bytes": 407892
    }
   ],
   "mockups": [
@@ -1920,52 +1920,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c1114.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 213820
+    "bytes": 370600
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c1114.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 179884
+    "bytes": 336656
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c23.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 198616
+    "bytes": 355396
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c23.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 164680
+    "bytes": 321452
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c45.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 216276
+    "bytes": 373052
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c45.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 182340
+    "bytes": 339108
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c34.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 209576
+    "bytes": 366356
    },
    {
-    "file": "lp5-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c34.glb",
+    "file": "lp6-framed-poster-whatever-it-takes-motivational-portrait-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 175640
+    "bytes": 332412
    }
   ],
   "mockups": [
@@ -1999,52 +1999,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c1114.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 271084
+    "bytes": 427440
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c1114.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 237148
+    "bytes": 393496
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c23.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 255008
+    "bytes": 411364
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c23.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 221072
+    "bytes": 377420
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c45.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 273908
+    "bytes": 430260
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c45.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 239972
+    "bytes": 396316
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c34.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 266256
+    "bytes": 422612
    },
    {
-    "file": "lp5-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c34.glb",
+    "file": "lp6-framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 232320
+    "bytes": 388668
    }
   ],
   "mockups": [
@@ -2078,52 +2078,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-black-c1114.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 214140
+    "bytes": 370848
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-white-c1114.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 180204
+    "bytes": 336904
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-black-c23.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 196976
+    "bytes": 353684
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-white-c23.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 163040
+    "bytes": 319740
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-black-c45.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 216596
+    "bytes": 373300
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-white-c45.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 182660
+    "bytes": 339356
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-black-c34.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 209216
+    "bytes": 365924
    },
    {
-    "file": "lp5-motivational-poster-i-always-win-vertical-framed-wall-art-white-c34.glb",
+    "file": "lp6-motivational-poster-i-always-win-vertical-framed-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 175280
+    "bytes": 331980
    }
   ],
   "mockups": [
@@ -2157,52 +2157,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c1114.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 378316
+    "bytes": 535368
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c1114.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 344380
+    "bytes": 501424
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c23.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 353912
+    "bytes": 510964
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c23.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 319976
+    "bytes": 477020
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c45.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 383468
+    "bytes": 540516
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c45.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 349532
+    "bytes": 506572
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c34.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 369872
+    "bytes": 526924
    },
    {
-    "file": "lp5-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c34.glb",
+    "file": "lp6-believe-in-yourself-poster-motivational-sports-trophy-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 335936
+    "bytes": 492980
    }
   ],
   "mockups": [
@@ -2236,52 +2236,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c1114.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 333580
+    "bytes": 489464
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c1114.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 299644
+    "bytes": 455520
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c23.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 316648
+    "bytes": 472532
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c23.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 282712
+    "bytes": 438588
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c45.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 329428
+    "bytes": 485308
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c45.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 295492
+    "bytes": 451364
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c34.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 329640
+    "bytes": 485524
    },
    {
-    "file": "lp5-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c34.glb",
+    "file": "lp6-poster-i-win-thats-what-i-do-motivational-photo-wall-art-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 295704
+    "bytes": 451580
    }
   ],
   "mockups": [
@@ -2315,52 +2315,52 @@
   ],
   "glbs": [
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c1114.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c1114.glb",
     "color": "black",
     "cls": "c1114",
-    "bytes": 432564
+    "bytes": 588904
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c1114.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c1114.glb",
     "color": "white",
     "cls": "c1114",
-    "bytes": 398628
+    "bytes": 554960
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c23.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c23.glb",
     "color": "black",
     "cls": "c23",
-    "bytes": 379976
+    "bytes": 536316
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c23.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c23.glb",
     "color": "white",
     "cls": "c23",
-    "bytes": 346040
+    "bytes": 502372
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c45.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c45.glb",
     "color": "black",
     "cls": "c45",
-    "bytes": 435332
+    "bytes": 591668
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c45.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c45.glb",
     "color": "white",
     "cls": "c45",
-    "bytes": 401396
+    "bytes": 557724
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c34.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-black-c34.glb",
     "color": "black",
     "cls": "c34",
-    "bytes": 419872
+    "bytes": 576212
    },
    {
-    "file": "lp5-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c34.glb",
+    "file": "lp6-motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-white-c34.glb",
     "color": "white",
     "cls": "c34",
-    "bytes": 385936
+    "bytes": 542268
    }
   ],
   "mockups": [

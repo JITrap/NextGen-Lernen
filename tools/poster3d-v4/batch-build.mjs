@@ -70,7 +70,7 @@ for (const p of queue) {
     for (const cls of classes) {
       const art = await bakeArtwork(src, det.art, cls, orientation);
       for (const color of ['black', 'white']) {
-        const file = `lp5-${p.handle}-${color}-${cls}.glb`;
+        const file = `lp6-${p.handle}-${color}-${cls}.glb`;
         const r = await buildGlb({ outPath: resolve(OUT, file), artworkJpeg: art, labelPng: label, color, classKey: cls, orientation });
         entry.glbs.push({ file, color, cls, bytes: r.bytes });
       }
@@ -78,7 +78,7 @@ for (const p of queue) {
     if (NO_MOCKUPS) {
       entry.mockups = (manifest[p.handle] && manifest[p.handle].mockups) || [];
     } else {
-      const defGlb = resolve(OUT, `lp5-${p.handle}-black-${entry.default}.glb`);
+      const defGlb = resolve(OUT, `lp6-${p.handle}-black-${entry.default}.glb`);
       const mocks = await composeMockups(defGlb, p.handle, orientation);
       entry.mockups = mocks.map(f => f.split('/').pop());
     }
