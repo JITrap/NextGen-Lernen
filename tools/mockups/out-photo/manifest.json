@@ -2,7 +2,7 @@
  "roaring-jaguar-floral-poster": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "roaring-jaguar-floral-poster-wohnbeispiel.jpg",
    "roaring-jaguar-floral-poster-studio.jpg"
@@ -200,7 +200,7 @@
  "dont-quit-framed-poster-minimal-motivational-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "dont-quit-framed-poster-minimal-motivational-wall-art-wohnbeispiel.jpg",
    "dont-quit-framed-poster-minimal-motivational-wall-art-studio.jpg"
@@ -209,7 +209,7 @@
  "framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-wohnbeispiel.jpg",
    "framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art-studio.jpg"
@@ -218,7 +218,7 @@
  "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-wohnbeispiel.jpg",
    "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art-studio.jpg"
@@ -227,7 +227,7 @@
  "framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-wohnbeispiel.jpg",
    "framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art-studio.jpg"
@@ -235,7 +235,7 @@
  },
  "la-dolce-vita-framed-poster-italian-phrase-wall-art": {
   "status": "done",
-  "primary": "living-warm",
+  "primary": "living-cozy",
   "second": "living-minimal",
   "files": [
    "la-dolce-vita-framed-poster-italian-phrase-wall-art-wohnbeispiel.jpg",
@@ -245,7 +245,7 @@
  "just-do-it-aviation-framed-poster": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "just-do-it-aviation-framed-poster-wohnbeispiel.jpg",
    "just-do-it-aviation-framed-poster-studio.jpg"
@@ -254,7 +254,7 @@
  "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-wohnbeispiel.jpg",
    "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy-studio.jpg"
@@ -263,7 +263,7 @@
  "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-wohnbeispiel.jpg",
    "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art-studio.jpg"
@@ -272,7 +272,7 @@
  "framed-poster-whatever-it-takes-motivational-portrait-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-whatever-it-takes-motivational-portrait-wall-art-wohnbeispiel.jpg",
    "framed-poster-whatever-it-takes-motivational-portrait-wall-art-studio.jpg"
@@ -281,7 +281,7 @@
  "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-wohnbeispiel.jpg",
    "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art-studio.jpg"
@@ -290,7 +290,7 @@
  "motivational-poster-i-always-win-vertical-framed-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-poster-i-always-win-vertical-framed-wall-art-wohnbeispiel.jpg",
    "motivational-poster-i-always-win-vertical-framed-wall-art-studio.jpg"
@@ -298,8 +298,8 @@
  },
  "believe-in-yourself-poster-motivational-sports-trophy-wall-art": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "believe-in-yourself-poster-motivational-sports-trophy-wall-art-wohnbeispiel.jpg",
    "believe-in-yourself-poster-motivational-sports-trophy-wall-art-studio.jpg"
@@ -308,7 +308,7 @@
  "poster-i-win-thats-what-i-do-motivational-photo-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "poster-i-win-thats-what-i-do-motivational-photo-wall-art-wohnbeispiel.jpg",
    "poster-i-win-thats-what-i-do-motivational-photo-wall-art-studio.jpg"
@@ -316,8 +316,8 @@
  },
  "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print": {
   "status": "done",
-  "primary": "gym",
-  "second": "living-minimal",
+  "primary": "gym-frontal",
+  "second": "living-cozy",
   "files": [
    "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-wohnbeispiel.jpg",
    "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print-studio.jpg"
@@ -326,7 +326,7 @@
  "framed-poster-just-do-some-creative-shits-bold-typographic-art-print": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-just-do-some-creative-shits-bold-typographic-art-print-wohnbeispiel.jpg",
    "framed-poster-just-do-some-creative-shits-bold-typographic-art-print-studio.jpg"
@@ -335,7 +335,7 @@
  "motivational-framed-poster-the-only-limit-is-your-mind-black-white-wall-art": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-framed-poster-the-only-limit-is-your-mind-black-white-wall-art-wohnbeispiel.jpg",
    "motivational-framed-poster-the-only-limit-is-your-mind-black-white-wall-art-studio.jpg"
@@ -344,7 +344,7 @@
  "no-risk-no-story-poster-whimsical-baby-photo-wall-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "no-risk-no-story-poster-whimsical-baby-photo-wall-art-wohnbeispiel.jpg",
    "no-risk-no-story-poster-whimsical-baby-photo-wall-art-studio.jpg"
@@ -353,7 +353,7 @@
  "motivational-poster-it-s-never-too-late-to-lock-in-black-white-portrait-art": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "motivational-poster-it-s-never-too-late-to-lock-in-black-white-portrait-art-wohnbeispiel.jpg",
    "motivational-poster-it-s-never-too-late-to-lock-in-black-white-portrait-art-studio.jpg"
@@ -362,7 +362,7 @@
  "swan-lake-framed-art-print-serene-watercolor-swan-poster": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "swan-lake-framed-art-print-serene-watercolor-swan-poster-wohnbeispiel.jpg",
    "swan-lake-framed-art-print-serene-watercolor-swan-poster-studio.jpg"
@@ -371,7 +371,7 @@
  "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print-wohnbeispiel.jpg",
    "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print-studio.jpg"
@@ -380,7 +380,7 @@
  "black-doberman-among-sheep-poster-monochrome-animal-wall-art": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "black-doberman-among-sheep-poster-monochrome-animal-wall-art-wohnbeispiel.jpg",
    "black-doberman-among-sheep-poster-monochrome-animal-wall-art-studio.jpg"
@@ -388,8 +388,8 @@
  },
  "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor-wohnbeispiel.jpg",
    "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor-studio.jpg"
@@ -397,8 +397,8 @@
  },
  "poster-surreal-horse-vintage-car-art-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "poster-surreal-horse-vintage-car-art-print-wohnbeispiel.jpg",
    "poster-surreal-horse-vintage-car-art-print-studio.jpg"
@@ -406,8 +406,8 @@
  },
  "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art-wohnbeispiel.jpg",
    "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art-studio.jpg"
@@ -416,7 +416,7 @@
  "dressage-horse-poster-equestrian-art-print-vertical-framed": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "dressage-horse-poster-equestrian-art-print-vertical-framed-wohnbeispiel.jpg",
    "dressage-horse-poster-equestrian-art-print-vertical-framed-studio.jpg"
@@ -425,7 +425,7 @@
  "leopard-on-branch-black-white-framed-poster": {
   "status": "done",
   "primary": "living-minimal",
-  "second": "office",
+  "second": "living-cozy",
   "files": [
    "leopard-on-branch-black-white-framed-poster-wohnbeispiel.jpg",
    "leopard-on-branch-black-white-framed-poster-studio.jpg"
@@ -434,7 +434,7 @@
  "leopard-on-branch-framed-poster-minimalist-wildlife-wall-art": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "leopard-on-branch-framed-poster-minimalist-wildlife-wall-art-wohnbeispiel.jpg",
    "leopard-on-branch-framed-poster-minimalist-wildlife-wall-art-studio.jpg"
@@ -443,7 +443,7 @@
  "go-get-that-dream-leopard-poster": {
   "status": "done",
   "primary": "bedroom-feminine",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "go-get-that-dream-leopard-poster-wohnbeispiel.jpg",
    "go-get-that-dream-leopard-poster-studio.jpg"
@@ -451,8 +451,8 @@
  },
  "framed-poster-ferrari-and-white-stallion-art-print": {
   "status": "done",
-  "primary": "loft",
-  "second": "living-minimal",
+  "primary": "loft-frontal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-ferrari-and-white-stallion-art-print-wohnbeispiel.jpg",
    "framed-poster-ferrari-and-white-stallion-art-print-studio.jpg"
@@ -461,7 +461,7 @@
  "framed-poster-watching-eyes-money-tear-wall-art-horizontal": {
   "status": "done",
   "primary": "office",
-  "second": "living-minimal",
+  "second": "living-cozy",
   "files": [
    "framed-poster-watching-eyes-money-tear-wall-art-horizontal-wohnbeispiel.jpg",
    "framed-poster-watching-eyes-money-tear-wall-art-horizontal-studio.jpg"

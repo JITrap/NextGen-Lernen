@@ -335,7 +335,7 @@
           "type": "tile",
           "settings": {
             "collection": "new-drop",
-            "cover": "shopify://shop_images/lp-tile-new-drop.jpg"
+            "cover": "shopify://shop_images/lp-tile-new-drop-v2.jpg"
           }
         },
         "tile_apex_motorsport_cars": {
@@ -363,7 +363,7 @@
           "type": "tile",
           "settings": {
             "collection": "mindset-words-ambition",
-            "cover": "shopify://shop_images/lp-tile-mindset-words-ambition.jpg"
+            "cover": "shopify://shop_images/lp-tile-mindset-words-ambition-v2.jpg"
           }
         },
         "tile_still_quiet_luxury": {
