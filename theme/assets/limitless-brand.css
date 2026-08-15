@@ -1,0 +1,893 @@
+/* ============================================================
+   LimitlessPoster — Open Frame Editorial
+   Brand System v0.1 · Space Grotesk (headings) + Inter (body)
+   Selbst gehostete Fonts (OFL) — keine externen Requests.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('space-grotesk-500.woff') format('woff');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --lp-carbon: #0B0B0C;
+  --lp-ivory: #F4F1EA;
+  --lp-paper: #FCFBF7;
+  --lp-graphite: #55575C;
+  --lp-cobalt: #3157FF;
+  --lp-cobalt-bright: #6E8CFF;
+  --lp-warm-line: #CEC8BD;
+
+  /* Headings & Akzente: Space Grotesk (Fallback: Inter aus den Theme-Settings) */
+  --font-heading--family: 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-accent--family: 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-heading--weight: 500;
+  --font-accent--weight: 500;
+}
+
+/* Editorial-Typografie: ruhige, engere Headlines */
+h1, .h1, h2, .h2, h3, .h3 {
+  letter-spacing: -0.015em;
+}
+
+/* Mikro-Labels: Tracking +0.12em, Versalien (Brand-Regel) */
+h5, .h5, h6, .h6 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Buttons: Space Grotesk, Versalien, ruhiges Tracking */
+.button,
+a.button,
+button.button,
+.button-secondary,
+a.button-secondary {
+  font-family: var(--font-accent--family);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Open-Frame-Signatur: Wipe-Hover in Electric Cobalt (max. 5% Cobalt-Anteil,
+   nur als transienter Akzent — nie als Fläche oder Artwork-Filter) */
+.button:not(.link),
+a.button:not(.link),
+.button-secondary:not(.link) {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.button:not(.link)::before,
+a.button:not(.link)::before,
+.button-secondary:not(.link)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -102%;
+  width: 102%;
+  height: 100%;
+  background-color: var(--lp-cobalt);
+  transition: left 0.35s ease;
+  z-index: -1;
+}
+.button:not(.link):hover::before,
+a.button:not(.link):hover::before,
+.button-secondary:not(.link):hover::before {
+  left: 0;
+}
+.button:not(.link):hover,
+a.button:not(.link):hover,
+.button-secondary:not(.link):hover {
+  color: #ffffff !important;
+  border-color: var(--lp-cobalt);
+}
+
+/* Fokus-Ring in Cobalt — sichtbar und markentypisch */
+:focus-visible {
+  outline-color: var(--lp-cobalt);
+}
+
+/* Textlinks: feine Linie, Cobalt beim Hover */
+.link:hover,
+a.link:hover {
+  color: var(--lp-cobalt);
+}
+
+/* Produktkarten: feine Warm-Line-Kante um die Bildfläche (Galerie-Passepartout-Gefühl) */
+product-card .card-gallery,
+.product-card__gallery {
+  background-color: var(--lp-ivory);
+}
+
+/* Preise dezent in Graphite auf hellen Schemes */
+.price {
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   v2 — Motion & Landing Additions (Scroll-Redesign)
+   Reveal, Frame-Draw, Progressbar, Karten-Hover, Wortmarke.
+   Ohne JS (kein html.lp-motion) bleibt alles statisch sichtbar.
+   ============================================================ */
+
+/* Scroll-Progressbar */
+#lp-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lp-cobalt);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 990;
+  pointer-events: none;
+}
+
+/* Reveal-on-Scroll */
+html.lp-motion .lp-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 0.6, 0.2, 1), transform 0.6s cubic-bezier(0.16, 0.6, 0.2, 1);
+}
+html.lp-motion .lp-reveal.lp-inview {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.lp-motion .lp-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Frame-Draw: SVG-Rahmen zeichnet sich, sobald sichtbar */
+.lp-fd {
+  position: relative;
+}
+.lp-fd > svg.lp-fd-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--lp-cobalt);
+  pointer-events: none;
+}
+.lp-fd > svg.lp-fd-frame rect {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1s ease-out 0.2s;
+}
+.lp-fd.lp-fd-visible > svg.lp-fd-frame rect {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-fd > svg.lp-fd-frame rect {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}
+
+/* Outline-Text (sparsam: Hero-Zeile, Wortmarke, Drop-Banner) */
+.lp-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+}
+
+/* Produktkarten: Lift + Cobalt-Ring beim Hover */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  product-card {
+    display: block;
+    transition: transform 0.18s ease;
+  }
+  product-card:hover {
+    transform: translateY(-6px);
+  }
+  product-card:hover .card-gallery,
+  product-card:hover .product-card__gallery {
+    box-shadow: 0 0 0 1px rgba(49, 87, 255, 0.25), 0 18px 36px rgba(11, 11, 12, 0.12);
+  }
+}
+
+/* Kollektionskarten: Edge-Line unten, Cobalt beim Hover, sanfter Zoom */
+.collection-card {
+  border-bottom: 3px solid var(--lp-carbon);
+  transition: border-color 0.2s ease;
+}
+.collection-card:hover {
+  border-bottom-color: var(--lp-cobalt);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection-card img {
+    transition: transform 0.5s ease;
+  }
+  .collection-card:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* Große Footer-Wortmarke */
+.lp-wordmark-wrap {
+  padding: 8px 0 20px;
+}
+.lp-wordmark {
+  font-family: var(--font-accent--family);
+  font-weight: 600;
+  font-size: clamp(2.75rem, 9vw, 6.9rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.1em 0.16em;
+}
+.lp-wordmark .lp-outline {
+  -webkit-text-stroke-width: 1.5px;
+}
+
+/* ============================================================
+   v4 — Displate-Galerie: 3D-Startansicht, Thumbnail-Rail, Detail-Tour
+   ============================================================ */
+
+.lp-gallery {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.lp-gallery__rail {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* Breite statt max-height begrenzen: die Höhe folgt immer der aspect-ratio,
+   sonst verzerren die prozentbasierten Detail-Tour-Berechnungen. */
+.lp-gallery__stage {
+  position: relative;
+  width: min(100%, calc(80svh * var(--lp-stage-ratio, 0.8)));
+  margin-inline: auto;
+  aspect-ratio: var(--lp-stage-ratio, 0.8);
+  background: #F4F1EA;
+  overflow: hidden;
+}
+
+/* Panels */
+.lp-panel {
+  position: absolute;
+  inset: 0;
+}
+.lp-panel[hidden] {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lp-panel:not([hidden]) {
+    animation: lp-panel-in 0.28s ease;
+  }
+}
+@keyframes lp-panel-in {
+  from { opacity: 0; }
+}
+.lp-panel--img {
+  display: grid;
+  place-items: center;
+}
+.lp-panel--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 3D-Panel */
+.lp-3d-mount,
+.lp-3d-mount model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+}
+.lp-3d-loading {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #55575C;
+  background: rgba(252, 251, 247, 0.9);
+  padding: 7px 12px;
+  pointer-events: none;
+}
+.lp-3d-loading[hidden] {
+  display: none;
+}
+.lp-spin {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(49, 87, 255, 0.25);
+  border-top-color: var(--lp-cobalt, #3157FF);
+  border-radius: 50%;
+  animation: lp-spin 0.9s linear infinite;
+}
+@keyframes lp-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-spin { animation: none; }
+}
+.lp-stage-fs {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(11, 11, 12, 0.25);
+  background: rgba(252, 251, 247, 0.9);
+  color: #0B0B0C;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.lp-stage-fs:hover {
+  border-color: var(--lp-cobalt, #3157FF);
+  color: var(--lp-cobalt, #3157FF);
+}
+.lp-stage-fs svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.lp-stage-hint {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #8A8C91;
+  pointer-events: none;
+}
+
+/* Thumbnail-Rail */
+.lp-thumb {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 1px solid rgba(11, 11, 12, 0.14);
+  background: #FCFBF7;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.lp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lp-thumb[aria-selected='true'] {
+  border: 2px solid var(--lp-cobalt, #3157FF);
+}
+.lp-thumb:hover {
+  border-color: var(--lp-cobalt, #3157FF);
+}
+.lp-thumb:focus-visible {
+  outline: 2px solid var(--lp-cobalt, #3157FF);
+  outline-offset: 2px;
+}
+.lp-thumb-badge {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  min-width: 24px;
+  height: 20px;
+  padding: 0 5px;
+  display: grid;
+  place-items: center;
+  background: var(--lp-cobalt, #3157FF);
+  color: #fff;
+  font-family: var(--font-accent--family, inherit);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.lp-thumb-badge--plus {
+  background: rgba(11, 11, 12, 0.85);
+}
+.lp-thumb-badge svg {
+  width: 12px;
+  height: 12px;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Detail-Tour */
+.lp-panel--detail {
+  overflow: hidden;
+  background: #F4F1EA;
+  display: grid;
+  place-items: center;
+  container-type: size;
+}
+/* Leinwand im Regions-Verhältnis, zentriert eingepasst (contain): die
+   unabhängigen %-Maße des Bilds stimmen nur, wenn die Leinwand exakt das
+   Verhältnis der Detail-Region hat. */
+.lp-detail-canvas {
+  position: relative;
+  aspect-ratio: var(--lp-detail-ratio, 1);
+  width: min(100%, calc(100cqh * var(--lp-detail-ratio, 1)));
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.16, 0.84, 0.28, 1),
+    transform-origin 0.6s cubic-bezier(0.16, 0.84, 0.28, 1);
+}
+.lp-detail-canvas img {
+  position: absolute;
+  max-width: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.lp-zoomed .lp-detail-canvas {
+  cursor: zoom-out;
+}
+.lp-panel--detail.lp-zoomed::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(11, 11, 12, 0.28));
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-detail-canvas { transition: none; }
+}
+
+/* Plus-Marker mit Hover-Pille — Overlay deckt exakt die Leinwand ab */
+.lp-detail-spots {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: var(--lp-detail-ratio, 1);
+  width: min(100%, calc(100cqh * var(--lp-detail-ratio, 1)));
+  z-index: 2;
+  pointer-events: none;
+}
+.lp-spot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  border: 0;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(252, 251, 247, 0.95);
+  color: #0B0B0C;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 0 0 rgba(49, 87, 255, 0.4), 0 2px 10px rgba(11, 11, 12, 0.18);
+  overflow: hidden;
+}
+.lp-spot-plus {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+.lp-spot-plus svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: transform 0.25s ease;
+}
+.lp-spot-label {
+  max-width: 0;
+  padding-right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-accent--family, inherit);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: max-width 0.3s ease, padding-right 0.3s ease;
+}
+.lp-spot:hover,
+.lp-spot:focus-visible {
+  background: var(--lp-cobalt, #3157FF);
+  color: #fff;
+}
+.lp-spot:hover .lp-spot-label,
+.lp-spot:focus-visible .lp-spot-label {
+  max-width: 130px;
+  padding-right: 15px;
+}
+.lp-spot:hover .lp-spot-plus svg {
+  transform: rotate(90deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lp-spot {
+    animation: lp-spot-pulse 2.6s ease-out infinite;
+  }
+  .lp-spot:nth-child(2) { animation-delay: 0.5s; }
+  .lp-spot:nth-child(3) { animation-delay: 1s; }
+  .lp-spot:nth-child(4) { animation-delay: 1.5s; }
+}
+@keyframes lp-spot-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(49, 87, 255, 0.4), 0 2px 10px rgba(11, 11, 12, 0.18); }
+  55% { box-shadow: 0 0 0 14px rgba(49, 87, 255, 0), 0 2px 10px rgba(11, 11, 12, 0.18); }
+  100% { box-shadow: 0 0 0 0 rgba(49, 87, 255, 0), 0 2px 10px rgba(11, 11, 12, 0.18); }
+}
+.lp-zoomed .lp-detail-spots {
+  display: none;
+}
+
+/* Schwebende Info-Karte */
+.lp-dcard {
+  position: absolute;
+  top: var(--cy, 50%);
+  transform: translateY(-50%);
+  z-index: 3;
+  width: min(390px, 88%);
+  background: rgba(11, 11, 12, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #F7F4EE;
+  padding: 22px 24px;
+  border-left: 3px solid var(--lp-cobalt, #3157FF);
+}
+.lp-dcard[hidden] {
+  display: none;
+}
+.lp-dcard[data-side='left'] { left: 16px; }
+.lp-dcard[data-side='right'] { right: 16px; }
+@media (prefers-reduced-motion: no-preference) {
+  .lp-dcard:not([hidden]) {
+    animation: lp-card-in 0.35s cubic-bezier(0.16, 0.84, 0.28, 1);
+  }
+}
+@keyframes lp-card-in {
+  from { opacity: 0; transform: translateY(calc(-50% + 10px)); }
+}
+.lp-dcard-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.lp-dcard-title {
+  font-family: var(--font-accent--family, inherit);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.lp-dcard-idx {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: #B9BBC0;
+}
+.lp-dcard-text {
+  margin: 12px 0 16px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.lp-dcard-nav {
+  display: flex;
+  gap: 8px;
+}
+.lp-dcard-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(244, 241, 234, 0.35);
+  background: transparent;
+  color: #F4F1EA;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.lp-dcard-btn:hover {
+  border-color: var(--lp-cobalt, #3157FF);
+  background: var(--lp-cobalt, #3157FF);
+}
+.lp-dcard-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lp-dcard-close {
+  margin-left: auto;
+}
+
+
+/* AR-Button (model-viewer Slot, erscheint nur auf AR-fähigen Geräten) */
+.lp-ar-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  padding: 10px 16px;
+  background: var(--lp-cobalt, #3157FF);
+  color: #fff;
+  font-family: var(--font-accent--family, inherit);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(11, 11, 12, 0.25);
+}
+.lp-ar-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Größenvergleich unter der Stage */
+.lp-sizecomp {
+  grid-column: 2;
+  margin-top: 10px;
+  padding: 12px 14px 8px;
+  border: 1px solid rgba(11, 11, 12, 0.1);
+  background: #FCFBF7;
+  color: #0B0B0C;
+}
+.lp-sizecomp svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lp-sizecomp-label {
+  margin: 6px 0 2px;
+  font-family: var(--font-subheading--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #55575C;
+}
+.lp-sizecomp-label strong {
+  color: #0B0B0C;
+  font-weight: 600;
+}
+
+/* Fullscreen-Overlay (3D) */
+.lp-xp-lock {
+  overflow: hidden;
+}
+.lp-xp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(11, 11, 12, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lp-xp-overlay[hidden] {
+  display: none;
+}
+.lp-xp-overlay-inner {
+  width: min(94vw, 1100px);
+  height: min(88vh, 860px);
+  display: flex;
+  flex-direction: column;
+}
+.lp-xp-overlay-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 4px;
+}
+.lp-xp-overlay-title {
+  font-family: var(--font-accent--family, inherit);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F4F1EA;
+}
+.lp-xp-overlay-close {
+  border: 1px solid rgba(244, 241, 234, 0.4);
+  background: transparent;
+  color: #F4F1EA;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.lp-xp-overlay-close:hover {
+  border-color: var(--lp-cobalt, #3157FF);
+  color: var(--lp-cobalt-bright, #6E8CFF);
+}
+.lp-xp-overlay-close svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.lp-xp-overlay-stage {
+  flex: 1;
+  min-height: 0;
+}
+.lp-xp-overlay-stage model-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+}
+.lp-xp-overlay-hint {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #55575C;
+}
+
+/* Mobil: Stage oben, Rail als horizontale Leiste darunter */
+@media screen and (max-width: 749px) {
+  .lp-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lp-sizecomp {
+    order: 2;
+  }
+  .lp-gallery__rail {
+    order: 1;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 2px 2px 6px;
+    scrollbar-width: none;
+  }
+  .lp-gallery__rail::-webkit-scrollbar {
+    display: none;
+  }
+  .lp-thumb {
+    width: 58px;
+    height: 58px;
+  }
+  .lp-gallery__stage {
+    width: min(100%, calc(72svh * var(--lp-stage-ratio, 0.8)));
+  }
+  .lp-stage-hint {
+    display: none;
+  }
+  .lp-dcard {
+    width: auto;
+    left: 10px !important;
+    right: 10px !important;
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+}
+@media screen and (max-width: 749px) and (prefers-reduced-motion: no-preference) {
+  .lp-dcard:not([hidden]) {
+    animation: lp-card-in-mobile 0.35s cubic-bezier(0.16, 0.84, 0.28, 1);
+  }
+}
+@keyframes lp-card-in-mobile {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+/* — Produktkarten: nur das Hauptbild (kein Varianten-Karussell auf der Karte) — */
+product-card .card-gallery slideshow-arrows { display: none !important; }
+product-card .card-gallery slideshow-slides { overflow: hidden !important; scroll-snap-type: none !important; }
+product-card .card-gallery slideshow-slides > *:not(:first-child) { display: none !important; }
+
+/* ============================================================
+   v5 — Einheitliche Bildflächen & dunkle Kategorieseiten
+   ============================================================ */
+
+/* Mockup-Wände (weiß wie beige) verschmelzen per Multiply mit der
+   Ivory-Panelfarbe der Karte: kein Hintergrund-Flickenteppich mehr,
+   nur noch das gerahmte Poster auf einheitlicher Fläche.
+   brightness(1.06) hebt auch die beigen Wände exakt auf Panelniveau. */
+product-card .card-gallery img,
+.product-card__gallery img {
+  mix-blend-mode: multiply;
+  filter: brightness(1.06);
+}
+.resource-card[data-resource-type='product'] .resource-card__media {
+  background-color: var(--lp-ivory);
+}
+.resource-card[data-resource-type='product'] .resource-card__image {
+  mix-blend-mode: multiply;
+  filter: brightness(1.06);
+}
+
+/* Alle Kategorieseiten außer QUEENS: dunkle Galerie-Wand.
+   isolation:isolate hält die Deko-Ebenen (z-index:-1) der Vorlagen
+   über dem dunklen Grund, aber hinter dem Inhalt. */
+main[data-template^="collection"]:not([data-template="collection.queens"]) {
+  background-color: var(--lp-carbon);
+  isolation: isolate;
+}
+
+/* Header folgt auf dunklen Kategorieseiten dem dunklen Schema
+   (QUEENS bleibt hell). Werte = scheme-3 aus den Theme-Settings. */
+body:has(main[data-template^="collection"]):not(:has(main[data-template="collection.queens"]))
+  #header-group
+  :is(.color-scheme-1, .color-scheme-2) {
+  --color-background: rgb(11 11 12);
+  --color-background-rgb: 11, 11, 12;
+  --color-foreground: rgba(244, 241, 234, 0.85);
+  --color-foreground-rgb: 244, 241, 234;
+  --color-foreground-heading: rgb(252 251 247);
+  --color-foreground-heading-rgb: 252, 251, 247;
+  --color-primary: rgb(244 241 234);
+  --color-primary-rgb: 244, 241, 234;
+  --color-primary-hover: rgb(255 255 255);
+  --color-primary-hover-rgb: 255, 255, 255;
+  --color-border: rgba(244, 241, 234, 0.2);
+  --color-border-rgb: 244, 241, 234;
+  --color-shadow: rgb(11 11 12);
+  --color-shadow-rgb: 11, 11, 12;
+  --color-foreground-muted: rgba(244, 241, 234, 0.6);
+  --color-input-background: rgb(26 27 30);
+  --color-input-text: rgb(244 241 234);
+  --color-input-text-rgb: 244, 241, 234;
+  --color-input-border: rgb(85 87 92);
+  --color-input-hover-background: rgba(255, 255, 255, 0.04);
+  --color-primary-button-background: rgb(244 241 234);
+  --color-primary-button-text: rgb(11 11 12);
+  --color-primary-button-border: rgb(244 241 234);
+  --color-primary-button-hover-background: rgb(255 255 255);
+  --color-primary-button-hover-text: rgb(11 11 12);
+  --color-primary-button-hover-border: rgb(255 255 255);
+  --color-secondary-button-background: rgba(0, 0, 0, 0);
+  --color-secondary-button-text: rgb(244 241 234);
+  --color-secondary-button-border: rgba(244, 241, 234, 0.69);
+  --color-secondary-button-hover-background: rgba(255, 255, 255, 0.04);
+  --color-secondary-button-hover-text: rgb(255 255 255);
+  --color-secondary-button-hover-border: rgb(49 87 255);
+  --opacity-5-15: 0.15;
+  --opacity-10-25: 0.25;
+  --opacity-35-55: 0.55;
+  --opacity-40-60: 0.6;
+  --opacity-30-60: 0.6;
+}
+
+/* Schwarze Wortmarke auf dunklem Header invertieren */
+body:has(main[data-template^="collection"]):not(:has(main[data-template="collection.queens"]))
+  #header-group
+  .header-logo__image {
+  filter: invert(1);
+}
