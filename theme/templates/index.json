@@ -1609,7 +1609,7 @@
     },
     "real_look": {
       "type": "limitless-real-look",
-      "name": "Real-Look (Poster in echt)",
+      "name": "Real-Look",
       "settings": {
         "product": "ferrari-scuderia-formula-1-vertical-framed-poster",
         "show_badge": true,
