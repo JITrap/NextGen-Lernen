@@ -1,0 +1,32 @@
+{%- doc -%}
+  TXT-08 · Preis-Anker: zeigt „Du sparst X € (−Y %)" als grünen Chip,
+  sobald die Variante einen Vergleichspreis (durchgestrichenen Preis) hat.
+  Ohne Vergleichspreis rendert der Block nichts.
+{%- enddoc -%}
+
+{%- liquid
+  assign lp_variant = closest.product.selected_or_first_available_variant
+  assign lp_cmp = lp_variant.compare_at_price
+  assign lp_price = lp_variant.price
+-%}
+
+{%- if lp_cmp > lp_price -%}
+  {%- liquid
+    assign lp_diff = lp_cmp | minus: lp_price
+    assign lp_pct = lp_diff | times: 100 | divided_by: lp_cmp
+  -%}
+  <div class="lp-savings" {{ block.shopify_attributes }}>
+    Du sparst {{ lp_diff | money }} (−{{ lp_pct }} %)
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Ersparnis-Chip",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "Erscheint automatisch, wenn die Variante einen Vergleichspreis hat (Produkt → Preis → Vergleichspreis)." }
+  ],
+  "presets": [{ "name": "Ersparnis-Chip" }]
+}
+{% endschema %}

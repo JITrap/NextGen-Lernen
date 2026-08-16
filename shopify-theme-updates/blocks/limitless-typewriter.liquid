@@ -1,0 +1,34 @@
+{%- doc -%}
+  TXT-06 · Typewriter-Zeile: fester Anfang + rotierende Wörter (mit | getrennt).
+  Beispiel: „Poster für dein Home-Gym. / dein Büro. / deinen Neustart."
+{%- enddoc -%}
+
+<p class="lp-type {{ block.settings.size_class }}" {{ block.shopify_attributes }}>
+  {{- block.settings.prefix | escape }}
+  <span class="lp-type__word" data-lp-type data-words="{{ block.settings.words | escape }}">
+    {{- block.settings.words | split: '|' | first | strip -}}
+  </span><span class="lp-type__caret" aria-hidden="true"></span>
+</p>
+
+{% schema %}
+{
+  "name": "Typewriter-Zeile",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "prefix", "label": "Fester Anfang", "default": "Poster für" },
+    { "type": "text", "id": "words", "label": "Rotierende Wörter (mit | trennen)", "default": "dein Home-Gym.|dein Büro.|deinen Neustart.|deine Ziele." },
+    {
+      "type": "select",
+      "id": "size_class",
+      "label": "Größe",
+      "options": [
+        { "value": "h5", "label": "Klein" },
+        { "value": "h4", "label": "Mittel" },
+        { "value": "h3", "label": "Groß" }
+      ],
+      "default": "h4"
+    }
+  ],
+  "presets": [{ "name": "Typewriter-Zeile" }]
+}
+{% endschema %}
