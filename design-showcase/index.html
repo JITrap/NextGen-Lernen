@@ -498,6 +498,9 @@ button { font-family: inherit; }
       <button class="tab" type="button" data-go="navigation">Navigation</button>
       <button class="tab" type="button" data-go="conversion">Conversion</button>
       <button class="tab" type="button" data-go="effekte">Effekte</button>
+      <button class="tab" type="button" data-go="premium">Premium</button>
+      <button class="tab" type="button" data-go="paletten">Paletten</button>
+      <button class="tab" type="button" data-go="seiten">Seiten-Ideen</button>
     </nav>
   </div>
 </header>
@@ -578,6 +581,21 @@ button { font-family: inherit; }
         <span class="count">7 Ideen · FX</span>
         <span class="cname">Feedback &amp; Effekte <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
         <span class="cdesc">Fly-to-Cart, Toasts, Konfetti, Skeletons.</span>
+      </button>
+      <button class="cat rv" type="button" data-go="premium">
+        <span class="count">14 Ideen · PRM</span>
+        <span class="cname">Premium-Effekte <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+        <span class="cdesc">Grain, Aurora, Border-Beam, 3D-Wand — Flagship-Level.</span>
+      </button>
+      <button class="cat rv" type="button" data-go="paletten">
+        <span class="count">8 Ideen · PAL</span>
+        <span class="cname">Farbpaletten <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+        <span class="cdesc">Acht komplette Dark-Paletten für deinen Shop.</span>
+      </button>
+      <button class="cat rv" type="button" data-go="seiten">
+        <span class="count">8 Ideen · PAGE</span>
+        <span class="cname">Seiten-Ideen <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+        <span class="cdesc">Gallery-Wall-Konfigurator, Drop-Page, Charts &amp; mehr.</span>
       </button>
     </div>
   </div>
@@ -2065,7 +2083,1408 @@ button { font-family: inherit; }
     </div>
   </div>
 </section>
-<!-- ================= EFFEKTE ================= -->
+<!-- ================= PREMIUM ================= -->
+<style>
+/* ===== PRM-01 Film-Korn ===== */
+.pm1-stage{position:relative}
+.pm1-grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px}
+/* ===== PRM-02 Mesh-Aurora ===== */
+.pm2-stage{position:relative;background:#0A0A0D}
+.pm2-stage::before,.pm2-stage::after{content:"";position:absolute;width:130%;aspect-ratio:1/1;border-radius:50%;filter:blur(42px);pointer-events:none}
+.pm2-stage::before{left:-35%;top:-65%;background:radial-gradient(circle at 32% 32%,rgba(49,87,255,.55),transparent 60%),radial-gradient(circle at 68% 62%,rgba(109,40,217,.45),transparent 55%)}
+.pm2-stage::after{right:-40%;bottom:-70%;background:radial-gradient(circle at 55% 45%,rgba(122,18,32,.6),transparent 60%),radial-gradient(circle at 30% 70%,rgba(49,87,255,.25),transparent 55%)}
+.pm2-copy{position:relative;z-index:1;text-align:center}
+.pm2-title{display:block;color:#F4F1EA;font-weight:800;font-size:clamp(26px,4.5vw,36px);letter-spacing:.05em}
+.pm2-sub{display:block;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9BA1B8}
+@media (prefers-reduced-motion: no-preference){
+  .pm2-stage::before{animation:pm2-drift-a 22s ease-in-out infinite alternate}
+  .pm2-stage::after{animation:pm2-drift-b 26s ease-in-out infinite alternate}
+}
+@keyframes pm2-drift-a{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(12%,10%,0) scale(1.15)}}
+@keyframes pm2-drift-b{from{transform:translate3d(0,0,0) scale(1.12)}to{transform:translate3d(-13%,-9%,0) scale(1)}}
+/* ===== PRM-03 Border-Beam ===== */
+.pm3-wrap{position:relative;width:min(250px,100%);border-radius:16px;padding:1.5px;overflow:hidden;background:#202027}
+.pm3-wrap::before{content:"";position:absolute;left:50%;top:50%;width:380px;height:380px;margin:-190px 0 0 -190px;z-index:-1;background:conic-gradient(from 0deg,transparent 0 300deg,#6E8CFF 330deg,#FFFFFF 345deg,transparent 360deg)}
+.pm3-wrap{isolation:isolate}
+.pm3-card{position:relative;border-radius:14.5px;background:#101016;padding:18px;min-height:130px;color:#F4F1EA;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.pm3-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#7E86A0}
+.pm3-name{font-weight:800;font-size:17px;letter-spacing:.02em}
+.pm3-price{font-family:var(--mono);font-size:12px;color:#9DB4FF}
+@media (prefers-reduced-motion: no-preference){.pm3-wrap::before{animation:pm3-spin 4.5s linear infinite}}
+@keyframes pm3-spin{to{transform:rotate(360deg)}}
+/* ===== PRM-04 Buchstaben-Reveal ===== */
+.pm4-box{text-align:center}
+.pm4-word{display:flex;justify-content:center;gap:1px;color:#F4F1EA;font-weight:800;font-size:clamp(20px,3.4vw,27px);letter-spacing:.07em}
+.pm4-word span{display:inline-block}
+@media (prefers-reduced-motion: no-preference){.pm4-word span{transition:opacity .5s ease,transform .5s ease,filter .5s ease}}
+.pm4-word.pm4-hide span{opacity:0;transform:translateY(14px);filter:blur(8px)}
+.pm4-word.pm4-snap span{transition:none}
+.pm4-sub{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8A8FA3}
+/* ===== PRM-05 3D-Flip ===== */
+.pm5-box{display:flex;flex-direction:column;align-items:center;gap:12px}
+.pm5-scene{perspective:900px}
+.pm5-flip{position:relative;width:150px;height:200px;border:0;padding:0;background:none;cursor:pointer;transform-style:preserve-3d;-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion: no-preference){.pm5-flip{transition:transform .7s cubic-bezier(.2,.7,.2,1)}}
+.pm5-flip.pm5-open{transform:rotateY(180deg)}
+.pm5-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.pm5-front .poster{width:100%;height:100%}
+.pm5-back{transform:rotateY(180deg);background:#111116;border:1px solid rgba(255,255,255,.14);border-radius:4px;color:#F4F1EA;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:16px;text-align:left}
+.pm5-row{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#C7CBD9;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:8px}
+.pm5-row strong{display:block;color:#F4F1EA;font-size:12px;margin-bottom:2px}
+.pm5-hint{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#7E86A0}
+/* ===== PRM-06 Ken-Burns ===== */
+.pm6-frame{position:relative;width:min(300px,100%);aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.pm6-art{position:absolute;inset:-10%;background:radial-gradient(120% 90% at 18% 12%,#3157FF 0%,transparent 55%),radial-gradient(110% 85% at 85% 85%,#7A1220 0%,transparent 55%),linear-gradient(160deg,#0A0A12,#141422 60%,#0A0A0D)}
+.pm6-word{position:absolute;inset:0;display:grid;place-items:center;color:#F4F1EA;font-weight:800;font-size:21px;letter-spacing:.22em;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.pm6-cap{position:absolute;left:12px;bottom:9px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,241,234,.85)}
+@media (prefers-reduced-motion: no-preference){.pm6-art{animation:pm6-kb 22s ease-in-out infinite alternate}}
+@keyframes pm6-kb{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-3%,2%,0)}}
+/* ===== PRM-07 Scroll-Shrink-Hero ===== */
+.pm7-space{min-height:640px;background:#FFFFFF}
+.pm7-hero{position:sticky;top:10px;z-index:1;margin:10px;height:175px;display:grid;place-items:center;background:linear-gradient(135deg,#0F0F16,#1B2340 55%,#3157FF 140%);transform-origin:50% 0;will-change:transform;overflow:hidden}
+.pm7-htxt{color:#F4F1EA;font-weight:800;font-size:22px;letter-spacing:.1em}
+.pm7-hsub{position:absolute;bottom:12px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.7)}
+.pm7-gap{height:70px}
+.pm7-body{position:relative;z-index:2;background:#FFFFFF;padding:18px 16px;color:#26262B}
+.pm7-bt{font-weight:800;font-size:15px;margin-bottom:10px;color:#0B0B0C}
+.pm7-line{display:flex;justify-content:space-between;gap:12px;padding:11px 2px;border-bottom:1px solid #ECEAE4;font-size:12px}
+.pm7-line em{font-style:normal;font-family:var(--mono);font-size:10px;color:#3157FF}
+/* ===== PRM-08 3D-Poster-Wand ===== */
+.pm8-stage{position:relative}
+.pm8-persp{position:absolute;inset:0;perspective:700px}
+.pm8-wall{position:absolute;left:50%;top:-160px;display:flex;gap:14px;transform:translateX(-50%) rotateX(18deg) rotateZ(-4deg)}
+.pm8-col{display:flex;flex-direction:column}
+.pm8-tile{width:76px;height:102px;margin-bottom:12px;border-radius:4px;border:4px solid #1A1A21;box-shadow:0 8px 18px rgba(0,0,0,.45);flex:none}
+.pm8-a{background:linear-gradient(150deg,#2A0A10,#7A1220 55%,#E23A2E)}
+.pm8-b{background:linear-gradient(150deg,#0A1030,#3157FF)}
+.pm8-c{background:linear-gradient(150deg,#03191C,#0FA3A3)}
+.pm8-d{background:radial-gradient(circle at 70% 30%,#3A3A5E 0 18%,transparent 19%),linear-gradient(160deg,#0A0A12,#1C1C30)}
+.pm8-e{background:linear-gradient(180deg,#101014,#17171D)}
+.pm8-f{background:linear-gradient(150deg,#33230A,#C98A1B)}
+@media (prefers-reduced-motion: no-preference){
+  .pm8-col{animation:pm8-up 34s linear infinite}
+  .pm8-col + .pm8-col{animation-duration:42s;animation-delay:-14s}
+  .pm8-stage:hover .pm8-col{animation-play-state:paused}
+}
+@keyframes pm8-up{to{transform:translateY(-50%)}}
+/* ===== PRM-09 Licht-Divider ===== */
+.pm9-box{width:100%;display:flex;flex-direction:column;gap:22px;overflow:hidden;padding:4px 2px}
+.pm9-lab{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8A8FA3;text-align:center}
+.pm9-line{position:relative;height:1px;background:rgba(244,241,234,.14)}
+.pm9-pulse{position:absolute;top:-1px;left:0;height:3px;width:34%;border-radius:3px;transform:translateX(-120%);background:linear-gradient(90deg,transparent,rgba(110,140,255,.9) 40%,#FFFFFF 50%,rgba(110,140,255,.9) 60%,transparent)}
+@media (prefers-reduced-motion: no-preference){
+  .pm9-pulse{animation:pm9-run 3.8s cubic-bezier(.45,0,.2,1) infinite}
+  .pm9-p2{animation-delay:-1.9s}
+}
+@keyframes pm9-run{0%{transform:translateX(-120%)}70%,100%{transform:translateX(420%)}}
+/* ===== PRM-10 Spotlight ===== */
+.pm10-stage{position:relative;background:#08080A}
+.pm10-light{position:absolute;top:-25%;bottom:-25%;left:-60%;right:-60%;pointer-events:none;background:radial-gradient(circle 150px at 50% 44%,rgba(255,242,214,.26),rgba(255,242,214,.08) 45%,transparent 68%),radial-gradient(circle 210px at 50% 44%,rgba(8,8,10,0) 0 52%,rgba(4,4,6,.88) 100%)}
+@media (prefers-reduced-motion: no-preference){
+  .pm10-light{animation:pm10-swing 7s ease-in-out infinite alternate}
+  .pm10-stage:hover .pm10-light{animation-play-state:paused}
+}
+@keyframes pm10-swing{from{transform:translateX(-9%)}to{transform:translateX(9%)}}
+/* ===== PRM-11 Dock-Menü ===== */
+.pm11-box{display:flex;flex-direction:column;align-items:center;gap:14px}
+.pm11-dock{position:relative;display:flex;align-items:flex-end;gap:12px;padding:12px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px}
+.pm11-item{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;padding:0;cursor:pointer;transform-origin:50% 100%}
+.pm11-ico{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:#F4F1EA;font-family:var(--mono);font-weight:700;font-size:14px;border:1px solid rgba(255,255,255,.18)}
+.pm11-i1{background:linear-gradient(150deg,#1B2340,#3157FF)}
+.pm11-i2{background:linear-gradient(150deg,#2A0A10,#B0202E)}
+.pm11-i3{background:linear-gradient(150deg,#241145,#6D28D9)}
+.pm11-i4{background:linear-gradient(150deg,#101014,#2C2C36)}
+.pm11-i5{background:linear-gradient(150deg,#33230A,#C98A1B)}
+.pm11-lab{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#9AA0B4}
+.pm11-hint{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#71768A}
+/* ===== PRM-12 Parallax-Ebenen ===== */
+.pm12-stage{position:relative}
+.pm12-scene{position:relative;width:170px;height:205px}
+.pm12-lay{position:absolute;transition:transform .18s ease-out}
+.pm12-shadow{left:6%;right:6%;top:18%;bottom:0;background:radial-gradient(60% 55% at 50% 60%,rgba(49,87,255,.35),rgba(0,0,0,.55) 70%,transparent 78%);filter:blur(16px)}
+.pm12-post{inset:0;display:grid;place-items:center}
+.pm12-post .poster{width:148px}
+.pm12-chip{top:-6px;right:-12px;background:#F4F1EA;color:#0B0B0C;font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;box-shadow:0 10px 20px rgba(0,0,0,.45)}
+/* ===== PRM-13 Marken-Scrollbar ===== */
+.pm13-frame{scrollbar-width:thin;scrollbar-color:#3157FF transparent}
+.pm13-frame::-webkit-scrollbar{width:6px}
+.pm13-frame::-webkit-scrollbar-track{background:transparent}
+.pm13-frame::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3157FF,#6D28D9);border-radius:999px}
+.pm13-list{padding:14px 16px}
+.pm13-head{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8A8FA3;padding-bottom:10px;border-bottom:1px solid #E4E1D9}
+.pm13-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 2px;border-bottom:1px solid #ECEAE4}
+.pm13-name{font-size:12px;font-weight:600;color:#1B1B1F}
+.pm13-price{font-family:var(--mono);font-size:11px;font-weight:700;color:#3157FF}
+/* ===== PRM-14 Glas-Drop-Panel ===== */
+.pm14-stage{position:relative;background:#0A0A0D}
+.pm14-stage::before{content:"";position:absolute;inset:-30%;pointer-events:none;filter:blur(32px);background:radial-gradient(40% 40% at 25% 30%,rgba(49,87,255,.5),transparent 70%),radial-gradient(35% 35% at 75% 65%,rgba(109,40,217,.45),transparent 70%),radial-gradient(30% 30% at 62% 15%,rgba(122,18,32,.4),transparent 70%)}
+@media (prefers-reduced-motion: no-preference){.pm14-stage::before{animation:pm14-drift 24s ease-in-out infinite alternate}}
+@keyframes pm14-drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-6%,5%,0) scale(1.12)}}
+.pm14-glass{position:relative;z-index:1;width:min(250px,100%);border-radius:16px;padding:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 18px 40px rgba(0,0,0,.4);color:#F4F1EA;transition:transform .25s ease}
+.pm14-glass:hover{transform:translateY(-3px)}
+.pm14-tag{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#C9CFE4}
+.pm14-tit{font-size:19px;font-weight:800;margin:9px 0 14px;letter-spacing:.02em}
+.pm14-ghost{display:inline-block;border:1px solid rgba(255,255,255,.42);background:transparent;color:#F4F1EA;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:9px 16px;border-radius:999px;cursor:pointer;transition:transform .2s ease,opacity .2s ease}
+.pm14-ghost:hover{transform:translateY(-1px);opacity:.85}
+</style>
+<section class="page" id="pg-premium">
+  <div class="wrap">
+    <div class="phead">
+      <p class="eyebrow">Seite 9 · Premium-Effekte</p>
+      <h2>Effekte, die nach Flagship aussehen.</h2>
+      <p class="sub">High-End-Details für die dunkle OFE-v3-Version des Shops: Grain, Aurora, Licht und echtes 3D — <strong>alle 14 laufen hier live</strong>. Subtil statt Jahrmarkt.</p>
+    </div>
+    <div class="grid">
+
+      <article class="spec rv" data-id="PRM-01" data-name="Film-Korn (Grain)">
+        <div class="stage st-dark pm1-stage">
+          <span class="why">Anti-steril</span>
+          <div class="poster art-space"><span class="ptxt">ORBIT<small>DEEP SPACE</small></span></div>
+          <div class="pm1-grain" aria-hidden="true"></div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-01</span>
+          <div class="minfo"><span class="mname">Film-Korn (Grain)</span><span class="mdesc">Statisches Filmkorn bei 7 % Deckkraft nimmt deinen dunklen Flächen die Sterilität.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-01 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec span2 rv" data-id="PRM-02" data-name="Mesh-Aurora">
+        <div class="stage tall pm2-stage">
+          <div class="pm2-copy">
+            <span class="pm2-title">LIMITLESS</span>
+            <span class="pm2-sub">Poster für Fokus · Tempo · Disziplin</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-02</span>
+          <div class="minfo"><span class="mname">Mesh-Aurora</span><span class="mdesc">Driftende Farbnebel in Cobalt, Violett und Tiefrot — lebendiger Hero ohne ein einziges Bild.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-02 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-03" data-name="Border-Beam">
+        <div class="stage st-dark">
+          <div class="pm3-wrap">
+            <div class="pm3-card">
+              <span class="pm3-eyebrow">OFE v3 · Panel</span>
+              <span class="pm3-name">Bestseller der Woche</span>
+              <span class="pm3-price">NOEX · 64,99 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-03</span>
+          <div class="minfo"><span class="mname">Border-Beam</span><span class="mdesc">Ein Lichtpunkt läuft endlos die Kante entlang und markiert dein wichtigstes Panel.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-03 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-04" data-name="Buchstaben-Reveal">
+        <div class="stage st-dark">
+          <div class="pm4-box">
+            <div class="pm4-word" aria-label="UNSTOPPABLE">UNSTOPPABLE</div>
+            <p class="pm4-sub">Blur + 42 ms Versatz pro Buchstabe</p>
+          </div>
+          <button class="replay pm4-replay" type="button" aria-label="Buchstaben-Reveal erneut abspielen">Replay</button>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-04</span>
+          <div class="minfo"><span class="mname">Buchstaben-Reveal</span><span class="mdesc">Die Headline baut sich Buchstabe für Buchstabe aus der Unschärfe auf — großer Auftritt.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-04 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-05" data-name="3D-Flip-Karte">
+        <div class="stage st-dark">
+          <div class="pm5-box">
+            <div class="pm5-scene">
+              <button class="pm5-flip" type="button" aria-pressed="false" aria-label="Poster umdrehen und Details zeigen">
+                <span class="pm5-face pm5-front"><span class="poster art-noex"><span class="ptxt">NOEX<small>NO EXCUSES</small></span></span></span>
+                <span class="pm5-face pm5-back">
+                  <span class="pm5-row"><strong>50 × 70 cm</strong>auch in 61 × 91 cm</span>
+                  <span class="pm5-row"><strong>200 g matt</strong>Museums-Papier</span>
+                  <span class="pm5-row"><strong>64,99 €</strong>inkl. MwSt.</span>
+                </span>
+              </button>
+            </div>
+            <span class="pm5-hint">Antippen zum Drehen</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-05</span>
+          <div class="minfo"><span class="mname">3D-Flip-Karte</span><span class="mdesc">Klick dreht das Poster: Größen, Papier und Preis auf der Rückseite — ohne Seitenwechsel.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-05 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-06" data-name="Ken-Burns">
+        <div class="stage st-dark">
+          <span class="why">für Hero-Bilder</span>
+          <div class="pm6-frame">
+            <div class="pm6-art"></div>
+            <span class="pm6-word">APEX</span>
+            <span class="pm6-cap">Race Weekend · 09/26</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-06</span>
+          <div class="minfo"><span class="mname">Ken-Burns</span><span class="mdesc">Das Motiv zoomt und schwenkt kaum merklich — Hero-Bilder wirken lebendig statt eingefroren.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-06 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec span2 rv" data-id="PRM-07" data-name="Scroll-Shrink-Hero">
+        <div class="stage st-light">
+          <div class="scr-frame pm7-frame">
+            <div class="pm7-space">
+              <div class="pm7-hero">
+                <span class="pm7-htxt">GO LIMITLESS</span>
+                <span class="pm7-hsub">Die neue Kollektion</span>
+              </div>
+              <div class="pm7-gap"></div>
+              <div class="pm7-body">
+                <p class="pm7-bt">Warum OFE v3?</p>
+                <div class="pm7-line"><span>Museums-Papier, 200 g matt</span><em>Standard</em></div>
+                <div class="pm7-line"><span>Versand aus Deutschland</span><em>2–4 Tage</em></div>
+                <div class="pm7-line"><span>Rahmen optional, schwarz oder weiß</span><em>+ 19,99 €</em></div>
+                <div class="pm7-line"><span>Alle Motive</span><em>64,99 €</em></div>
+              </div>
+            </div>
+          </div>
+          <span class="scr-hint">Scrollen</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-07</span>
+          <div class="minfo"><span class="mname">Scroll-Shrink-Hero</span><span class="mdesc">Das Hero-Bild schrumpft beim Scrollen und bekommt runde Ecken — wie auf Apple-Produktseiten.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-07 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec span2 rv" data-id="PRM-08" data-name="3D-Poster-Wand">
+        <div class="stage tall st-dark pm8-stage">
+          <div class="pm8-persp" aria-hidden="true">
+            <div class="pm8-wall">
+              <div class="pm8-col">
+                <div class="pm8-tile pm8-a"></div><div class="pm8-tile pm8-e"></div><div class="pm8-tile pm8-b"></div><div class="pm8-tile pm8-f"></div><div class="pm8-tile pm8-d"></div><div class="pm8-tile pm8-c"></div>
+                <div class="pm8-tile pm8-a"></div><div class="pm8-tile pm8-e"></div><div class="pm8-tile pm8-b"></div><div class="pm8-tile pm8-f"></div><div class="pm8-tile pm8-d"></div><div class="pm8-tile pm8-c"></div>
+              </div>
+              <div class="pm8-col">
+                <div class="pm8-tile pm8-b"></div><div class="pm8-tile pm8-c"></div><div class="pm8-tile pm8-f"></div><div class="pm8-tile pm8-a"></div><div class="pm8-tile pm8-e"></div><div class="pm8-tile pm8-d"></div>
+                <div class="pm8-tile pm8-b"></div><div class="pm8-tile pm8-c"></div><div class="pm8-tile pm8-f"></div><div class="pm8-tile pm8-a"></div><div class="pm8-tile pm8-e"></div><div class="pm8-tile pm8-d"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-08</span>
+          <div class="minfo"><span class="mname">3D-Poster-Wand</span><span class="mdesc">Perspektivisch gekippte Wand aus Motiven, die endlos nach oben läuft — Hover pausiert.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-08 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-09" data-name="Licht-Divider">
+        <div class="stage st-dark">
+          <div class="pm9-box">
+            <p class="pm9-lab">Bestseller</p>
+            <div class="pm9-line"><span class="pm9-pulse"></span></div>
+            <p class="pm9-lab">Neu im Shop</p>
+            <div class="pm9-line"><span class="pm9-pulse pm9-p2"></span></div>
+            <p class="pm9-lab">Sale</p>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-09</span>
+          <div class="minfo"><span class="mname">Licht-Divider</span><span class="mdesc">Durch die Trennlinie läuft periodisch ein Lichtimpuls — edler Übergang zwischen Sektionen.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-09 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-10" data-name="Schwenkender Spotlight">
+        <div class="stage pm10-stage">
+          <span class="why">Hover friert ein</span>
+          <div class="poster art-f1"><span class="ptxt">APEX<small>TRACKDAY</small></span></div>
+          <div class="pm10-light" aria-hidden="true"></div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-10</span>
+          <div class="minfo"><span class="mname">Schwenkender Spotlight</span><span class="mdesc">Ein Lichtkegel schwenkt langsam über das Poster — Hover stoppt den Moment.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-10 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec span2 rv" data-id="PRM-11" data-name="Dock-Menü">
+        <div class="stage st-dark">
+          <div class="pm11-box">
+            <nav class="pm11-dock" aria-label="Demo-Navigation">
+              <button class="pm11-item" type="button"><span class="pm11-ico pm11-i1">D</span><span class="pm11-lab">Drops</span></button>
+              <button class="pm11-item" type="button"><span class="pm11-ico pm11-i2">R</span><span class="pm11-lab">Racing</span></button>
+              <button class="pm11-item" type="button"><span class="pm11-ico pm11-i3">M</span><span class="pm11-lab">Mindset</span></button>
+              <button class="pm11-item" type="button"><span class="pm11-ico pm11-i4">G</span><span class="pm11-lab">Gym</span></button>
+              <button class="pm11-item" type="button"><span class="pm11-ico pm11-i5">S</span><span class="pm11-lab">Sale</span></button>
+            </nav>
+            <p class="pm11-hint">Maus über die Leiste bewegen</p>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-11</span>
+          <div class="minfo"><span class="mname">Dock-Menü</span><span class="mdesc">Nav-Items wachsen magnetisch zur Mausposition — wie das macOS-Dock, auf Touch statisch.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-11 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-12" data-name="Parallax-Ebenen-Karte">
+        <div class="stage st-dark pm12-stage">
+          <div class="pm12-scene">
+            <div class="pm12-lay pm12-shadow" aria-hidden="true"></div>
+            <div class="pm12-lay pm12-post"><span class="poster art-ocean"><span class="ptxt">OCEAN<small>MIND</small></span></span></div>
+            <span class="pm12-lay pm12-chip">64,99 €</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-12</span>
+          <div class="minfo"><span class="mname">Parallax-Ebenen-Karte</span><span class="mdesc">Schatten, Poster und Preis-Chip folgen der Maus unterschiedlich stark — echte Tiefe.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-12 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-13" data-name="Marken-Scrollbar">
+        <div class="stage st-light">
+          <span class="why">Branding im Detail</span>
+          <div class="scr-frame pm13-frame">
+            <div class="pm13-list">
+              <p class="pm13-head">OFE v3 · Alle Motive</p>
+              <div class="pm13-row"><span class="pm13-name">NOEX</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">APEX GT</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">DISZIPLIN</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">OCEAN MIND</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">DEEP SPACE</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">GRIND</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">FOKUS 5:00</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">TRACKDAY</span><span class="pm13-price">64,99 €</span></div>
+              <div class="pm13-row"><span class="pm13-name">COMEBACK</span><span class="pm13-price">64,99 €</span></div>
+            </div>
+          </div>
+          <span class="scr-hint">Scrollen</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-13</span>
+          <div class="minfo"><span class="mname">Marken-Scrollbar</span><span class="mdesc">Schmale 6-px-Scrollbar mit Cobalt-Verlauf — dein Branding bis ins letzte Detail.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-13 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PRM-14" data-name="Glas-Drop-Panel">
+        <div class="stage pm14-stage">
+          <div class="pm14-glass">
+            <p class="pm14-tag">New Drop · 09/26</p>
+            <p class="pm14-tit">Midnight-Kollektion</p>
+            <button class="pm14-ghost" type="button">Zum Drop</button>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PRM-14</span>
+          <div class="minfo"><span class="mname">Glas-Drop-Panel</span><span class="mdesc">Milchglas über Farbnebel kündigt den nächsten Drop an — hebt bei Hover minimal ab.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PRM-14 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  /* PRM-04: Buchstaben-Reveal */
+  var pm4Word = document.querySelector('#pg-premium .pm4-word');
+  var pm4Replay = document.querySelector('#pg-premium .pm4-replay');
+  if (pm4Word) {
+    var pm4Text = pm4Word.textContent.replace(/\s+/g, '');
+    pm4Word.textContent = '';
+    var pm4I, pm4Sp;
+    for (pm4I = 0; pm4I < pm4Text.length; pm4I++) {
+      pm4Sp = document.createElement('span');
+      pm4Sp.textContent = pm4Text.charAt(pm4I);
+      pm4Sp.style.transitionDelay = (pm4I * 42) + 'ms';
+      pm4Word.appendChild(pm4Sp);
+    }
+    var pm4Play = function () {
+      if (reduced) return;
+      pm4Word.classList.add('pm4-snap');
+      pm4Word.classList.add('pm4-hide');
+      void pm4Word.offsetWidth;
+      pm4Word.classList.remove('pm4-snap');
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          pm4Word.classList.remove('pm4-hide');
+        });
+      });
+    };
+    if (!reduced && 'IntersectionObserver' in window) {
+      pm4Word.classList.add('pm4-hide');
+      var pm4Seen = false;
+      var pm4Io = new IntersectionObserver(function (entries) {
+        var k;
+        for (k = 0; k < entries.length; k++) {
+          if (entries[k].isIntersecting && !pm4Seen) {
+            pm4Seen = true;
+            pm4Play();
+            pm4Io.disconnect();
+          }
+        }
+      }, { threshold: 0.4 });
+      pm4Io.observe(pm4Word);
+    }
+    if (pm4Replay) pm4Replay.addEventListener('click', pm4Play);
+  }
+
+  /* PRM-05: 3D-Flip */
+  var pm5Flip = document.querySelector('#pg-premium .pm5-flip');
+  if (pm5Flip) {
+    pm5Flip.addEventListener('click', function () {
+      var open = pm5Flip.classList.toggle('pm5-open');
+      pm5Flip.setAttribute('aria-pressed', open ? 'true' : 'false');
+    });
+  }
+
+  /* PRM-07: Scroll-Shrink-Hero */
+  var pm7Frame = document.querySelector('#pg-premium .pm7-frame');
+  var pm7Hero = document.querySelector('#pg-premium .pm7-hero');
+  if (pm7Frame && pm7Hero && !reduced) {
+    var pm7Tick = false;
+    pm7Frame.addEventListener('scroll', function () {
+      if (pm7Tick) return;
+      pm7Tick = true;
+      window.requestAnimationFrame(function () {
+        pm7Tick = false;
+        var p = Math.min(1, pm7Frame.scrollTop / 150);
+        pm7Hero.style.transform = 'scale(' + (1 - 0.16 * p).toFixed(4) + ')';
+        pm7Hero.style.borderRadius = (18 * p).toFixed(1) + 'px';
+      });
+    }, { passive: true });
+  }
+
+  /* PRM-11: Dock-Menü */
+  var pm11Dock = document.querySelector('#pg-premium .pm11-dock');
+  if (pm11Dock && finePointer && !reduced) {
+    var pm11Items = pm11Dock.querySelectorAll('.pm11-item');
+    pm11Dock.addEventListener('mousemove', function (e) {
+      var dr = pm11Dock.getBoundingClientRect();
+      var j, it, c, d, f;
+      for (j = 0; j < pm11Items.length; j++) {
+        it = pm11Items[j];
+        c = dr.left + it.offsetLeft + it.offsetWidth / 2;
+        d = Math.abs(e.clientX - c);
+        f = Math.max(0, 1 - d / 150);
+        f = f * f * (3 - 2 * f);
+        it.style.transform = 'translateY(' + (-9 * f).toFixed(2) + 'px) scale(' + (1 + 0.35 * f).toFixed(3) + ')';
+      }
+    });
+    pm11Dock.addEventListener('mouseleave', function () {
+      var j;
+      for (j = 0; j < pm11Items.length; j++) pm11Items[j].style.transform = '';
+    });
+  }
+
+  /* PRM-12: Parallax-Ebenen */
+  var pm12Stage = document.querySelector('#pg-premium .pm12-stage');
+  if (pm12Stage && finePointer && !reduced) {
+    var pm12Sh = pm12Stage.querySelector('.pm12-shadow');
+    var pm12Po = pm12Stage.querySelector('.pm12-post');
+    var pm12Ch = pm12Stage.querySelector('.pm12-chip');
+    var pm12Set = function (nx, ny) {
+      if (pm12Sh) pm12Sh.style.transform = 'translate3d(' + (-7 * nx).toFixed(2) + 'px,' + (-5 * ny).toFixed(2) + 'px,0)';
+      if (pm12Po) pm12Po.style.transform = 'translate3d(' + (10 * nx).toFixed(2) + 'px,' + (8 * ny).toFixed(2) + 'px,0)';
+      if (pm12Ch) pm12Ch.style.transform = 'translate3d(' + (18 * nx).toFixed(2) + 'px,' + (14 * ny).toFixed(2) + 'px,0)';
+    };
+    pm12Stage.addEventListener('mousemove', function (e) {
+      var r = pm12Stage.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      var ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      pm12Set(nx, ny);
+    });
+    pm12Stage.addEventListener('mouseleave', function () { pm12Set(0, 0); });
+  }
+})();
+</script><!-- ================= FARBPALETTEN ================= -->
+<style>
+  .pl-p1{--pl-bg:#0B0B0C;--pl-sf:#141416;--pl-tx:#F4F1EA;--pl-ac:#3157FF;--pl-x2:#6E8CFF;--pl-onac:#FFFFFF}
+  .pl-p2{--pl-bg:#0C0A0B;--pl-sf:#161113;--pl-tx:#F4EDEA;--pl-ac:#8B1E2D;--pl-x2:#E4A7B6;--pl-onac:#F4EDEA}
+  .pl-p3{--pl-bg:#0C0B0A;--pl-sf:#171310;--pl-tx:#F5EFE8;--pl-ac:#FF4D24;--pl-x2:#FFB37E;--pl-onac:#1A0C06}
+  .pl-p4{--pl-bg:#0A0908;--pl-sf:#14120E;--pl-tx:#F2EBDD;--pl-ac:#D8B25C;--pl-x2:#8C7440;--pl-onac:#14120E}
+  .pl-p5{--pl-bg:#090E12;--pl-sf:#101820;--pl-tx:#E8F0F2;--pl-ac:#22B8CF;--pl-x2:#64E1F0;--pl-onac:#071216}
+  .pl-p6{--pl-bg:#0A0A0A;--pl-sf:#151515;--pl-tx:#FFFFFF;--pl-ac:#FFFFFF;--pl-x2:#8A8A8A;--pl-onac:#0A0A0A}
+  .pl-p7{--pl-bg:#0A0F0B;--pl-sf:#121A13;--pl-tx:#EDF2EA;--pl-ac:#3F9142;--pl-x2:#9CC79B;--pl-onac:#EDF2EA}
+  .pl-p8{--pl-bg:#0D0A14;--pl-sf:#171126;--pl-tx:#F0EAF7;--pl-ac:#8B5CF6;--pl-x2:#FFB37E;--pl-onac:#F0EAF7}
+
+  .pl-st{background:var(--pl-bg);color:var(--pl-tx)}
+  .pl-demo{width:100%;max-width:400px;display:grid;gap:13px;text-align:left}
+  .pl-shop{display:flex;gap:12px;align-items:stretch;background:var(--pl-sf);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px;width:100%}
+  .pl-tile{background:#E9E6E0;border-radius:8px;flex:0 0 76px;display:grid;place-items:center;padding:8px}
+  .pl-mini{width:50px;height:68px;border-radius:2px;background:linear-gradient(160deg,#1C0E08 0%,#8E1F1F 40%,#E8442A 72%,#F2A33C 100%);border:3px solid #FFFFFF;box-shadow:0 4px 10px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.12)}
+  .pl-info{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1;justify-content:center}
+  .pl-cat{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--pl-x2)}
+  .pl-title{font-weight:700;font-size:14px;line-height:1.2;color:var(--pl-tx)}
+  .pl-price{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--pl-ac)}
+  .pl-btns{display:flex;gap:8px;margin-top:2px;flex-wrap:wrap}
+  .pl-btn{font-family:var(--font);font-size:11px;font-weight:700;padding:7px 12px;border-radius:8px;cursor:pointer;border:1px solid transparent;line-height:1}
+  .pl-btn-primary{background:var(--pl-ac);color:var(--pl-onac);border-color:var(--pl-ac)}
+  .pl-btn-primary:hover{filter:brightness(1.12)}
+  .pl-btn-ghost{background:transparent;color:var(--pl-tx);border-color:var(--pl-x2)}
+  .pl-btn-ghost:hover{background:rgba(255,255,255,.06)}
+  .pl-rule{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}
+  .pl-swatches{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+  .pl-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 9px 5px 6px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);cursor:pointer;color:var(--pl-tx)}
+  .pl-chip:hover{background:rgba(255,255,255,.1)}
+  .pl-dot{width:13px;height:13px;border-radius:50%;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+  .pl-hex{font-family:var(--mono);font-size:10px;letter-spacing:.02em;min-width:52px;text-align:center}
+  .pl-chip.pl-copied{border-color:var(--pl-ac)}
+  .pl-chip.pl-copied .pl-hex{color:var(--pl-ac)}
+  .pl-chip:focus-visible,.pl-btn:focus-visible{outline:2px solid var(--pl-x2);outline-offset:2px}
+  @media (prefers-reduced-motion: no-preference){
+    .pl-btn,.pl-chip{transition:transform .18s ease,filter .18s ease,background-color .18s ease,border-color .18s ease}
+    .pl-btn:hover{transform:translateY(-1px)}
+    .pl-chip:active{transform:scale(.96)}
+  }
+</style>
+<section class="page" id="pg-paletten">
+  <div class="wrap">
+    <div class="phead">
+      <p class="eyebrow">Seite 10 · Farbpaletten</p>
+      <h2>Ein Shop, acht Stimmungen.</h2>
+      <p class="sub">Komplette Dark-Paletten für OFE v3 — jede Karte zeigt die Farben und <strong>wie Buttons, Preise und Produktkacheln damit aussehen</strong>. Klick auf einen Hex-Chip kopiert den Wert direkt in deine Zwischenablage.</p>
+    </div>
+    <div class="grid wide">
+
+      <article class="spec rv" data-id="PAL-01" data-name="Carbon &amp; Cobalt (Status quo)">
+        <div class="stage tall pl-st pl-p1">
+          <span class="why">Fokussiert &amp; markant</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0B0B0C" title="Hintergrund" aria-label="#0B0B0C kopieren"><span class="pl-dot" style="background:#0B0B0C"></span><span class="pl-hex">#0B0B0C</span></button>
+              <button class="pl-chip" type="button" data-hex="#141416" title="Fläche" aria-label="#141416 kopieren"><span class="pl-dot" style="background:#141416"></span><span class="pl-hex">#141416</span></button>
+              <button class="pl-chip" type="button" data-hex="#F4F1EA" title="Text" aria-label="#F4F1EA kopieren"><span class="pl-dot" style="background:#F4F1EA"></span><span class="pl-hex">#F4F1EA</span></button>
+              <button class="pl-chip" type="button" data-hex="#3157FF" title="Akzent" aria-label="#3157FF kopieren"><span class="pl-dot" style="background:#3157FF"></span><span class="pl-hex">#3157FF</span></button>
+              <button class="pl-chip" type="button" data-hex="#6E8CFF" title="Zusatz" aria-label="#6E8CFF kopieren"><span class="pl-dot" style="background:#6E8CFF"></span><span class="pl-hex">#6E8CFF</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-01</span>
+          <div class="minfo"><span class="mname">Carbon &amp; Cobalt (Status quo)</span><span class="mdesc">Dein aktuelles OFE v3: technisch, fokussiert, markant.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-01 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-02" data-name="Royal Noir">
+        <div class="stage tall pl-st pl-p2">
+          <span class="why">Königlich &amp; düster</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0C0A0B" title="Hintergrund" aria-label="#0C0A0B kopieren"><span class="pl-dot" style="background:#0C0A0B"></span><span class="pl-hex">#0C0A0B</span></button>
+              <button class="pl-chip" type="button" data-hex="#161113" title="Fläche" aria-label="#161113 kopieren"><span class="pl-dot" style="background:#161113"></span><span class="pl-hex">#161113</span></button>
+              <button class="pl-chip" type="button" data-hex="#F4EDEA" title="Text" aria-label="#F4EDEA kopieren"><span class="pl-dot" style="background:#F4EDEA"></span><span class="pl-hex">#F4EDEA</span></button>
+              <button class="pl-chip" type="button" data-hex="#8B1E2D" title="Akzent" aria-label="#8B1E2D kopieren"><span class="pl-dot" style="background:#8B1E2D"></span><span class="pl-hex">#8B1E2D</span></button>
+              <button class="pl-chip" type="button" data-hex="#E4A7B6" title="Zusatz" aria-label="#E4A7B6 kopieren"><span class="pl-dot" style="background:#E4A7B6"></span><span class="pl-hex">#E4A7B6</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-02</span>
+          <div class="minfo"><span class="mname">Royal Noir</span><span class="mdesc">Queens-DNA für den ganzen Shop: königlich, edel, düster.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-02 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-03" data-name="Ember Athletics">
+        <div class="stage tall pl-st pl-p3">
+          <span class="why">Motivation pur</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0C0B0A" title="Hintergrund" aria-label="#0C0B0A kopieren"><span class="pl-dot" style="background:#0C0B0A"></span><span class="pl-hex">#0C0B0A</span></button>
+              <button class="pl-chip" type="button" data-hex="#171310" title="Fläche" aria-label="#171310 kopieren"><span class="pl-dot" style="background:#171310"></span><span class="pl-hex">#171310</span></button>
+              <button class="pl-chip" type="button" data-hex="#F5EFE8" title="Text" aria-label="#F5EFE8 kopieren"><span class="pl-dot" style="background:#F5EFE8"></span><span class="pl-hex">#F5EFE8</span></button>
+              <button class="pl-chip" type="button" data-hex="#FF4D24" title="Akzent" aria-label="#FF4D24 kopieren"><span class="pl-dot" style="background:#FF4D24"></span><span class="pl-hex">#FF4D24</span></button>
+              <button class="pl-chip" type="button" data-hex="#FFB37E" title="Zusatz" aria-label="#FFB37E kopieren"><span class="pl-dot" style="background:#FFB37E"></span><span class="pl-hex">#FFB37E</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-03</span>
+          <div class="minfo"><span class="mname">Ember Athletics</span><span class="mdesc">Gym-Energie, Aggression, Motivation pur.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-03 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-04" data-name="Champagner-Galerie">
+        <div class="stage tall pl-st pl-p4">
+          <span class="why">Luxus &amp; Geschenk</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0A0908" title="Hintergrund" aria-label="#0A0908 kopieren"><span class="pl-dot" style="background:#0A0908"></span><span class="pl-hex">#0A0908</span></button>
+              <button class="pl-chip" type="button" data-hex="#14120E" title="Fläche" aria-label="#14120E kopieren"><span class="pl-dot" style="background:#14120E"></span><span class="pl-hex">#14120E</span></button>
+              <button class="pl-chip" type="button" data-hex="#F2EBDD" title="Text" aria-label="#F2EBDD kopieren"><span class="pl-dot" style="background:#F2EBDD"></span><span class="pl-hex">#F2EBDD</span></button>
+              <button class="pl-chip" type="button" data-hex="#D8B25C" title="Akzent" aria-label="#D8B25C kopieren"><span class="pl-dot" style="background:#D8B25C"></span><span class="pl-hex">#D8B25C</span></button>
+              <button class="pl-chip" type="button" data-hex="#8C7440" title="Zusatz" aria-label="#8C7440 kopieren"><span class="pl-dot" style="background:#8C7440"></span><span class="pl-hex">#8C7440</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-04</span>
+          <div class="minfo"><span class="mname">Champagner-Galerie</span><span class="mdesc">Luxus-Galerie: hochpreisig und Geschenk-tauglich.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-04 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-05" data-name="Midnight Petrol">
+        <div class="stage tall pl-st pl-p5">
+          <span class="why">Kühl &amp; technisch</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#090E12" title="Hintergrund" aria-label="#090E12 kopieren"><span class="pl-dot" style="background:#090E12"></span><span class="pl-hex">#090E12</span></button>
+              <button class="pl-chip" type="button" data-hex="#101820" title="Fläche" aria-label="#101820 kopieren"><span class="pl-dot" style="background:#101820"></span><span class="pl-hex">#101820</span></button>
+              <button class="pl-chip" type="button" data-hex="#E8F0F2" title="Text" aria-label="#E8F0F2 kopieren"><span class="pl-dot" style="background:#E8F0F2"></span><span class="pl-hex">#E8F0F2</span></button>
+              <button class="pl-chip" type="button" data-hex="#22B8CF" title="Akzent" aria-label="#22B8CF kopieren"><span class="pl-dot" style="background:#22B8CF"></span><span class="pl-hex">#22B8CF</span></button>
+              <button class="pl-chip" type="button" data-hex="#64E1F0" title="Zusatz" aria-label="#64E1F0 kopieren"><span class="pl-dot" style="background:#64E1F0"></span><span class="pl-hex">#64E1F0</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-05</span>
+          <div class="minfo"><span class="mname">Midnight Petrol</span><span class="mdesc">Modern, technisch, kühl — passt zu Space und Ozean.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-05 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-06" data-name="Monochrom Pur">
+        <div class="stage tall pl-st pl-p6">
+          <span class="why">Editorial &amp; pur</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0A0A0A" title="Hintergrund" aria-label="#0A0A0A kopieren"><span class="pl-dot" style="background:#0A0A0A"></span><span class="pl-hex">#0A0A0A</span></button>
+              <button class="pl-chip" type="button" data-hex="#151515" title="Fläche" aria-label="#151515 kopieren"><span class="pl-dot" style="background:#151515"></span><span class="pl-hex">#151515</span></button>
+              <button class="pl-chip" type="button" data-hex="#FFFFFF" title="Text" aria-label="#FFFFFF kopieren"><span class="pl-dot" style="background:#FFFFFF"></span><span class="pl-hex">#FFFFFF</span></button>
+              <button class="pl-chip" type="button" data-hex="#FFFFFF" title="Akzent" aria-label="#FFFFFF kopieren"><span class="pl-dot" style="background:#FFFFFF"></span><span class="pl-hex">#FFFFFF</span></button>
+              <button class="pl-chip" type="button" data-hex="#8A8A8A" title="Zusatz" aria-label="#8A8A8A kopieren"><span class="pl-dot" style="background:#8A8A8A"></span><span class="pl-hex">#8A8A8A</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-06</span>
+          <div class="minfo"><span class="mname">Monochrom Pur</span><span class="mdesc">Kompromisslos, editorial, Galerie-Charakter — Wirkung über Kontrast.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-06 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-07" data-name="Deep Forest">
+        <div class="stage tall pl-st pl-p7">
+          <span class="why">Ruhig &amp; wertig</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0A0F0B" title="Hintergrund" aria-label="#0A0F0B kopieren"><span class="pl-dot" style="background:#0A0F0B"></span><span class="pl-hex">#0A0F0B</span></button>
+              <button class="pl-chip" type="button" data-hex="#121A13" title="Fläche" aria-label="#121A13 kopieren"><span class="pl-dot" style="background:#121A13"></span><span class="pl-hex">#121A13</span></button>
+              <button class="pl-chip" type="button" data-hex="#EDF2EA" title="Text" aria-label="#EDF2EA kopieren"><span class="pl-dot" style="background:#EDF2EA"></span><span class="pl-hex">#EDF2EA</span></button>
+              <button class="pl-chip" type="button" data-hex="#3F9142" title="Akzent" aria-label="#3F9142 kopieren"><span class="pl-dot" style="background:#3F9142"></span><span class="pl-hex">#3F9142</span></button>
+              <button class="pl-chip" type="button" data-hex="#9CC79B" title="Zusatz" aria-label="#9CC79B kopieren"><span class="pl-dot" style="background:#9CC79B"></span><span class="pl-hex">#9CC79B</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-07</span>
+          <div class="minfo"><span class="mname">Deep Forest</span><span class="mdesc">Ruhig, wertig, perfekt für eine Natur-Linie.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-07 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAL-08" data-name="Violet Hour">
+        <div class="stage tall pl-st pl-p8">
+          <span class="why">Space-Vibes</span>
+          <div class="pl-demo">
+            <div class="pl-shop">
+              <div class="pl-tile"><span class="pl-mini"></span></div>
+              <div class="pl-info">
+                <span class="pl-cat">Racing · 50 × 70 cm</span>
+                <span class="pl-title">Vintage Formula 1</span>
+                <span class="pl-price">64,99 €</span>
+                <div class="pl-btns">
+                  <button class="pl-btn pl-btn-primary" type="button">In den Warenkorb</button>
+                  <button class="pl-btn pl-btn-ghost" type="button">Details</button>
+                </div>
+              </div>
+            </div>
+            <div class="pl-rule"></div>
+            <div class="pl-swatches">
+              <button class="pl-chip" type="button" data-hex="#0D0A14" title="Hintergrund" aria-label="#0D0A14 kopieren"><span class="pl-dot" style="background:#0D0A14"></span><span class="pl-hex">#0D0A14</span></button>
+              <button class="pl-chip" type="button" data-hex="#171126" title="Fläche" aria-label="#171126 kopieren"><span class="pl-dot" style="background:#171126"></span><span class="pl-hex">#171126</span></button>
+              <button class="pl-chip" type="button" data-hex="#F0EAF7" title="Text" aria-label="#F0EAF7 kopieren"><span class="pl-dot" style="background:#F0EAF7"></span><span class="pl-hex">#F0EAF7</span></button>
+              <button class="pl-chip" type="button" data-hex="#8B5CF6" title="Akzent" aria-label="#8B5CF6 kopieren"><span class="pl-dot" style="background:#8B5CF6"></span><span class="pl-hex">#8B5CF6</span></button>
+              <button class="pl-chip" type="button" data-hex="#FFB37E" title="Zusatz" aria-label="#FFB37E kopieren"><span class="pl-dot" style="background:#FFB37E"></span><span class="pl-hex">#FFB37E</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="sid">PAL-08</span>
+          <div class="minfo"><span class="mname">Violet Hour</span><span class="mdesc">Kreativ, Space-Vibes, jüngere Zielgruppe.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAL-08 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  'use strict';
+  var root = document.getElementById('pg-paletten');
+  if (!root) return;
+
+  function legacyCopy(text) {
+    var ok = false;
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch (e) { ok = false; }
+    return ok;
+  }
+
+  function copyHex(text, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { done(true); },
+        function () { done(legacyCopy(text)); }
+      );
+    } else {
+      done(legacyCopy(text));
+    }
+  }
+
+  var chips = root.querySelectorAll('.pl-chip');
+  Array.prototype.forEach.call(chips, function (chip) {
+    var label = chip.querySelector('.pl-hex');
+    var hex = chip.getAttribute('data-hex');
+    if (!label || !hex) return;
+    var original = label.textContent;
+    chip.addEventListener('click', function () {
+      copyHex(hex, function (ok) {
+        if (chip._plTimer) { window.clearTimeout(chip._plTimer); }
+        label.textContent = ok ? 'kopiert!' : 'Fehler';
+        chip.classList.add('pl-copied');
+        chip._plTimer = window.setTimeout(function () {
+          label.textContent = original;
+          chip.classList.remove('pl-copied');
+          chip._plTimer = null;
+        }, 1000);
+      });
+    });
+  });
+})();
+</script><!-- ================= SEITEN-IDEEN ================= -->
+<style>
+  /* Seite 11 · Seiten-Ideen — Präfix: si */
+  .si-mock{width:min(320px,100%);background:#0B0B0C;border:1px solid rgba(244,241,234,.18);border-radius:12px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.5);font-family:var(--font)}
+  .si-bar{display:flex;align-items:center;gap:8px;padding:7px 10px;background:#141419;border-bottom:1px solid rgba(244,241,234,.09)}
+  .si-dots{display:flex;gap:4px;flex:none}
+  .si-dots i{width:6px;height:6px;border-radius:50%;background:rgba(244,241,234,.25)}
+  .si-url{font-family:var(--mono);font-size:9.5px;color:rgba(244,241,234,.7);background:rgba(244,241,234,.07);border-radius:6px;padding:3px 8px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .si-body{padding:12px;background:#0B0B0C}
+  .si-line{display:block;height:6px;border-radius:3px;background:rgba(244,241,234,.8)}
+  .si-line.si-d1{background:rgba(244,241,234,.34)}
+  .si-line.si-d2{background:rgba(244,241,234,.16)}
+  .si-w25{width:25%}.si-w40{width:40%}.si-w55{width:55%}.si-w70{width:70%}.si-w85{width:85%}
+  .si-stack{display:flex;flex-direction:column;gap:6px}
+  .si-btn{display:inline-block;background:#3157FF;color:#F4F1EA;font-size:9px;font-weight:700;letter-spacing:.04em;border-radius:6px;padding:5px 9px;line-height:1;white-space:nowrap}
+  .si-cap{font-family:var(--mono);font-size:8.5px;color:rgba(244,241,234,.55);letter-spacing:.08em;text-transform:uppercase}
+  .si-g1{background:linear-gradient(160deg,#FF5A3C,#B01E1E 55%,#3A0A10)}
+  .si-g2{background:linear-gradient(160deg,#4A6BFF,#16255F)}
+  .si-g3{background:linear-gradient(160deg,#1FC8B7,#0D4C55)}
+  .si-g4{background:radial-gradient(circle at 68% 26%,#9C86FF 0 16%,rgba(0,0,0,0) 17%),linear-gradient(160deg,#2A2452,#0C0A1C)}
+  .si-g5{background:linear-gradient(160deg,#2E2E34,#151518)}
+
+  /* PAGE-01 Gallery-Wall */
+  .si1-flex{display:flex;gap:10px}
+  .si1-wall{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .si1-slot{aspect-ratio:3/4;border-radius:4px}
+  .si1-empty{border:1px dashed rgba(244,241,234,.28);display:grid;place-items:center;color:rgba(244,241,234,.4);font-size:12px;font-family:var(--mono)}
+  .si1-ghost{position:relative;overflow:hidden}
+  .si1-ghost::after{content:"";position:absolute;inset:0;border-radius:3px;background:linear-gradient(160deg,#4A6BFF,#101A48);opacity:0;transform:scale(.55);transition:opacity .35s ease,transform .35s ease}
+  .si1-mo:hover .si1-ghost::after,.si1-mo.si1-tap .si1-ghost::after{opacity:1;transform:scale(1)}
+  .si1-side{width:56px;display:flex;flex-direction:column;gap:6px;flex:none}
+  .si1-th{height:28px;border-radius:4px;border:1px solid rgba(244,241,234,.14)}
+  .si1-sum{margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .si1-price{font-family:var(--mono);font-size:9.5px;color:#F4F1EA;white-space:nowrap}
+
+  /* PAGE-02 Drop */
+  .si2-flex{display:flex;gap:12px;align-items:stretch}
+  .si2-poster{position:relative;width:92px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;border:1px solid rgba(244,241,234,.16);flex:none}
+  .si2-veil{position:absolute;left:0;right:0;bottom:0;height:56%;background:rgba(11,11,12,.92);display:grid;place-items:center;border-top:1px dashed rgba(244,241,234,.25)}
+  .si2-veil span{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.32em;color:#F4F1EA;padding-left:.32em}
+  .si2-col{flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center;min-width:0}
+  .si2-count{display:flex;gap:4px;align-items:center}
+  .si2-cell{font-family:var(--mono);background:#17171C;border:1px solid rgba(244,241,234,.16);border-radius:5px;padding:4px 0;font-size:12px;color:#F4F1EA;min-width:26px;text-align:center}
+  .si2-sep{color:rgba(244,241,234,.5);font-family:var(--mono);font-size:11px}
+  .si2-row{display:flex;gap:6px;align-items:center}
+  .si2-field{flex:1;min-width:0;height:24px;border:1px solid rgba(244,241,234,.22);border-radius:6px;background:#101014;display:flex;align-items:center;padding:0 8px;color:rgba(244,241,234,.38);font-size:9px;font-family:var(--mono);white-space:nowrap;overflow:hidden}
+
+  /* PAGE-03 Charts */
+  .si3-list{display:flex;flex-direction:column;gap:5px;margin-top:8px}
+  .si3-row{position:relative;display:flex;align-items:center;gap:8px;padding:4px 7px;border-radius:8px;background:rgba(244,241,234,.05)}
+  .si3-rank{font-family:var(--mono);font-size:13px;font-weight:700;color:rgba(244,241,234,.85);width:14px;text-align:center;flex:none}
+  .si3-th{width:17px;height:22px;border-radius:3px;flex:none;border:1px solid rgba(244,241,234,.12)}
+  .si3-info{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+  .si3-mv{font-family:var(--mono);font-size:9px;flex:none}
+  .si3-up{color:#3BD07E}.si3-dn{color:#FF5A5A}.si3-eq{color:rgba(244,241,234,.4)}
+  .si3-top::after{content:"";position:absolute;inset:0;border-radius:8px;border:1px solid rgba(74,107,255,.9);box-shadow:0 0 14px rgba(49,87,255,.5),inset 0 0 8px rgba(49,87,255,.22);opacity:.3;pointer-events:none}
+
+  /* PAGE-04 Brand-Story */
+  .si4-hl{font-size:17px;font-weight:800;letter-spacing:-.01em;color:#F4F1EA;line-height:1.18;margin-bottom:10px}
+  .si4-w{display:inline-block}
+  .si4-cols{display:flex;gap:10px;margin-bottom:10px}
+  .si4-cols>div{flex:1}
+  .si4-studio{height:62px;border-radius:6px;background:linear-gradient(120deg,#17171C,#0E0E12);position:relative;overflow:hidden;border:1px solid rgba(244,241,234,.1)}
+  .si4-sp{position:absolute;width:20px;height:26px;border-radius:2px;border:1px solid rgba(244,241,234,.2)}
+  .si4-avs{position:absolute;left:10px;bottom:9px;display:flex}
+  .si4-av{width:14px;height:14px;border-radius:50%;border:2px solid #0E0E12;margin-left:-5px}
+  .si4-av:first-child{margin-left:0}
+
+  /* PAGE-05 Geschenk-Finder */
+  .si5-box{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+  .si5-prog{display:flex;gap:5px}
+  .si5-p{width:5px;height:5px;border-radius:50%;background:rgba(244,241,234,.22)}
+  .si5-p.si5-on{background:#3157FF}
+  .si5-q{font-size:13px;font-weight:700;color:#F4F1EA}
+  .si5-chips{display:flex;gap:6px;flex-wrap:wrap}
+  .si5-chip{position:relative;border:1px solid rgba(244,241,234,.3);border-radius:999px;padding:5px 11px;font-size:10px;color:#F4F1EA;overflow:hidden}
+  .si5-chip::before{content:"";position:absolute;inset:0;border-radius:999px;background:#3157FF;opacity:0}
+  .si5-chip span{position:relative}
+
+  /* PAGE-06 Rooms */
+  .si6-row{display:flex;gap:8px;margin-top:8px}
+  .si6-col{flex:1;min-width:0}
+  .si6-tile{position:relative;height:100px;border-radius:6px;overflow:hidden;border:1px solid rgba(244,241,234,.12);transition:transform .3s ease}
+  .si6-tile:hover{transform:translateY(-4px)}
+  .si6-gym{background:linear-gradient(180deg,#1D1B1A 62%,#121110 62%)}
+  .si6-buro{background:linear-gradient(180deg,#191C22 62%,#101216 62%)}
+  .si6-wg{background:linear-gradient(180deg,#201B1D 62%,#131011 62%)}
+  .si6-p{position:absolute;width:15px;height:20px;border-radius:2px;border:1px solid rgba(244,241,234,.25)}
+  .si6-f{position:absolute;background:#141417;border:1px solid rgba(244,241,234,.08);border-radius:2px}
+  .si6-dot{position:absolute;width:8px;height:8px;border-radius:50%;background:#3157FF;box-shadow:0 0 0 2px rgba(49,87,255,.35)}
+  .si6-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(49,87,255,.75);opacity:0}
+  .si6-cap{display:block;text-align:center;margin-top:6px}
+
+  /* PAGE-07 Community */
+  .si7-mas{column-count:3;column-gap:6px}
+  .si7-t{position:relative;break-inside:avoid;margin-bottom:6px;border-radius:5px;overflow:hidden;border:1px solid rgba(244,241,234,.1)}
+  .si7-a{height:54px}.si7-b{height:74px}.si7-c{height:44px}.si7-d{height:64px}
+  .si7-f1{background:linear-gradient(150deg,#2C2C33,#191A1F)}
+  .si7-f2{background:linear-gradient(150deg,#33302B,#1B1916)}
+  .si7-f3{background:linear-gradient(150deg,#26303C,#151B22)}
+  .si7-f4{background:linear-gradient(150deg,#33262B,#1A1417)}
+  .si7-mini{position:absolute;top:7px;left:7px;width:12px;height:16px;border-radius:1.5px;border:1px solid rgba(244,241,234,.25)}
+  .si7-star{position:absolute;left:5px;bottom:5px;z-index:1;font-family:var(--mono);font-size:7.5px;color:#F4F1EA;background:rgba(11,11,12,.72);border-radius:4px;padding:2px 4px}
+  .si7-swap::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,#3157FF,#131F54);opacity:0}
+  .si7-foot{margin-top:8px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+
+  /* PAGE-08 Hilfe */
+  .si8-search{display:flex;align-items:center;gap:7px;border:1px solid rgba(244,241,234,.25);border-radius:8px;background:#101014;padding:7px 9px}
+  .si8-search svg{width:12px;height:12px;stroke:rgba(244,241,234,.6);fill:none;stroke-width:1.8;flex:none}
+  .si8-ph{font-size:10px;color:rgba(244,241,234,.55);font-family:var(--mono);white-space:nowrap;overflow:hidden}
+  .si8-caret{display:inline-block;width:1px;height:11px;background:#3157FF;margin-left:2px;vertical-align:-2px}
+  .si8-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+  .si8-card{display:flex;align-items:center;gap:7px;background:rgba(244,241,234,.05);border:1px solid rgba(244,241,234,.1);border-radius:7px;padding:7px 8px;color:#F4F1EA;font-size:9.5px}
+  .si8-card svg{width:13px;height:13px;stroke:#8FA3FF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .si8-faq{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 2px;border-top:1px solid rgba(244,241,234,.1);margin-top:0}
+  .si8-faqs{margin-top:10px}
+  .si8-chev{color:rgba(244,241,234,.45);font-size:11px;line-height:1}
+
+  @media (prefers-reduced-motion: no-preference){
+    .si3-top::after{animation:si3-pulse 2.6s ease-in-out infinite}
+    @keyframes si3-pulse{0%,100%{opacity:.22}50%{opacity:1}}
+    .si4-w{opacity:0;animation:si4-word 7s ease-in-out infinite both}
+    .si4-w2{animation-delay:.4s}
+    .si4-w3{animation-delay:.8s}
+    @keyframes si4-word{0%{opacity:0;transform:translateY(8px)}7%{opacity:1;transform:translateY(0)}78%{opacity:1;transform:translateY(0)}88%,100%{opacity:0;transform:translateY(-4px)}}
+    .si5-chip::before{animation:si5-sel 6.9s ease-in-out infinite}
+    .si5-c2::before{animation-delay:2.3s}
+    .si5-c3::before{animation-delay:4.6s}
+    @keyframes si5-sel{0%,3%{opacity:0}8%,26%{opacity:1}33%,100%{opacity:0}}
+    .si6-dot::after{animation:si6-ping 2.4s ease-out infinite}
+    .si6-d2::after{animation-delay:.8s}
+    .si6-d3::after{animation-delay:1.6s}
+    @keyframes si6-ping{0%{transform:scale(.5);opacity:.9}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1.7);opacity:0}}
+    .si7-swap::after{animation:si7-fade 7s ease-in-out infinite}
+    @keyframes si7-fade{0%,38%{opacity:0}50%,86%{opacity:1}100%{opacity:0}}
+    .si8-caret{animation:si8-blink 1s steps(2,end) infinite}
+    @keyframes si8-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  }
+</style>
+<section class="page" id="pg-seiten">
+  <div class="wrap">
+    <div class="phead">
+      <p class="eyebrow">Seite 11 · Seiten-Ideen</p>
+      <h2>Seiten, die dein Shop noch nicht hat.</h2>
+      <p class="sub">Acht neue Seiten-Konzepte als <strong>Mini-Mockups</strong> — tipp aufs Herz und merk dir, was dein Shop als Nächstes bekommen soll.</p>
+    </div>
+    <div class="grid wide">
+
+      <article class="spec rv" data-id="PAGE-01" data-name="Gallery-Wall-Konfigurator">
+        <div class="stage tall st-dark">
+          <div class="si-mock si1-mo">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/gallery-wall</span></div>
+            <div class="si-body">
+              <span class="si-cap" style="display:block;margin-bottom:8px">Deine Wand · 3×2</span>
+              <div class="si1-flex">
+                <div class="si1-wall">
+                  <div class="si1-slot si-g1"></div>
+                  <div class="si1-slot si1-empty si1-ghost">+</div>
+                  <div class="si1-slot si1-empty">+</div>
+                  <div class="si1-slot si1-empty">+</div>
+                  <div class="si1-slot si-g4"></div>
+                  <div class="si1-slot si1-empty">+</div>
+                </div>
+                <div class="si1-side">
+                  <div class="si1-th si-g2"></div>
+                  <div class="si1-th si-g3"></div>
+                  <div class="si1-th si-g5"></div>
+                  <span class="si-line si-d1"></span>
+                </div>
+              </div>
+              <div class="si1-sum">
+                <span class="si1-price">2 × 64,99 €</span>
+                <span class="si-btn">Wand in den Warenkorb</span>
+              </div>
+            </div>
+          </div>
+          <span class="why">Warenkorb ×2–3</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-01</span>
+          <div class="minfo"><span class="mname">Gallery-Wall-Konfigurator</span><span class="mdesc">Stell dir 2–3 Poster als Wand zusammen — der Warenkorb wächst mit. Hover füllt den leeren Slot.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-01 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-02" data-name="Drop-Landingpage">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/drop</span></div>
+            <div class="si-body">
+              <div class="si2-flex">
+                <div class="si2-poster si-g1">
+                  <div class="si2-veil"><span>BALD</span></div>
+                </div>
+                <div class="si2-col">
+                  <span class="si-cap">Nächster Drop in</span>
+                  <div class="si2-count">
+                    <span class="si2-cell" data-si2="h">07</span><span class="si2-sep">:</span>
+                    <span class="si2-cell" data-si2="m">41</span><span class="si2-sep">:</span>
+                    <span class="si2-cell" data-si2="s">52</span>
+                  </div>
+                  <span class="si-line si-d1 si-w85"></span>
+                  <span class="si-line si-d2 si-w55"></span>
+                  <div class="si2-row">
+                    <span class="si2-field">deine@mail.de</span>
+                    <span class="si-btn">Weck mich</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="why">FOMO + E-Mail-Liste</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-02</span>
+          <div class="minfo"><span class="mname">Drop-Landingpage</span><span class="mdesc">Teaser halb verdeckt, Countdown tickt echt — Knappheit, die deine E-Mail-Liste füllt.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-02 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-03" data-name="Bestseller-Charts">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/charts</span></div>
+            <div class="si-body">
+              <span class="si-cap">Top 5 · diese Woche</span>
+              <div class="si3-list">
+                <div class="si3-row si3-top">
+                  <span class="si3-rank">1</span><span class="si3-th si-g1"></span>
+                  <span class="si3-info"><span class="si-line si-w70"></span><span class="si-line si-d2 si-w40"></span></span>
+                  <span class="si3-mv si3-up">▲ 2</span>
+                </div>
+                <div class="si3-row">
+                  <span class="si3-rank">2</span><span class="si3-th si-g4"></span>
+                  <span class="si3-info"><span class="si-line si-d1 si-w55"></span><span class="si-line si-d2 si-w25"></span></span>
+                  <span class="si3-mv si3-dn">▼ 1</span>
+                </div>
+                <div class="si3-row">
+                  <span class="si3-rank">3</span><span class="si3-th si-g2"></span>
+                  <span class="si3-info"><span class="si-line si-d1 si-w70"></span><span class="si-line si-d2 si-w40"></span></span>
+                  <span class="si3-mv si3-up">▲ 4</span>
+                </div>
+                <div class="si3-row">
+                  <span class="si3-rank">4</span><span class="si3-th si-g3"></span>
+                  <span class="si3-info"><span class="si-line si-d1 si-w55"></span><span class="si-line si-d2 si-w25"></span></span>
+                  <span class="si3-mv si3-eq">–</span>
+                </div>
+                <div class="si3-row">
+                  <span class="si3-rank">5</span><span class="si3-th si-g5"></span>
+                  <span class="si3-info"><span class="si-line si-d1 si-w70"></span><span class="si-line si-d2 si-w40"></span></span>
+                  <span class="si3-mv si3-up">▲ 1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="why">Social Proof</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-03</span>
+          <div class="minfo"><span class="mname">Bestseller-Charts</span><span class="mdesc">Top 5 wie Musik-Charts — Rang 1 glüht in Cobalt und kürzt die Kaufentscheidung ab.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-03 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-04" data-name="Brand-Story-Seite">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/story</span></div>
+            <div class="si-body">
+              <div class="si4-hl"><span class="si4-w">WÄNDE</span> <span class="si4-w si4-w2">SIND</span> <span class="si4-w si4-w3">BRIEFINGS.</span></div>
+              <div class="si4-cols">
+                <div class="si-stack">
+                  <span class="si-line si-d1"></span>
+                  <span class="si-line si-d2 si-w85"></span>
+                  <span class="si-line si-d2 si-w70"></span>
+                </div>
+                <div class="si-stack">
+                  <span class="si-line si-d2 si-w85"></span>
+                  <span class="si-line si-d2"></span>
+                  <span class="si-line si-d2 si-w55"></span>
+                </div>
+              </div>
+              <div class="si4-studio">
+                <span class="si4-sp si-g1" style="right:34px;top:10px;transform:rotate(-6deg)"></span>
+                <span class="si4-sp si-g2" style="right:10px;top:16px;transform:rotate(5deg)"></span>
+                <span class="si4-avs">
+                  <span class="si4-av si-g3"></span><span class="si4-av si-g1"></span><span class="si4-av si-g4"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <span class="why">Rechtfertigt 64,99 €</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-04</span>
+          <div class="minfo"><span class="mname">Brand-Story-Seite</span><span class="mdesc">Editorial statt Katalog: Die Headline baut sich Wort für Wort auf — Marke schlägt Produkt.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-04 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-05" data-name="Geschenk-Finder">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/geschenk</span></div>
+            <div class="si-body">
+              <div class="si5-box">
+                <span class="si5-prog"><span class="si5-p si5-on"></span><span class="si5-p"></span><span class="si5-p"></span></span>
+                <span class="si5-q">Für wen ist es?</span>
+                <div class="si5-chips">
+                  <span class="si5-chip"><span>Gym-Rat</span></span>
+                  <span class="si5-chip si5-c2"><span>Racer</span></span>
+                  <span class="si5-chip si5-c3"><span>Dreamer</span></span>
+                </div>
+                <span class="si-line si-d2 si-w70"></span>
+                <span class="si-cap">Frage 1 von 3 · dauert 20 Sekunden</span>
+              </div>
+            </div>
+          </div>
+          <span class="why">Verkauft an Schenkende</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-05</span>
+          <div class="minfo"><span class="mname">Geschenk-Finder</span><span class="mdesc">Drei Fragen führen Schenkende zum sicheren Motiv — auch wenn sie deine Poster nicht kennen.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-05 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-06" data-name="Raum-Inspiration">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/rooms</span></div>
+            <div class="si-body">
+              <span class="si-cap">Shop den Look</span>
+              <div class="si6-row">
+                <div class="si6-col">
+                  <div class="si6-tile si6-gym">
+                    <span class="si6-p si-g1" style="top:10px;left:10px"></span>
+                    <span class="si6-p si-g5" style="top:14px;left:31px"></span>
+                    <span class="si6-f" style="left:12px;right:12px;bottom:10px;height:12px"></span>
+                    <span class="si6-dot" style="top:14px;left:18px"></span>
+                  </div>
+                  <span class="si-cap si6-cap">Home-Gym</span>
+                </div>
+                <div class="si6-col">
+                  <div class="si6-tile si6-buro">
+                    <span class="si6-p si-g2" style="top:12px;left:50%;margin-left:-8px"></span>
+                    <span class="si6-f" style="left:10px;right:10px;bottom:14px;height:5px"></span>
+                    <span class="si6-f" style="left:26px;right:26px;bottom:22px;height:10px"></span>
+                    <span class="si6-dot si6-d2" style="top:16px;left:50%;margin-left:-2px"></span>
+                  </div>
+                  <span class="si-cap si6-cap">Büro</span>
+                </div>
+                <div class="si6-col">
+                  <div class="si6-tile si6-wg">
+                    <span class="si6-p si-g4" style="top:9px;right:10px"></span>
+                    <span class="si6-p si-g3" style="top:15px;right:30px"></span>
+                    <span class="si6-f" style="left:8px;right:8px;bottom:8px;height:18px"></span>
+                    <span class="si6-dot si6-d3" style="top:13px;right:16px"></span>
+                  </div>
+                  <span class="si-cap si6-cap">WG-Zimmer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="why">Verkauft den Look</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-06</span>
+          <div class="minfo"><span class="mname">Raum-Inspiration</span><span class="mdesc">Drei Szenen mit pulsierenden Hotspots — Kunden kaufen den Raum, nicht das einzelne Blatt.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-06 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-07" data-name="Community-Wand">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/wall</span></div>
+            <div class="si-body">
+              <div class="si7-mas">
+                <div class="si7-t si7-b si7-f1"><span class="si7-mini si-g1"></span><span class="si7-star">★ 5,0</span></div>
+                <div class="si7-t si7-c si7-f2"><span class="si7-mini si-g3"></span></div>
+                <div class="si7-t si7-a si7-f3 si7-swap"><span class="si7-mini si-g2"></span><span class="si7-star">★ 4,9</span></div>
+                <div class="si7-t si7-d si7-f4"><span class="si7-mini si-g4"></span><span class="si7-star">★ 5,0</span></div>
+                <div class="si7-t si7-a si7-f2"><span class="si7-mini si-g5"></span></div>
+                <div class="si7-t si7-c si7-f1"><span class="si7-mini si-g1"></span></div>
+                <div class="si7-t si7-d si7-f3"><span class="si7-mini si-g3"></span><span class="si7-star">★ 4,8</span></div>
+                <div class="si7-t si7-a si7-f4"><span class="si7-mini si-g2"></span></div>
+              </div>
+              <div class="si7-foot">
+                <span class="si-cap">#limitlessposter · 1.240 Posts</span>
+                <span class="si-btn">Foto einreichen</span>
+              </div>
+            </div>
+          </div>
+          <span class="why">UGC = Vertrauen</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-07</span>
+          <div class="minfo"><span class="mname">Community-Wand</span><span class="mdesc">Kundenfotos als Masonry-Wand mit ★-Badges — der ehrlichste Social Proof in deinem Shop.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-07 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="spec rv" data-id="PAGE-08" data-name="Hilfe-Center">
+        <div class="stage tall st-dark">
+          <div class="si-mock">
+            <div class="si-bar"><span class="si-dots"><i></i><i></i><i></i></span><span class="si-url">limitlessposter.com/hilfe</span></div>
+            <div class="si-body">
+              <div class="si8-search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 5 5"></path></svg>
+                <span class="si8-ph" data-si8-type>Poster ohne Bohren aufhängen?</span><span class="si8-caret"></span>
+              </div>
+              <div class="si8-grid">
+                <span class="si8-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"></path><circle cx="6.5" cy="17.5" r="1.6"></circle><circle cx="16.5" cy="17.5" r="1.6"></circle></svg>Versand</span>
+                <span class="si8-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9a8 8 0 1 1-1.6 5.5"></path><path d="M4 4v5h5"></path></svg>Rückgabe</span>
+                <span class="si8-card"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="1.4"></circle><path d="M12 6v2m0 0-5 3m5-3 5 3"></path><rect x="6" y="11" width="12" height="9" rx="1"></rect></svg>Aufhängen</span>
+                <span class="si8-card"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="3.5" width="15" height="17" rx="1"></rect><rect x="8" y="7" width="8" height="10"></rect></svg>Rahmen</span>
+              </div>
+              <div class="si8-faqs">
+                <div class="si8-faq"><span class="si-line si-d1 si-w70"></span><span class="si8-chev">›</span></div>
+                <div class="si8-faq"><span class="si-line si-d2 si-w55"></span><span class="si8-chev">›</span></div>
+              </div>
+            </div>
+          </div>
+          <span class="why">Weniger Support-Mails</span>
+        </div>
+        <div class="meta">
+          <span class="sid">PAGE-08</span>
+          <div class="minfo"><span class="mname">Hilfe-Center</span><span class="mdesc">Suche tippt sich selbst, vier Themen, FAQ — Vertrauen vor dem Kauf, weniger Mails danach.</span></div>
+          <button class="fav" type="button" aria-pressed="false" aria-label="PAGE-08 merken"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 15.36 3 9.9 3 7.14 5.14 5 7.9 5c1.6 0 3.1.8 4.1 2.1C13 5.8 14.5 5 16.1 5 18.86 5 21 7.14 21 9.9c0 5.46-9 11.1-9 11.1Z"/></svg></button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  /* PAGE-01: Tap-Fallback für den Slot-Fill auf Touch-Geräten */
+  var wallMock = document.querySelector('#pg-seiten .si1-mo');
+  if (wallMock && !finePointer) {
+    wallMock.addEventListener('click', function () {
+      wallMock.classList.toggle('si1-tap');
+    });
+  }
+
+  /* PAGE-02: Drop-Countdown, echte Sekunden */
+  var cdH = document.querySelector('#pg-seiten [data-si2="h"]');
+  var cdM = document.querySelector('#pg-seiten [data-si2="m"]');
+  var cdS = document.querySelector('#pg-seiten [data-si2="s"]');
+  if (cdH && cdM && cdS) {
+    var cdStart = 7 * 3600 + 41 * 60 + 52;
+    var cdRest = cdStart;
+    var pad2 = function (n) { return n < 10 ? '0' + n : '' + n; };
+    var cdDraw = function () {
+      cdH.textContent = pad2(Math.floor(cdRest / 3600));
+      cdM.textContent = pad2(Math.floor(cdRest / 60) % 60);
+      cdS.textContent = pad2(cdRest % 60);
+    };
+    cdDraw();
+    if (!reduced) {
+      window.setInterval(function () {
+        cdRest = cdRest > 0 ? cdRest - 1 : cdStart;
+        cdDraw();
+      }, 1000);
+    }
+  }
+
+  /* PAGE-08: Typewriter im Suchfeld */
+  var ph = document.querySelector('#pg-seiten [data-si8-type]');
+  if (ph) {
+    var phrases = [
+      'Poster ohne Bohren aufhängen?',
+      'Wie lange dauert der Versand?',
+      'Welcher Rahmen passt zu Carbon?'
+    ];
+    if (reduced) {
+      ph.textContent = phrases[0];
+    } else {
+      var pi = 0, ci = 0, deleting = false;
+      var tick = function () {
+        var txt = phrases[pi];
+        if (!deleting) {
+          ci++;
+          ph.textContent = txt.slice(0, ci);
+          if (ci >= txt.length) { deleting = true; window.setTimeout(tick, 1900); return; }
+          window.setTimeout(tick, 95);
+        } else {
+          ci--;
+          ph.textContent = txt.slice(0, ci);
+          if (ci <= 0) { deleting = false; pi = (pi + 1) % phrases.length; window.setTimeout(tick, 650); return; }
+          window.setTimeout(tick, 35);
+        }
+      };
+      ph.textContent = '';
+      window.setTimeout(tick, 900);
+    }
+  }
+})();
+</script><!-- ================= EFFEKTE ================= -->
 <style>
 /* FX-01 Fly-to-Cart */
 .f1-zone { position: relative; width: 100%; max-width: 380px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 10px 0; }
@@ -2276,7 +3695,7 @@ button { font-family: inherit; }
   <footer class="footer">
     <span class="fbrand">Limitless Design-Lab</span>
     <span class="dot">·</span>
-    <span>66 Ideen in 8 Kategorien</span>
+    <span>96 Ideen in 11 Kategorien</span>
     <span class="dot">·</span>
     <span>Merk dir Favoriten mit dem Herz und schick mir die Codes aus der Merkliste.</span>
   </footer>
@@ -2310,7 +3729,7 @@ button { font-family: inherit; }
   var finePointer = window.matchMedia("(pointer: fine)").matches;
 
   /* ---------- Router ---------- */
-  var PAGES = ["start", "buttons", "hover", "karten", "scroll", "typo", "navigation", "conversion", "effekte"];
+  var PAGES = ["start", "buttons", "hover", "karten", "scroll", "typo", "navigation", "conversion", "effekte", "premium", "paletten", "seiten"];
   function currentPage() {
     var m = location.hash.match(/^#\/([a-z]+)/);
     return m && PAGES.indexOf(m[1]) !== -1 ? m[1] : "start";
