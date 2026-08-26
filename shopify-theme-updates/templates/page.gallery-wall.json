@@ -19,7 +19,8 @@
         "note": "Tipp: Zwei Poster wirken auf gleicher Höhe mit ca. 10 cm Abstand am stärksten.",
         "color_scheme": "scheme-1",
         "padding-block-start": 88,
-        "padding-block-end": 56
+        "padding-block-end": 56,
+        "collection": "bestseller"
       }
     },
     "gw_trust": {

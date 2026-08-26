@@ -136,7 +136,8 @@
         "heading": "Eine Wand sagt mehr als tausend Feeds.",
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "collection": "bestseller"
       }
     },
     "story_stats": {
