@@ -223,7 +223,7 @@
               "blocks": {}
             },
             "swatches_lp": {
-              "type": "swatches",
+              "type": "limitless-swatches",
               "settings": {}
             }
           },
