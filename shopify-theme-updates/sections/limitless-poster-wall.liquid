@@ -105,6 +105,8 @@
   .lp-wall__tile {
     display: block;
     width: clamp(120px, 17vw, 190px);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
     flex: none;
     border: 5px solid #171214;
     outline: 1px solid rgba(244, 237, 234, 0.14);
@@ -119,10 +121,14 @@
   .lp-wall__tile:focus-visible {
     outline: 2px solid var(--lp-cobalt-bright, #E4A7B6);
   }
+  /* Printify-Fotos enthalten weiße Mockup-Wände — tief einzoomen,
+     damit nur das Motiv in unserem CSS-Rahmen steht. */
   .lp-wall__img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.38);
   }
   .lp-wall__fade {
     position: absolute;

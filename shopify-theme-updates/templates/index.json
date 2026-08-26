@@ -1767,18 +1767,121 @@
         "padding-block-start": 72,
         "padding-block-end": 72
       }
+    },
+    "story_wall": {
+      "type": "limitless-poster-wall",
+      "name": "Unsere Geschichte — Poster-Wand",
+      "settings": {
+        "eyebrow": "UNSERE GESCHICHTE",
+        "heading": "Wände sind Briefings.",
+        "collection": "bestseller",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 72,
+        "padding-block-end": 0
+      }
+    },
+    "story_facts": {
+      "type": "section",
+      "blocks": {
+        "flip_paper": {
+          "type": "limitless-flip",
+          "settings": {
+            "front_title": "Museums-Papier",
+            "front_sub": "250 g · matt",
+            "width": 200
+          }
+        },
+        "flip_frame": {
+          "type": "limitless-flip",
+          "settings": {
+            "front_title": "Massivholz-Rahmen",
+            "front_sub": "Schwarz · Weiß",
+            "width": 200,
+            "fact_1_title": "Rahmen",
+            "fact_1_text": "Massivholz, fertig montiert — auspacken, aufhängen.",
+            "fact_2_title": "Front",
+            "fact_2_text": "Bruchsichere, klare Front statt empfindlichem Glas.",
+            "fact_3_title": "Farben",
+            "fact_3_text": "Schwarz oder Weiß — passend zu jedem Raum."
+          }
+        },
+        "flip_ship": {
+          "type": "limitless-flip",
+          "settings": {
+            "front_title": "Sicher verpackt",
+            "front_sub": "EU-Versand",
+            "width": 200,
+            "fact_1_title": "Verpackung",
+            "fact_1_text": "Eckenschutz und feste Umverpackung gegen Transportschäden.",
+            "fact_2_title": "Versand",
+            "fact_2_text": "Schnell aus der EU, mit Tracking-Link per Mail.",
+            "fact_3_title": "Widerruf",
+            "fact_3_text": "14 Tage Widerrufsrecht — ohne Wenn und Aber."
+          }
+        }
+      },
+      "block_order": [
+        "flip_paper",
+        "flip_frame",
+        "flip_ship"
+      ],
+      "name": "Qualitäts-Flips",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 64,
+        "padding-block-end": 72
+      }
+    },
+    "gallery_wall": {
+      "type": "limitless-gallery-wall",
+      "name": "Gallery-Wall-Konfigurator",
+      "settings": {
+        "eyebrow": "GALLERY WALL",
+        "heading": "Stell dir deine Wand zusammen.",
+        "subheading": "Layout wählen, Plätze füllen, Größen anpassen — und die komplette Wand mit einem Klick in den Warenkorb.",
+        "note": "Tipp: Zwei Poster wirken auf gleicher Höhe mit ca. 10 cm Abstand am stärksten.",
+        "collection": "bestseller",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 80,
+        "padding-block-end": 72
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "benefits_marquee",
     "collection_list_lp",
+    "story_wall",
     "product_list_newdrop",
     "scroll_showcase",
     "lp_stats",
     "usp_row",
+    "story_facts",
     "product_list_mindset",
     "limitless_reviews",
+    "gallery_wall",
     "editorial_story",
     "drop_countdown",
     "statement_cta",

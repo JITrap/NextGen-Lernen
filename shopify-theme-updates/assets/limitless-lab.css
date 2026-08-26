@@ -684,3 +684,55 @@ body::after {
     100% { transform: translateY(0); }
   }
 }
+
+/* ============================================================
+   Feedback-Runde 1 — Fixes
+   ============================================================ */
+
+/* Logo: dunkle Wortmarke war auf dunklem Grund unsichtbar/halb sichtbar.
+   Die Logodatei wird als weiße Silhouette gerendert (Header, Drawer,
+   Footer). Wenn du irgendwann ein helles Logo hochlädst, diesen Block
+   entfernen. */
+header-component img[src*="ChatGPT_Image"],
+#header-group img[src*="ChatGPT_Image"],
+footer img[src*="ChatGPT_Image"],
+.header__drawer img[src*="ChatGPT_Image"] {
+  filter: brightness(0) invert(1);
+}
+
+/* Zahlenband: Rot war als Flächenfarbe zu laut — Zahlen jetzt in Ivory,
+   Rot nur noch als feiner Akzentstrich darunter. */
+.lp-stats .lp-stats__n {
+  color: var(--color-foreground-heading, #FCFAF7);
+}
+.lp-stats .lp-stats__item {
+  position: relative;
+}
+.lp-stats .lp-stats__n::after {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: var(--lp-cobalt, #A32235);
+}
+
+/* Scroll-Showcase: Printify-Fotos enthalten weiße Mockup-Wände —
+   tief einzoomen, damit nur das Motiv im Rahmen steht. */
+.lp-scrollshow__frame .lp-scrollshow__img {
+  object-fit: cover;
+  transform: scale(1.42);
+}
+
+/* Gallery-Wall-Konfigurator: gleiche Beschneidung für Slots & Auswahl. */
+.lp-gw__slot img,
+.lp-gw__pick img {
+  transform: scale(1.32);
+}
+
+/* Kollektionskarten: Bilder immer sichtbar (kein Start-Clip mehr),
+   sanfter Ken-Burns-Zoom nur beim Hover. */
+.collection-card img {
+  clip-path: none;
+}

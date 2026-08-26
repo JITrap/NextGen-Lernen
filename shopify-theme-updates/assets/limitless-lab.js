@@ -134,7 +134,10 @@
     });
   }
 
-  /* ---------- SCR-08 · Vorhang-Reveal für Kollektionsbilder ---------- */
+  /* ---------- SCR-08 · Vorhang-Reveal (nur Opt-in) ---------- */
+  /* Bewusst NICHT mehr automatisch auf Kollektionsbilder: das versteckte
+     Anfangs-Frame (clip-path) wirkte wie "Bilder laden nicht". Nur noch
+     Elemente mit .lp-curtain-target bekommen den Effekt. */
   var curtainIO = null;
   function initCurtain() {
     if (reduced || !('IntersectionObserver' in window)) return;
@@ -148,7 +151,7 @@
         });
       }, { threshold: 0.25 });
     }
-    document.querySelectorAll('.collection-card img:not(.lp-curtain), .lp-curtain-target:not(.lp-curtain)').forEach(function (img) {
+    document.querySelectorAll('.lp-curtain-target:not(.lp-curtain)').forEach(function (img) {
       img.classList.add('lp-curtain');
       curtainIO.observe(img);
     });
