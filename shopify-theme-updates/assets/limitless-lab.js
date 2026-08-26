@@ -47,7 +47,7 @@
     host.appendChild(canvas);
     var ctx = canvas.getContext('2d');
     if (!ctx) { canvas.remove(); return; }
-    var colors = ['#3157FF', '#6E8CFF', '#F0A400', '#1F9D55', '#F4F1EA'];
+    var colors = ['#A32235', '#E4A7B6', '#D8B25C', '#F4F1EA', '#8B1E2D'];
     var parts = [];
     for (var i = 0; i < 42; i++) {
       var ang = Math.random() * Math.PI * 2;

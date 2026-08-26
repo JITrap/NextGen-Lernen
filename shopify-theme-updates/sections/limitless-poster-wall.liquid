@@ -1,0 +1,161 @@
+{%- doc -%}
+  PRM-08 · 3D-Poster-Wand: perspektivisch gekippte, endlos laufende Wand
+  aus echten Produktbildern der gewählten Kollektion. Pausiert bei Hover,
+  jede Kachel verlinkt aufs Produkt. Bei reduzierter Bewegung: statisches
+  Raster ohne Animation.
+{%- enddoc -%}
+
+{%- liquid
+  assign wall_products = section.settings.collection.products
+  if wall_products.size == 0
+    assign wall_products = collections.all.products
+  endif
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="lp-wall color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+    <div class="lp-wall__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lp-wall__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="lp-wall__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="lp-wall__stage" aria-hidden="false">
+    <div class="lp-wall__persp">
+      <div class="lp-wall__plane">
+        {%- for col in (0..2) -%}
+          <div class="lp-wall__col">
+            {%- for pass in (1..2) -%}
+              {%- for product in wall_products limit: 12 -%}
+                {%- assign mod3 = forloop.index0 | modulo: 3 -%}
+                {%- if mod3 == col and product.featured_image != blank -%}
+                  <a
+                    class="lp-wall__tile"
+                    href="{{ product.url }}"
+                    {% if pass == 2 %}tabindex="-1" aria-hidden="true"{% else %}aria-label="{{ product.title | escape }}"{% endif %}
+                  >
+                    {{ product.featured_image | image_url: width: 360 | image_tag: loading: 'lazy', widths: '240, 360', class: 'lp-wall__img', alt: product.title }}
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="lp-wall__fade lp-wall__fade--top"></div>
+    <div class="lp-wall__fade lp-wall__fade--bottom"></div>
+  </div>
+</div>
+
+<style>
+  .lp-wall__head {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto 26px;
+    padding: 0 24px;
+    text-align: center;
+  }
+  .lp-wall__eyebrow {
+    margin: 0 0 10px;
+    font-family: var(--font-subheading--family);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lp-cobalt-bright, #E4A7B6);
+  }
+  .lp-wall__heading {
+    margin: 0;
+    font-family: var(--font-accent--family);
+    letter-spacing: -0.015em;
+    font-size: clamp(1.8rem, 4.4vw, 3rem);
+  }
+  .lp-wall__stage {
+    position: relative;
+    height: clamp(340px, 52vw, 520px);
+    overflow: hidden;
+  }
+  .lp-wall__persp {
+    position: absolute;
+    inset: 0;
+    perspective: 780px;
+  }
+  .lp-wall__plane {
+    position: absolute;
+    left: 50%;
+    top: -22%;
+    display: flex;
+    gap: clamp(14px, 2.4vw, 26px);
+    transform: translateX(-50%) rotateX(16deg) rotateZ(-4deg);
+    transform-style: preserve-3d;
+  }
+  .lp-wall__col {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 26px);
+    will-change: transform;
+  }
+  .lp-wall__tile {
+    display: block;
+    width: clamp(120px, 17vw, 190px);
+    flex: none;
+    border: 5px solid #171214;
+    outline: 1px solid rgba(244, 237, 234, 0.14);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
+    background: #171214;
+    transition: outline-color 0.3s, transform 0.3s;
+  }
+  .lp-wall__tile:hover {
+    outline-color: var(--lp-cobalt, #A32235);
+    transform: scale(1.02);
+  }
+  .lp-wall__tile:focus-visible {
+    outline: 2px solid var(--lp-cobalt-bright, #E4A7B6);
+  }
+  .lp-wall__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .lp-wall__fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 90px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .lp-wall__fade--top { top: 0; background: linear-gradient(180deg, var(--color-background), transparent); }
+  .lp-wall__fade--bottom { bottom: 0; background: linear-gradient(0deg, var(--color-background), transparent); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-wall__col { animation: lp-wall-up 46s linear infinite; }
+    .lp-wall__col:nth-child(2) { animation-duration: 58s; animation-delay: -18s; }
+    .lp-wall__col:nth-child(3) { animation-duration: 52s; animation-delay: -34s; }
+    .lp-wall__stage:hover .lp-wall__col { animation-play-state: paused; }
+  }
+  @keyframes lp-wall-up { to { transform: translateY(-50%); } }
+</style>
+
+{% schema %}
+{
+  "name": "3D-Poster-Wand",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "DIE KOLLEKTION" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Eine Wand sagt mehr als tausend Feeds." },
+    { "type": "collection", "id": "collection", "label": "Kollektion (Bildquelle)" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "presets": [{ "name": "3D-Poster-Wand" }]
+}
+{% endschema %}

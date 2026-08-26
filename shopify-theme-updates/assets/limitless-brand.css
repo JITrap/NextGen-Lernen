@@ -30,8 +30,10 @@
   --lp-ivory: #F4F1EA;
   --lp-paper: #FCFBF7;
   --lp-graphite: #55575C;
-  --lp-cobalt: #3157FF;
-  --lp-cobalt-bright: #6E8CFF;
+  /* OFE v3 Final: Royal Noir — Akzent Dunkelrot/Rosé (Variablennamen aus
+     Kompatibilitätsgründen beibehalten; alle Verwender folgen automatisch). */
+  --lp-cobalt: #A32235;
+  --lp-cobalt-bright: #E4A7B6;
   --lp-warm-line: #CEC8BD;
 
   /* Headings & Akzente: Space Grotesk (Fallback: Inter aus den Theme-Settings) */
@@ -204,7 +206,7 @@ html.lp-motion .lp-reveal.lp-inview {
   }
   product-card:hover .card-gallery,
   product-card:hover .product-card__gallery {
-    box-shadow: 0 0 0 1px rgba(49, 87, 255, 0.25), 0 18px 36px rgba(11, 11, 12, 0.12);
+    box-shadow: 0 0 0 1px rgba(163, 34, 53, 0.35), 0 18px 36px rgba(11, 11, 12, 0.3);
   }
 }
 

@@ -78,9 +78,9 @@ header-component .header__row {
   product-card:hover .card-gallery,
   product-card:hover .product-card__gallery {
     box-shadow:
-      0 0 0 1px rgba(49, 87, 255, 0.28),
+      0 0 0 1px rgba(163, 34, 53, 0.28),
       0 10px 24px rgba(11, 11, 12, 0.1),
-      0 26px 60px rgba(49, 87, 255, 0.18);
+      0 26px 60px rgba(163, 34, 53, 0.18);
   }
 }
 
@@ -108,7 +108,7 @@ html.lp-motion .lp-curtain.lp-curtain-in {
    der sich beim Reinscrollen durchzieht. */
 html.lp-motion main :is(h1, h2, h3, .h1, .h2, .h3) em {
   font-style: normal;
-  background-image: linear-gradient(120deg, rgba(49, 87, 255, 0.22), rgba(49, 87, 255, 0.22));
+  background-image: linear-gradient(120deg, rgba(163, 34, 53, 0.22), rgba(163, 34, 53, 0.22));
   background-repeat: no-repeat;
   background-size: 0% 72%;
   background-position: 0 78%;
@@ -121,7 +121,7 @@ html.lp-motion main :is(h1, h2, h3, .h1, .h2, .h3).lp-mark-in em {
 }
 html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
   font-style: normal;
-  background-image: linear-gradient(120deg, rgba(49, 87, 255, 0.22), rgba(49, 87, 255, 0.22));
+  background-image: linear-gradient(120deg, rgba(163, 34, 53, 0.22), rgba(163, 34, 53, 0.22));
   background-repeat: no-repeat;
   background-size: 100% 72%;
   background-position: 0 78%;
@@ -130,14 +130,14 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
 
 /* ---------- TXT-06 · Typewriter-Block ---------- */
 .lp-type { margin: 0; }
-.lp-type__word { color: var(--lp-cobalt, #3157FF); }
+.lp-type__word { color: var(--lp-cobalt, #A32235); }
 .lp-type__caret {
   display: inline-block;
   width: 2px;
   height: 0.95em;
   margin-left: 2px;
   vertical-align: -0.08em;
-  background: var(--lp-cobalt, #3157FF);
+  background: var(--lp-cobalt, #A32235);
   animation: lp-caret 1s steps(1) infinite;
 }
 @keyframes lp-caret { 50% { opacity: 0; } }
@@ -200,7 +200,7 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
   text-transform: uppercase;
   color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
 }
-.lp-shipbar__label strong { color: var(--lp-cobalt, #3157FF); }
+.lp-shipbar__label strong { color: var(--lp-cobalt, #A32235); }
 .lp-shipbar--done .lp-shipbar__label strong { color: #1F9D55; }
 .lp-shipbar__track {
   height: 6px;
@@ -211,7 +211,7 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
 .lp-shipbar__fill {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--lp-cobalt, #3157FF), var(--lp-cobalt-bright, #6E8CFF));
+  background: linear-gradient(90deg, var(--lp-cobalt, #A32235), var(--lp-cobalt-bright, #E4A7B6));
   transition: width 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .lp-shipbar--done .lp-shipbar__fill {
@@ -253,7 +253,7 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
 .lp-trust__item svg {
   width: 20px;
   height: 20px;
-  stroke: var(--lp-cobalt, #3157FF);
+  stroke: var(--lp-cobalt, #A32235);
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
@@ -291,8 +291,8 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
 }
 .lp-bundle__opt:hover { transform: translateY(-1px); }
 .lp-bundle__opt[aria-pressed='true'] {
-  border-color: var(--lp-cobalt, #3157FF);
-  box-shadow: 0 8px 24px rgba(49, 87, 255, 0.14);
+  border-color: var(--lp-cobalt, #A32235);
+  box-shadow: 0 8px 24px rgba(163, 34, 53, 0.14);
 }
 .lp-bundle__radio {
   width: 17px;
@@ -304,13 +304,13 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
   place-items: center;
   transition: border-color 0.25s;
 }
-.lp-bundle__opt[aria-pressed='true'] .lp-bundle__radio { border-color: var(--lp-cobalt, #3157FF); }
+.lp-bundle__opt[aria-pressed='true'] .lp-bundle__radio { border-color: var(--lp-cobalt, #A32235); }
 .lp-bundle__radio::after {
   content: '';
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--lp-cobalt, #3157FF);
+  background: var(--lp-cobalt, #A32235);
   transform: scale(0);
   transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.4);
 }
@@ -337,7 +337,7 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: var(--lp-cobalt, #3157FF);
+  background: var(--lp-cobalt, #A32235);
   color: #fff;
   padding: 3px 8px;
   border-radius: 999px;
@@ -582,7 +582,7 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
   stroke-width: 2.5;
 }
 .lp-top__ring circle.p {
-  stroke: var(--lp-cobalt-bright, #6E8CFF);
+  stroke: var(--lp-cobalt-bright, #E4A7B6);
   stroke-linecap: round;
   stroke-dasharray: 126;
   stroke-dashoffset: 126;
@@ -612,9 +612,9 @@ product-card .card-gallery,
   product-card:hover .card-gallery,
   product-card:hover .product-card__gallery {
     box-shadow:
-      0 0 0 1px rgba(49, 87, 255, 0.34),
+      0 0 0 1px rgba(163, 34, 53, 0.34),
       0 10px 24px rgba(0, 0, 0, 0.5),
-      0 26px 60px rgba(49, 87, 255, 0.22);
+      0 26px 60px rgba(163, 34, 53, 0.22);
   }
 }
 
@@ -649,5 +649,38 @@ main .shopify-section { background-clip: padding-box; }
   }
   @keyframes lpFleurIn {
     to { opacity: 0.92; transform: none; }
+  }
+}
+
+/* ============================================================
+   OFE v3 Final — Royal Noir Feinschliff
+   ============================================================ */
+
+/* PRM-01 · Film-Korn: statisches, feines Korn über der ganzen Seite.
+   Nimmt den dunklen Flächen die Sterilität; liegt unter den
+   <dialog>-Overlays (Top-Layer) und blockiert nichts. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.75'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='180'%20height='180'%20filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+@media print {
+  body::after { content: none; }
+}
+
+/* BTN-14 · Icon-Bounce: das Warenkorb-Icon im Kauf-Button hüpft beim Hover. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .button:hover .add-to-cart-icon {
+    animation: lp-cart-bounce 0.55s cubic-bezier(0.3, 0.7, 0.3, 1.4);
+  }
+  @keyframes lp-cart-bounce {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(-4px) rotate(-6deg); }
+    100% { transform: translateY(0); }
   }
 }

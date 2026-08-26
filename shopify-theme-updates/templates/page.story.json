@@ -1,0 +1,373 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "story_hero": {
+      "type": "section",
+      "blocks": {
+        "hero_eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>UNSERE GESCHICHTE</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lp-cobalt-bright, #E4A7B6)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "hero_head": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Wände sind <em>Briefings</em>.</h1>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h1",
+            "font": "var(--font-accent--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "hero_sub": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Wir glauben nicht an Deko. Wir glauben an tägliche Erinnerungen — an Ziele, Tempo und Disziplin. Deshalb drucken wir Motive, die dich morgens anschauen und fragen: und, was machst du heute draus?</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "hero_type": {
+          "type": "limitless-typewriter",
+          "settings": {
+            "prefix": "Poster",
+            "words": "für Macher.|für Träumer mit Deadline.|für dein 5-Uhr-Ich.|für deine Wand.",
+            "size_class": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "hero_eyebrow",
+        "hero_head",
+        "hero_sub",
+        "hero_type"
+      ],
+      "name": "Story-Hero",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 96,
+        "padding-block-end": 64
+      }
+    },
+    "story_wall": {
+      "type": "limitless-poster-wall",
+      "name": "3D-Poster-Wand",
+      "settings": {
+        "eyebrow": "DIE KOLLEKTION",
+        "heading": "Eine Wand sagt mehr als tausend Feeds.",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 0
+      }
+    },
+    "story_stats": {
+      "type": "limitless-stats",
+      "name": "Zahlenband",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding-block-start": 64,
+        "padding-block-end": 48
+      }
+    },
+    "story_facts_head": {
+      "type": "section",
+      "blocks": {
+        "facts_head": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Was in jedem Poster steckt — <em>umdrehen</em> und nachlesen.</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-accent--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        }
+      },
+      "block_order": [
+        "facts_head"
+      ],
+      "name": "Fakten-Titel",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 72,
+        "padding-block-end": 8
+      }
+    },
+    "story_facts": {
+      "type": "section",
+      "blocks": {
+        "flip_paper": {
+          "type": "limitless-flip",
+          "settings": {
+            "front_title": "Museums-Papier",
+            "front_sub": "250 g · matt",
+            "width": 210
+          }
+        },
+        "flip_frame": {
+          "type": "limitless-flip",
+          "settings": {
+            "front_title": "Massivholz-Rahmen",
+            "front_sub": "Schwarz · Weiß",
+            "width": 210,
+            "fact_1_title": "Rahmen",
+            "fact_1_text": "Massivholz, fertig montiert — auspacken, aufhängen.",
+            "fact_2_title": "Front",
+            "fact_2_text": "Bruchsichere, klare Front statt empfindlichem Glas.",
+            "fact_3_title": "Farben",
+            "fact_3_text": "Schwarz oder Weiß — passend zu jedem Raum."
+          }
+        },
+        "flip_ship": {
+          "type": "limitless-flip",
+          "settings": {
+            "front_title": "Sicher verpackt",
+            "front_sub": "EU-Versand",
+            "width": 210,
+            "fact_1_title": "Verpackung",
+            "fact_1_text": "Eckenschutz und feste Umverpackung gegen Transportschäden.",
+            "fact_2_title": "Versand",
+            "fact_2_text": "Schnell aus der EU, mit Tracking-Link per Mail.",
+            "fact_3_title": "Widerruf",
+            "fact_3_text": "14 Tage Widerrufsrecht — ohne Wenn und Aber."
+          }
+        }
+      },
+      "block_order": [
+        "flip_paper",
+        "flip_frame",
+        "flip_ship"
+      ],
+      "name": "Fakten-Flips",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 24,
+        "padding-block-end": 80
+      }
+    },
+    "story_cta": {
+      "type": "section",
+      "blocks": {
+        "cta_head": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Bereit, deine Wand zu übernehmen?</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-accent--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "cta_btn": {
+          "type": "button",
+          "settings": {
+            "label": "Bestseller ansehen",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
+        }
+      },
+      "block_order": [
+        "cta_head",
+        "cta_btn"
+      ],
+      "name": "Story-CTA",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 22,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-3",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 88,
+        "padding-block-end": 88
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "story_hero",
+    "story_wall",
+    "story_stats",
+    "story_facts_head",
+    "story_facts",
+    "story_cta",
+    "main"
+  ]
+}
