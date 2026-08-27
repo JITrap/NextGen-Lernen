@@ -30,3 +30,16 @@ Zurück zum [[00 Dashboard]] · Kontext: [[20 Theme-Architektur OFE v3]] · Rege
 > - **Kein Löschen der Printify-Mockups**: Live-Shop-Sicherheit; sie dienen auf der PDP als Detail-/Rahmenbilder.
 > - **Keine hartkodierten Zahlarten-Icons**: nur nach Verifikation der aktiven Methoden, sonst „Sichere Zahlung".
 > - **Kein Header-/Footer-Umbau**; `limitless-stats`/`-drop-countdown` bleiben als Dateien im Theme (Löschen wäre eine unnötige riskante Mutation).
+
+## 2026-08-27 — E2E-Testrunde über Preview-Link + Fix-Runde
+
+| Entscheidung | Begründung |
+|---|---|
+| Hero-Textspalte bekommt 128 px Top-Padding (Desktop) | Horizon legt den transparenten Sticky-Header über die erste Sektion — Eyebrow/H1 kollidierten mit der Navigation |
+| Scroll-Showcase-Überschrift auf `top: clamp(96px, 12svh, 140px)` | Sticky-Header überdeckte „Ein Motiv. Deine Wand." während der Sticky-Phase |
+| `.lp-outline`-Stroke explizit `var(--color-foreground)` | `currentColor` war durch `color: transparent` selbst transparent — „POSTER" in der Footer-Wortmarke war unsichtbar (Julius' altes „Logo nur halb"-Feedback) |
+| Gallery-Wall-Überschrift h1 → h2 | Startseite hatte drei h1 (SEO/A11y) |
+| Kachel-Label-Farbe `#141215` im collection-title-Block | Ivory-Text auf #FCFBF7-Chip war unlesbar; der Template-`color`-Key wird inline geschrieben und schlägt jede Kaskade |
+| `auto_open_cart_drawer: true` | Horizon-Default ist false — nach „In den Warenkorb" passierte sichtbar nichts (Badge zählte nur hoch) |
+| Galerie-Reihenfolge aller 99 Produkte: Hero → Wohnbeispiel → Studio → Printify | Displate-Muster: die ersten Bilder beantworten Kauffragen (Produkt, Raumwirkung, Größe); per productReorderMedia, wirkt auch live |
+| Black-Varianten bekommen den Hero als Variantenbild | Horizon zeigt das Bild der GEWÄHLTEN Variante als ersten Galerie-Slide — Printify hatte Weißwand-Mockups zugewiesen, PDPs starteten damit trotz korrekter Medienreihenfolge; White-Varianten behalten ihre weißen Rahmenbilder für den Farbwechsel |
