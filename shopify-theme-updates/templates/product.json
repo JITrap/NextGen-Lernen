@@ -320,7 +320,7 @@
                     "text": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Sorgfältig verpackt und schnell aus der EU versendet. 14 Tage Widerrufsrecht. 2 Jahre Gewährleistung in der EU und Nordirland gemäß Richtlinie 1999/44/EG.</p>",
+                        "text": "<p>Sorgfältig verpackt und aus der EU versendet. 14 Tage Widerrufsrecht. 24 Monate gesetzliche Gewährleistung.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -395,7 +395,16 @@
             },
             "limitless_trust": {
               "type": "limitless-trust",
-              "settings": {}
+              "settings": {
+                "title_1": "Versandfrei ab 50 €",
+                "sub_1": "Versand aus der EU",
+                "title_2": "Sichere Zahlung",
+                "sub_2": "SSL-verschlüsselt",
+                "title_3": "14 Tage Widerruf",
+                "sub_3": "ohne Wenn und Aber",
+                "title_4": "Gerahmt geliefert",
+                "sub_4": "sofort aufhängbar"
+              }
             },
             "limitless_bundle": {
               "type": "limitless-bundle",
@@ -414,13 +423,13 @@
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
-            "buy_buttons_eYQEYi",
-            "limitless_bundle",
             "limitless_size_guide",
+            "buy_buttons_eYQEYi",
+            "limitless_trust",
+            "limitless_bundle",
             "limitless_3d",
             "text_aEtTtq",
-            "accordion_lp",
-            "limitless_trust"
+            "accordion_lp"
           ]
         }
       },
@@ -443,7 +452,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>Das könnte dir auch gefallen</h3>",
+            "text": "<h3>Passt dazu</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -487,7 +496,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,

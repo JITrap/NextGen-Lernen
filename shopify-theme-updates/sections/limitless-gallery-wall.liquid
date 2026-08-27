@@ -27,7 +27,7 @@
         {%- if product.available and product.media.size > 0 -%}
           {%- unless gw_first %},{% endunless -%}
           {%- assign gw_first = false -%}
-          {%- capture lm_u -%}{% render 'limitless-media', product: product, kind: 'hero', preset: 'standard', output: 'url', width: 300 %}{%- endcapture -%}
+          {%- capture lm_u -%}{% render 'limitless-media', product: product, kind: 'hero', preset: 'tight', output: 'url', width: 300 %}{%- endcapture -%}
           {
             "title": {{ product.title | json }},
             "url": {{ product.url | json }},

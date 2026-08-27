@@ -42,7 +42,7 @@
                     href="{{ product.url }}"
                     {% if pass == 2 %}tabindex="-1" aria-hidden="true"{% else %}aria-label="{{ product.title | escape }}"{% endif %}
                   >
-                    {% render 'limitless-media', product: product, kind: 'hero', preset: 'standard', width: 360, widths: '240, 360', class: 'lp-wall__img', alt: product.title, loading: 'lazy' %}
+                    {% render 'limitless-media', product: product, kind: 'hero', preset: 'tight', width: 360, widths: '240, 360', class: 'lp-wall__img', alt: product.title, loading: 'lazy' %}
                   </a>
                 {%- endif -%}
               {%- endfor -%}

@@ -39,10 +39,10 @@
             <span class="lp-room__wallpaper"></span>
             <span class="lp-room__posters" data-lp-layer="0.5">
               {%- if p1 != blank and p1.media.size > 0 -%}
-                <span class="lp-room__frame lp-room__frame--a">{% render 'limitless-media', product: p1, kind: 'hero', preset: 'standard', width: 200, widths: '140, 200', class: 'lp-room__art', loading: 'lazy', alt: '' %}</span>
+                <span class="lp-room__frame lp-room__frame--a">{% render 'limitless-media', product: p1, kind: 'hero', preset: 'tight', width: 200, widths: '140, 200', class: 'lp-room__art', loading: 'lazy', alt: '' %}</span>
               {%- endif -%}
               {%- if p2 != blank and p2.media.size > 0 -%}
-                <span class="lp-room__frame lp-room__frame--b">{% render 'limitless-media', product: p2, kind: 'hero', preset: 'standard', width: 160, widths: '120, 160', class: 'lp-room__art', loading: 'lazy', alt: '' %}</span>
+                <span class="lp-room__frame lp-room__frame--b">{% render 'limitless-media', product: p2, kind: 'hero', preset: 'tight', width: 160, widths: '120, 160', class: 'lp-room__art', loading: 'lazy', alt: '' %}</span>
               {%- endif -%}
             </span>
             <span class="lp-room__furniture" data-lp-layer="1">

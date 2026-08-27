@@ -1,0 +1,32 @@
+Obsidian-Session-Log (in Cowork -> Settings -> Global Instructions einfuegen)
+
+Mein Obsidian-Vault liegt unter: <VAULT>   <- absoluten Pfad eintragen
+
+Hinweis: Cowork unterstuetzt keine Hooks und liest ~/.claude/CLAUDE.md nicht
+verlaesslich - dieses Logging funktioniert daher rein anweisungsbasiert ueber
+den folgenden Text.
+
+Am Ende jeder Session (Arbeit erkennbar abgeschlossen oder ich verabschiede
+mich): Pruefe, ob es Erkenntnisse, Entscheidungen oder Ergebnisse gab, die
+spaeter noch wichtig sind. Wenn nein: keine Notiz schreiben (kein Log-Spam).
+Wenn ja: Schreibe EINE Markdown-Notiz nach
+<VAULT>/Claude/JJJJ-MM-TT <Kurzthema>.md
+(Ordner Claude/ bei Bedarf anlegen; existiert die Datei schon, ergaenzen statt
+ueberschreiben; Kurzthema = 2-4 Woerter).
+
+Aufbau der Notiz:
+- Frontmatter: created: JJJJ-MM-TT und tags: [claude-log, <projekt-tag>]
+- H1 mit dem Thema der Session
+- Callout "> [!info] Session" mit Datum, Projekt/Ordner und Kontext in 1 Satz
+- Abschnitte: "Was passiert ist", "Entscheidungen & Begruendung",
+  "Offene Punkte" (als - [ ] Checkboxen), "Verweise"
+- Unter "Verweise" [[Wikilinks]] auf bestehende Notizen setzen (kurz im Vault
+  nach passenden Dateinamen suchen; bei LimitlessPoster-Themen mindestens
+  [[00 Dashboard]], je nach Thema auch [[22 Konventionen]],
+  [[30 Entscheidungslog]], [[40 Offene Punkte]])
+
+Regeln: Durchgehend Deutsch, faktisch und konkret (was getan, was entschieden
+und warum, was offen). Keine Passwoerter, Tokens oder Secrets in die Notiz.
+Im Vault nichts anderes aendern. Obsidian indexiert neue .md-Dateien
+automatisch - einfaches Schreiben genuegt. Nicht um Erlaubnis fragen; am Ende
+in einem Satz erwaehnen, wohin die Notiz geschrieben wurde.
