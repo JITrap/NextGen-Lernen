@@ -1,0 +1,228 @@
+{%- doc -%}
+  Conversion-Hero (Split-Layout): Text links auf solidem Scheme-Grund
+  (kein Overlay, Kontrast deterministisch), rechts EIN Wohnbeispiel-Bild
+  aus dem gewählten Produkt (via limitless-media, Alt-Suffix „Wohnbeispiel")
+  oder ein manuelles Bild-Override. EIN Primär-CTA + schlichter Zweitlink,
+  darunter vier Trust-Punkte (mobil 2×2, Desktop eine Zeile).
+  Höhe bewusst unter 100 svh — die Folgesektion schneidet an (Scroll-Anreiz).
+  LCP: eager + fetchpriority=high + preload, fester 4:5-Container (CLS ≈ 0).
+{%- enddoc -%}
+
+{%- liquid
+  assign lp_product = section.settings.product
+  assign lp_image = section.settings.image
+  assign lp_cta_url = section.settings.cta_link | default: '/collections/bestseller'
+  assign lp_link2_url = section.settings.link2_url | default: '/collections/new-drop'
+  assign lp_img_alt = lp_image.alt | default: section.settings.heading
+-%}
+
+<div
+  class="lp-hero color-{{ section.settings.color_scheme }} spacing-style"
+  style="--lp-hero-h: {{ section.settings.height }}svh; {% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div class="lp-hero__grid">
+    <div class="lp-hero__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lp-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="lp-hero__heading">{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <div class="lp-hero__subtext">{{ section.settings.subtext }}</div>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank or section.settings.link2_label != blank -%}
+        <div class="lp-hero__cta-row">
+          {%- if section.settings.cta_label != blank -%}
+            <a class="button lp-hero__cta" href="{{ lp_cta_url }}">{{ section.settings.cta_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.link2_label != blank -%}
+            <a class="lp-hero__link2" href="{{ lp_link2_url }}">
+              {{- section.settings.link2_label | escape -}}
+              <span aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      {%- capture lp_trust_items -%}
+        {%- for i in (1..4) -%}
+          {%- assign lp_trust_key = 'trust_' | append: i -%}
+          {%- assign lp_trust_text = section.settings[lp_trust_key] -%}
+          {%- if lp_trust_text != blank -%}
+            <li class="lp-hero__trust-item">
+              <svg class="lp-hero__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>{{ lp_trust_text | escape }}</span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {%- if lp_trust_items != blank -%}
+        <ul class="lp-hero__trust" role="list">
+          {{ lp_trust_items }}
+        </ul>
+      {%- endif -%}
+    </div>
+    <div class="lp-hero__media">
+      {%- if lp_product != blank -%}
+        <a class="lp-hero__media-link" href="{{ lp_product.url }}" aria-label="{{ lp_product.title | escape }}">
+      {%- endif -%}
+      {%- if lp_image != blank -%}
+        {{ lp_image | image_url: width: 1100 | image_tag: widths: '600, 900, 1100, 1600', sizes: '(min-width: 990px) 50vw, 100vw', class: 'lp-hero__img', loading: 'eager', fetchpriority: 'high', preload: true, alt: lp_img_alt }}
+      {%- elsif lp_product != blank -%}
+        {% render 'limitless-media', product: lp_product, kind: 'wohnbeispiel', preset: 'none', width: 1100, widths: '600, 900, 1100, 1600', sizes: '(min-width: 990px) 50vw, 100vw', class: 'lp-hero__img', loading: 'eager', fetchpriority: 'high', preload: true %}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'lp-hero__img' }}
+      {%- endif -%}
+      {%- if lp_product != blank -%}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .lp-hero { position: relative; }
+  .lp-hero > .section-background { z-index: -1; }
+  .lp-hero__grid { display: grid; }
+  .lp-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .lp-hero__eyebrow {
+    margin: 0 0 14px;
+    font-family: var(--font-subheading--family);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lp-cobalt-bright, #E4A7B6);
+  }
+  .lp-hero__heading {
+    margin: 0 0 16px;
+    font-family: var(--font-accent--family);
+    font-size: clamp(2.4rem, 4.6vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .lp-hero__subtext {
+    max-width: 46ch;
+    margin: 0 0 28px;
+    color: color-mix(in srgb, var(--color-foreground) 76%, transparent);
+  }
+  .lp-hero__subtext > p { margin-block: 0 0.6em; }
+  .lp-hero__subtext > p:last-child { margin-block-end: 0; }
+  .lp-hero__cta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+  }
+  .lp-hero__link2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-foreground);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .lp-hero__link2:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .lp-hero__trust {
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.8125rem;
+    color: color-mix(in srgb, var(--color-foreground) 72%, transparent);
+  }
+  .lp-hero__trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lp-hero__check {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--lp-cobalt-bright, #E4A7B6);
+  }
+  .lp-hero__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color-foreground) 4%, transparent);
+  }
+  .lp-hero__media-link { display: block; width: 100%; height: 100%; }
+  .lp-hero__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 989px) {
+    .lp-hero__media { order: -1; max-height: 52svh; }
+    .lp-hero__content { padding: 28px 24px 44px; }
+    .lp-hero__cta-row { flex-direction: column; align-items: stretch; }
+    .lp-hero__cta {
+      width: 100%;
+      min-height: 52px;
+      justify-content: center;
+    }
+    .lp-hero__link2 { align-self: center; }
+    .lp-hero__trust {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .lp-hero__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      min-height: var(--lp-hero-h, 65svh);
+      align-items: stretch;
+    }
+    .lp-hero__content { padding: 56px clamp(32px, 5vw, 84px); }
+    .lp-hero__media {
+      align-self: center;
+      max-height: var(--lp-hero-h, 65svh);
+    }
+    .lp-hero__trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-top: 36px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Limitless Hero",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "product", "id": "product", "label": "Produkt (Raumbild-Quelle)" },
+    { "type": "image_picker", "id": "image", "label": "Bild-Override (optional)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "FRAME YOUR AMBITION." },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Wände für Menschen, die mehr vorhaben." },
+    { "type": "richtext", "id": "subtext", "label": "Untertext", "default": "<p>Gerahmte Poster in Museumsqualität — Motivation, Sport, Mindset. Schwarzer oder weißer Rahmen, gedruckt in der EU.</p>" },
+    { "type": "text", "id": "cta_label", "label": "CTA-Text", "default": "Bestseller ansehen" },
+    { "type": "url", "id": "cta_link", "label": "CTA-Link", "default": "shopify://collections/bestseller" },
+    { "type": "text", "id": "link2_label", "label": "Zweitlink-Text", "default": "Neue Drops" },
+    { "type": "url", "id": "link2_url", "label": "Zweitlink-Ziel", "default": "shopify://collections/new-drop" },
+    { "type": "text", "id": "trust_1", "label": "Trust-Punkt 1", "default": "Kostenloser Versand ab 50 €" },
+    { "type": "text", "id": "trust_2", "label": "Trust-Punkt 2", "default": "Gedruckt & gerahmt in der EU" },
+    { "type": "text", "id": "trust_3", "label": "Trust-Punkt 3", "default": "14 Tage Widerrufsrecht" },
+    { "type": "text", "id": "trust_4", "label": "Trust-Punkt 4", "default": "Sichere Zahlung" },
+    { "type": "range", "id": "height", "label": "Höhe (Desktop)", "min": 55, "max": 75, "step": 5, "unit": "vh", "default": 65 },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "presets": [
+    { "name": "Limitless Hero" }
+  ]
+}
+{% endschema %}
