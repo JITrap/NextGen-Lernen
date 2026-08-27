@@ -368,7 +368,8 @@
                 "padding-block-start": 6,
                 "padding-block-end": 6,
                 "padding-inline-start": 10,
-                "padding-inline-end": 10
+                "padding-inline-end": 10,
+                "color": "#141215"
               }
             }
           },

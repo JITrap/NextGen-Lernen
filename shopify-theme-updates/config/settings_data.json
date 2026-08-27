@@ -360,6 +360,7 @@
           "selected_variant_hover_border_color": "#FFFFFF"
         }
       }
-    }
+    },
+    "auto_open_cart_drawer": true
   }
 }
