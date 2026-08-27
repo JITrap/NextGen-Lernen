@@ -184,7 +184,8 @@
       min-height: var(--lp-hero-h, 65svh);
       align-items: stretch;
     }
-    .lp-hero__content { padding: 56px clamp(32px, 5vw, 84px); }
+    /* Oben Platz für den transparenten Sticky-Header lassen */
+    .lp-hero__content { padding: 128px clamp(32px, 5vw, 84px) 56px; }
     .lp-hero__media {
       align-self: center;
       max-height: var(--lp-hero-h, 65svh);

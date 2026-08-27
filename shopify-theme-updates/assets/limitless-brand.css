@@ -189,10 +189,12 @@ html.lp-motion .lp-reveal.lp-inview {
   }
 }
 
-/* Outline-Text (sparsam: Hero-Zeile, Wortmarke, Drop-Banner) */
+/* Outline-Text (sparsam: Hero-Zeile, Wortmarke, Drop-Banner).
+   Stroke-Farbe explizit — currentColor wäre durch color:transparent
+   selbst transparent (deshalb war „POSTER" in der Wortmarke unsichtbar). */
 .lp-outline {
   color: transparent;
-  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-stroke: 1px var(--color-foreground, #F4F1EA);
 }
 
 /* Produktkarten: Lift + Cobalt-Ring beim Hover */
