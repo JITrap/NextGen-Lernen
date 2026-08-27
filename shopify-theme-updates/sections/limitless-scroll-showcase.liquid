@@ -1,11 +1,11 @@
 {%- assign sp = section.settings.product -%}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="lp-scrollshow color-{{ section.settings.color_scheme }}"
+  class="lp-scrollshow spacing-style color-{{ section.settings.color_scheme }}"
   data-lp-scrollshow
   style="--lp-show-h: {{ section.settings.section_height }}vh;"
 >
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
   <div class="lp-scrollshow__sticky">
     <div class="lp-scrollshow__head">
       <div class="lp-scrollshow__eyebrow">{{ section.settings.eyebrow | escape }}</div>
@@ -18,8 +18,8 @@
       aria-label="{{ sp.title | default: 'Poster' | escape }}"
     >
       <span class="lp-scrollshow__frame">
-        {%- if sp != blank and sp.featured_image != blank -%}
-          {{ sp.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', class: 'lp-scrollshow__img' }}
+        {%- if sp != blank and sp.media.size > 0 -%}
+          {% render 'limitless-media', product: sp, kind: 'hero', preset: 'tight', width: 1400, widths: '600, 900, 1400', class: 'lp-scrollshow__img', loading: 'lazy' %}
         {%- else -%}
           {{ 'product-1' | placeholder_svg_tag: 'lp-scrollshow__img' }}
         {%- endif -%}
@@ -88,6 +88,7 @@
     position: absolute;
     inset: 0;
     display: block;
+    overflow: hidden;
     background: #0B0B0C;
     padding: clamp(8px, 1vw, 14px);
     box-shadow: 0 30px 60px rgba(11, 11, 12, 0.28);
@@ -98,7 +99,7 @@
     inset: -16px;
     width: calc(100% + 32px);
     height: calc(100% + 32px);
-    color: var(--lp-cobalt, #3157FF);
+    color: var(--lp-cobalt, #A32235);
     pointer-events: none;
   }
   .lp-scrollshow__fd rect {

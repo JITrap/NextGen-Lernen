@@ -1,16 +1,15 @@
 {%- doc -%}
   3D-Viewer: gerahmtes Poster als echtes CSS-3D-Objekt — per Drag/Touch
-  drehbar, mit Rahmentiefe und Rückseite. Nutzt das Produktbild (tief
-  gezoomt, um weiße Mockup-Ränder zu entfernen). Gut sichtbarer Button
+  drehbar, mit Rahmentiefe und Rückseite. Nutzt das Hero-Produktbild,
+  serverseitig beschnitten via limitless-media. Gut sichtbarer Button
   öffnet/schließt den Viewer. Reduzierte Bewegung: statische Schrägansicht.
 {%- enddoc -%}
 
 {%- liquid
   assign p3d_product = closest.product
-  assign p3d_image = p3d_product.featured_image
 -%}
 
-{%- if p3d_image != blank -%}
+{%- if p3d_product != blank and p3d_product.media.size > 0 -%}
   <div class="lp3d" data-lp3d {{ block.shopify_attributes }}>
     <button class="lp3d__toggle" type="button" data-lp3d-toggle aria-expanded="false">
       <span class="lp3d__toggle-icon" aria-hidden="true">
@@ -22,7 +21,7 @@
       <div class="lp3d__scene">
         <div class="lp3d__cube" data-lp3d-cube>
           <span class="lp3d__face lp3d__front">
-            {{ p3d_image | image_url: width: 520 | image_tag: loading: 'lazy', widths: '360, 520', class: 'lp3d__img', alt: p3d_product.title }}
+            {% render 'limitless-media', product: p3d_product, kind: 'hero', preset: 'tight', width: 520, widths: '360, 520', class: 'lp3d__img', alt: p3d_product.title, loading: 'lazy' %}
           </span>
           <span class="lp3d__face lp3d__back"><span class="lp3d__back-logo">LIMITLESS</span></span>
           <span class="lp3d__face lp3d__side lp3d__side--l"></span>
@@ -96,7 +95,7 @@
     transform: translateZ(8px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
   }
-  .lp3d__img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.38); pointer-events: none; }
+  .lp3d__img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
   .lp3d__back {
     inset: 0;
     background: #1A1518;

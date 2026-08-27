@@ -18,14 +18,28 @@
   <div class="lp-savings" {{ block.shopify_attributes }}>
     Du sparst {{ lp_diff | money }} (−{{ lp_pct }} %)
   </div>
+  {%- if block.settings.legal_note != blank -%}
+    <small class="lp-savings__note">{{ block.settings.legal_note | escape }}</small>
+  {%- endif -%}
 {%- endif -%}
+
+{% stylesheet %}
+  .lp-savings__note {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
   "name": "Ersparnis-Chip",
   "tag": null,
   "settings": [
-    { "type": "paragraph", "content": "Erscheint automatisch, wenn die Variante einen Vergleichspreis hat (Produkt → Preis → Vergleichspreis)." }
+    { "type": "paragraph", "content": "Erscheint automatisch, wenn die Variante einen Vergleichspreis hat (Produkt → Preis → Vergleichspreis)." },
+    { "type": "text", "id": "legal_note", "label": "Rechtshinweis (klein)", "default": "" }
   ],
   "presets": [{ "name": "Ersparnis-Chip" }]
 }

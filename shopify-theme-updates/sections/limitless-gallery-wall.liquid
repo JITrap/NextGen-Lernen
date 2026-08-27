@@ -16,7 +16,7 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="lp-gw section color-{{ section.settings.color_scheme }}"
+  class="lp-gw section spacing-style color-{{ section.settings.color_scheme }}"
   style="{% render 'spacing-style', settings: section.settings %}"
   data-lp-gw
 >
@@ -24,13 +24,14 @@
     [
       {%- assign gw_first = true -%}
       {%- for product in gw_products limit: 12 -%}
-        {%- if product.available and product.featured_image != blank -%}
+        {%- if product.available and product.media.size > 0 -%}
           {%- unless gw_first %},{% endunless -%}
           {%- assign gw_first = false -%}
+          {%- capture lm_u -%}{% render 'limitless-media', product: product, kind: 'hero', preset: 'standard', output: 'url', width: 300 %}{%- endcapture -%}
           {
             "title": {{ product.title | json }},
             "url": {{ product.url | json }},
-            "image": {{ product.featured_image | image_url: width: 300 | json }},
+            "image": {{ lm_u | strip | json }},
             "variants": [
               {%- for variant in product.variants -%}
                 {%- if variant.available -%}
@@ -104,7 +105,7 @@
   .lp-gw__wall--grid4 .lp-gw__slot { width: clamp(58px, 9.5vw, 92px); }
   .lp-gw__slot:hover { border-color: var(--lp-cobalt-bright, #E4A7B6); transform: translateY(-2px); }
   .lp-gw__slot-plus { color: rgba(244, 237, 234, 0.55); font-size: 22px; line-height: 1; pointer-events: none; }
-  .lp-gw__slot--filled { border: 5px solid #100C0E; outline: 1px solid rgba(244, 237, 234, 0.2); background: #100C0E; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55); }
+  .lp-gw__slot--filled { border: 5px solid #100C0E; outline: 1px solid rgba(244, 237, 234, 0.2); background: #100C0E; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55); overflow: hidden; }
   .lp-gw__slot img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .lp-gw__slot-x { position: absolute; top: -9px; right: -9px; width: 22px; height: 22px; border-radius: 50%; border: 0; cursor: pointer; background: var(--lp-cobalt, #A32235); color: #fff; font-size: 11px; line-height: 1; display: grid; place-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
   .lp-gw__sofa { position: absolute; left: 50%; bottom: 8%; transform: translateX(-50%); width: 44%; height: 15%; pointer-events: none; }

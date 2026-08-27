@@ -353,7 +353,6 @@ html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
 .lp-reviews {
   max-width: var(--page-width, 1200px);
   margin-inline: auto;
-  padding-inline: var(--section-padding-inline, 24px);
   display: grid;
   gap: 28px;
 }
@@ -716,19 +715,6 @@ footer img[src*="ChatGPT_Image"],
   margin: 8px auto 0;
   border-radius: 2px;
   background: var(--lp-cobalt, #A32235);
-}
-
-/* Scroll-Showcase: Printify-Fotos enthalten weiße Mockup-Wände —
-   tief einzoomen, damit nur das Motiv im Rahmen steht. */
-.lp-scrollshow__frame .lp-scrollshow__img {
-  object-fit: cover;
-  transform: scale(1.42);
-}
-
-/* Gallery-Wall-Konfigurator: gleiche Beschneidung für Slots & Auswahl. */
-.lp-gw__slot img,
-.lp-gw__pick img {
-  transform: scale(1.32);
 }
 
 /* Kollektionskarten: Bilder immer sichtbar (kein Start-Clip mehr),

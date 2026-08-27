@@ -1,0 +1,165 @@
+{%- doc -%}
+  Zentrale Medien-Weiche für LimitlessPoster.
+
+  Jedes Produkt besitzt drei kuratierte Assets, erkennbar am Alt-Text-Suffix
+  bzw. Dateinamen-Suffix (Konvention, 99/99 Produkte verifiziert):
+    – „gerahmtes Poster" / -hero.jpg        → Tight Shot, Poster zentriert auf Creme #F6F3EE
+    – „Wohnbeispiel"    / -wohnbeispiel.jpg → thematische Raumszene
+    – „Studio"          / -studio.jpg       → einheitliche Sofa-Szene (2:3)
+
+  Die Auswahl läuft über product.media und ist damit unabhängig von der
+  Medien-Reihenfolge (featured_image ist bei Alt-Produkten unzuverlässig).
+  Hero-Bilder werden per CDN-Region-Crop beschnitten: Das Poster steht bei
+  exakt 9 % Rand pro Seite im Bild; die Presets schneiden die Creme-Fläche
+  serverseitig weg — kein CSS-Zoom nötig.
+
+  @param {object} [product] - Produkt, aus dessen Medien gewählt wird
+  @param {object} [media] - Direktes Medium (überspringt die Auswahl)
+  @param {string} [kind] - 'hero' (Default) | 'studio' | 'wohnbeispiel'
+  @param {string} [preset] - Crop-Fenster: 'standard' 9/7 (Default bei hero) |
+                             'tight' 9.5/9.5 | 'motif' 11.5/9.5 | 'none'
+                             (studio/wohnbeispiel croppen nie ohne explizites preset)
+  @param {number} [inset_x] - Überschreibt das horizontale Inset in %
+  @param {number} [inset_y] - Überschreibt das vertikale Inset in %
+  @param {number} [width] - Zielbreite der Bild-URL (Default 800)
+  @param {string} [widths] - widths-Liste für image_tag
+  @param {string} [sizes] - sizes-Attribut für image_tag
+  @param {string} [class] - Klassen fürs <img>
+  @param {string} [alt] - Alt-Text (Default: Alt des Mediums)
+  @param {string} [loading] - 'lazy' (Default) | 'eager'
+  @param {string} [fetchpriority] - z. B. 'high'
+  @param {boolean} [preload] - Early-Hints-Preload
+  @param {string} [ref] - ref-Attribut fürs <img>
+  @param {string} [output] - 'img' (Default): rendert das <img> |
+                             'url': gibt nur die Bild-URL aus (capture-fähig) |
+                             'index': gibt den product.media-Index aus, -1 wenn
+                             kein kuratiertes Asset gefunden wurde
+
+  @example
+  {% render 'limitless-media', product: product, kind: 'hero', preset: 'motif', width: 520, class: 'lp3d__img' %}
+
+  {%- capture lm_url -%}{% render 'limitless-media', product: product, output: 'url', width: 300 %}{%- endcapture -%}
+{%- enddoc -%}
+
+{%- liquid
+  assign lm_media = media
+  assign lm_kind = kind | default: 'hero'
+  assign lm_output = output | default: 'img'
+  assign lm_index = -1
+
+  if lm_media == blank and product != blank
+    assign lm_alt_needle = 'gerahmtes Poster'
+    assign lm_src_needle = '-hero.'
+    if lm_kind == 'studio'
+      assign lm_alt_needle = 'Studio'
+      assign lm_src_needle = '-studio.'
+    elsif lm_kind == 'wohnbeispiel'
+      assign lm_alt_needle = 'Wohnbeispiel'
+      assign lm_src_needle = '-wohnbeispiel.'
+    endif
+
+    for lm_m in product.media
+      if lm_m.media_type != 'image'
+        continue
+      endif
+      if lm_m.alt contains lm_alt_needle
+        assign lm_media = lm_m
+        assign lm_index = forloop.index0
+        break
+      endif
+    endfor
+
+    if lm_media == blank
+      for lm_m in product.media
+        if lm_m.media_type != 'image'
+          continue
+        endif
+        assign lm_src_probe = lm_m.preview_image.src | default: ''
+        if lm_src_probe contains lm_src_needle
+          assign lm_media = lm_m
+          assign lm_index = forloop.index0
+          break
+        endif
+      endfor
+    endif
+
+    if lm_media == blank
+      assign lm_media = product.featured_media
+    endif
+  endif
+
+  assign lm_preset = preset
+  if lm_preset == blank
+    if lm_kind == 'hero'
+      assign lm_preset = 'standard'
+    else
+      assign lm_preset = 'none'
+    endif
+  endif
+
+  comment
+    Der weiche Schlagschatten der Hero-Renderings fällt nach rechts unten —
+    deshalb sind die Fenster asymmetrisch (rechts/unten etwas enger),
+    damit auf dunklen Flächen kein Creme-Rest stehen bleibt.
+  endcomment
+  assign lm_l = 9.0
+  assign lm_t = 7.0
+  assign lm_r = 9.0
+  assign lm_b = 7.0
+  case lm_preset
+    when 'tight'
+      assign lm_l = 9.5
+      assign lm_t = 9.5
+      assign lm_r = 11.5
+      assign lm_b = 11.5
+    when 'motif'
+      assign lm_l = 11.5
+      assign lm_t = 9.5
+      assign lm_r = 13.0
+      assign lm_b = 11.5
+    when 'none'
+      assign lm_l = 0.0
+      assign lm_t = 0.0
+      assign lm_r = 0.0
+      assign lm_b = 0.0
+  endcase
+  if inset_x != blank
+    assign lm_l = inset_x | times: 1.0
+    assign lm_r = inset_x | times: 1.0
+  endif
+  if inset_y != blank
+    assign lm_t = inset_y | times: 1.0
+    assign lm_b = inset_y | times: 1.0
+  endif
+
+  assign lm_img = lm_media.preview_image
+  assign lm_width = width | default: 800
+
+  assign lm_url = ''
+  if lm_img != blank
+    assign lm_inset_sum = lm_l | plus: lm_t | plus: lm_r | plus: lm_b
+    if lm_inset_sum > 0 and lm_img.width > 0
+      assign lm_cl = lm_img.width | times: lm_l | divided_by: 100.0 | round
+      assign lm_ct = lm_img.height | times: lm_t | divided_by: 100.0 | round
+      assign lm_cr = lm_img.width | times: lm_r | divided_by: 100.0 | round
+      assign lm_cb = lm_img.height | times: lm_b | divided_by: 100.0 | round
+      assign lm_cw = lm_img.width | minus: lm_cl | minus: lm_cr
+      assign lm_ch = lm_img.height | minus: lm_ct | minus: lm_cb
+      assign lm_url = lm_img | image_url: width: lm_width, crop: 'region', crop_left: lm_cl, crop_top: lm_ct, crop_width: lm_cw, crop_height: lm_ch
+    else
+      assign lm_url = lm_img | image_url: width: lm_width
+    endif
+  endif
+
+  assign lm_widths = widths | default: '240, 352, 520, 720, 960, 1200'
+  assign lm_loading = loading | default: 'lazy'
+  assign lm_alt = alt | default: lm_media.alt
+-%}
+
+{%- if lm_output == 'index' -%}
+  {{- lm_index -}}
+{%- elsif lm_output == 'url' -%}
+  {{- lm_url -}}
+{%- elsif lm_url != blank -%}
+  {{- lm_url | image_tag: widths: lm_widths, sizes: sizes, alt: lm_alt, loading: lm_loading, class: class, fetchpriority: fetchpriority, preload: preload, ref: ref -}}
+{%- endif -%}

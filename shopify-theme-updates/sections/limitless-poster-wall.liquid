@@ -12,11 +12,11 @@
   endif
 -%}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="lp-wall color-{{ section.settings.color_scheme }}"
+  class="lp-wall spacing-style color-{{ section.settings.color_scheme }}"
   style="{% render 'spacing-style', settings: section.settings %}"
 >
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
   {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
     <div class="lp-wall__head">
       {%- if section.settings.eyebrow != blank -%}
@@ -36,13 +36,13 @@
             {%- for pass in (1..2) -%}
               {%- for product in wall_products limit: 12 -%}
                 {%- assign mod3 = forloop.index0 | modulo: 3 -%}
-                {%- if mod3 == col and product.featured_image != blank -%}
+                {%- if mod3 == col and product.media.size > 0 -%}
                   <a
                     class="lp-wall__tile"
                     href="{{ product.url }}"
                     {% if pass == 2 %}tabindex="-1" aria-hidden="true"{% else %}aria-label="{{ product.title | escape }}"{% endif %}
                   >
-                    {{ product.featured_image | image_url: width: 360 | image_tag: loading: 'lazy', widths: '240, 360', class: 'lp-wall__img', alt: product.title }}
+                    {% render 'limitless-media', product: product, kind: 'hero', preset: 'standard', width: 360, widths: '240, 360', class: 'lp-wall__img', alt: product.title, loading: 'lazy' %}
                   </a>
                 {%- endif -%}
               {%- endfor -%}
@@ -57,6 +57,9 @@
 </div>
 
 <style>
+  .lp-wall {
+    position: relative;
+  }
   .lp-wall__head {
     max-width: var(--page-width, 1200px);
     margin: 0 auto 26px;
@@ -121,14 +124,11 @@
   .lp-wall__tile:focus-visible {
     outline: 2px solid var(--lp-cobalt-bright, #E4A7B6);
   }
-  /* Printify-Fotos enthalten weiße Mockup-Wände — tief einzoomen,
-     damit nur das Motiv in unserem CSS-Rahmen steht. */
   .lp-wall__img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.38);
   }
   .lp-wall__fade {
     position: absolute;
