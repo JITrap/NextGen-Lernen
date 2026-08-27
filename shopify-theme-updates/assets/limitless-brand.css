@@ -1,0 +1,248 @@
+/* ============================================================
+   LimitlessPoster — Open Frame Editorial
+   Brand System v0.1 · Space Grotesk (headings) + Inter (body)
+   Selbst gehostete Fonts (OFL) — keine externen Requests.
+
+   FIX 2026-08-15: space-grotesk-600.woff war hochgeladen, aber nie
+   registriert — Texte mit font-weight 600 (Wortmarke, Zahlenband)
+   wurden künstlich fett gerechnet (Faux-Bold). Jetzt zwei echte
+   Schnitte: 500 für 400–500, 600 für 600–700.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('space-grotesk-500.woff') format('woff');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('space-grotesk-600.woff') format('woff');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --lp-carbon: #0B0B0C;
+  --lp-ivory: #F4F1EA;
+  --lp-paper: #FCFBF7;
+  --lp-graphite: #55575C;
+  /* OFE v3 Final: Royal Noir — Akzent Dunkelrot/Rosé (Variablennamen aus
+     Kompatibilitätsgründen beibehalten; alle Verwender folgen automatisch). */
+  --lp-cobalt: #A32235;
+  --lp-cobalt-bright: #E4A7B6;
+  --lp-warm-line: #CEC8BD;
+
+  /* Headings & Akzente: Space Grotesk (Fallback: Inter aus den Theme-Settings) */
+  --font-heading--family: 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-accent--family: 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-heading--weight: 500;
+  --font-accent--weight: 500;
+}
+
+/* Editorial-Typografie: ruhige, engere Headlines */
+h1, .h1, h2, .h2, h3, .h3 {
+  letter-spacing: -0.015em;
+}
+
+/* Mikro-Labels: Tracking +0.12em, Versalien (Brand-Regel) */
+h5, .h5, h6, .h6 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Buttons: Space Grotesk, Versalien, ruhiges Tracking */
+.button,
+a.button,
+button.button,
+.button-secondary,
+a.button-secondary {
+  font-family: var(--font-accent--family);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Open-Frame-Signatur: Wipe-Hover in Electric Cobalt — seit Design-Lab v1
+   nur noch auf Sekundär-Buttons; Primär-Buttons bekommen den Shine-Sweep
+   aus limitless-lab.css (BTN-01). */
+.button-secondary:not(.link),
+a.button-secondary:not(.link) {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.button-secondary:not(.link)::before,
+a.button-secondary:not(.link)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -102%;
+  width: 102%;
+  height: 100%;
+  background-color: var(--lp-cobalt);
+  transition: left 0.35s ease;
+  z-index: -1;
+}
+.button-secondary:not(.link):hover::before,
+a.button-secondary:not(.link):hover::before {
+  left: 0;
+}
+.button-secondary:not(.link):hover,
+a.button-secondary:not(.link):hover {
+  color: #ffffff !important;
+  border-color: var(--lp-cobalt);
+}
+
+/* Fokus-Ring in Cobalt — sichtbar und markentypisch */
+:focus-visible {
+  outline-color: var(--lp-cobalt);
+}
+
+/* Textlinks: feine Linie, Cobalt beim Hover */
+.link:hover,
+a.link:hover {
+  color: var(--lp-cobalt);
+}
+
+/* Produktkarten: feine Warm-Line-Kante um die Bildfläche (Galerie-Passepartout-Gefühl) */
+product-card .card-gallery,
+.product-card__gallery {
+  background-color: var(--lp-ivory);
+}
+
+/* Preise dezent in Graphite auf hellen Schemes */
+.price {
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   v2 — Motion & Landing Additions (Scroll-Redesign)
+   Reveal, Frame-Draw, Progressbar, Karten-Hover, Wortmarke.
+   Ohne JS (kein html.lp-motion) bleibt alles statisch sichtbar.
+   ============================================================ */
+
+/* Scroll-Progressbar */
+#lp-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lp-cobalt);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 990;
+  pointer-events: none;
+}
+
+/* Reveal-on-Scroll */
+html.lp-motion .lp-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 0.6, 0.2, 1), transform 0.6s cubic-bezier(0.16, 0.6, 0.2, 1);
+}
+html.lp-motion .lp-reveal.lp-inview {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.lp-motion .lp-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Frame-Draw: SVG-Rahmen zeichnet sich, sobald sichtbar */
+.lp-fd {
+  position: relative;
+}
+.lp-fd > svg.lp-fd-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--lp-cobalt);
+  pointer-events: none;
+}
+.lp-fd > svg.lp-fd-frame rect {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1s ease-out 0.2s;
+}
+.lp-fd.lp-fd-visible > svg.lp-fd-frame rect {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-fd > svg.lp-fd-frame rect {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}
+
+/* Outline-Text (sparsam: Hero-Zeile, Wortmarke, Drop-Banner).
+   Stroke-Farbe explizit — currentColor wäre durch color:transparent
+   selbst transparent (deshalb war „POSTER" in der Wortmarke unsichtbar). */
+.lp-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-foreground, #F4F1EA);
+}
+
+/* Produktkarten: Lift + Cobalt-Ring beim Hover */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  product-card {
+    display: block;
+    transition: transform 0.18s ease;
+  }
+  product-card:hover {
+    transform: translateY(-6px);
+  }
+  product-card:hover .card-gallery,
+  product-card:hover .product-card__gallery {
+    box-shadow: 0 0 0 1px rgba(163, 34, 53, 0.35), 0 18px 36px rgba(11, 11, 12, 0.3);
+  }
+}
+
+/* Kollektionskarten: Edge-Line unten, Cobalt beim Hover, sanfter Zoom */
+.collection-card {
+  border-bottom: 3px solid var(--lp-carbon);
+  transition: border-color 0.2s ease;
+}
+.collection-card:hover {
+  border-bottom-color: var(--lp-cobalt);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection-card img {
+    transition: transform 0.5s ease;
+  }
+  .collection-card:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* Große Footer-Wortmarke */
+.lp-wordmark-wrap {
+  padding: 8px 0 20px;
+}
+.lp-wordmark {
+  font-family: var(--font-accent--family);
+  font-weight: 600;
+  font-size: clamp(2.75rem, 9vw, 6.9rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.1em 0.16em;
+}
+.lp-wordmark .lp-outline {
+  -webkit-text-stroke-width: 1.5px;
+}

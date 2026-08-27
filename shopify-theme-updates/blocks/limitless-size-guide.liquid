@@ -1,0 +1,58 @@
+{%- doc -%}
+  CNV-10 · Größen-Guide an der Wand: zeigt die gewählte Postergröße
+  maßstabsgetreu über einem Sofa (Sofa-Breite ≈ 200 cm als Referenz).
+  Die Breiten-Prozente sind aus den cm-Angaben abgeleitet.
+{%- enddoc -%}
+
+<div class="lp-sizeguide" data-lp-sizeguide {{ block.shopify_attributes }}>
+  {%- if block.settings.heading != blank -%}
+    <h4 class="lp-sizeguide__heading">{{ block.settings.heading | escape }}</h4>
+  {%- endif -%}
+  <div class="lp-sizeguide__wall" aria-hidden="true">
+    <div class="lp-sizeguide__poster" style="width: {{ block.settings.width_1 }}%;"><span>{{ block.settings.poster_label | escape }}</span></div>
+    <div class="lp-sizeguide__sofa">
+      <div class="back"></div>
+      <div class="seat"></div>
+      <div class="leg" style="left: 7px;"></div>
+      <div class="leg" style="right: 7px;"></div>
+    </div>
+  </div>
+  <div class="lp-sizeguide__chips" role="group" aria-label="Größe wählen">
+    {%- if block.settings.size_1 != blank -%}
+      <button type="button" class="lp-sizeguide__chip" data-width="{{ block.settings.width_1 }}" aria-pressed="true">{{ block.settings.size_1 | escape }}</button>
+    {%- endif -%}
+    {%- if block.settings.size_2 != blank -%}
+      <button type="button" class="lp-sizeguide__chip" data-width="{{ block.settings.width_2 }}" aria-pressed="false">{{ block.settings.size_2 | escape }}</button>
+    {%- endif -%}
+    {%- if block.settings.size_3 != blank -%}
+      <button type="button" class="lp-sizeguide__chip" data-width="{{ block.settings.width_3 }}" aria-pressed="false">{{ block.settings.size_3 | escape }}</button>
+    {%- endif -%}
+    {%- if block.settings.size_4 != blank -%}
+      <button type="button" class="lp-sizeguide__chip" data-width="{{ block.settings.width_4 }}" aria-pressed="false">{{ block.settings.size_4 | escape }}</button>
+    {%- endif -%}
+  </div>
+  {%- if block.settings.note != blank -%}
+    <p class="lp-sizeguide__note">{{ block.settings.note | escape }}</p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Größen-Guide Wand",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "So groß wirkt es an deiner Wand" },
+    { "type": "text", "id": "poster_label", "label": "Poster-Beschriftung", "default": "Dein Motiv" },
+    { "type": "text", "id": "size_1", "label": "Größe 1", "default": "28×36 cm" },
+    { "type": "range", "id": "width_1", "label": "Breite 1 (% der Szene)", "min": 5, "max": 60, "step": 1, "default": 13 },
+    { "type": "text", "id": "size_2", "label": "Größe 2", "default": "30×46 cm" },
+    { "type": "range", "id": "width_2", "label": "Breite 2 (% der Szene)", "min": 5, "max": 60, "step": 1, "default": 15 },
+    { "type": "text", "id": "size_3", "label": "Größe 3", "default": "41×51 cm" },
+    { "type": "range", "id": "width_3", "label": "Breite 3 (% der Szene)", "min": 5, "max": 60, "step": 1, "default": 20 },
+    { "type": "text", "id": "size_4", "label": "Größe 4", "default": "46×61 cm" },
+    { "type": "range", "id": "width_4", "label": "Breite 4 (% der Szene)", "min": 5, "max": 60, "step": 1, "default": 23 },
+    { "type": "text", "id": "note", "label": "Hinweis", "default": "Sofa als Referenz: ca. 200 cm breit." }
+  ],
+  "presets": [{ "name": "Größen-Guide Wand" }]
+}
+{% endschema %}

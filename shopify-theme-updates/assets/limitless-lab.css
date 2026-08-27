@@ -1,0 +1,724 @@
+/* ============================================================
+   LimitlessPoster — Design-Lab Layer v1
+   Umsetzung der ausgewählten Ideen aus dem Design-Lab:
+   BTN-01, HOV-02/05/08, NAV-01/05, SCR-08, TXT-04/06/08,
+   CNV-01/05/07/08/10, FX-02/03/06.
+   Läuft zusätzlich zu limitless-brand.css; nur additive Selektoren,
+   keine Überschreibungen von Theme-Kern-Dateien.
+   ============================================================ */
+
+/* ---------- BTN-01 · Shine-Sweep auf Primär-Buttons ---------- */
+/* Primäre Buttons behalten ihre Farbe; beim Hover läuft ein feiner
+   Lichtstreifen übers Label. Sekundär-Buttons behalten den
+   Cobalt-Wipe aus limitless-brand.css. Icon-/Unstyled-Buttons
+   (Warenkorb, Schließen etc.) bleiben unangetastet. */
+.button:not(.button-secondary):not(.link):not(.button-unstyled) {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:not(.button-secondary):not(.link):not(.button-unstyled)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-130%) skewX(-12deg);
+  background: linear-gradient(100deg, transparent 36%, rgba(255, 255, 255, 0.32) 50%, transparent 64%);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .button:not(.button-secondary):not(.link):not(.button-unstyled):hover::after {
+    transition: transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+    transform: translateX(130%) skewX(-12deg);
+  }
+}
+
+/* ---------- HOV-02 · Menü-Unterstreichung aus der Mitte ---------- */
+.menu-list__link .menu-list__link-title {
+  position: relative;
+}
+.menu-list__link .menu-list__link-title::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--gap-xl) / 2);
+  right: calc(var(--gap-xl) / 2);
+  bottom: -3px;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.32s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.menu-list__link:hover .menu-list__link-title::after,
+.menu-list__link:focus-visible .menu-list__link-title::after,
+.menu-list__link--active .menu-list__link-title::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-list__link .menu-list__link-title::after { transition: none; }
+}
+
+/* ---------- NAV-01 · Glass-Header beim Scrollen ---------- */
+/* Sobald der Sticky-Header aktiv ist (Horizon setzt data-sticky-state),
+   wird er zum Milchglas mit feiner Kante und Schatten. */
+header-component[data-sticky-state='active']:not([transparent]) .header__row {
+  background-color: color-mix(in srgb, var(--color-background) 72%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+}
+header-component[data-sticky-state='active']:not([transparent]) {
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-foreground) 8%, transparent),
+    0 12px 32px color-mix(in srgb, var(--color-foreground) 7%, transparent);
+}
+header-component .header__row {
+  transition: background-color 0.35s ease;
+}
+
+/* ---------- HOV-08 · Frame-Glow (verstärkter Karten-Hover) ---------- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  product-card:hover .card-gallery,
+  product-card:hover .product-card__gallery {
+    box-shadow:
+      0 0 0 1px rgba(163, 34, 53, 0.28),
+      0 10px 24px rgba(11, 11, 12, 0.1),
+      0 26px 60px rgba(163, 34, 53, 0.18);
+  }
+}
+
+/* ---------- HOV-05 · 3D-Tilt (Kollektionskarten, JS-gesteuert) ---------- */
+.lp-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.18s ease-out;
+}
+
+/* ---------- SCR-08 · Bild-Vorhang-Reveal ---------- */
+html.lp-motion .lp-curtain {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+html.lp-motion .lp-curtain.lp-curtain-in {
+  clip-path: inset(0 0 0 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.lp-motion .lp-curtain { clip-path: none; transition: none; }
+}
+
+/* ---------- TXT-04 · Marker-Highlight für kursive Wörter in Headlines ---------- */
+/* Im Editor ein Wort kursiv setzen → es bekommt den Cobalt-Marker,
+   der sich beim Reinscrollen durchzieht. */
+html.lp-motion main :is(h1, h2, h3, .h1, .h2, .h3) em {
+  font-style: normal;
+  background-image: linear-gradient(120deg, rgba(163, 34, 53, 0.22), rgba(163, 34, 53, 0.22));
+  background-repeat: no-repeat;
+  background-size: 0% 72%;
+  background-position: 0 78%;
+  border-radius: 2px;
+  transition: background-size 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.15s;
+}
+html.lp-motion main .lp-mark-in :is(em),
+html.lp-motion main :is(h1, h2, h3, .h1, .h2, .h3).lp-mark-in em {
+  background-size: 100% 72%;
+}
+html:not(.lp-motion) main :is(h1, h2, h3, .h1, .h2, .h3) em {
+  font-style: normal;
+  background-image: linear-gradient(120deg, rgba(163, 34, 53, 0.22), rgba(163, 34, 53, 0.22));
+  background-repeat: no-repeat;
+  background-size: 100% 72%;
+  background-position: 0 78%;
+  border-radius: 2px;
+}
+
+/* ---------- TXT-06 · Typewriter-Block ---------- */
+.lp-type { margin: 0; }
+.lp-type__word { color: var(--lp-cobalt, #A32235); }
+.lp-type__caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 2px;
+  vertical-align: -0.08em;
+  background: var(--lp-cobalt, #A32235);
+  animation: lp-caret 1s steps(1) infinite;
+}
+@keyframes lp-caret { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .lp-type__caret { animation: none; }
+}
+
+/* ---------- TXT-08 · Preis-Anker (Ersparnis-Chip) ---------- */
+.lp-savings {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  background: rgba(31, 157, 85, 0.12);
+  color: #1F7A46;
+  font-family: var(--font-subheading--family);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+/* Durchgestrichener Vergleichspreis: Linie zieht sich animiert durch */
+@media (prefers-reduced-motion: no-preference) {
+  html.lp-motion .price s,
+  html.lp-motion .price [class*='compare'] s {
+    position: relative;
+    text-decoration: none;
+  }
+  html.lp-motion .price s::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: 52%;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lp-strike 0.6s cubic-bezier(0.65, 0, 0.35, 1) 0.5s forwards;
+  }
+  @keyframes lp-strike { to { transform: scaleX(1); } }
+}
+
+/* ---------- CNV-01 / NAV-05 · Gratisversand-Balken im Warenkorb ---------- */
+.lp-shipbar {
+  position: relative;
+  margin: 4px var(--padding-lg, 20px) 12px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.lp-shipbar__label {
+  margin: 0 0 8px;
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
+}
+.lp-shipbar__label strong { color: var(--lp-cobalt, #A32235); }
+.lp-shipbar--done .lp-shipbar__label strong { color: #1F9D55; }
+.lp-shipbar__track {
+  height: 6px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  overflow: hidden;
+}
+.lp-shipbar__fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--lp-cobalt, #A32235), var(--lp-cobalt-bright, #E4A7B6));
+  transition: width 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.lp-shipbar--done .lp-shipbar__fill {
+  background: linear-gradient(90deg, #1F9D55, #34C070);
+}
+.lp-shipbar__confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---------- CNV-05 · Trust-Leiste (Block) ---------- */
+.lp-trust {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+@media screen and (min-width: 750px) {
+  .lp-trust { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.lp-trust__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border: 1px solid color-mix(in srgb, var(--color-foreground) 9%, transparent);
+  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .lp-trust__item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--color-foreground) 8%, transparent);
+  }
+}
+.lp-trust__item svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--lp-cobalt, #A32235);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lp-trust__title {
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lp-trust__sub {
+  font-size: 0.6875rem;
+  color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+}
+
+/* ---------- CNV-07 · Bundle-Rabatt (Block) ---------- */
+.lp-bundle { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.lp-bundle__opt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1.5px solid color-mix(in srgb, var(--color-foreground) 14%, transparent);
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  color: var(--color-foreground);
+  font: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.lp-bundle__opt:hover { transform: translateY(-1px); }
+.lp-bundle__opt[aria-pressed='true'] {
+  border-color: var(--lp-cobalt, #A32235);
+  box-shadow: 0 8px 24px rgba(163, 34, 53, 0.14);
+}
+.lp-bundle__radio {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--color-foreground) 30%, transparent);
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.25s;
+}
+.lp-bundle__opt[aria-pressed='true'] .lp-bundle__radio { border-color: var(--lp-cobalt, #A32235); }
+.lp-bundle__radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lp-cobalt, #A32235);
+  transform: scale(0);
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+.lp-bundle__opt[aria-pressed='true'] .lp-bundle__radio::after { transform: scale(1); }
+.lp-bundle__info { flex: 1; min-width: 0; }
+.lp-bundle__title { font-size: 0.875rem; font-weight: 600; }
+.lp-bundle__sub {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--color-foreground) 62%, transparent);
+  margin-top: 1px;
+}
+.lp-bundle__price {
+  font-size: 0.875rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.lp-bundle__tag {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  font-family: var(--font-subheading--family);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--lp-cobalt, #A32235);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.lp-bundle__tag--dark { background: var(--lp-carbon, #0B0B0C); }
+.lp-bundle__note {
+  font-size: 0.6875rem;
+  color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  margin: 2px 0 0;
+}
+
+/* ---------- CNV-08 · Bewertungs-Sektion ---------- */
+.lp-reviews {
+  max-width: var(--page-width, 1200px);
+  margin-inline: auto;
+  display: grid;
+  gap: 28px;
+}
+@media screen and (min-width: 990px) {
+  .lp-reviews { grid-template-columns: minmax(260px, 340px) 1fr; gap: 48px; }
+}
+.lp-reviews__score-row { display: flex; align-items: baseline; gap: 14px; }
+.lp-reviews__score {
+  font-family: var(--font-accent--family);
+  font-size: clamp(3rem, 6vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.lp-reviews__stars { color: #F0A400; font-size: 1rem; letter-spacing: 2px; }
+.lp-reviews__count {
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+}
+.lp-reviews__bars { margin-top: 18px; display: flex; flex-direction: column; gap: 7px; }
+.lp-reviews__bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+}
+.lp-reviews__bar-row .track {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  overflow: hidden;
+}
+.lp-reviews__bar-row .fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 99px;
+  background: #F0A400;
+  transition: width 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.lp-reviews__quotes {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+@media screen and (min-width: 750px) {
+  .lp-reviews__quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.lp-review-card {
+  border: 1px solid color-mix(in srgb, var(--color-foreground) 9%, transparent);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lp-review-card__stars { color: #F0A400; font-size: 0.8125rem; letter-spacing: 2px; }
+.lp-review-card__text { margin: 0; font-size: 0.9375rem; line-height: 1.55; }
+.lp-review-card__author {
+  margin-top: auto;
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+}
+
+/* ---------- CNV-10 · Größen-Guide an der Wand ---------- */
+.lp-sizeguide { width: 100%; }
+.lp-sizeguide__wall {
+  position: relative;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #DCD6CB 0%, #D3CCC0 74%, #A99F90 74%, #B8AFA1 100%);
+}
+.lp-sizeguide__poster {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 21%;
+  aspect-ratio: 3 / 4;
+  background: #0D0D10;
+  border: 3px solid #101013;
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 26px rgba(40, 34, 24, 0.4);
+  transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  display: grid;
+  place-items: center;
+}
+.lp-sizeguide__poster span {
+  color: #F5F5F7;
+  font-family: var(--font-subheading--family);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.lp-sizeguide__sofa {
+  position: absolute;
+  left: 50%;
+  bottom: 11%;
+  transform: translateX(-50%);
+  width: 46%;
+  height: 42px;
+}
+.lp-sizeguide__sofa .back { position: absolute; inset: 0 6px 20px; background: #8A8072; border-radius: 7px 7px 0 0; }
+.lp-sizeguide__sofa .seat { position: absolute; inset: 11px 0 0; background: #7E7468; border-radius: 9px 9px 4px 4px; }
+.lp-sizeguide__sofa .leg { position: absolute; bottom: -5px; width: 4px; height: 6px; background: #4A443C; border-radius: 2px; }
+.lp-sizeguide__chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.lp-sizeguide__chip {
+  border: 1.5px solid color-mix(in srgb, var(--color-foreground) 16%, transparent);
+  background: transparent;
+  color: var(--color-foreground);
+  cursor: pointer;
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.25s, background-color 0.25s, color 0.25s, transform 0.2s;
+}
+.lp-sizeguide__chip:hover { transform: translateY(-1px); }
+.lp-sizeguide__chip[aria-pressed='true'] {
+  border-color: var(--lp-carbon, #0B0B0C);
+  background: var(--lp-carbon, #0B0B0C);
+  color: #FCFBF7;
+}
+.lp-sizeguide__note {
+  margin: 8px 0 0;
+  font-size: 0.6875rem;
+  color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+}
+
+/* ---------- FX-02 · Toast-Meldungen ---------- */
+.lp-toasts {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  max-width: min(320px, calc(100vw - 32px));
+}
+.lp-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lp-carbon, #101013);
+  color: #F5F5F7;
+  border: 1px solid rgba(245, 245, 247, 0.1);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  box-shadow: 0 16px 40px rgba(5, 5, 8, 0.35);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1.1);
+}
+.lp-toast.on { opacity: 1; transform: none; }
+.lp-toast__icon {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  line-height: 1;
+}
+.lp-toast--success .lp-toast__icon { background: #1F9D55; }
+.lp-toast--error .lp-toast__icon { background: #D64545; }
+
+/* ---------- FX-06 · Zurück nach oben + Fortschrittsring ---------- */
+.lp-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: var(--lp-carbon, #101013);
+  color: #F5F5F7;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+  box-shadow: 0 10px 26px rgba(5, 5, 8, 0.3);
+}
+.lp-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.lp-top svg.lp-top__arrow {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lp-top svg.lp-top__ring {
+  position: absolute;
+  inset: 0;
+  width: 44px;
+  height: 44px;
+  transform: rotate(-90deg);
+}
+.lp-top__ring circle {
+  fill: none;
+  stroke: rgba(245, 245, 247, 0.18);
+  stroke-width: 2.5;
+}
+.lp-top__ring circle.p {
+  stroke: var(--lp-cobalt-bright, #E4A7B6);
+  stroke-linecap: round;
+  stroke-dasharray: 126;
+  stroke-dashoffset: 126;
+}
+/* Wenn Toasts sichtbar sind, rutschen sie über den Button — bewusst simpel gehalten. */
+@media (max-width: 749px) {
+  .lp-top { right: 14px; bottom: 14px; }
+}
+
+/* ============================================================
+   OFE v3 — Dark Edition
+   Dunkler Shop, helle Produkt-Kacheln, Queens-Fleur-de-Lis.
+   ============================================================ */
+
+/* Produktbilder-Kacheln bleiben hell, damit dunkle Motive auf dem
+   dunklen Shop-Hintergrund immer sichtbar sind — überall:
+   Kollektionen, Suche, Empfehlungen, Quick-Add, Warenkorb. */
+.card-gallery,
+product-card .card-gallery,
+.product-card__gallery {
+  background-color: var(--lp-ivory, #F4F1EA);
+}
+
+/* Dunkle Karten-Schatten wirken auf dunklem Grund über Licht statt
+   Schatten: feine helle Kante ersetzt das bisherige Grau. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  product-card:hover .card-gallery,
+  product-card:hover .product-card__gallery {
+    box-shadow:
+      0 0 0 1px rgba(163, 34, 53, 0.34),
+      0 10px 24px rgba(0, 0, 0, 0.5),
+      0 26px 60px rgba(163, 34, 53, 0.22);
+  }
+}
+
+/* Nahtloser Scroll-Fluss: Sektionshintergründe gehen weich ineinander
+   über, statt an harten Kanten zu wechseln. */
+main .shopify-section { background-clip: padding-box; }
+
+/* Queens: Fleur-de-Lis in Dunkelrot, unten links im Kopfbereich */
+.lp-fleur-anchor {
+  position: relative;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+.lp-fleur {
+  position: absolute;
+  left: -4px;
+  bottom: -34px;
+  width: 88px;
+  height: auto;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 22px rgba(122, 18, 32, 0.4));
+}
+@media (max-width: 749px) {
+  .lp-fleur { width: 60px; bottom: -24px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html.lp-motion .lp-fleur {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: lpFleurIn 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) 0.3s forwards;
+  }
+  @keyframes lpFleurIn {
+    to { opacity: 0.92; transform: none; }
+  }
+}
+
+/* ============================================================
+   OFE v3 Final — Royal Noir Feinschliff
+   ============================================================ */
+
+/* PRM-01 · Film-Korn: statisches, feines Korn über der ganzen Seite.
+   Nimmt den dunklen Flächen die Sterilität; liegt unter den
+   <dialog>-Overlays (Top-Layer) und blockiert nichts. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.75'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='180'%20height='180'%20filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+@media print {
+  body::after { content: none; }
+}
+
+/* BTN-14 · Icon-Bounce: das Warenkorb-Icon im Kauf-Button hüpft beim Hover. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .button:hover .add-to-cart-icon {
+    animation: lp-cart-bounce 0.55s cubic-bezier(0.3, 0.7, 0.3, 1.4);
+  }
+  @keyframes lp-cart-bounce {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(-4px) rotate(-6deg); }
+    100% { transform: translateY(0); }
+  }
+}
+
+/* ============================================================
+   Feedback-Runde 1 — Fixes
+   ============================================================ */
+
+/* Logo: dunkle Wortmarke war auf dunklem Grund unsichtbar/halb sichtbar.
+   Die Logodatei wird als weiße Silhouette gerendert (Header, Drawer,
+   Footer). Wenn du irgendwann ein helles Logo hochlädst, diesen Block
+   entfernen. */
+header-component img[src*="ChatGPT_Image"],
+#header-group img[src*="ChatGPT_Image"],
+footer img[src*="ChatGPT_Image"],
+.header__drawer img[src*="ChatGPT_Image"] {
+  filter: brightness(0) invert(1);
+}
+
+/* Zahlenband: Rot war als Flächenfarbe zu laut — Zahlen jetzt in Ivory,
+   Rot nur noch als feiner Akzentstrich darunter. */
+.lp-stats .lp-stats__n {
+  color: var(--color-foreground-heading, #FCFAF7);
+}
+.lp-stats .lp-stats__item {
+  position: relative;
+}
+.lp-stats .lp-stats__n::after {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: var(--lp-cobalt, #A32235);
+}
+
+/* Kollektionskarten: Bilder immer sichtbar (kein Start-Clip mehr),
+   sanfter Ken-Burns-Zoom nur beim Hover. */
+.collection-card img {
+  clip-path: none;
+}

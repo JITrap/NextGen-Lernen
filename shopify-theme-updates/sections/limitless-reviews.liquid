@@ -1,0 +1,89 @@
+{%- doc -%}
+  CNV-08 · Bewertungs-Sektion: Schnitt + Sterne-Balken links,
+  Zitat-Karten rechts. Balken animieren beim Reinscrollen
+  (siehe limitless-lab.js, data-lp-bars).
+{%- enddoc -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="lp-reviews-section section spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="lp-reviews" data-lp-bars>
+    <div class="lp-reviews__summary">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="lp-reviews__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+      {%- endif -%}
+      <div class="lp-reviews__score-row">
+        <span class="lp-reviews__score">{{ section.settings.score | escape }}</span>
+        <span class="lp-reviews__stars" aria-hidden="true">★★★★★</span>
+      </div>
+      <p class="lp-reviews__count">{{ section.settings.count_text | escape }}</p>
+      <div class="lp-reviews__bars" aria-hidden="true">
+        <div class="lp-reviews__bar-row"><span>5★</span><span class="track"><span class="fill" data-lp-bar="{{ section.settings.bar_5 }}" style="display:block;"></span></span><span>{{ section.settings.bar_5 }} %</span></div>
+        <div class="lp-reviews__bar-row"><span>4★</span><span class="track"><span class="fill" data-lp-bar="{{ section.settings.bar_4 }}" style="display:block;"></span></span><span>{{ section.settings.bar_4 }} %</span></div>
+        <div class="lp-reviews__bar-row"><span>3★</span><span class="track"><span class="fill" data-lp-bar="{{ section.settings.bar_3 }}" style="display:block;"></span></span><span>{{ section.settings.bar_3 }} %</span></div>
+      </div>
+    </div>
+    <div class="lp-reviews__quotes">
+      {%- for block in section.blocks -%}
+        <blockquote class="lp-review-card" {{ block.shopify_attributes }}>
+          <span class="lp-review-card__stars" aria-hidden="true">★★★★★</span>
+          <p class="lp-review-card__text">{{ block.settings.text | escape }}</p>
+          <cite class="lp-review-card__author">{{ block.settings.author | escape }}</cite>
+        </blockquote>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .lp-reviews__eyebrow {
+    font-family: var(--font-subheading--family);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lp-cobalt-bright, #6E8CFF);
+    margin-bottom: 12px;
+  }
+  .lp-review-card cite { font-style: normal; }
+</style>
+
+{% schema %}
+{
+  "name": "Bewertungen",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WAS KUNDEN SAGEN" },
+    { "type": "text", "id": "score", "label": "Schnitt", "default": "4,9" },
+    { "type": "text", "id": "count_text", "label": "Anzahl-Text", "default": "aus verifizierten Bewertungen" },
+    { "type": "range", "id": "bar_5", "label": "Anteil 5 Sterne (%)", "min": 0, "max": 100, "step": 1, "default": 92 },
+    { "type": "range", "id": "bar_4", "label": "Anteil 4 Sterne (%)", "min": 0, "max": 100, "step": 1, "default": 6 },
+    { "type": "range", "id": "bar_3", "label": "Anteil 3 Sterne (%)", "min": 0, "max": 100, "step": 1, "default": 2 },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Zitat",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Hängt jetzt überm Schreibtisch und pusht mich jeden Morgen. Qualität ist der Wahnsinn." },
+        { "type": "text", "id": "author", "label": "Autor", "default": "Jonas K. · verifizierter Kauf" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bewertungen",
+      "blocks": [
+        { "type": "quote" },
+        { "type": "quote", "settings": { "text": "Schnelle Lieferung, top verpackt — Geschenk für meinen Bruder, Volltreffer.", "author": "Sarah M. · verifizierter Kauf" } },
+        { "type": "quote", "settings": { "text": "Qualität wie aus der Galerie. Das dritte Poster ist schon bestellt.", "author": "Tim R. · verifizierter Kauf" } },
+        { "type": "quote", "settings": { "text": "Der Rahmen wirkt deutlich hochwertiger als erwartet. Klare Empfehlung.", "author": "Lea F. · verifizierter Kauf" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

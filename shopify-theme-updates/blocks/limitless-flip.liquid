@@ -1,0 +1,137 @@
+{%- doc -%}
+  PRM-05 · 3D-Flip-Karte: Vorderseite (Bild oder Titel-Fläche) dreht bei
+  Klick/Enter auf die Rückseite mit drei Fakten-Zeilen. Bei reduzierter
+  Bewegung dreht die Karte ohne Animation (sofortiger Wechsel).
+{%- enddoc -%}
+
+{%- assign flip_id = block.id | replace: '_', '' | downcase -%}
+
+<div class="lp-flipwrap" {{ block.shopify_attributes }}>
+  <button
+    class="lp-flip"
+    type="button"
+    data-lp-flip
+    aria-pressed="false"
+    aria-label="{{ block.settings.front_title | escape }} — Details umdrehen"
+  >
+    <span class="lp-flip__face lp-flip__front">
+      {%- if block.settings.image != blank -%}
+        {{ block.settings.image | image_url: width: 480 | image_tag: loading: 'lazy', widths: '320, 480', class: 'lp-flip__img', alt: block.settings.front_title }}
+      {%- else -%}
+        <span class="lp-flip__cover">
+          <span class="lp-flip__cover-title">{{ block.settings.front_title | escape }}</span>
+          <span class="lp-flip__cover-sub">{{ block.settings.front_sub | escape }}</span>
+        </span>
+      {%- endif -%}
+      <span class="lp-flip__hint" aria-hidden="true">Umdrehen ↻</span>
+    </span>
+    <span class="lp-flip__face lp-flip__back">
+      <span class="lp-flip__back-title">{{ block.settings.front_title | escape }}</span>
+      {%- if block.settings.fact_1_title != blank -%}
+        <span class="lp-flip__row"><strong>{{ block.settings.fact_1_title | escape }}</strong>{{ block.settings.fact_1_text | escape }}</span>
+      {%- endif -%}
+      {%- if block.settings.fact_2_title != blank -%}
+        <span class="lp-flip__row"><strong>{{ block.settings.fact_2_title | escape }}</strong>{{ block.settings.fact_2_text | escape }}</span>
+      {%- endif -%}
+      {%- if block.settings.fact_3_title != blank -%}
+        <span class="lp-flip__row"><strong>{{ block.settings.fact_3_title | escape }}</strong>{{ block.settings.fact_3_text | escape }}</span>
+      {%- endif -%}
+    </span>
+  </button>
+</div>
+
+{% style %}
+  .lp-flipwrap { perspective: 900px; display: inline-block; }
+  .lp-flip {
+    position: relative;
+    display: block;
+    width: {{ block.settings.width }}px;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-flip { transition: transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  }
+  .lp-flip[aria-pressed='true'] { transform: rotateY(180deg); }
+  .lp-flip__face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .lp-flip__front {
+    border: 5px solid #100C0E;
+    outline: 1px solid rgba(244, 237, 234, 0.16);
+    background: #100C0E;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  }
+  .lp-flip__img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .lp-flip__cover { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px; text-align: center; background: linear-gradient(160deg, #1B1416, #2A181D 60%, #4A1622); }
+  .lp-flip__cover-title { color: #F4EDEA; font-family: var(--font-accent--family); font-weight: 600; font-size: 1.125rem; letter-spacing: 0.02em; }
+  .lp-flip__cover-sub { color: rgba(244, 237, 234, 0.65); font-family: var(--font-subheading--family); font-size: 0.625rem; letter-spacing: 0.18em; text-transform: uppercase; }
+  .lp-flip__hint { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); font-family: var(--font-subheading--family); font-size: 0.5625rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244, 237, 234, 0.85); background: rgba(12, 10, 11, 0.65); padding: 4px 9px; border-radius: 999px; }
+  .lp-flip__back {
+    transform: rotateY(180deg);
+    justify-content: center;
+    gap: 11px;
+    padding: 18px;
+    text-align: left;
+    background: #171114;
+    border: 1px solid rgba(244, 237, 234, 0.16);
+    color: #F4EDEA;
+  }
+  .lp-flip__back-title { font-family: var(--font-subheading--family); font-size: 0.625rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lp-cobalt-bright, #E4A7B6); }
+  .lp-flip__row { display: block; font-size: 0.75rem; line-height: 1.5; color: rgba(244, 237, 234, 0.75); border-bottom: 1px solid rgba(244, 237, 234, 0.1); padding-bottom: 10px; }
+  .lp-flip__row strong { display: block; font-size: 0.8125rem; color: #F4EDEA; margin-bottom: 2px; }
+{% endstyle %}
+
+<script>
+  (function () {
+    'use strict';
+    var setup = function () {
+      document.querySelectorAll('[data-lp-flip]:not([data-lp-flip-init])').forEach(function (card) {
+        card.setAttribute('data-lp-flip-init', '');
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-pressed') === 'true';
+          card.setAttribute('aria-pressed', open ? 'false' : 'true');
+        });
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+    document.addEventListener('shopify:section:load', setup);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "3D-Flip-Karte",
+  "tag": null,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Bild (Vorderseite, optional)" },
+    { "type": "text", "id": "front_title", "label": "Titel", "default": "Museums-Papier" },
+    { "type": "text", "id": "front_sub", "label": "Untertitel (nur ohne Bild)", "default": "250 g · matt" },
+    { "type": "range", "id": "width", "label": "Breite", "min": 140, "max": 320, "step": 10, "unit": "px", "default": 220 },
+    { "type": "text", "id": "fact_1_title", "label": "Fakt 1 — Titel", "default": "Papier" },
+    { "type": "text", "id": "fact_1_text", "label": "Fakt 1 — Text", "default": "250 g Archivpapier, matt und vergilbungsbeständig." },
+    { "type": "text", "id": "fact_2_title", "label": "Fakt 2 — Titel", "default": "Rahmen" },
+    { "type": "text", "id": "fact_2_text", "label": "Fakt 2 — Text", "default": "Massivholz in Schwarz oder Weiß, fertig montiert." },
+    { "type": "text", "id": "fact_3_title", "label": "Fakt 3 — Titel", "default": "Druck" },
+    { "type": "text", "id": "fact_3_text", "label": "Fakt 3 — Text", "default": "Satte Farben, von Hand geprüft, sicher verpackt." }
+  ],
+  "presets": [{ "name": "3D-Flip-Karte" }]
+}
+{% endschema %}

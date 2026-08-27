@@ -1,0 +1,73 @@
+{%- doc -%}
+  CNV-07 · Bundle-Auswahl (1er / 2er / 3er): setzt beim Klick die Menge
+  im Produktformular. Die Rabatt-Beschriftungen sind Einstellungen —
+  WICHTIG: Der tatsächliche Rabatt muss als automatischer Rabatt in
+  Shopify angelegt sein (z. B. „ab 2 Postern −10 %"), sonst Beschriftung
+  neutral halten (z. B. „Beliebt als Duo").
+{%- enddoc -%}
+
+{%- liquid
+  assign lp_variant = closest.product.selected_or_first_available_variant
+  assign lp_unit = lp_variant.price
+  assign lp_price_2 = lp_unit | times: 2
+  assign lp_price_3 = lp_unit | times: 3
+  if block.settings.discount_2 > 0
+    assign lp_off_2 = 100 | minus: block.settings.discount_2
+    assign lp_price_2 = lp_price_2 | times: lp_off_2 | divided_by: 100
+  endif
+  if block.settings.discount_3 > 0
+    assign lp_off_3 = 100 | minus: block.settings.discount_3
+    assign lp_price_3 = lp_price_3 | times: lp_off_3 | divided_by: 100
+  endif
+-%}
+
+<div class="lp-bundle" data-lp-bundle {{ block.shopify_attributes }}>
+  <button type="button" class="lp-bundle__opt" data-qty="1" aria-pressed="true">
+    <span class="lp-bundle__radio" aria-hidden="true"></span>
+    <span class="lp-bundle__info">
+      <span class="lp-bundle__title">1 Poster</span>
+      <span class="lp-bundle__sub">{{ block.settings.sub_1 | escape }}</span>
+    </span>
+    <span class="lp-bundle__price">{{ lp_unit | money }}</span>
+  </button>
+  <button type="button" class="lp-bundle__opt" data-qty="2" aria-pressed="false">
+    {%- if block.settings.tag_2 != blank -%}<span class="lp-bundle__tag">{{ block.settings.tag_2 | escape }}</span>{%- endif -%}
+    <span class="lp-bundle__radio" aria-hidden="true"></span>
+    <span class="lp-bundle__info">
+      <span class="lp-bundle__title">2 Poster{% if block.settings.discount_2 > 0 %} · −{{ block.settings.discount_2 }} %{% endif %}</span>
+      <span class="lp-bundle__sub">{{ block.settings.sub_2 | escape }}</span>
+    </span>
+    <span class="lp-bundle__price">{{ lp_price_2 | money }}</span>
+  </button>
+  <button type="button" class="lp-bundle__opt" data-qty="3" aria-pressed="false">
+    {%- if block.settings.tag_3 != blank -%}<span class="lp-bundle__tag lp-bundle__tag--dark">{{ block.settings.tag_3 | escape }}</span>{%- endif -%}
+    <span class="lp-bundle__radio" aria-hidden="true"></span>
+    <span class="lp-bundle__info">
+      <span class="lp-bundle__title">3 Poster{% if block.settings.discount_3 > 0 %} · −{{ block.settings.discount_3 }} %{% endif %}</span>
+      <span class="lp-bundle__sub">{{ block.settings.sub_3 | escape }}</span>
+    </span>
+    <span class="lp-bundle__price">{{ lp_price_3 | money }}</span>
+  </button>
+  {%- if block.settings.note != blank -%}
+    <p class="lp-bundle__note">{{ block.settings.note | escape }}</p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Bundle-Auswahl",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "Achtung: Die Prozente hier sind nur Beschriftung und Preisvorschau. Der echte Rabatt muss als automatischer Rabatt im Shopify-Admin existieren." },
+    { "type": "text", "id": "sub_1", "label": "Untertitel Option 1", "default": "Standardpreis" },
+    { "type": "range", "id": "discount_2", "label": "Rabatt 2er (%)", "min": 0, "max": 50, "step": 5, "default": 0 },
+    { "type": "text", "id": "sub_2", "label": "Untertitel Option 2", "default": "Stark als Duo an der Wand" },
+    { "type": "text", "id": "tag_2", "label": "Badge Option 2", "default": "Beliebt" },
+    { "type": "range", "id": "discount_3", "label": "Rabatt 3er (%)", "min": 0, "max": 50, "step": 5, "default": 0 },
+    { "type": "text", "id": "sub_3", "label": "Untertitel Option 3", "default": "Die komplette Gallery Wall" },
+    { "type": "text", "id": "tag_3", "label": "Badge Option 3", "default": "Bester Look" },
+    { "type": "text", "id": "note", "label": "Hinweis unter den Optionen", "default": "Wähl oben einfach die Menge — Motive kannst du im Warenkorb mischen." }
+  ],
+  "presets": [{ "name": "Bundle-Auswahl" }]
+}
+{% endschema %}

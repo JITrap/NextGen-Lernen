@@ -1,0 +1,46 @@
+{%- doc -%}
+  TXT-08 · Preis-Anker: zeigt „Du sparst X € (−Y %)" als grünen Chip,
+  sobald die Variante einen Vergleichspreis (durchgestrichenen Preis) hat.
+  Ohne Vergleichspreis rendert der Block nichts.
+{%- enddoc -%}
+
+{%- liquid
+  assign lp_variant = closest.product.selected_or_first_available_variant
+  assign lp_cmp = lp_variant.compare_at_price
+  assign lp_price = lp_variant.price
+-%}
+
+{%- if lp_cmp > lp_price -%}
+  {%- liquid
+    assign lp_diff = lp_cmp | minus: lp_price
+    assign lp_pct = lp_diff | times: 100 | divided_by: lp_cmp
+  -%}
+  <div class="lp-savings" {{ block.shopify_attributes }}>
+    Du sparst {{ lp_diff | money }} (−{{ lp_pct }} %)
+  </div>
+  {%- if block.settings.legal_note != blank -%}
+    <small class="lp-savings__note">{{ block.settings.legal_note | escape }}</small>
+  {%- endif -%}
+{%- endif -%}
+
+{% stylesheet %}
+  .lp-savings__note {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Ersparnis-Chip",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "Erscheint automatisch, wenn die Variante einen Vergleichspreis hat (Produkt → Preis → Vergleichspreis)." },
+    { "type": "text", "id": "legal_note", "label": "Rechtshinweis (klein)" }
+  ],
+  "presets": [{ "name": "Ersparnis-Chip" }]
+}
+{% endschema %}

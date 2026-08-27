@@ -1,0 +1,208 @@
+{%- doc -%}
+  PAGE-06 · Raum-Inspiration + PRM-12 · Parallax-Ebenen:
+  Raum-Kacheln (Home-Gym, Büro, Wohnzimmer) als CSS-Szenen mit echten
+  Produktbildern an der Wand. Bei Mausbewegung verschieben sich die
+  Ebenen (Poster / Möbel) unterschiedlich stark — spürbare Tiefe.
+  Jede Kachel verlinkt auf eine Kollektion.
+{%- enddoc -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="lp-rooms section spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="lp-rooms__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="lp-rooms__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="lp-rooms__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="lp-rooms__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="lp-rooms__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign p1 = block.settings.product_1
+          assign p2 = block.settings.product_2
+        -%}
+        <a
+          class="lp-room lp-room--{{ block.settings.scene }}"
+          href="{{ block.settings.link | default: '/collections/all' }}"
+          data-lp-room
+          {{ block.shopify_attributes }}
+        >
+          <span class="lp-room__scene" aria-hidden="true">
+            <span class="lp-room__wallpaper"></span>
+            <span class="lp-room__posters" data-lp-layer="0.5">
+              {%- if p1 != blank and p1.media.size > 0 -%}
+                <span class="lp-room__frame lp-room__frame--a">{% render 'limitless-media', product: p1, kind: 'hero', preset: 'tight', width: 200, widths: '140, 200', class: 'lp-room__art', loading: 'lazy', alt: '' %}</span>
+              {%- endif -%}
+              {%- if p2 != blank and p2.media.size > 0 -%}
+                <span class="lp-room__frame lp-room__frame--b">{% render 'limitless-media', product: p2, kind: 'hero', preset: 'tight', width: 160, widths: '120, 160', class: 'lp-room__art', loading: 'lazy', alt: '' %}</span>
+              {%- endif -%}
+            </span>
+            <span class="lp-room__furniture" data-lp-layer="1">
+              {%- case block.settings.scene -%}
+                {%- when 'gym' -%}
+                  <span class="lp-room__rack"></span>
+                  <span class="lp-room__bench"></span>
+                  <span class="lp-room__plate lp-room__plate--1"></span>
+                  <span class="lp-room__plate lp-room__plate--2"></span>
+                {%- when 'office' -%}
+                  <span class="lp-room__desk"></span>
+                  <span class="lp-room__screen"></span>
+                  <span class="lp-room__chairback"></span>
+                {%- else -%}
+                  <span class="lp-room__sofa-back"></span>
+                  <span class="lp-room__sofa-seat"></span>
+                  <span class="lp-room__lamp"></span>
+              {%- endcase -%}
+            </span>
+            <span class="lp-room__floor"></span>
+            <span class="lp-room__spot" data-lp-layer="0.3"></span>
+            <span class="lp-room__dot"></span>
+          </span>
+          <span class="lp-room__meta">
+            <span class="lp-room__title">{{ block.settings.title | escape }}</span>
+            <span class="lp-room__sub">{{ block.settings.subtitle | escape }}</span>
+            <span class="lp-room__cta">Look shoppen
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .lp-rooms__inner { max-width: var(--page-width, 1200px); margin: 0 auto; padding: 0 24px; }
+  .lp-rooms__head { text-align: center; margin-bottom: 30px; }
+  .lp-rooms__eyebrow { margin: 0 0 10px; font-family: var(--font-subheading--family); font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lp-cobalt-bright, #E4A7B6); }
+  .lp-rooms__heading { margin: 0; font-family: var(--font-accent--family); letter-spacing: -0.015em; font-size: clamp(1.8rem, 4.4vw, 3rem); }
+  .lp-rooms__grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .lp-room { display: flex; flex-direction: column; text-decoration: none; color: var(--color-foreground); border: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent); border-radius: 14px; overflow: hidden; background: color-mix(in srgb, var(--color-foreground) 3%, transparent); transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.35s, box-shadow 0.35s; }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .lp-room:hover { transform: translateY(-5px); border-color: rgba(163, 34, 53, 0.5); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 12px 34px rgba(163, 34, 53, 0.16); }
+  }
+  .lp-room__scene { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: linear-gradient(180deg, #221C1E 0%, #191416 72%, #120E10 72%, #171215 100%); }
+  .lp-room--office .lp-room__scene { background: linear-gradient(180deg, #1E1C22 0%, #16141A 72%, #100E13 72%, #151318 100%); }
+  .lp-room--living .lp-room__scene { background: linear-gradient(180deg, #201A16 0%, #181310 72%, #110D0B 72%, #16110E 100%); }
+  .lp-room__wallpaper { position: absolute; inset: 0 0 28%; background: radial-gradient(90% 70% at 50% 8%, rgba(244, 237, 234, 0.07), transparent 62%); }
+  .lp-room__floor { position: absolute; left: 0; right: 0; bottom: 0; height: 28%; background: linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 45%); }
+  .lp-room__posters, .lp-room__furniture, .lp-room__spot { position: absolute; inset: 0; display: block; will-change: transform; }
+  .lp-room__frame { position: absolute; aspect-ratio: 3 / 4; overflow: hidden; border: 4px solid #100C0E; outline: 1px solid rgba(244, 237, 234, 0.16); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55); background: #100C0E; }
+  .lp-room__frame--a { left: 26%; top: 9%; width: 26%; }
+  .lp-room__frame--b { left: 56%; top: 16%; width: 19%; }
+  .lp-room__art { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .lp-room__spot { background: radial-gradient(46% 40% at 42% 22%, rgba(228, 167, 182, 0.1), transparent 68%); }
+  .lp-room__dot { position: absolute; left: 38%; top: 22%; width: 10px; height: 10px; border-radius: 50%; background: var(--lp-cobalt-bright, #E4A7B6); box-shadow: 0 0 0 3px rgba(228, 167, 182, 0.25); }
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-room__dot { animation: lp-room-pulse 2.2s ease-in-out infinite; }
+  }
+  @keyframes lp-room-pulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(228, 167, 182, 0.25); } 55% { box-shadow: 0 0 0 9px rgba(228, 167, 182, 0); } }
+
+  /* Möbel-Silhouetten */
+  .lp-room__rack { position: absolute; left: 6%; bottom: 24%; width: 17%; height: 42%; border: 3px solid #2E282B; border-bottom: 0; border-radius: 3px 3px 0 0; }
+  .lp-room__bench { position: absolute; left: 30%; bottom: 26%; width: 30%; height: 6%; background: #2E282B; border-radius: 3px; }
+  .lp-room__plate { position: absolute; bottom: 24%; width: 7%; aspect-ratio: 1; border-radius: 50%; background: #262023; border: 3px solid #322B2E; }
+  .lp-room__plate--1 { right: 16%; }
+  .lp-room__plate--2 { right: 8%; bottom: 23%; }
+  .lp-room__desk { position: absolute; left: 14%; right: 14%; bottom: 24%; height: 5%; background: #2B2530; border-radius: 3px; }
+  .lp-room__desk::before, .lp-room__desk::after { content: ''; position: absolute; top: 100%; width: 5%; height: 340%; background: #241F29; }
+  .lp-room__desk::before { left: 5%; }
+  .lp-room__desk::after { right: 5%; }
+  .lp-room__screen { position: absolute; left: 38%; bottom: 29%; width: 24%; height: 13%; background: #17151C; border: 3px solid #322C39; border-radius: 4px; }
+  .lp-room__chairback { position: absolute; right: 15%; bottom: 12%; width: 12%; height: 24%; background: #241F29; border-radius: 6px 6px 2px 2px; }
+  .lp-room__sofa-back { position: absolute; left: 18%; right: 18%; bottom: 17%; height: 17%; background: #33281F; border-radius: 8px 8px 0 0; }
+  .lp-room__sofa-seat { position: absolute; left: 14%; right: 14%; bottom: 12%; height: 9%; background: #3B2E24; border-radius: 8px; }
+  .lp-room__lamp { position: absolute; right: 7%; bottom: 12%; width: 2.4%; height: 36%; background: #2B221B; }
+  .lp-room__lamp::before { content: ''; position: absolute; top: -12%; left: 50%; transform: translateX(-50%); width: 500%; height: 24%; background: #3B2E24; border-radius: 50% 50% 6px 6px; }
+
+  .lp-room__meta { display: flex; flex-direction: column; gap: 3px; padding: 15px 17px 17px; }
+  .lp-room__title { font-family: var(--font-accent--family); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.01em; }
+  .lp-room__sub { font-size: 0.8125rem; color: color-mix(in srgb, var(--color-foreground) 62%, transparent); }
+  .lp-room__cta { display: inline-flex; align-items: center; gap: 7px; margin-top: 9px; font-family: var(--font-subheading--family); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lp-cobalt-bright, #E4A7B6); }
+  .lp-room__cta svg { width: 13px; height: 13px; transition: transform 0.3s; }
+  .lp-room:hover .lp-room__cta svg { transform: translateX(3px); }
+</style>
+
+<script>
+  (function () {
+    'use strict';
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia('(pointer: fine)').matches;
+    var setup = function () {
+      if (reduced || !fine) return;
+      document.querySelectorAll('[data-lp-room]:not([data-lp-room-init])').forEach(function (room) {
+        room.setAttribute('data-lp-room-init', '');
+        var layers = room.querySelectorAll('[data-lp-layer]');
+        if (!layers.length) return;
+        room.addEventListener('mousemove', function (e) {
+          var r = room.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          layers.forEach(function (layer) {
+            var depth = parseFloat(layer.getAttribute('data-lp-layer')) || 0;
+            layer.style.transform = 'translate3d(' + (-x * 14 * depth).toFixed(1) + 'px,' + (-y * 10 * depth).toFixed(1) + 'px,0)';
+          });
+        });
+        room.addEventListener('mouseleave', function () {
+          layers.forEach(function (layer) { layer.style.transform = ''; });
+        });
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+    document.addEventListener('shopify:section:load', setup);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Raum-Inspiration",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "RAUM-INSPIRATION" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Kauf den Look, nicht nur das Poster." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "room",
+      "name": "Raum",
+      "settings": [
+        { "type": "select", "id": "scene", "label": "Szene", "options": [
+          { "value": "gym", "label": "Home-Gym" },
+          { "value": "office", "label": "Büro" },
+          { "value": "living", "label": "Wohnzimmer" }
+        ], "default": "gym" },
+        { "type": "text", "id": "title", "label": "Titel", "default": "Home-Gym" },
+        { "type": "text", "id": "subtitle", "label": "Untertitel", "default": "Motivation, die beim Aufwärmen schon hängt." },
+        { "type": "url", "id": "link", "label": "Link (Kollektion)" },
+        { "type": "product", "id": "product_1", "label": "Poster links" },
+        { "type": "product", "id": "product_2", "label": "Poster rechts" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Raum-Inspiration",
+      "blocks": [
+        { "type": "room" },
+        { "type": "room", "settings": { "scene": "office", "title": "Büro", "subtitle": "Fokus über dem Schreibtisch." } },
+        { "type": "room", "settings": { "scene": "living", "title": "Wohnzimmer", "subtitle": "Galerie-Stimmung nach Feierabend." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

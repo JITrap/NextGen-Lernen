@@ -1,0 +1,51 @@
+/* ============================================================
+   LimitlessPoster — Royal-Noir-Callouts für Obsidian
+   ============================================================
+   INSTALLATION
+   1. Diese Datei nach  <VAULT>/.obsidian/snippets/limitless-callouts.css  kopieren
+      (Ordner "snippets" ggf. anlegen).
+   2. In Obsidian: Einstellungen → Darstellung → CSS-Snippets → aktualisieren
+      und "limitless-callouts" einschalten.
+
+   VERWENDUNG in Notizen:
+     > [!royal] Eigener Titel
+     > Inhalt …
+
+     > [!rose] Eigener Titel
+     > Inhalt …
+
+     > [!noir] Eigener Titel
+     > Inhalt …
+
+   Ohne dieses Snippet werden [!royal]/[!rose]/[!noir] als neutrale
+   Standard-Callouts gerendert — die Notizen bleiben also überall lesbar.
+
+   Farben: Markenrot #A32235 · Rosé #E4A7B6 · Royal-Band #8B1E2D
+   (--callout-color erwartet RGB-Tripel, --callout-icon einen Lucide-Namen.)
+   ============================================================ */
+
+/* Markenrot — für Marken-/Hervorhebungs-Boxen */
+.callout[data-callout="royal"] {
+  --callout-color: 163, 34, 53; /* #A32235 */
+  --callout-icon: lucide-crown;
+}
+
+/* Rosé — weicher Akzent, Design-/Stil-Hinweise */
+.callout[data-callout="rose"] {
+  --callout-color: 228, 167, 182; /* #E4A7B6 */
+  --callout-icon: lucide-heart;
+}
+
+/* Noir — dunkles Royal-Rot, z. B. für "hinter den Kulissen"/Technik */
+.callout[data-callout="noir"] {
+  --callout-color: 139, 30, 45; /* #8B1E2D */
+  --callout-icon: lucide-frame;
+}
+
+/* Etwas kräftigere Titel für die Marken-Callouts */
+.callout[data-callout="royal"] .callout-title,
+.callout[data-callout="rose"] .callout-title,
+.callout[data-callout="noir"] .callout-title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}

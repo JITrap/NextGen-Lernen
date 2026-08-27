@@ -1,0 +1,259 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "queens_style": {
+      "type": "custom-liquid",
+      "name": "Queens-Akzent",
+      "settings": {
+        "custom_liquid": "<style>\n  main[data-template=\"collection.queens\"] .price { color: #C9718A; }\n  main[data-template=\"collection.queens\"] h1 { position: relative; }\n  main[data-template=\"collection.queens\"] h1::after { content: \"\"; display: block; width: 64px; height: 4px; background: #E4A7B6; margin-top: 12px; }\n  main[data-template=\"collection.queens\"] product-card:hover .card-gallery,\n  main[data-template=\"collection.queens\"] product-card:hover .product-card__gallery { box-shadow: 0 0 0 1px rgba(228, 167, 182, 0.55), 0 18px 36px rgba(11, 11, 12, 0.12); }\n</style>",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section": {
+      "type": "section",
+      "blocks": {
+        "text_tqQTNE": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.collection.title }}</h1>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_twGGkJ": {
+          "type": "text",
+          "name": "Description",
+          "settings": {
+            "text": "{{ closest.collection.description }}",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "queens_fleur": {
+          "type": "custom-liquid",
+          "name": "Fleur-de-Lis",
+          "settings": {
+            "custom_liquid": "<div class=\"lp-fleur-anchor\" aria-hidden=\"true\"><svg class=\"lp-fleur\" viewBox=\"0 0 120 150\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"lpFleurG\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#A32235\"/><stop offset=\"1\" stop-color=\"#5E0C18\"/></linearGradient></defs><g fill=\"url(#lpFleurG)\"><path d=\"M60 6 C52 26 48 44 48 62 C48 78 52 88 60 96 C68 88 72 78 72 62 C72 44 68 26 60 6 Z\"/><path d=\"M44 88 C28 84 14 74 10 58 C7 46 12 36 22 34 C18 44 20 54 28 62 C34 68 42 72 50 73 C48 79 46 84 44 88 Z\"/><path d=\"M76 88 C92 84 106 74 110 58 C113 46 108 36 98 34 C102 44 100 54 92 62 C86 68 78 72 70 73 C72 79 74 84 76 88 Z\"/><rect x=\"40\" y=\"92\" width=\"40\" height=\"10\" rx=\"3\"/><path d=\"M60 104 C54 116 50 128 48 142 L72 142 C70 128 66 116 60 104 Z\"/><path d=\"M46 104 C38 112 30 122 26 134 C34 132 42 126 48 118 Z\"/><path d=\"M74 104 C82 112 90 122 94 134 C86 132 78 126 72 118 Z\"/></g></svg></div>"
+          }
+        }
+      },
+      "block_order": [
+        "text_tqQTNE",
+        "text_twGGkJ",
+        "queens_fleur"
+      ],
+      "name": "Collection heading",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filters": {
+          "type": "filters",
+          "static": true,
+          "settings": {
+            "enable_filtering": true,
+            "filter_style": "horizontal",
+            "filter_width": "centered",
+            "text_label_case": "default",
+            "show_swatch_label": false,
+            "show_filter_label": false,
+            "enable_sorting": true,
+            "enable_grid_density": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "facets_margin_bottom": 8,
+            "facets_margin_right": 20
+          },
+          "blocks": {}
+        },
+        "product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "card-gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_4nY4eT": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_EzJzMm": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "swatches_lp": {
+              "type": "limitless-swatches",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "card-gallery",
+            "product_title_4nY4eT",
+            "swatches_lp",
+            "price_EzJzMm"
+          ]
+        }
+      },
+      "settings": {
+        "layout_type": "grid",
+        "product_card_size": "medium",
+        "mobile_product_card_size": "small",
+        "product_grid_width": "centered",
+        "full_width_on_mobile": true,
+        "columns_gap_horizontal": 16,
+        "columns_gap_vertical": 24,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 32
+      }
+    }
+  },
+  "order": [
+    "queens_style",
+    "section",
+    "main"
+  ]
+}

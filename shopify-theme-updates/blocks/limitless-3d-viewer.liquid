@@ -1,0 +1,220 @@
+{%- doc -%}
+  3D-Viewer: gerahmtes Poster als echtes CSS-3D-Objekt — per Drag/Touch
+  drehbar, mit Rahmentiefe und Rückseite. Nutzt das Hero-Produktbild,
+  serverseitig beschnitten via limitless-media. Gut sichtbarer Button
+  öffnet/schließt den Viewer. Reduzierte Bewegung: statische Schrägansicht.
+{%- enddoc -%}
+
+{%- liquid
+  assign p3d_product = closest.product
+-%}
+
+{%- if p3d_product != blank and p3d_product.media.size > 0 -%}
+  <div class="lp3d" data-lp3d {{ block.shopify_attributes }}>
+    <button class="lp3d__toggle" type="button" data-lp3d-toggle aria-expanded="false">
+      <span class="lp3d__toggle-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 7l9 5 9-5M12 12v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </span>
+      <span data-lp3d-label>{{ block.settings.button_label | escape }}</span>
+    </button>
+    <div class="lp3d__stage" data-lp3d-stage hidden>
+      <div class="lp3d__scene">
+        <div class="lp3d__cube" data-lp3d-cube>
+          <span class="lp3d__face lp3d__front">
+            {% render 'limitless-media', product: p3d_product, kind: 'hero', preset: 'tight', width: 520, widths: '360, 520', class: 'lp3d__img', alt: p3d_product.title, loading: 'lazy' %}
+          </span>
+          <span class="lp3d__face lp3d__back"><span class="lp3d__back-logo">LIMITLESS</span></span>
+          <span class="lp3d__face lp3d__side lp3d__side--l"></span>
+          <span class="lp3d__face lp3d__side lp3d__side--r"></span>
+          <span class="lp3d__face lp3d__side lp3d__side--t"></span>
+          <span class="lp3d__face lp3d__side lp3d__side--b"></span>
+        </div>
+      </div>
+      <p class="lp3d__hint">{{ block.settings.hint | escape }}</p>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .lp3d { width: 100%; }
+  .lp3d__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    border: 1.5px solid var(--lp-cobalt, #A32235);
+    background: color-mix(in srgb, var(--lp-cobalt, #A32235) 12%, transparent);
+    color: var(--color-foreground);
+    cursor: pointer;
+    font-family: var(--font-subheading--family);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    border-radius: 999px;
+    transition: background-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  }
+  .lp3d__toggle:hover {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--lp-cobalt, #A32235) 24%, transparent);
+    box-shadow: 0 10px 26px color-mix(in srgb, var(--lp-cobalt, #A32235) 30%, transparent);
+  }
+  .lp3d__toggle-icon svg { width: 18px; height: 18px; display: block; color: var(--lp-cobalt-bright, #E4A7B6); }
+  .lp3d__stage { margin-top: 14px; }
+  .lp3d__scene {
+    height: 380px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background:
+      radial-gradient(60% 55% at 50% 30%, color-mix(in srgb, var(--color-foreground) 6%, transparent), transparent 70%),
+      color-mix(in srgb, var(--color-foreground) 3%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-foreground) 9%, transparent);
+    perspective: 1100px;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .lp3d__scene.is-dragging { cursor: grabbing; }
+  .lp3d__cube {
+    position: relative;
+    width: 220px;
+    height: 293px;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--lp3d-rx, -6deg)) rotateY(var(--lp3d-ry, 22deg));
+    will-change: transform;
+  }
+  .lp3d__face { position: absolute; backface-visibility: visible; }
+  .lp3d__front {
+    inset: 0;
+    overflow: hidden;
+    background: #101013;
+    border: 7px solid #17171A;
+    transform: translateZ(8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
+  .lp3d__img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .lp3d__back {
+    inset: 0;
+    background: #1A1518;
+    border: 7px solid #17171A;
+    transform: rotateY(180deg) translateZ(8px);
+    display: grid;
+    place-items: center;
+  }
+  .lp3d__back-logo {
+    font-family: var(--font-accent--family);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    color: rgba(247, 244, 241, 0.35);
+  }
+  .lp3d__side { background: #131316; }
+  .lp3d__side--l { width: 16px; height: 100%; left: 0; transform: rotateY(-90deg) translateZ(8px); }
+  .lp3d__side--r { width: 16px; height: 100%; right: 0; transform: rotateY(90deg) translateZ(212px); }
+  .lp3d__side--t { width: 100%; height: 16px; top: 0; transform: rotateX(90deg) translateZ(8px); }
+  .lp3d__side--b { width: 100%; height: 16px; bottom: 0; transform: rotateX(-90deg) translateZ(285px); }
+  .lp3d__hint {
+    margin: 10px 0 0;
+    text-align: center;
+    font-family: var(--font-subheading--family);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+  @media (max-width: 599px) {
+    .lp3d__scene { height: 320px; }
+    .lp3d__cube { width: 180px; height: 240px; }
+    .lp3d__side--r { transform: rotateY(90deg) translateZ(172px); }
+    .lp3d__side--b { transform: rotateX(-90deg) translateZ(232px); }
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    'use strict';
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var setup = function () {
+      document.querySelectorAll('[data-lp3d]:not([data-lp3d-init])').forEach(function (root) {
+        root.setAttribute('data-lp3d-init', '');
+        var toggle = root.querySelector('[data-lp3d-toggle]');
+        var stage = root.querySelector('[data-lp3d-stage]');
+        var scene = root.querySelector('.lp3d__scene');
+        var cube = root.querySelector('[data-lp3d-cube]');
+        if (!toggle || !stage || !scene || !cube) return;
+
+        var ry = 22, rx = -6, vel = 0, dragging = false, lastX = 0, lastY = 0, raf = null, open = false;
+        function apply() {
+          cube.style.setProperty('--lp3d-ry', ry.toFixed(2) + 'deg');
+          cube.style.setProperty('--lp3d-rx', rx.toFixed(2) + 'deg');
+        }
+        function loop() {
+          if (!open) { raf = null; return; }
+          if (!dragging) {
+            vel *= 0.95;
+            ry += vel + (reduced ? 0 : 0.12); /* sanfte Idle-Rotation */
+            apply();
+          }
+          raf = requestAnimationFrame(loop);
+        }
+        function start() { if (!raf && !reduced) raf = requestAnimationFrame(loop); }
+
+        toggle.addEventListener('click', function () {
+          open = !open;
+          stage.hidden = !open;
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) { apply(); start(); }
+          else if (raf) { cancelAnimationFrame(raf); raf = null; }
+        });
+
+        scene.addEventListener('pointerdown', function (e) {
+          dragging = true;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          vel = 0;
+          scene.classList.add('is-dragging');
+          if (scene.setPointerCapture) scene.setPointerCapture(e.pointerId);
+        });
+        scene.addEventListener('pointermove', function (e) {
+          if (!dragging) return;
+          var dx = e.clientX - lastX;
+          var dy = e.clientY - lastY;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          ry += dx * 0.45;
+          rx = Math.max(-32, Math.min(32, rx - dy * 0.25));
+          vel = dx * 0.3;
+          apply();
+        });
+        var stop = function () {
+          dragging = false;
+          scene.classList.remove('is-dragging');
+        };
+        scene.addEventListener('pointerup', stop);
+        scene.addEventListener('pointercancel', stop);
+        scene.addEventListener('pointerleave', stop);
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+    document.addEventListener('shopify:section:load', setup);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "3D-Viewer",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "button_label", "label": "Button-Text", "default": "In 3D ansehen" },
+    { "type": "text", "id": "hint", "label": "Hinweis", "default": "Ziehen zum Drehen" }
+  ],
+  "presets": [{ "name": "3D-Viewer" }]
+}
+{% endschema %}

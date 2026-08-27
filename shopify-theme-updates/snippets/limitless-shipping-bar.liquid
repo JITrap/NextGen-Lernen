@@ -1,0 +1,41 @@
+{%- doc -%}
+  CNV-01 / NAV-05 · Gratisversand-Fortschritt im Warenkorb-Drawer.
+  Wird bei jeder Warenkorb-Änderung vom Theme automatisch neu gerendert
+  (liegt im hydrierten Drawer-Inhalt), rechnet also immer live.
+
+  Schwelle: 50 € — passend zur Ankündigungsleiste "Kostenloser Versand ab 50 €".
+  Zum Ändern nur lp_threshold anpassen (in Cent).
+{%- enddoc -%}
+
+{%- liquid
+  assign lp_threshold = 5000
+  assign lp_total = cart.total_price
+  assign lp_remaining = lp_threshold | minus: lp_total
+  if lp_remaining < 0
+    assign lp_remaining = 0
+  endif
+  assign lp_pct = lp_total | times: 100 | divided_by: lp_threshold
+  if lp_pct > 100
+    assign lp_pct = 100
+  endif
+-%}
+
+{%- if lp_threshold > 0 -%}
+  <div
+    class="lp-shipbar{% if lp_remaining == 0 %} lp-shipbar--done{% endif %}"
+    data-lp-shipbar
+    data-remaining="{{ lp_remaining }}"
+    aria-live="polite"
+  >
+    <p class="lp-shipbar__label">
+      {%- if lp_remaining > 0 -%}
+        Noch <strong>{{ lp_remaining | money }}</strong> bis zum Gratisversand
+      {%- else -%}
+        <strong>🎉 Gratisversand freigeschaltet!</strong>
+      {%- endif -%}
+    </p>
+    <div class="lp-shipbar__track">
+      <div class="lp-shipbar__fill" style="width: {{ lp_pct }}%"></div>
+    </div>
+  </div>
+{%- endif -%}

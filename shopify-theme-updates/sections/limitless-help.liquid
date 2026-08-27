@@ -1,0 +1,233 @@
+{%- doc -%}
+  PAGE-08 · Hilfe-Center: Suchfeld mit Live-Filter (durchsucht Themen &
+  FAQ clientseitig, ohne Server), Themen-Karten mit Icons, FAQ-Akkordeons.
+  Das Suchfeld tippt seinen Platzhalter selbst (TXT-06), bis man klickt.
+{%- enddoc -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="lp-help section spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-lp-help
+>
+  <div class="lp-help__inner">
+    <div class="lp-help__head">
+      <p class="lp-help__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h1 class="lp-help__heading">{{ section.settings.heading | escape }}</h1>
+      <div class="lp-help__search">
+        <svg class="lp-help__search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.8-3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input
+          class="lp-help__input"
+          type="search"
+          data-lp-help-input
+          data-phrases="Poster ohne Bohren aufhängen?|Wo ist meine Bestellung?|Wie funktioniert die Rückgabe?|Welcher Rahmen passt?"
+          placeholder="Wonach suchst du?"
+          aria-label="Hilfe durchsuchen"
+          autocomplete="off"
+        >
+      </div>
+      <p class="lp-help__empty" data-lp-help-empty hidden>Nichts gefunden — schreib uns einfach an <strong>{{ section.settings.contact_mail | escape }}</strong>.</p>
+    </div>
+
+    <div class="lp-help__topics" data-lp-help-topics>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'topic' -%}
+          <a class="lp-help__topic" href="{{ block.settings.link | default: '#' }}" data-lp-help-item {{ block.shopify_attributes }}>
+            <span class="lp-help__topic-icon" aria-hidden="true">
+              {%- case block.settings.icon -%}
+                {%- when 'truck' -%}<svg viewBox="0 0 24 24"><path d="M1 8h13v9H1zM14 11h4l3 3v3h-7z"/><circle cx="5.5" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg>
+                {%- when 'return' -%}<svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.6-6.3"/><path d="M3 4v5h5"/></svg>
+                {%- when 'hammer' -%}<svg viewBox="0 0 24 24"><path d="M14 5l5 5-9 9H5v-5z"/><path d="M12 7l5 5"/><path d="M15 4l3-2 4 4-2 3"/></svg>
+                {%- when 'frame' -%}<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="8" y="7" width="8" height="10"/></svg>
+                {%- else -%}<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              {%- endcase -%}
+            </span>
+            <span class="lp-help__topic-title">{{ block.settings.title | escape }}</span>
+            <span class="lp-help__topic-text">{{ block.settings.text | escape }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="lp-help__faq">
+      {%- assign faq_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'faq' -%}
+          {%- assign faq_count = faq_count | plus: 1 -%}
+          <div class="lp-help__item" data-lp-help-item {{ block.shopify_attributes }}>
+            <button class="lp-help__q" type="button" aria-expanded="{% if faq_count == 1 %}true{% else %}false{% endif %}" data-lp-help-q>
+              <span>{{ block.settings.question | escape }}</span>
+              <span class="lp-help__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+            </button>
+            <div class="lp-help__a"{% if faq_count == 1 %} data-open{% endif %}>
+              <div class="lp-help__a-in"><div class="lp-help__a-body">{{ block.settings.answer }}</div></div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .lp-help__inner { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .lp-help__head { text-align: center; margin-bottom: 34px; }
+  .lp-help__eyebrow { margin: 0 0 10px; font-family: var(--font-subheading--family); font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lp-cobalt-bright, #E4A7B6); }
+  .lp-help__heading { margin: 0 0 22px; font-family: var(--font-accent--family); letter-spacing: -0.015em; font-size: clamp(2rem, 5vw, 3.2rem); }
+  .lp-help__search { position: relative; max-width: 520px; margin: 0 auto; }
+  .lp-help__search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 17px; height: 17px; color: color-mix(in srgb, var(--color-foreground) 55%, transparent); pointer-events: none; }
+  .lp-help__input { width: 100%; padding: 15px 18px 15px 44px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--color-foreground) 18%, transparent); background: color-mix(in srgb, var(--color-foreground) 4%, transparent); color: var(--color-foreground); font: inherit; font-size: 0.9375rem; transition: border-color 0.25s, box-shadow 0.25s; }
+  .lp-help__input:focus { outline: none; border-color: var(--lp-cobalt, #A32235); box-shadow: 0 0 0 4px rgba(163, 34, 53, 0.18); }
+  .lp-help__input::placeholder { color: color-mix(in srgb, var(--color-foreground) 45%, transparent); }
+  .lp-help__empty { margin: 16px auto 0; font-size: 0.875rem; color: color-mix(in srgb, var(--color-foreground) 65%, transparent); }
+  .lp-help__topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 34px; }
+  .lp-help__topic { display: flex; flex-direction: column; gap: 6px; padding: 18px 16px; border: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent); border-radius: 12px; text-decoration: none; color: var(--color-foreground); transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s, box-shadow 0.3s; }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .lp-help__topic:hover { transform: translateY(-4px); border-color: rgba(163, 34, 53, 0.5); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4); }
+  }
+  .lp-help__topic-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--lp-cobalt, #A32235); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .lp-help__topic-title { font-family: var(--font-subheading--family); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .lp-help__topic-text { font-size: 0.8125rem; color: color-mix(in srgb, var(--color-foreground) 62%, transparent); }
+  .lp-help__faq { display: flex; flex-direction: column; gap: 9px; }
+  .lp-help__item { border: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent); border-radius: 12px; overflow: hidden; }
+  .lp-help__item[hidden], .lp-help__topic[hidden] { display: none; }
+  .lp-help__q { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 16px 18px; background: none; border: 0; cursor: pointer; text-align: left; color: var(--color-foreground); font: inherit; font-size: 0.9375rem; font-weight: 600; }
+  .lp-help__chev { flex: none; width: 22px; height: 22px; border-radius: 999px; display: grid; place-items: center; background: color-mix(in srgb, var(--color-foreground) 8%, transparent); transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.3s; }
+  .lp-help__chev svg { width: 11px; height: 11px; }
+  .lp-help__q[aria-expanded='true'] .lp-help__chev { transform: rotate(180deg); background: var(--lp-cobalt, #A32235); color: #fff; }
+  .lp-help__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .lp-help__a[data-open] { grid-template-rows: 1fr; }
+  .lp-help__a-in { overflow: hidden; }
+  .lp-help__a-body { padding: 0 18px 16px; font-size: 0.875rem; line-height: 1.6; color: color-mix(in srgb, var(--color-foreground) 72%, transparent); }
+  .lp-help__a-body p { margin: 0 0 8px; }
+  @media (prefers-reduced-motion: reduce) {
+    .lp-help__a { transition: none; }
+    .lp-help__chev { transition: none; }
+  }
+</style>
+
+<script>
+  (function () {
+    'use strict';
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var setup = function () {
+      document.querySelectorAll('[data-lp-help]:not([data-lp-help-init])').forEach(function (root) {
+        root.setAttribute('data-lp-help-init', '');
+
+        /* FAQ-Akkordeon */
+        root.querySelectorAll('[data-lp-help-q]').forEach(function (q) {
+          q.addEventListener('click', function () {
+            var item = q.closest('.lp-help__item');
+            var panel = item ? item.querySelector('.lp-help__a') : null;
+            if (!panel) return;
+            var open = q.getAttribute('aria-expanded') === 'true';
+            q.setAttribute('aria-expanded', open ? 'false' : 'true');
+            if (open) { panel.removeAttribute('data-open'); } else { panel.setAttribute('data-open', ''); }
+          });
+        });
+
+        /* Live-Suche (nur textContent — kein Injection-Risiko) */
+        var input = root.querySelector('[data-lp-help-input]');
+        var empty = root.querySelector('[data-lp-help-empty]');
+        var items = root.querySelectorAll('[data-lp-help-item]');
+        if (input) {
+          input.addEventListener('input', function () {
+            var term = input.value.trim().toLowerCase();
+            var hits = 0;
+            items.forEach(function (item) {
+              var match = term === '' || item.textContent.toLowerCase().indexOf(term) !== -1;
+              if (match) { item.removeAttribute('hidden'); hits++; }
+              else { item.setAttribute('hidden', ''); }
+            });
+            if (empty) {
+              if (hits === 0 && term !== '') { empty.removeAttribute('hidden'); }
+              else { empty.setAttribute('hidden', ''); }
+            }
+          });
+
+          /* Selbsttippender Platzhalter (stoppt bei Fokus/Eingabe) */
+          var phrases = (input.getAttribute('data-phrases') || '').split('|').filter(Boolean);
+          if (phrases.length && !reduced) {
+            var base = input.getAttribute('placeholder') || '';
+            var pi = 0, chars = 0, deleting = false, active = true;
+            var stop = function () { active = false; input.setAttribute('placeholder', base); };
+            input.addEventListener('focus', stop, { once: true });
+            (function tick() {
+              if (!active || !input.isConnected) return;
+              var word = phrases[pi];
+              chars += deleting ? -1 : 1;
+              input.setAttribute('placeholder', word.slice(0, chars));
+              var wait = deleting ? 28 : 64;
+              if (!deleting && chars === word.length) { wait = 1800; deleting = true; }
+              else if (deleting && chars === 0) { deleting = false; pi = (pi + 1) % phrases.length; wait = 400; }
+              setTimeout(tick, wait);
+            })();
+          }
+        }
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+    document.addEventListener('shopify:section:load', setup);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hilfe-Center",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "HILFE-CENTER" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Wie können wir helfen?" },
+    { "type": "text", "id": "contact_mail", "label": "Kontakt-Mail", "default": "limitless.posterje@gmail.com" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Farbschema", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Abstand oben", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding-block-end", "label": "Abstand unten", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 88 }
+  ],
+  "blocks": [
+    {
+      "type": "topic",
+      "name": "Themen-Karte",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          { "value": "truck", "label": "Versand" },
+          { "value": "return", "label": "Rückgabe" },
+          { "value": "hammer", "label": "Aufhängen" },
+          { "value": "frame", "label": "Rahmen" },
+          { "value": "mail", "label": "Kontakt" }
+        ], "default": "truck" },
+        { "type": "text", "id": "title", "label": "Titel", "default": "Versand" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Laufzeiten & Tracking" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ-Eintrag",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Frage", "default": "Wie lange dauert der Versand?" },
+        { "type": "richtext", "id": "answer", "label": "Antwort", "default": "<p>Deine Bestellung wird sorgfältig verpackt und schnell aus der EU versendet — den Tracking-Link bekommst du per Mail.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hilfe-Center",
+      "blocks": [
+        { "type": "topic" },
+        { "type": "topic", "settings": { "icon": "return", "title": "Rückgabe", "text": "14 Tage Widerruf" } },
+        { "type": "topic", "settings": { "icon": "hammer", "title": "Aufhängen", "text": "Ohne Bohren & mit" } },
+        { "type": "topic", "settings": { "icon": "frame", "title": "Rahmen", "text": "Größen & Pflege" } },
+        { "type": "faq" },
+        { "type": "faq", "settings": { "question": "Kann ich meine Bestellung zurückgeben?", "answer": "<p>Ja — 14 Tage Widerrufsrecht ab Erhalt. Schreib uns kurz eine Mail, du bekommst sofort die Rücksende-Infos und nach Eingang den vollen Betrag zurück.</p>" } },
+        { "type": "faq", "settings": { "question": "Wie hänge ich das Poster ohne Bohren auf?", "answer": "<p>Gerahmte Poster bis 30 × 46 cm halten problemlos mit Klebe-Nägeln oder Powerstrips für Bilderrahmen. Wichtig: Wand vorher trocken abwischen und die Strips 1 Stunde andrücken lassen.</p>" } },
+        { "type": "faq", "settings": { "question": "Kommt das Poster mit Rahmen?", "answer": "<p>Ja — Massivholzrahmen in Schwarz oder Weiß, fertig montiert und bereit zum Aufhängen.</p>" } },
+        { "type": "faq", "settings": { "question": "Welche Größe passt zu meiner Wand?", "answer": "<p>Faustregel: Über dem Sofa oder Schreibtisch wirken 41 × 51 cm und größer am besten, im Flur oder als Teil einer Gallery Wall reichen 28 × 36 cm. Auf jeder Produktseite zeigt dir der Größen-Guide die Wirkung an der Wand.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
