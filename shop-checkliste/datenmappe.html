@@ -1,0 +1,200 @@
+<title>LimitlessPoster Datenmappe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#FCFBF7; --surface:#FFFFFF; --ink:#131316; --muted:#6E6C64; --line:#E7E4D9;
+    --accent:#3157FF; --accent-soft:#EBEFFF; --on-accent:#FFFFFF;
+    --ok:#2E7D46; --ok-bg:#E7F2EA; --done:#8B897F; --shadow:0 1px 2px rgba(19,19,22,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B0B0C; --surface:#151517; --ink:#F4F1EA; --muted:#9A978D; --line:#28282C;
+      --accent:#6D86FF; --accent-soft:#1B2340; --on-accent:#0B0B0C;
+      --ok:#7BC593; --ok-bg:#12271A; --done:#6E6C64; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B0B0C; --surface:#151517; --ink:#F4F1EA; --muted:#9A978D; --line:#28282C;
+    --accent:#6D86FF; --accent-soft:#1B2340; --on-accent:#0B0B0C;
+    --ok:#7BC593; --ok-bg:#12271A; --done:#6E6C64; --shadow:none;
+  }
+  *{box-sizing:border-box}
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size:15.5px; line-height:1.55}
+  .wrap{max-width:860px; margin:0 auto; padding:48px 20px 90px}
+  .eyebrow{font-family:"Space Grotesk", Inter, sans-serif; font-weight:600; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
+  h1{font-family:"Space Grotesk", Inter, sans-serif; font-weight:700; font-size:clamp(30px,5vw,42px); line-height:1.08; margin:6px 0 10px; text-wrap:balance}
+  .sub{color:var(--muted); max-width:64ch; margin:0 0 18px}
+  .backlink{display:inline-block; font-size:14px; font-weight:600; color:var(--accent); text-decoration:none; border:1px solid var(--line); background:var(--surface); border-radius:99px; padding:8px 16px; margin-bottom:26px}
+  .backlink:hover{border-color:var(--accent)}
+
+  .board{display:flex; gap:18px; align-items:baseline; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin:0 0 30px; box-shadow:var(--shadow)}
+  .board .big{font-family:"Space Grotesk", Inter, sans-serif; font-weight:700; font-size:30px; font-variant-numeric:tabular-nums}
+  .board .big small{font-size:15px; font-weight:600; color:var(--muted)}
+  .board .lbl{font-size:13px; color:var(--muted)}
+
+  .sec-head{display:flex; align-items:baseline; gap:12px; padding:14px 0 10px; border-bottom:1px solid var(--line); margin-top:8px}
+  .sec-head h2{font-family:"Space Grotesk", Inter, sans-serif; font-weight:600; font-size:19px; margin:0}
+  .sec-head .num{font-family:"Space Grotesk", Inter, sans-serif; font-weight:700; color:var(--accent); font-size:15px}
+  ul.items{list-style:none; margin:0 0 26px; padding:0}
+  .item{display:grid; grid-template-columns:auto 1fr; gap:0 14px; padding:14px 4px; border-bottom:1px solid var(--line)}
+  .item input{appearance:none; -webkit-appearance:none; width:21px; height:21px; margin:2px 0 0; border:1.5px solid var(--muted); border-radius:5px; background:var(--surface); cursor:pointer; display:grid; place-content:center}
+  .item input:checked{background:var(--accent); border-color:var(--accent)}
+  .item input:checked::after{content:""; width:11px; height:11px; background:var(--on-accent); clip-path:polygon(14% 44%, 0 62%, 38% 100%, 100% 18%, 84% 4%, 38% 68%)}
+  .item input:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .item label{cursor:pointer}
+  .it-title{font-weight:600}
+  .it-detail{color:var(--muted); font-size:14px; margin-top:3px}
+  .it-detail a{color:var(--accent); text-decoration:none}
+  .it-detail a:hover{text-decoration:underline}
+  .need{display:inline-block; vertical-align:2px; margin-left:8px; font-family:"Space Grotesk", Inter, sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.08em; padding:2px 7px; border-radius:4px; color:var(--accent); background:var(--accent-soft)}
+  .have{display:inline-block; vertical-align:2px; margin-left:8px; font-family:"Space Grotesk", Inter, sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.08em; padding:2px 7px; border-radius:4px; color:var(--ok); background:var(--ok-bg)}
+  .item.done .it-title{text-decoration:line-through; text-decoration-thickness:1.5px; color:var(--done)}
+  .item.done .it-detail{color:var(--done)}
+  footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">LimitlessPoster · limitlessposter.com</div>
+  <h1>Datenmappe</h1>
+  <p class="sub">Alle Unterlagen, Zugänge und Nummern, die du für die restlichen Launch-Schritte brauchst — mit Quelle, Zweck und Verweis auf den passenden Punkt der Checkliste. Hak ab, was du besorgt hast; die Häkchen bleiben in deinem Browser gespeichert.</p>
+  <a class="backlink" href="https://claude.ai/code/artifact/f521586f-1446-4ac6-b0fe-bc653f92a2f5">← Zurück zur Launch-Checkliste</a>
+
+  <div class="board">
+    <div class="big"><span id="doneCount">0</span><small> / <span id="totalCount">0</span> besorgt</small></div>
+    <div class="lbl">Noch zu besorgende Daten &amp; Zugänge</div>
+  </div>
+
+  <div class="sec-head"><span class="num">A</span><h2>Behörden &amp; Pflicht-Registrierungen</h2></div>
+  <ul class="items">
+    <li class="item" data-done="1"><input type="checkbox" id="d-gewerbe"><label for="d-gewerbe">
+      <span class="it-title">Gewerbe / steuerliche Erfassung</span><span class="have">Liegt vor</span>
+      <div class="it-detail">✓ Belegt (27.08.): Das Finanzamt Esslingen führt den Betrieb („Drucken a.&nbsp;n.&nbsp;g.") mit eigener Steuernummer — die steuerliche Erfassung ist abgeschlossen.</div>
+    </label></li>
+    <li class="item" data-done="1"><input type="checkbox" id="d-steuernr"><label for="d-steuernr">
+      <span class="it-title">Steuernummer vom Finanzamt</span><span class="have">Liegt vor</span>
+      <div class="it-detail">✓ <strong>59106/01603</strong> (Finanzamt Esslingen; gilt für Umsatzsteuer + Gewinnermittlung §&nbsp;4 Abs.&nbsp;3 EStG). <strong>Nur</strong> für Rechnungen und Finanzamt-Kontakt verwenden — nicht ins Impressum, nicht veröffentlichen.</div>
+    </label></li>
+    <li class="item" data-done="1"><input type="checkbox" id="d-ustid"><label for="d-ustid">
+      <span class="it-title">Umsatzsteuer-Identifikationsnummer (USt-IdNr.)</span><span class="have">Liegt vor</span>
+      <div class="it-detail">✓ <strong>DE463961672</strong> (Bundeszentralamt für Steuern, gültig ab 30.07.2026). Gehört als Pflichtangabe ins <strong>Impressum</strong> (→ Checkliste, fertige Zeile im Vorlagen-Bereich) und auf <strong>Rechnungen</strong>. Wichtig: In der Checkliste steht dazu ein neuer Klärungspunkt „USt-Status mit Steuerberater klären".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-lucid"><label for="d-lucid">
+      <span class="it-title">LUCID-Registrierungsnummer (Format „DE" + 13 Ziffern)</span><span class="need">Besorgen</span>
+      <div class="it-detail"><strong>Wo:</strong> Kostenlose Registrierung — direkt starten: <a href="https://lucid.verpackungsregister.org/Hersteller/Registrierung/Teil-1" target="_blank" rel="noopener">LUCID Hersteller-Registrierung</a> (<a href="https://www.verpackungsregister.org/registrierung/alle-informationen-zur-registrierung" target="_blank" rel="noopener">offizieller Leitfaden</a>; Fragen: ZSVR-Hotline <a href="tel:+4954134310555">0541 34310555</a>, Mo/Di/Do 9–16, Mi 10:30–17, Fr 9–14 Uhr) — Name Julius Erb, Adresse, Markenname „LimitlessPoster" angeben. <strong>Wofür:</strong> Verpackungsgesetz-Pflicht vor dem ersten Verkauf; die Nummer gehört danach ins Impressum. → Checkliste „LUCID-Registrierung".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-lizenz"><label for="d-lizenz">
+      <span class="it-title">Vertrag mit einem dualen System + Mengenschätzung</span><span class="need">Besorgen</span>
+      <div class="it-detail"><strong>Wo:</strong> <a href="https://activate.reclay.de/" target="_blank" rel="noopener">activate.reclay.de</a> (kein Mindestbestellwert, für Kleinstmengen meist am günstigsten), <a href="https://www.lizenzero.de/verpackungsmengen-kalkulator/" target="_blank" rel="noopener">Lizenzero-Kalkulator</a> (≈ 40–60&nbsp;€/Jahr für 50–100&nbsp;kg) oder Anbieter vergleichen auf <a href="https://verpackungslizenz24.de/" target="_blank" rel="noopener">verpackungslizenz24.de</a> — Versandverpackung schätzen (für den Start reichen z.&nbsp;B. 50–100&nbsp;kg Pappe/Karton pro Jahr, nachmelden geht immer). Die lizenzierte Menge anschließend in LUCID als Datenmeldung eintragen. <strong>Wofür:</strong> Teil 2 der Verpackungsgesetz-Pflicht. → Checkliste „LUCID-Registrierung".</div>
+    </label></li>
+  </ul>
+  <p class="it-detail" style="margin:-14px 0 22px">ℹ️ Update 30.08.: Alle Links und Kontaktdaten in dieser Mappe wurden einzeln gegen die offiziellen Seiten geprüft. Telefonnummern und Servicezeiten (Finanzamt, ZSVR, PayPal) stehen gesammelt im <a href="https://claude.ai/code/artifact/f521586f-1446-4ac6-b0fe-bc653f92a2f5#adressbuch">Adressbuch der Checkliste</a>. (27.08.: USt-IdNr. vorhanden — sie ist im Impressum Pflicht und bereits eingetragen.)</p>
+
+  <div class="sec-head"><span class="num">B</span><h2>Zahlungen</h2></div>
+  <ul class="items">
+    <li class="item"><input type="checkbox" id="d-ausweis"><label for="d-ausweis">
+      <span class="it-title">Personalausweis oder Reisepass (griffbereit)</span><span class="need">Bereitlegen</span>
+      <div class="it-detail"><strong>Wofür:</strong> Identitätsprüfung bei der Aktivierung von Shopify Payments (Foto-Upload oder Video-Ident). → Checkliste „Zahlungsarten scharf schalten".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-iban"><label for="d-iban">
+      <span class="it-title">IBAN deines Kontos für Auszahlungen</span><span class="need">Bereitlegen</span>
+      <div class="it-detail"><strong>Wofür:</strong> Shopify Payments zahlt Kartenumsätze dorthin aus; auch PayPal braucht ein verknüpftes Bankkonto. Tipp: Ein separates (kostenloses) Geschäftskonto hält die Buchhaltung sauber — muss aber nicht sofort sein. → Checkliste „Zahlungsarten", „Buchhaltungs-Routine".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-paypal"><label for="d-paypal">
+      <span class="it-title">PayPal-Geschäftskonto</span><span class="need">Besorgen</span>
+      <div class="it-detail"><strong>Wo:</strong> Bestehendes Privatkonto kostenlos hochstufen: <a href="https://www.paypal.com/de/cshelp/article/wie-kann-ich-mein-paypal-konto-hoch--oder-herunterstufen-help339" target="_blank" rel="noopener">Anleitung „Auf Geschäftskonto umwandeln"</a> (in den PayPal-Einstellungen) oder <a href="https://www.paypal.com/de/business/open-business-account" target="_blank" rel="noopener">neu eröffnen</a>; Gewerbedaten hinterlegen. Fragen: Hotline <a href="tel:+498007234500">0800 723 4500</a> (Festnetz gratis). <strong>Wofür:</strong> Nur Geschäftskonten lassen sich mit Shopify verbinden; die AGB nennen PayPal bereits als Zahlungsart. → Checkliste „Zahlungsarten scharf schalten".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-printifypay"><label for="d-printifypay">
+      <span class="it-title">Zahlungsmittel bei Printify hinterlegt</span><span class="need">Prüfen</span>
+      <div class="it-detail"><strong>Wo:</strong> <a href="https://printify.com/app/account/payment/details" target="_blank" rel="noopener">printify.com → Wallet → Payments</a> → Karte hinterlegen (oder Guthaben aufladen). <strong>Wofür:</strong> Ohne Zahlungsmittel produziert Printify eingehende Bestellungen nicht. → Checkliste „Printify-Einstellungen festzurren".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-vatid"><label for="d-vatid">
+      <span class="it-title">USt-IdNr. bei Printify hinterlegen</span><span class="need">Nach Klärung</span>
+      <div class="it-detail"><strong>Wo:</strong> Printify → Wallet → Taxes → „EU, Norway &amp; UK" (<a href="https://help.printify.com/hc/en-us/articles/4483607408273-How-can-I-submit-my-VAT-IDs-to-Printify" target="_blank" rel="noopener">Anleitung</a>). <strong>Wofür:</strong> Beeinflusst, ob Printify auf deine Einkäufe VAT berechnet (Druckpartner sitzt in Lettland). Erst nach dem Finanzamt-Telefonat erledigen. → Checkliste „USt-Status klären".</div>
+    </label></li>
+  </ul>
+
+  <div class="sec-head"><span class="num">C</span><h2>Domain, E-Mail &amp; Google</h2></div>
+  <ul class="items">
+    <li class="item"><input type="checkbox" id="d-dns"><label for="d-dns">
+      <span class="it-title">Zugang zur DNS-Verwaltung von limitlessposter.com</span><span class="need">Prüfen</span>
+      <div class="it-detail"><strong>Wo:</strong> Dort, wo die Domain registriert ist — wenn über Shopify gekauft: <a href="https://admin.shopify.com/store/gexdm4-2q/settings/domains" target="_blank" rel="noopener">Shopify-Admin → Einstellungen → Domains</a> → limitlessposter.com → DNS-Einstellungen. <strong>Wofür:</strong> Einträge für E-Mail (MX/SPF/DKIM) und die Google-Search-Console-Verifizierung (TXT). → Checkliste „E-Mail-Absender", „Google Search Console".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-mailbox"><label for="d-mailbox">
+      <span class="it-title">Mailbox info@limitlessposter.com</span><span class="need">Besorgen</span>
+      <div class="it-detail"><strong>Wo:</strong> <a href="https://mail.zoho.eu/signup?type=org&amp;plan=free" target="_blank" rel="noopener">Zoho Mail „Forever Free" (EU-Rechenzentrum)</a>: Domain verifizieren (TXT), Mailbox anlegen, MX setzen — EU-Werte: mx.zoho.eu / mx2.zoho.eu / mx3.zoho.eu (Prio 10/20/50), SPF „v=spf1 include:zohomail.eu ~all" (<a href="https://www.zoho.com/mail/help/adminconsole/domain-verification.html" target="_blank" rel="noopener">offizielle Anleitung</a>). Alternative mit IMAP/Outlook: <a href="https://workspace.google.com/pricing?hl=de" target="_blank" rel="noopener">Google Workspace</a> (~6&nbsp;€/Monat). <strong>Wofür:</strong> Professioneller Absender für Bestell-Mails statt Gmail; danach in Shopify als Absender verifizieren (SPF/DKIM-Einträge, die Shopify anzeigt). → Checkliste „E-Mail-Absender auf eigene Domain".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-google"><label for="d-google">
+      <span class="it-title">Google-Konto (für Search Console, später GA4/Merchant Center)</span><span class="need">Bereitlegen</span>
+      <div class="it-detail"><strong>Wofür:</strong> Direkt nach dem Launch: Domain in der <a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Search Console</a> verifizieren + Sitemap einreichen. Ein bestehendes Google-Konto reicht. → Checkliste „Google Search Console".</div>
+    </label></li>
+  </ul>
+
+  <div class="sec-head"><span class="num">D</span><h2>Marke &amp; Inhalte</h2></div>
+  <ul class="items">
+    <li class="item"><input type="checkbox" id="d-telefon"><label for="d-telefon">
+      <span class="it-title">Telefonnummer fürs Impressum (optional, empfohlen)</span><span class="need">Entscheiden</span>
+      <div class="it-detail"><strong>Wofür:</strong> Nicht zwingend (E-Mail reicht rechtlich), aber ein zweiter schneller Kontaktweg wirkt seriös. Tipp: separate Nummer statt der privaten — z.&nbsp;B. die <a href="https://satellite.me/" target="_blank" rel="noopener">satellite-App</a> von sipgate (kostenlose deutsche 015679-Mobilnummer, 100 Freiminuten/Monat; Allnet-Flat 4,99&nbsp;€/Monat). → Checkliste „Impressum".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-og"><label for="d-og">
+      <span class="it-title">Social-Sharing-Bild (OG-Image), 1200 × 630 px</span><span class="need">Erstellen</span>
+      <div class="it-detail"><strong>Wo:</strong> In <a href="https://www.canva.com/facebook-ads/templates/" target="_blank" rel="noopener">Canva</a> (Vorlage „Facebook-Werbeanzeige" = 1200×630 oder „Benutzerdefinierte Größe") mit Logo + 2–3 Poster-Motiven auf Carbon-Hintergrund. <strong>Wofür:</strong> Vorschaubild, wenn jemand limitlessposter.com auf WhatsApp/Instagram teilt. → Checkliste „Social-Sharing-Bild".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-handles"><label for="d-handles">
+      <span class="it-title">Social-Media-Handles sichern (@limitlessposter)</span><span class="need">Besorgen</span>
+      <div class="it-detail"><strong>Wo:</strong> <a href="https://www.instagram.com/accounts/emailsignup/" target="_blank" rel="noopener">Instagram-Registrierung</a> + <a href="https://www.tiktok.com/signup" target="_blank" rel="noopener">TikTok-Registrierung</a> (auch wenn du noch nicht postest — den Namen sichern!). <strong>Wofür:</strong> Footer-Links im Theme + Marketing. → Checkliste „Instagram/TikTok", „Social-Media-Profile im Footer".</div>
+    </label></li>
+    <li class="item"><input type="checkbox" id="d-muster"><label for="d-muster">
+      <span class="it-title">Musterbestellung: 1–2 eigene Poster (Budget ca. 50–90 €)</span><span class="need">Bestellen</span>
+      <div class="it-detail"><strong>Wo:</strong> <a href="https://printify.com/app/store/products/1" target="_blank" rel="noopener">printify.com → My Products</a> → Produkt öffnen → „Order sample" (<a href="https://help.printify.com/hc/en-us/articles/4483617804689-How-does-sample-ordering-work" target="_blank" rel="noopener">Anleitung</a>; günstiger als über den eigenen Shop, keine Testbestellungs-Verrenkungen). <strong>Wofür:</strong> Qualitäts-Check + eigene Produkt-/Social-Fotos. → Checkliste „Musterbestellung", „Lifestyle-Fotos".</div>
+    </label></li>
+  </ul>
+
+  <div class="sec-head"><span class="num">E</span><h2>Schon vorhanden ✓</h2></div>
+  <ul class="items">
+    <li class="item" data-done="1"><input type="checkbox" id="d-basis"><label for="d-basis">
+      <span class="it-title">Betreiberdaten</span><span class="have">Liegt vor</span>
+      <div class="it-detail">Julius Erb, Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar · limitless.posterje@gmail.com — konsistent in Impressum, AGB, Widerruf und Kontakt hinterlegt.</div>
+    </label></li>
+    <li class="item" data-done="1"><input type="checkbox" id="d-shop"><label for="d-shop">
+      <span class="it-title">Shop-Infrastruktur</span><span class="have">Liegt vor</span>
+      <div class="it-detail">Domain limitlessposter.com (verbunden, SSL), Shopify Basic, Printify-Anbindung (EU-Druckpartner Print Pigeons), Theme OFE v3 fertig vorbereitet.</div>
+    </label></li>
+    <li class="item" data-done="1"><input type="checkbox" id="d-recht"><label for="d-recht">
+      <span class="it-title">Rechtstexte</span><span class="have">Liegt vor</span>
+      <div class="it-detail">Impressum, Datenschutzerklärung (deutsche DSGVO-Version als Seite), AGB inkl. § 19 UStG + Express-Klausel, Widerrufsbelehrung mit Muster-Formular, Versandrichtlinie — nur noch ins Checkout-Richtlinien-Menü kopieren (siehe Checkliste, Blocker 1).</div>
+    </label></li>
+  </ul>
+
+  <footer>Stand: 30. August 2026 · Links und Kontaktdaten am 30.08. geprüft · gehört zur <a style="color:var(--accent); text-decoration:none" href="https://claude.ai/code/artifact/f521586f-1446-4ac6-b0fe-bc653f92a2f5">LimitlessPoster Launch-Checkliste</a> · Häkchen bleiben nur in diesem Browser gespeichert · Nummern in dieser Mappe sind vertraulich zu behandeln</footer>
+</div>
+
+<script>
+(function(){
+  var KEY = "lp-daten-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) { state = {}; }
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".item input[type=checkbox]"));
+  boxes.forEach(function(box){
+    var li = box.closest(".item");
+    var preDone = li.getAttribute("data-done") === "1";
+    box.checked = preDone || ((box.id in state) ? !!state[box.id] : false);
+    li.classList.toggle("done", box.checked);
+    box.addEventListener("change", function(){
+      state[box.id] = box.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
+      li.classList.toggle("done", box.checked);
+      update();
+    });
+  });
+  function update(){
+    var open = boxes.filter(function(b){ return b.closest(".item").getAttribute("data-done") !== "1" });
+    var done = open.filter(function(b){ return b.checked }).length;
+    document.getElementById("doneCount").textContent = done;
+    document.getElementById("totalCount").textContent = open.length;
+  }
+  update();
+})();
+</script>
+
