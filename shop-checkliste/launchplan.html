@@ -129,7 +129,7 @@
   <header class="top">
     <div class="eyebrow">LimitlessPoster · limitlessposter.com</div>
     <h1>Launch-Checkliste</h1>
-    <p class="sub">Alles, was bis zum Livegang und danach zu tun ist — zuletzt geprüft am 30.&nbsp;August&nbsp;2026. Jede offene Aufgabe hat eine aufklappbare Schritt-für-Schritt-Anleitung — jetzt mit direkten Links, Telefonnummern und Servicezeiten zu allem, was du brauchst. Häkchen werden in deinem Browser gespeichert.</p>
+    <p class="sub">Alles, was bis zum Livegang und danach zu tun ist — zuletzt geprüft am 3.&nbsp;September&nbsp;2026. Jede offene Aufgabe hat eine aufklappbare Schritt-für-Schritt-Anleitung — jetzt mit direkten Links, Telefonnummern und Servicezeiten zu allem, was du brauchst. Häkchen werden in deinem Browser gespeichert.</p>
   </header>
 
   <div class="board">
@@ -157,7 +157,7 @@
   </a>
 
   <div class="callout">
-    <strong>Update 30.08.:</strong> Alles fürs schnelle Abarbeiten vorbereitet: Jeder offene Schritt hat jetzt <strong>direkte Links, Telefonnummern und Servicezeiten</strong> — alle am 30.08. einzeln gegen die offiziellen Seiten geprüft. Neu darunter: das <strong>Adressbuch</strong> mit allen Kontakten auf einen Blick. Die Reihenfolge bleibt: <strong>USt-Status telefonisch klären → LUCID → Zahlarten → Testbestellung → OFE&nbsp;v3 veröffentlichen → Passwort raus.</strong> Unten: fertige <strong>Vorlagen zum Kopieren</strong>.
+    <strong>Update 03.09. — Shop auf Deutschland umgestellt:</strong> Von Claude per API erledigt und unabhängig verifiziert: EU-Markt deaktiviert, allgemeines Versandprofil bereinigt (nur DE, Express weg), Seiten AGB/FAQ/Über&nbsp;uns, alle 15 Collection-Meta-Texte, alle 99 Produktbeschreibungen (deutsche Gewährleistungsformel statt Printify-EU-Satz) und Theme OFE&nbsp;v3 (8 Steuertexte, Versandleiste „ab 50&nbsp;€" korrigiert). <strong>Neu für dich (2&nbsp;Min):</strong> die zwei Checkout-Richtlinien Versand + AGB einfügen — die API darf Richtlinien nicht schreiben. Reihenfolge: <strong>Richtlinien einfügen → Finanzamt (Fr 09:30 im Kalender) → LUCID → Zahlarten → Testbestellung → OFE&nbsp;v3 veröffentlichen → Passwort raus.</strong> Unten: fertige <strong>Vorlagen zum Kopieren</strong>.
   </div>
 
   <!-- ===================== 0 · ADRESSBUCH ===================== -->
@@ -206,9 +206,19 @@
     <div class="sec-head"><span class="num">01</span><h2>Launch-Blocker</h2><span class="sec-count"></span></div>
     <p class="sec-note">In dieser Reihenfolge abarbeiten — der letzte Punkt ist der Launch selbst.</p>
     <ul class="items">
+      <li class="item" data-prio="1"><input type="checkbox" id="b0"><label for="b0">
+        <span class="it-title">Checkout-Richtlinien Versand + AGB auf Deutschland umstellen</span><span class="prio pr1">Prio 1</span>
+        <div class="it-detail">Neu seit 03.09.: Die Shop-Seiten sagen schon „nur Deutschland", aber die zwei <strong>Checkout-Richtlinien</strong> (Einstellungen → Richtlinien) nennen noch „DE + EU" — die Shopify-Verbindung von Claude hat dafür keinen Schreibzugriff. Dauer: ~2 Minuten, Texte stehen unten bei den Vorlagen.</div>
+      </label>
+      <details class="howto"><summary>Schritt für Schritt (≈ 2 Min)</summary><ol>
+        <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/settings/legal" target="_blank" rel="noopener">Admin → Einstellungen → Richtlinien</a>.</li>
+        <li><strong>Versandrichtlinie</strong> öffnen → kompletten Text durch die Vorlage „Checkout-Richtlinie Versand (Deutschland)" ersetzen → Speichern.</li>
+        <li><strong>Allgemeine Geschäftsbedingungen</strong> öffnen → nur die drei Stellen aus der Vorlage „Checkout-AGB: 3 Änderungen" anpassen (Stand-Datum, §&nbsp;4&nbsp;Abs.&nbsp;2, §&nbsp;5&nbsp;Abs.&nbsp;1) → Speichern.</li>
+        <li>Kurztest: limitlessposter.com/policies/shipping-policy aufrufen — dort muss „ausschließlich innerhalb Deutschlands" stehen.</li>
+      </ol></details></li>
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b1"><label for="b1">
         <span class="it-title">Versandländer vs. AGB konsistent machen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude erledigt (24.–25.08.): AGB, Versandrichtlinie und FAQ sagen einheitlich „Versand DE + EU inklusive"; die International-Zone (14 Nicht-EU-Länder, 19,99&nbsp;€) wurde aus dem allgemeinen Profil gelöscht; die Markets begrenzen den Checkout auf DE + EU („America" deaktiviert). Kein Express-Angebot — alle Texte dazu konsistent.</div>
+        <div class="it-detail">✓ Von Claude erledigt (24.–25.08.): AGB, Versandrichtlinie und FAQ sagen einheitlich „Versand DE + EU inklusive"; die International-Zone (14 Nicht-EU-Länder, 19,99&nbsp;€) wurde aus dem allgemeinen Profil gelöscht; die Markets begrenzen den Checkout auf DE + EU („America" deaktiviert). Kein Express-Angebot — alle Texte dazu konsistent. <strong>Update 03.09.:</strong> Auf deine Entscheidung „erst nur Deutschland" hin ist der EU-Markt jetzt deaktiviert (Entwurf), das allgemeine Versandprofil hat nur noch die Zone Deutschland (eine Express-Methode für 9,99&nbsp;€ war noch drin und ist gelöscht), und Seiten, Collections, Produkte und OFE&nbsp;v3 sagen „Versand nur innerhalb Deutschlands".</div>
       </label></li>
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b2"><label for="b2">
         <span class="it-title">Printify-Versandprofile geklärt</span><span class="prio pr1">Prio 1</span>
@@ -283,7 +293,7 @@
 
       <li class="item" data-prio="1"><input type="checkbox" id="b10"><label for="b10">
         <span class="it-title">Theme OFE v3 veröffentlichen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">OFE&nbsp;v3 ist dein finales Theme und enthält alle Fixes (deutsche 404-/Warenkorb-/Kollektionen-Seite, §&nbsp;19-Steuertexte, Bestseller-Verlinkung, Footer bereinigt). Dauer: ~5 Minuten.</div>
+        <div class="it-detail">OFE&nbsp;v3 ist dein finales Theme und enthält alle Fixes (deutsche 404-/Warenkorb-/Kollektionen-Seite, §&nbsp;19-Steuertexte, Bestseller-Verlinkung, Footer bereinigt) — seit 03.09. zusätzlich alle Deutschland-only-Texte und die korrigierte Versandleiste („Kostenloser Versand innerhalb Deutschlands" statt fälschlich „ab 50&nbsp;€"; das Live-Theme v2.0 zeigt den Fehler noch). Dauer: ~5 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 5 Min)</summary><ol>
         <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/themes" target="_blank" rel="noopener">Admin → Onlineshop → Themes</a>.</li>
@@ -396,6 +406,14 @@
         <div class="it-detail">✓ Live geprüft — Hauptmenü mit Collections, Footer mit Impressum, Datenschutz, AGB, Widerruf, Versand, Rückgaben, Datenschutz-Einstellungen; Kundenkonto-Menü vorhanden.</div>
       </label></li>
 
+      <li class="item" data-prio="2"><input type="checkbox" id="s0"><label for="s0">
+        <span class="it-title">Homepage-Meta-Description auf Deutschland umstellen</span><span class="prio pr2">Prio 2</span>
+        <div class="it-detail">Die Beschreibung im Google-Snippet sagt noch „Versand nach DE &amp; EU inklusive" — die Präferenzen sind per API nicht erreichbar. Dauer: ~1 Minute, Text unten bei den Vorlagen.</div>
+      </label>
+      <details class="howto"><summary>Schritt für Schritt (≈ 1 Min)</summary><ol>
+        <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/online_store/preferences" target="_blank" rel="noopener">Admin → Onlineshop → Präferenzen</a>.</li>
+        <li>Feld <strong>Beschreibung</strong> komplett durch den Text aus der Vorlage „Homepage-SEO" ersetzen (Titel bleibt) → Speichern.</li>
+      </ol></details></li>
       <li class="item" data-prio="2"><input type="checkbox" id="s3"><label for="s3">
         <span class="it-title">E-Mail-Absender auf eigene Domain umstellen</span><span class="prio pr2">Prio 2</span>
         <div class="it-detail">info@limitlessposter.com statt Gmail — sonst landen Bestellmails im Spam und wirken unseriös. Dauer: ~30–45 Minuten (plus DNS-Wartezeit).</div>
@@ -698,13 +716,14 @@
     <ul class="items">
       <li class="item" data-prio="2"><input type="checkbox" id="o1"><label for="o1">
         <span class="it-title">Printify-Einstellungen festzurren</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Damit Bestellungen zuverlässig (und kontrolliert) in Produktion gehen. Dauer: ~10 Minuten.</div>
+        <div class="it-detail">Damit Bestellungen zuverlässig (und kontrolliert) in Produktion gehen. Dauer: ~10 Minuten. Tipp: Mit einem <strong>Printify-API-Token</strong> (Konto → Connections) kann Claude Produkte und Bestellungen dort direkt prüfen — siehe Datenmappe.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 10 Min)</summary><ol>
         <li><a href="https://printify.com/app/account/payment/details" target="_blank" rel="noopener">printify.com → Wallet/Payments</a>: Zahlungsmittel hinterlegen (Karte) — ohne das produziert Printify nicht.</li>
         <li><a href="https://printify.com/app/store/settings/order-settings" target="_blank" rel="noopener">Settings → Stores → Order settings</a>: „Order approval" für den Anfang auf <strong>„Manually approve"</strong> oder mit 24-h-Verzögerung — so kannst du Fehlbestellungen abfangen; später auf automatisch stellen (<a href="https://help.printify.com/hc/en-us/articles/4483625253265-How-do-I-set-up-store-details-and-order-approval-settings" target="_blank" rel="noopener">Anleitung</a>).</li>
         <li>Prüfen, dass <strong>Tracking-Sync</strong> aktiv ist (Versandbestätigung mit Tracking geht dann automatisch über Shopify raus).</li>
         <li>Gute Nachricht: Neue Printify-Produkte landen automatisch in den richtigen Printify-Versandprofilen — da muss nichts mehr umgezogen werden (Stand 25.08.).</li>
+        <li><strong>GPSR-Angaben</strong> in den Store settings prüfen/eintragen (Verantwortlicher: Julius Erb, Eugen-Bolz-Straße 28, 73732 Esslingen, limitless.posterje@gmail.com) und nach dem Finanzamt-Telefonat die <strong>USt-IdNr.</strong> unter Wallet → Taxes hinterlegen. Für „nur Deutschland" muss bei Printify nichts umgestellt werden — die Länderfreigabe steuert Shopify (Markets).</li>
       </ol></details></li>
 
       <li class="item" data-prio="2"><input type="checkbox" id="o2"><label for="o2">
@@ -770,6 +789,38 @@
     <p class="sec-note">Fertige Texte für die verbleibenden Admin-Schritte — aufklappen, kopieren, einfügen.</p>
 
     <details class="tpl">
+      <summary>Checkout-Richtlinie Versand (Deutschland) — kompletter Text (für Punkt „Checkout-Richtlinien … umstellen")</summary>
+      <div class="tpl-body">
+        <p>Einstellungen → Richtlinien → Versandrichtlinie: gesamten Text ersetzen.</p>
+        <pre>Versand &amp; Lieferung
+
+Kostenloser Versand: Alle Preise verstehen sich inklusive Versand innerhalb Deutschlands. Es fallen keine zusätzlichen Versandkosten an.
+
+Lieferzeit: Jedes Poster wird individuell für dich gedruckt und gerahmt. Die Produktion dauert in der Regel 2–5 Werktage, der Versand innerhalb Deutschlands weitere 2–5 Werktage. Insgesamt kannst du mit einer Lieferzeit von ca. 4–10 Werktagen rechnen.
+
+Versandgebiet: Wir liefern derzeit ausschließlich innerhalb Deutschlands. Ein Versand in andere Länder ist aktuell nicht möglich.
+
+Sendungsverfolgung: Sobald deine Bestellung versandt wurde, erhältst du eine Versandbestätigung per E-Mail — inklusive Tracking-Link, sofern verfügbar.
+
+Fragen zu deiner Lieferung? Schreib uns an limitless.posterje@gmail.com — wir helfen dir gerne weiter.</pre>
+      </div>
+    </details>
+
+    <details class="tpl">
+      <summary>Checkout-AGB: 3 Änderungen (für Punkt „Checkout-Richtlinien … umstellen")</summary>
+      <div class="tpl-body">
+        <p>Einstellungen → Richtlinien → Allgemeine Geschäftsbedingungen — nur diese drei Stellen ändern, der Rest bleibt:</p>
+        <pre>1) Ganz oben:   Stand: 3. September 2026
+
+2) § 4 Abs. 2:  Der Versand innerhalb Deutschlands ist im Preis enthalten; es fallen keine zusätzlichen Versandkosten an.
+
+3) § 5 Abs. 1:  Wir liefern ausschließlich innerhalb Deutschlands. Eine Lieferung in andere Länder ist derzeit nicht möglich.</pre>
+        <p>Zur Kontrolle: Die Seite limitlessposter.com/pages/agb hat bereits genau diesen Stand.</p>
+      </div>
+    </details>
+
+
+    <details class="tpl">
       <summary>Bestellbestätigungs-Mail: Widerrufs- &amp; AGB-Zusatz (für Punkt „Widerruf &amp; AGB in der Bestellbestätigung")</summary>
       <div class="tpl-body">
         <p>Einstellungen → Benachrichtigungen → Bestellbestätigung → am Ende des E-Mail-Inhalts einfügen:</p>
@@ -782,7 +833,7 @@ Gemäß § 19 UStG wird keine Umsatzsteuer berechnet oder ausgewiesen.&lt;/p&gt;
     </details>
 
     <details class="tpl">
-      <summary>Homepage-SEO: Titel &amp; Meta-Description (für Punkt „Homepage-Title &amp; Meta-Description")</summary>
+      <summary>Homepage-SEO: Titel &amp; Meta-Description (für Punkt „Homepage-Meta-Description auf Deutschland umstellen")</summary>
       <div class="tpl-body">
         <p>Online Store → Präferenzen:</p>
         <pre>Titel:
@@ -790,7 +841,7 @@ LimitlessPoster — Gerahmte Motivations- &amp; Sport-Poster
 
 Beschreibung:
 Premium-Poster für Sport, Mindset &amp; Lifestyle — fertig gerahmt in Schwarz
-oder Weiß, Versand nach DE &amp; EU inklusive. In 4–10 Werktagen bei dir.</pre>
+oder Weiß, Versand innerhalb Deutschlands inklusive. In 4–10 Werktagen bei dir.</pre>
       </div>
     </details>
 
@@ -863,7 +914,7 @@ Julius von LimitlessPoster</pre>
   </section>
 
   <footer>
-    <span>Stand: 30. August 2026 · alle Links, Nummern und Servicezeiten einzeln gegen die offiziellen Seiten geprüft · Häkchen bleiben nur in diesem Browser gespeichert · <a style="color:var(--accent); text-decoration:none" href="https://claude.ai/code/artifact/b78ee699-be90-44aa-b2f1-c34e5c8d98b4">Zur Datenmappe →</a></span>
+    <span>Stand: 3. September 2026 · Deutschland-Umstellung per API erledigt und unabhängig verifiziert · Links und Nummern am 30.08. geprüft · Häkchen bleiben nur in diesem Browser gespeichert · <a style="color:var(--accent); text-decoration:none" href="https://claude.ai/code/artifact/b78ee699-be90-44aa-b2f1-c34e5c8d98b4">Zur Datenmappe →</a></span>
     <button class="reset" id="resetBtn">Alle Häkchen zurücksetzen</button>
   </footer>
 </div>
