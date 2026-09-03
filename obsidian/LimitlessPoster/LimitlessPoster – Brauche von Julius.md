@@ -8,7 +8,7 @@ stand: 2026-09-03
 
 ## 1. Zugänge / Daten für mich
 - [ ] **Printify-API-Token** (Printify → Konto-Menü → *Connections* → *API tokens* → Token erzeugen, Rechte lesen/schreiben) → hier oder im Chat eintragen. Damit kann ich Produkte, Bestellungen und Store-Einstellungen bei Printify prüfen.
-- [ ] **Obsidian-Vault-Ort** (Ordnerpfad, GitHub-Repo oder Google-Drive-Ordner). Bis dahin liegen meine Notizen im Repo unter `obsidian/LimitlessPoster/` – einfach in den Vault kopieren.
+- [ ] **Obsidian-Vault-Ort** (Ordnerpfad, GitHub-Repo oder Google-Drive-Ordner). Bis dahin liegen meine Notizen im Repo unter `obsidian/LimitlessPoster/` – einfach in den Vault kopieren. Hinweis: Deine Tagesplan-Session nutzt einen Memory-Vault mit `/areas/…` und `/topics/…`-Notizen – falls das dein Obsidian ist, muss dieser Speicher auch dieser Shop-Session zugänglich gemacht werden.
 - [ ] **Shop-Postfach** limitless.posterje@gmail.com ist nicht mit Claude verbunden (nur das private Gmail). Wenn ich Printify-/Shopify-Mails prüfen soll: das Konto verbinden.
 
 ## 2. Shopify-Admin (nur du kannst das klicken)
