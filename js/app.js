@@ -318,6 +318,19 @@
     });
     if (NG.sync && NG.sync.init) NG.sync.init();
 
+    // Rückkehr von der Microsoft-Anmeldung abfangen, bevor gerendert wird:
+    // handleRedirect räumt die Adresszeile sofort auf, der Tausch läuft danach.
+    if (NG.onenote && NG.onenote.available()) {
+      NG.onenote.handleRedirect().then(function (done) {
+        if (!done) return;
+        NG.ui.toast("Mit Microsoft verbunden – deine Notizbücher stehen bereit.", "success", 5000);
+        scheduleRender();
+      }).catch(function (err) {
+        NG.ui.toast("Microsoft-Anmeldung fehlgeschlagen: " + ((err && err.message) || err), "error", 10000);
+        scheduleRender();
+      });
+    }
+
     render();
     registerServiceWorker();
 

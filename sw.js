@@ -3,17 +3,19 @@
    Strategie: erst Netz, dann Zwischenspeicher.
    So ist immer die neueste Fassung da – und offline trotzdem alles nutzbar.
    ========================================================= */
-var CACHE = "nextgen-lernen-v1";
+var CACHE = "nextgen-lernen-v2";
 
 var SHELL = [
   "./", "./index.html", "./manifest.webmanifest",
   "./css/tokens.css", "./css/base.css", "./css/components.css",
   "./js/core/util.js", "./js/core/store.js", "./js/core/grades.js",
   "./js/core/files.js", "./js/core/ai.js", "./js/core/ui.js", "./js/core/sync.js",
+  "./js/core/importers.js", "./js/core/onenote.js",
   "./js/app.js",
   "./js/views/dashboard.js", "./js/views/calendar.js", "./js/views/tasks.js",
   "./js/views/timetable.js", "./js/views/subjects.js", "./js/views/grades.js",
-  "./js/views/assistant.js", "./js/views/materials.js", "./js/views/flashcards.js",
+  "./js/views/assistant.js", "./js/views/import.js", "./js/views/materials.js",
+  "./js/views/flashcards.js",
   "./js/views/focus.js", "./js/views/settings.js", "./js/views/onboarding.js",
   "./assets/icon.svg"
 ];

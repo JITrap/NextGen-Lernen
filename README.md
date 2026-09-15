@@ -44,6 +44,7 @@ Netlify, Vercel o. Ä. hochladen.
 | **Fächer** | Farbe, Lehrkraft, Raum, **Gewichtung schriftlich/mündlich**, Wertigkeit im Gesamtschnitt, Zielnote |
 | **Noten** | Gewichteter Schnitt je Fach, Notenrechner „Was brauche ich noch?“, Verteilung, Gesamttabelle |
 | **KI-Assistent** | Aufgaben-Screenshots lösen, Themen erklären, zusammenfassen, Karteikarten und Übungsaufgaben erzeugen, eigene Lösung prüfen |
+| **Importieren** | Notizbücher direkt aus **OneNote** holen (Microsoft Graph) oder Word/HTML/Text/Bilder hochladen — die KI macht daraus Themen, Karteikarten und Termine |
 | **Materialien** | Bilder und PDFs hochladen, nach Fach sortieren, direkt von der KI auswerten lassen |
 | **Karteikarten** | Stapel je Fach, Leitner-System mit fünf Fächern, Lernmodus mit Umdrehen |
 | **Lernzeit** | Pomodoro-Timer, Wochenstatistik, Minuten je Fach, Serie |
@@ -97,6 +98,67 @@ und die Antwort (Server-Sent Events) durchreichen.
 
 ---
 
+## Schulstoff aus OneNote holen
+
+Es gibt zwei Wege. **Weg B funktioniert immer** — fang damit an, wenn es schnell gehen soll.
+
+### Weg A: OneNote direkt verbinden
+
+Die App meldet sich mit deinem Microsoft-Konto an und liest deine Notizbücher über die
+offizielle **Microsoft-Graph-Schnittstelle** (`GET /me/onenote/notebooks`, `…/sections`,
+`…/pages`, `…/pages/{id}/content`). Angemeldet wird über OAuth 2.0 mit PKCE — der für
+Browser-Apps vorgesehene Weg, **ohne geheimen Schlüssel** in der Seite.
+
+**Voraussetzungen — bitte ehrlich prüfen, bevor du anfängst:**
+
+* Funktioniert **nicht** in der eingebetteten Claude-Fassung (dort ist der Netzzugriff nach
+  außen gesperrt) und **nicht** per Doppelklick über `file://`.
+  Also: `npm start` und `http://localhost:4321`, oder eine eigene `https://`-Adresse.
+* Du brauchst einmalig eine kostenlose **App-Registrierung** bei Microsoft.
+* Bei einem **Schulkonto** kann die IT das blockieren. Dann bleibt Weg B.
+
+**Einrichtung (einmalig, ca. 5 Minuten):**
+
+1. <https://entra.microsoft.com> öffnen → **App-Registrierungen** → **Neue Registrierung**.
+2. Name frei wählen (z. B. `NextGen Lernen`). Kontotypen:
+   *Konten in einem beliebigen Organisationsverzeichnis und persönliche Microsoft-Konten*.
+3. **Plattform hinzufügen → Single-Page-Application (SPA)**. Als Umleitungs-URI genau die
+   Adresse eintragen, die die App unter *Einstellungen → OneNote* anzeigt
+   (lokal: `http://localhost:4321/`). Der Typ **SPA** ist wichtig — sonst blockt der Browser.
+4. **API-Berechtigungen** → Microsoft Graph → *Delegierte Berechtigungen* → **`Notes.Read`**.
+5. Die **Anwendungs-ID (Client)** kopieren und in der App unter
+   *Einstellungen → OneNote* einfügen.
+
+Danach: **Importieren → Aus OneNote → Mit Microsoft anmelden**. Notizbücher aufklappen,
+Seiten ankreuzen, importieren. Jede Seite wird ein Material, Bilder werden mitgeladen.
+
+> Die Anmeldung einer Browser-App hält bei Microsoft **24 Stunden**; danach meldet dich die
+> App einmal neu an. Das ist eine Vorgabe von Microsoft, kein Fehler.
+
+**Was nicht geht:** Handschriftliche Notizen (Stift-Striche) gibt Microsoft nicht als Text
+heraus — davon kommt nur das Bild an. Das kann dann aber die KI lesen.
+
+### Weg B: Export-Dateien importieren
+
+Funktioniert überall, ohne Einrichtung.
+
+**Aus OneNote herausbekommen:**
+* Am Rechner: *Datei → Exportieren → Abschnitt oder Notizbuch → Word-Dokument (.docx)*
+* Am Tablet: Seite teilen und als Datei sichern — oder einfach Screenshots machen
+* Auch möglich: als HTML gespeicherte Seiten, Textdateien, Fotos
+
+Dann in der App: **Importieren → Aus Dateien**, alles hineinziehen. Word-Dateien liest die
+App selbst aus (ohne Fremdbibliothek, per `DecompressionStream`), Bilder gehen an die KI.
+
+### Und dann: „Mit KI aufbereiten"
+
+Beide Wege enden am selben Punkt. Auf Knopfdruck macht die KI aus dem Rohmaterial:
+Themen mit Zusammenfassung (→ Materialien), **Karteikarten** (→ eigener Stapel),
+gefundene **Termine** (→ Kalender) und **Aufgaben**. Vorher siehst du eine Vorschau und
+kannst einzeln abwählen.
+
+---
+
 ## Deine Daten
 
 * Alles liegt in `localStorage`, hochgeladene Dateien in `IndexedDB` – **auf deinem Gerät**.
@@ -121,9 +183,13 @@ node tools/smoke-test.mjs --headed   # mit sichtbarem Browser
 Gewicht einzelner Noten, Wertigkeit von Fächern, beide Notensysteme und die
 Gegenprobe, dass die Prognose „Was brauche ich noch?“ wirklich zur Zielnote führt.
 
-`test:browser` startet Chromium, öffnet jede Ansicht, prüft auf JavaScript-Fehler,
-legt testweise Einträge an, lädt neu (Persistenz) und kontrolliert Desktop- und
-Handy-Layout auf waagerechten Überlauf. Bildschirmfotos landen in `tests/screenshots/`.
+`test:browser` startet Chromium und prüft über 100 Punkte: jede Ansicht ohne
+JavaScript-Fehler, Desktop- und Handy-Layout ohne waagerechten Überlauf, Anlegen und
+Abhaken, Persistenz nach Neustart, den kompletten KI-Ablauf (mit simuliertem Claude),
+Datei-Upload, Einrichtungsassistent, Karteikarten-Lernmodus, Lerntimer, Tempo mit 1400
+Einträgen — und den **gesamten OneNote-Weg** mit abgefangenen Microsoft-Aufrufen:
+Notizbücher, Abschnitte, Seiten, Token-Erneuerung, Import bis zum fertigen Material,
+sowie das Lesen einer echten `.docx`. Bildschirmfotos landen in `tests/screenshots/`.
 
 ---
 
@@ -143,6 +209,8 @@ js/core/
   ai.js                 KI-Anbindung (Artifact / API-Schlüssel / Proxy)
   ui.js                 Dialoge, Formulare, Bausteine
   sync.js               optionale Cloud-Sicherung
+  importers.js          liest Word, HTML, Text und Bilder ein
+  onenote.js            Microsoft-Anmeldung (OAuth/PKCE) und Graph-Aufrufe
 js/views/               je eine Datei pro Ansicht
 js/app.js               Router, Navigation, Start
 tools/                  Server, Tests, Artifact-Build

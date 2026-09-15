@@ -284,6 +284,109 @@
     return NG.ui.card({ title: "KI-Assistent", body: el("div", {}, rows) });
   }
 
+  function onenoteCard(ctx) {
+    var ON = global.NG.onenote;
+    if (!ON) return null;
+
+    var verfuegbar = ON.available();
+    var eingerichtet = ON.isConfigured();
+    var angemeldet = ON.isSignedIn();
+    var konto = ON.account();
+
+    var badge;
+    if (!verfuegbar) badge = el("span", { class: "badge", text: "Hier nicht möglich" });
+    else if (angemeldet) badge = el("span", {
+      class: "badge badge--success",
+      text: "Verbunden" + (konto && konto.name ? " als " + konto.name : "")
+    });
+    else if (eingerichtet) badge = el("span", { class: "badge badge--warn", text: "Eingerichtet, nicht angemeldet" });
+    else badge = el("span", { class: "badge badge--warn", text: "Noch nicht eingerichtet" });
+
+    var rows = [
+      row("Status", "", el("div", { class: "stack stack--sm" }, [
+        badge,
+        verfuegbar ? null : el("div", { class: "fs-xs faint", text: ON.unavailableReason() })
+      ]))
+    ];
+
+    if (verfuegbar) {
+      var idInput = el("input", {
+        type: "text",
+        placeholder: "00000000-0000-0000-0000-000000000000",
+        value: NG.store.getSetting("onenote.clientId", "") || "",
+        autocomplete: "off", spellcheck: "false"
+      });
+      idInput.addEventListener("change", function () {
+        var wert = idInput.value.trim();
+        if (wert && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(wert)) {
+          NG.ui.toast("Das sieht nicht nach einer Anwendungs-ID aus. Sie besteht aus 32 Zeichen mit Bindestrichen.", "error", 6000);
+          return;
+        }
+        NG.store.setSetting("onenote.clientId", wert);
+        NG.ui.toast(wert ? "Anwendungs-ID gespeichert" : "Anwendungs-ID entfernt", "success");
+        ctx.rerender();
+      });
+
+      rows.push(row("Anwendungs-ID (Client)",
+        "Aus deiner Microsoft-App-Registrierung. Die Schritt-für-Schritt-Anleitung steht unter „Importieren“.",
+        idInput));
+
+      rows.push(row("Umleitungs-Adresse",
+        "Genau diese Adresse muss in Azure als Typ „Single-Page-Application (SPA)“ eingetragen sein.",
+        el("div", { class: "input-group" }, [
+          el("code", {
+            text: ON.redirectUri(),
+            style: {
+              background: "var(--surface-3)", padding: "7px 10px", borderRadius: "var(--radius-sm)",
+              fontSize: ".78rem", flex: "1", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"
+            }
+          }),
+          el("button", {
+            class: "btn btn--sm", type: "button",
+            html: U.icon("copy") + "<span>Kopieren</span>",
+            onClick: function () { NG.ui.copyText(ON.redirectUri()); }
+          })
+        ])));
+
+      var aktionen = [el("button", {
+        class: "btn btn--sm", type: "button",
+        html: U.icon("download") + "<span>Zum Import</span>",
+        onClick: function () { ctx.go("import"); }
+      })];
+
+      if (angemeldet) {
+        aktionen.push(el("button", {
+          class: "btn btn--sm btn--danger", type: "button", text: "Von Microsoft abmelden",
+          onClick: function () {
+            NG.ui.confirm({
+              title: "Abmelden?",
+              message: "Die Verbindung zu OneNote wird getrennt. Bereits importierte Materialien bleiben erhalten.",
+              confirmText: "Abmelden"
+            }).then(function (ja) {
+              if (!ja) return;
+              ON.signOut().then(function () {
+                NG.ui.toast("Von Microsoft abgemeldet");
+                ctx.rerender();
+              });
+            });
+          }
+        }));
+      }
+
+      rows.push(row("Notizbücher holen", "Notizbücher durchsuchen und Seiten übernehmen.",
+        el("div", { class: "row row--tight" }, aktionen)));
+    } else {
+      rows.push(row("Alternative", "Der Datei-Import funktioniert überall – auch hier.",
+        el("button", {
+          class: "btn btn--sm", type: "button",
+          html: U.icon("upload") + "<span>Dateien importieren</span>",
+          onClick: function () { ctx.go("import"); }
+        })));
+    }
+
+    return NG.ui.card({ title: "OneNote", body: el("div", {}, rows) });
+  }
+
   function dataCard(ctx) {
     var counts = NG.store.COLLECTIONS.map(function (c) {
       return { name: c, n: NG.store.all(c).length };
@@ -465,6 +568,7 @@
     U.append(root, el("div", { class: "stack" }, [
       profileCard(),
       aiCard(ctx),
+      onenoteCard(ctx),
       gradesCard(ctx),
       appearanceCard(ctx),
       timetableCard(),

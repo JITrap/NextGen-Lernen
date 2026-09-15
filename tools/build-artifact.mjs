@@ -44,6 +44,7 @@ const files = [
   "css/tokens.css", "css/base.css", "css/components.css",
   "js/core/util.js", "js/core/store.js", "js/core/grades.js", "js/core/files.js",
   "js/core/ai.js", "js/core/ui.js", "js/core/sync.js",
+  "js/core/importers.js", "js/core/onenote.js",
   ...[...body.matchAll(/<script src="(js\/views\/[^"]+)"/g)].map((m) => m[1]),
   "js/app.js",
 ];

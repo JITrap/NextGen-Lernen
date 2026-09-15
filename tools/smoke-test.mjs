@@ -11,6 +11,7 @@ import { createRequire } from "node:module";
 import { execSync, spawn } from "node:child_process";
 import { mkdir, rm } from "node:fs/promises";
 import { join, resolve } from "node:path";
+import zlib from "node:zlib";
 import { fileURLToPath } from "node:url";
 
 const require = createRequire(import.meta.url);
@@ -120,6 +121,69 @@ const SEED = {
   meta: { createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
 };
 
+/** Baut eine echte, kleine .docx-Datei (ZIP mit deflate) – ohne Fremdbibliothek. */
+function baueDocx(absaetze) {
+  const xml =
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+    '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>' +
+    absaetze.map(([stil, text]) =>
+      "<w:p>" +
+      (stil ? '<w:pPr><w:pStyle w:val="' + stil + '"/></w:pPr>' : "") +
+      "<w:r><w:t>" + text.replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</w:t></w:r></w:p>"
+    ).join("") +
+    "</w:body></w:document>";
+
+  const name = Buffer.from("word/document.xml", "utf8");
+  const roh = Buffer.from(xml, "utf8");
+  const gepackt = zlib.deflateRawSync(roh);
+  const crc = zlib.crc32(roh);
+
+  const lokal = Buffer.alloc(30);
+  lokal.writeUInt32LE(0x04034b50, 0);
+  lokal.writeUInt16LE(20, 4);            // benötigte Version
+  lokal.writeUInt16LE(0, 6);             // Flags
+  lokal.writeUInt16LE(8, 8);             // Methode: deflate
+  lokal.writeUInt32LE(0, 10);            // Zeit/Datum
+  lokal.writeUInt32LE(crc, 14);
+  lokal.writeUInt32LE(gepackt.length, 18);
+  lokal.writeUInt32LE(roh.length, 22);
+  lokal.writeUInt16LE(name.length, 26);
+  lokal.writeUInt16LE(0, 28);            // Extrafeld
+
+  const zentral = Buffer.alloc(46);
+  zentral.writeUInt32LE(0x02014b50, 0);
+  zentral.writeUInt16LE(20, 4);
+  zentral.writeUInt16LE(20, 6);
+  zentral.writeUInt16LE(0, 8);
+  zentral.writeUInt16LE(8, 10);
+  zentral.writeUInt32LE(0, 12);
+  zentral.writeUInt32LE(crc, 16);
+  zentral.writeUInt32LE(gepackt.length, 20);
+  zentral.writeUInt32LE(roh.length, 24);
+  zentral.writeUInt16LE(name.length, 28);
+  zentral.writeUInt16LE(0, 30);          // Extrafeld
+  zentral.writeUInt16LE(0, 32);          // Kommentar
+  zentral.writeUInt16LE(0, 34);
+  zentral.writeUInt16LE(0, 36);
+  zentral.writeUInt32LE(0, 38);
+  zentral.writeUInt32LE(0, 42);          // Offset des lokalen Kopfs
+
+  const cdGroesse = zentral.length + name.length;
+  const cdOffset = lokal.length + name.length + gepackt.length;
+
+  const ende = Buffer.alloc(22);
+  ende.writeUInt32LE(0x06054b50, 0);
+  ende.writeUInt16LE(0, 4);
+  ende.writeUInt16LE(0, 6);
+  ende.writeUInt16LE(1, 8);
+  ende.writeUInt16LE(1, 10);
+  ende.writeUInt32LE(cdGroesse, 12);
+  ende.writeUInt32LE(cdOffset, 16);
+  ende.writeUInt16LE(0, 20);
+
+  return Buffer.concat([lokal, name, gepackt, zentral, name, ende]);
+}
+
 /** Kleinstes gültiges PNG (1x1 Pixel) für den Upload-Test. */
 const PNG_1x1 =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
@@ -132,6 +196,7 @@ const VIEWS = [
   ["subjects", "Fächer"],
   ["grades", "Noten"],
   ["assistant", "KI-Assistent"],
+  ["import", "Importieren"],
   ["materials", "Materialien"],
   ["flashcards", "Karteikarten"],
   ["focus", "Lernzeit"],
@@ -155,9 +220,20 @@ async function main() {
   const server = spawn(process.execPath, [join(ROOT, "tools", "serve.mjs"), String(PORT)], {
     stdio: ["ignore", "pipe", "pipe"],
   });
+  let serverLog = "";
+  let serverTot = null;
+  server.stdout.on("data", (d) => { serverLog += d; });
+  server.stderr.on("data", (d) => { serverLog += d; });
+  server.on("exit", (code, signal) => {
+    serverTot = `Der Testserver hat sich beendet (Code ${code}, Signal ${signal}).\n${serverLog.slice(-1200)}`;
+    console.error("\n!! " + serverTot + "\n");
+  });
   await new Promise((res, rej) => {
-    const t = setTimeout(() => rej(new Error("Server startete nicht")), 8000);
-    server.stdout.on("data", (d) => { if (String(d).includes("läuft auf")) { clearTimeout(t); res(); } });
+    const t = setTimeout(() => rej(new Error("Server startete nicht:\n" + serverLog)), 8000);
+    const warte = setInterval(() => {
+      if (serverLog.includes("läuft auf")) { clearTimeout(t); clearInterval(warte); res(); }
+      if (serverTot) { clearTimeout(t); clearInterval(warte); rej(new Error(serverTot)); }
+    }, 50);
     server.on("error", rej);
   });
 
@@ -186,7 +262,9 @@ async function main() {
       if (msg.type() !== "error") return;
       const text = msg.text();
       if (IGNORE.some((re) => re.test(text))) return;
-      errors.push(`[console] ${text}`);
+      const ort = msg.location && msg.location();
+      const woher = ort && ort.url ? ` (${ort.url}${ort.lineNumber ? ":" + ort.lineNumber : ""})` : "";
+      errors.push(`[console] ${text}${woher}`);
     });
     p.on("pageerror", (err) => errors.push(`[pageerror] ${err.message}`));
     return { context, page: p };
@@ -820,6 +898,339 @@ async function main() {
     });
   }
 
+  /* --- 5e. OneNote (Microsoft-Aufrufe abgefangen) --- */
+  console.log("\nOneNote");
+  {
+    await context.close();
+    ({ context, page } = await newPage(SEED));
+
+    const GRAPH = "https://graph.microsoft.com/v1.0";
+    const SEITE_HTML = `<!DOCTYPE html><html><head><title>Photosynthese</title></head><body>
+      <div data-id="_default"><h1>Photosynthese</h1>
+      <p>Pflanzen wandeln Lichtenergie in chemische Energie um.</p>
+      <ul><li>Ort: Chloroplasten</li><li>Edukte: Wasser und Kohlenstoffdioxid</li></ul>
+      <img src="${GRAPH}/me/onenote/resources/res-1/$value" alt="Schema" width="400" />
+      </div></body></html>`;
+
+    let graphAufrufe = 0;
+    await context.route("https://graph.microsoft.com/**", async (route) => {
+      graphAufrufe++;
+      const url = route.request().url();
+      const auth = route.request().headers()["authorization"] || "";
+      if (!/^Bearer /.test(auth)) {
+        return route.fulfill({ status: 401, body: "{}" });
+      }
+      if (/\/resources\/.+\/\$value/.test(url)) {
+        return route.fulfill({
+          status: 200, contentType: "image/png",
+          body: Buffer.from(PNG_1x1, "base64"),
+        });
+      }
+      if (/\/pages\/[^/]+\/content/.test(url)) {
+        return route.fulfill({ status: 200, contentType: "text/html", body: SEITE_HTML });
+      }
+      if (/\/notebooks\?/.test(url)) {
+        return route.fulfill({
+          status: 200, contentType: "application/json",
+          body: JSON.stringify({ value: [
+            { id: "nb-1", displayName: "Schule 2025/26", lastModifiedDateTime: "2026-09-01T10:00:00Z" },
+            { id: "nb-2", displayName: "Privat", lastModifiedDateTime: "2026-08-01T10:00:00Z" },
+          ] }),
+        });
+      }
+      if (/\/notebooks\/[^/]+\/sections/.test(url)) {
+        return route.fulfill({
+          status: 200, contentType: "application/json",
+          body: JSON.stringify({ value: [
+            { id: "sec-1", displayName: "Biologie", lastModifiedDateTime: "2026-09-01T10:00:00Z" },
+            { id: "sec-2", displayName: "Mathematik", lastModifiedDateTime: "2026-09-01T09:00:00Z" },
+          ] }),
+        });
+      }
+      const sekt = url.match(/\/sections\/([^/]+)\/pages/);
+      if (sekt) {
+        // Wie in echt: jeder Abschnitt hat eigene Seiten mit eigenen Kennungen.
+        const proSektion = {
+          "sec-1": [
+            { id: "pg-bio-1", title: "Photosynthese", lastModifiedDateTime: "2026-09-10T10:00:00Z" },
+            { id: "pg-bio-2", title: "Zellatmung", lastModifiedDateTime: "2026-09-09T10:00:00Z" },
+          ],
+          "sec-2": [
+            { id: "pg-ma-1", title: "Quadratische Funktionen", lastModifiedDateTime: "2026-09-08T10:00:00Z" },
+          ],
+        };
+        return route.fulfill({
+          status: 200, contentType: "application/json",
+          body: JSON.stringify({ value: proSektion[sekt[1]] || [] }),
+        });
+      }
+      return route.fulfill({ status: 404, body: "{}" });
+    });
+
+    let tokenAufrufe = 0;
+    await context.route("https://login.microsoftonline.com/**", async (route) => {
+      const url = route.request().url();
+      if (url.includes("/token")) {
+        tokenAufrufe++;
+        return route.fulfill({
+          status: 200, contentType: "application/json",
+          body: JSON.stringify({
+            access_token: "neues-token", refresh_token: "neues-refresh",
+            expires_in: 3600, token_type: "Bearer",
+          }),
+        });
+      }
+      return route.fulfill({ status: 200, contentType: "text/html", body: "<html></html>" });
+    });
+
+    await page.goto(BASE + "#/import", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#view .view", { timeout: 8000 });
+    await page.waitForTimeout(500);
+
+    await check("OneNote ist im Browser grundsätzlich möglich", async () => {
+      const st = await page.evaluate(() => ({
+        available: window.NG.onenote.available(),
+        configured: window.NG.onenote.isConfigured(),
+        signedIn: window.NG.onenote.isSignedIn(),
+        redirect: window.NG.onenote.redirectUri(),
+      }));
+      assert(st.available === true, "available() ist false: " + JSON.stringify(st));
+      assert(st.configured === false, "Ohne ID darf nichts eingerichtet sein");
+      assert(st.signedIn === false, "Ohne Anmeldung darf signedIn nicht true sein");
+      assert(st.redirect.startsWith(BASE), `Umleitungs-Adresse unerwartet: ${st.redirect}`);
+    });
+
+    await check("Ohne Einrichtung wird die Anleitung gezeigt", async () => {
+      const text = await page.locator("#view").innerText();
+      assert(/OneNote/i.test(text), "Die Import-Ansicht erwähnt OneNote nicht");
+      const hatAnleitung = /entra\.microsoft\.com|App-Registrierung|Anwendungs-ID/i.test(text);
+      const hatUmschalter = await page.locator("#view .btn-group button, #view .chip").count();
+      assert(hatAnleitung || hatUmschalter > 0, "Weder Anleitung noch Umschalter gefunden");
+    });
+
+    await check("Anmelden ohne Anwendungs-ID wird sauber abgelehnt", async () => {
+      const code = await page.evaluate(() =>
+        window.NG.onenote.signIn().then(() => "kein-fehler", (e) => e.code));
+      assert(code === "not_configured", `Fehlercode ${code} statt not_configured`);
+    });
+
+    await check("Notizbücher werden geladen", async () => {
+      await page.evaluate(() => {
+        window.NG.store.setSetting("onenote.clientId", "11111111-2222-3333-4444-555555555555");
+        window.localStorage.setItem("nextgen-lernen.onenote.token", JSON.stringify({
+          accessToken: "test-token",
+          refreshToken: "test-refresh",
+          expiresAt: Date.now() + 3600000,
+          account: { name: "Testkind", username: "test@schule.de" },
+        }));
+      });
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await page.waitForSelector("#view .view", { timeout: 8000 });
+      const nb = await page.evaluate(() => window.NG.onenote.notebooks());
+      assert(Array.isArray(nb) && nb.length === 2, `${nb && nb.length} Notizbücher`);
+      assert(nb[0].displayName === "Schule 2025/26", "Falsches Notizbuch");
+    });
+
+    await check("Abschnitte und Seiten werden geladen", async () => {
+      const sec = await page.evaluate(() => window.NG.onenote.sections("nb-1"));
+      assert(sec.length === 2 && sec[0].displayName === "Biologie", "Abschnitte falsch");
+      const pg = await page.evaluate(() => window.NG.onenote.pages("sec-1"));
+      assert(pg.length === 2 && pg[0].title === "Photosynthese", "Seiten falsch");
+      const pgMa = await page.evaluate(() => window.NG.onenote.pages("sec-2"));
+      assert(pgMa.length === 1, "Der zweite Abschnitt liefert die falschen Seiten");
+    });
+
+    await check("Seiteninhalt kommt als HTML zurück", async () => {
+      const html = await page.evaluate(() => window.NG.onenote.pageHtml("pg-1"));
+      assert(/Photosynthese/.test(html), "Seiteninhalt fehlt");
+      assert(/Chloroplasten/.test(html), "Listeninhalt fehlt");
+    });
+
+    await check("Bild einer Seite lässt sich laden", async () => {
+      const groesse = await page.evaluate(async () => {
+        const blob = await window.NG.onenote.resourceBlob(
+          "https://graph.microsoft.com/v1.0/me/onenote/resources/res-1/$value");
+        return blob ? blob.size : 0;
+      });
+      assert(groesse > 0, "Kein Bild zurückbekommen");
+    });
+
+    await check("Fremde Adressen werden nicht abgerufen", async () => {
+      const ergebnis = await page.evaluate(() =>
+        window.NG.onenote.resourceBlob("https://example.com/boese.png"));
+      assert(ergebnis === null, "Eine fremde Adresse wurde abgerufen");
+    });
+
+    await check("Abgelaufenes Token wird selbstständig erneuert", async () => {
+      const vorher = tokenAufrufe;
+      await page.evaluate(() => {
+        const t = JSON.parse(window.localStorage.getItem("nextgen-lernen.onenote.token"));
+        t.expiresAt = Date.now() - 1000;
+        window.localStorage.setItem("nextgen-lernen.onenote.token", JSON.stringify(t));
+      });
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(400);
+      const nb = await page.evaluate(() => window.NG.onenote.notebooks());
+      assert(nb.length === 2, "Nach dem Erneuern kamen keine Notizbücher");
+      assert(tokenAufrufe > vorher, "Das Token wurde nicht erneuert");
+    });
+
+    await check("HTML einer OneNote-Seite wird zu lesbarem Text", async () => {
+      const res = await page.evaluate(async () => {
+        const html = await window.NG.onenote.pageHtml("pg-1");
+        const blocks = window.NG.importers.htmlToBlocks(html);
+        return { text: blocks.text, bilder: blocks.images.length };
+      });
+      assert(/Photosynthese/.test(res.text), "Überschrift fehlt im Text");
+      assert(/Chloroplasten/.test(res.text), "Listenpunkt fehlt im Text");
+      assert(!/<div|<img|style=/.test(res.text), "Im Text steckt noch HTML");
+      assert(res.bilder === 1, `${res.bilder} Bilder erkannt statt 1`);
+    });
+
+    await check("Import-Ansicht zeigt den angemeldeten Zustand", async () => {
+      await page.goto(BASE + "#/import");
+      await page.waitForTimeout(800);
+      const text = await page.locator("#view").innerText();
+      assert(/Testkind|Abmelden|Schule 2025/i.test(text),
+        "Der angemeldete Zustand wird nicht angezeigt: " + text.slice(0, 200));
+      await page.screenshot({ path: join(SHOTS, "60-onenote.png"), fullPage: true });
+    });
+
+    await check("Kompletter Import: Notizbuch bis fertiges Material", async () => {
+      await page.goto(BASE + "#/import");
+      await page.waitForTimeout(900);
+
+      const notizbuch = page.locator("#view button, #view [role=button]")
+        .filter({ hasText: /Schule 2025/ }).first();
+      assert(await notizbuch.count(), "Das Notizbuch wird nicht angezeigt");
+      await notizbuch.click();
+      await page.waitForTimeout(900);
+
+      const abschnitt = page.locator("#view button, #view [role=button]")
+        .filter({ hasText: /Biologie/ }).first();
+      assert(await abschnitt.count(), "Der Abschnitt wird nicht angezeigt");
+      await abschnitt.click();
+      await page.waitForTimeout(900);
+
+      const text = await page.locator("#view").innerText();
+      assert(/Photosynthese/.test(text), "Die Seiten des Abschnitts fehlen");
+
+      const box = page.locator('#view input[aria-label*="Photosynthese"]').first();
+      assert(await box.count(), "Kein Auswahlkästchen für die Seite „Photosynthese“");
+      await box.click({ force: true });
+      await page.waitForTimeout(500);
+      const auswahl = await page.locator("#view").innerText();
+      assert(/1 Seite ausgewählt/.test(auswahl), "Die Auswahl wurde nicht gezählt");
+
+      const knopf = page.locator("#view button").filter({ hasText: /Auswahl importieren/i }).first();
+      assert(await knopf.count(), "Kein Knopf zum Importieren");
+      assert(await knopf.isEnabled(), "Der Import-Knopf bleibt gesperrt");
+
+      const vorher = await page.evaluate(() => window.NG.store.all("materials").length);
+      await knopf.click();
+      await page.waitForFunction(
+        (n) => window.NG.store.all("materials").length > n, vorher, { timeout: 15000 });
+      await page.waitForTimeout(800);
+
+      const mats = await page.evaluate(() => window.NG.store.all("materials").map((m) => ({
+        name: m.name, subjectId: m.subjectId, text: m.text || "",
+        hatDatei: !!(m.file && m.file.key), tags: m.tags || [],
+      })));
+      const seite = mats.find((m) => /Photosynthese/.test(m.name));
+      assert(seite, "Die Seite wurde nicht als Material angelegt");
+      assert(/Chloroplasten/.test(seite.text), "Der Seitentext fehlt im Material");
+      assert(!/<div|<img|style=/.test(seite.text), "Im Material steckt noch HTML");
+      assert(seite.hatDatei, "Das Bild der Seite wurde nicht mitgespeichert");
+      assert(seite.tags.indexOf("OneNote") >= 0, "Die Herkunft wurde nicht vermerkt");
+      assert(seite.subjectId === "s3",
+        `Der Abschnitt „Biologie“ wurde dem Fach ${seite.subjectId} statt s3 zugeordnet`);
+      await page.screenshot({ path: join(SHOTS, "61-onenote-import.png"), fullPage: true });
+
+      // Der Abschluss-Dialog bleibt offen – schließen, sonst blockiert er die nächsten Klicks.
+      const schliessen = page.locator(".modal__foot button, .modal__head button")
+        .filter({ hasText: /Schließen/i }).first();
+      if (await schliessen.count()) await schliessen.click();
+      else await page.keyboard.press("Escape");
+      await page.waitForSelector(".modal-backdrop", { state: "detached", timeout: 5000 });
+    });
+
+    await check("Einstellungen zeigen den OneNote-Bereich", async () => {
+      await page.goto(BASE + "#/settings");
+      await page.waitForTimeout(600);
+      const text = await page.locator("#view").innerText();
+      assert(/OneNote/.test(text), "Kein OneNote-Bereich in den Einstellungen");
+      assert(/Umleitungs-Adresse/i.test(text), "Die Umleitungs-Adresse wird nicht angezeigt");
+    });
+
+    await check("Im eingebetteten Betrieb wird OneNote sauber abgelehnt", async () => {
+      const ctx2 = await browser.newContext({ viewport: { width: 1280, height: 900 }, locale: "de-DE" });
+      await ctx2.addInitScript((d) => {
+        try { window.localStorage.setItem("nextgen-lernen.state.v1", JSON.stringify(d)); } catch { }
+        window.claude = { use: async () => null };
+      }, SEED);
+      const p2 = await ctx2.newPage();
+      await p2.goto(BASE + "#/import", { waitUntil: "domcontentloaded" });
+      await p2.waitForTimeout(700);
+      const st = await p2.evaluate(() => ({
+        available: window.NG.onenote.available(),
+        grund: window.NG.onenote.unavailableReason(),
+      }));
+      assert(st.available === false, "available() sollte im Artifact false sein");
+      assert(st.grund && st.grund.length > 20, "Es fehlt eine verständliche Begründung");
+      const text = await p2.locator("#view").innerText();
+      assert(/Datei|hochladen|lokal|npm start/i.test(text),
+        "Es wird kein Ausweg genannt: " + text.slice(0, 200));
+      await ctx2.close();
+    });
+
+    await check("Word-Datei wird ohne Fremdbibliothek gelesen", async () => {
+      await page.goto(BASE + "#/import");
+      await page.waitForTimeout(500);
+      const umschalter = page.locator("#view .btn-group button").filter({ hasText: /Aus Dateien/i }).first();
+      assert(await umschalter.count(), "Kein Umschalter zum Datei-Import");
+      await umschalter.click();
+      await page.waitForTimeout(500);
+
+      const eingabe = page.locator('#view input[type="file"]').first();
+      assert(await eingabe.count(), "Keine Dateiauswahl im Datei-Import");
+      await eingabe.setInputFiles({
+        name: "Biologie Mitschrift.docx",
+        mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        buffer: baueDocx([
+          ["Heading1", "Zellbiologie"],
+          [null, "Die Zelle ist die kleinste lebende Einheit."],
+          ["Heading2", "Zellorganellen"],
+          [null, "Mitochondrien liefern die Energie."],
+        ]),
+      });
+      await page.waitForTimeout(2500);
+      const text = await page.locator("#view").innerText();
+      assert(/Biologie Mitschrift/.test(text), "Die Datei taucht nicht in der Liste auf");
+      assert(!/nicht unterstützt|kann nicht gelesen/i.test(text),
+        "Die Word-Datei wurde als nicht lesbar gemeldet: " + text.slice(0, 300));
+      await page.screenshot({ path: join(SHOTS, "62-dateiimport.png"), fullPage: true });
+    });
+
+    await check("Word-Inhalt landet als Material in der App", async () => {
+      const vorher = await page.evaluate(() => window.NG.store.all("materials").length);
+      const knopf = page.locator("#view button").filter({ hasText: /Als Materialien ablegen|Als Material ablegen/i }).first();
+      assert(await knopf.count(), "Kein Knopf „Als Materialien ablegen“");
+      await knopf.click();
+      await page.waitForFunction(
+        (n) => window.NG.store.all("materials").length > n, vorher, { timeout: 10000 });
+      const mat = await page.evaluate(() => {
+        const m = window.NG.store.all("materials").find((x) => /Biologie Mitschrift/.test(x.name));
+        return m ? { name: m.name, text: m.text || "" } : null;
+      });
+      assert(mat, "Kein Material aus der Word-Datei");
+      assert(/Zellbiologie/.test(mat.text), "Die Überschrift fehlt im Text");
+      assert(/Mitochondrien liefern die Energie/.test(mat.text), "Der Fließtext fehlt");
+      assert(/#\s*Zellbiologie|# Zellbiologie/.test(mat.text), "Überschriften werden nicht als solche erkannt");
+    });
+
+    assert(graphAufrufe > 0, "Es gab gar keine Graph-Aufrufe");
+  }
+
   /* --- 6. Schnittstellen --- */
   console.log("\nSchnittstellen");
   await check("Alle benutzten NG-Funktionen existieren wirklich", async () => {
@@ -849,6 +1260,10 @@ async function main() {
   });
 
   /* --- 6. Abschluss --- */
+  await check("Der Testserver hat den ganzen Lauf überstanden", async () => {
+    assert(!serverTot, serverTot || "");
+  });
+
   await check("Keine JavaScript-Fehler im gesamten Lauf", async () => {
     assert(errors.length === 0, `${errors.length} Fehler:\n      ${errors.slice(0, 12).join("\n      ")}`);
   });
