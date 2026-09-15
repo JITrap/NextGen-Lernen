@@ -168,7 +168,9 @@
         return;
       }
 
-      var id = "f_" + U.slug(f.name) + "_" + Math.random().toString(36).slice(2, 6);
+      // Stabile ID: die Plattform überträgt Werte, Fokus und Scrollstand damit
+      // über ein erneutes Veröffentlichen hinweg.
+      var id = "f_" + U.slug(f.name);
       var current = values[f.name] !== undefined && values[f.name] !== null ? values[f.name] : (f.value !== undefined ? f.value : "");
       var input;
 
