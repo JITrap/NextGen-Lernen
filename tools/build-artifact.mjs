@@ -27,8 +27,10 @@ const body = bodyMatch[1]
 const out = [
   `<title>${title}</title>`,
   // Die Artifact-Hülle polstert :root mit den Safe-Area-Abständen.
-  // Das Layout regelt die Abstände selbst, also hier zurücksetzen.
-  `<style>:root{padding-top:0;padding-bottom:0}body{font-family:inherit}</style>`,
+  // Diese App bringt eigene fixe Leisten mit (Topbar, Tab-Leiste, Seitenleiste),
+  // die den Abstand selbst über env(safe-area-inset-*) einrechnen – deshalb hier
+  // zurücksetzen, sonst wird er doppelt gezählt.
+  `<style>:root{padding-top:0;padding-bottom:0}</style>`,
   ...links,
   "",
   body,
