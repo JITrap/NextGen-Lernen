@@ -1,0 +1,15 @@
+{
+  "name": "nextgen-lernen",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Schulplaner mit Klassenarbeiten, gewichteten Noten, Terminen, Materialien und KI-Assistent",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "dev": "node tools/serve.mjs",
+    "test": "node tools/smoke-test.mjs",
+    "build:artifact": "node tools/build-artifact.mjs"
+  },
+  "keywords": ["schule", "noten", "lernen", "stundenplan", "ki"],
+  "license": "MIT"
+}

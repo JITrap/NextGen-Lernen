@@ -1,0 +1,158 @@
+/* =========================================================
+   NextGen Lernen – Design Tokens
+   Ein einziges Farb-/Abstandssystem für die gesamte App.
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* --- Flächen & Text --------------------------------- */
+  --bg:            #f2f4f9;
+  --bg-elev:       #e9ecf5;
+  --surface:       #ffffff;
+  --surface-2:     #f7f8fc;
+  --surface-3:     #eef0f7;
+  --text:          #161923;
+  --text-muted:    #5c6278;
+  --text-faint:    #8b91a6;
+  --border:        #e0e4ef;
+  --border-strong: #c9cfe0;
+
+  /* --- Akzente ---------------------------------------- */
+  --accent:        #4b5bd4;
+  --accent-hover:  #3f4ec2;
+  --accent-soft:   #e8eaff;
+  --accent-text:   #3b49b8;
+  --on-accent:     #ffffff;
+
+  --success:       #0f9d58;
+  --success-soft:  #e0f5e9;
+  --warn:          #c7700a;
+  --warn-soft:     #fdf0da;
+  --danger:        #d23a44;
+  --danger-soft:   #fdeaec;
+  --info:          #0a7ea4;
+  --info-soft:     #e0f2f8;
+
+  /* --- Notenfarben (1 = gut … 6 = schlecht) ------------ */
+  --grade-1: #0f9d58;
+  --grade-2: #64a70b;
+  --grade-3: #c79a00;
+  --grade-4: #d97b06;
+  --grade-5: #d23a44;
+  --grade-6: #8e1f2b;
+
+  /* --- Form ------------------------------------------- */
+  --radius-sm:  8px;
+  --radius:     12px;
+  --radius-lg:  18px;
+  --radius-xl:  26px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(18, 22, 38, .06), 0 1px 1px rgba(18, 22, 38, .04);
+  --shadow:    0 2px 8px rgba(18, 22, 38, .07), 0 1px 2px rgba(18, 22, 38, .05);
+  --shadow-lg: 0 18px 44px rgba(18, 22, 38, .16), 0 3px 10px rgba(18, 22, 38, .08);
+
+  /* --- Raster ----------------------------------------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 44px;
+
+  --sidebar-w: 248px;
+  --topbar-h: 62px;
+  --tabbar-h: 62px;
+  --content-max: 1180px;
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+               "Liberation Mono", monospace;
+
+  --ease: cubic-bezier(.32, .72, .34, 1);
+  --dur: 170ms;
+}
+
+/* --- Dunkles Farbschema (Systemvorgabe) ----------------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg:            #0e1016;
+    --bg-elev:       #14171f;
+    --surface:       #181b24;
+    --surface-2:     #1e222c;
+    --surface-3:     #252a36;
+    --text:          #eef0f6;
+    --text-muted:    #a2a9bd;
+    --text-faint:    #767d92;
+    --border:        #2a2f3d;
+    --border-strong: #3b4252;
+
+    --accent:        #8896ff;
+    --accent-hover:  #9ba7ff;
+    --accent-soft:   #262b46;
+    --accent-text:   #a8b3ff;
+    --on-accent:     #10131c;
+
+    --success:       #3ddc84;
+    --success-soft:  #16301f;
+    --warn:          #ffb340;
+    --warn-soft:     #352511;
+    --danger:        #ff7a85;
+    --danger-soft:   #3a1a1f;
+    --info:          #5ac8e8;
+    --info-soft:     #122c36;
+
+    --grade-1: #3ddc84;
+    --grade-2: #a6e22e;
+    --grade-3: #ffd23f;
+    --grade-4: #ffa23f;
+    --grade-5: #ff7a85;
+    --grade-6: #ff5566;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+    --shadow:    0 2px 10px rgba(0, 0, 0, .45);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, .6), 0 4px 12px rgba(0, 0, 0, .4);
+  }
+}
+
+/* --- Dunkles Farbschema (manuell gewählt) --------------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg:            #0e1016;
+  --bg-elev:       #14171f;
+  --surface:       #181b24;
+  --surface-2:     #1e222c;
+  --surface-3:     #252a36;
+  --text:          #eef0f6;
+  --text-muted:    #a2a9bd;
+  --text-faint:    #767d92;
+  --border:        #2a2f3d;
+  --border-strong: #3b4252;
+
+  --accent:        #8896ff;
+  --accent-hover:  #9ba7ff;
+  --accent-soft:   #262b46;
+  --accent-text:   #a8b3ff;
+  --on-accent:     #10131c;
+
+  --success:       #3ddc84;
+  --success-soft:  #16301f;
+  --warn:          #ffb340;
+  --warn-soft:     #352511;
+  --danger:        #ff7a85;
+  --danger-soft:   #3a1a1f;
+  --info:          #5ac8e8;
+  --info-soft:     #122c36;
+
+  --grade-1: #3ddc84;
+  --grade-2: #a6e22e;
+  --grade-3: #ffd23f;
+  --grade-4: #ffa23f;
+  --grade-5: #ff7a85;
+  --grade-6: #ff5566;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow:    0 2px 10px rgba(0, 0, 0, .45);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, .6), 0 4px 12px rgba(0, 0, 0, .4);
+}

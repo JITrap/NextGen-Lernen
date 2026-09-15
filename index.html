@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f4f9">
+  <meta name="description" content="NextGen Lernen – Klassenarbeiten, Noten mit Gewichtung, Termine, Materialien und ein KI-Assistent, der hochgeladene Aufgaben Schritt für Schritt löst.">
+  <title>NextGen Lernen</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234b5bd4'/%3E%3Cpath d='M50 22 18 38l32 16 32-16z' fill='white'/%3E%3Cpath d='M30 46v18c0 5 9 9 20 9s20-4 20-9V46' stroke='white' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <div id="app">
+    <aside class="sidebar" aria-label="Hauptnavigation">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">NG</div>
+        <div>
+          <div class="brand__name">NextGen Lernen</div>
+          <div class="brand__sub">Dein Schuljahr im Griff</div>
+        </div>
+      </div>
+      <nav class="nav" id="nav"></nav>
+      <div class="sidebar__foot">
+        <div class="row row--tight">
+          <span class="badge" id="ai-state">KI wird geprüft …</span>
+        </div>
+        <div style="margin-top:8px">Daten liegen nur auf diesem Gerät.</div>
+      </div>
+    </aside>
+
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="btn btn--icon menu-btn" id="menu-btn" type="button" aria-label="Menü öffnen">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div>
+          <div class="topbar__title" id="topbar-title">NextGen Lernen</div>
+          <div class="topbar__sub hidden" id="topbar-sub"></div>
+        </div>
+        <div class="topbar__actions" id="topbar-actions"></div>
+        <button class="btn btn--icon" id="theme-btn" type="button" aria-label="Hell/Dunkel wechseln">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z"/>
+          </svg>
+        </button>
+      </header>
+
+      <main class="content" id="view"></main>
+    </div>
+
+    <nav class="tabbar" id="tabbar" aria-label="Schnellzugriff"></nav>
+  </div>
+
+  <div class="toasts" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <p style="padding:24px;text-align:center">
+      NextGen Lernen braucht JavaScript. Bitte aktiviere es im Browser.
+    </p>
+  </noscript>
+
+  <!-- Kern -->
+  <script src="js/core/util.js"></script>
+  <script src="js/core/store.js"></script>
+  <script src="js/core/grades.js"></script>
+  <script src="js/core/files.js"></script>
+  <script src="js/core/ai.js"></script>
+  <script src="js/core/ui.js"></script>
+  <script src="js/core/sync.js"></script>
+
+  <!-- Router: muss vor den Ansichten stehen, damit NG.app.register existiert -->
+  <script src="js/app.js"></script>
+
+  <!-- Ansichten -->
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/calendar.js"></script>
+  <script src="js/views/tasks.js"></script>
+  <script src="js/views/timetable.js"></script>
+  <script src="js/views/subjects.js"></script>
+  <script src="js/views/grades.js"></script>
+  <script src="js/views/assistant.js"></script>
+  <script src="js/views/materials.js"></script>
+  <script src="js/views/flashcards.js"></script>
+  <script src="js/views/focus.js"></script>
+  <script src="js/views/settings.js"></script>
+  <script src="js/views/onboarding.js"></script>
+</body>
+</html>
