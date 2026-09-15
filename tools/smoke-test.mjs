@@ -120,6 +120,10 @@ const SEED = {
   meta: { createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
 };
 
+/** Kleinstes gültiges PNG (1x1 Pixel) für den Upload-Test. */
+const PNG_1x1 =
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
+
 const VIEWS = [
   ["dashboard", "Übersicht"],
   ["calendar", "Termine"],
@@ -316,8 +320,10 @@ async function main() {
       window.NG.store.all("tasks").filter((t) => !t.done).length);
     const box = page.locator('#view input[type="checkbox"]').first();
     assert(await box.count(), "Keine Checkbox gefunden");
-    await box.check({ force: true });
-    await page.waitForTimeout(500);
+    // Bewusst click() statt check(): nach dem Abhaken rendert die Ansicht neu,
+    // check() würde die Liste erneut auflösen und ein zweites Kästchen treffen.
+    await box.click({ force: true });
+    await page.waitForTimeout(600);
     const openAfter = await page.evaluate(() =>
       window.NG.store.all("tasks").filter((t) => !t.done).length);
     assert(openAfter === openBefore - 1, `Offene Aufgaben: ${openBefore} -> ${openAfter}`);
@@ -426,7 +432,10 @@ async function main() {
         window.__kiAufrufe = (window.__kiAufrufe || 0) + 1;
         window.__kiEingabe = input;
         window.__kiBilder = opts && opts.images ? (opts.images.length || 1) : 0;
+        const signal = opts && opts.signal;
+        if (signal && signal.aborted) throw { code: "cancelled", message: "Abgebrochen" };
         await new Promise((r) => setTimeout(r, 60));
+        if (signal && signal.aborted) throw { code: "cancelled", message: "Abgebrochen" };
         if (opts && opts.onText) opts.onText({ text: ANTWORT, delta: ANTWORT });
         return { text: ANTWORT, truncated: false, modelTierApplied: "default" };
       };
@@ -531,7 +540,7 @@ async function main() {
       assert(await copy.count() > 0, "Kein Kopieren-Knopf an der Antwort");
     });
 
-    await check("Abbrechen bricht sauber ab", async () => {
+    await check("Abbrechen bricht sauber ab (Fehlercode cancelled)", async () => {
       const code = await page.evaluate(async () => {
         const ctl = new AbortController();
         const p = window.NG.ai.run({ prompt: "lang", signal: ctl.signal });
@@ -542,6 +551,56 @@ async function main() {
       assert(code !== "kein-fehler", "Abbruch wurde nicht gemeldet");
     });
 
+    await check("Datei hochladen legt ein Material an", async () => {
+      await page.goto(BASE + "#/materials");
+      await page.waitForTimeout(600);
+      const input = page.locator('#view input[type="file"]').first();
+      assert(await input.count(), "Keine Dateiauswahl in den Materialien");
+      await input.setInputFiles({
+        name: "aufgabe.png",
+        mimeType: "image/png",
+        buffer: Buffer.from(PNG_1x1, "base64"),
+      });
+      await page.waitForFunction(() => window.NG.store.all("materials").length > 0, { timeout: 8000 });
+      const mats = await page.evaluate(() => window.NG.store.all("materials").map((m) => ({
+        name: m.name, kind: m.file && m.file.kind, key: !!(m.file && m.file.key),
+      })));
+      assert(mats.length >= 1, "Kein Material angelegt");
+      assert(mats.some((m) => m.key), "Material ohne Dateiverweis gespeichert");
+      await page.waitForTimeout(500);
+      const text = await page.locator("#view").innerText();
+      assert(/aufgabe/i.test(text), "Das Material taucht nicht in der Liste auf");
+      await page.screenshot({ path: join(SHOTS, "51-material.png"), fullPage: true });
+    });
+
+    await check("Hochgeladene Datei ist wieder lesbar", async () => {
+      const groesse = await page.evaluate(async () => {
+        const m = window.NG.store.all("materials").find((x) => x.file && x.file.key);
+        if (!m) return -1;
+        const blob = await window.NG.files.get(m.file);
+        return blob ? blob.size : 0;
+      });
+      assert(groesse > 0, `Datei kam nicht zurück (Größe ${groesse})`);
+    });
+
+    await check("Material lässt sich wieder löschen", async () => {
+      // Aus dem KI-Test liegt noch ein Material ohne Datei vor – hier zählt
+      // nur, dass genau das hochgeladene verschwindet.
+      const res = await page.evaluate(async () => {
+        const m = window.NG.store.all("materials").find((x) => x.file && x.file.key);
+        if (!m) return { fehler: "kein hochgeladenes Material gefunden" };
+        await window.NG.files.del(m.file);
+        window.NG.store.remove("materials", m.id);
+        return {
+          nochDa: window.NG.store.all("materials").some((x) => x.id === m.id),
+          mitDatei: window.NG.store.all("materials").filter((x) => x.file && x.file.key).length,
+        };
+      });
+      assert(!res.fehler, res.fehler);
+      assert(res.nochDa === false, "Das Material wurde nicht entfernt");
+      assert(res.mitDatei === 0, `Noch ${res.mitDatei} Datei-Materialien übrig`);
+    });
+
     await check("Fehlermeldungen kommen auf Deutsch", async () => {
       const texte = await page.evaluate(() => [
         window.NG.ai.friendly({ code: "rate_limited", message: "x" }),
@@ -549,6 +608,215 @@ async function main() {
         window.NG.ai.friendly({ code: "not_granted", message: "x" }),
       ]);
       texte.forEach((t, i) => assert(t && t.length > 15 && !/^x$/.test(t), `Meldung ${i} unbrauchbar: ${t}`));
+    });
+  }
+
+  /* --- 5c. Abläufe mit Zustand --- */
+  console.log("\nAbläufe");
+
+  await check("Einrichtungsassistent legt Fächer an", async () => {
+    await context.close();
+    ({ context, page } = await newPage(null));          // bewusst ohne Daten
+    await page.goto(BASE, { waitUntil: "domcontentloaded" });
+    await page.waitForSelector(".modal", { timeout: 8000 });
+
+    await page.locator('.modal input[type="text"]').first().fill("Testkind");
+    await page.locator(".modal__foot button").filter({ hasText: /Los geht/i }).first().click();
+    await page.waitForTimeout(350);
+
+    // Schritt 2: Notensystem – die erste anklickbare Auswahl nehmen
+    let weiter = page.locator(".modal__foot button").filter({ hasText: /^Weiter$/ }).first();
+    assert(await weiter.count(), "Schritt 2 hat keinen Weiter-Knopf");
+    await weiter.click();
+    await page.waitForTimeout(350);
+
+    // Schritt 3: Gewichtung
+    weiter = page.locator(".modal__foot button").filter({ hasText: /^Weiter$/ }).first();
+    assert(await weiter.count(), "Schritt 3 hat keinen Weiter-Knopf");
+    await weiter.click();
+    await page.waitForTimeout(350);
+
+    // Schritt 4: Fächer auswählen
+    const chips = page.locator(".modal .chip");
+    const n = await chips.count();
+    assert(n >= 5, `Nur ${n} Fachvorschläge`);
+    await chips.nth(0).click();
+    await chips.nth(1).click();
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: join(SHOTS, "02-onboarding-faecher.png") });
+
+    await page.locator(".modal__foot button").filter({ hasText: /Fertig/i }).first().click();
+    await page.waitForSelector(".modal-backdrop", { state: "detached", timeout: 5000 });
+
+    const st = await page.evaluate(() => ({
+      name: window.NG.store.getSetting("name", ""),
+      onboarded: window.NG.store.getSetting("onboarded", false),
+      faecher: window.NG.store.all("subjects").length,
+      gewicht: window.NG.store.getSetting("defaultWeights", null),
+    }));
+    assert(st.name === "Testkind", `Name nicht gespeichert (${st.name})`);
+    assert(st.onboarded === true, "onboarded wurde nicht gesetzt");
+    assert(st.faecher === 2, `${st.faecher} Fächer statt 2 angelegt`);
+    assert(st.gewicht && st.gewicht.written + st.gewicht.oral === 100, "Gewichtung ergibt nicht 100 %");
+  });
+
+  await check("Karteikarten-Lernmodus funktioniert", async () => {
+    await context.close();
+    ({ context, page } = await newPage(SEED));
+    await page.goto(BASE + "#/flashcards", { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(600);
+
+    const lernen = page.locator("#view button").filter({ hasText: /^Lernen$/ }).first();
+    assert(await lernen.count(), "Kein Lernen-Knopf");
+    await lernen.click();
+    await page.waitForTimeout(500);
+
+    const karte = page.locator(".flashcard").first();
+    assert(await karte.count(), "Keine Lernkarte sichtbar");
+    const vorher = await page.evaluate(() => {
+      const c = window.NG.store.all("cards");
+      return c.map((x) => ({ id: x.id, box: x.box, due: x.due }));
+    });
+
+    await karte.click();                    // umdrehen
+    await page.waitForTimeout(500);
+    const gedreht = await page.evaluate(() =>
+      document.querySelector(".flashcard").classList.contains("is-flipped"));
+    assert(gedreht, "Die Karte dreht sich nicht um");
+    await page.screenshot({ path: join(SHOTS, "52-karteikarte.png") });
+
+    const gewusst = page.locator("#view button").filter({ hasText: /Gewusst/i }).first();
+    assert(await gewusst.count(), "Kein „Gewusst“-Knopf");
+    await gewusst.click();
+    await page.waitForTimeout(600);
+
+    const nachher = await page.evaluate(() =>
+      window.NG.store.all("cards").map((x) => ({ id: x.id, box: x.box, due: x.due })));
+    const geaendert = nachher.filter((n2, i) => n2.box !== vorher[i].box || n2.due !== vorher[i].due);
+    assert(geaendert.length === 1, `${geaendert.length} Karten verändert statt 1`);
+    assert(geaendert[0].box > vorher.find((v) => v.id === geaendert[0].id).box,
+      "Das Leitner-Fach wurde nicht erhöht");
+    assert(geaendert[0].due > new Date().toISOString().slice(0, 10),
+      "Die Karte ist immer noch heute fällig");
+  });
+
+  await check("Lerntimer startet und speichert eine Sitzung", async () => {
+    await page.goto(BASE + "#/focus", { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(500);
+
+    const vorher = await page.evaluate(() => window.NG.store.all("sessions").length);
+    const start = page.locator("#view button").filter({ hasText: /Lernphase starten|Starten|Start/i }).first();
+    assert(await start.count(), "Kein Start-Knopf im Lerntimer");
+    await start.click();
+    await page.waitForTimeout(2200);
+
+    const laeuft = await page.locator("#view").innerText();
+    assert(/24:5\d|Pause|Stopp/.test(laeuft), "Der Timer scheint nicht zu laufen: " + laeuft.slice(0, 120));
+
+    const stopp = page.locator("#view button").filter({ hasText: /Stopp/i }).first();
+    assert(await stopp.count(), "Kein Stopp-Knopf");
+    await stopp.click();
+    await page.waitForTimeout(600);
+    const bestaetigen = page.locator(".modal__foot button").filter({ hasText: /Ja|Beenden|Stopp|Verwerfen|Speichern/i }).first();
+    if (await bestaetigen.count()) await bestaetigen.click();
+    await page.waitForTimeout(500);
+
+    const nachher = await page.evaluate(() => window.NG.store.all("sessions").length);
+    assert(nachher >= vorher, "Sitzungen sind verloren gegangen");
+    const titel = await page.evaluate(() => document.title);
+    assert(!/^\d?\d:\d\d/.test(titel), `Der Seitentitel wurde nicht zurückgesetzt: ${titel}`);
+  });
+
+  /* --- 5d. Tempo, auch mit viel Daten --- */
+  console.log("\nTempo");
+  {
+    await context.close();
+    ({ context, page } = await newPage(SEED));
+    await page.goto(BASE + "#/dashboard", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#view .view", { timeout: 8000 });
+
+    // Kräftig aufblähen: ein volles Schuljahr mit sehr viel Inhalt.
+    await page.evaluate(() => {
+      const S = window.NG.store;
+      const U = window.NG.util;
+      const faecher = S.all("subjects").map((x) => x.id);
+      const heute = U.todayISO();
+      const noten = [], termine = [], aufgaben = [], karten = [], sitzungen = [];
+      for (let i = 0; i < 400; i++) {
+        noten.push({
+          subjectId: faecher[i % faecher.length],
+          title: "Leistung " + i,
+          type: i % 3 === 0 ? "oral" : "written",
+          category: "Test",
+          value: 1 + (i % 5),
+          weight: (i % 3) + 1,
+          date: U.addDays(heute, -(i % 300)),
+        });
+      }
+      for (let i = 0; i < 200; i++) {
+        termine.push({
+          subjectId: faecher[i % faecher.length],
+          title: "Termin " + i,
+          type: i % 2 ? "exam" : "other",
+          date: U.addDays(heute, (i % 120) - 30),
+        });
+        aufgaben.push({
+          subjectId: faecher[i % faecher.length],
+          title: "Aufgabe " + i,
+          due: U.addDays(heute, (i % 60) - 20),
+          done: i % 4 === 0,
+          priority: (i % 3) + 1,
+        });
+      }
+      const deck = S.add("decks", { name: "Großer Stapel", subjectId: faecher[0] });
+      for (let i = 0; i < 400; i++) {
+        karten.push({
+          deckId: deck.id, front: "Frage " + i, back: "Antwort " + i,
+          box: (i % 5) + 1, due: U.addDays(heute, i % 7),
+        });
+      }
+      for (let i = 0; i < 200; i++) {
+        sitzungen.push({
+          subjectId: faecher[i % faecher.length],
+          startedAt: new Date(Date.now() - i * 3600000).toISOString(),
+          minutes: 20 + (i % 40), kind: "focus",
+        });
+      }
+      S.addMany("grades", noten);
+      S.addMany("events", termine);
+      S.addMany("tasks", aufgaben);
+      S.addMany("cards", karten);
+      S.addMany("sessions", sitzungen);
+    });
+
+    const zeiten = {};
+    for (const [id, title] of VIEWS) {
+      await check(`„${title}“ bleibt mit 1400 Einträgen flüssig`, async () => {
+        const before = errors.length;
+        const ms = await page.evaluate((viewId) => {
+          const t0 = performance.now();
+          window.location.hash = "#/" + viewId;
+          window.NG.app.render();
+          return performance.now() - t0;
+        }, id);
+        zeiten[id] = Math.round(ms);
+        await page.waitForTimeout(140);
+        const fresh = errors.slice(before);
+        assert(fresh.length === 0, `Fehler beim Rendern:\n      ${fresh.join("\n      ")}`);
+        assert(ms < 700, `${Math.round(ms)} ms zum Aufbauen – zu langsam`);
+      });
+    }
+    console.log("    Renderzeiten (ms): " +
+      Object.keys(zeiten).map((k) => `${k} ${zeiten[k]}`).join(" · "));
+
+    await check("Speichern bleibt auch bei viel Daten schnell", async () => {
+      const ms = await page.evaluate(() => {
+        const t0 = performance.now();
+        window.NG.store.add("tasks", { title: "Tempoprobe", due: null, done: false, priority: 2 });
+        window.NG.store.flush();
+        return performance.now() - t0;
+      });
+      assert(ms < 600, `${Math.round(ms)} ms zum Speichern`);
     });
   }
 
