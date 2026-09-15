@@ -265,6 +265,18 @@
     });
   }
 
+  /* ---------- Offline-Betrieb ------------------------------- */
+
+  /** Service Worker nur dort anmelden, wo er wirklich hilft. */
+  function registerServiceWorker() {
+    var httpLike = global.location.protocol === "http:" || global.location.protocol === "https:";
+    var framed = global.top !== global.self;          // z. B. als Claude-Artifact eingebettet
+    if (!httpLike || framed || !("serviceWorker" in navigator)) return;
+    navigator.serviceWorker.register("sw.js").catch(function () {
+      // Offline-Betrieb ist ein Extra – ein Fehlschlag darf die App nicht stören.
+    });
+  }
+
   /* ---------- Start ---------------------------------------- */
 
   function boot() {
@@ -307,6 +319,7 @@
     if (NG.sync && NG.sync.init) NG.sync.init();
 
     render();
+    registerServiceWorker();
 
     if (!NG.store.getSetting("onboarded", false) && NG.onboarding) {
       setTimeout(NG.onboarding.start, 350);

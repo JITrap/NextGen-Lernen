@@ -630,16 +630,22 @@
     var st = NG.ai.status();
     if (!st.ready) { openAiHint(st); return; }
 
-    var controller = null;
+    var job = null;              // laufende Anfrage: { ctrl, dead }
+    var closed = false;
     var body = el("div", { class: "stack" });
+
+    function stopJob() {
+      if (!job) return;
+      job.dead = true;
+      if (job.ctrl) { try { job.ctrl.abort(); } catch (e) { /* schon beendet */ } }
+      job = null;
+    }
 
     var m = NG.ui.modal({
       title: "Lernplan für „" + U.truncate(ev.title || "Prüfung", 38) + "“",
       body: body,
       actions: [{ label: "Schließen", onClick: function () { m.close(); } }],
-      onClose: function () {
-        if (controller) { try { controller.abort(); } catch (e) { /* schon beendet */ } controller = null; }
-      }
+      onClose: function () { closed = true; stopJob(); }
     });
 
     function setFoot(nodes) {
@@ -705,7 +711,8 @@
 
     /* Schritt 2: KI läuft */
     function runPlan(topicsValue, minutesValue) {
-      controller = typeof AbortController === "function" ? new AbortController() : null;
+      var current = { ctrl: typeof AbortController === "function" ? new AbortController() : null, dead: false };
+      job = current;
 
       U.clear(body);
       U.append(body, el("div", { class: "row" }, [
@@ -714,7 +721,7 @@
       ]));
 
       setFoot([button("Abbrechen", null, function () {
-        if (controller) { try { controller.abort(); } catch (e) { /* egal */ } }
+        stopJob();
         showForm(topicsValue, minutesValue);
       })]);
 
@@ -727,9 +734,10 @@
         json: true,
         tier: "default",
         maxTokens: 2000,
-        signal: controller ? controller.signal : undefined
+        signal: current.ctrl ? current.ctrl.signal : undefined
       }).then(function (res) {
-        controller = null;
+        if (current.dead || closed) return;   // abgebrochen oder Dialog zu
+        job = null;
         var tasks = normalizePlan(res && res.data, ev);
         try {
           NG.ai.logRun({
@@ -748,7 +756,8 @@
         }
         showResult(tasks, topicsValue, minutesValue);
       }).catch(function (err) {
-        controller = null;
+        if (current.dead || closed) return;   // Abbruch ist kein Fehler
+        job = null;
         showError(NG.ai.friendly(err), topicsValue, minutesValue);
       });
     }
