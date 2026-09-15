@@ -7,9 +7,17 @@
   "scripts": {
     "start": "node tools/serve.mjs",
     "dev": "node tools/serve.mjs",
-    "test": "node tools/smoke-test.mjs",
-    "build:artifact": "node tools/build-artifact.mjs"
+    "test": "node tools/grades-test.mjs && node tools/smoke-test.mjs",
+    "build:artifact": "node tools/build-artifact.mjs",
+    "test:units": "node tools/grades-test.mjs",
+    "test:browser": "node tools/smoke-test.mjs"
   },
-  "keywords": ["schule", "noten", "lernen", "stundenplan", "ki"],
+  "keywords": [
+    "schule",
+    "noten",
+    "lernen",
+    "stundenplan",
+    "ki"
+  ],
   "license": "MIT"
 }

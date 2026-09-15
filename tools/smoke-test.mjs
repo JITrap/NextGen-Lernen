@@ -163,22 +163,32 @@ async function main() {
   });
 
   const errors = [];
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, locale: "de-DE" });
-  const page = await context.newPage();
 
-  page.on("console", (msg) => {
-    if (msg.type() !== "error" && msg.type() !== "warning") return;
-    const text = msg.text();
-    if (IGNORE.some((re) => re.test(text))) return;
-    if (msg.type() === "error") errors.push(`[console] ${text}`);
-  });
-  page.on("pageerror", (err) => errors.push(`[pageerror] ${err.message}`));
+  /** Neue, saubere Browser-Sitzung. `data` wird nur gesetzt, wenn noch nichts gespeichert ist,
+   *  damit spätere Änderungen einen Neustart überleben. */
+  async function newPage(data) {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, locale: "de-DE" });
+    if (data) {
+      await context.addInitScript((seedData) => {
+        try {
+          if (!window.localStorage.getItem("nextgen-lernen.state.v1")) {
+            window.localStorage.setItem("nextgen-lernen.state.v1", JSON.stringify(seedData));
+          }
+        } catch { /* Speicher gesperrt */ }
+      }, data);
+    }
+    const p = await context.newPage();
+    p.on("console", (msg) => {
+      if (msg.type() !== "error") return;
+      const text = msg.text();
+      if (IGNORE.some((re) => re.test(text))) return;
+      errors.push(`[console] ${text}`);
+    });
+    p.on("pageerror", (err) => errors.push(`[pageerror] ${err.message}`));
+    return { context, page: p };
+  }
 
-  const seed = async () => {
-    await page.addInitScript((data) => {
-      window.localStorage.setItem("nextgen-lernen.state.v1", JSON.stringify(data));
-    }, SEED);
-  };
+  let { context, page } = await newPage(null);
 
   console.log("\nNextGen Lernen – Funktionsprüfung\n");
 
@@ -207,8 +217,8 @@ async function main() {
 
   /* --- 2. Alle Ansichten mit Beispieldaten --- */
   console.log("\nAnsichten");
-  await context.clearCookies();
-  await seed();
+  await context.close();
+  ({ context, page } = await newPage(SEED));
   await page.goto(BASE + "#/dashboard", { waitUntil: "domcontentloaded" });
   await page.waitForSelector("#view .view", { timeout: 8000 });
 

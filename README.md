@@ -111,14 +111,19 @@ und die Antwort (Server-Sent Events) durchreichen.
 ## Prüfen und Testen
 
 ```bash
-npm test          # startet Chromium und klickt die ganze App durch
-npm test -- --headed
+npm test               # Rechentests + Browserlauf
+npm run test:units     # nur die Notenrechnung (schnell, ohne Browser)
+npm run test:browser   # nur der Browserlauf
+node tools/smoke-test.mjs --headed   # mit sichtbarem Browser
 ```
 
-Der Lauf prüft jede Ansicht auf JavaScript-Fehler, rechnet die gewichteten
-Durchschnitte gegen, legt testweise Einträge an, lädt neu (Persistenz),
-und kontrolliert Desktop- und Handy-Layout auf waagerechten Überlauf.
-Bildschirmfotos landen in `tests/screenshots/`.
+`test:units` rechnet die Notenlogik gegen: Gewichtung schriftlich/mündlich,
+Gewicht einzelner Noten, Wertigkeit von Fächern, beide Notensysteme und die
+Gegenprobe, dass die Prognose „Was brauche ich noch?“ wirklich zur Zielnote führt.
+
+`test:browser` startet Chromium, öffnet jede Ansicht, prüft auf JavaScript-Fehler,
+legt testweise Einträge an, lädt neu (Persistenz) und kontrolliert Desktop- und
+Handy-Layout auf waagerechten Überlauf. Bildschirmfotos landen in `tests/screenshots/`.
 
 ---
 
