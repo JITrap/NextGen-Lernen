@@ -300,7 +300,7 @@
     } else {
       NG.store.add("timetable", patch);
     }
-    NG.ui.toast(fullName({ subjectId: subjectId }) + " eingetragen", "success");
+    NG.ui.toast(NG.store.subjectName(subjectId) + " eingetragen", "success");
   }
 
   /* ---------- Raster ---------------------------------------- */
@@ -388,7 +388,7 @@
 
     var wrap = el("div", { class: "tt-wrap" }, grid);
 
-    var hidden = maxUsedSlot() - slots;
+    var maxUsed = maxUsedSlot();
     var foot = el("div", { class: "row row--tight" }, [
       el("span", {
         class: "fs-sm muted",
@@ -401,15 +401,15 @@
     ]);
 
     var body = [wrap];
-    if (hidden > 0) {
+    if (maxUsed > slots) {
       body.push(el("div", { class: "row row--tight mt-3" }, [
         el("span", {
           class: "fs-sm muted",
           text: "Hinter der " + slots + ". Stunde stehen noch Einträge bis zur " +
-            maxUsedSlot() + ". Stunde."
+            maxUsed + ". Stunde."
         }),
         textButton(null, "Alle Stunden zeigen", "btn btn--sm", function () {
-          writeSlots(maxUsedSlot());
+          writeSlots(maxUsed);
           ctx.rerender();
         })
       ]));
@@ -476,23 +476,25 @@
     if (info.weekend) {
       body.push(el("div", {
         class: "fs-sm muted",
-        style: { padding: "var(--sp-4) var(--sp-5) 0" },
+        style: { padding: "var(--sp-4) var(--sp-5) var(--sp-2)" },
         text: "Wochenende – das ist dein Montag."
       }));
     }
 
     if (!rows.length) {
-      body.push(el("div", { style: { padding: "var(--sp-4) var(--sp-5)" } },
-        el("p", {
-          class: "muted fs-sm",
-          style: { margin: "0" },
-          text: "Für " + DAYS[info.day] + " ist noch nichts eingetragen. " +
-            "Tippe oben im Raster auf eine Stunde, dann steht sie hier."
-        })));
+      body.push(NG.ui.empty({
+        icon: "clock",
+        title: "Für " + DAYS[info.day] + " ist nichts eingetragen",
+        text: "Tippe oben im Raster auf eine Stunde – oder trag sie gleich hier ein.",
+        action: {
+          label: "Stunde eintragen",
+          onClick: function () { openCell(info.day, firstFreeSlot(info.day), ctx); }
+        }
+      }));
     } else {
       var list = el("div", { class: "list" });
       rows.forEach(function (r) { list.appendChild(todayRow(r, t, mark, ctx)); });
-      body.push(el("div", { class: rows.length && !info.weekend ? "" : "mt-3" }, list));
+      body.push(list);
     }
 
     var footText;
@@ -534,7 +536,7 @@
     return NG.ui.empty({
       icon: "grid",
       title: "Noch keine Fächer da",
-      text: "Lege zuerst deine Fächer an – danach kannst du sie hier in den Stundenplan ziehen.",
+      text: "Lege zuerst deine Fächer an – danach trägst du sie hier mit einem Tipp in den Wochenplan ein.",
       action: {
         label: "Fächer anlegen",
         onClick: function () { ctx.go("subjects"); }

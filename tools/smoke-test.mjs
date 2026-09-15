@@ -415,6 +415,115 @@ async function main() {
     await page.locator(".scrim").click({ force: true });
   });
 
+  /* --- 5b. KI mit simuliertem Claude --- */
+  console.log("\nKI-Funktionen (simuliert)");
+  {
+    await context.close();
+    ({ context, page } = await newPage(SEED));
+    await context.addInitScript(() => {
+      const ANTWORT = "## Aufgabe 1\n\nZuerst beide Seiten durch 2 teilen.\n\n1. Schritt eins\n2. Schritt zwei\n\nErgebnis: **x = 42**";
+      const sample = async (input, opts) => {
+        window.__kiAufrufe = (window.__kiAufrufe || 0) + 1;
+        window.__kiEingabe = input;
+        window.__kiBilder = opts && opts.images ? (opts.images.length || 1) : 0;
+        await new Promise((r) => setTimeout(r, 60));
+        if (opts && opts.onText) opts.onText({ text: ANTWORT, delta: ANTWORT });
+        return { text: ANTWORT, truncated: false, modelTierApplied: "default" };
+      };
+      sample.json = async () => ({
+        deck: "Testkarten",
+        cards: [{ front: "Frage A", back: "Antwort A" }, { front: "Frage B", back: "Antwort B" }],
+        tasks: [{ title: "Kapitel 1 wiederholen", due: new Date().toISOString().slice(0, 10), note: "30 Minuten" }],
+      });
+      sample.limits = async () => ({
+        maxPromptBytes: 65536,
+        images: { maxCount: 5, maxInputBytes: 20000000, mediaTypes: ["image/jpeg", "image/png"] },
+      });
+      window.claude = { use: async (name) => (name === "sample" ? sample : null) };
+    });
+    await page.goto(BASE + "#/assistant", { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#view .view", { timeout: 8000 });
+    await page.waitForTimeout(700);
+
+    await check("KI wird als bereit erkannt", async () => {
+      const st = await page.evaluate(() => window.NG.ai.status());
+      assert(st.ready === true, `Status: ${JSON.stringify(st)}`);
+      assert(st.provider === "claude", `Anbieter ${st.provider} statt claude`);
+      assert(st.canImages === true, "Bilder sollten möglich sein");
+    });
+
+    await check("Textanfrage liefert eine Antwort", async () => {
+      const res = await page.evaluate(async () => {
+        let gestreamt = "";
+        const r = await window.NG.ai.run({
+          system: window.NG.ai.systemPrompt(),
+          prompt: "Löse 2x = 84",
+          onText: (u) => { gestreamt = u.text; },
+        });
+        return { text: r.text, gestreamt, provider: r.provider };
+      });
+      assert(/x = 42/.test(res.text), "Antworttext fehlt");
+      assert(res.gestreamt === res.text, "onText lieferte nicht den vollen Text");
+      assert(res.provider === "claude", "Falscher Anbieter");
+    });
+
+    await check("Bildanfrage reicht die Bilder durch", async () => {
+      const anzahl = await page.evaluate(async () => {
+        const c = document.createElement("canvas");
+        c.width = 20; c.height = 20;
+        c.getContext("2d").fillRect(0, 0, 20, 20);
+        const blob = await new Promise((r) => c.toBlob(r, "image/png"));
+        await window.NG.ai.run({ prompt: "Was steht auf dem Bild?", images: [blob] });
+        return window.__kiBilder;
+      });
+      assert(anzahl === 1, `${anzahl} Bilder angekommen statt 1`);
+    });
+
+    await check("JSON-Anfrage liefert ausgewertete Daten", async () => {
+      const data = await page.evaluate(() =>
+        window.NG.ai.run({ prompt: "Gib JSON", json: true }).then((r) => r.data));
+      assert(data && Array.isArray(data.cards) && data.cards.length === 2, "JSON kam nicht durch");
+    });
+
+    await check("Schuldaten stehen als Kontext bereit", async () => {
+      const ctxText = await page.evaluate(() => window.NG.ai.context());
+      assert(/Mathematik/.test(ctxText), "Fächer fehlen im Kontext");
+      assert(/Klassenarbeit|Termine/.test(ctxText), "Termine fehlen im Kontext");
+    });
+
+    await check("KI-Ansicht zeigt keinen Einrichtungshinweis mehr", async () => {
+      await page.goto(BASE + "#/assistant");
+      await page.waitForTimeout(600);
+      const text = await page.locator("#view").innerText();
+      assert(!/Jetzt einrichten/i.test(text), "Einrichtungshinweis wird trotz bereiter KI angezeigt");
+    });
+
+    await check("KI-Ansicht hat einen Start-Knopf", async () => {
+      const btn = page.locator("#view button").filter({ hasText: /Loslegen|Aufgaben lösen|Starten|Analysieren|Los geht/i });
+      assert(await btn.count() > 0, "Kein erkennbarer Start-Knopf in der KI-Ansicht");
+    });
+
+    await check("Abbrechen bricht sauber ab", async () => {
+      const code = await page.evaluate(async () => {
+        const ctl = new AbortController();
+        const p = window.NG.ai.run({ prompt: "lang", signal: ctl.signal });
+        ctl.abort();
+        try { await p; return "kein-fehler"; }
+        catch (e) { return e.code || e.name || "unbekannt"; }
+      });
+      assert(code !== "kein-fehler", "Abbruch wurde nicht gemeldet");
+    });
+
+    await check("Fehlermeldungen kommen auf Deutsch", async () => {
+      const texte = await page.evaluate(() => [
+        window.NG.ai.friendly({ code: "rate_limited", message: "x" }),
+        window.NG.ai.friendly({ status: 401, message: "x" }),
+        window.NG.ai.friendly({ code: "not_granted", message: "x" }),
+      ]);
+      texte.forEach((t, i) => assert(t && t.length > 15 && !/^x$/.test(t), `Meldung ${i} unbrauchbar: ${t}`));
+    });
+  }
+
   /* --- 6. Schnittstellen --- */
   console.log("\nSchnittstellen");
   await check("Alle benutzten NG-Funktionen existieren wirklich", async () => {

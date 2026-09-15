@@ -545,11 +545,15 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
 }
 .cal__num { font-weight: 650; font-size: .78rem; }
 .cal__ev {
-  font-size: .68rem; padding: 1px 5px; border-radius: 5px;
+  font-size: .68rem; font-weight: 560; line-height: 1.5;
+  padding: 1px 5px; border-radius: 3px;
   background: var(--accent-soft); color: var(--accent-text);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  border-left: 2px solid var(--accent);
+  border-left: 3px solid var(--accent);
+  text-align: left; font-family: inherit;
 }
+button.cal__ev { border-top: 0; border-right: 0; border-bottom: 0; cursor: pointer; width: 100%; }
+button.cal__ev:hover { filter: brightness(.96); }
 @media (max-width: 640px) {
   .cal__day { min-height: 62px; }
   .cal__ev { font-size: 0; padding: 0; height: 5px; border-radius: 3px; border-left: 0; }

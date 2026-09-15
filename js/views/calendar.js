@@ -581,7 +581,7 @@
       "Fach: " + (ev.subjectId ? NG.store.subjectName(ev.subjectId) : "kein Fach angegeben"),
       "Datum der Prüfung: " + ev.date,
       "Heute ist der " + today + ".",
-      "Es bleiben noch " + days + " Tage.",
+      days === 1 ? "Es bleibt noch 1 Tag." : "Es bleiben noch " + days + " Tage.",
       "Lernzeit pro Tag: etwa " + minutes + " Minuten.",
       "",
       "Themen der Arbeit:",
@@ -684,12 +684,10 @@
           minutes.appendChild(opt);
         });
 
-      var days = Math.max(0, daysBetween(U.todayISO(), ev.date));
-
       U.append(body, [
         el("p", { class: "muted fs-sm" }, [
           el("span", { text: "Die Prüfung ist am " + U.fmtDate(ev.date, { style: "long" }) + " – " }),
-          el("span", { class: "fw-6", text: days === 0 ? "heute!" : "in " + days + " Tagen." }),
+          el("span", { class: "fw-6", text: U.relDays(ev.date) + "." }),
           el("span", { text: " Sag mir, was drankommt, dann verteile ich den Stoff auf die Tage." })
         ]),
         el("div", { class: "field" }, [
