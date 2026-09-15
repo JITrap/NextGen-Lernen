@@ -646,6 +646,9 @@
       readSlots();
       var out = [];
 
+      // Solange es kein Fach und keinen Eintrag gibt, zeigen wir nur den Leerzustand.
+      if (!NG.store.activeSubjects().length && !allEntries().length) return out;
+
       out.push(textButton(null, "− Stunde", "btn btn--sm",
         function () { removeSlot(ctx); },
         { title: "Eine Stunde weniger anzeigen", disabled: slots <= MIN_SLOTS }));

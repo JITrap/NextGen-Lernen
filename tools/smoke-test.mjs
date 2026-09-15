@@ -498,9 +498,37 @@ async function main() {
       assert(!/Jetzt einrichten/i.test(text), "Einrichtungshinweis wird trotz bereiter KI angezeigt");
     });
 
-    await check("KI-Ansicht hat einen Start-Knopf", async () => {
-      const btn = page.locator("#view button").filter({ hasText: /Loslegen|Aufgaben lösen|Starten|Analysieren|Los geht/i });
-      assert(await btn.count() > 0, "Kein erkennbarer Start-Knopf in der KI-Ansicht");
+    await check("KI-Ansicht löst eine Aufgabe komplett durch", async () => {
+      await page.goto(BASE + "#/assistant");
+      await page.waitForTimeout(600);
+      const box = page.locator("#view textarea").first();
+      assert(await box.count(), "Kein Eingabefeld in der KI-Ansicht");
+      await box.fill("Löse 2x = 84");
+      const btn = page.locator("#view button.btn--primary").first();
+      assert(await btn.count(), "Kein Start-Knopf in der KI-Ansicht");
+      await btn.click();
+      await page.waitForFunction(
+        () => /x = 42|Schritt eins/.test(document.querySelector("#view").innerText),
+        { timeout: 8000 }
+      );
+      const text = await page.locator("#view").innerText();
+      assert(/x = 42/.test(text), "Die Antwort wurde nicht angezeigt");
+      const runs = await page.evaluate(() => window.NG.store.all("aiRuns").length);
+      assert(runs >= 1, "Die Antwort landete nicht im Verlauf");
+      await page.screenshot({ path: join(SHOTS, "50-ki-antwort.png"), fullPage: true });
+    });
+
+    await check("KI-Antwort lässt sich weiterverwenden", async () => {
+      const btn = page.locator("#view button").filter({ hasText: /Als Material speichern/i }).first();
+      if (await btn.count()) {
+        const before = await page.evaluate(() => window.NG.store.all("materials").length);
+        await btn.click();
+        await page.waitForTimeout(400);
+        const after = await page.evaluate(() => window.NG.store.all("materials").length);
+        assert(after === before + 1, "Material wurde nicht angelegt");
+      }
+      const copy = page.locator("#view button").filter({ hasText: /Kopieren/i }).first();
+      assert(await copy.count() > 0, "Kein Kopieren-Knopf an der Antwort");
     });
 
     await check("Abbrechen bricht sauber ab", async () => {

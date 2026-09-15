@@ -152,7 +152,8 @@
 
       if (/^\s*(-{3,}|\*{3,}|_{3,})\s*$/.test(line)) { flushPara(); closeLists(); out.push("<hr>"); continue; }
 
-      var quote = line.match(/^\s*>\s?(.*)$/);
+      // Achtung: der Text ist bereits escaped, ">" steht hier als "&gt;".
+      var quote = line.match(/^\s*(?:&gt;|>)\s?(.*)$/);
       if (quote) {
         flushPara(); closeLists();
         out.push("<blockquote>" + mdInline(quote[1]) + "</blockquote>");

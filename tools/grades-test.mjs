@@ -300,6 +300,28 @@ test("Datumsrechnung über Monatsgrenzen", () => {
   assert.equal(NG.util.addDays("2028-02-28", 1), "2028-02-29");
 });
 
+test("Markdown erkennt Zitate, Listen, Tabellen und Code", () => {
+  const html = NG.util.md([
+    "> Merksatz: Ableitung ist die Steigung.",
+    "",
+    "1. erster Schritt",
+    "2. zweiter Schritt",
+    "",
+    "| Fach | Note |",
+    "| --- | --- |",
+    "| Mathe | 2 |",
+    "",
+    "```",
+    "x = 42",
+    "```",
+  ].join("\n"));
+  assert.ok(html.includes("<blockquote>"), "Zitat fehlt");
+  assert.ok(html.includes("Merksatz"), "Zitattext fehlt");
+  assert.ok(html.includes("<ol>") && html.includes("<li>erster Schritt</li>"), "Nummerierte Liste fehlt");
+  assert.ok(html.includes("<table>") && html.includes("<th>Fach</th>"), "Tabelle fehlt");
+  assert.ok(html.includes("<pre><code>x = 42"), "Codeblock fehlt");
+});
+
 test("Markdown wird sicher umgesetzt", () => {
   const html = NG.util.md("# Titel\n\n- **fett**\n- <script>alert(1)</script>");
   assert.ok(html.includes("<h2>Titel</h2>"), "Überschrift fehlt");
