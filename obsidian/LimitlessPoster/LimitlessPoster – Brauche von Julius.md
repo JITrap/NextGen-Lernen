@@ -1,12 +1,13 @@
 ---
 tags: [limitlessposter, offen]
-stand: 2026-09-03
+stand: 2026-09-21
 ---
 # LimitlessPoster – Das brauche ich von Julius
 
 > Alles, was Claude per API **nicht** selbst erledigen kann. Sobald du einen Punkt erledigt hast oder mir Daten gibst, mache ich weiter.
 
 ## 1. Zugänge / Daten für mich
+- [ ] **Nach jedem Printify-Publish Bescheid geben** – die 11 Motive vom 17.09. kamen englisch, ohne GPSR und ohne Collection an (21.09. von Claude nachgezogen). Ein kurzes „neue Produkte drin“ reicht.
 - [ ] **Printify-API-Token** (Printify → Konto-Menü → *Connections* → *API tokens* → Token erzeugen, Rechte lesen/schreiben) → hier oder im Chat eintragen. Damit kann ich Produkte, Bestellungen und Store-Einstellungen bei Printify prüfen.
 - [ ] **Obsidian-Vault-Ort** (Ordnerpfad, GitHub-Repo oder Google-Drive-Ordner). Bis dahin liegen meine Notizen im Repo unter `obsidian/LimitlessPoster/` – einfach in den Vault kopieren. Hinweis: Deine Tagesplan-Session nutzt einen Memory-Vault mit `/areas/…` und `/topics/…`-Notizen – falls das dein Obsidian ist, muss dieser Speicher auch dieser Shop-Session zugänglich gemacht werden.
 - [ ] **Shop-Postfach** limitless.posterje@gmail.com ist nicht mit Claude verbunden (nur das private Gmail). Wenn ich Printify-/Shopify-Mails prüfen soll: das Konto verbinden.
