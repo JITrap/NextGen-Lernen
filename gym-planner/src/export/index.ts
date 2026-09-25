@@ -1,14 +1,21 @@
 /**
- * Export-API (Platzhalter – wird vom Export-Modul implementiert).
- * Alle Funktionen arbeiten auf dem aktuellen Projekt aus dem Store.
+ * Export-API. Alle Export-Funktionen arbeiten standardmäßig auf dem aktuellen Projekt aus dem Store.
+ *
+ * - exportPng({ floorId?, scaleFactor? })      PNG des Stockwerks (hochauflösend)
+ * - exportPdf({ floorIds?, scale? })           PDF: maßstäbliche Pläne + Flächenbilanz + Stückliste
+ * - exportCsv(project?)                         Stückliste als CSV (Excel DE)
+ * - exportJson(project?) / importJsonFile()     Projekt als JSON sichern / laden (liefert Projekt, lädt nicht selbst)
+ * - serializeProject / parseProject             reine Text-Konvertierung (validiert + migriert)
  */
-import type { Project } from '@/types';
-
-export async function exportPng(_opts?: { floorId?: string; scaleFactor?: number }): Promise<void> {}
-export async function exportPdf(_opts?: { floorIds?: string[]; scale?: 50 | 100 | 200 }): Promise<void> {}
-export function exportCsv(): void {}
-export function exportJson(_project?: Project): void {}
-/** Öffnet einen Dateidialog und importiert ein Projekt-JSON. */
-export async function importJsonFile(): Promise<Project | null> { return null; }
-export function serializeProject(p: Project): string { return JSON.stringify(p, null, 2); }
-export function parseProject(json: string): Project { return JSON.parse(json) as Project; }
+export { exportPng, exportAllFloorsPng, renderFloorPng, pngPxPerCm, PNG_BASE_PX_PER_CM, type PngOptions } from './png';
+export { exportPdf, buildPdf, floorAreaBalance, projectAreaBalance, paperFormatForPlan, PAPER_FORMATS, type PdfOptions, type PdfScale, type FloorAreaBalance, type ProjectAreaBalance, type AreaByType, type AreaByClass } from './pdf';
+export { exportCsv, bomRows, bomTotals, bomCsvText, unitPrice, CSV_HEADER, type BomRow, type BomTotals } from './csv';
+export {
+  exportJson, importJsonFile, importProjectFromText, serializeProject, parseProject, parseProjectDetailed, stableStringify,
+  downloadBlob, safeFileName, pickJsonFile, JSON_FORMAT, JSON_FILE_SUFFIX, type ParsedProject,
+} from './json';
+export {
+  renderFloorToCanvas, layoutFloorRender, floorContentBounds, paperMmForCm, cmForPaperMm, pxPerCmForPaper, clampPxPerCm,
+  scaleBarLength, legendRoomTypes, itemAreaColor, itemShortLabel, AREA_COLORS, MAX_IMAGE_PX,
+  type RenderOptions, type RenderResult, type RenderLayout,
+} from './planRenderer';
