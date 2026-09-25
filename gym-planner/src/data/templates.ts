@@ -515,11 +515,11 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.door(wCol, { x: COL, y: 800 }, { x: 600, y: 800 }, { width: 100 });
   b.door(wCol, { x: COL, y: 960 }, { x: 600, y: 960 }, { width: 90 });
   b.door(wCol, { x: COL, y: 1500 }, { x: 600, y: 1500 }, { width: 90 });
-  b.door(wSanD, { x: SAN, y: 1170 }, { x: 150, y: 1170 }, { width: 80 });
-  b.door(wSanH, { x: SAN, y: 1710 }, { x: 150, y: 1710 }, { width: 80 });
+  b.door(wSanD, { x: SAN, y: 1075 }, { x: 150, y: 1075 }, { width: 80 });
+  b.door(wSanH, { x: SAN, y: 1615 }, { x: 150, y: 1615 }, { width: 80 });
   b.door(wWellY, { x: 2950, y: 600 }, { x: 2950, y: 400 }, { type: 'Glastür', width: 100 });
   b.door(wKursY, { x: 2950, y: 1400 }, { x: 2950, y: 1600 }, { type: 'zweiflügelig', width: 150 });
-  b.door(bottom, { x: 2000, y: IY1 }, { x: 2000, y: 2200 }, { type: 'Notausgang', width: 100 });
+  b.door(bottom, { x: 2700, y: IY1 }, { x: 2700, y: 2200 }, { type: 'Notausgang', width: 100 });
   b.door(right, { x: IX1, y: 1880 }, { x: 4200, y: 1880 }, { type: 'Notausgang', width: 100 });
   b.window(top, { x: 550, y: IY0 }, 150);
   b.window(left, { x: IX0, y: 575 }, 120);
@@ -552,7 +552,7 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   /* ---- Empfang (x 24–795, y 24–445) ---- */
   b.put(S('gen-empfang-theke', 180), { cx: 450, cy: 390 });
   b.put(S('gen-empfang-drehkreuz', 270), { right: ROOM_X1 - 20, cy: 200 });
-  b.put(S('gen-empfang-zugangsschranke', 270), { right: ROOM_X1 - 20, cy: 300 });
+  b.put(S('gen-empfang-zugangsschranke', 270), { right: ROOM_X1 - 20, cy: 320 });
   b.put(S('gen-empfang-sofa-3', 270), { left: IX0, top: 60 });
   b.put(S('gen-empfang-sessel'), { left: IX0, top: 300 });
   b.put(S('gen-empfang-loungetisch', 90), { cx: 200, cy: 180 });
@@ -565,9 +565,9 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-bau-heizkoerper', 0, { wallId: top.id }), { cx: 550, top: IY0 });
   b.put(S('gen-ausstattung-notausgang-schild', 0, { wallId: top.id }), { cx: 140, top: IY0 });
   b.put(S('gen-ausstattung-wasserspender'), { cx: 660, cy: 400 });
-  b.put(S('gen-ausstattung-muelleimer'), { cx: 700, cy: 260 });
-  b.put(S('gen-ausstattung-pflanze-gross'), { cx: 60, cy: 410 });
-  b.put(S('gen-ausstattung-kamera', 0, { wallId: top.id }), { cx: 720, top: IY0 });
+  b.put(S('gen-ausstattung-muelleimer'), { cx: 640, cy: 300 });
+  b.put(S('gen-ausstattung-pflanze-gross'), { cx: 250, cy: 410 });
+  b.put(S('gen-ausstattung-kamera', 0, { wallId: top.id }), { cx: 480, top: IY0 });
 
   /* ---- Büro / Personal (y 455–695) ---- */
   b.put(S('gen-buero-schreibtisch'), { cx: 200, cy: 520 });
@@ -583,10 +583,9 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   /* ---- Lager / Technik (y 705–895) ---- */
   b.rowX([S('gen-lager-schwerlastregal'), S('gen-lager-schwerlastregal'), S('gen-lager-regal')], { left: IX0, top: 705 }, { limit: 560 });
   b.rowX([S('gen-lager-waschmaschine'), S('gen-lager-trockner'), S('gen-lager-putzwagen')], { left: IX0, bottom: 895 });
-  b.put(S('gen-lager-lueftungsanlage', 90), { right: ROOM_X1, top: 705 });
-  b.put(S('gen-lager-schaltschrank', 0, { wallId: wLD.id }), { cx: 400, bottom: 895 });
   b.put(S('gen-lager-serverschrank'), { cx: 520, bottom: 895 });
   b.put(S('gen-lager-warmwasserspeicher'), { cx: 610, bottom: 895 });
+  b.put(S('gen-lager-schaltschrank', 180, { wallId: wLD.id }), { cx: 720, bottom: 895 });
 
   /* ---- Umkleiden (Damen y 905–1435, Herren y 1445–1976) ---- */
   const changingRoom = (y0: number, y1: number, sanWall: Wall, topWall: Wall, women: boolean) => {
@@ -598,18 +597,19 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
       b.put(S('gen-sanitaer-urinal', 180, { wallId: bottom.id }), { cx: 250, bottom: y1 });
     }
     const midY = roundGrid((y0 + y1) / 2);
-    b.put(S('gen-umkleide-waschtisch-doppel', 90, { wallId: sanWall.id }), { right: SAN_X1, cy: midY + 130 });
-    b.put(S('gen-umkleide-handtuchspender', 90, { wallId: sanWall.id }), { right: SAN_X1 - 5, cy: midY + 210 });
-    b.put(S('gen-umkleide-waeschesammler'), { left: IX0, cy: midY + 130 });
-    // Umkleide x 305–795
+    // Sanitärraum: Tür bei y0 + 170 (Schwenkbereich x 205–295), Waschtisch darunter
+    b.put(S('gen-umkleide-waschtisch-doppel', 90, { wallId: sanWall.id }), { right: SAN_X1, cy: y0 + 300 });
+    b.put(S('gen-umkleide-handtuchspender', 90, { wallId: sanWall.id }), { right: SAN_X1 - 5, cy: y0 + 380 });
+    b.put(S('gen-umkleide-waeschesammler'), { left: IX0, cy: y0 + 200 });
+    // Umkleide x 305–795: Tür von der Halle bei y0 + 55 (Schwenkbereich x 705–795, bis y0 + 100)
     const row1 = b.put(lockerRow(16, 180, women ? 'Spinde Damen A' : 'Spinde Herren A'), { left: UMK_X0, bottom: y1 });
     const free = extentsOf(row1).minY - 10 - y0;
     b.put(lockerRow(Math.max(3, Math.min(12, Math.floor(free / 30))), 270, women ? 'Spinde Damen B' : 'Spinde Herren B'), { left: UMK_X0, top: y0 });
-    b.put(S('gen-umkleide-mittelbank', 0, { width: 150 }), { cx: 620, cy: midY });
-    b.put(S('gen-umkleide-spiegel', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY - 30 });
-    b.put(S('gen-umkleide-foehnplatz', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY + 60 });
-    b.put(S('gen-umkleide-wertfaecher', 0, { wallId: topWall.id }), { cx: 620, top: y0 });
     b.put(S('gen-umkleide-einzelkabine'), { right: ROOM_X1, top: y0 + 150 });
+    b.put(S('gen-umkleide-mittelbank', 0, { width: 150 }), { cx: 560, cy: midY });
+    b.put(S('gen-umkleide-foehnplatz', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY + 30 });
+    b.put(S('gen-umkleide-spiegel', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY + 120 });
+    b.put(S('gen-umkleide-wertfaecher', 0, { wallId: topWall.id }), { cx: 620, top: y0 });
     b.put(S('gen-ausstattung-muelleimer'), { cx: 500, cy: midY + 60 });
     b.put(S('gen-bau-lueftungsauslass'), { cx: 500, cy: y0 + 60 });
   };
@@ -633,14 +633,14 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-kursraum-trainer-podest'), { right: IX1, cy: 1690 });
   b.put(S('gen-kursraum-musikanlage'), { right: IX1, top: KURS_Y0 });
   b.rowX([S('gen-kursraum-mattenregal'), S('gen-kursraum-step-wagen')], { left: 3500, top: KURS_Y0 }, { limit: 3900 });
-  for (const col of [3050, 3175, 3300]) {
-    b.rowY([S('gen-kursraum-spinning-rad', 270), S('gen-kursraum-spinning-rad', 270)], { top: 1500, left: col }, { limit: IY1 });
+  for (const col of [3050, 3245]) {
+    b.rowY([S('gen-kursraum-spinning-rad', 270), S('gen-kursraum-spinning-rad', 270), S('gen-kursraum-spinning-rad', 270)], { top: 1500, left: col }, { limit: IY1 });
   }
   b.rowY([S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte')], { top: 1570, left: 3450 }, { gap: 20, limit: IY1 });
   b.rowY([S('gen-kursraum-step'), S('gen-kursraum-step')], { top: 1590, left: 3650 }, { gap: 20 });
   b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: right.id }), { right: IX1, cy: 1560 });
-  b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: right.id }), { right: IX1, cy: 1820 });
-  b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: right.id }), { right: IX1, cy: 1800 });
+  b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: right.id }), { right: IX1, cy: 1780 });
+  b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: right.id }), { right: IX1, bottom: IY1 });
 
   /* ---- Trainingshalle: Cardio-Reihe oben ---- */
   const cardio = b.rowX([
@@ -671,7 +671,7 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   const rowD = b.rowX([
     S('atlantis-c513'), S('gen-freihantel-scheibenstaender', 180), S('atlantis-b7200'), S('prime-prodigy-racks-power-rack'),
     S('gen-freihantel-langhantelstaender', 180), S('atlantis-e155'), S('prime-specialty-functional-trainer'),
-  ], { left: 900, bottom: IY1 }, { limit: 2600 });
+  ], { left: 900, bottom: IY1 }, { gap: 5, limit: 2600 });
   b.assertAisleY(rowC, rowD);
   const dbRacks = b.rowY([S('atlantis-s187', 90), S('gen-freihantel-kurzhantel-rack-3', 90)], { top: b.boxOf(rowB).maxY + AISLE, right: WING_X1 }, { limit: IY1 });
   assert(b.boxOf(dbRacks).minX > Math.max(b.boxOf(rowC).maxX, b.boxOf(rowD).maxX) + 10, 'Kurzhantel-Racks kollidieren mit Freihantelreihen');
@@ -679,14 +679,14 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   /* ---- Functional (rechter Flügel x 2805–3976, y 605–1395) ---- */
   const rig = b.put(S('gen-functional-rig'), { right: IX1, top: FUNC_Y0 });
   b.put(S('gen-functional-sled-bahn', 0, { width: 850, depth: 150 }), { right: 3900, bottom: FUNC_Y1 });
-  b.put(S('gen-functional-sled'), { left: 3050, bottom: FUNC_Y1 - 160 });
+  b.put(S('gen-functional-sled'), { cx: 3450, bottom: FUNC_Y1 - 160 });
   b.rowY([S('gen-functional-kettlebell-regal', 270), S('gen-functional-medizinball-regal', 270)], { top: 900, left: WING_X0 }, { limit: FUNC_Y1 - 160 });
-  b.put(S('gen-functional-plyo-box-soft-set'), { cx: 3300, cy: 700 });
+  b.put(S('gen-functional-plyo-box-soft-set'), { cx: 3250, cy: 700 });
   b.put(S('gen-functional-plyo-box'), { cx: 3300, cy: 800 });
-  b.put(S('gen-functional-boxsack-staender'), { cx: 3300, top: extentsOf(rig).maxY + 10 });
+  b.put(S('gen-functional-schlingentrainer'), { cx: 3420, cy: 720 });
+  b.put(S('gen-functional-boxsack-staender'), { cx: 3250, top: extentsOf(rig).maxY + 10 });
   b.rowY([S('gen-functional-bodenmatte'), S('gen-functional-bodenmatte')], { top: 1000, left: 3550 }, { limit: FUNC_Y1 - 160 });
   b.put(S('gen-functional-sprossenwand', 90, { wallId: right.id }), { right: IX1, cy: 1050 });
-  b.put(S('gen-functional-schlingentrainer'), { cx: 3600, cy: 950 });
 
   /* ---- Bauelemente / Ausstattung Halle ---- */
   b.put(S('gen-bau-saeule-rund'), { cx: 2760, cy: 600 });
@@ -694,19 +694,19 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-ausstattung-wasserspender'), { cx: 880, cy: 480 });
   b.put(S('gen-ausstattung-wasserspender'), { cx: 2760, cy: 1000 });
   b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 880, cy: 1500 });
-  b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 2880, cy: 1300 });
+  b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 2840, cy: 1300 });
   b.put(S('gen-ausstattung-muelleimer'), { cx: 880, cy: 540 });
-  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2600, bottom: IY1 });
+  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2560, bottom: IY1 });
   b.put(S('gen-ausstattung-feuerloescher', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1100 });
   b.put(S('gen-ausstattung-aed', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1000 });
   b.put(S('gen-ausstattung-erste-hilfe', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1050 });
   b.put(S('gen-ausstattung-tv-65', 0, { wallId: top.id }), { cx: 880, top: IY0 });
-  b.put(S('gen-ausstattung-notausgang-schild', 180, { wallId: bottom.id }), { cx: 2100, bottom: IY1 });
-  b.put(S('gen-ausstattung-lautsprecher', 0, { wallId: top.id }), { cx: 1500, top: IY0 });
-  b.put(S('gen-ausstattung-lautsprecher', 0, { wallId: top.id }), { cx: 2300, top: IY0 });
+  b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: wKursX.id }), { right: WING_X1, cy: 1900 });
+  b.put(S('gen-ausstattung-lautsprecher', 180, { wallId: bottom.id }), { cx: 2620, bottom: IY1 });
+  b.put(S('gen-ausstattung-lautsprecher', 270, { wallId: wCol.id }), { left: HALL_X, cy: 700 });
+  b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: wWellX.id }), { right: WING_X1, cy: 500 });
   b.put(S('gen-ausstattung-kamera', 270, { wallId: wCol.id }), { left: HALL_X, cy: 300 });
-  b.put(S('gen-ausstattung-kamera', 90, { wallId: wKursX.id }), { right: WING_X1, cy: 1900 });
-  void wWellX;
+  b.put(S('gen-ausstattung-kamera', 90, { wallId: wKursX.id }), { right: WING_X1, cy: 1850 });
 
   return project;
 }

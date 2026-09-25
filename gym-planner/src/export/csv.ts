@@ -1,16 +1,19 @@
 /**
- * Stückliste (BOM) und CSV-Export.
+ * Stückliste (BOM) als CSV-Export.
  * CSV für Excel (DE): UTF-8 mit BOM, Semikolon als Trenner, Dezimalkomma, CRLF.
- * Die Stückliste wird hier lokal berechnet (bomRows), unabhängig vom Analyse-Modul.
+ *
+ * Die Zahlen stammen aus `bom(project)` (src/analysis) – dieselbe Quelle wie das Panel „Übersicht“.
+ * `bomRows`/`bomTotals` sind Adapter auf dieses Ergebnis (flache Zeilen mit deutschen Feldnamen).
  */
 import type { Project, PlacedItem, EquipmentDef } from '@/types';
 import { useProjectStore } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { getDef } from '@/data/equipment';
+import { bom, type BomLine } from '@/analysis';
 import { downloadBlob, safeFileName } from './json';
 
 export interface BomRow {
-  /** Gruppenschlüssel (defId + Stückpreis). */
+  /** Gruppenschlüssel (= Bibliotheks-ID; gleiche Geräte werden über alle Stockwerke zusammengefasst). */
   key: string;
   defId: string;
   hersteller: string;
@@ -23,8 +26,10 @@ export interface BomRow {
   /** Gewicht je Stück in kg (null = unbekannt). */
   gewicht: number | null;
   anzahl: number;
-  /** Stückpreis in EUR (null = kein Preis hinterlegt). */
+  /** Stückpreis in EUR (null = kein Preis hinterlegt); bei unterschiedlichen Objektpreisen der Mittelwert. */
   stueckpreis: number | null;
+  /** Objekte dieser Position haben unterschiedliche Preise (stueckpreis = Mittelwert). */
+  preisGemischt: boolean;
   /** Summe in EUR (null, wenn kein Preis). */
   summe: number | null;
   /** Namen der Stockwerke, auf denen das Gerät steht. */
@@ -43,7 +48,10 @@ export interface BomTotals {
   ohnePreis: number;
 }
 
-/** Stückpreis eines platzierten Objekts: eigener Preis → Projekt-Überschreibung → Bibliothek. */
+/**
+ * Stückpreis eines einzelnen platzierten Objekts: eigener Preis → Projekt-Überschreibung → Bibliothek.
+ * (Die Stückliste selbst bildet Positionen über `bom()`; dort werden unterschiedliche Objektpreise gemittelt.)
+ */
 export function unitPrice(item: PlacedItem, def: EquipmentDef | undefined, project: Project): number | null {
   if (typeof item.priceEur === 'number' && Number.isFinite(item.priceEur)) return item.priceEur;
   const ov = project.priceOverrides[item.defId];
@@ -52,49 +60,46 @@ export function unitPrice(item: PlacedItem, def: EquipmentDef | undefined, proje
   return null;
 }
 
-/** Stückliste: gleiche Geräte (defId + Stückpreis) werden zusammengefasst. */
-export function bomRows(project: Project): BomRow[] {
-  const map = new Map<string, BomRow>();
-  const floors = [...project.floors].sort((a, b) => a.order - b.order);
-  for (const f of floors) {
-    for (const it of f.items) {
-      const def = getDef(it.defId, project);
-      const price = unitPrice(it, def, project);
-      const key = `${it.defId}|${price ?? ''}`;
-      let row = map.get(key);
-      if (!row) {
-        row = {
-          key,
-          defId: it.defId,
-          hersteller: def?.hersteller ?? 'Unbekannt',
-          serie: def?.serie ?? '',
-          modell: def?.modell ?? '',
-          bezeichnung: def?.name ?? it.label ?? it.defId,
-          breite: def?.breite_cm ?? it.width,
-          tiefe: def?.tiefe_cm ?? it.depth,
-          hoehe: def ? def.hoehe_cm : it.height,
-          gewicht: def?.gewicht_kg ?? null,
-          anzahl: 0,
-          stueckpreis: price,
-          summe: price == null ? null : 0,
-          stockwerke: [],
-          verifiziert: def?.verifiziert ?? false,
-          hinweis: def ? [def.hinweis, def.extra].filter(Boolean).join(' · ') : 'Nicht in der Bibliothek – gespeicherte Maße',
-          itemIds: [],
-        };
-        map.set(key, row);
-      }
-      row.anzahl += 1;
-      row.itemIds.push(it.id);
-      if (price != null) row.summe = (row.summe ?? 0) + price;
-      if (!row.stockwerke.includes(f.name)) row.stockwerke.push(f.name);
-    }
-  }
-  const rows = [...map.values()];
-  rows.sort((a, b) => a.hersteller.localeCompare(b.hersteller, 'de') || a.serie.localeCompare(b.serie, 'de') || a.modell.localeCompare(b.modell, 'de') || a.bezeichnung.localeCompare(b.bezeichnung, 'de'));
-  return rows;
+/** Hinweis-Spalte: Bibliothekshinweise plus Besonderheiten der Position. */
+function rowHint(line: BomLine, def: EquipmentDef | undefined): string {
+  const parts: string[] = [];
+  if (line.unknownDef) parts.push('Nicht in der Bibliothek – gespeicherte Maße');
+  else if (def) parts.push(...[def.hinweis, def.extra].filter((s): s is string => !!s));
+  if (line.priceMixed) parts.push('Unterschiedliche Objektpreise – Stückpreis ist der Mittelwert');
+  return parts.join(' · ');
 }
 
+/** Eine Zeile je Bibliotheks-ID (Adapter auf `BomLine`). */
+function rowFromLine(line: BomLine, project: Project): BomRow {
+  const def = line.unknownDef ? undefined : getDef(line.defId, project);
+  return {
+    key: line.defId,
+    defId: line.defId,
+    hersteller: line.hersteller,
+    serie: line.serie,
+    modell: line.modell,
+    bezeichnung: line.name,
+    breite: line.widthCm,
+    tiefe: line.depthCm,
+    hoehe: line.heightCm,
+    gewicht: line.weightKg,
+    anzahl: line.count,
+    stueckpreis: line.unitPriceEur,
+    preisGemischt: line.priceMixed,
+    summe: line.totalEur,
+    stockwerke: line.floorCounts.map((f) => f.floorName),
+    verifiziert: line.verifiziert,
+    hinweis: rowHint(line, def),
+    itemIds: line.itemIds,
+  };
+}
+
+/** Stückliste: gleiche Geräte (Bibliotheks-ID) werden über alle Stockwerke zusammengefasst – identisch zu `bom(project).lines`. */
+export function bomRows(project: Project): BomRow[] {
+  return bom(project).lines.map((line) => rowFromLine(line, project));
+}
+
+/** Summen über die Zeilen (entsprechen `totalCount`, `totalWeightKg`, `totalEur`, `linesWithoutPrice` aus `bom(project)`). */
 export function bomTotals(rows: BomRow[]): BomTotals {
   let anzahl = 0;
   let gewicht = 0;
