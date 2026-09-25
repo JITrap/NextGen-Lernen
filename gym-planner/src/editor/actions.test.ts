@@ -4,7 +4,7 @@ import {
   deleteSelection, duplicateSelection, copySelection, pasteClipboard, rotateSelection, nudgeSelection, flipSelection,
   groupSelection, ungroupSelection, toggleLockSelection, toggleHideSelection, alignSelection, alignOffsets, selectAll,
   splitWallAtPoint, setWallLength, hallPolygonWithEdgeLength, setHallEdgeLength, setItemSize, setItemRotation, setItemPosition,
-  selectionBounds, movablesOf, hallOpeningsAfterVertexRemoval, HALL_OPENING_REMAP_MAX_CM,
+  selectionBounds, movablesOf, hallOpeningsAfterVertexRemoval, HALL_OPENING_REMAP_MAX_CM, hiddenCount, showAllHidden, pruneSelection,
 } from './actions';
 import { hallWalls, pointOnWall } from '@/geometry/walls';
 import { distance } from '@/geometry/polygon';
@@ -237,6 +237,49 @@ describe('Gruppen, Sperren, Ausblenden, Löschen', () => {
     useProjectStore.getState().updateItem(floor().id, 'c', { hidden: true });
     selectAll();
     expect(sel().map((s) => s.id).sort()).toEqual(['a', 'b']);
+  });
+  it('hiddenCount / showAllHidden blenden Objekte, Wände, Öffnungen, Zonen und Anmerkungen in einem Undo-Schritt ein', () => {
+    const s = useProjectStore.getState();
+    const fid = floor().id;
+    expect(hiddenCount(floor())).toBe(0);
+    expect(showAllHidden()).toBe(0);
+    s.updateItem(fid, 'a', { hidden: true });
+    s.updateWall(fid, 'w1', { hidden: true });
+    s.updateOpening(fid, 'o1', { hidden: true });
+    s.addZone(fid, { id: 'z1', name: 'Zone', type: 'Sonstiges', polygon: [{ x: 0, y: 0 }, { x: 100, y: 0 }, { x: 100, y: 100 }], hidden: true });
+    s.addAnnotation(fid, { id: 'n1', kind: 'text', x: 10, y: 10, rotation: 0, text: 'Hallo', fontSize: 14, hidden: true });
+    expect(hiddenCount(floor())).toBe(5);
+    const before = useProjectStore.temporal.getState().pastStates.length;
+    expect(showAllHidden(fid)).toBe(5);
+    expect(hiddenCount(floor())).toBe(0);
+    expect(itemById('a').hidden).toBe(false);
+    expect(floor().walls.find((w) => w.id === 'w1')?.hidden).toBe(false);
+    expect(useProjectStore.temporal.getState().pastStates.length).toBeGreaterThan(before);
+    undo();
+    expect(hiddenCount(floor())).toBe(5);
+    // unbekanntes Stockwerk → nichts
+    expect(showAllHidden('nope')).toBe(0);
+  });
+  it('pruneSelection entfernt gelöschte, ausgeblendete und ebenenlose Einträge', () => {
+    const f = floor();
+    const layers = { items: true, walls: true, rooms: true, openings: true, annotations: true, voids: true };
+    const inp = { floor: f, items: f.items, walls: f.walls, roomIds: new Set(['r1']), layers };
+    const selAll = [
+      { kind: 'item', id: 'a' }, { kind: 'item', id: 'gone' }, { kind: 'wall', id: 'w1' }, { kind: 'room', id: 'r1' }, { kind: 'room', id: 'r2' },
+      { kind: 'opening', id: 'o1' }, { kind: 'hallEdge', id: '3' }, { kind: 'hallEdge', id: '4' }, { kind: 'annotation', id: 'n0' },
+    ] as const;
+    const kept = pruneSelection([...selAll], inp);
+    expect(kept.map((x) => `${x.kind}:${x.id}`)).toEqual(['item:a', 'wall:w1', 'room:r1', 'opening:o1', 'hallEdge:3']);
+    // nichts zu entfernen → dieselbe Referenz
+    const ok = [{ kind: 'item', id: 'a' }] as const;
+    expect(pruneSelection([...ok], inp)).toEqual([...ok]);
+    const same = [{ kind: 'wall' as const, id: 'w1' }];
+    expect(pruneSelection(same, inp)).toBe(same);
+    // ausgeblendet / Ebene aus
+    useProjectStore.getState().updateItem(f.id, 'a', { hidden: true });
+    const f2 = floor();
+    expect(pruneSelection([{ kind: 'item', id: 'a' }, { kind: 'item', id: 'b' }], { ...inp, floor: f2, items: f2.items })).toEqual([{ kind: 'item', id: 'b' }]);
+    expect(pruneSelection([{ kind: 'item', id: 'b' }, { kind: 'wall', id: 'w1' }], { ...inp, floor: f2, items: f2.items, layers: { ...layers, items: false } })).toEqual([{ kind: 'wall', id: 'w1' }]);
   });
 });
 

@@ -335,6 +335,7 @@ describe('Auswahl-Werkzeug (Integration)', () => {
     expect(sel().map((s) => s.id)).toEqual([a.id, b.id]);
     expect(useUiStore.getState().rightPanel).toBe('library');
     // Zwei schnelle Klicks an verschiedenen Stellen (ohne Shift) sind kein Doppelklick
+    down(1500, 1200); up(1500, 1200); // Auswahl leeren
     down(500, 500); up(500, 500);
     down(1000, 500); up(1000, 500);
     tool().onDoubleClick!(ev(1000, 500), mkCtx());
