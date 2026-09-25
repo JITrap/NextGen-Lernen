@@ -47,6 +47,8 @@ export interface ToolHandler {
   onPointerMove?: (e: ToolEvent, ctx: ToolContext) => void;
   onPointerUp?: (e: ToolEvent, ctx: ToolContext) => void;
   onDoubleClick?: (e: ToolEvent, ctx: ToolContext) => void;
+  /** Rechtsklick; true = verarbeitet, Kontextmenü wird nicht geöffnet. */
+  onContextMenu?: (e: ToolEvent, ctx: ToolContext) => boolean | void;
   /** true = Ereignis verarbeitet (keine globale Weiterverarbeitung). */
   onKeyDown?: (e: KeyboardEvent, ctx: ToolContext) => boolean | void;
   /** Esc / Werkzeugwechsel. */

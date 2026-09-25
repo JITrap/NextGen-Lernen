@@ -253,6 +253,8 @@ export function Canvas() {
     const stage = stageRef.current;
     const pos = stage?.getPointerPosition();
     if (!pos || !containerRef.current) return;
+    const te = toToolEvent(e);
+    if (te && handler?.onContextMenu?.(te, ctxRef.current)) return;
     const rect = containerRef.current.getBoundingClientRect();
     const world = screenToWorld(pos, viewport);
     ui.setContextMenu({ x: rect.left + pos.x, y: rect.top + pos.y, world });
@@ -294,7 +296,7 @@ export function Canvas() {
 
   const cursor = panning ? 'grabbing' : tool === 'pan' ? 'grab' : typeof handler?.cursor === 'function' ? handler.cursor(ctx) : handler?.cursor ?? 'default';
 
-  const layerProps = { project, floor, walls, rooms, items, viewport, selection, hoverId, dark, lowerFloor, collidingIds: colliding, presentation };
+  const layerProps = { project, floor, walls, rooms, items, viewport, selection, hoverId, dark, lowerFloor, collidingIds: colliding, presentation, stageSize: size };
   const Overlay = handler?.Overlay;
   const HtmlOverlay = handler?.HtmlOverlay;
 

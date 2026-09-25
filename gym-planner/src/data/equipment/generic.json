@@ -1,4 +1,4983 @@
 {
-  "hinweis": "Generische Objekte mit realistischen Standardmaßen (verifiziert: false). Maße in cm, editierbar.",
-  "geraete": []
+  "hinweis": "Generische Objekte mit realistischen Standardmaßen (verifiziert: false, Maße editierbar). Maße in cm (B × T × H), Gewichte in kg. Bauelemente tragen params.kind (column/radiator/vent/stairs/elevator/ramp).",
+  "geraete": [
+    {
+      "id": "gen-freihantel-kurzhantelsatz",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Kurzhanteln",
+      "hersteller": "Generisch",
+      "name": "Kurzhantelsatz 2,5–30 kg (12 Paar)",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 390,
+      "extra": "12 Paar, 2,5-kg-Schritte",
+      "hinweis": "Mengenposition ohne Stellfläche – Ablage im Kurzhantel-Rack",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "dumbbells",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Kurzhanteln",
+        "Hanteln",
+        "Dumbbells"
+      ]
+    },
+    {
+      "id": "gen-freihantel-kurzhantelsatz-schwer",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Kurzhanteln",
+      "hersteller": "Generisch",
+      "name": "Kurzhantelsatz 32,5–50 kg (8 Paar)",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 660,
+      "extra": "8 Paar, 2,5-kg-Schritte",
+      "hinweis": "Mengenposition ohne Stellfläche – Ablage im Kurzhantel-Rack",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "dumbbells",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Kurzhanteln",
+        "Hanteln",
+        "Dumbbells"
+      ]
+    },
+    {
+      "id": "gen-freihantel-langhantelstange",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Langhantelstangen",
+      "hersteller": "Generisch",
+      "name": "Langhantelstange 20 kg (220 cm)",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 20,
+      "extra": "Olympia-Stange 220 cm, 50-mm-Aufnahme",
+      "hinweis": "Mengenposition ohne Stellfläche – Ablage im Rack/Ständer",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "barbell",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Langhantelstangen",
+        "Olympiastange",
+        "Barbell"
+      ]
+    },
+    {
+      "id": "gen-freihantel-langhantelstange-15",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Langhantelstangen",
+      "hersteller": "Generisch",
+      "name": "Langhantelstange 15 kg (201 cm)",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 15,
+      "extra": "Damenstange 201 cm, 25-mm-Griff",
+      "hinweis": "Mengenposition ohne Stellfläche",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "barbell",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Langhantelstangen",
+        "Barbell"
+      ]
+    },
+    {
+      "id": "gen-freihantel-ez-stange",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Langhantelstangen",
+      "hersteller": "Generisch",
+      "name": "EZ-Curlstange 10 kg",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 10,
+      "extra": "120 cm",
+      "hinweis": "Mengenposition ohne Stellfläche",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "barbell",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Langhantelstangen",
+        "SZ-Stange",
+        "Curlstange"
+      ]
+    },
+    {
+      "id": "gen-freihantel-trap-bar",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Langhantelstangen",
+      "hersteller": "Generisch",
+      "name": "Trap Bar 25 kg",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 25,
+      "extra": "Hex Bar, 142 cm",
+      "hinweis": "Mengenposition ohne Stellfläche",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "barbell",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Langhantelstangen",
+        "Hex Bar"
+      ]
+    },
+    {
+      "id": "gen-freihantel-hantelscheiben-satz",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Hantelscheiben",
+      "hersteller": "Generisch",
+      "name": "Hantelscheiben-Satz 150 kg",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 150,
+      "extra": "2 × 25, 2 × 20, 2 × 15, 2 × 10, 4 × 5, 4 × 2,5, 4 × 1,25 kg",
+      "hinweis": "Mengenposition ohne Stellfläche – Ablage im Scheibenständer",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "generic",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Hantelscheiben",
+        "Bumper Plates",
+        "Scheiben"
+      ]
+    },
+    {
+      "id": "gen-freihantel-hantelscheiben-satz-gross",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Hantelscheiben",
+      "hersteller": "Generisch",
+      "name": "Hantelscheiben-Satz 300 kg",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 300,
+      "extra": "4 × 25, 4 × 20, 4 × 15, 4 × 10, 8 × 5, 8 × 2,5, 8 × 1,25 kg",
+      "hinweis": "Mengenposition ohne Stellfläche – Ablage im Scheibenständer",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "generic",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Hantelscheiben",
+        "Bumper Plates",
+        "Scheiben"
+      ]
+    },
+    {
+      "id": "gen-freihantel-scheibenstaender",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Ständer & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Scheibenständer",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 120,
+      "gewicht_kg": 30,
+      "extra": "6 Aufnahmen 50 mm, bis 400 kg",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "plate-tree",
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Ständer & Ablagen",
+        "Plate Tree",
+        "Scheibenbaum"
+      ]
+    },
+    {
+      "id": "gen-freihantel-langhantelstaender",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Ständer & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Langhantelständer (10 Stangen)",
+      "breite_cm": 70,
+      "tiefe_cm": 70,
+      "hoehe_cm": 110,
+      "gewicht_kg": 35,
+      "extra": "vertikal, 10 Aufnahmen",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "barbell-rack",
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Ständer & Ablagen",
+        "Barbell Holder",
+        "Stangenhalter"
+      ]
+    },
+    {
+      "id": "gen-freihantel-kurzhantel-rack",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Ständer & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Kurzhantel-Rack 2-lagig (10 Paar)",
+      "breite_cm": 240,
+      "tiefe_cm": 70,
+      "hoehe_cm": 80,
+      "gewicht_kg": 90,
+      "extra": "ohne Hanteln",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "dumbbell-rack",
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Ständer & Ablagen",
+        "Dumbbell Rack",
+        "Hantelablage"
+      ]
+    },
+    {
+      "id": "gen-freihantel-kurzhantel-rack-3",
+      "kategorie": "Freihantel-Zubehör",
+      "unterkategorie": "Ständer & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Kurzhantel-Rack 3-lagig (15 Paar)",
+      "breite_cm": 240,
+      "tiefe_cm": 75,
+      "hoehe_cm": 120,
+      "gewicht_kg": 130,
+      "extra": "ohne Hanteln",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Freihantel-Zubehör",
+      "symbol": "dumbbell-rack",
+      "tags": [
+        "Generisch",
+        "Freihantel-Zubehör",
+        "Ständer & Ablagen",
+        "Dumbbell Rack",
+        "Hantelablage"
+      ]
+    },
+    {
+      "id": "gen-cardio-laufband",
+      "kategorie": "Cardio",
+      "unterkategorie": "Laufbänder",
+      "hersteller": "Generisch",
+      "name": "Laufband",
+      "breite_cm": 90,
+      "tiefe_cm": 210,
+      "hoehe_cm": 160,
+      "gewicht_kg": 150,
+      "extra": "Lauffläche ca. 55 × 155 cm",
+      "hinweis": "Sicherheitszone 200 cm hinter dem Gerät (DIN EN ISO 20957)",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 200,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "treadmill",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Laufbänder",
+        "Treadmill"
+      ]
+    },
+    {
+      "id": "gen-cardio-curved-treadmill",
+      "kategorie": "Cardio",
+      "unterkategorie": "Laufbänder",
+      "hersteller": "Generisch",
+      "name": "Curved Treadmill",
+      "breite_cm": 90,
+      "tiefe_cm": 190,
+      "hoehe_cm": 170,
+      "gewicht_kg": 160,
+      "extra": "motorlos",
+      "hinweis": "Sicherheitszone 200 cm hinter dem Gerät",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 200,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "curved-treadmill",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Laufbänder",
+        "Treadmill",
+        "Laufband"
+      ]
+    },
+    {
+      "id": "gen-cardio-crosstrainer",
+      "kategorie": "Cardio",
+      "unterkategorie": "Crosstrainer",
+      "hersteller": "Generisch",
+      "name": "Crosstrainer",
+      "breite_cm": 75,
+      "tiefe_cm": 210,
+      "hoehe_cm": 170,
+      "gewicht_kg": 150,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 60,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "elliptical",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Crosstrainer",
+        "Elliptical",
+        "Ellipsentrainer"
+      ]
+    },
+    {
+      "id": "gen-cardio-ergometer",
+      "kategorie": "Cardio",
+      "unterkategorie": "Bikes",
+      "hersteller": "Generisch",
+      "name": "Ergometer",
+      "breite_cm": 60,
+      "tiefe_cm": 120,
+      "hoehe_cm": 140,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 30,
+        "hinten": 30,
+        "links": 30,
+        "rechts": 30
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "bike",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Bikes",
+        "Fahrrad",
+        "Upright Bike"
+      ]
+    },
+    {
+      "id": "gen-cardio-liegeergometer",
+      "kategorie": "Cardio",
+      "unterkategorie": "Bikes",
+      "hersteller": "Generisch",
+      "name": "Liegeergometer",
+      "breite_cm": 70,
+      "tiefe_cm": 170,
+      "hoehe_cm": 130,
+      "gewicht_kg": 80,
+      "sicherheitszone_cm": {
+        "vorne": 30,
+        "hinten": 30,
+        "links": 30,
+        "rechts": 30
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "recumbent-bike",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Bikes",
+        "Recumbent Bike"
+      ]
+    },
+    {
+      "id": "gen-cardio-spinning-bike",
+      "kategorie": "Cardio",
+      "unterkategorie": "Bikes",
+      "hersteller": "Generisch",
+      "name": "Spinning-Bike",
+      "breite_cm": 55,
+      "tiefe_cm": 125,
+      "hoehe_cm": 110,
+      "gewicht_kg": 55,
+      "sicherheitszone_cm": {
+        "vorne": 30,
+        "hinten": 30,
+        "links": 30,
+        "rechts": 30
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "spin-bike",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Bikes",
+        "Indoor Cycling",
+        "Spinning"
+      ]
+    },
+    {
+      "id": "gen-cardio-air-bike",
+      "kategorie": "Cardio",
+      "unterkategorie": "Bikes",
+      "hersteller": "Generisch",
+      "name": "Air Bike",
+      "breite_cm": 65,
+      "tiefe_cm": 130,
+      "hoehe_cm": 130,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 30,
+        "hinten": 30,
+        "links": 30,
+        "rechts": 30
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "air-bike",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Bikes",
+        "Assault Bike",
+        "Fan Bike"
+      ]
+    },
+    {
+      "id": "gen-cardio-rudergeraet",
+      "kategorie": "Cardio",
+      "unterkategorie": "Rudergeräte",
+      "hersteller": "Generisch",
+      "name": "Rudergerät",
+      "breite_cm": 60,
+      "tiefe_cm": 245,
+      "hoehe_cm": 50,
+      "gewicht_kg": 30,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 60,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "rower",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Rudergeräte",
+        "Rower",
+        "Rowing"
+      ]
+    },
+    {
+      "id": "gen-cardio-stairmaster",
+      "kategorie": "Cardio",
+      "unterkategorie": "Treppensteiger",
+      "hersteller": "Generisch",
+      "name": "Stairmaster",
+      "breite_cm": 80,
+      "tiefe_cm": 150,
+      "hoehe_cm": 210,
+      "gewicht_kg": 150,
+      "hinweis": "Gerätehöhe 210 cm – Deckenhöhe prüfen",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 60,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "stairmaster",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Treppensteiger",
+        "Stepmill"
+      ]
+    },
+    {
+      "id": "gen-cardio-skierg",
+      "kategorie": "Cardio",
+      "unterkategorie": "Ski-Ergometer",
+      "hersteller": "Generisch",
+      "name": "SkiErg",
+      "breite_cm": 60,
+      "tiefe_cm": 125,
+      "hoehe_cm": 215,
+      "gewicht_kg": 30,
+      "hinweis": "Gerätehöhe 215 cm – Deckenhöhe prüfen",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 60,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Cardio",
+      "symbol": "skierg",
+      "tags": [
+        "Generisch",
+        "Cardio",
+        "Ski-Ergometer",
+        "Ski Erg",
+        "Langlauf"
+      ]
+    },
+    {
+      "id": "gen-functional-sled-bahn",
+      "kategorie": "Functional",
+      "unterkategorie": "Böden & Bahnen",
+      "hersteller": "Generisch",
+      "name": "Sled-Bahn (Kunstrasen)",
+      "breite_cm": 150,
+      "tiefe_cm": 1000,
+      "hoehe_cm": 2,
+      "gewicht_kg": null,
+      "extra": "Breite 150 cm, Länge frei",
+      "hinweis": "Länge im Eigenschaften-Panel anpassen",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "turf",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Böden & Bahnen",
+        "Kunstrasen",
+        "Turf",
+        "Schlittenbahn"
+      ]
+    },
+    {
+      "id": "gen-functional-kunstrasen",
+      "kategorie": "Functional",
+      "unterkategorie": "Böden & Bahnen",
+      "hersteller": "Generisch",
+      "name": "Kunstrasen-Fläche",
+      "breite_cm": 400,
+      "tiefe_cm": 200,
+      "hoehe_cm": 2,
+      "gewicht_kg": null,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "turf",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Böden & Bahnen",
+        "Turf",
+        "Rasen"
+      ]
+    },
+    {
+      "id": "gen-functional-sled",
+      "kategorie": "Functional",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Schlitten (Prowler)",
+      "breite_cm": 90,
+      "tiefe_cm": 100,
+      "hoehe_cm": 90,
+      "gewicht_kg": 40,
+      "extra": "ohne Scheiben",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "sled",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kleingeräte",
+        "Prowler",
+        "Sled"
+      ]
+    },
+    {
+      "id": "gen-functional-kettlebell-regal",
+      "kategorie": "Functional",
+      "unterkategorie": "Regale & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Kettlebell-Regal",
+      "breite_cm": 120,
+      "tiefe_cm": 50,
+      "hoehe_cm": 80,
+      "gewicht_kg": 40,
+      "extra": "3 Ebenen, ohne Kettlebells",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "kettlebell-rack",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Regale & Ablagen",
+        "Kettlebells"
+      ]
+    },
+    {
+      "id": "gen-functional-kettlebell-satz",
+      "kategorie": "Functional",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Kettlebell-Satz 4–32 kg",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 30,
+      "gewicht_kg": 200,
+      "extra": "4, 8, 12, 16, 20, 24, 28, 32 kg × 2",
+      "hinweis": "Mengenposition ohne Stellfläche – Ablage im Kettlebell-Regal",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "generic",
+      "ohne_stellflaeche": true,
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kleingeräte",
+        "Kettlebells"
+      ]
+    },
+    {
+      "id": "gen-functional-plyo-box",
+      "kategorie": "Functional",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Plyo-Box 3-in-1",
+      "breite_cm": 50,
+      "tiefe_cm": 60,
+      "hoehe_cm": 75,
+      "gewicht_kg": 15,
+      "extra": "50 / 60 / 75 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "plyo-box",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kleingeräte",
+        "Sprungbox",
+        "Jump Box"
+      ]
+    },
+    {
+      "id": "gen-functional-plyo-box-soft-set",
+      "kategorie": "Functional",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Plyo-Box Soft 3er-Set",
+      "breite_cm": 150,
+      "tiefe_cm": 60,
+      "hoehe_cm": 90,
+      "gewicht_kg": 25,
+      "extra": "3 Boxen 30/45/60 cm nebeneinander",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "plyo-box",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kleingeräte",
+        "Sprungbox",
+        "Jump Box"
+      ]
+    },
+    {
+      "id": "gen-functional-matte",
+      "kategorie": "Functional",
+      "unterkategorie": "Matten",
+      "hersteller": "Generisch",
+      "name": "Trainingsmatte",
+      "breite_cm": 180,
+      "tiefe_cm": 60,
+      "hoehe_cm": 1,
+      "gewicht_kg": 1,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "mat",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Matten",
+        "Gymnastikmatte",
+        "Yogamatte"
+      ]
+    },
+    {
+      "id": "gen-functional-bodenmatte",
+      "kategorie": "Functional",
+      "unterkategorie": "Matten",
+      "hersteller": "Generisch",
+      "name": "Bodenmatte (Stretching)",
+      "breite_cm": 200,
+      "tiefe_cm": 100,
+      "hoehe_cm": 2,
+      "gewicht_kg": 3,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "mat",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Matten",
+        "Stretching",
+        "Dehnen"
+      ]
+    },
+    {
+      "id": "gen-functional-medizinball-regal",
+      "kategorie": "Functional",
+      "unterkategorie": "Regale & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Medizinball-Regal",
+      "breite_cm": 100,
+      "tiefe_cm": 50,
+      "hoehe_cm": 150,
+      "gewicht_kg": 25,
+      "extra": "ohne Bälle",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "ball-rack",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Regale & Ablagen",
+        "Medizinbälle",
+        "Slam Balls",
+        "Wall Balls"
+      ]
+    },
+    {
+      "id": "gen-functional-battle-rope-anker",
+      "kategorie": "Functional",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Battle-Rope-Anker",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": 20,
+      "gewicht_kg": 5,
+      "extra": "Bodenanker, Seil 15 m",
+      "hinweis": "Nutzungszone 8 m vor dem Anker (Seillänge)",
+      "sicherheitszone_cm": {
+        "vorne": 800,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "rope-anchor",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kleingeräte",
+        "Battle Rope",
+        "Tau"
+      ]
+    },
+    {
+      "id": "gen-functional-schlingentrainer",
+      "kategorie": "Functional",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Schlingentrainer-Station",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 260,
+      "gewicht_kg": 30,
+      "extra": "freistehend, 2 Plätze",
+      "hinweis": "Gerätehöhe 260 cm – Deckenhöhe prüfen",
+      "sicherheitszone_cm": {
+        "vorne": 150,
+        "hinten": 0,
+        "links": 30,
+        "rechts": 30
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "rope-anchor",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kleingeräte",
+        "TRX",
+        "Suspension"
+      ]
+    },
+    {
+      "id": "gen-functional-rig",
+      "kategorie": "Functional",
+      "unterkategorie": "Rigs",
+      "hersteller": "Generisch",
+      "name": "Rig / Functional-Gerüst",
+      "breite_cm": 360,
+      "tiefe_cm": 180,
+      "hoehe_cm": 275,
+      "gewicht_kg": 350,
+      "extra": "2 × 3 Felder, Klimmzugstangen, J-Hooks",
+      "hinweis": "Gerätehöhe 275 cm – Deckenhöhe prüfen",
+      "sicherheitszone_cm": {
+        "vorne": 60,
+        "hinten": 60,
+        "links": 60,
+        "rechts": 60
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "rig",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Rigs",
+        "Rig",
+        "Gerüst",
+        "Crossfit"
+      ]
+    },
+    {
+      "id": "gen-functional-wand-rig",
+      "kategorie": "Functional",
+      "unterkategorie": "Rigs",
+      "hersteller": "Generisch",
+      "name": "Wand-Rig",
+      "breite_cm": 360,
+      "tiefe_cm": 120,
+      "hoehe_cm": 275,
+      "gewicht_kg": 220,
+      "extra": "3 Felder, Wandmontage",
+      "hinweis": "Gerätehöhe 275 cm – Deckenhöhe prüfen",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "rig",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Rigs",
+        "Rig",
+        "Gerüst"
+      ]
+    },
+    {
+      "id": "gen-functional-sprossenwand",
+      "kategorie": "Functional",
+      "unterkategorie": "Wandgeräte",
+      "hersteller": "Generisch",
+      "name": "Sprossenwand",
+      "breite_cm": 100,
+      "tiefe_cm": 15,
+      "hoehe_cm": 230,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "wall-bars",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Wandgeräte",
+        "Klettergerüst"
+      ]
+    },
+    {
+      "id": "gen-functional-boxsack",
+      "kategorie": "Functional",
+      "unterkategorie": "Kampfsport",
+      "hersteller": "Generisch",
+      "name": "Boxsack (Deckenmontage)",
+      "breite_cm": 35,
+      "tiefe_cm": 35,
+      "hoehe_cm": 120,
+      "gewicht_kg": 40,
+      "extra": "Ø 35 cm, Aufhängung an Decke/Ausleger",
+      "sicherheitszone_cm": {
+        "vorne": 60,
+        "hinten": 60,
+        "links": 60,
+        "rechts": 60
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "punching-bag",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kampfsport",
+        "Sandsack",
+        "Boxen"
+      ]
+    },
+    {
+      "id": "gen-functional-boxsack-staender",
+      "kategorie": "Functional",
+      "unterkategorie": "Kampfsport",
+      "hersteller": "Generisch",
+      "name": "Boxsack mit Ständer",
+      "breite_cm": 120,
+      "tiefe_cm": 120,
+      "hoehe_cm": 220,
+      "gewicht_kg": 90,
+      "sicherheitszone_cm": {
+        "vorne": 60,
+        "hinten": 60,
+        "links": 60,
+        "rechts": 60
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "punching-bag",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Kampfsport",
+        "Sandsack",
+        "Boxen"
+      ]
+    },
+    {
+      "id": "gen-functional-glute-band-station",
+      "kategorie": "Functional",
+      "unterkategorie": "Regale & Ablagen",
+      "hersteller": "Generisch",
+      "name": "Widerstandsband-Halter",
+      "breite_cm": 60,
+      "tiefe_cm": 30,
+      "hoehe_cm": 180,
+      "gewicht_kg": 15,
+      "extra": "ohne Bänder",
+      "sicherheitszone_cm": {
+        "vorne": 60,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "shelf",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Functional",
+        "Regale & Ablagen",
+        "Bänder",
+        "Resistance Bands"
+      ]
+    },
+    {
+      "id": "gen-empfang-theke",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Empfang",
+      "hersteller": "Generisch",
+      "name": "Theke",
+      "breite_cm": 300,
+      "tiefe_cm": 80,
+      "hoehe_cm": 110,
+      "gewicht_kg": 120,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "counter",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Empfang",
+        "Tresen",
+        "Counter",
+        "Rezeption"
+      ]
+    },
+    {
+      "id": "gen-empfang-theke-klein",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Empfang",
+      "hersteller": "Generisch",
+      "name": "Theke klein",
+      "breite_cm": 200,
+      "tiefe_cm": 70,
+      "hoehe_cm": 110,
+      "gewicht_kg": 80,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "counter",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Empfang",
+        "Tresen",
+        "Counter"
+      ]
+    },
+    {
+      "id": "gen-empfang-drehkreuz",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Zugang",
+      "hersteller": "Generisch",
+      "name": "Drehkreuz",
+      "breite_cm": 90,
+      "tiefe_cm": 120,
+      "hoehe_cm": 100,
+      "gewicht_kg": 60,
+      "extra": "Tripod-Drehsperre mit Seitenbügeln",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "turnstile",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Zugang",
+        "Zugangskontrolle",
+        "Turnstile"
+      ]
+    },
+    {
+      "id": "gen-empfang-zugangsschranke",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Zugang",
+      "hersteller": "Generisch",
+      "name": "Zugangsschranke (Schwenktür)",
+      "breite_cm": 120,
+      "tiefe_cm": 40,
+      "hoehe_cm": 100,
+      "gewicht_kg": 45,
+      "extra": "barrierefrei, 90 cm Durchgang",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "turnstile",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Zugang",
+        "Zugangskontrolle",
+        "Speedgate"
+      ]
+    },
+    {
+      "id": "gen-empfang-shakebar",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Gastronomie",
+      "hersteller": "Generisch",
+      "name": "Shakebar",
+      "breite_cm": 200,
+      "tiefe_cm": 70,
+      "hoehe_cm": 110,
+      "gewicht_kg": 90,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "counter",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Gastronomie",
+        "Bar",
+        "Theke"
+      ]
+    },
+    {
+      "id": "gen-empfang-kuehlschrank",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Gastronomie",
+      "hersteller": "Generisch",
+      "name": "Getränkekühlschrank",
+      "breite_cm": 60,
+      "tiefe_cm": 65,
+      "hoehe_cm": 190,
+      "gewicht_kg": 90,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "fridge",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Gastronomie",
+        "Kühlschrank",
+        "Fridge"
+      ]
+    },
+    {
+      "id": "gen-empfang-getraenkeautomat",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Gastronomie",
+      "hersteller": "Generisch",
+      "name": "Getränkeautomat",
+      "breite_cm": 90,
+      "tiefe_cm": 90,
+      "hoehe_cm": 185,
+      "gewicht_kg": 250,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "vending",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Gastronomie",
+        "Automat",
+        "Vending"
+      ]
+    },
+    {
+      "id": "gen-empfang-snackautomat",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Gastronomie",
+      "hersteller": "Generisch",
+      "name": "Snackautomat",
+      "breite_cm": 90,
+      "tiefe_cm": 90,
+      "hoehe_cm": 185,
+      "gewicht_kg": 230,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "vending",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Gastronomie",
+        "Automat",
+        "Vending"
+      ]
+    },
+    {
+      "id": "gen-empfang-sofa-2",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Sofa 2-Sitzer",
+      "breite_cm": 160,
+      "tiefe_cm": 90,
+      "hoehe_cm": 85,
+      "gewicht_kg": 45,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "sofa",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Couch"
+      ]
+    },
+    {
+      "id": "gen-empfang-sofa-3",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Sofa 3-Sitzer",
+      "breite_cm": 220,
+      "tiefe_cm": 90,
+      "hoehe_cm": 85,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "sofa",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Couch"
+      ]
+    },
+    {
+      "id": "gen-empfang-sessel",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Sessel",
+      "breite_cm": 90,
+      "tiefe_cm": 90,
+      "hoehe_cm": 85,
+      "gewicht_kg": 30,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "sofa",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Lounge-Sessel"
+      ]
+    },
+    {
+      "id": "gen-empfang-stehtisch",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Stehtisch",
+      "breite_cm": 70,
+      "tiefe_cm": 70,
+      "hoehe_cm": 110,
+      "gewicht_kg": 15,
+      "extra": "Ø 70 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "table",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Bistrotisch"
+      ]
+    },
+    {
+      "id": "gen-empfang-loungetisch",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Loungetisch",
+      "breite_cm": 120,
+      "tiefe_cm": 60,
+      "hoehe_cm": 45,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "table",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Couchtisch",
+        "Beistelltisch"
+      ]
+    },
+    {
+      "id": "gen-empfang-stuhl",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Stuhl",
+      "breite_cm": 50,
+      "tiefe_cm": 55,
+      "hoehe_cm": 85,
+      "gewicht_kg": 6,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "chair",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Sitz"
+      ]
+    },
+    {
+      "id": "gen-empfang-barhocker",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Barhocker",
+      "breite_cm": 40,
+      "tiefe_cm": 40,
+      "hoehe_cm": 75,
+      "gewicht_kg": 7,
+      "extra": "Ø 40 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "chair",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Hocker"
+      ]
+    },
+    {
+      "id": "gen-empfang-wartebank",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Lounge",
+      "hersteller": "Generisch",
+      "name": "Wartebank",
+      "breite_cm": 150,
+      "tiefe_cm": 45,
+      "hoehe_cm": 45,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "bench-seat",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Lounge",
+        "Bank"
+      ]
+    },
+    {
+      "id": "gen-empfang-garderobe",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Garderobe",
+      "hersteller": "Generisch",
+      "name": "Garderobe (freistehend)",
+      "breite_cm": 100,
+      "tiefe_cm": 40,
+      "hoehe_cm": 180,
+      "gewicht_kg": 15,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "wardrobe",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Garderobe",
+        "Kleiderständer"
+      ]
+    },
+    {
+      "id": "gen-empfang-garderobenleiste",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Garderobe",
+      "hersteller": "Generisch",
+      "name": "Wandgarderobe",
+      "breite_cm": 100,
+      "tiefe_cm": 10,
+      "hoehe_cm": 30,
+      "gewicht_kg": 3,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "wardrobe",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Garderobe",
+        "Hakenleiste"
+      ]
+    },
+    {
+      "id": "gen-empfang-info-bildschirm",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Information",
+      "hersteller": "Generisch",
+      "name": "Info-Bildschirm 55″ (Wand)",
+      "breite_cm": 125,
+      "tiefe_cm": 8,
+      "hoehe_cm": 75,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "screen",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Information",
+        "Display",
+        "Digital Signage"
+      ]
+    },
+    {
+      "id": "gen-empfang-info-stele",
+      "kategorie": "Empfang & Lounge",
+      "unterkategorie": "Information",
+      "hersteller": "Generisch",
+      "name": "Info-Stele (Digital Signage)",
+      "breite_cm": 60,
+      "tiefe_cm": 40,
+      "hoehe_cm": 190,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Empfang & Lounge",
+      "symbol": "screen",
+      "tags": [
+        "Generisch",
+        "Empfang & Lounge",
+        "Information",
+        "Display",
+        "Kiosk"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spindreihe",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spindreihe",
+      "breite_cm": 400,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 200,
+      "extra": "Abteilbreite 40 cm, Fächeranzahl wählbar",
+      "hinweis": "Breite = Fächer × Abteilbreite; Bewegungsfläche 100 cm vor den Spinden",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker-row",
+      "params": {
+        "faecher": 10,
+        "abteilbreite": 40,
+        "stoeckig": 1
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfächer",
+        "Locker",
+        "Garderobenschrank"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spindreihe-2",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spindreihe 2-stöckig",
+      "breite_cm": 400,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 240,
+      "extra": "2 Fächer übereinander je Abteil",
+      "hinweis": "Breite = Abteile × Abteilbreite; Bewegungsfläche 100 cm vor den Spinden",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker-row",
+      "params": {
+        "faecher": 20,
+        "abteilbreite": 40,
+        "stoeckig": 2
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfächer",
+        "Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spind-1",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spind 1-stöckig (40 cm)",
+      "breite_cm": 40,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker",
+      "params": {
+        "faecher": 1,
+        "abteilbreite": 40,
+        "stoeckig": 1
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfach",
+        "Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spind-2",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spind 2-stöckig (40 cm)",
+      "breite_cm": 40,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 28,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker",
+      "params": {
+        "faecher": 2,
+        "abteilbreite": 40,
+        "stoeckig": 2
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfach",
+        "Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spind-3",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spind 3-stöckig (40 cm)",
+      "breite_cm": 40,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 30,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker",
+      "params": {
+        "faecher": 3,
+        "abteilbreite": 40,
+        "stoeckig": 3
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfach",
+        "Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spind-4",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spind 4-stöckig (40 cm)",
+      "breite_cm": 40,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 32,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker",
+      "params": {
+        "faecher": 4,
+        "abteilbreite": 40,
+        "stoeckig": 4
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfach",
+        "Locker",
+        "Wertfach"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spind-30-1",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spind 1-stöckig (30 cm)",
+      "breite_cm": 30,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 22,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker",
+      "params": {
+        "faecher": 1,
+        "abteilbreite": 30,
+        "stoeckig": 1
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfach",
+        "Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spind-30-2",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Spinde",
+      "hersteller": "Generisch",
+      "name": "Spind 2-stöckig (30 cm)",
+      "breite_cm": 30,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "locker",
+      "params": {
+        "faecher": 2,
+        "abteilbreite": 30,
+        "stoeckig": 2
+      },
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Spinde",
+        "Schließfach",
+        "Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-bank",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Bänke",
+      "hersteller": "Generisch",
+      "name": "Umkleidebank freistehend",
+      "breite_cm": 150,
+      "tiefe_cm": 40,
+      "hoehe_cm": 45,
+      "gewicht_kg": 15,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "bench-seat",
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Bänke",
+        "Sitzbank"
+      ]
+    },
+    {
+      "id": "gen-umkleide-wandbank",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Bänke",
+      "hersteller": "Generisch",
+      "name": "Wandbank",
+      "breite_cm": 150,
+      "tiefe_cm": 35,
+      "hoehe_cm": 45,
+      "gewicht_kg": 12,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "bench-seat",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Bänke",
+        "Sitzbank"
+      ]
+    },
+    {
+      "id": "gen-umkleide-bank-schuhrost",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Bänke",
+      "hersteller": "Generisch",
+      "name": "Bank mit Schuhrost",
+      "breite_cm": 150,
+      "tiefe_cm": 40,
+      "hoehe_cm": 45,
+      "gewicht_kg": 18,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "bench-seat",
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Bänke",
+        "Sitzbank",
+        "Schuhablage"
+      ]
+    },
+    {
+      "id": "gen-umkleide-mittelbank",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Bänke",
+      "hersteller": "Generisch",
+      "name": "Mittelbank (doppelseitig, mit Garderobe)",
+      "breite_cm": 200,
+      "tiefe_cm": 70,
+      "hoehe_cm": 180,
+      "gewicht_kg": 35,
+      "extra": "Sitzfläche beidseitig, Hakenleiste mittig",
+      "hinweis": "vor Spindreihen mit 100 cm Abstand aufstellen",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "bench-seat",
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Bänke",
+        "Sitzbank",
+        "Garderobenbank"
+      ]
+    },
+    {
+      "id": "gen-umkleide-spiegel",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Spiegel (Wand)",
+      "breite_cm": 100,
+      "tiefe_cm": 3,
+      "hoehe_cm": 150,
+      "gewicht_kg": 12,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "mirror",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Ausstattung",
+        "Wandspiegel"
+      ]
+    },
+    {
+      "id": "gen-umkleide-foehnplatz",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Föhnplatz",
+      "breite_cm": 60,
+      "tiefe_cm": 30,
+      "hoehe_cm": 100,
+      "gewicht_kg": 8,
+      "extra": "Ablage + Wandföhn",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "hairdryer",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Ausstattung",
+        "Haartrockner",
+        "Föhn"
+      ]
+    },
+    {
+      "id": "gen-umkleide-waschtisch",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Sanitär",
+      "hersteller": "Generisch",
+      "name": "Waschtisch",
+      "breite_cm": 60,
+      "tiefe_cm": 50,
+      "hoehe_cm": 85,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "sink",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Sanitär",
+        "Waschbecken",
+        "Lavabo"
+      ]
+    },
+    {
+      "id": "gen-umkleide-waschtisch-doppel",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Sanitär",
+      "hersteller": "Generisch",
+      "name": "Doppelwaschtisch",
+      "breite_cm": 120,
+      "tiefe_cm": 50,
+      "hoehe_cm": 85,
+      "gewicht_kg": 45,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "sink",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Sanitär",
+        "Waschbecken"
+      ]
+    },
+    {
+      "id": "gen-umkleide-einzelkabine",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Kabinen",
+      "hersteller": "Generisch",
+      "name": "Einzel-Umkleidekabine",
+      "breite_cm": 100,
+      "tiefe_cm": 100,
+      "hoehe_cm": 200,
+      "gewicht_kg": 40,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "cabin",
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Kabinen",
+        "Kabine",
+        "Umkleidekabine"
+      ]
+    },
+    {
+      "id": "gen-umkleide-einzelkabine-barrierefrei",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Kabinen",
+      "hersteller": "Generisch",
+      "name": "Umkleidekabine barrierefrei",
+      "breite_cm": 150,
+      "tiefe_cm": 200,
+      "hoehe_cm": 200,
+      "gewicht_kg": 60,
+      "extra": "Bewegungsfläche 150 × 150 cm enthalten",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "cabin",
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Kabinen",
+        "Kabine",
+        "barrierefrei"
+      ]
+    },
+    {
+      "id": "gen-umkleide-wertfaecher",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Wertfächer (20 Fächer)",
+      "breite_cm": 80,
+      "tiefe_cm": 30,
+      "hoehe_cm": 100,
+      "gewicht_kg": 35,
+      "extra": "Schlüssel- oder PIN-Schloss",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "valuables",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Ausstattung",
+        "Wertsachen",
+        "Schließfach",
+        "Mini-Locker"
+      ]
+    },
+    {
+      "id": "gen-umkleide-handtuchspender",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Handtuchspender",
+      "breite_cm": 30,
+      "tiefe_cm": 15,
+      "hoehe_cm": 40,
+      "gewicht_kg": 3,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "dispenser",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Ausstattung",
+        "Papierhandtücher"
+      ]
+    },
+    {
+      "id": "gen-umkleide-waeschesammler",
+      "kategorie": "Umkleide",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Wäschesammler",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 90,
+      "gewicht_kg": 8,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Umkleide",
+      "symbol": "laundry",
+      "tags": [
+        "Generisch",
+        "Umkleide",
+        "Ausstattung",
+        "Handtuchsammler",
+        "Wäschewagen"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-einzeldusche",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Duschen",
+      "hersteller": "Generisch",
+      "name": "Einzeldusche",
+      "breite_cm": 90,
+      "tiefe_cm": 90,
+      "hoehe_cm": 220,
+      "gewicht_kg": 40,
+      "extra": "inkl. Trennwände",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "shower",
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Duschen",
+        "Dusche",
+        "Shower"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-reihendusche",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Duschen",
+      "hersteller": "Generisch",
+      "name": "Reihendusche (4 Plätze)",
+      "breite_cm": 360,
+      "tiefe_cm": 100,
+      "hoehe_cm": 220,
+      "gewicht_kg": 120,
+      "extra": "90 cm je Platz",
+      "hinweis": "Anzahl Plätze = Breite ÷ 90 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "shower-row",
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Duschen",
+        "Duschreihe",
+        "Sammeldusche"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-duschtrennwand",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Duschen",
+      "hersteller": "Generisch",
+      "name": "Duschtrennwand",
+      "breite_cm": 100,
+      "tiefe_cm": 5,
+      "hoehe_cm": 200,
+      "gewicht_kg": 15,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "partition",
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Duschen",
+        "Trennwand",
+        "Schamwand"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-dusche-barrierefrei",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Duschen",
+      "hersteller": "Generisch",
+      "name": "Barrierefreie Dusche",
+      "breite_cm": 150,
+      "tiefe_cm": 150,
+      "hoehe_cm": 220,
+      "gewicht_kg": 40,
+      "extra": "bodengleich, Klappsitz, Haltegriffe",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "shower",
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Duschen",
+        "Dusche",
+        "barrierefrei",
+        "DIN 18040"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-wc-kabine",
+      "kategorie": "Sanitär",
+      "unterkategorie": "WC",
+      "hersteller": "Generisch",
+      "name": "WC-Kabine",
+      "breite_cm": 90,
+      "tiefe_cm": 150,
+      "hoehe_cm": 220,
+      "gewicht_kg": 60,
+      "extra": "inkl. Trennwände und Tür",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "toilet",
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "WC",
+        "Toilette"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-wc-barrierefrei",
+      "kategorie": "Sanitär",
+      "unterkategorie": "WC",
+      "hersteller": "Generisch",
+      "name": "Barrierefreies WC",
+      "breite_cm": 150,
+      "tiefe_cm": 220,
+      "hoehe_cm": 220,
+      "gewicht_kg": 80,
+      "extra": "Bewegungsfläche 150 × 150 cm enthalten, Haltegriffe",
+      "hinweis": "Maße enthalten die Bewegungsfläche nach DIN 18040",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "toilet",
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "WC",
+        "Toilette",
+        "barrierefrei"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-urinal",
+      "kategorie": "Sanitär",
+      "unterkategorie": "WC",
+      "hersteller": "Generisch",
+      "name": "Urinal (mit Trennwand)",
+      "breite_cm": 60,
+      "tiefe_cm": 45,
+      "hoehe_cm": 120,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "urinal",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "WC",
+        "Pissoir"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-waschrinne",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Waschplätze",
+      "hersteller": "Generisch",
+      "name": "Waschrinne (3 Plätze)",
+      "breite_cm": 180,
+      "tiefe_cm": 50,
+      "hoehe_cm": 85,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "sink",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Waschplätze",
+        "Waschbecken"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-wickeltisch",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Wickeltisch (klappbar)",
+      "breite_cm": 90,
+      "tiefe_cm": 60,
+      "hoehe_cm": 100,
+      "gewicht_kg": 12,
+      "extra": "Tiefe im geöffneten Zustand",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "changing-table",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Ausstattung",
+        "Wickelstation",
+        "Baby"
+      ]
+    },
+    {
+      "id": "gen-sanitaer-putzraum-ausguss",
+      "kategorie": "Sanitär",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Ausgussbecken",
+      "breite_cm": 50,
+      "tiefe_cm": 40,
+      "hoehe_cm": 60,
+      "gewicht_kg": 15,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Sanitär",
+      "symbol": "sink",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Sanitär",
+        "Ausstattung",
+        "Putzraum",
+        "Ausguss"
+      ]
+    },
+    {
+      "id": "gen-wellness-sauna-200",
+      "kategorie": "Wellness",
+      "unterkategorie": "Sauna",
+      "hersteller": "Generisch",
+      "name": "Finnische Sauna 200 × 200",
+      "breite_cm": 200,
+      "tiefe_cm": 200,
+      "hoehe_cm": 210,
+      "gewicht_kg": 400,
+      "extra": "4 Personen, Saunaofen 6 kW",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "sauna",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Sauna",
+        "Kabine"
+      ]
+    },
+    {
+      "id": "gen-wellness-sauna-300",
+      "kategorie": "Wellness",
+      "unterkategorie": "Sauna",
+      "hersteller": "Generisch",
+      "name": "Finnische Sauna 300 × 300",
+      "breite_cm": 300,
+      "tiefe_cm": 300,
+      "hoehe_cm": 210,
+      "gewicht_kg": 700,
+      "extra": "8 Personen, Saunaofen 9 kW",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "sauna",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Sauna",
+        "Kabine"
+      ]
+    },
+    {
+      "id": "gen-wellness-sauna-400",
+      "kategorie": "Wellness",
+      "unterkategorie": "Sauna",
+      "hersteller": "Generisch",
+      "name": "Finnische Sauna 400 × 300",
+      "breite_cm": 400,
+      "tiefe_cm": 300,
+      "hoehe_cm": 210,
+      "gewicht_kg": 900,
+      "extra": "12 Personen, Saunaofen 12 kW",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "sauna",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Sauna",
+        "Kabine"
+      ]
+    },
+    {
+      "id": "gen-wellness-bio-sauna",
+      "kategorie": "Wellness",
+      "unterkategorie": "Sauna",
+      "hersteller": "Generisch",
+      "name": "Bio-Sauna",
+      "breite_cm": 250,
+      "tiefe_cm": 250,
+      "hoehe_cm": 210,
+      "gewicht_kg": 550,
+      "extra": "55–65 °C, Verdampfer",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "sauna",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Sauna",
+        "Sanarium"
+      ]
+    },
+    {
+      "id": "gen-wellness-infrarotkabine",
+      "kategorie": "Wellness",
+      "unterkategorie": "Sauna",
+      "hersteller": "Generisch",
+      "name": "Infrarotkabine",
+      "breite_cm": 120,
+      "tiefe_cm": 105,
+      "hoehe_cm": 195,
+      "gewicht_kg": 120,
+      "extra": "2 Personen",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "infrared",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Sauna",
+        "Infrarot",
+        "Kabine"
+      ]
+    },
+    {
+      "id": "gen-wellness-dampfbad",
+      "kategorie": "Wellness",
+      "unterkategorie": "Sauna",
+      "hersteller": "Generisch",
+      "name": "Dampfbad",
+      "breite_cm": 250,
+      "tiefe_cm": 250,
+      "hoehe_cm": 220,
+      "gewicht_kg": 650,
+      "extra": "6 Personen, Dampfgenerator",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "steam",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Sauna",
+        "Dampfsauna",
+        "Steam"
+      ]
+    },
+    {
+      "id": "gen-wellness-cold-plunge",
+      "kategorie": "Wellness",
+      "unterkategorie": "Kaltwasser",
+      "hersteller": "Generisch",
+      "name": "Cold Plunge „ReGen OG Plunge / The Blast“",
+      "breite_cm": 180,
+      "tiefe_cm": 80,
+      "hoehe_cm": 75,
+      "gewicht_kg": 450,
+      "extra": "Kaltwasserbecken mit Kühlaggregat, ca. 350 l",
+      "hinweis": "Maße ungeprüft (keine Herstellerangabe)",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "plunge",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Kaltwasser",
+        "Eisbad",
+        "Cold Plunge",
+        "ReGen",
+        "Prime"
+      ]
+    },
+    {
+      "id": "gen-wellness-tauchbecken",
+      "kategorie": "Wellness",
+      "unterkategorie": "Kaltwasser",
+      "hersteller": "Generisch",
+      "name": "Tauchbecken rund",
+      "breite_cm": 130,
+      "tiefe_cm": 130,
+      "hoehe_cm": 110,
+      "gewicht_kg": 1200,
+      "extra": "Ø 130 cm, inkl. Wasserfüllung",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "plunge",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Kaltwasser",
+        "Kaltwasserbecken",
+        "Eisbad"
+      ]
+    },
+    {
+      "id": "gen-wellness-eisbrunnen",
+      "kategorie": "Wellness",
+      "unterkategorie": "Kaltwasser",
+      "hersteller": "Generisch",
+      "name": "Eisbrunnen",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 110,
+      "gewicht_kg": 80,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "ice-fountain",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Kaltwasser",
+        "Crushed Ice"
+      ]
+    },
+    {
+      "id": "gen-wellness-kneipp-becken",
+      "kategorie": "Wellness",
+      "unterkategorie": "Kaltwasser",
+      "hersteller": "Generisch",
+      "name": "Kneipp-Becken",
+      "breite_cm": 200,
+      "tiefe_cm": 100,
+      "hoehe_cm": 50,
+      "gewicht_kg": 600,
+      "extra": "Wassertretbecken, inkl. Wasserfüllung",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "kneipp",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Kaltwasser",
+        "Wassertreten",
+        "Kneipp"
+      ]
+    },
+    {
+      "id": "gen-wellness-erlebnisdusche",
+      "kategorie": "Wellness",
+      "unterkategorie": "Duschen",
+      "hersteller": "Generisch",
+      "name": "Erlebnisdusche",
+      "breite_cm": 120,
+      "tiefe_cm": 120,
+      "hoehe_cm": 230,
+      "gewicht_kg": 60,
+      "extra": "Regen-/Nebeldusche mit Licht und Duft",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "shower-experience",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Duschen",
+        "Dusche",
+        "Regendusche"
+      ]
+    },
+    {
+      "id": "gen-wellness-schwallbrause",
+      "kategorie": "Wellness",
+      "unterkategorie": "Duschen",
+      "hersteller": "Generisch",
+      "name": "Schwallbrause",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 230,
+      "gewicht_kg": 30,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "shower-experience",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Duschen",
+        "Dusche",
+        "Schwalldusche"
+      ]
+    },
+    {
+      "id": "gen-wellness-ruheliege",
+      "kategorie": "Wellness",
+      "unterkategorie": "Ruhebereich",
+      "hersteller": "Generisch",
+      "name": "Ruheliege",
+      "breite_cm": 200,
+      "tiefe_cm": 70,
+      "hoehe_cm": 40,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "lounger",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Ruhebereich",
+        "Liege",
+        "Relaxliege"
+      ]
+    },
+    {
+      "id": "gen-wellness-wasserbett",
+      "kategorie": "Wellness",
+      "unterkategorie": "Ruhebereich",
+      "hersteller": "Generisch",
+      "name": "Wasserbett (beheizt)",
+      "breite_cm": 200,
+      "tiefe_cm": 90,
+      "hoehe_cm": 50,
+      "gewicht_kg": 250,
+      "extra": "inkl. Wasserfüllung",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "waterbed",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Ruhebereich",
+        "Liege",
+        "Wasserliege"
+      ]
+    },
+    {
+      "id": "gen-wellness-solarium",
+      "kategorie": "Wellness",
+      "unterkategorie": "Beauty",
+      "hersteller": "Generisch",
+      "name": "Solarium",
+      "breite_cm": 225,
+      "tiefe_cm": 115,
+      "hoehe_cm": 140,
+      "gewicht_kg": 350,
+      "extra": "Liegesolarium",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "solarium",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Beauty",
+        "Sonnenbank"
+      ]
+    },
+    {
+      "id": "gen-wellness-red-light-panel",
+      "kategorie": "Wellness",
+      "unterkategorie": "Beauty",
+      "hersteller": "Generisch",
+      "name": "Red-Light-Panel (Wand)",
+      "breite_cm": 90,
+      "tiefe_cm": 15,
+      "hoehe_cm": 180,
+      "gewicht_kg": 25,
+      "extra": "Ganzkörper-Rotlichtpanel, Nutzungsfläche 100 cm davor",
+      "hinweis": "Maße ungeprüft (keine Herstellerangabe)",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "red-light",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Beauty",
+        "Rotlicht",
+        "Red Light Therapy",
+        "Prime"
+      ]
+    },
+    {
+      "id": "gen-wellness-massagestuhl",
+      "kategorie": "Wellness",
+      "unterkategorie": "Massage",
+      "hersteller": "Generisch",
+      "name": "Massagestuhl",
+      "breite_cm": 80,
+      "tiefe_cm": 150,
+      "hoehe_cm": 120,
+      "gewicht_kg": 120,
+      "extra": "Liegeposition: T 170 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "massage-chair",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Massage",
+        "Massagesessel"
+      ]
+    },
+    {
+      "id": "gen-wellness-massageliege",
+      "kategorie": "Wellness",
+      "unterkategorie": "Massage",
+      "hersteller": "Generisch",
+      "name": "Massageliege",
+      "breite_cm": 75,
+      "tiefe_cm": 195,
+      "hoehe_cm": 75,
+      "gewicht_kg": 40,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "massage-table",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Massage",
+        "Behandlungsliege",
+        "Physio"
+      ]
+    },
+    {
+      "id": "gen-wellness-whirlpool",
+      "kategorie": "Wellness",
+      "unterkategorie": "Wasser",
+      "hersteller": "Generisch",
+      "name": "Whirlpool",
+      "breite_cm": 220,
+      "tiefe_cm": 220,
+      "hoehe_cm": 90,
+      "gewicht_kg": 2200,
+      "extra": "5 Personen, inkl. Wasserfüllung ca. 1.400 l",
+      "hinweis": "Bodenlast prüfen (ca. 450 kg/m²)",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "whirlpool",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Wasser",
+        "Jacuzzi",
+        "Spa"
+      ]
+    },
+    {
+      "id": "gen-wellness-teestation",
+      "kategorie": "Wellness",
+      "unterkategorie": "Ruhebereich",
+      "hersteller": "Generisch",
+      "name": "Teestation",
+      "breite_cm": 120,
+      "tiefe_cm": 60,
+      "hoehe_cm": 110,
+      "gewicht_kg": 40,
+      "extra": "Wasserspender, Teeauswahl",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Wellness",
+      "symbol": "tea-station",
+      "tags": [
+        "Generisch",
+        "Wellness",
+        "Ruhebereich",
+        "Tee",
+        "Getränke"
+      ]
+    },
+    {
+      "id": "gen-kursraum-step",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Step-Brett",
+      "breite_cm": 110,
+      "tiefe_cm": 40,
+      "hoehe_cm": 20,
+      "gewicht_kg": 5,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "step",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Kleingeräte",
+        "Aerobic",
+        "Stepper"
+      ]
+    },
+    {
+      "id": "gen-kursraum-step-wagen",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Regale",
+      "hersteller": "Generisch",
+      "name": "Step-Wagen (20 Steps)",
+      "breite_cm": 120,
+      "tiefe_cm": 60,
+      "hoehe_cm": 150,
+      "gewicht_kg": 40,
+      "extra": "fahrbar, ohne Steps",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "mat-rack",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Regale",
+        "Stepwagen"
+      ]
+    },
+    {
+      "id": "gen-kursraum-mattenregal",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Regale",
+      "hersteller": "Generisch",
+      "name": "Mattenregal",
+      "breite_cm": 100,
+      "tiefe_cm": 40,
+      "hoehe_cm": 180,
+      "gewicht_kg": 20,
+      "extra": "für 20 Matten",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "mat-rack",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Regale",
+        "Mattenhalter"
+      ]
+    },
+    {
+      "id": "gen-kursraum-kurshantel-regal",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Regale",
+      "hersteller": "Generisch",
+      "name": "Kurshantel-Regal (Pump-Sets)",
+      "breite_cm": 120,
+      "tiefe_cm": 50,
+      "hoehe_cm": 100,
+      "gewicht_kg": 35,
+      "extra": "ohne Hantelsets",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "shelf",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Regale",
+        "Pump",
+        "Langhantelset"
+      ]
+    },
+    {
+      "id": "gen-kursraum-kursmatte",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Kleingeräte",
+      "hersteller": "Generisch",
+      "name": "Kursmatte",
+      "breite_cm": 180,
+      "tiefe_cm": 60,
+      "hoehe_cm": 1,
+      "gewicht_kg": 1,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "mat",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Kleingeräte",
+        "Gymnastikmatte",
+        "Yogamatte"
+      ]
+    },
+    {
+      "id": "gen-kursraum-spinning-rad",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Cycling",
+      "hersteller": "Generisch",
+      "name": "Indoor-Cycling-Rad (Kurs)",
+      "breite_cm": 55,
+      "tiefe_cm": 125,
+      "hoehe_cm": 110,
+      "gewicht_kg": 55,
+      "sicherheitszone_cm": {
+        "vorne": 30,
+        "hinten": 30,
+        "links": 30,
+        "rechts": 30
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "spin-bike",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Cycling",
+        "Spinning",
+        "Indoor Cycling"
+      ]
+    },
+    {
+      "id": "gen-kursraum-trainer-podest",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Trainer-Podest",
+      "breite_cm": 200,
+      "tiefe_cm": 150,
+      "hoehe_cm": 30,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "podium",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Ausstattung",
+        "Bühne",
+        "Podium"
+      ]
+    },
+    {
+      "id": "gen-kursraum-musikanlage",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Ausstattung",
+      "hersteller": "Generisch",
+      "name": "Musikanlage (Rack)",
+      "breite_cm": 60,
+      "tiefe_cm": 50,
+      "hoehe_cm": 120,
+      "gewicht_kg": 40,
+      "extra": "Verstärker, Mikrofon, Mischpult",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "audio",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Ausstattung",
+        "Audio",
+        "Soundsystem"
+      ]
+    },
+    {
+      "id": "gen-kursraum-gymnastikball-regal",
+      "kategorie": "Kursraum",
+      "unterkategorie": "Regale",
+      "hersteller": "Generisch",
+      "name": "Gymnastikball-Regal",
+      "breite_cm": 120,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 20,
+      "extra": "für 12 Bälle",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Kursraum",
+      "symbol": "ball-rack",
+      "tags": [
+        "Generisch",
+        "Kursraum",
+        "Regale",
+        "Pezziball",
+        "Gymnastikball"
+      ]
+    },
+    {
+      "id": "gen-buero-schreibtisch",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Büro",
+      "hersteller": "Generisch",
+      "name": "Schreibtisch",
+      "breite_cm": 160,
+      "tiefe_cm": 80,
+      "hoehe_cm": 75,
+      "gewicht_kg": 40,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "desk",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Büro",
+        "Tisch",
+        "Arbeitsplatz"
+      ]
+    },
+    {
+      "id": "gen-buero-buerostuhl",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Büro",
+      "hersteller": "Generisch",
+      "name": "Bürostuhl",
+      "breite_cm": 65,
+      "tiefe_cm": 65,
+      "hoehe_cm": 120,
+      "gewicht_kg": 15,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "office-chair",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Büro",
+        "Drehstuhl"
+      ]
+    },
+    {
+      "id": "gen-buero-aktenschrank",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Büro",
+      "hersteller": "Generisch",
+      "name": "Aktenschrank",
+      "breite_cm": 80,
+      "tiefe_cm": 42,
+      "hoehe_cm": 200,
+      "gewicht_kg": 60,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "filing-cabinet",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Büro",
+        "Schrank",
+        "Ordner"
+      ]
+    },
+    {
+      "id": "gen-buero-rollcontainer",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Büro",
+      "hersteller": "Generisch",
+      "name": "Rollcontainer",
+      "breite_cm": 45,
+      "tiefe_cm": 60,
+      "hoehe_cm": 60,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "filing-cabinet",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Büro",
+        "Schubladen"
+      ]
+    },
+    {
+      "id": "gen-buero-besprechungstisch",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Besprechung",
+      "hersteller": "Generisch",
+      "name": "Besprechungstisch",
+      "breite_cm": 200,
+      "tiefe_cm": 100,
+      "hoehe_cm": 75,
+      "gewicht_kg": 50,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "meeting-table",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Besprechung",
+        "Konferenztisch",
+        "Meeting"
+      ]
+    },
+    {
+      "id": "gen-buero-personalschrank",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Personal",
+      "hersteller": "Generisch",
+      "name": "Personalschrank",
+      "breite_cm": 60,
+      "tiefe_cm": 50,
+      "hoehe_cm": 180,
+      "gewicht_kg": 35,
+      "extra": "2 Abteile",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "wardrobe",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Personal",
+        "Spind",
+        "Garderobe"
+      ]
+    },
+    {
+      "id": "gen-buero-teekueche",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Personal",
+      "hersteller": "Generisch",
+      "name": "Teeküche",
+      "breite_cm": 180,
+      "tiefe_cm": 60,
+      "hoehe_cm": 90,
+      "gewicht_kg": 80,
+      "extra": "Spüle, Kühlschrank, Kaffeemaschine",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "tea-station",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Personal",
+        "Küche",
+        "Pantry"
+      ]
+    },
+    {
+      "id": "gen-buero-personaltisch",
+      "kategorie": "Büro & Personal",
+      "unterkategorie": "Personal",
+      "hersteller": "Generisch",
+      "name": "Pausentisch",
+      "breite_cm": 120,
+      "tiefe_cm": 80,
+      "hoehe_cm": 75,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Büro & Personal",
+      "symbol": "table",
+      "tags": [
+        "Generisch",
+        "Büro & Personal",
+        "Personal",
+        "Tisch"
+      ]
+    },
+    {
+      "id": "gen-lager-schwerlastregal",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Regale",
+      "hersteller": "Generisch",
+      "name": "Schwerlastregal",
+      "breite_cm": 180,
+      "tiefe_cm": 60,
+      "hoehe_cm": 200,
+      "gewicht_kg": 60,
+      "extra": "5 Böden, 250 kg je Boden",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "shelf",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Regale",
+        "Regal",
+        "Lager"
+      ]
+    },
+    {
+      "id": "gen-lager-regal",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Regale",
+      "hersteller": "Generisch",
+      "name": "Regal",
+      "breite_cm": 90,
+      "tiefe_cm": 40,
+      "hoehe_cm": 180,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "shelf",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Regale",
+        "Lagerregal"
+      ]
+    },
+    {
+      "id": "gen-lager-lueftungsanlage",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Technik",
+      "hersteller": "Generisch",
+      "name": "Lüftungsanlage (RLT-Gerät)",
+      "breite_cm": 200,
+      "tiefe_cm": 100,
+      "hoehe_cm": 180,
+      "gewicht_kg": 400,
+      "extra": "Zentralgerät mit Wärmerückgewinnung",
+      "hinweis": "Wartungsfläche 60 cm vor und neben dem Gerät",
+      "sicherheitszone_cm": {
+        "vorne": 60,
+        "hinten": 0,
+        "links": 60,
+        "rechts": 60
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "hvac",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Technik",
+        "Lüftung",
+        "Klima",
+        "HVAC"
+      ]
+    },
+    {
+      "id": "gen-lager-waschmaschine",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Wäsche",
+      "hersteller": "Generisch",
+      "name": "Waschmaschine (gewerblich)",
+      "breite_cm": 60,
+      "tiefe_cm": 65,
+      "hoehe_cm": 85,
+      "gewicht_kg": 80,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "washer",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Wäsche",
+        "Waschen"
+      ]
+    },
+    {
+      "id": "gen-lager-trockner",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Wäsche",
+      "hersteller": "Generisch",
+      "name": "Trockner (gewerblich)",
+      "breite_cm": 60,
+      "tiefe_cm": 65,
+      "hoehe_cm": 85,
+      "gewicht_kg": 50,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "washer",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Wäsche",
+        "Trocknen"
+      ]
+    },
+    {
+      "id": "gen-lager-putzwagen",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Reinigung",
+      "hersteller": "Generisch",
+      "name": "Putzwagen",
+      "breite_cm": 110,
+      "tiefe_cm": 55,
+      "hoehe_cm": 110,
+      "gewicht_kg": 20,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "cleaning-cart",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Reinigung",
+        "Reinigungswagen"
+      ]
+    },
+    {
+      "id": "gen-lager-schaltschrank",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Technik",
+      "hersteller": "Generisch",
+      "name": "Schaltschrank",
+      "breite_cm": 80,
+      "tiefe_cm": 40,
+      "hoehe_cm": 200,
+      "gewicht_kg": 90,
+      "extra": "Elektroverteilung",
+      "hinweis": "Arbeitsfläche 100 cm vor dem Schrank freihalten",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "switchboard",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Technik",
+        "Elektro",
+        "Verteilung"
+      ]
+    },
+    {
+      "id": "gen-lager-warmwasserspeicher",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Technik",
+      "hersteller": "Generisch",
+      "name": "Warmwasserspeicher",
+      "breite_cm": 70,
+      "tiefe_cm": 70,
+      "hoehe_cm": 180,
+      "gewicht_kg": 350,
+      "extra": "Ø 70 cm, 300 l, inkl. Füllung",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "hvac",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Technik",
+        "Boiler",
+        "Warmwasser"
+      ]
+    },
+    {
+      "id": "gen-lager-serverschrank",
+      "kategorie": "Lager & Technik",
+      "unterkategorie": "Technik",
+      "hersteller": "Generisch",
+      "name": "Serverschrank / Netzwerk",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 120,
+      "gewicht_kg": 40,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Lager & Technik",
+      "symbol": "switchboard",
+      "tags": [
+        "Generisch",
+        "Lager & Technik",
+        "Technik",
+        "IT",
+        "Netzwerk"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-pflanze",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Dekoration",
+      "hersteller": "Generisch",
+      "name": "Pflanze (Kübel)",
+      "breite_cm": 40,
+      "tiefe_cm": 40,
+      "hoehe_cm": 150,
+      "gewicht_kg": 15,
+      "extra": "Ø 40 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "plant",
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Dekoration",
+        "Grünpflanze"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-pflanze-gross",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Dekoration",
+      "hersteller": "Generisch",
+      "name": "Pflanze groß (Kübel)",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 200,
+      "gewicht_kg": 35,
+      "extra": "Ø 60 cm",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "plant",
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Dekoration",
+        "Grünpflanze"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-lautsprecher",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Medien",
+      "hersteller": "Generisch",
+      "name": "Lautsprecher (Wand)",
+      "breite_cm": 25,
+      "tiefe_cm": 25,
+      "hoehe_cm": 40,
+      "gewicht_kg": 5,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "speaker",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Medien",
+        "Box",
+        "Audio"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-tv-55",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Medien",
+      "hersteller": "Generisch",
+      "name": "TV 55″ (Wand)",
+      "breite_cm": 125,
+      "tiefe_cm": 8,
+      "hoehe_cm": 72,
+      "gewicht_kg": 18,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "tv",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Medien",
+        "Fernseher",
+        "Bildschirm"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-tv-65",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Medien",
+      "hersteller": "Generisch",
+      "name": "TV 65″ (Wand)",
+      "breite_cm": 145,
+      "tiefe_cm": 8,
+      "hoehe_cm": 84,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "tv",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Medien",
+        "Fernseher",
+        "Bildschirm"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-whiteboard",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Medien",
+      "hersteller": "Generisch",
+      "name": "Whiteboard (Wand)",
+      "breite_cm": 120,
+      "tiefe_cm": 5,
+      "hoehe_cm": 90,
+      "gewicht_kg": 10,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "screen",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Medien",
+        "Tafel",
+        "Info"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-wasserspender",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Hygiene",
+      "hersteller": "Generisch",
+      "name": "Wasserspender",
+      "breite_cm": 35,
+      "tiefe_cm": 35,
+      "hoehe_cm": 110,
+      "gewicht_kg": 25,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "water-dispenser",
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Hygiene",
+        "Trinkwasser"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-desinfektionsstation",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Hygiene",
+      "hersteller": "Generisch",
+      "name": "Desinfektionsstation",
+      "breite_cm": 40,
+      "tiefe_cm": 40,
+      "hoehe_cm": 130,
+      "gewicht_kg": 8,
+      "extra": "Spender + Papierrolle",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "sanitizer",
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Hygiene",
+        "Desinfektion"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-muelleimer",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Hygiene",
+      "hersteller": "Generisch",
+      "name": "Mülleimer",
+      "breite_cm": 40,
+      "tiefe_cm": 40,
+      "hoehe_cm": 80,
+      "gewicht_kg": 5,
+      "extra": "Ø 40 cm, 60 l",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "trash",
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Hygiene",
+        "Abfall",
+        "Papierkorb"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-feuerloescher",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Feuerlöscher",
+      "breite_cm": 20,
+      "tiefe_cm": 20,
+      "hoehe_cm": 60,
+      "gewicht_kg": 10,
+      "extra": "6 kg, Wandhalterung",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "extinguisher",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Brandschutz"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-erste-hilfe",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Erste-Hilfe-Kasten",
+      "breite_cm": 30,
+      "tiefe_cm": 15,
+      "hoehe_cm": 30,
+      "gewicht_kg": 3,
+      "extra": "DIN 13157",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "first-aid",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Verbandkasten"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-aed",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "AED / Defibrillator",
+      "breite_cm": 40,
+      "tiefe_cm": 20,
+      "hoehe_cm": 40,
+      "gewicht_kg": 5,
+      "extra": "Wandkasten",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "aed",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Defi",
+        "Notfall"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-notausgang-schild",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Notausgang-Schild",
+      "breite_cm": 35,
+      "tiefe_cm": 5,
+      "hoehe_cm": 20,
+      "gewicht_kg": 1,
+      "extra": "beleuchtet",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "exit-sign",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Fluchtweg",
+        "Rettungszeichen"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-kamera",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Kamera",
+      "breite_cm": 15,
+      "tiefe_cm": 15,
+      "hoehe_cm": 15,
+      "gewicht_kg": 1,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "camera",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Überwachung",
+        "CCTV"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-handtuchhalter",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Hygiene",
+      "hersteller": "Generisch",
+      "name": "Handtuch-/Sprühflaschenhalter",
+      "breite_cm": 30,
+      "tiefe_cm": 20,
+      "hoehe_cm": 40,
+      "gewicht_kg": 2,
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "dispenser",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Hygiene"
+      ]
+    },
+    {
+      "id": "gen-bau-saeule-rund",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Stützen",
+      "hersteller": "Generisch",
+      "name": "Säule rund Ø 30",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "raumhoch",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "column-round",
+      "params": {
+        "kind": "column",
+        "form": "rund"
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Stützen",
+        "Stütze",
+        "Pfeiler"
+      ]
+    },
+    {
+      "id": "gen-bau-saeule-eckig",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Stützen",
+      "hersteller": "Generisch",
+      "name": "Säule eckig 30 × 30",
+      "breite_cm": 30,
+      "tiefe_cm": 30,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "raumhoch",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "column-square",
+      "params": {
+        "kind": "column",
+        "form": "eckig"
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Stützen",
+        "Stütze",
+        "Pfeiler"
+      ]
+    },
+    {
+      "id": "gen-bau-saeule-rund-50",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Stützen",
+      "hersteller": "Generisch",
+      "name": "Säule rund Ø 50",
+      "breite_cm": 50,
+      "tiefe_cm": 50,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "raumhoch",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "column-round",
+      "params": {
+        "kind": "column",
+        "form": "rund"
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Stützen",
+        "Stütze",
+        "Pfeiler"
+      ]
+    },
+    {
+      "id": "gen-bau-heizkoerper",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Haustechnik",
+      "hersteller": "Generisch",
+      "name": "Heizkörper",
+      "breite_cm": 100,
+      "tiefe_cm": 10,
+      "hoehe_cm": 60,
+      "gewicht_kg": 25,
+      "extra": "Flachheizkörper, Wandmontage",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "radiator",
+      "wandmontage": true,
+      "params": {
+        "kind": "radiator"
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Haustechnik",
+        "Heizung",
+        "Radiator"
+      ]
+    },
+    {
+      "id": "gen-bau-lueftungsauslass",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Haustechnik",
+      "hersteller": "Generisch",
+      "name": "Lüftungsauslass",
+      "breite_cm": 60,
+      "tiefe_cm": 60,
+      "hoehe_cm": 30,
+      "gewicht_kg": 5,
+      "extra": "Deckenauslass 60 × 60 cm",
+      "hinweis": "Deckenmontage – belegt keine Stellfläche am Boden",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "vent",
+      "params": {
+        "kind": "vent"
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Haustechnik",
+        "Lüftung",
+        "Zuluft",
+        "Abluft"
+      ]
+    },
+    {
+      "id": "gen-bau-treppe-gerade",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Treppen",
+      "hersteller": "Generisch",
+      "name": "Treppe gerade",
+      "breite_cm": 100,
+      "tiefe_cm": 360,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "18 Stufen, Steigung 18 cm, Auftritt 20 cm",
+      "hinweis": "Antrittsfläche 100 cm vor der Treppe freihalten",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "stairs-straight",
+      "params": {
+        "kind": "stairs",
+        "typ": "gerade",
+        "stufen": 18,
+        "steigung": 18
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Treppen",
+        "Treppe",
+        "Stairs"
+      ]
+    },
+    {
+      "id": "gen-bau-treppe-l",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Treppen",
+      "hersteller": "Generisch",
+      "name": "L-Treppe",
+      "breite_cm": 240,
+      "tiefe_cm": 240,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "viertelgewendelt mit Podest, Laufbreite 100 cm",
+      "hinweis": "Antrittsfläche 100 cm vor der Treppe freihalten",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "stairs-l",
+      "params": {
+        "kind": "stairs",
+        "typ": "L",
+        "stufen": 18,
+        "steigung": 18
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Treppen",
+        "Treppe",
+        "Stairs",
+        "Podest"
+      ]
+    },
+    {
+      "id": "gen-bau-treppe-u",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Treppen",
+      "hersteller": "Generisch",
+      "name": "U-Treppe",
+      "breite_cm": 240,
+      "tiefe_cm": 300,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "halbgewendelt mit Zwischenpodest, Laufbreite 100 cm",
+      "hinweis": "Antrittsfläche 100 cm vor der Treppe freihalten",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "stairs-u",
+      "params": {
+        "kind": "stairs",
+        "typ": "U",
+        "stufen": 18,
+        "steigung": 18
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Treppen",
+        "Treppe",
+        "Stairs",
+        "Podest"
+      ]
+    },
+    {
+      "id": "gen-bau-wendeltreppe",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Treppen",
+      "hersteller": "Generisch",
+      "name": "Wendeltreppe Ø 200",
+      "breite_cm": 200,
+      "tiefe_cm": 200,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "Ø 200 cm, 16 Stufen je Umdrehung",
+      "hinweis": "nur als Nebentreppe zulässig (kein Fluchtweg)",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "kreis",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "stairs-spiral",
+      "params": {
+        "kind": "stairs",
+        "typ": "Wendeltreppe",
+        "stufen": 16,
+        "steigung": 19
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Treppen",
+        "Treppe",
+        "Spindeltreppe"
+      ]
+    },
+    {
+      "id": "gen-bau-aufzug",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Aufzüge",
+      "hersteller": "Generisch",
+      "name": "Aufzug",
+      "breite_cm": 180,
+      "tiefe_cm": 200,
+      "hoehe_cm": null,
+      "gewicht_kg": null,
+      "extra": "Schacht 180 × 200 cm, Kabine 140 × 160 cm (barrierefrei)",
+      "hinweis": "Bewegungsfläche 150 cm vor der Aufzugstür freihalten",
+      "sicherheitszone_cm": {
+        "vorne": 150,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "elevator",
+      "params": {
+        "kind": "elevator",
+        "kabine_breite": 140,
+        "kabine_tiefe": 160
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Aufzüge",
+        "Lift",
+        "Elevator",
+        "barrierefrei"
+      ]
+    },
+    {
+      "id": "gen-bau-rampe",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Rampen",
+      "hersteller": "Generisch",
+      "name": "Rampe",
+      "breite_cm": 120,
+      "tiefe_cm": 600,
+      "hoehe_cm": 36,
+      "gewicht_kg": null,
+      "extra": "Steigung 6 %, Laufbreite 120 cm",
+      "hinweis": "Länge im Eigenschaften-Panel anpassen (max. 6 % Steigung, Zwischenpodest alle 6 m)",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "ramp",
+      "params": {
+        "kind": "ramp",
+        "steigung_prozent": 6
+      },
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Rampen",
+        "barrierefrei",
+        "Ramp"
+      ]
+    },
+    {
+      "id": "gen-bau-podest",
+      "kategorie": "Bauelemente",
+      "unterkategorie": "Rampen",
+      "hersteller": "Generisch",
+      "name": "Podest",
+      "breite_cm": 200,
+      "tiefe_cm": 100,
+      "hoehe_cm": 20,
+      "gewicht_kg": null,
+      "extra": "Holzpodest 20 cm hoch",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": true,
+      "verifiziert": false,
+      "bereich": "Bauelemente",
+      "symbol": "podium",
+      "tags": [
+        "Generisch",
+        "Bauelemente",
+        "Rampen",
+        "Bühne",
+        "Stufe"
+      ]
+    }
+  ]
 }

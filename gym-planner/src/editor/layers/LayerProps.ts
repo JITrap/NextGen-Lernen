@@ -20,4 +20,6 @@ export interface LayerProps {
   collidingIds: Set<string>;
   /** Präsentationsmodus: keine Hilfslinien/Griffe. */
   presentation: boolean;
+  /** Größe der Stage in Pixeln. */
+  stageSize?: { width: number; height: number };
 }
