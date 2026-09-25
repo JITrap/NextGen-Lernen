@@ -23,6 +23,8 @@ export interface TutorialStep {
   done?: (floor: Floor) => boolean;
   waitingText?: string;
   doneText?: string;
+  /** Erfüllung ist nur ein Hinweis – „Weiter“ ist immer möglich. */
+  optional?: boolean;
 }
 
 export const TUTORIAL_STEPS: TutorialStep[] = [
@@ -69,6 +71,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
     ),
     done: (f) => f.walls.length > 0,
     doneText: 'Erste Wand gesetzt.',
+    optional: true,
   },
   {
     id: 'rooms',
@@ -84,6 +87,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
     ),
     done: (f) => f.zones.length > 0,
     doneText: 'Zone angelegt.',
+    optional: true,
   },
   {
     id: 'library',
@@ -190,7 +194,8 @@ export function Tutorial() {
 
   const step = TUTORIAL_STEPS[index];
   const total = TUTORIAL_STEPS.length;
-  const done = step?.done ? step.done(floor) : true;
+  const fulfilled = step?.done ? step.done(floor) : true;
+  const done = fulfilled || !!step?.optional;
 
   // Beim Betreten eines Schritts Panel öffnen
   useEffect(() => {
@@ -260,7 +265,7 @@ export function Tutorial() {
       {rect && (
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed z-[1150] rounded-lg transition-all duration-200"
+          className="pointer-events-none fixed z-[1050] rounded-lg transition-all duration-200"
           style={{
             left: rect.left - pad,
             top: rect.top - pad,
@@ -276,7 +281,7 @@ export function Tutorial() {
         aria-label={`Tutorial – Schritt ${index + 1} von ${total}: ${step.title}`}
         tabIndex={-1}
         onKeyDown={onKeyDown}
-        className="gp-panel fixed bottom-11 right-4 z-[1200] flex w-[min(360px,calc(100vw-32px))] flex-col gap-3 rounded-xl border p-4 shadow-2xl outline-none"
+        className="gp-panel fixed bottom-11 right-4 z-[1060] flex w-[min(360px,calc(100vw-32px))] flex-col gap-3 rounded-xl border p-4 shadow-2xl outline-none"
         data-tutorial-card="true"
       >
         <div className="flex items-start justify-between gap-2">
@@ -302,16 +307,16 @@ export function Tutorial() {
 
         <p className="text-sm leading-relaxed">{step.text}</p>
 
-        {step.tool && !done && (
+        {step.tool && !fulfilled && (
           <Button size="sm" icon={<GraduationCap size={14} />} onClick={() => setTool(step.tool!)} className="self-start">
             {step.toolLabel ?? 'Werkzeug aktivieren'}
           </Button>
         )}
 
         {step.done && (
-          <div className={`flex items-center gap-2 rounded-md px-2.5 py-1.5 text-xs ${done ? 'gp-ok' : 'gp-muted'}`} style={{ background: 'color-mix(in srgb, var(--gp-muted) 12%, transparent)' }} role="status">
-            {done ? <Check size={14} /> : <span className="inline-block h-3 w-3 animate-pulse rounded-full" style={{ background: 'var(--gp-accent)' }} aria-hidden="true" />}
-            <span>{done ? step.doneText ?? 'Erledigt!' : step.waitingText ?? 'Probiere es aus – oder überspringe den Schritt.'}</span>
+          <div className={`flex items-center gap-2 rounded-md px-2.5 py-1.5 text-xs ${fulfilled ? 'gp-ok' : 'gp-muted'}`} style={{ background: 'color-mix(in srgb, var(--gp-muted) 12%, transparent)' }} role="status">
+            {fulfilled ? <Check size={14} /> : <span className="inline-block h-3 w-3 animate-pulse rounded-full" style={{ background: 'var(--gp-accent)' }} aria-hidden="true" />}
+            <span>{fulfilled ? step.doneText ?? 'Erledigt!' : step.waitingText ?? 'Probiere es aus – oder geh einfach weiter.'}</span>
           </div>
         )}
 

@@ -34,10 +34,13 @@ export interface FloorAreaBalance {
   trainingM2: number;
   byType: AreaByType[];
   byClass: AreaByClass[];
-  /** Netto minus Summe aller Räume (min 0). */
+  /** Netto minus Summe aller typisierten Räume (min 0); enthält Auto-Räume ohne gewählten Typ. */
   unassignedM2: number;
   unassignedPercent: number;
+  /** Alle Räume/Zonen (inkl. untypisierter Auto-Räume). */
   roomCount: number;
+  /** Auto-Räume ohne gewählten Typ. */
+  untypedRoomCount: number;
 }
 export interface AreaBalance {
   floors: FloorAreaBalance[];
@@ -55,6 +58,7 @@ function balanceOfFloor(fc: FloorContext): FloorAreaBalance {
   const byTypeMap = new Map<RoomType, { m2: number; count: number; color: string }>();
   const byClassMap = new Map<AreaClass, number>();
   for (const ra of fc.roomAreas) {
+    if (!ra.typed) continue; // untypisierte Auto-Räume → „nicht zugeordnet“
     const t = byTypeMap.get(ra.room.type) ?? { m2: 0, count: 0, color: ROOM_TYPE_MAP[ra.room.type]?.color ?? ra.color };
     t.m2 += ra.effectiveM2;
     t.count += 1;
@@ -62,7 +66,7 @@ function balanceOfFloor(fc: FloorContext): FloorAreaBalance {
     byClassMap.set(ra.areaClass, (byClassMap.get(ra.areaClass) ?? 0) + ra.effectiveM2);
   }
   const netto = fc.nettoM2;
-  const assigned = fc.roomAreas.reduce((s, r) => s + r.effectiveM2, 0);
+  const assigned = fc.roomAreas.reduce((s, r) => s + (r.typed ? r.effectiveM2 : 0), 0);
   const unassignedM2 = Math.max(0, netto - assigned);
   const byType: AreaByType[] = [...byTypeMap.entries()]
     .map(([type, v]) => ({ type, m2: v.m2, percent: pct(v.m2, netto), color: v.color, count: v.count }))
@@ -84,6 +88,7 @@ function balanceOfFloor(fc: FloorContext): FloorAreaBalance {
     unassignedM2,
     unassignedPercent: pct(unassignedM2, netto),
     roomCount: fc.rooms.length,
+    untypedRoomCount: fc.rooms.length - fc.typedRoomCount,
   };
 }
 
@@ -96,6 +101,7 @@ export function sumAreaBalances(floors: FloorAreaBalance[], floorId = ALL_FLOORS
   let voids = 0;
   let unassigned = 0;
   let rooms = 0;
+  let untyped = 0;
   let hasHall = false;
   for (const f of floors) {
     brutto += f.bruttoM2;
@@ -103,6 +109,7 @@ export function sumAreaBalances(floors: FloorAreaBalance[], floorId = ALL_FLOORS
     voids += f.voidM2;
     unassigned += f.unassignedM2;
     rooms += f.roomCount;
+    untyped += f.untypedRoomCount;
     hasHall = hasHall || f.hasHall;
     for (const t of f.byType) {
       const cur = byTypeMap.get(t.type) ?? { m2: 0, count: 0, color: t.color };
@@ -132,6 +139,7 @@ export function sumAreaBalances(floors: FloorAreaBalance[], floorId = ALL_FLOORS
     unassignedM2: unassigned,
     unassignedPercent: pct(unassigned, netto),
     roomCount: rooms,
+    untypedRoomCount: untyped,
   };
 }
 

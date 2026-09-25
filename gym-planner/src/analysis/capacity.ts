@@ -3,8 +3,9 @@
  * (Ist vs. Richtwert). Richtwerte: 1 Spind je Person, 1 Dusche je 10–15 Personen (Minimum 1/15,
  * empfohlen 1/10), 1 WC je 25 Personen (Urinale zählen mit).
  *
- * Trainingsfläche = Flächenklasse „Trainingsfläche“ der Bilanz. Hat ein Stockwerk gar keine Räume/Zonen,
- * gilt seine gesamte Nettofläche als Trainingsfläche (Kennzeichen usedNettoFallback).
+ * Trainingsfläche = Flächenklasse „Trainingsfläche“ der Bilanz. Hat ein Stockwerk keine typisierten Räume/Zonen
+ * (nur die leere Halle bzw. Auto-Räume ohne gewählten Typ), gilt seine gesamte Nettofläche als Trainingsfläche
+ * (Kennzeichen usedNettoFallback).
  */
 import type { Project, Id } from '@/types';
 import { analysisContext, memoByProject, numParam, symbolOf, type FloorContext, type AnalysisContext } from './common';
@@ -110,7 +111,7 @@ export const capacity: (project: Project) => Capacity = memoByProject((project) 
   let usedNettoFallback = false;
   const floors: FloorCapacity[] = ctx.floors.map((fc, i) => {
     const fb = balance.floors[i];
-    const fallback = fc.rooms.length === 0;
+    const fallback = fc.typedRoomCount === 0;
     const t = fallback ? fb.nettoM2 : fb.trainingM2;
     if (fallback && t > 0) usedNettoFallback = true;
     trainingM2 += t;

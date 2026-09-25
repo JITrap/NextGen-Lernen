@@ -34,7 +34,7 @@ function isElement(a: PopoverAnchor): a is HTMLElement {
  * Schwebendes Panel (Portal, position: fixed). Wird an ein Element oder einen Punkt gehängt,
  * bleibt im Viewport (klemmt/klappt um) und schließt bei Klick außerhalb / Esc.
  */
-export function Popover({ open, anchor, onClose, placement = 'bottom-start', offset = 6, className = '', children, closeOnScroll, role = 'dialog', ariaLabel }: PopoverProps) {
+export function Popover({ open, anchor, onClose, placement = 'bottom-start', offset = 6, className = '', children, closeOnScroll, role, ariaLabel }: PopoverProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
   const onCloseRef = useRef(onClose);
@@ -130,7 +130,7 @@ export function Popover({ open, anchor, onClose, placement = 'bottom-start', off
       ref={ref}
       role={role}
       aria-label={ariaLabel}
-      className={`gp-panel fixed z-[1000] rounded-lg border shadow-xl ${className}`}
+      className={`gp-panel fixed z-[1080] rounded-lg border shadow-xl ${className}`}
       style={{ left: pos?.left ?? -9999, top: pos?.top ?? -9999, visibility: pos ? 'visible' : 'hidden', maxHeight: `calc(100vh - ${MARGIN * 2}px)`, overflowY: 'auto' }}
     >
       {children}
@@ -347,7 +347,7 @@ export function Dropdown({ trigger, entries, children, placement = 'bottom-start
       <span ref={wrapRef} className="inline-flex">
         {trigger({ open, toggle: () => setOpen(!open) })}
       </span>
-      <Popover open={open} anchor={anchor} onClose={close} placement={placement} role="menu" ariaLabel={ariaLabel} className={className}>
+      <Popover open={open} anchor={anchor} onClose={close} placement={placement} ariaLabel={ariaLabel} className={className}>
         <div data-gp-dropdown-open={open ? 'true' : undefined}>{entries ? <MenuList entries={entries} onClose={close} /> : children?.(close)}</div>
       </Popover>
     </>

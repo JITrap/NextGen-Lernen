@@ -1,6 +1,6 @@
 /** Test-Helfer für die Analyse-Tests (kein Produktionscode). */
 import type { Project, Floor, EquipmentDef, PlacedItem, Zone, RoomType } from '@/types';
-import { createEmptyProject, createHall, createZone, createItemFromDef, createFloor } from '@/store/factories';
+import { createEmptyProject, createHall, createZone, createItemFromDef, createFloor, cloneDeep } from '@/store/factories';
 import { rectPolygon } from '@/geometry/polygon';
 
 export function makeDef(partial: Partial<EquipmentDef> & { id: string }): EquipmentDef {
@@ -51,8 +51,16 @@ export function place(floor: Floor, def: EquipmentDef, x: number, y: number, par
   return it;
 }
 
-export function addZone(floor: Floor, x0: number, y0: number, x1: number, y1: number, type: RoomType, name = type): Zone {
+export function addZone(floor: Floor, x0: number, y0: number, x1: number, y1: number, type: RoomType, name: string = type): Zone {
   const z = createZone({ polygon: rectPolygon({ x: x0, y: y0 }, { x: x1, y: y1 }), type, name });
   floor.zones.push(z);
   return z;
+}
+
+/**
+ * Tiefe Kopie für einen erneuten Analyse-Lauf nach In-place-Änderungen: die Analyse (und die Geometrie-Indizes
+ * in geometry/spatialHash) cachen an Objekt-/Array-Identität – im Store erzeugt Immer bei jeder Änderung neue Objekte.
+ */
+export function fresh(p: Project): Project {
+  return cloneDeep(p);
 }

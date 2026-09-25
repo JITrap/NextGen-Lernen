@@ -7,6 +7,9 @@
  * - brutto  = Hallen-Außenpolygon
  * - netto   = Hallen-Innenpolygon (Wandstärke abgezogen) minus Lufträume
  * - Räume werden auf das Innenpolygon beschnitten und um Lufträume reduziert.
+ * - Automatisch erkannte Räume OHNE roomMeta-Eintrag (z. B. die leere Halle als ein großer Raum) haben keinen
+ *   vom Nutzer gewählten Typ und zählen in der Bilanz als „nicht zugeordnet“ (bleiben aber als Räume für
+ *   Objekt-Zuordnung, Bodenlast und Restfläche erhalten).
  * - Überlappungen: der KLEINERE (spezifischere) Raum gewinnt. Zonen haben Vorrang vor automatisch
  *   erkannten Räumen. Reihenfolge: Zonen aufsteigend nach Fläche, dann Auto-Räume aufsteigend; jeder
  *   Raum bekommt seine Fläche abzüglich der Schnittflächen mit allen vorher verarbeiteten Räumen.
@@ -28,6 +31,8 @@ export interface RoomArea {
   color: string;
   /** Fläche in der Bilanz (m²): beschnitten auf die Halle, ohne Lufträume, ohne Überlappung mit kleineren Räumen. */
   effectiveM2: number;
+  /** Zone oder Auto-Raum mit gesetzten Metadaten (Typ vom Nutzer gewählt). Untypisierte Auto-Räume zählen als „nicht zugeordnet“. */
+  typed: boolean;
 }
 
 export interface FloorContext {
@@ -35,6 +40,8 @@ export interface FloorContext {
   /** Räume des Stockwerks (automatisch erkannte + Zonen, ohne ausgeblendete Zonen). */
   rooms: Room[];
   roomAreas: RoomArea[];
+  /** Anzahl Räume mit gewähltem Typ (Zonen + Auto-Räume mit roomMeta). */
+  typedRoomCount: number;
   roomBoxes: BBox[];
   /** Innenpolygon der Halle (Wandstärke abgezogen) bzw. null ohne Halle. */
   inner: Vec2[] | null;
@@ -63,6 +70,19 @@ export function sortedFloors(project: Project): Floor[] {
 
 export function areaClassOf(room: Pick<Room, 'type'>): AreaClass {
   return ROOM_TYPE_MAP[room.type]?.areaClass ?? 'Nebenfläche';
+}
+
+/** Hat der Raum einen vom Nutzer gesetzten Typ (Zone oder Auto-Raum mit roomMeta-Eintrag)? */
+export function isTypedRoom(room: Room, floor: Pick<Floor, 'roomMeta'>): boolean {
+  if (room.source === 'zone') return true;
+  return room.loopKey != null && floor.roomMeta[room.loopKey] != null;
+}
+
+/** Liegt der Punkt im Raum (Polygon, aber nicht in einem Loch)? */
+export function pointInRoom(p: Vec2, room: Room): boolean {
+  if (!pointInPolygon(p, room.polygon)) return false;
+  if (room.holes) for (const h of room.holes) if (pointInPolygon(p, h)) return false;
+  return true;
 }
 
 function buildFloorContext(floor: Floor): FloorContext {
@@ -98,8 +118,10 @@ function buildFloorContext(floor: Floor): FloorContext {
     areaClass: areaClassOf(room),
     color: roomColor(room.type, room.color),
     effectiveM2: effective[i],
+    typed: isTypedRoom(room, floor),
   }));
   const roomBoxes = rooms.map((r) => bbox(r.polygon));
+  const typedRoomCount = roomAreas.filter((r) => r.typed).length;
 
   // Ohne Halle: Netto = Summe der Räume (damit Prozentwerte sinnvoll bleiben).
   const nettoM2 = hasHall ? Math.max(0, innerM2 - voidM2) : roomAreas.reduce((s, r) => s + r.effectiveM2, 0);
@@ -110,12 +132,12 @@ function buildFloorContext(floor: Floor): FloorContext {
     for (let r = 0; r < rooms.length; r++) {
       const b = roomBoxes[r];
       if (it.x < b.minX || it.x > b.maxX || it.y < b.minY || it.y > b.maxY) continue;
-      if (pointInPolygon({ x: it.x, y: it.y }, rooms[r].polygon)) out.push(r);
+      if (pointInRoom({ x: it.x, y: it.y }, rooms[r])) out.push(r);
     }
     return out;
   });
 
-  return { floor, rooms, roomAreas, roomBoxes, inner, outer, hasHall, bruttoM2, innerM2, voidM2, nettoM2, items, itemRooms };
+  return { floor, rooms, roomAreas, typedRoomCount, roomBoxes, inner, outer, hasHall, bruttoM2, innerM2, voidM2, nettoM2, items, itemRooms };
 }
 
 const contextCache = new WeakMap<Project, AnalysisContext>();

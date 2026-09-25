@@ -19,8 +19,12 @@ import { formatM2 } from '@/geometry/units';
 import { Popover, MenuList, type MenuEntry } from './ui/Menu';
 import { PromptDialog, ConfirmDialog } from './ui/Modal';
 
-/** Optionale Aktion aus dem Auswahl-Modul (zur Compile-Zeit nicht garantiert). */
-const externalSplitWall = (actions as { splitWallAtPoint?: (id: string, p: Vec2) => void }).splitWallAtPoint;
+/** Liest einen optionalen Export per Namen (zur Compile-Zeit nicht garantiert; kein statischer Member-Zugriff → keine Bundler-Warnung). */
+function optionalExport<T>(mod: object, name: string): T | undefined {
+  const entry = Object.entries(mod).find(([k]) => k === name);
+  return entry ? (entry[1] as T) : undefined;
+}
+const externalSplitWall = optionalExport<(id: string, p: Vec2) => void>(actions, 'splitWallAtPoint');
 
 /** Teilt eine (echte) Wand am Punkt p; Öffnungen wandern auf die passende Hälfte. Ein Undo-Schritt. */
 export function splitWallHere(floor: Floor, wallId: string, p: Vec2): boolean {
@@ -308,7 +312,7 @@ export function ContextMenu() {
 
   return (
     <>
-      <Popover open={!!menu} anchor={anchor} onClose={close} closeOnScroll role="menu" ariaLabel="Kontextmenü">
+      <Popover open={!!menu} anchor={anchor} onClose={close} closeOnScroll ariaLabel="Kontextmenü">
         <MenuList entries={entries} onClose={close} minWidth={220} />
       </Popover>
       <PromptDialog

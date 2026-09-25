@@ -345,7 +345,7 @@ export function FloorTabs({ className = '' }: { className?: string }) {
       </div>
       <IconButton title="Stockwerk hinzufügen" icon={<Plus size={18} />} onClick={() => setAddOpen(true)} data-tutorial="floor-add" />
 
-      <Popover open={!!menu} anchor={menu?.anchor ?? null} onClose={closeMenu} placement="bottom-start" role="menu" ariaLabel="Stockwerk-Menü">
+      <Popover open={!!menu} anchor={menu?.anchor ?? null} onClose={closeMenu} placement="bottom-start" ariaLabel="Stockwerk-Menü">
         <MenuList entries={menuEntries} onClose={closeMenu} />
       </Popover>
 

@@ -185,7 +185,7 @@ export function TopBar() {
           icon: <Grid3x3 size={15} />,
           children: GRID_OPTIONS.map((g) => ({ label: g.label, checked: gridSize === g.value, onSelect: () => updateSettings({ gridSize: g.value }) })),
         },
-        { label: 'Ebenen & Einstellungen', icon: <Layers size={15} />, kbd: undefined, onSelect: () => panelToggle('layers') },
+        { label: 'Ebenen & Einstellungen', icon: <Layers size={15} />, onSelect: () => panelToggle('layers') },
         { label: '3D-Ansicht', icon: <Box size={15} />, kbd: '3', checked: view3d, onSelect: () => setView3d(!view3d) },
         ...(view3d ? [{ label: 'Alle Stockwerke in 3D', checked: view3dAll, keepOpen: true, onSelect: () => setView3dAll(!view3dAll) } satisfies MenuEntry] : []),
         { label: 'Präsentationsmodus', icon: <Presentation size={15} />, kbd: 'Shift+P', onSelect: startPresentation },
@@ -212,7 +212,7 @@ export function TopBar() {
   ];
 
   return (
-    <header className="flex h-12 shrink-0 items-center gap-1 border-b px-2 gp-panel" role="banner">
+    <header className="flex h-12 shrink-0 items-center gap-1 overflow-x-auto overflow-y-hidden border-b px-2 gp-panel [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="banner">
       {/* Logo + Projekt */}
       <div className="flex min-w-0 shrink-0 items-center gap-1.5">
         <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-white" style={{ background: 'var(--gp-accent)' }} aria-hidden="true">
