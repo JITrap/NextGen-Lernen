@@ -69,10 +69,19 @@ const ui = () => useUiStore.getState();
 /* Gemeinsame Bausteine                                                */
 /* ------------------------------------------------------------------ */
 
+/** Helle Hintergrundfarbe (z. B. Raumtyp „Sonstiges“ #e5e7eb) → dunkles Icon, sonst weiß. */
+function iconColorOn(bg?: string): string {
+  const m = bg ? /^#([0-9a-f]{6})$/i.exec(bg) : null;
+  if (!m) return 'white';
+  const n = parseInt(m[1], 16);
+  const lum = (0.2126 * ((n >> 16) & 255) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255)) / 255;
+  return lum > 0.6 ? '#0f172a' : 'white';
+}
+
 function PanelHeader({ icon, title, subtitle, badges, color }: { icon: ReactNode; title: ReactNode; subtitle?: ReactNode; badges?: ReactNode; color?: string }) {
   return (
     <header className="flex items-start gap-2.5 border-b px-3 py-2.5 gp-border">
-      <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white" style={{ background: color ?? 'var(--gp-accent)' }} aria-hidden="true">
+      <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={{ background: color ?? 'var(--gp-accent)', color: iconColorOn(color) }} aria-hidden="true">
         {icon}
       </span>
       <div className="min-w-0 flex-1">
