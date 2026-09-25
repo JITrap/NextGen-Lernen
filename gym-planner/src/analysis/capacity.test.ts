@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { capacity } from './capacity';
 import { warnings } from './warnings';
-import { projectWithHall, firstFloor, addZone, addCustomDef, makeDef, place } from './testFixtures';
+import { projectWithHall, firstFloor, addZone, addCustomDef, makeDef, place, fresh } from './testFixtures';
 
 describe('Kapazität', () => {
   it('400 m² Trainingsfläche / 8 m² → 50 Personen', () => {

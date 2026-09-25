@@ -41,7 +41,10 @@ export interface FloorLoad {
   nettoM2: number;
   weightKg: number;
   kgM2: number | null;
+  /** Stockwerks-Durchschnitt über dem Grenzwert. */
   exceeded: boolean;
+  /** Anzahl Räume über dem Grenzwert. */
+  roomsExceeded: number;
   itemCount: number;
   missingWeightCount: number;
   rooms: RoomLoad[];
@@ -107,6 +110,7 @@ function loadOfFloor(fc: FloorContext, ctx: AnalysisContext, limit: number): Flo
     weightKg: weight,
     kgM2,
     exceeded: kgM2 != null && kgM2 > limit,
+    roomsExceeded: rooms.filter((r) => r.exceeded).length,
     itemCount: fc.items.length,
     missingWeightCount: missing,
     rooms,
@@ -126,6 +130,7 @@ export function sumFloorLoads(floors: FloorLoad[], limit: number, floorId = ALL_
     weightKg: weight,
     kgM2,
     exceeded: floors.some((f) => f.exceeded) || (kgM2 != null && kgM2 > limit),
+    roomsExceeded: floors.reduce((s, f) => s + f.roomsExceeded, 0),
     itemCount: floors.reduce((s, f) => s + f.itemCount, 0),
     missingWeightCount: floors.reduce((s, f) => s + f.missingWeightCount, 0),
     rooms: floors.flatMap((f) => f.rooms),

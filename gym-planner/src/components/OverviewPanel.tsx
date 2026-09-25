@@ -90,6 +90,9 @@ function SubTitle({ children }: { children: ReactNode }) {
   return <h4 className="gp-label pt-1">{children}</h4>;
 }
 
+/** Eingabeformat: Komma als Dezimaltrennzeichen, ohne Tausenderpunkte (sonst würde „1.000“ als 1 gelesen). */
+const plainNumber = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2, useGrouping: false });
+
 /** Zahlenfeld mit Entwurf: übernimmt bei Enter/Blur, Komma und Punkt erlaubt. */
 function NumberField({ value, onCommit, min = 0, suffix, ariaLabel, allowEmpty = false, placeholder, className = '' }: {
   value: number | null;
@@ -101,13 +104,13 @@ function NumberField({ value, onCommit, min = 0, suffix, ariaLabel, allowEmpty =
   placeholder?: string;
   className?: string;
 }) {
-  const shownValue = value == null ? '' : formatNumber(value, 2);
+  const shownValue = value == null ? '' : plainNumber.format(value);
   const [draft, setDraft] = useState<string | null>(null);
   const commit = () => {
     if (draft == null) return;
     const trimmed = draft.trim();
     if (!trimmed) {
-      if (allowEmpty) onCommit(null);
+      if (allowEmpty && value != null) onCommit(null);
     } else {
       const v = parseNumber(trimmed);
       if (v != null && v >= min && v !== value) onCommit(v);
@@ -117,7 +120,7 @@ function NumberField({ value, onCommit, min = 0, suffix, ariaLabel, allowEmpty =
   return (
     <div className={`relative ${className}`}>
       <input
-        className="gp-input !py-0.5 pr-7 text-right tabular-nums"
+        className="gp-input py-0.5! pr-7 text-right tabular-nums"
         inputMode="decimal"
         aria-label={ariaLabel}
         placeholder={placeholder}
@@ -229,6 +232,7 @@ export function OverviewPanel() {
 
   const noHall = !ab.hasHall;
   const limit = project.settings.floorLoadLimitKgM2;
+  const activeCap = cap.floors.find((x) => x.floorId === activeId);
 
   /* ---- Stückliste im gewählten Umfang ---- */
   const bomLines = useMemo(() => {
@@ -258,10 +262,10 @@ export function OverviewPanel() {
         <Layers size={15} className="shrink-0 gp-muted" />
         {multiFloor ? (
           <div className="flex flex-1 gap-1 rounded-md border p-0.5 gp-border" role="tablist" aria-label="Auswertungsumfang">
-            <button type="button" role="tab" aria-selected={scope === 'active'} className={`gp-tab flex-1 !px-2 !py-1 text-xs ${scope === 'active' ? 'active' : ''}`} onClick={() => setScope('active')}>
+            <button type="button" role="tab" aria-selected={scope === 'active'} className={`gp-tab flex-1 px-2! py-1! text-xs ${scope === 'active' ? 'active' : ''}`} onClick={() => setScope('active')}>
               {activeFloor?.name ?? 'Aktives Stockwerk'}
             </button>
-            <button type="button" role="tab" aria-selected={scope === 'all'} className={`gp-tab flex-1 !px-2 !py-1 text-xs ${scope === 'all' ? 'active' : ''}`} onClick={() => setScope('all')}>
+            <button type="button" role="tab" aria-selected={scope === 'all'} className={`gp-tab flex-1 px-2! py-1! text-xs ${scope === 'all' ? 'active' : ''}`} onClick={() => setScope('all')}>
               Alle Stockwerke
             </button>
           </div>
@@ -402,7 +406,7 @@ export function OverviewPanel() {
         id="load"
         title="Gewicht & Bodenlast"
         icon={<Weight size={16} />}
-        badge={<span className="text-xs" style={{ color: fl.exceeded ? 'var(--gp-danger)' : 'var(--gp-muted)' }}>{fl.kgM2 != null ? formatKgM2(fl.kgM2) : formatKg(fl.weightKg)}</span>}
+        badge={<span className="text-xs" style={{ color: fl.exceeded || fl.roomsExceeded > 0 ? 'var(--gp-danger)' : 'var(--gp-muted)' }}>{fl.kgM2 != null ? formatKgM2(fl.kgM2) : formatKg(fl.weightKg)}</span>}
       >
         <div className="flex items-center justify-between gap-2">
           <span className="gp-label">Grenzwert</span>
@@ -412,6 +416,7 @@ export function OverviewPanel() {
           <StatTile label="Gesamtgewicht" value={formatKg(fl.weightKg)} sub={`${fl.itemCount} Objekte`} />
           <StatTile label="Bodenlast" value={fl.kgM2 != null ? formatKgM2(fl.kgM2) : '–'} sub={`Grenzwert ${formatKgM2(limit)}`} tone={fl.exceeded ? 'danger' : 'ok'} title="Gesamtgewicht / Nettofläche" />
         </div>
+        {fl.roomsExceeded > 0 && <Hint tone="danger">{fl.roomsExceeded === 1 ? 'Ein Raum überschreitet' : `${fl.roomsExceeded} Räume überschreiten`} den Grenzwert (siehe Tabelle).</Hint>}
         {fl.missingWeightCount > 0 && <Hint tone="warn">{fl.missingWeightCount} Objekte ohne Gewichtsangabe (als 0 kg gerechnet).</Hint>}
         <SubTitle>Je Stockwerk (relativ zum Grenzwert)</SubTitle>
         <BarChart
@@ -484,11 +489,11 @@ export function OverviewPanel() {
         </div>
         {cap.usedNettoFallback && <Hint>Ohne typisierte Räume/Zonen gilt die gesamte Nettofläche als Trainingsfläche.</Hint>}
         {multiFloor && scope === 'active' && (
-          <Hint>Kapazität und Ausstattung werden über alle Stockwerke ausgewertet{(() => { const f = cap.floors.find((x) => x.floorId === activeId); return f ? ` (${f.floorName}: ${f.persons} Personen, ${formatM2(f.trainingM2)})` : ''; })()}.</Hint>
+          <Hint>Kapazität und Ausstattung werden über alle Stockwerke ausgewertet{activeCap ? ` (${activeCap.floorName}: ${activeCap.persons} Personen, ${formatM2(activeCap.trainingM2)})` : ''}.</Hint>
         )}
         <ul className="space-y-1.5">
           {cap.counters.map((c) => (
-            <li key={c.key} className="gp-card !p-2">
+            <li key={c.key} className="gp-card p-2!">
               <div className="flex items-center gap-2">
                 <TrafficLight status={c.status} />
                 <span className="flex-1 font-medium">{c.label}</span>

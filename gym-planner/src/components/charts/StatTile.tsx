@@ -24,7 +24,7 @@ const TONE_COLOR: Record<StatTone, string> = {
 /** Kennzahl-Kachel (Label, Wert, Zusatzzeile). Farben ausschließlich über CSS-Variablen. */
 export function StatTile({ label, value, sub, tone = 'default', icon, title, className = '' }: StatTileProps) {
   return (
-    <div className={`gp-card flex min-w-0 flex-col gap-0.5 !p-2.5 ${className}`} title={title}>
+    <div className={`gp-card flex min-w-0 flex-col gap-0.5 p-2.5! ${className}`} title={title}>
       <div className="flex items-center gap-1 gp-label">
         {icon && <span className="shrink-0 opacity-80">{icon}</span>}
         <span className="truncate">{label}</span>

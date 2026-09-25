@@ -18,7 +18,9 @@ describe('Gewicht & Bodenlast', () => {
     expect(room.exceeded).toBe(true);
     expect(l.floors[0].weightKg).toBe(5000);
     expect(l.floors[0].exceeded).toBe(false); // 5000 kg / 381 m² Netto
-    expect(l.total.exceeded).toBe(true);
+    expect(l.floors[0].roomsExceeded).toBe(1);
+    expect(l.total.exceeded).toBe(false);
+    expect(l.total.roomsExceeded).toBe(1);
     expect(l.heavyItems.length).toBe(10);
     const w = warnings(p).filter((x) => x.kind === 'floor-load');
     expect(w.length).toBe(1);
