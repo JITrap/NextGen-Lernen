@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { bom } from './bom';
-import { projectWithHall, firstFloor, addCustomDef, makeDef, place, addFloor } from './testFixtures';
+import { projectWithHall, firstFloor, addCustomDef, makeDef, place, addFloor, fresh } from './testFixtures';
 import { getDef } from '@/data/equipment';
 
 describe('Stückliste', () => {
@@ -52,7 +52,7 @@ describe('Stückliste', () => {
     expect(b.linesWithoutPrice).toBe(1);
     expect(b.totalEur).toBe(300);
     delete p.priceOverrides['t-price'];
-    expect(bom({ ...p }).lines.find((l) => l.defId === 't-price')!.unitPriceEur).toBe(250);
+    expect(bom(fresh(p)).lines.find((l) => l.defId === 't-price')!.unitPriceEur).toBe(250);
   });
 
   it('gruppiert über Stockwerke und führt Mengenpositionen ohne Stellfläche', () => {

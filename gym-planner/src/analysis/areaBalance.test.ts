@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { areaBalance } from './areaBalance';
-import { projectWithHall, firstFloor, addZone, addFloor } from './testFixtures';
+import { projectWithHall, firstFloor, addZone, addFloor, fresh } from './testFixtures';
+import { floorRooms } from '@/geometry/rooms';
 import { rectPolygon } from '@/geometry/polygon';
 import { createHall } from '@/store/factories';
 
@@ -13,6 +14,10 @@ describe('Flächenbilanz', () => {
     expect(b.total.nettoM2).toBeCloseTo(478.63, 2);
     expect(b.floors[0].unassignedM2).toBeCloseTo(478.63, 2);
     expect(b.floors[0].hasHall).toBe(true);
+    // Die Halle wird als ein Auto-Raum ohne Typ erkannt → zählt als „nicht zugeordnet“
+    expect(b.floors[0].roomCount).toBe(1);
+    expect(b.floors[0].untypedRoomCount).toBe(1);
+    expect(b.floors[0].byType.length).toBe(0);
     expect(b.total.byClass.map((c) => c.m2).every((m) => m === 0)).toBe(true);
   });
 
@@ -88,14 +93,37 @@ describe('Flächenbilanz', () => {
     expect(b.floors.length).toBe(2);
     expect(b.floors[1].floorId).toBe(og.id);
     expect(b.total.bruttoM2).toBeCloseTo(600, 6);
-    expect(b.total.nettoM2).toBeCloseTo(478.6304 + 90.5904, 3);
+    expect(b.total.nettoM2).toBeCloseTo(478.6304 + 90.6304, 3);
     expect(b.total.byClass.find((c) => c.areaClass === 'Wellness')!.m2).toBeCloseTo(25, 6);
-    expect(b.total.roomCount).toBe(1);
+    expect(b.total.roomCount).toBe(3);
+    expect(b.total.untypedRoomCount).toBe(2);
+    expect(b.total.unassignedM2).toBeCloseTo(478.6304 + 90.6304 - 25, 3);
   });
 
   it('ist am Projekt-Objekt memoisiert', () => {
     const p = projectWithHall(2500, 2000);
     expect(areaBalance(p)).toBe(areaBalance(p));
     expect(areaBalance({ ...p })).not.toBe(areaBalance(p));
+  });
+});
+
+describe('Flächenbilanz mit Wandräumen', () => {
+  it('Auto-Raum mit gesetztem Typ zählt zum Typ, Zone darin wird abgezogen', () => {
+    const p = projectWithHall(2500, 2000);
+    const f = firstFloor(p);
+    // Trennwand teilt die Halle in links (0..1000) und rechts
+    f.walls.push({ id: 'w1', start: { x: 1000, y: 12 }, end: { x: 1000, y: 1988 }, thickness: 12.5, type: 'Trockenbau', height: null });
+    const rooms = floorRooms(f);
+    expect(rooms.length).toBe(2);
+    const left = rooms.find((r) => r.centroid.x < 1000)!;
+    f.roomMeta[left.loopKey!] = { name: 'Cardio links', type: 'Cardio' };
+    addZone(f, 100, 100, 500, 500, 'Functional/Stretching');
+    const b = areaBalance(fresh(p)).floors[0];
+    const cardio = b.byType.find((t) => t.type === 'Cardio')!;
+    const fn = b.byType.find((t) => t.type === 'Functional/Stretching')!;
+    expect(fn.m2).toBeCloseTo(16, 6);
+    expect(cardio.m2).toBeCloseTo(left.areaM2 - 16, 3);
+    expect(b.untypedRoomCount).toBe(1);
+    expect(b.unassignedM2).toBeCloseTo(b.nettoM2 - cardio.m2 - fn.m2, 3);
   });
 });

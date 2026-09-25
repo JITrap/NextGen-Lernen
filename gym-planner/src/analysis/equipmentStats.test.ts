@@ -26,7 +26,7 @@ describe('Geräte-Statistik', () => {
     expect(s.footprintM2).toBeCloseTo(1.65 * 2.03 + 0.9 * 2.1, 6);
     // Rack inkl. Zone: 285 × 323; Laufband: 90 × 410
     expect(s.withZonesM2).toBeCloseTo((285 * 323 + 90 * 410) / 10000, 6);
-    const room = s.freeByRoom[0];
+    const room = s.freeByRoom.find((r) => r.roomName === 'Freihantel')!;
     expect(room.itemCount).toBe(1);
     expect(room.freeM2).toBeCloseTo(100 - 1.65 * 2.03, 6);
   });
@@ -36,6 +36,9 @@ describe('Geräte-Statistik', () => {
     place(firstFloor(p), getDef('atlantis-c513')!, 500, 500);
     const s = equipmentStats(p);
     expect(s.total.itemCount).toBe(1);
+    // Die Halle selbst ist ein (untypisierter) Auto-Raum mit Restfläche
+    expect(s.total.freeByRoom.length).toBe(1);
+    expect(s.total.freeByRoom[0].freeM2).toBeCloseTo(478.6304 - 1.65 * 2.03, 3);
     expect(s.total.byArea[0].key).toBe('Kraftgeräte');
   });
 });

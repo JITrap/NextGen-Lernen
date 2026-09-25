@@ -2,23 +2,23 @@
  * Planungs-Warnungen (Abschnitt 6 der Spezifikation). Jede Warnung hat eine stabile ID
  * (Art + beteiligte IDs), Schweregrad, deutschen Text und ein Ziel zum Hinspringen.
  *
- * Tür-Schwenkflächen: wird `doorSwingPolygon(door, wall)` aus geometry/collision exportiert und liefert
- * ein (konvexes) Polygon, wird es verwendet; sonst eigener Viertelkreis-Sektor aus openingPlacement.
- * Laufwege: eigene Heuristik – Objektpaare (und Objekt/Wand) mit achsenparallelem Abstand zwischen
- * der Standard-Sicherheitszone (Aufstellabstand) und settings.minEscapeRouteCm bei überlappender Projektion.
+ * Geometrie kommt aus src/geometry/collision.ts: findCollisions (Objekte, Sicherheitszonen, Wände),
+ * itemsInDoorSwing / emergencyExitClearanceRects (Türen), escapeRouteBottlenecks (Laufwege, inkl. aktiver
+ * Sicherheitszonen als Objektausdehnung), itemInsideHall (Halle). Lücken unter MIN_CORRIDOR_CM gelten als
+ * Aufstellabstand und nicht als (zu schmaler) Laufweg.
  */
-import type { Project, PlanningWarning, WarningKind, Vec2, Door, Wall, PlacedItem, Room, Selection, Id, Floor } from '@/types';
-import * as col from '@/geometry/collision';
-import { findCollisions } from '@/geometry/collision';
-import { allWalls, findWall, openingPlacement, wallRect, wallMidpoint } from '@/geometry/walls';
+import type { Project, PlanningWarning, WarningKind, Vec2, Wall, PlacedItem, Room, Selection, Id, Floor, Door } from '@/types';
+import {
+  findCollisions, convexPolygonsOverlap, itemsInDoorSwing, emergencyExitClearanceRects, escapeRouteBottlenecks, itemInsideHall,
+} from '@/geometry/collision';
+import { allWalls, findWall, openingPlacement, wallMidpoint, isHallWallId } from '@/geometry/walls';
 import { itemFootprint } from '@/geometry/transform';
-import { bbox, centroid, distance, distanceToSegment, offsetPolygon, pointInPolygon, type BBox } from '@/geometry/polygon';
+import { centroid, distance, distanceToSegment, pointInPolygon } from '@/geometry/polygon';
 import { formatCm, formatKgM2 } from '@/geometry/units';
 import { DOOR_TYPE_MAP } from '@/data/wallTypes';
-import { analysisContext, memoByProject, itemName, itemHeight, hasFootprint, symbolOf, visibleItems, type FloorContext, type AnalysisContext } from './common';
+import { analysisContext, memoByProject, itemName, itemHeight, hasFootprint, symbolOf, visibleItems, isLinkedCopy, type FloorContext, type AnalysisContext } from './common';
 import { floorLoad } from './floorLoad';
 import { capacity } from './capacity';
-import { isConvex } from './clip';
 
 export const SEVERITY_RANK: Record<PlanningWarning['severity'], number> = { error: 0, warning: 1, info: 2 };
 export const WARNING_KINDS: WarningKind[] = [
@@ -43,75 +43,14 @@ export const SEVERITY_LABELS: Record<PlanningWarning['severity'], string> = { er
 
 /** Max. Entfernung (cm) für „in der Nähe“ (Umkleide ↔ Dusche/WC, Sauna ↔ Ruhebereich/Dusche). */
 export const NEARBY_CM = 1500;
-/** Mindestlänge (cm) der überlappenden Projektion, damit eine Lücke als Laufweg gilt. */
-const MIN_CORRIDOR_OVERLAP_CM = 60;
+/** Lücken ab dieser Breite (cm) gelten als Laufweg; schmalere sind Aufstellabstand zwischen Geräten. */
+export const MIN_CORRIDOR_CM = 40;
 /** Tiefe (cm) der Freihaltefläche vor einem Notausgang (mind. Fluchtwegbreite). */
-const EMERGENCY_CLEAR_MIN_CM = 150;
-/** Toleranz (cm) beim Hallen-Rand. */
+export const EMERGENCY_CLEAR_MIN_CM = 150;
+/** Toleranz (cm) am Hallen-Rand. */
 const HALL_TOLERANCE_CM = 2;
 
 const q = (s: string) => `„${s}“`;
-const neg = (v: Vec2): Vec2 => ({ x: -v.x, y: -v.y });
-
-/* ------------------------------------------------------------------ */
-/* Tür-Schwenkflächen                                                  */
-/* ------------------------------------------------------------------ */
-
-function isPolygon(v: unknown): v is Vec2[] {
-  return Array.isArray(v) && v.length >= 3 && v.every((p) => p && typeof p === 'object' && typeof (p as Vec2).x === 'number' && typeof (p as Vec2).y === 'number');
-}
-
-/** Nutzt eine externe doorSwingPolygon-Implementierung, falls vorhanden und brauchbar. */
-function externalDoorSwing(door: Door, wall: Wall): Vec2[][] | null {
-  const fn = (col as unknown as Record<string, unknown>).doorSwingPolygon;
-  if (typeof fn !== 'function') return null;
-  try {
-    const r = (fn as (d: Door, w: Wall) => unknown)(door, wall);
-    if (isPolygon(r)) return isConvex(r) ? [r] : null;
-    if (Array.isArray(r) && r.length && r.every(isPolygon)) return (r as Vec2[][]).every(isConvex) ? (r as Vec2[][]) : null;
-  } catch {
-    /* eigene Implementierung verwenden */
-  }
-  return null;
-}
-
-/** Viertelkreis-Sektor: Zentrum c, von Richtung u (geschlossen) nach v (offen), Radius r. */
-function sectorPolygon(c: Vec2, u: Vec2, v: Vec2, r: number, steps = 8): Vec2[] {
-  const pts: Vec2[] = [c];
-  for (let i = 0; i <= steps; i++) {
-    const t = (i / steps) * (Math.PI / 2);
-    const cs = Math.cos(t);
-    const sn = Math.sin(t);
-    pts.push({ x: c.x + (u.x * cs + v.x * sn) * r, y: c.y + (u.y * cs + v.y * sn) * r });
-  }
-  return pts;
-}
-
-/** Schwenkflächen einer Tür (ein oder zwei Flügel) in Weltkoordinaten. */
-export function doorSwingPolygons(door: Door, wall: Wall): Vec2[][] {
-  const info = DOOR_TYPE_MAP[door.doorType];
-  if (info && !info.swings) return [];
-  const ext = externalDoorSwing(door, wall);
-  if (ext) return ext;
-  const pl = openingPlacement(door, wall);
-  const side = door.swingSide === 'a' ? pl.normal : neg(pl.normal);
-  if (info?.leaves === 2) {
-    const r = door.width / 2;
-    return [sectorPolygon(pl.a, pl.dir, side, r), sectorPolygon(pl.b, neg(pl.dir), side, r)];
-  }
-  return door.hinge === 'left' ? [sectorPolygon(pl.a, pl.dir, side, door.width)] : [sectorPolygon(pl.b, neg(pl.dir), side, door.width)];
-}
-
-/** Freihalteflächen vor einem Notausgang (beide Wandseiten). */
-export function emergencyExitPolygons(door: Door, wall: Wall, depthCm: number): Vec2[][] {
-  const pl = openingPlacement(door, wall);
-  const out: Vec2[][] = [];
-  for (const n of [pl.normal, neg(pl.normal)]) {
-    const off = { x: n.x * depthCm, y: n.y * depthCm };
-    out.push([pl.a, pl.b, { x: pl.b.x + off.x, y: pl.b.y + off.y }, { x: pl.a.x + off.x, y: pl.a.y + off.y }]);
-  }
-  return out;
-}
 
 /* ------------------------------------------------------------------ */
 /* Helfer                                                              */
@@ -132,128 +71,132 @@ function roomTarget(room: Room): PlanningWarning['target'] {
   return { kind: room.source === 'zone' ? 'zone' : 'room', id: room.id };
 }
 
-interface ItemGeo {
-  item: PlacedItem;
-  name: string;
-  fp: Vec2[];
-  box: BBox;
+/** Sichtbare Objekte mit Stellfläche eines Stockwerks, nach ID. */
+interface FloorItems {
+  all: PlacedItem[];
+  byId: Map<Id, PlacedItem>;
+  name: (id: Id) => string;
+  /** Objekte mit Stellfläche, nicht ausgeblendet. */
+  solid: PlacedItem[];
 }
-
-function itemGeos(items: PlacedItem[], ctx: AnalysisContext): ItemGeo[] {
-  const out: ItemGeo[] = [];
-  for (const it of items) {
-    if (it.hidden) continue;
-    const def = ctx.def(it.defId);
-    if (!hasFootprint(def)) continue;
-    const fp = itemFootprint(it);
-    out.push({ item: it, name: itemName(it, def), fp, box: bbox(fp) });
-  }
-  return out;
+function floorItems(fc: FloorContext, project: Project, ctx: AnalysisContext): FloorItems {
+  const all = visibleItems(fc.floor, project.floors);
+  const byId = new Map(all.map((it) => [it.id, it]));
+  const name = (id: Id) => {
+    const it = byId.get(id);
+    return it ? itemName(it, ctx.def(it.defId)) : id;
+  };
+  const solid = all.filter((it) => !it.hidden && hasFootprint(ctx.def(it.defId)));
+  return { all, byId, name, solid };
 }
 
 /* ------------------------------------------------------------------ */
 /* Einzelprüfungen                                                     */
 /* ------------------------------------------------------------------ */
 
-function collisionWarnings(fc: FloorContext, items: PlacedItem[], walls: Wall[], ctx: AnalysisContext, out: PlanningWarning[]) {
-  const byId = new Map(items.map((it) => [it.id, it]));
-  const nameOf = (id: Id) => { const it = byId.get(id); return it ? itemName(it, ctx.def(it.defId)) : id; };
-  for (const c of findCollisions(items, { walls, includeZones: true })) {
-    const floorId = fc.floor.id;
+function collisionWarnings(fc: FloorContext, fi: FloorItems, walls: Wall[], ctx: AnalysisContext, out: PlanningWarning[]) {
+  const wallMountedIds = new Set<string>();
+  for (const it of fi.all) if (ctx.def(it.defId)?.wandmontage) wallMountedIds.add(it.id);
+  const floorId = fc.floor.id;
+  for (const c of findCollisions(fi.all, { walls, includeZones: true, wallMountedIds })) {
     const id = `collision:${floorId}:${c.a}:${c.b}`;
     const target = { kind: 'item' as const, id: c.a };
-    if (c.kind === 'item-item') out.push({ id, kind: 'collision', severity: 'error', message: `${q(nameOf(c.a))} überlappt ${q(nameOf(c.b))}.`, floorId, target });
-    else if (c.kind === 'item-zone') out.push({ id, kind: 'collision', severity: 'warning', message: `Sicherheitszone von ${q(nameOf(c.a))} überlappt ${q(nameOf(c.b))}.`, floorId, target });
-    else if (c.kind === 'item-wall') out.push({ id, kind: 'collision', severity: 'error', message: `${q(nameOf(c.a))} steht in einer Wand.`, floorId, target });
-    else out.push({ id, kind: 'collision', severity: 'warning', message: `Sicherheitszonen von ${q(nameOf(c.a))} und ${q(nameOf(c.b))} überlappen sich.`, floorId, target });
-  }
-}
-
-function doorWarnings(fc: FloorContext, geos: ItemGeo[], minEscape: number, out: PlanningWarning[]) {
-  const floor = fc.floor;
-  const clearDepth = Math.max(EMERGENCY_CLEAR_MIN_CM, minEscape);
-  for (const o of floor.openings) {
-    if (o.kind !== 'door' || o.hidden) continue;
-    const wall = findWall(floor, o.wallId);
-    if (!wall) continue;
-    const isEmergency = o.doorType === 'Notausgang' || !!DOOR_TYPE_MAP[o.doorType]?.emergency;
-    const swings = doorSwingPolygons(o, wall).map((p) => ({ p, box: bbox(p) }));
-    const clears = isEmergency ? emergencyExitPolygons(o, wall, clearDepth).map((p) => ({ p, box: bbox(p) })) : [];
-    if (!swings.length && !clears.length) continue;
-    for (const g of geos) {
-      if (g.item.wallId === wall.id) continue;
-      if (clears.some((c) => c.box && col.convexPolygonsOverlap(g.fp, c.p))) {
-        out.push({ id: `emergency-exit:${o.id}:${g.item.id}`, kind: 'emergency-exit', severity: 'error', message: `${q(g.name)} steht vor dem Notausgang (${formatCm(clearDepth)} freihalten).`, floorId: floor.id, target: { kind: 'item', id: g.item.id } });
-        continue;
-      }
-      if (swings.some((s) => col.convexPolygonsOverlap(g.fp, s.p))) {
-        out.push({ id: `door-swing:${o.id}:${g.item.id}`, kind: 'door-swing', severity: 'warning', message: `${q(g.name)} steht in der Schwenkfläche einer Tür (${o.doorType}, ${formatCm(o.width)}).`, floorId: floor.id, target: { kind: 'item', id: g.item.id } });
-      }
+    switch (c.kind) {
+      case 'item-item':
+        out.push({ id, kind: 'collision', severity: 'error', message: `${q(fi.name(c.a))} überlappt ${q(fi.name(c.b))}.`, floorId, target });
+        break;
+      case 'item-zone':
+        out.push({ id, kind: 'collision', severity: 'warning', message: `Sicherheitszone von ${q(fi.name(c.a))} überlappt ${q(fi.name(c.b))}.`, floorId, target });
+        break;
+      case 'zone-zone':
+        out.push({ id, kind: 'collision', severity: 'warning', message: `Sicherheitszonen von ${q(fi.name(c.a))} und ${q(fi.name(c.b))} überlappen sich.`, floorId, target });
+        break;
+      case 'item-wall':
+        out.push({ id, kind: 'collision', severity: 'error', message: `${q(fi.name(c.a))} steht in einer Wand.`, floorId, target });
+        break;
+      case 'zone-wall':
+        out.push({ id, kind: 'collision', severity: 'info', message: `Sicherheitszone von ${q(fi.name(c.a))} reicht in eine Wand.`, floorId, target });
+        break;
+      default:
+        break;
     }
   }
 }
 
-/** Lücke zwischen zwei achsenparallelen Boxen als Laufweg bewerten. */
-function corridorGap(A: BBox, B: BBox, lower: number, min: number): { gap: number; point: Vec2 } | null {
-  const gapX = Math.max(B.minX - A.maxX, A.minX - B.maxX);
-  const gapY = Math.max(B.minY - A.maxY, A.minY - B.maxY);
-  const overlapY = Math.min(A.maxY, B.maxY) - Math.max(A.minY, B.minY);
-  const overlapX = Math.min(A.maxX, B.maxX) - Math.max(A.minX, B.minX);
-  if (gapX > lower && gapX < min && overlapY >= MIN_CORRIDOR_OVERLAP_CM) {
-    const x = A.maxX <= B.minX ? (A.maxX + B.minX) / 2 : (B.maxX + A.minX) / 2;
-    const y = (Math.max(A.minY, B.minY) + Math.min(A.maxY, B.maxY)) / 2;
-    return { gap: gapX, point: { x, y } };
+function doorWarnings(fc: FloorContext, fi: FloorItems, walls: Wall[], minEscape: number, out: PlanningWarning[]) {
+  const floor = fc.floor;
+  const doors = floor.openings.filter((o): o is Door => o.kind === 'door' && !o.hidden);
+  if (!doors.length || !fi.solid.length) return;
+  const clearDepth = Math.max(EMERGENCY_CLEAR_MIN_CM, minEscape);
+  const solidIds = new Set(fi.solid.map((it) => it.id));
+  const blocked = new Set<string>(); // `${itemId}|${doorId}` vor Notausgang
+  const footprints = new Map(fi.solid.map((it) => [it.id, itemFootprint(it)]));
+  for (const d of doors) {
+    const isEmergency = d.doorType === 'Notausgang' || !!DOOR_TYPE_MAP[d.doorType]?.emergency;
+    if (!isEmergency) continue;
+    const wall = findWall(floor, d.wallId);
+    if (!wall) continue;
+    const rects = emergencyExitClearanceRects(d, wall, clearDepth);
+    for (const it of fi.solid) {
+      if (it.wallId === wall.id) continue;
+      const fp = footprints.get(it.id)!;
+      if (rects.some((r) => convexPolygonsOverlap(fp, r, 0.5))) {
+        blocked.add(`${it.id}|${d.id}`);
+        out.push({
+          id: `emergency-exit:${d.id}:${it.id}`,
+          kind: 'emergency-exit',
+          severity: 'error',
+          message: `${q(fi.name(it.id))} steht vor dem Notausgang (${formatCm(clearDepth)} freihalten).`,
+          floorId: floor.id,
+          target: { kind: 'item', id: it.id },
+        });
+      }
+    }
   }
-  if (gapY > lower && gapY < min && overlapX >= MIN_CORRIDOR_OVERLAP_CM) {
-    const y = A.maxY <= B.minY ? (A.maxY + B.minY) / 2 : (B.maxY + A.minY) / 2;
-    const x = (Math.max(A.minX, B.minX) + Math.min(A.maxX, B.maxX)) / 2;
-    return { gap: gapY, point: { x, y } };
+  const doorById = new Map(doors.map((d) => [d.id, d]));
+  for (const hit of itemsInDoorSwing(fi.all, doors, walls)) {
+    if (!solidIds.has(hit.itemId) || blocked.has(`${hit.itemId}|${hit.doorId}`)) continue;
+    const d = doorById.get(hit.doorId);
+    if (!d) continue;
+    const it = fi.byId.get(hit.itemId);
+    if (it?.wallId === d.wallId) continue;
+    const swings = DOOR_TYPE_MAP[d.doorType]?.swings ?? true;
+    out.push({
+      id: `door-swing:${d.id}:${hit.itemId}`,
+      kind: 'door-swing',
+      severity: 'warning',
+      message: swings
+        ? `${q(fi.name(hit.itemId))} steht in der Schwenkfläche einer Tür (${d.doorType}, ${formatCm(d.width)}).`
+        : `${q(fi.name(hit.itemId))} steht im Öffnungsbereich einer Tür (${d.doorType}, ${formatCm(d.width)}).`,
+      floorId: floor.id,
+      target: { kind: 'item', id: hit.itemId },
+    });
   }
-  return null;
 }
 
-function escapeRouteWarnings(fc: FloorContext, geos: ItemGeo[], walls: Wall[], project: Project, out: PlanningWarning[]) {
+function escapeRouteWarnings(fc: FloorContext, fi: FloorItems, project: Project, out: PlanningWarning[]) {
   const min = project.settings.minEscapeRouteCm;
   if (!Number.isFinite(min) || min <= 0) return;
-  const lower = Math.max(0, Math.min(project.settings.defaultSafetyZoneCm, min - 1));
   const floorId = fc.floor.id;
-  const sorted = [...geos].sort((a, b) => a.box.minX - b.box.minX);
-  for (let i = 0; i < sorted.length; i++) {
-    const a = sorted[i];
-    for (let j = i + 1; j < sorted.length; j++) {
-      const b = sorted[j];
-      if (b.box.minX - a.box.maxX >= min) break; // weiter rechts kann keine zu schmale Lücke mehr folgen
-      if (a.item.dockedTo === b.item.id || b.item.dockedTo === a.item.id) continue;
-      const g = corridorGap(a.box, b.box, lower, min);
-      if (!g) continue;
-      out.push({
-        id: `escape-route:${floorId}:${a.item.id}:${b.item.id}`,
-        kind: 'escape-route',
-        severity: 'warning',
-        message: `Laufweg zwischen ${q(a.name)} und ${q(b.name)} nur ${formatCm(Math.round(g.gap))} (min. ${formatCm(min)}).`,
-        floorId,
-        target: { point: g.point },
-      });
-    }
-  }
-  // Objekt ↔ achsenparallele Wand
-  const wallBoxes = walls
-    .filter((w) => !w.hidden && (Math.abs(w.end.x - w.start.x) < 1 || Math.abs(w.end.y - w.start.y) < 1))
-    .map((w) => ({ w, box: bbox(wallRect(w)) }));
-  for (const g of geos) {
-    for (const wb of wallBoxes) {
-      if (g.item.wallId === wb.w.id) continue;
-      const r = corridorGap(g.box, wb.box, lower, min);
-      if (!r) continue;
-      out.push({
-        id: `escape-route:${floorId}:${g.item.id}:${wb.w.id}`,
-        kind: 'escape-route',
-        severity: 'warning',
-        message: `Laufweg zwischen ${q(g.name)} und Wand nur ${formatCm(Math.round(r.gap))} (min. ${formatCm(min)}).`,
-        floorId,
-        target: { point: r.point },
-      });
-    }
+  const solidIds = new Set(fi.solid.map((it) => it.id));
+  const obstacleName = (id: Id) => {
+    if (fi.byId.has(id)) return q(fi.name(id));
+    return isHallWallId(id) ? 'Hallenwand' : 'Wand';
+  };
+  for (const b of escapeRouteBottlenecks(fi.all, fc.floor.walls, fc.inner, min, { includeZones: true })) {
+    if (b.width < MIN_CORRIDOR_CM) continue;
+    const aItem = fi.byId.has(b.a);
+    const bItem = fi.byId.has(b.b);
+    if (!aItem && !bItem) continue;
+    if ((aItem && !solidIds.has(b.a)) || (bItem && !solidIds.has(b.b))) continue;
+    out.push({
+      id: `escape-route:${floorId}:${b.a}:${b.b}`,
+      kind: 'escape-route',
+      severity: 'warning',
+      message: `Laufweg zwischen ${obstacleName(b.a)} und ${obstacleName(b.b)} nur ${formatCm(Math.round(b.width))} (min. ${formatCm(min)}).`,
+      floorId,
+      target: { point: b.point },
+    });
   }
 }
 
@@ -347,8 +290,6 @@ function facilityWarnings(fc: FloorContext, ctx: AnalysisContext, out: PlanningW
     switch (symbolOf(def)) {
       case 'shower':
       case 'shower-row':
-        showers.push({ point: p });
-        break;
       case 'shower-experience':
         showers.push({ point: p });
         break;
@@ -369,11 +310,10 @@ function facilityWarnings(fc: FloorContext, ctx: AnalysisContext, out: PlanningW
         break;
     }
   }
-  const showerOnly = showers.filter((s) => s.poly || s.point);
   for (const r of fc.rooms) {
     if (!r.type.startsWith('Umkleide')) continue;
     const c = r.centroid;
-    if (!nearAny(c, showerOnly, NEARBY_CM)) {
+    if (!nearAny(c, showers, NEARBY_CM)) {
       out.push({ id: `changing-room:${r.id}:shower`, kind: 'changing-room', severity: 'warning', message: `Umkleide ${q(r.name)}: keine Dusche in der Nähe (≤ 15 m).`, floorId: fc.floor.id, target: roomTarget(r) });
     }
     if (!nearAny(c, wcs, NEARBY_CM)) {
@@ -384,33 +324,29 @@ function facilityWarnings(fc: FloorContext, ctx: AnalysisContext, out: PlanningW
     const c = { x: s.item.x, y: s.item.y };
     const missing: string[] = [];
     if (!nearAny(c, rest, NEARBY_CM)) missing.push('kein Ruhebereich');
-    if (!nearAny(c, showerOnly, NEARBY_CM)) missing.push('keine Dusche');
+    if (!nearAny(c, showers, NEARBY_CM)) missing.push('keine Dusche');
     if (missing.length) {
       out.push({ id: `wellness:${s.item.id}`, kind: 'wellness', severity: 'warning', message: `${q(s.name)}: ${missing.join(' und ')} in der Nähe (≤ 15 m).`, floorId: fc.floor.id, target: { kind: 'item', id: s.item.id } });
     }
   }
 }
 
-function outsideHallWarnings(fc: FloorContext, geos: ItemGeo[], ctx: AnalysisContext, out: PlanningWarning[]) {
+function outsideHallWarnings(fc: FloorContext, fi: FloorItems, ctx: AnalysisContext, out: PlanningWarning[]) {
   if (!fc.inner || !fc.outer) return;
-  const innerTol = offsetPolygon(fc.inner, -HALL_TOLERANCE_CM);
-  const outerTol = offsetPolygon(fc.outer, -HALL_TOLERANCE_CM);
-  const innerBox = bbox(innerTol);
-  for (const g of geos) {
-    const def = ctx.def(g.item.defId);
-    const poly = def?.wandmontage || g.item.wallId ? outerTol : innerTol;
-    // schneller Vorfilter über die Bounding-Box
-    if (g.box.minX >= innerBox.minX && g.box.maxX <= innerBox.maxX && g.box.minY >= innerBox.minY && g.box.maxY <= innerBox.maxY && isConvex(innerTol)) continue;
-    const outsideCorners = g.fp.filter((c) => !pointInPolygon(c, poly)).length;
-    if (!outsideCorners) continue;
-    const centerOutside = !pointInPolygon({ x: g.item.x, y: g.item.y }, poly);
+  for (const it of fi.solid) {
+    if (isLinkedCopy(it)) continue;
+    const def = ctx.def(it.defId);
+    const poly = def?.wandmontage || it.wallId ? fc.outer : fc.inner;
+    if (itemInsideHall(it, poly, HALL_TOLERANCE_CM)) continue;
+    const centerOutside = !pointInPolygon({ x: it.x, y: it.y }, poly);
+    const name = itemName(it, def);
     out.push({
-      id: `outside-hall:${g.item.id}`,
+      id: `outside-hall:${it.id}`,
       kind: 'outside-hall',
       severity: centerOutside ? 'error' : 'warning',
-      message: centerOutside ? `${q(g.name)} steht außerhalb der Halle.` : `${q(g.name)} ragt über die Hallenwand hinaus.`,
+      message: centerOutside ? `${q(name)} steht außerhalb der Halle.` : `${q(name)} ragt über die Hallenwand hinaus.`,
       floorId: fc.floor.id,
-      target: { kind: 'item', id: g.item.id },
+      target: { kind: 'item', id: it.id },
     });
   }
 }
@@ -434,7 +370,7 @@ function libraryWarnings(ctx: AnalysisContext, out: PlanningWarning[]) {
         unverified.set(def.id, u);
       }
       if (def.nur_an_rack) {
-        const docked = it.dockedTo && fc.items.some((o) => o.id === it.dockedTo);
+        const docked = !!it.dockedTo && fc.items.some((o) => o.id === it.dockedTo);
         if (!docked) {
           out.push({
             id: `rack-module:${it.id}`,
@@ -495,15 +431,14 @@ export const warnings: (project: Project) => PlanningWarning[] = memoByProject((
   const ctx = analysisContext(project);
   const out: PlanningWarning[] = [];
   for (const fc of ctx.floors) {
-    const items = visibleItems(fc.floor, project.floors);
+    const fi = floorItems(fc, project, ctx);
     const walls = allWalls(fc.floor);
-    const geos = itemGeos(items, ctx);
-    collisionWarnings(fc, items, walls, ctx, out);
-    doorWarnings(fc, geos, project.settings.minEscapeRouteCm, out);
-    escapeRouteWarnings(fc, geos, walls, project, out);
+    collisionWarnings(fc, fi, walls, ctx, out);
+    doorWarnings(fc, fi, walls, project.settings.minEscapeRouteCm, out);
+    escapeRouteWarnings(fc, fi, project, out);
     ceilingWarnings(fc, ctx, out);
     facilityWarnings(fc, ctx, out);
-    outsideHallWarnings(fc, geos.filter((g) => !g.item.params?.__linkedFrom), ctx, out);
+    outsideHallWarnings(fc, fi, ctx, out);
   }
   floorLoadWarnings(project, ctx, out);
   libraryWarnings(ctx, out);

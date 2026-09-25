@@ -11,7 +11,7 @@ describe('Gewicht & Bodenlast', () => {
     addZone(f, 100, 100, 500, 300, 'Maschinen', 'Kleiner Raum'); // 4 × 2 m = 8 m²
     for (let i = 0; i < 10; i++) place(f, heavy, 120 + i * 38, 200);
     const l = floorLoad(p);
-    const room = l.floors[0].rooms[0];
+    const room = l.floors[0].rooms.find((r) => r.roomName === 'Kleiner Raum')!;
     expect(room.areaM2).toBeCloseTo(8, 6);
     expect(room.weightKg).toBe(5000);
     expect(room.kgM2).toBeCloseTo(625, 6);

@@ -1,0 +1,269 @@
+import { describe, it, expect } from 'vitest';
+import type { Project } from '@/types';
+import { createEmptyProject, createHall, createWall, createZone, createItemFromDef } from '@/store/factories';
+import { getDef } from '@/data/equipment';
+import { serializeProject, parseProject, parseProjectDetailed, stableStringify, safeFileName } from './json';
+import { bomRows, bomTotals, bomCsvText, csvNumber, csvCell, CSV_HEADER } from './csv';
+import {
+  paperMmForCm, cmForPaperMm, pxPerCmForPaper, clampPxPerCm, floorContentBounds, layoutFloorRender, scaleBarLength, legendRoomTypes,
+  renderFloorToCanvas, MAX_IMAGE_PX, itemShortLabel,
+} from './planRenderer';
+import { pngPxPerCm } from './png';
+import { paperFormatForPlan, floorAreaBalance, projectAreaBalance } from './pdf';
+import { floorRooms } from '@/geometry/rooms';
+
+function sampleProject(): Project {
+  const p = createEmptyProject('Studio Nord');
+  const f = p.floors[0];
+  f.hall = createHall(2500, 2000);
+  const wall = createWall({ start: { x: 100, y: 100 }, end: { x: 900, y: 100 }, type: 'Glaswand' });
+  f.walls.push(wall);
+  f.openings.push({ id: 'o1', kind: 'door', wallId: wall.id, offset: 300, width: 90, doorType: 'Notausgang', height: 210, hinge: 'left', swingSide: 'b' });
+  f.openings.push({ id: 'o2', kind: 'window', wallId: 'hall_0', offset: 500, width: 120, height: 120, sillHeight: 90 });
+  f.openings.push({ id: 'o3', kind: 'mirror', wallId: wall.id, offset: 700, width: 200, height: 200, side: 'a' });
+  f.zones.push(createZone({ polygon: [{ x: 100, y: 100 }, { x: 1100, y: 100 }, { x: 1100, y: 1100 }, { x: 100, y: 1100 }], name: 'Cardio', type: 'Cardio' }));
+  f.zones.push(createZone({ polygon: [{ x: 1200, y: 100 }, { x: 2400, y: 100 }, { x: 2400, y: 1100 }, { x: 1200, y: 1100 }], name: 'Maschinen', type: 'Maschinen', color: '#123456' }));
+  f.items.push(createItemFromDef(getDef('atlantis-a301')!, 400, 400));
+  f.items.push(createItemFromDef(getDef('atlantis-a301')!, 700, 400, { rotation: 90 }));
+  f.items.push(createItemFromDef(getDef('prime-hybrid-leg-press')!, 1500, 600, { note: 'Notiz' }));
+  f.voids.push({ id: 'v1', polygon: [{ x: 1500, y: 1300 }, { x: 2000, y: 1300 }, { x: 2000, y: 1800 }, { x: 1500, y: 1800 }], name: 'Galerie offen' });
+  f.annotations.push({ id: 'a1', kind: 'text', x: 200, y: 1500, text: 'Hinweis', fontSize: 30, rotation: 0 });
+  f.annotations.push({ id: 'a2', kind: 'measure', start: { x: 100, y: 1900 }, end: { x: 2400, y: 1900 } });
+  f.roomMeta['r:1:1'] = { name: 'Raum', type: 'Büro' };
+  p.customEquipment.push({
+    id: 'custom-1', kategorie: 'Eigene', unterkategorie: '', hersteller: 'Generisch', name: 'Eigene Theke', breite_cm: 300, tiefe_cm: 80, hoehe_cm: 110,
+    sicherheitszone_cm: { vorne: 60, hinten: 0, links: 0, rechts: 0 }, form: 'rechteck', skalierbar: true, verifiziert: false, bereich: 'Eigene', symbol: 'counter', benutzerdefiniert: true, preis_eur: 999,
+  });
+  f.items.push(createItemFromDef(p.customEquipment[0], 2000, 1500));
+  p.favorites.push('atlantis-a301');
+  p.priceOverrides['atlantis-a301'] = 1000;
+  return p;
+}
+
+const canvasSupported = (() => {
+  try {
+    return !!document.createElement('canvas').getContext('2d');
+  } catch {
+    return false;
+  }
+})();
+
+describe('JSON-Export/-Import', () => {
+  it('Roundtrip serialize → parse ist deepEqual', () => {
+    const p = sampleProject();
+    const text = serializeProject(p, '2026-09-25T10:00:00.000Z');
+    expect(text.startsWith('{\n  "app": "GymPlanner"')).toBe(true);
+    const back = parseProject(text);
+    expect(back).toEqual(p);
+    const detailed = parseProjectDetailed(text);
+    expect(detailed.exportedAt).toBe('2026-09-25T10:00:00.000Z');
+    expect(detailed.warnings).toEqual([]);
+  });
+
+  it('ist stabil: gleiche Daten, andere Schlüsselreihenfolge → gleicher Text', () => {
+    const a = { b: 1, a: [{ y: 2, x: 1 }] };
+    const b = { a: [{ x: 1, y: 2 }], b: 1 };
+    expect(stableStringify(a)).toBe(stableStringify(b));
+    const p = sampleProject();
+    expect(serializeProject(p, 'T')).toBe(serializeProject(JSON.parse(JSON.stringify(p)) as Project, 'T'));
+  });
+
+  it('akzeptiert auch ein nacktes Projektobjekt und migriert alte Stände', () => {
+    const p = sampleProject();
+    expect(parseProject(JSON.stringify(p))).toEqual(p);
+    const old = { id: 'p1', name: 'Alt', floors: [{ id: 'f1', name: 'EG' }] };
+    const m = parseProject(JSON.stringify(old));
+    expect(m.settings).toBeDefined();
+    expect(m.floors[0].items).toEqual([]);
+  });
+
+  it('liefert deutsche Fehlermeldungen', () => {
+    expect(() => parseProject('kein json')).toThrow(/gültiges JSON/);
+    expect(() => parseProject('{"foo":1}')).toThrow(/keine gültige GymPlanner-Projektdatei/);
+    expect(() => parseProject('{"format":"gymplanner-project","project":{"id":"x","name":"y","floors":[]}}')).toThrow(/mindestens ein Stockwerk/);
+  });
+
+  it('meldet unbekannte Geräte-IDs als Warnung', () => {
+    const p = sampleProject();
+    p.floors[0].items[0].defId = 'unbekannt-xyz';
+    const r = parseProjectDetailed(serializeProject(p));
+    expect(r.warnings.some((w) => w.includes('unbekannt-xyz'))).toBe(true);
+    expect(r.project.floors[0].items[0].defId).toBe('unbekannt-xyz');
+  });
+
+  it('safeFileName entfernt unzulässige Zeichen', () => {
+    expect(safeFileName('Studio: Nord/Süd?')).toBe('Studio- Nord-Süd-');
+    expect(safeFileName('   ')).toBe('projekt');
+  });
+});
+
+describe('CSV-Stückliste', () => {
+  it('fasst gleiche Geräte zusammen und rechnet Summen', () => {
+    const p = sampleProject();
+    const rows = bomRows(p);
+    const a301 = rows.find((r) => r.modell === 'A301')!;
+    expect(a301.anzahl).toBe(2);
+    expect(a301.stueckpreis).toBe(1000);
+    expect(a301.summe).toBe(2000);
+    expect(a301.hersteller).toBe('Atlantis');
+    expect(a301.verifiziert).toBe(true);
+    expect(a301.stockwerke).toEqual(['EG']);
+    expect(a301.itemIds.length).toBe(2);
+    const custom = rows.find((r) => r.defId === 'custom-1')!;
+    expect(custom.stueckpreis).toBe(999);
+    expect(custom.verifiziert).toBe(false);
+    const lp = rows.find((r) => r.defId === 'prime-hybrid-leg-press')!;
+    expect(lp.stueckpreis).toBeNull();
+    expect(lp.summe).toBeNull();
+    const t = bomTotals(rows);
+    expect(t.anzahl).toBe(4);
+    expect(t.summe).toBe(2999);
+    expect(t.ohnePreis).toBe(1);
+    expect(t.gewicht).toBe(284 * 2 + 524);
+  });
+
+  it('erzeugt CSV mit BOM, Semikolon, Dezimalkomma und Summenzeile', () => {
+    const p = sampleProject();
+    const text = bomCsvText(p);
+    expect(text.charCodeAt(0)).toBe(0xfeff);
+    const lines = text.slice(1).split('\r\n').filter(Boolean);
+    expect(lines[0]).toBe(CSV_HEADER.join(';'));
+    expect(lines[0].split(';').length).toBe(14);
+    const row = lines.find((l) => l.includes(';A301;'))!;
+    expect(row).toBeDefined();
+    const cells = row.split(';');
+    expect(cells[0]).toBe('Atlantis');
+    expect(cells[8]).toBe('2');
+    expect(cells[9]).toBe('1000');
+    expect(cells[10]).toBe('2000');
+    expect(cells[12]).toBe('Ja');
+    const last = lines[lines.length - 1];
+    expect(last.startsWith('Summe;')).toBe(true);
+    expect(last.split(';')[8]).toBe('4');
+    expect(last.split(';')[10]).toBe('2999');
+    expect(last.split(';')[7]).toBe(String(284 * 2 + 524));
+    expect(text).toContain('Eigene Theke');
+  });
+
+  it('formatiert Zahlen und Zellen für Excel DE', () => {
+    expect(csvNumber(12.5)).toBe('12,5');
+    expect(csvNumber(1234.567)).toBe('1234,57');
+    expect(csvNumber(null)).toBe('');
+    expect(csvCell('a;b')).toBe('"a;b"');
+    expect(csvCell('sagt "hi"')).toBe('"sagt ""hi"""');
+    expect(csvCell('normal')).toBe('normal');
+  });
+
+  it('leeres Projekt → nur Kopf- und Summenzeile', () => {
+    const p = createEmptyProject('Leer');
+    const lines = bomCsvText(p).slice(1).split('\r\n').filter(Boolean);
+    expect(lines.length).toBe(2);
+    expect(bomRows(p)).toEqual([]);
+  });
+});
+
+describe('Maßstab & Layout', () => {
+  it('paperMmForCm(2500, 100) = 250 und Umkehrung', () => {
+    expect(paperMmForCm(2500, 100)).toBe(250);
+    expect(paperMmForCm(2500, 50)).toBe(500);
+    expect(paperMmForCm(2500, 200)).toBe(125);
+    expect(cmForPaperMm(250, 100)).toBe(2500);
+    expect(pxPerCmForPaper(100, 254)).toBeCloseTo(1, 10);
+  });
+
+  it('begrenzt die Auflösung auf die maximale Kantenlänge', () => {
+    const b = { minX: 0, minY: 0, maxX: 10000, maxY: 5000 };
+    expect(clampPxPerCm(2, b)).toBe(MAX_IMAGE_PX / 10000);
+    expect(clampPxPerCm(0.5, b)).toBe(0.5);
+    const p = sampleProject();
+    const px = pngPxPerCm(p, p.floors[0], 1000);
+    const layout = layoutFloorRender(p, p.floors[0], { pxPerCm: px });
+    expect(Math.max(layout.widthPx, layout.heightPx)).toBeLessThanOrEqual(MAX_IMAGE_PX + 1);
+    expect(pngPxPerCm(p, p.floors[0], 2)).toBeCloseTo(1.2, 10);
+  });
+
+  it('berechnet Inhaltsbereich und Layout inkl. Rand und Legende', () => {
+    const p = sampleProject();
+    const b = floorContentBounds(p.floors[0], p);
+    expect(b.minX).toBe(0);
+    expect(b.minY).toBe(0);
+    expect(b.maxX).toBe(2500);
+    expect(b.maxY).toBe(2000);
+    const layout = layoutFloorRender(p, p.floors[0], { pxPerCm: 1, marginCm: 150 });
+    expect(layout.planBounds).toEqual({ minX: -150, minY: -150, maxX: 2650, maxY: 2150 });
+    expect(layout.widthPx).toBe(2800);
+    expect(layout.legendTypes).toEqual(['Cardio', 'Maschinen']);
+    expect(layout.heightPx).toBeGreaterThan(2300);
+    const noLegend = layoutFloorRender(p, p.floors[0], { pxPerCm: 1, marginCm: 150, legend: false });
+    expect(noLegend.heightPx).toBe(2300);
+    // Leeres Stockwerk ohne Halle
+    const empty = createEmptyProject('Leer');
+    const eb = floorContentBounds(empty.floors[0], empty);
+    expect(eb.maxX - eb.minX).toBeGreaterThan(0);
+    expect(layoutFloorRender(empty, empty.floors[0], { pxPerCm: 0.5 }).widthPx).toBeGreaterThan(0);
+  });
+
+  it('Hilfsfunktionen: Maßstabsbalken, Legende, Kurzname', () => {
+    expect(scaleBarLength(2800)).toBe(500);
+    expect(scaleBarLength(400)).toBe(100);
+    const p = sampleProject();
+    expect(legendRoomTypes(floorRooms(p.floors[0]))).toEqual(['Cardio', 'Maschinen']);
+    expect(itemShortLabel(p.floors[0].items[0], getDef('atlantis-a301'))).toBe('A301');
+    expect(itemShortLabel({ ...p.floors[0].items[0], label: 'Mein Gerät' }, getDef('atlantis-a301'))).toBe('Mein Gerät');
+  });
+
+  it('wählt das kleinste passende Querformat', () => {
+    expect(paperFormatForPlan(100, 80)?.name).toBe('a4');
+    expect(paperFormatForPlan(280, 220)?.name).toBe('a3');
+    expect(paperFormatForPlan(500, 300)?.name).toBe('a2');
+    expect(paperFormatForPlan(700, 500)?.name).toBe('a1');
+    expect(paperFormatForPlan(1000, 700)?.name).toBe('a0');
+    expect(paperFormatForPlan(2000, 700)).toBeNull();
+  });
+
+  it.skipIf(!canvasSupported)('rendert ein Stockwerk in ein Canvas mit erwarteten Maßen', () => {
+    const p = sampleProject();
+    const r = renderFloorToCanvas(p, p.floors[0], { pxPerCm: 0.25, legend: true });
+    expect(r.canvas.width).toBe(r.widthPx);
+    expect(r.canvas.height).toBe(r.heightPx);
+    expect(r.widthPx).toBe(Math.ceil(2800 * 0.25));
+  });
+
+  it('renderFloorToCanvas wirft in einer Umgebung ohne Canvas eine Exception (kein Hängenbleiben)', () => {
+    if (canvasSupported) return;
+    const p = sampleProject();
+    expect(() => renderFloorToCanvas(p, p.floors[0], { pxPerCm: 0.25 })).toThrow();
+  });
+});
+
+describe('Flächenbilanz (PDF)', () => {
+  it('berechnet Brutto, Netto, Raumtypen und Prozente', () => {
+    const p = sampleProject();
+    const b = floorAreaBalance(p.floors[0]);
+    expect(b.grossM2).toBeCloseTo(500, 6);
+    expect(b.netM2).toBeCloseTo(24.52 * 19.52 - 25, 6);
+    expect(b.voidM2).toBeCloseTo(25, 6);
+    const cardio = b.byType.find((t) => t.type === 'Cardio')!;
+    expect(cardio.m2).toBeCloseTo(100, 6);
+    expect(cardio.percent).toBeCloseTo(20, 6);
+    expect(cardio.areaClass).toBe('Trainingsfläche');
+    const training = b.byClass.find((c) => c.areaClass === 'Trainingsfläche')!;
+    expect(training.m2).toBeCloseTo(220, 6);
+    expect(b.unassignedM2).toBeCloseTo(b.netM2 - 220, 6);
+    const total = projectAreaBalance(p);
+    expect(total.grossM2).toBeCloseTo(500, 6);
+    expect(total.byType.length).toBe(2);
+  });
+
+  it('kommt mit Stockwerken ohne Halle zurecht', () => {
+    const p = createEmptyProject('Ohne Halle');
+    p.floors[0].zones.push(createZone({ polygon: [{ x: 0, y: 0 }, { x: 1000, y: 0 }, { x: 1000, y: 1000 }, { x: 0, y: 1000 }], name: 'Z', type: 'Kursraum' }));
+    const b = floorAreaBalance(p.floors[0]);
+    expect(b.grossM2).toBe(0);
+    expect(b.netM2).toBeCloseTo(100, 6);
+    expect(b.byType[0].percent).toBeCloseTo(100, 6);
+    const empty = floorAreaBalance(createEmptyProject('x').floors[0]);
+    expect(empty.byType).toEqual([]);
+    expect(empty.unassignedM2).toBe(0);
+  });
+});

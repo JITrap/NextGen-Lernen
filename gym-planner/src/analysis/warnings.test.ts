@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { warnings, warningFocus, doorSwingPolygons, sortWarnings, countWarnings } from './warnings';
-import { projectWithHall, firstFloor, addZone, addCustomDef, makeDef, place, addFloor } from './testFixtures';
+import { warnings, warningFocus, sortWarnings, countWarnings } from './warnings';
+import { projectWithHall, firstFloor, addZone, addCustomDef, makeDef, place, addFloor, fresh } from './testFixtures';
 import { getDef } from '@/data/equipment';
 import { hallWalls } from '@/geometry/walls';
+import { doorSwingSectors } from '@/geometry/collision';
 import { polygonArea } from '@/geometry/polygon';
 import type { Door, EquipmentDef, Project } from '@/types';
 
@@ -26,7 +27,7 @@ describe('Planungs-Warnungen', () => {
     expect(w[0].target).toEqual({ kind: 'item', id: rack.id });
     expect(w[0].id).toBe(`ceiling-height:${rack.id}`);
     firstFloor(p).ceilingHeight = 350;
-    expect(warnings({ ...p }).some((x) => x.kind === 'ceiling-height')).toBe(false);
+    expect(warnings(fresh(p)).some((x) => x.kind === 'ceiling-height')).toBe(false);
   });
 
   it('Wand höher als Decke → ceiling-height (Warnung)', () => {
@@ -50,7 +51,7 @@ describe('Planungs-Warnungen', () => {
     // b hinter a (Zone von a reicht 200 cm nach hinten = −y)
     b.x = 500;
     b.y = 500 - 210 - 50;
-    const w2 = warnings({ ...p }).filter((x) => x.kind === 'collision');
+    const w2 = warnings(fresh(p)).filter((x) => x.kind === 'collision');
     expect(w2.length).toBe(1);
     expect(w2[0].severity).toBe('warning');
     expect(w2[0].message).toContain('Sicherheitszone');
@@ -67,16 +68,16 @@ describe('Planungs-Warnungen', () => {
     expect(w.map((x) => x.message).join(' ')).toContain('WC');
     const shower = addCustomDef(p, makeDef({ id: 't-shower', symbol: 'shower', breite_cm: 90, tiefe_cm: 90 }));
     place(f, shower, 900, 400);
-    w = warnings({ ...p }).filter((x) => x.kind === 'changing-room');
+    w = warnings(fresh(p)).filter((x) => x.kind === 'changing-room');
     expect(w.length).toBe(1);
     expect(w[0].message).toContain('WC');
     addZone(f, 800, 800, 1200, 1200, 'WC');
-    expect(warnings({ ...p }).some((x) => x.kind === 'changing-room')).toBe(false);
+    expect(warnings(fresh(p)).some((x) => x.kind === 'changing-room')).toBe(false);
     // Dusche zu weit weg (> 15 m)
     f.items[0].x = 2400;
     f.zones.pop();
     addZone(f, 2200, 1700, 2400, 1900, 'WC');
-    w = warnings({ ...p }).filter((x) => x.kind === 'changing-room');
+    w = warnings(fresh(p)).filter((x) => x.kind === 'changing-room');
     expect(w.length).toBe(2);
   });
 
@@ -90,11 +91,11 @@ describe('Planungs-Warnungen', () => {
     expect(w[0].message).toContain('kein Ruhebereich und keine Dusche');
     expect(w[0].target).toEqual({ kind: 'item', id: s.id });
     addZone(f, 800, 100, 1400, 700, 'Ruheraum');
-    w = warnings({ ...p }).filter((x) => x.kind === 'wellness');
+    w = warnings(fresh(p)).filter((x) => x.kind === 'wellness');
     expect(w[0].message).toBe('„Sauna“: keine Dusche in der Nähe (≤ 15 m).');
     const shower = addCustomDef(p, makeDef({ id: 't-shower2', symbol: 'shower', breite_cm: 90, tiefe_cm: 90 }));
     place(f, shower, 500, 900);
-    expect(warnings({ ...p }).some((x) => x.kind === 'wellness')).toBe(false);
+    expect(warnings(fresh(p)).some((x) => x.kind === 'wellness')).toBe(false);
   });
 
   it('Maße ungeprüft → info mit Anzahl je Definition', () => {
@@ -133,7 +134,7 @@ describe('Planungs-Warnungen', () => {
     expect(w[0].target).toEqual({ kind: 'item', id: m.id });
     const rack = place(firstFloor(p), getDef('atlantis-c513')!, 1500, 800);
     m.dockedTo = rack.id;
-    w = warnings({ ...p }).filter((x) => x.kind === 'rack-module');
+    w = warnings(fresh(p)).filter((x) => x.kind === 'rack-module');
     expect(w.length).toBe(0);
   });
 
@@ -143,7 +144,7 @@ describe('Planungs-Warnungen', () => {
     const wall = hallWalls(f.hall!)[0]; // obere Außenwand, Richtung +x, Innenseite = Seite „b“
     const door: Door = { id: 'd1', kind: 'door', wallId: wall.id, offset: 500, width: 90, doorType: 'einflügelig', height: 210, hinge: 'left', swingSide: 'b' };
     f.openings.push(door);
-    const polys = doorSwingPolygons(door, wall);
+    const polys = doorSwingSectors(door, wall);
     expect(polys.length).toBe(1);
     expect(polygonArea(polys[0])).toBeCloseTo((Math.PI * 90 * 90) / 4, -2);
     const d = plainDef(p, 't-small', { breite_cm: 40, tiefe_cm: 40 });
@@ -154,11 +155,11 @@ describe('Planungs-Warnungen', () => {
     expect(w[0].target).toEqual({ kind: 'item', id: inSwing.id });
     door.doorType = 'Notausgang';
     inSwing.y = 130;
-    w = warnings({ ...p }).filter((x) => x.kind === 'emergency-exit');
+    w = warnings(fresh(p)).filter((x) => x.kind === 'emergency-exit');
     expect(w.length).toBe(1);
     expect(w[0].severity).toBe('error');
     door.doorType = 'Schiebetür';
-    expect(warnings({ ...p }).some((x) => x.kind === 'door-swing' || x.kind === 'emergency-exit')).toBe(false);
+    expect(warnings(fresh(p)).some((x) => x.kind === 'door-swing' || x.kind === 'emergency-exit')).toBe(false);
   });
 
   it('zu schmaler Laufweg zwischen Objekten → escape-route mit Punkt', () => {
@@ -174,7 +175,7 @@ describe('Planungs-Warnungen', () => {
     expect(w[0].message).toContain('120 cm');
     expect(w[0].target).toEqual({ point: { x: 600, y: 1000 } });
     p.settings.minEscapeRouteCm = 90;
-    expect(warnings({ ...p }).some((x) => x.kind === 'escape-route')).toBe(false);
+    expect(warnings(fresh(p)).some((x) => x.kind === 'escape-route')).toBe(false);
   });
 
   it('Warnungen sind nach Schweregrad sortiert, gezählt und fokussierbar', () => {
