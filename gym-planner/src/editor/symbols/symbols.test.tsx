@@ -376,7 +376,6 @@ describe('ItemsLayer', () => {
     r.rerender(<Stage ref={ref} width={800} height={600}><Layer><ItemsLayer {...props} viewport={{ scale: 0.5, x: 120, y: -40 }} /></Layer></Stage>);
     expect(ref.current!.find('Group').length).toBe(before);
     expect(ref.current!.find('Group')[3]).toBe(firstGroup);
-    // eslint-disable-next-line no-console
     console.info(`ItemsLayer: 600 Objekte in ${ms.toFixed(0)} ms gerendert`);
   });
 });

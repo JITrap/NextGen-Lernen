@@ -306,7 +306,7 @@ function snapPreview(e: ToolEvent, ctx: ToolContext, def: EquipmentDef, rotation
     e.world,
     {
       gridSize: settings.gridSize,
-      enabled: settings.snapEnabled && !ctx.ui.snapOverride && !e.alt,
+      enabled: settings.snapEnabled && !useUiStore.getState().snapOverride && !e.alt,
       threshold: ctx.pxToWorld(8),
       walls: ctx.walls,
       items: ctx.items,
@@ -318,7 +318,7 @@ function snapPreview(e: ToolEvent, ctx: ToolContext, def: EquipmentDef, rotation
 }
 
 function updatePreview(e: ToolEvent, ctx: ToolContext, kind: PlaceKind): Vec2 {
-  const { def } = resolvePlaceDef(kind, ctx.ui.toolOptions, ctx.project);
+  const { def } = resolvePlaceDef(kind, useUiStore.getState().toolOptions, ctx.project);
   const pos = snapPreview(e, ctx, def, usePlaceState.getState().rotation);
   usePlaceState.getState().patch({ pos });
   return pos;
@@ -331,8 +331,9 @@ export function placeAt(kind: PlaceKind, pos: Vec2, ctx: ToolContext): PlacedIte
   const project = store.project;
   const floor = project.floors.find((f) => f.id === ctx.floor.id) ?? project.floors.find((f) => f.id === project.activeFloorId) ?? project.floors[0];
   if (!floor) return null;
-  const opts = readPlaceOptions(ctx.ui.toolOptions);
-  const { def, source } = resolvePlaceDef(kind, ctx.ui.toolOptions, project);
+  const options = useUiStore.getState().toolOptions;
+  const opts = readPlaceOptions(options);
+  const { def, source } = resolvePlaceDef(kind, options, project);
   const item = buildPlacedItem(kind, def, pos, usePlaceState.getState().rotation, floor, project.floors, opts);
   transaction(() => {
     if (source === 'fallback') store.addCustomEquipment(def);

@@ -31,10 +31,13 @@ export function useLayers() {
 }
 /** Räume eines Stockwerks (memoisiert über Wände/Zonen/Halle/Meta). */
 export function useFloorRooms(floor: Floor): Room[] {
+  // Bewusst nur die geometrie-relevanten Felder als Abhängigkeiten (Objekte/Anmerkungen ändern keine Räume).
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => floorRooms(floor), [floor.walls, floor.zones, floor.hall, floor.roomMeta]);
 }
 /** Alle Wände inkl. Hallen-Außenwände (memoisiert). */
 export function useFloorWalls(floor: Floor): Wall[] {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => allWalls(floor), [floor.walls, floor.hall]);
 }
 /**

@@ -47,8 +47,8 @@ export function Popover({ open, anchor, onClose, placement = 'bottom-start', off
     const h = el.offsetHeight;
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    let left = 0;
-    let top = 0;
+    let left: number;
+    let top: number;
     if (isElement(anchor)) {
       const a = anchor.getBoundingClientRect();
       switch (placement) {
@@ -263,7 +263,7 @@ export function MenuList({ entries, onClose, className = '', minWidth = 200 }: {
             onClick={(e) => {
               e.stopPropagation();
               if (hasSub) {
-                openSub === i ? setOpenSub(null) : openSubmenu(i);
+                if (openSub === i) setOpenSub(null); else openSubmenu(i);
                 return;
               }
               en.onSelect?.();

@@ -80,7 +80,7 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
 
   for (const [defId, g] of groups) {
     const def = ctx.def(defId);
-    let unit: number | null = null;
+    let unit: number | null;
     let mixed = false;
     if (g.prices.length) {
       const distinct = new Set(g.prices.map((p) => Math.round(p * 100)));

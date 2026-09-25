@@ -284,7 +284,7 @@ export function snapPoint(p: Vec2, ctx: SnapContext): SnapResult {
           if (s > 0) {
             const c = { x: from.x + ux * s, y: axes.y.v };
             const d = distance(c, p);
-            if (d <= t && d < qd) { qd = d; q = c; extra = hLine(axes.y.v, Math.min(axes.y.lo, c.x), Math.max(axes.y.hi, c.x), 'item-edge'); }
+            if (d <= t && d < qd) { q = c; extra = hLine(axes.y.v, Math.min(axes.y.lo, c.x), Math.max(axes.y.hi, c.x), 'item-edge'); }
           }
         }
         if (q) {
