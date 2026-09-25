@@ -2,7 +2,7 @@
  * 3D-Darstellung platzierter Objekte: Boxen je Bereich, Säulen, Treppen (gerade/L/U/Wendel),
  * Aufzugschächte, Rampen, Sicherheitszonen und Beschriftungen.
  */
-import { memo, useMemo, type ReactNode } from 'react';
+import { memo, useMemo, type CSSProperties, type ReactNode } from 'react';
 import { Html } from '@react-three/drei';
 import type { ThreeEvent } from '@react-three/fiber';
 import type { EquipmentDef, PlacedItem } from '@/types';
@@ -36,7 +36,7 @@ export interface ItemMeshProps {
   onSelect: (item: PlacedItem, additive: boolean) => void;
 }
 
-const LABEL_STYLE: React.CSSProperties = {
+const LABEL_STYLE: CSSProperties = {
   pointerEvents: 'none',
   whiteSpace: 'nowrap',
   fontSize: 11,
@@ -53,7 +53,7 @@ const LABEL_STYLE: React.CSSProperties = {
 /** HTML-Beschriftung über einem Objekt (konstante Bildschirmgröße). */
 export function Label3D({ text, y, accent }: { text: string; y: number; accent?: boolean }) {
   return (
-    <Html position={[0, y, 0]} center zIndexRange={[40, 0]} pointerEvents="none" style={{ pointerEvents: 'none' }}>
+    <Html position={[0, y, 0]} center zIndexRange={[10, 0]} pointerEvents="none" style={{ pointerEvents: 'none' }}>
       <div style={accent ? { ...LABEL_STYLE, borderColor: 'var(--gp-accent)', fontWeight: 600 } : LABEL_STYLE}>{text}</div>
     </Html>
   );

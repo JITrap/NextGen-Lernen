@@ -2,7 +2,7 @@
  * 3D-Vorschau (react-three-fiber): Halle, Wände, Öffnungen und Objekte in echter Höhe,
  * frei drehbar, aktives Stockwerk oder alle Stockwerke. Wird lazy aus App.tsx geladen (ui.view3d).
  */
-import { useCallback, useEffect, useMemo, useRef, type ComponentRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, type ComponentRef, type ReactNode } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls, Grid } from '@react-three/drei';
 import * as THREE from 'three';
@@ -143,6 +143,31 @@ function CameraRig({ bounds, entrance, request }: { bounds: SceneBounds; entranc
   );
 }
 
+/** Gerichtetes Licht mit an die Szene angepasster Schattenkamera (Frustum wird bei Größenänderung neu berechnet). */
+function SunLight({ position, target, size, intensity, castShadow }: { position: [number, number, number]; target: [number, number, number]; size: number; intensity: number; castShadow: boolean }) {
+  const ref = useRef<THREE.DirectionalLight>(null);
+  const invalidate = useThree((s) => s.invalidate);
+  const [tx, ty, tz] = target;
+  useEffect(() => {
+    const light = ref.current;
+    if (!light) return;
+    light.target.position.set(tx, ty, tz);
+    light.target.updateMatrixWorld();
+    const cam = light.shadow.camera;
+    const extent = size * 1.6;
+    cam.left = -extent;
+    cam.right = extent;
+    cam.top = extent;
+    cam.bottom = -extent;
+    cam.near = 0.5;
+    cam.far = size * 6;
+    cam.updateProjectionMatrix();
+    light.shadow.needsUpdate = true;
+    invalidate();
+  }, [size, tx, ty, tz, invalidate]);
+  return <directionalLight ref={ref} position={position} intensity={intensity} castShadow={castShadow} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0004} />;
+}
+
 /** Umgebungslicht (RoomEnvironment, gebündelt mit three – kein Netzwerk) für Reflexionen auf Spiegeln/Glas. */
 function SceneEnvironment({ dark }: { dark: boolean }) {
   const gl = useThree((s) => s.gl);
@@ -167,7 +192,7 @@ function SceneEnvironment({ dark }: { dark: boolean }) {
 
 /* ---------------- Überlagerungs-UI ---------------- */
 
-function ToggleButton({ on, onClick, icon, label, title }: { on: boolean; onClick: () => void; icon: React.ReactNode; label: string; title?: string }) {
+function ToggleButton({ on, onClick, icon, label, title }: { on: boolean; onClick: () => void; icon: ReactNode; label: string; title?: string }) {
   return (
     <button type="button" className={`gp-btn px-2 py-1 text-xs ${on ? 'gp-btn-active' : ''}`} onClick={onClick} title={title ?? label} aria-pressed={on}>
       {icon}
@@ -230,19 +255,7 @@ export function View3D() {
         <fog attach="fog" args={[bg, size * 6, size * 16]} />
         <ambientLight intensity={dark ? 0.55 : 0.7} />
         <hemisphereLight args={[dark ? '#94a3b8' : '#ffffff', dark ? '#1e293b' : '#cbd5e1', dark ? 0.35 : 0.45]} />
-        <directionalLight
-          position={lightPos}
-          intensity={dark ? 1.2 : 1.5}
-          castShadow={v3.shadows}
-          shadow-mapSize={[2048, 2048]}
-          shadow-bias={-0.0004}
-          shadow-camera-near={0.5}
-          shadow-camera-far={size * 6}
-          shadow-camera-left={-size * 1.6}
-          shadow-camera-right={size * 1.6}
-          shadow-camera-top={size * 1.6}
-          shadow-camera-bottom={-size * 1.6}
-        />
+        <SunLight position={lightPos} target={[bounds.cx, 0, bounds.cz]} size={size} intensity={dark ? 1.2 : 1.5} castShadow={v3.shadows} />
         <SceneEnvironment dark={dark} />
         <Grid
           position={[bounds.cx, -0.012, bounds.cz]}
@@ -285,7 +298,7 @@ export function View3D() {
           <button type="button" className={`gp-tab ${!allFloors ? 'active' : ''}`} onClick={() => setAllFloors(false)}>
             Aktives Stockwerk
           </button>
-          <button type="button" className={`gp-tab ${allFloors ? 'active' : ''}`} onClick={() => setAllFloors(true)} disabled={floors.length < 2} title={floors.length < 2 ? 'Nur ein Stockwerk vorhanden' : 'Alle Stockwerke übereinander anzeigen'}>
+          <button type="button" className={`gp-tab disabled:cursor-not-allowed disabled:opacity-50 ${allFloors ? 'active' : ''}`} onClick={() => setAllFloors(true)} disabled={floors.length < 2} title={floors.length < 2 ? 'Nur ein Stockwerk vorhanden' : 'Alle Stockwerke übereinander anzeigen'}>
             Alle Stockwerke
           </button>
         </div>
@@ -314,7 +327,7 @@ export function View3D() {
       </div>
 
       {/* Info oben rechts */}
-      <div className="gp-panel absolute right-3 top-3 z-20 rounded-lg border px-3 py-1.5 text-xs shadow-md">
+      <div className="gp-panel absolute right-3 top-3 z-20 hidden rounded-lg border px-3 py-1.5 text-xs shadow-md md:block">
         <div className="font-semibold">{allFloors ? `${levels.length} Stockwerke` : activeFloor?.name ?? 'Kein Stockwerk'}</div>
         <div className="gp-muted">
           {itemCount} Objekte · {wallCount} Wände
@@ -323,7 +336,7 @@ export function View3D() {
       </div>
 
       {/* Bedienhinweis unten links */}
-      <div className="gp-panel absolute bottom-3 left-3 z-20 rounded-md border px-2 py-1 text-[11px] shadow-sm gp-muted">
+      <div className="gp-panel absolute bottom-3 left-3 z-20 hidden rounded-md border px-2 py-1 text-[11px] shadow-sm gp-muted sm:block">
         Drehen: Ziehen · Zoom: Mausrad / Pinch · Verschieben: rechte Maustaste / zwei Finger · Klick wählt aus · Esc hebt Auswahl auf
       </div>
 
