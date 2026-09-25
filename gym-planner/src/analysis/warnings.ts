@@ -364,7 +364,7 @@ function libraryWarnings(ctx: AnalysisContext, out: PlanningWarning[]) {
         unknown.set(it.defId, u);
         continue;
       }
-      if (def.verifiziert === false) {
+      if (def.verifiziert === false && def.bereich !== 'Bauelemente') {
         const u = unverified.get(def.id) ?? { name: def.name, count: 0, floorId: fc.floor.id, itemId: it.id };
         u.count += 1;
         unverified.set(def.id, u);

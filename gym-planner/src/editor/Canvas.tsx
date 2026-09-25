@@ -13,6 +13,7 @@ import type { ToolContext, ToolEvent } from './tools/types';
 import { snapPoint, type SnapContext } from '@/geometry/snap';
 import { findCollisions, collidingIds } from '@/geometry/collision';
 import { getDef } from '@/data/equipment';
+import { FURNITURE_AREAS } from './layers/ItemsLayer';
 import { bbox } from '@/geometry/polygon';
 import { itemFootprint } from '@/geometry/transform';
 import {
@@ -50,7 +51,13 @@ export function Canvas() {
   const lowerFloor = useLowerFloor();
   const walls = useFloorWalls(floor);
   const rooms = useFloorRooms(floor);
-  const items = useFloorVisibleItems(floor);
+  const allItems = useFloorVisibleItems(floor);
+  // Ebene „Möbel“ blendet Empfang/Büro/Ausstattung aus – dann auch nicht klickbar/kollidierend.
+  const furnitureVisible = useProjectStore((s) => s.project.layers.furniture);
+  const items = useMemo(
+    () => (furnitureVisible ? allItems : allItems.filter((it) => { const d = getDef(it.defId, project); return !d || !FURNITURE_AREAS.has(d.bereich); })),
+    [allItems, furnitureVisible, project],
+  );
   const viewport = useUiStore((s) => s.viewport);
   const setViewport = useUiStore((s) => s.setViewport);
   const tool = useUiStore((s) => s.tool);
