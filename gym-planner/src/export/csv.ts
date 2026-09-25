@@ -150,7 +150,7 @@ export function bomCsvText(project: Project): string {
     String(totals.anzahl), '', csvNumber(totals.summe), '', '',
     totals.ohnePreis ? csvCell(`${totals.ohnePreis} Position(en) ohne Preis`) : '',
   ].join(';'));
-  return `﻿${lines.join('\r\n')}\r\n`;
+  return `\uFEFF${lines.join('\r\n')}\r\n`;
 }
 
 /** Lädt die Stückliste als „<Projekt>-Stueckliste.csv“ herunter. */

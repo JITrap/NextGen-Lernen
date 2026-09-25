@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import type { Project } from '@/types';
-import { createEmptyProject, createHall, createWall, createZone, createItemFromDef } from '@/store/factories';
+import { createEmptyProject, createFloor, createHall, createWall, createZone, createItemFromDef } from '@/store/factories';
 import { getDef } from '@/data/equipment';
+import { areaBalance, bom } from '@/analysis';
 import { serializeProject, parseProject, parseProjectDetailed, stableStringify, safeFileName } from './json';
 import { bomRows, bomTotals, bomCsvText, csvNumber, csvCell, CSV_HEADER } from './csv';
 import {
@@ -104,6 +105,7 @@ describe('CSV-Stückliste', () => {
     const a301 = rows.find((r) => r.modell === 'A301')!;
     expect(a301.anzahl).toBe(2);
     expect(a301.stueckpreis).toBe(1000);
+    expect(a301.preisGemischt).toBe(false);
     expect(a301.summe).toBe(2000);
     expect(a301.hersteller).toBe('Atlantis');
     expect(a301.verifiziert).toBe(true);
@@ -120,6 +122,66 @@ describe('CSV-Stückliste', () => {
     expect(t.summe).toBe(2999);
     expect(t.ohnePreis).toBe(1);
     expect(t.gewicht).toBe(284 * 2 + 524);
+  });
+
+  it('liefert exakt die Zahlen von bom(project) aus src/analysis', () => {
+    // 2 gleiche Geräte mit Objektpreis 1000
+    const p = createEmptyProject('Zwei Geräte');
+    p.floors[0].hall = createHall(2500, 2000);
+    const rack = getDef('atlantis-c513')!;
+    p.floors[0].items.push(createItemFromDef(rack, 300, 300, { priceEur: 1000 }));
+    p.floors[0].items.push(createItemFromDef(rack, 700, 300, { priceEur: 1000 }));
+    const rows = bomRows(p);
+    const list = bom(p);
+    expect(rows.length).toBe(1);
+    expect(list.lines.length).toBe(1);
+    expect(rows[0].anzahl).toBe(2);
+    expect(rows[0].anzahl).toBe(list.lines[0].count);
+    expect(rows[0].stueckpreis).toBe(list.lines[0].unitPriceEur);
+    expect(rows[0].summe).toBe(2000);
+    expect(rows[0].summe).toBe(list.lines[0].totalEur);
+    expect(rows[0].gewicht).toBe(list.lines[0].weightKg);
+    expect(rows[0].stockwerke).toEqual(list.lines[0].floorCounts.map((f) => f.floorName));
+    expect(rows[0].itemIds).toEqual(list.lines[0].itemIds);
+    const t = bomTotals(rows);
+    expect(t.anzahl).toBe(list.totalCount);
+    expect(t.summe).toBe(list.totalEur);
+    expect(t.gewicht).toBe(list.totalWeightKg);
+    expect(t.ohnePreis).toBe(list.linesWithoutPrice);
+    // Auch im größeren Beispielprojekt: Positionen, Reihenfolge und Summen 1:1
+    const sp = sampleProject();
+    const srows = bomRows(sp);
+    const sl = bom(sp);
+    expect(srows.map((r) => [r.defId, r.anzahl, r.stueckpreis, r.summe])).toEqual(sl.lines.map((l) => [l.defId, l.count, l.unitPriceEur, l.totalEur]));
+    expect(bomTotals(srows)).toEqual({ anzahl: sl.totalCount, gewicht: sl.totalWeightKg, summe: sl.totalEur, ohnePreis: sl.linesWithoutPrice });
+  });
+
+  it('unterschiedliche Objektpreise → eine Position mit Mittelwert und Hinweis', () => {
+    const p = createEmptyProject('Gemischt');
+    const rack = getDef('atlantis-c513')!;
+    p.floors[0].items.push(createItemFromDef(rack, 300, 300, { priceEur: 1000 }));
+    p.floors[0].items.push(createItemFromDef(rack, 700, 300, { priceEur: 2000 }));
+    const rows = bomRows(p);
+    expect(rows.length).toBe(1);
+    expect(rows[0].anzahl).toBe(2);
+    expect(rows[0].stueckpreis).toBe(1500);
+    expect(rows[0].preisGemischt).toBe(true);
+    expect(rows[0].summe).toBe(3000);
+    expect(rows[0].hinweis).toContain('Mittelwert');
+    const cells = bomCsvText(p).split('\r\n')[1].split(';');
+    expect(cells[9]).toBe('1500');
+    expect(cells[10]).toBe('3000');
+  });
+
+  it('unbekannte Bibliotheks-ID bleibt als Position mit gespeicherten Maßen erhalten', () => {
+    const p = sampleProject();
+    p.floors[0].items[2].defId = 'gibt-es-nicht';
+    const row = bomRows(p).find((r) => r.defId === 'gibt-es-nicht')!;
+    expect(row).toBeDefined();
+    expect(row.anzahl).toBe(1);
+    expect(row.breite).toBe(p.floors[0].items[2].width);
+    expect(row.stueckpreis).toBeNull();
+    expect(row.hinweis).toContain('Nicht in der Bibliothek');
   });
 
   it('erzeugt CSV mit BOM, Semikolon, Dezimalkomma und Summenzeile', () => {
@@ -143,6 +205,7 @@ describe('CSV-Stückliste', () => {
     expect(last.split(';')[10]).toBe('2999');
     expect(last.split(';')[7]).toBe(String(284 * 2 + 524));
     expect(text).toContain('Eigene Theke');
+    expect(text.endsWith('\r\n')).toBe(true);
   });
 
   it('formatiert Zahlen und Zellen für Excel DE', () => {
@@ -243,25 +306,51 @@ describe('Maßstab & Layout', () => {
 });
 
 describe('Flächenbilanz (PDF)', () => {
-  it('berechnet Brutto, Netto, Raumtypen und Prozente', () => {
+  it('liefert dieselben Werte wie areaBalance(project) aus src/analysis', () => {
     const p = sampleProject();
-    const b = floorAreaBalance(p.floors[0]);
-    expect(b.grossM2).toBeCloseTo(500, 6);
-    expect(b.netM2).toBeCloseTo(24.52 * 19.52 - 25, 6);
+    const ref = areaBalance(p).floors[0];
+    const b = floorAreaBalance(p.floors[0], p);
+    expect(b.bruttoM2).toBe(ref.bruttoM2);
+    expect(b.nettoM2).toBe(ref.nettoM2);
+    expect(b.voidM2).toBe(ref.voidM2);
+    expect(b.unassignedM2).toBe(ref.unassignedM2);
+    expect(b.byType).toEqual(ref.byType);
+    expect(b.byClass).toEqual(ref.byClass);
+    // Kompatibilitäts-Aliase
+    expect(b.grossM2).toBe(ref.bruttoM2);
+    expect(b.netM2).toBe(ref.nettoM2);
+    // Ohne Projektbezug: gleiche Regeln, gleiche Zahlen
+    const alone = floorAreaBalance(p.floors[0]);
+    expect(alone.bruttoM2).toBeCloseTo(ref.bruttoM2, 9);
+    expect(alone.nettoM2).toBeCloseTo(ref.nettoM2, 9);
+    expect(alone.byType).toEqual(ref.byType);
+    // Projektbilanz = total + Stockwerke
+    const total = projectAreaBalance(p);
+    expect(total.grossM2).toBe(areaBalance(p).total.bruttoM2);
+    expect(total.netM2).toBe(areaBalance(p).total.nettoM2);
+    expect(total.floors.map((f) => f.floorId)).toEqual([p.floors[0].id]);
+    expect(total.byType.map((t) => t.type)).toEqual(b.byType.map((t) => t.type));
+  });
+
+  it('berechnet Brutto, Netto, Luftraum, Raumtypen und Prozente (bezogen auf Netto)', () => {
+    const p = sampleProject();
+    const b = floorAreaBalance(p.floors[0], p);
+    expect(b.hasHall).toBe(true);
+    expect(b.bruttoM2).toBeCloseTo(500, 6);
     expect(b.voidM2).toBeCloseTo(25, 6);
+    expect(b.nettoM2).toBeCloseTo(24.52 * 19.52 - 25, 6);
     const cardio = b.byType.find((t) => t.type === 'Cardio')!;
+    expect(cardio.count).toBe(1);
     expect(cardio.m2).toBeCloseTo(100, 6);
-    expect(cardio.percent).toBeCloseTo(20, 6);
-    expect(cardio.areaClass).toBe('Trainingsfläche');
+    expect(cardio.percent).toBeCloseTo((100 / b.nettoM2) * 100, 6);
     const training = b.byClass.find((c) => c.areaClass === 'Trainingsfläche')!;
     expect(training.m2).toBeCloseTo(220, 6);
-    // Zonen in automatisch erkannten Räumen werden dort abgezogen → keine Doppelzählung
-    const roomSum = b.byType.reduce((s, t) => s + t.m2, 0);
-    expect(roomSum).toBeLessThanOrEqual(b.netM2 + 1e-6);
-    expect(b.unassignedM2).toBeCloseTo(Math.max(0, b.netM2 - roomSum), 6);
-    const total = projectAreaBalance(p);
-    expect(total.grossM2).toBeCloseTo(500, 6);
-    expect(total.byType.map((t) => t.type)).toEqual(b.byType.map((t) => t.type));
+    // Die Halle selbst ist ein Auto-Raum ohne gewählten Typ → Rest zählt als „nicht zugeordnet“
+    const typed = b.byType.reduce((s, t) => s + t.m2, 0);
+    expect(b.untypedRoomCount).toBe(1);
+    expect(b.roomCount).toBe(3);
+    expect(b.unassignedM2).toBeCloseTo(b.nettoM2 - typed, 6);
+    expect(b.unassignedPercent + b.byType.reduce((s, t) => s + t.percent, 0)).toBeCloseTo(100, 6);
   });
 
   it('buildPdf erzeugt Flächenbilanz- und Stücklistenseiten (ohne Planseite, da kein Canvas nötig)', async () => {
@@ -273,17 +362,42 @@ describe('Flächenbilanz (PDF)', () => {
     expect(out.byteLength).toBeGreaterThan(2000);
     const empty = await buildPdf(createEmptyProject('Leer'), { floorIds: ['x'] });
     expect(empty.doc.getNumberOfPages()).toBeGreaterThanOrEqual(3);
+    // Mehrere Stockwerke → zusätzlicher Gesamtabschnitt, ebenfalls ohne Planseiten
+    const multi = sampleProject();
+    multi.floors.push(createFloor({ name: 'OG', order: 1, hall: createHall(1000, 1000) }));
+    const m = await buildPdf(multi, { floorIds: ['nicht-vorhanden'] });
+    expect(m.doc.getNumberOfPages()).toBeGreaterThanOrEqual(3);
   });
 
   it('kommt mit Stockwerken ohne Halle zurecht', () => {
     const p = createEmptyProject('Ohne Halle');
     p.floors[0].zones.push(createZone({ polygon: [{ x: 0, y: 0 }, { x: 1000, y: 0 }, { x: 1000, y: 1000 }, { x: 0, y: 1000 }], name: 'Z', type: 'Kursraum' }));
-    const b = floorAreaBalance(p.floors[0]);
-    expect(b.grossM2).toBe(0);
-    expect(b.netM2).toBeCloseTo(100, 6);
+    const b = floorAreaBalance(p.floors[0], p);
+    expect(b.hasHall).toBe(false);
+    expect(b.bruttoM2).toBe(0);
+    expect(b.nettoM2).toBeCloseTo(100, 6);
     expect(b.byType[0].percent).toBeCloseTo(100, 6);
+    expect(b.unassignedM2).toBe(0);
     const empty = floorAreaBalance(createEmptyProject('x').floors[0]);
     expect(empty.byType).toEqual([]);
+    expect(empty.nettoM2).toBe(0);
     expect(empty.unassignedM2).toBe(0);
+  });
+
+  it('Gesamtbilanz über mehrere Stockwerke entspricht areaBalance(project).total', () => {
+    const p = sampleProject();
+    const og = createFloor({ name: 'OG', order: 1, hall: createHall(1000, 1000) });
+    og.zones.push(createZone({ polygon: [{ x: 100, y: 100 }, { x: 600, y: 100 }, { x: 600, y: 600 }, { x: 100, y: 600 }], name: 'Ruhe', type: 'Ruheraum' }));
+    p.floors.push(og);
+    const total = projectAreaBalance(p);
+    const ref = areaBalance(p);
+    expect(total.floors.length).toBe(2);
+    expect(total.floors[1].floorName).toBe('OG');
+    expect(total.bruttoM2).toBeCloseTo(600, 6);
+    expect(total.grossM2).toBe(ref.total.bruttoM2);
+    expect(total.netM2).toBe(ref.total.nettoM2);
+    expect(total.byType).toEqual(ref.total.byType);
+    expect(total.byClass).toEqual(ref.total.byClass);
+    expect(total.unassignedM2).toBe(ref.total.unassignedM2);
   });
 });

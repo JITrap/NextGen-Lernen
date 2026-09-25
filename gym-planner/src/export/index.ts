@@ -6,6 +6,9 @@
  * - exportCsv(project?)                         Stückliste als CSV (Excel DE)
  * - exportJson(project?) / importJsonFile()     Projekt als JSON sichern / laden (liefert Projekt, lädt nicht selbst)
  * - serializeProject / parseProject             reine Text-Konvertierung (validiert + migriert)
+ *
+ * Flächenbilanz (floorAreaBalance/projectAreaBalance) und Stückliste (bomRows/bomTotals/bomCsvText) sind Adapter auf
+ * areaBalance()/bom() aus src/analysis – Export und Panel „Übersicht“ liefern dieselben Zahlen.
  */
 export { exportPng, exportAllFloorsPng, renderFloorPng, pngPxPerCm, PNG_BASE_PX_PER_CM, type PngOptions } from './png';
 export { exportPdf, buildPdf, floorAreaBalance, projectAreaBalance, paperFormatForPlan, PAPER_FORMATS, type PdfOptions, type PdfScale, type FloorAreaBalance, type ProjectAreaBalance, type AreaByType, type AreaByClass } from './pdf';

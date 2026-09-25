@@ -2,18 +2,21 @@
  * PDF-Export (jsPDF, ohne autoTable): je Stockwerk eine maßstäbliche Planseite (Titelblock, Plan als eingebettetes
  * PNG mit exakter Papierbreite, Maßstabsbalken, Legende), danach Flächenbilanz und Stückliste als Tabellen.
  *
+ * Flächenbilanz und Stückliste stammen aus src/analysis (`areaBalance()`, `bom()`) – dieselben Zahlen wie das
+ * Panel „Übersicht“; `floorAreaBalance`/`projectAreaBalance` sind Adapter darauf.
+ *
  * Maßstab: 1 cm Welt = 10/scale mm Papier (paperMmForCm). Bei 1:100 sind 25 m Halle = 250 mm.
  * jsPDF wird erst beim Export dynamisch geladen (eigener Chunk).
  */
-import type { Project, Floor, Room, RoomType } from '@/types';
+import type { Project, Floor } from '@/types';
 import type { jsPDF as JsPdf } from 'jspdf';
 import { useProjectStore } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
-import { polygonArea, polygonInside } from '@/geometry/polygon';
-import { hallInnerPolygon } from '@/geometry/walls';
+import { createEmptyProject } from '@/store/factories';
 import { floorRooms } from '@/geometry/rooms';
 import { formatNumber, formatM2 } from '@/geometry/units';
-import { ROOM_TYPE_MAP, AREA_CLASSES, roomColor, type AreaClass } from '@/data/roomTypes';
+import { roomColor } from '@/data/roomTypes';
+import { areaBalance, sumAreaBalances, areaClassOf, type FloorAreaBalance as AnalysisFloorAreaBalance } from '@/analysis';
 import { renderFloorToCanvas, layoutFloorRender, paperMmForCm, pxPerCmForPaper, clampPxPerCm, scaleBarLength, legendRoomTypes, MAX_IMAGE_PX } from './planRenderer';
 import { bomRows, bomTotals } from './csv';
 import { safeFileName } from './json';
@@ -38,94 +41,45 @@ export interface PdfOptions {
 }
 
 /* ------------------------------------------------------------------ */
-/* Flächenbilanz (lokal berechnet)                                     */
+/* Flächenbilanz (Adapter auf src/analysis)                            */
 /* ------------------------------------------------------------------ */
 
-export interface AreaByType { type: RoomType; areaClass: AreaClass; count: number; m2: number; percent: number }
-export interface AreaByClass { areaClass: AreaClass; m2: number; percent: number }
-export interface FloorAreaBalance {
-  floorId: string;
-  floorName: string;
-  /** Brutto-Hallenfläche (Außenkante) in m². */
-  grossM2: number;
-  /** Netto (Innenkante der Außenwände abzüglich Lufträume) in m². */
-  netM2: number;
-  voidM2: number;
-  byType: AreaByType[];
-  byClass: AreaByClass[];
-  /** Netto-Fläche ohne Raumzuordnung (falls positiv). */
-  unassignedM2: number;
-}
-export interface ProjectAreaBalance {
-  floors: FloorAreaBalance[];
-  grossM2: number;
-  netM2: number;
-  byClass: AreaByClass[];
-  byType: AreaByType[];
-}
-
-const m2 = (poly: { x: number; y: number }[]) => polygonArea(poly) / 10000;
+export type { AreaByType, AreaByClass } from '@/analysis';
 
 /**
- * Effektive Fläche je Raum: Zonen, die vollständig in einem automatisch erkannten Raum liegen, werden von diesem
- * abgezogen (die Zone „Cardio“ in der offenen Halle zählt nur einmal). Lufträume werden ebenfalls abgezogen.
+ * Flächenbilanz eines Stockwerks – das Ergebnis von `areaBalance()` (Brutto, Netto, Luftraum, je Raumtyp,
+ * je Flächenklasse, „nicht zugeordnet“) plus die bisherigen Feldnamen `grossM2`/`netM2` als Aliase.
  */
-export function effectiveRoomAreas(floor: Floor): { room: Room; m2: number }[] {
-  const rooms = floorRooms(floor);
-  return rooms.map((room) => {
-    let area = room.areaM2;
-    if (room.source === 'auto') {
-      for (const z of rooms) if (z.source === 'zone' && z.id !== room.id && polygonInside(z.polygon, room.polygon)) area -= z.areaM2;
-    }
-    for (const v of floor.voids) if (v.polygon.length >= 3 && polygonInside(v.polygon, room.polygon)) area -= m2(v.polygon);
-    return { room, m2: Math.max(0, area) };
-  });
+export interface FloorAreaBalance extends AnalysisFloorAreaBalance {
+  /** Alias für `bruttoM2`. */
+  grossM2: number;
+  /** Alias für `nettoM2`. */
+  netM2: number;
+}
+/** Summe über alle Stockwerke (`areaBalance(project).total`) plus die Bilanzen der einzelnen Stockwerke. */
+export interface ProjectAreaBalance extends FloorAreaBalance {
+  floors: FloorAreaBalance[];
 }
 
-export function floorAreaBalance(floor: Floor): FloorAreaBalance {
-  const rooms = effectiveRoomAreas(floor);
-  const grossM2 = floor.hall && floor.hall.polygon.length >= 3 ? m2(floor.hall.polygon) : 0;
-  const innerM2 = floor.hall && floor.hall.polygon.length >= 3 ? m2(hallInnerPolygon(floor.hall)) : 0;
-  const voidM2 = floor.voids.reduce((s, v) => s + (v.polygon.length >= 3 ? m2(v.polygon) : 0), 0);
-  const roomSum = rooms.reduce((s, r) => s + r.m2, 0);
-  const base = grossM2 > 0 ? grossM2 : roomSum;
-  const netM2 = grossM2 > 0 ? Math.max(0, innerM2 - voidM2) : roomSum;
-  const typeMap = new Map<RoomType, AreaByType>();
-  for (const { room: r, m2: area } of rooms) {
-    const info = ROOM_TYPE_MAP[r.type];
-    let e = typeMap.get(r.type);
-    if (!e) { e = { type: r.type, areaClass: info?.areaClass ?? 'Nebenfläche', count: 0, m2: 0, percent: 0 }; typeMap.set(r.type, e); }
-    e.count += 1;
-    e.m2 += area;
-  }
-  const byType = [...typeMap.values()].sort((a, b) => b.m2 - a.m2);
-  for (const e of byType) e.percent = base > 0 ? (e.m2 / base) * 100 : 0;
-  const byClass: AreaByClass[] = AREA_CLASSES.map((areaClass) => {
-    const sum = byType.filter((t) => t.areaClass === areaClass).reduce((s, t) => s + t.m2, 0);
-    return { areaClass, m2: sum, percent: base > 0 ? (sum / base) * 100 : 0 };
-  }).filter((c) => c.m2 > 0);
-  return { floorId: floor.id, floorName: floor.name, grossM2, netM2, voidM2, byType, byClass, unassignedM2: Math.max(0, netM2 - roomSum) };
+function withAliases(b: AnalysisFloorAreaBalance): FloorAreaBalance {
+  return { ...b, grossM2: b.bruttoM2, netM2: b.nettoM2 };
 }
 
+/**
+ * Flächenbilanz eines Stockwerks. Mit `project` wird das (memoisierte) Analyse-Ergebnis des Projekts verwendet;
+ * ohne Projekt – oder wenn das Stockwerk nicht dazugehört – wird es allein nach denselben Regeln bilanziert.
+ */
+export function floorAreaBalance(floor: Floor, project?: Project): FloorAreaBalance {
+  const inProject = project ? areaBalance(project).floors.find((f) => f.floorId === floor.id) : undefined;
+  if (inProject) return withAliases(inProject);
+  const single: Project = { ...(project ?? createEmptyProject(floor.name)), floors: [floor], activeFloorId: floor.id };
+  return withAliases(areaBalance(single).floors[0]);
+}
+
+/** Flächenbilanz des Projekts: Gesamtsumme und Stockwerke (nach Reihenfolge) aus `areaBalance(project)`. */
 export function projectAreaBalance(project: Project): ProjectAreaBalance {
-  const floors = [...project.floors].sort((a, b) => a.order - b.order).map(floorAreaBalance);
-  const grossM2 = floors.reduce((s, f) => s + f.grossM2, 0);
-  const netM2 = floors.reduce((s, f) => s + f.netM2, 0);
-  const base = grossM2 > 0 ? grossM2 : floors.reduce((s, f) => s + f.byType.reduce((x, t) => x + t.m2, 0), 0);
-  const typeMap = new Map<RoomType, AreaByType>();
-  for (const f of floors) for (const t of f.byType) {
-    const e = typeMap.get(t.type) ?? { ...t, count: 0, m2: 0, percent: 0 };
-    e.count += t.count;
-    e.m2 += t.m2;
-    typeMap.set(t.type, e);
-  }
-  const byType = [...typeMap.values()].sort((a, b) => b.m2 - a.m2);
-  for (const e of byType) e.percent = base > 0 ? (e.m2 / base) * 100 : 0;
-  const byClass = AREA_CLASSES.map((areaClass) => {
-    const sum = byType.filter((t) => t.areaClass === areaClass).reduce((s, t) => s + t.m2, 0);
-    return { areaClass, m2: sum, percent: base > 0 ? (sum / base) * 100 : 0 };
-  }).filter((c) => c.m2 > 0);
-  return { floors, grossM2, netM2, byClass, byType };
+  const { floors, total } = areaBalance(project);
+  return { ...withAliases(total), floors: floors.map(withAliases) };
 }
 
 /* ------------------------------------------------------------------ */
@@ -280,11 +234,11 @@ function drawPlanPage(doc: JsPdf, project: Project, floor: Floor, scale: number,
   const pageW = format.widthMm;
   const pageH = format.heightMm;
 
-  const balance = floorAreaBalance(floor);
+  const balance = floorAreaBalance(floor, project);
   const variant = project.variantName ? `Variante „${project.variantName}“ · ` : '';
   drawPageHeader(doc, pageW, project.name, `${variant}Stockwerk „${floor.name}“ · Deckenhöhe ${formatNumber(floor.ceilingHeight / 100, 2)} m · ${dateDe()}`, [
     `Maßstab 1:${scale}`,
-    `Brutto ${formatM2(balance.grossM2)} · Netto ${formatM2(balance.netM2)}`,
+    `Brutto ${formatM2(balance.bruttoM2)} · Netto ${formatM2(balance.nettoM2)}`,
     `Blatt ${format.name.toUpperCase()} quer`,
   ]);
 
@@ -368,12 +322,33 @@ function drawPlanPage(doc: JsPdf, project: Project, floor: Floor, scale: number,
   return { format, fits };
 }
 
+/** Kennzahlen-Zeile einer Bilanz: Brutto, Netto, Luftraum, nicht zugeordnet. */
+function areaBalanceSummary(b: AnalysisFloorAreaBalance): string {
+  const parts = [b.hasHall ? `Brutto ${formatM2(b.bruttoM2)}` : 'Ohne Halle', `Netto ${formatM2(b.nettoM2)}`];
+  if (b.voidM2 > 0.005) parts.push(`Luftraum ${formatM2(b.voidM2)}`);
+  if (b.unassignedM2 > 0.005) parts.push(`nicht zugeordnet ${formatM2(b.unassignedM2)}`);
+  return parts.join(' · ');
+}
+
+/**
+ * Tabellenzeilen einer Bilanz: je Raumtyp (Anzahl, m², %), Summen je Flächenklasse, „Nicht zugeordnet“ und
+ * als Schlusszeile die Nettofläche (= 100 %). Prozentwerte beziehen sich wie in der Übersicht auf die Nettofläche.
+ */
+function areaBalanceRows(b: AnalysisFloorAreaBalance): string[][] {
+  const rows: string[][] = b.byType.map((t) => [t.type, areaClassOf(t), String(t.count), formatNumber(t.m2, 2), formatNumber(t.percent, 1)]);
+  for (const c of b.byClass) if (c.m2 > 0.005) rows.push([`Summe ${c.areaClass}`, '', '', formatNumber(c.m2, 2), formatNumber(c.percent, 1)]);
+  if (b.unassignedM2 > 0.005) rows.push(['Nicht zugeordnet', '', b.untypedRoomCount ? String(b.untypedRoomCount) : '', formatNumber(b.unassignedM2, 2), formatNumber(b.unassignedPercent, 1)]);
+  if (!rows.length) return [['Keine Räume/Zonen definiert', '', '0', formatNumber(0, 2), formatNumber(0, 1)]];
+  rows.push(['Netto gesamt', '', String(b.roomCount), formatNumber(b.nettoM2, 2), formatNumber(b.nettoM2 > 0 ? 100 : 0, 1)]);
+  return rows;
+}
+
 function drawAreaBalancePages(doc: JsPdf, project: Project, floors: Floor[]) {
   doc.addPage('a4', 'landscape');
   const pageW = 297;
   const pageH = 210;
   const footer = () => drawFooter(doc, pageW, pageH, `GymPlanner · ${project.name} · Flächenbilanz · ${dateDe()}`);
-  drawPageHeader(doc, pageW, `${project.name} – Flächenbilanz`, `${floors.length} Stockwerk(e) · Prozentwerte bezogen auf die Brutto-Hallenfläche · ${dateDe()}`, [dateDe()]);
+  drawPageHeader(doc, pageW, `${project.name} – Flächenbilanz`, `${floors.length} Stockwerk(e) · Prozentwerte bezogen auf die Nettofläche (Halle innen abzüglich Lufträume) · ${dateDe()}`, [dateDe()]);
   footer();
   const ctx: TableCtx = {
     doc, pageW, pageH, y: PAGE_MARGIN_MM + TITLE_BLOCK_MM,
@@ -386,41 +361,29 @@ function drawAreaBalancePages(doc: JsPdf, project: Project, floors: Floor[]) {
     { title: 'Fläche m²', width: 30, align: 'right' },
     { title: 'Anteil %', width: 24, align: 'right' },
   ];
-  const balances = floors.map(floorAreaBalance);
-  for (const b of balances) {
+  const section = (title: string, b: AnalysisFloorAreaBalance) => {
     if (ctx.y + 30 > pageH - PAGE_MARGIN_MM) ctx.newPage();
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(10);
-    doc.text(`Stockwerk „${b.floorName}“`, PAGE_MARGIN_MM, ctx.y + 4);
+    doc.text(title, PAGE_MARGIN_MM, ctx.y + 4);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
-    doc.text(`Brutto ${formatM2(b.grossM2)} · Netto ${formatM2(b.netM2)}${b.voidM2 ? ` · Luftraum ${formatM2(b.voidM2)}` : ''}${b.unassignedM2 > 0.005 ? ` · ohne Raumzuordnung ${formatM2(b.unassignedM2)}` : ''}`, PAGE_MARGIN_MM + 60, ctx.y + 4);
+    doc.text(areaBalanceSummary(b), PAGE_MARGIN_MM + 60, ctx.y + 4);
     ctx.y += 7;
-    const rows: string[][] = b.byType.map((t) => [t.type, t.areaClass, String(t.count), formatNumber(t.m2, 2), formatNumber(t.percent, 1)]);
-    for (const c of b.byClass) rows.push([`Summe ${c.areaClass}`, '', '', formatNumber(c.m2, 2), formatNumber(c.percent, 1)]);
-    const roomSum = b.byType.reduce((s, t) => s + t.m2, 0);
-    rows.push(['Räume gesamt', '', String(b.byType.reduce((s, t) => s + t.count, 0)), formatNumber(roomSum, 2), formatNumber(b.grossM2 > 0 ? (roomSum / b.grossM2) * 100 : 0, 1)]);
-    if (!b.byType.length) rows.splice(0, rows.length, ['Keine Räume/Zonen definiert', '', '', formatNumber(0, 2), formatNumber(0, 1)]);
-    drawTable(ctx, cols, rows, { boldLast: true, zebra: true });
+    drawTable(ctx, cols, areaBalanceRows(b), { boldLast: true, zebra: true });
     ctx.y += 6;
-  }
+  };
+  const all = areaBalance(project);
+  const selected = new Set(floors.map((f) => f.id));
+  const balances = all.floors.filter((b) => selected.has(b.floorId));
+  for (const b of balances) section(`Stockwerk „${b.floorName}“`, b);
   if (balances.length > 1) {
-    const total = projectAreaBalance(project);
-    if (ctx.y + 30 > pageH - PAGE_MARGIN_MM) ctx.newPage();
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(10);
-    doc.text('Gesamt (alle Stockwerke)', PAGE_MARGIN_MM, ctx.y + 4);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8);
-    doc.text(`Brutto ${formatM2(total.grossM2)} · Netto ${formatM2(total.netM2)}`, PAGE_MARGIN_MM + 60, ctx.y + 4);
-    ctx.y += 7;
-    const rows = total.byType.map((t) => [t.type, t.areaClass, String(t.count), formatNumber(t.m2, 2), formatNumber(t.percent, 1)]);
-    for (const c of total.byClass) rows.push([`Summe ${c.areaClass}`, '', '', formatNumber(c.m2, 2), formatNumber(c.percent, 1)]);
-    rows.push(['Räume gesamt', '', String(total.byType.reduce((s, t) => s + t.count, 0)), formatNumber(total.byType.reduce((s, t) => s + t.m2, 0), 2), formatNumber(total.byType.reduce((s, t) => s + t.percent, 0), 1)]);
-    drawTable(ctx, cols, rows, { boldLast: true, zebra: true });
+    const complete = balances.length === all.floors.length;
+    section(`Gesamt (${complete ? 'alle' : 'ausgewählte'} Stockwerke)`, complete ? all.total : sumAreaBalances(balances));
   }
 }
 
+/** Stücklisten-Seiten: dieselben Zeilen wie die CSV (`bomRows` = Adapter auf `bom(project)` aus src/analysis). */
 function drawBomPages(doc: JsPdf, project: Project) {
   const rows = bomRows(project);
   const totals = bomTotals(rows);

@@ -67,7 +67,7 @@ export function parseProjectDetailed(json: string): ParsedProject {
   try {
     raw = JSON.parse(json);
   } catch (e) {
-    throw new Error(`Die Datei enthält kein gültiges JSON (${e instanceof Error ? e.message : String(e)}).`);
+    throw new Error(`Die Datei enthält kein gültiges JSON (${e instanceof Error ? e.message : String(e)}).`, { cause: e });
   }
   const { project, exportedAt } = unwrap(raw);
   const r = validateProject(project);
