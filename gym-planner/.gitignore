@@ -4,3 +4,7 @@ dist-ssr
 *.local
 .DS_Store
 coverage
+
+# temporäre Prüf-Tests von Review-/Verifikationsläufen
+src/__review__/
+src/__verify__/
