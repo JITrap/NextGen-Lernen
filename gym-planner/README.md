@@ -21,6 +21,7 @@ npm run build      # Produktions-Build nach dist/
 npm run preview    # Produktions-Build lokal ansehen
 npm test           # Vitest (Flächen, Snapping, Kollision, Einheiten, Bibliothek, Analyse, Export …)
 npm run typecheck  # TypeScript-Prüfung
+npm run lint       # ESLint
 ```
 
 Voraussetzungen: Node.js 20 oder neuer.
@@ -102,6 +103,14 @@ Die Datendateien wurden aus den Tabellen der Spezifikation erzeugt (`scripts/bui
 ## Projektstruktur
 
 Siehe `ARCHITECTURE.md`.
+
+## Hinweise zu den Abnahmekriterien
+
+- Eine 25 × 20 m Halle zeigt „500,00 m²“ (Brutto, Außenmaß). Der automatisch erkannte Innenraum zeigt die
+  Nettofläche ohne Außenwand: bei 24 cm Wandstärke (2452 × 1952 cm²) = **478,63 m²**.
+- Alle 202 Hersteller-Einträge tragen `verifiziert: true`; generische Objekte sind als „ungeprüft“ markiert und
+  erscheinen in den Planungs-Warnungen als Hinweis.
+- Undo/Redo umfasst 200 Schritte; zusammengesetzte Aktionen (Ziehen, Wandkette) sind jeweils ein Schritt.
 
 ## Speicherung & Export
 
