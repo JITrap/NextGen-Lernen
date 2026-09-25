@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --gp-bg: #f8fafc;
+  --gp-panel: #ffffff;
+  --gp-border: #e2e8f0;
+  --gp-text: #0f172a;
+  --gp-muted: #64748b;
+  --gp-accent: #2563eb;
+  --gp-canvas: #f1f5f9;
+  --gp-grid: #e2e8f0;
+  --gp-grid-major: #cbd5e1;
+  --gp-hall: #ffffff;
+  --gp-wall: #334155;
+  --gp-danger: #dc2626;
+  --gp-warn: #d97706;
+  --gp-ok: #16a34a;
+}
+.dark {
+  --gp-bg: #0b1220;
+  --gp-panel: #111a2e;
+  --gp-border: #1f2a44;
+  --gp-text: #e2e8f0;
+  --gp-muted: #94a3b8;
+  --gp-accent: #3b82f6;
+  --gp-canvas: #0f172a;
+  --gp-grid: #1e293b;
+  --gp-grid-major: #334155;
+  --gp-hall: #162032;
+  --gp-wall: #cbd5e1;
+  --gp-danger: #f87171;
+  --gp-warn: #fbbf24;
+  --gp-ok: #4ade80;
+}
+
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--gp-bg);
+  color: var(--gp-text);
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--gp-muted) 40%, transparent); border-radius: 4px; }
+
+.gp-panel { background: var(--gp-panel); border-color: var(--gp-border); color: var(--gp-text); }
+.gp-muted { color: var(--gp-muted); }
+.gp-border { border-color: var(--gp-border); }
+.gp-input {
+  @apply w-full rounded-md border px-2 py-1 text-sm outline-none focus:ring-2 focus:ring-blue-500/40;
+  background: var(--gp-bg); border-color: var(--gp-border); color: var(--gp-text);
+}
+.gp-btn {
+  @apply inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-sm font-medium transition-colors select-none;
+  background: var(--gp-panel); border-color: var(--gp-border); color: var(--gp-text);
+}
+.gp-btn:hover { background: color-mix(in srgb, var(--gp-accent) 10%, var(--gp-panel)); }
+.gp-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.gp-btn-primary { background: var(--gp-accent); color: white; border-color: transparent; }
+.gp-btn-primary:hover { background: color-mix(in srgb, var(--gp-accent) 85%, black); }
+.gp-btn-active { background: var(--gp-accent); color: white; border-color: transparent; }
+.gp-tool { @apply flex h-10 w-10 items-center justify-center rounded-lg transition-colors; color: var(--gp-text); }
+.gp-tool:hover { background: color-mix(in srgb, var(--gp-accent) 12%, transparent); }
+.gp-tool.active { background: var(--gp-accent); color: white; }
+.gp-label { @apply text-[11px] font-semibold uppercase tracking-wide; color: var(--gp-muted); }
+.gp-row { @apply flex items-center justify-between gap-2 py-1; }
+.gp-kbd { @apply rounded border px-1.5 py-0.5 font-mono text-[11px]; border-color: var(--gp-border); background: var(--gp-bg); }
+.gp-tab { @apply rounded-md px-3 py-1 text-sm transition-colors; }
+.gp-tab.active { background: var(--gp-accent); color: white; }
+.gp-tab:not(.active):hover { background: color-mix(in srgb, var(--gp-accent) 12%, transparent); }
+.gp-card { @apply rounded-lg border p-3; background: var(--gp-panel); border-color: var(--gp-border); }
+.gp-badge { @apply rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase; }
+.gp-warn { color: var(--gp-warn); }
+.gp-danger { color: var(--gp-danger); }
+.gp-ok { color: var(--gp-ok); }
