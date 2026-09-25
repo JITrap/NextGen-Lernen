@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Dumbbell, Undo2, Redo2, Maximize2, Grid3x3, Magnet, Layers, Box, Presentation, Sun, Moon, Monitor, FolderOpen, CircleHelp,
-  GraduationCap, Settings, Ellipsis, Check, LoaderCircle, TriangleAlert, Pencil, Building2, Keyboard, PanelLeft, PanelRight,
+  GraduationCap, Settings, Ellipsis, Check, LoaderCircle, TriangleAlert, Pencil, Building2, Keyboard, PanelLeft, PanelRight, Clock,
 } from 'lucide-react';
 import * as persistence from '@/store/persistence';
 import { useProjectStore, undo, redo, useTemporalStore } from '@/store/projectStore';
@@ -19,12 +19,15 @@ import { useMediaQuery, formatDateTime } from './ui/hooks';
 /* Speicherstatus (defensiv: persistence.useSaveStatus ist optional)   */
 /* ------------------------------------------------------------------ */
 
-export type SaveStatus = 'saved' | 'saving' | 'error';
+/** 'dirty' = Änderungen vorhanden, Autosave (800 ms Debounce) steht noch aus. */
+export type SaveStatus = 'saved' | 'saving' | 'dirty' | 'error';
 
 function normalizeSaveStatus(v: unknown): SaveStatus {
-  const s = typeof v === 'string' ? v : v && typeof v === 'object' && 'status' in v ? String((v as { status: unknown }).status) : 'saved';
-  if (s === 'saving' || s === 'pending' || s === 'dirty' || s === 'unsaved') return 'saving';
+  const obj = v && typeof v === 'object' ? (v as { status?: unknown; dirty?: unknown }) : null;
+  const s = typeof v === 'string' ? v : obj && 'status' in obj ? String(obj.status) : 'saved';
+  if (s === 'saving' || s === 'pending') return 'saving';
   if (s === 'error' || s === 'failed') return 'error';
+  if (s === 'dirty' || s === 'unsaved' || obj?.dirty === true) return 'dirty';
   return 'saved';
 }
 // Einmal beim Modulladen entscheiden (Hooks-Regel): externer Hook oder konstanter Ersatz.
@@ -38,12 +41,13 @@ function SaveIndicator({ compact }: { compact: boolean }) {
   const cfg = {
     saved: { icon: <Check size={14} />, text: 'Gespeichert', cls: 'gp-ok' },
     saving: { icon: <LoaderCircle size={14} className="animate-spin" />, text: 'Speichert …', cls: 'gp-muted' },
+    dirty: { icon: <Clock size={14} />, text: 'Ungespeichert …', cls: 'gp-muted' },
     error: { icon: <TriangleAlert size={14} />, text: 'Nicht gespeichert', cls: 'gp-danger' },
   }[status];
   return (
     <span
       className={`inline-flex h-9 items-center gap-1 px-1.5 text-xs ${cfg.cls}`}
-      title={`${cfg.text} · zuletzt geändert ${formatDateTime(updatedAt)} (Autosave im Browser)`}
+      title={`${cfg.text}${status === 'dirty' ? ' – wird gleich automatisch gespeichert' : ''} · zuletzt geändert ${formatDateTime(updatedAt)} (Autosave im Browser)`}
       role="status"
       data-tutorial="topbar-save"
     >

@@ -6,6 +6,8 @@ import {
 import type { GridSize, LayerVisibility } from '@/types';
 import { useProjectStore } from '@/store/projectStore';
 import { useUiStore, type Theme } from '@/store/uiStore';
+import { useActiveFloor } from '@/store/selectors';
+import { hiddenCount, showAllHidden } from '@/editor/actions';
 import { Toggle } from './ui/Toggle';
 import { Select } from './ui/Select';
 import { Slider } from './ui/Slider';
@@ -40,8 +42,15 @@ export const THEME_OPTIONS: { value: Theme; label: string; icon: ReactNode }[] =
 export function LayerToggles() {
   const layers = useProjectStore((s) => s.project.layers);
   const updateLayers = useProjectStore((s) => s.updateLayers);
+  const floor = useActiveFloor();
+  const toast = useUiStore((s) => s.toast);
   const allOn = useMemo(() => LAYER_DEFS.every((d) => layers[d.key]), [layers]);
+  const hiddenN = useMemo(() => hiddenCount(floor), [floor]);
   const setAll = (v: boolean) => updateLayers(Object.fromEntries(LAYER_DEFS.map((d) => [d.key, v])) as Partial<LayerVisibility>);
+  const showHidden = () => {
+    const n = showAllHidden(floor.id);
+    if (n) toast(n === 1 ? '1 Element eingeblendet' : `${n} Elemente eingeblendet`, 'success');
+  };
   return (
     <div data-tutorial="layers-panel">
       <div className="mb-1 flex items-center justify-between">
@@ -60,6 +69,16 @@ export function LayerToggles() {
           <Toggle key={d.key} icon={d.icon} label={d.label} hint={d.hint} checked={layers[d.key]} onChange={(v) => updateLayers({ [d.key]: v })} />
         ))}
       </div>
+      {hiddenN > 0 && (
+        <div className="mt-2 flex items-center justify-between gap-2">
+          <span className="gp-muted text-xs">
+            {hiddenN === 1 ? '1 Element' : `${hiddenN} Elemente`} auf „{floor.name}“ ausgeblendet
+          </span>
+          <Button size="sm" variant="ghost" icon={<Eye size={14} />} onClick={showHidden} title={`Alle ausgeblendeten Elemente auf „${floor.name}“ wieder einblenden`}>
+            Ausgeblendete einblenden ({hiddenN})
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

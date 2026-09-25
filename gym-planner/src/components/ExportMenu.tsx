@@ -129,7 +129,7 @@ export function ExportMenu({ compact = false }: { compact?: boolean }) {
             <div className="px-4 pb-1 pt-2 gp-label">Daten</div>
             <Row icon={<Table size={16} />} label="Stückliste (CSV)" hint="für Excel / Kalkulation" busy={state('csv')} onClick={() => { close(); void run('csv'); }} />
             <Row icon={<FileJson size={16} />} label="Projekt als JSON" hint="vollständige Sicherung" busy={state('json')} onClick={() => { close(); void run('json'); }} />
-            <Row icon={<Upload size={16} />} label="JSON importieren" hint="ersetzt das aktuelle Projekt" busy={state('import')} onClick={() => { close(); setConfirmImport(true); }} />
+            <Row icon={<Upload size={16} />} label="JSON importieren" hint="wird als neues Projekt angelegt und geöffnet" busy={state('import')} onClick={() => { close(); setConfirmImport(true); }} />
           </div>
         )}
       </Dropdown>
@@ -138,8 +138,8 @@ export function ExportMenu({ compact = false }: { compact?: boolean }) {
         title="Projekt importieren"
         message={
           <>
-            Das aktuelle Projekt <strong>„{projectName}“</strong> wird durch das importierte Projekt ersetzt und der Verlauf (Rückgängig) geleert.
-            Exportiere es vorher als JSON, wenn du es behalten möchtest.
+            Das importierte Projekt wird als neues Projekt angelegt und geöffnet; der Verlauf (Rückgängig) beginnt dort neu.
+            Das aktuelle Projekt <strong>„{projectName}“</strong> bleibt gespeichert und ist weiterhin unter „Projekte“ erreichbar.
           </>
         }
         confirmLabel="Datei wählen …"

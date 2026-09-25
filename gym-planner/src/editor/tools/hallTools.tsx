@@ -9,7 +9,7 @@ import { Check, Undo2, X } from 'lucide-react';
 import type { Floor, Hall, Id, Opening, Vec2 } from '@/types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
-import { createClickTracker, type ToolContext, type ToolEvent } from './types';
+import { createClickTracker, roundPolygon, type ToolContext, type ToolEvent } from './types';
 import { MeasureLabel } from './wallTool';
 import { useSnapGuides } from '../overlays/SnapGuides';
 import { transaction } from '@/store/projectStore';
@@ -94,7 +94,7 @@ export function hallFromPolygon(polygon: Vec2[], opts: Record<string, string | n
   const t = Number(opts.wallThickness);
   const covering = typeof opts.floorCovering === 'string' && opts.floorCovering.trim() ? opts.floorCovering : 'Gummiboden';
   return {
-    polygon: ensureClockwise(simplifyPolygon(polygon)),
+    polygon: roundPolygon(ensureClockwise(simplifyPolygon(polygon))),
     wallThickness: Number.isFinite(t) && t > 0 ? t : DEFAULT_OUTER_WALL_THICKNESS,
     floorCovering: covering,
   };
@@ -309,12 +309,19 @@ function HallRectHtmlOverlay({ ctx }: { ctx: ToolContext }) {
     }
     commitHall(ctx, rectPolygon({ x: 0, y: 0 }, { x: Math.round(wm * 100), y: Math.round(dm * 100) }));
   };
+  // Beim Aufziehen zeigen Felder und Flächenvorschau die Zieh-Maße (nicht die zuletzt getippten Werte).
   let live: string | null = null;
+  let shownW = w;
+  let shownD = d;
+  let areaM2 = valid && wm != null && dm != null ? wm * dm : null;
   if (dragStart && dragCurrent) {
     const b = bbox(rectPolygon(dragStart, dragCurrent));
     const lw = b.maxX - b.minX;
     const ld = b.maxY - b.minY;
     live = `${formatM(lw)} × ${formatM(ld)} · ${formatM2((lw * ld) / 10000)}`;
+    shownW = formatNumber(lw / 100, 2);
+    shownD = formatNumber(ld / 100, 2);
+    areaM2 = (lw * ld) / 10000;
   }
   return (
     <form className="absolute left-8 top-8 z-10 flex w-[240px] flex-col gap-2 rounded-md border p-3 text-xs shadow-md gp-panel" onSubmit={submit} onPointerDown={(e) => e.stopPropagation()}>
@@ -325,14 +332,14 @@ function HallRectHtmlOverlay({ ctx }: { ctx: ToolContext }) {
       <div className="grid grid-cols-2 gap-2">
         <label className="flex flex-col gap-1">
           <span className="gp-label">Breite (m)</span>
-          <input className="gp-input" inputMode="decimal" value={w} onChange={(e) => setW(e.target.value)} aria-label="Breite in Metern" />
+          <input className="gp-input" inputMode="decimal" value={shownW} readOnly={!!live} onChange={(e) => setW(e.target.value)} aria-label="Breite in Metern" />
         </label>
         <label className="flex flex-col gap-1">
           <span className="gp-label">Tiefe (m)</span>
-          <input className="gp-input" inputMode="decimal" value={d} onChange={(e) => setD(e.target.value)} aria-label="Tiefe in Metern" />
+          <input className="gp-input" inputMode="decimal" value={shownD} readOnly={!!live} onChange={(e) => setD(e.target.value)} aria-label="Tiefe in Metern" />
         </label>
       </div>
-      {valid && wm != null && dm != null && <span className="gp-muted">Fläche: {formatM2(wm * dm)}</span>}
+      {areaM2 != null && <span className="gp-muted">Fläche: {formatM2(areaM2)}</span>}
       <button type="submit" className="gp-btn gp-btn-primary justify-center" disabled={!valid}>
         <Check size={14} /> Halle anlegen
       </button>

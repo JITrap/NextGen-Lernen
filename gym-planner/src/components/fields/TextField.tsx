@@ -39,6 +39,8 @@ export function TextField({
   const [draft, setDraft] = useState<string | null>(null);
   /** Esc gedrückt: das durch blur() synchron ausgelöste onBlur darf den Entwurf nicht übernehmen. */
   const cancelling = useRef(false);
+  /** Enter hat bereits übernommen: das durch blur() synchron ausgelöste onBlur (veraltete Closure) darf nicht erneut committen. */
+  const committedByEnter = useRef(false);
   const shown = live ? value : (draft ?? value);
 
   const commit = () => {
@@ -51,6 +53,13 @@ export function TextField({
     const v = trim ? draft.trim() : draft;
     setDraft(null);
     if (v !== value) onChange(v);
+  };
+  const onBlur = () => {
+    if (committedByEnter.current) {
+      committedByEnter.current = false;
+      return;
+    }
+    commit();
   };
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (e.key === 'Escape') {
@@ -65,7 +74,9 @@ export function TextField({
     if (e.key === 'Enter' && (!multiline || e.ctrlKey || e.metaKey)) {
       e.preventDefault();
       commit();
+      committedByEnter.current = true;
       e.currentTarget.blur();
+      committedByEnter.current = false;
     }
   };
   const common = {
@@ -83,8 +94,9 @@ export function TextField({
     onChange: (e: { target: { value: string } }) => (live ? onChange(e.target.value) : setDraft(e.target.value)),
     onFocus: () => {
       cancelling.current = false;
+      committedByEnter.current = false;
     },
-    onBlur: commit,
+    onBlur,
     onKeyDown,
   };
   const cls = `gp-input ${compact ? 'h-8 py-0.5 text-xs' : multiline ? 'py-1.5' : 'min-h-[36px]'} ${error ? 'ring-2 ring-red-500/50' : ''} ${inputClassName}`;

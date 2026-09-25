@@ -75,6 +75,37 @@ export function labelAnchor(polygon: Vec2[], centroid: Vec2, holes: Vec2[][] = [
   return best ?? centroid;
 }
 
+/** Ungefähre halbe Breite/Höhe eines Raumlabels (Welt) zur Überlappungsprüfung. */
+function labelHalfSize(name: string, s: number): { hw: number; hh: number } {
+  return { hw: Math.max(30, Math.min(name.length, 24) * 12 * 0.6 * 0.5 + 6) * s, hh: 15 * s };
+}
+
+export interface LabelObstacle {
+  x: number;
+  y: number;
+  hw: number;
+  hh: number;
+}
+
+/**
+ * Verschiebt die Beschriftung eines Auto-Raums nach oben (ersatzweise nach unten), wenn sie mit einem Zonenlabel
+ * (Zone im Raum am selben Schwerpunkt) überlappt – rein, testbar. `s` = 1 / scale (Welt-cm je px).
+ */
+export function resolveLabelAnchor(anchor: Vec2, name: string, polygon: Vec2[], obstacles: LabelObstacle[], s: number): Vec2 {
+  if (!obstacles.length) return anchor;
+  const own = labelHalfSize(name, s);
+  const overlaps = (p: Vec2) => obstacles.some((o) => Math.abs(p.x - o.x) < own.hw + o.hw && Math.abs(p.y - o.y) < own.hh + o.hh);
+  if (!overlaps(anchor)) return anchor;
+  const step = 34 * s;
+  for (const dir of [-1, 1]) {
+    for (let k = 1; k <= 8; k++) {
+      const p = { x: anchor.x, y: anchor.y + dir * k * step };
+      if (!overlaps(p) && pointInPolygon(p, polygon) && minEdgeDistance(p, polygon) > 16 * s) return p;
+    }
+  }
+  return anchor;
+}
+
 /* ------------------------------------------------------------------ */
 /* Raum                                                                */
 /* ------------------------------------------------------------------ */
@@ -86,6 +117,8 @@ interface RoomNodeProps {
   selected: boolean;
   hovered: boolean;
   showLabels: boolean;
+  /** Beschriftungsposition (vom Layer berechnet, ggf. gegen Zonenlabels versetzt). */
+  anchor: Vec2;
 }
 
 function drawPolygonPath(c: Konva.Context, poly: Vec2[]) {
@@ -94,15 +127,12 @@ function drawPolygonPath(c: Konva.Context, poly: Vec2[]) {
   c.closePath();
 }
 
-const RoomNode = memo(function RoomNode({ room, scale, dark, selected, hovered, showLabels }: RoomNodeProps) {
+const RoomNode = memo(function RoomNode({ room, scale, dark, selected, hovered, showLabels, anchor }: RoomNodeProps) {
   const s = 1 / scale;
   const color = roomColor(room.type, room.color);
   const isZone = room.source === 'zone';
   const holes = room.holes;
-  const geo = useMemo(
-    () => ({ box: bbox(room.polygon), flat: flatten(room.polygon), anchor: labelAnchor(room.polygon, room.centroid, holes) }),
-    [room.polygon, room.centroid, holes],
-  );
+  const geo = useMemo(() => ({ box: bbox(room.polygon), flat: flatten(room.polygon), anchor }), [room.polygon, anchor]);
   const { box } = geo;
   const emphasis = selected || hovered;
   const wPx = (box.maxX - box.minX) * scale;
@@ -288,10 +318,28 @@ export const RoomsLayer = memo(function RoomsLayer(props: LayerProps) {
     return set;
   }, [selection]);
   const showLabels = project.layers.labels;
+  // Beschriftungsanker: Zonen zuerst (sie bilden die Hindernisse), Auto-Räume weichen überlappenden Zonenlabels nach oben aus.
+  const anchors = useMemo(() => {
+    const s = 1 / scale;
+    const out = new Map<string, Vec2>();
+    const obstacles: LabelObstacle[] = [];
+    for (const r of rooms) {
+      if (r.source !== 'zone' || r.polygon.length < 3) continue;
+      const a = labelAnchor(r.polygon, r.centroid, r.holes);
+      out.set(r.id, a);
+      const { hw, hh } = labelHalfSize(r.name, s);
+      obstacles.push({ x: a.x, y: a.y, hw, hh });
+    }
+    for (const r of rooms) {
+      if (r.source === 'zone' || r.polygon.length < 3) continue;
+      out.set(r.id, resolveLabelAnchor(labelAnchor(r.polygon, r.centroid, r.holes), r.name, r.polygon, obstacles, s));
+    }
+    return out;
+  }, [rooms, scale]);
   const nodes: ReactNode[] = [];
   for (const r of project.layers.rooms ? rooms : []) {
     if (r.polygon.length < 3) continue;
-    nodes.push(<RoomNode key={r.id} room={r} scale={scale} dark={dark} selected={selectedIds.has(r.id)} hovered={hoverId === r.id} showLabels={showLabels} />);
+    nodes.push(<RoomNode key={r.id} room={r} scale={scale} dark={dark} selected={selectedIds.has(r.id)} hovered={hoverId === r.id} showLabels={showLabels} anchor={anchors.get(r.id) ?? r.centroid} />);
   }
   if (project.layers.voids) {
     for (const v of floor.voids) {

@@ -112,6 +112,9 @@ describe('Stückliste', () => {
     expect(b.lines).toHaveLength(2);
     expect(b.lines.map((l) => [l.count, l.widthCm, l.depthCm, l.dims])).toEqual([[1, 200, 100, '200 × 100 × 2 cm'], [2, 300, 150, '300 × 150 × 2 cm']]);
     expect(b.lines.every((l) => l.defId === 't-mat')).toBe(true);
+    // Eindeutiger Zeilenschlüssel je Größe (React-Key/CSV), nicht skalierbar: Schlüssel = defId
+    expect(b.lines.map((l) => l.key)).toEqual(['t-mat|200|100|2', 't-mat|300|150|2']);
+    expect(new Set(b.lines.map((l) => l.key)).size).toBe(b.lines.length);
     expect(b.totalCount).toBe(3);
     // nicht skalierbar: Bibliotheksmaße, eine Position
     const fixed = addCustomDef(p, makeDef({ id: 't-fixed', breite_cm: 100, tiefe_cm: 100 }));
@@ -119,6 +122,7 @@ describe('Stückliste', () => {
     place(firstFloor(p), fixed, 600, 600);
     const lines = bom(fresh(p)).lines.filter((l) => l.defId === 't-fixed');
     expect(lines).toHaveLength(1);
+    expect(lines[0].key).toBe('t-fixed');
     expect(lines[0].dims).toBe('100 × 100 × 100 cm');
   });
 

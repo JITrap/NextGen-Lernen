@@ -15,7 +15,7 @@ import { Group, Line, Rect } from 'react-konva';
 import type { Vec2, PlacedItem, Wall, Selection, Floor, Annotation, Opening, Project, MeasureLine } from '@/types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
-import type { ToolContext, ToolEvent } from './types';
+import { createClickTracker, roundCoord, roundVec, roundPolygon, type ToolContext, type ToolEvent } from './types';
 import { hitTest } from '../hitTest';
 import { selectionHandles, selectedItemsOf, itemsBounds, isItemScalable, type Handle } from '../layers/SelectionLayer';
 import { DimensionLine, DimText, dimPalette } from '../layers/DimensionsLayer';
@@ -297,6 +297,8 @@ interface DragState {
   snapshot: Project | null;
   /** Shift-Klick auf bereits gewähltes Element: beim Loslassen ohne Bewegung abwählen. */
   toggleOff?: Selection;
+  /** Treffer, der erst beim Loslassen ohne Bewegung ausgewählt wird (Auto-Raum/gesperrte Zone: Ziehen = Rahmen). */
+  click?: { hit: Selection; target: Selection[] };
   /* move */
   primary?: PlacedItem;
   itemOrig?: Map<string, PlacedItem>;
@@ -326,6 +328,11 @@ interface DragState {
 }
 
 let drag: DragState | null = null;
+
+/** Bis zu diesem Bildschirmabstand (px) zählen zwei schnelle Klicks als Doppelklick. */
+export const SELECT_DBLCLICK_MAX_PX = 5;
+/** Letzte Klickpositionen: Konva meldet dblclick rein zeitbasiert, auch für schnelle Klicks an verschiedenen Stellen. */
+const clicks = createClickTracker(SELECT_DBLCLICK_MAX_PX);
 
 /** Nur für Tests: aktueller Zieh-Zustand (Modus/aktiv). */
 export function debugDragState(): { mode: DragMode; active: boolean } | null {
@@ -386,12 +393,107 @@ function finishDrag(commit: boolean) {
   if (!drag) return;
   if (drag.tx) {
     if (!commit && drag.snapshot) useProjectStore.setState({ project: drag.snapshot });
+    else roundDragResult(drag);
     endTransaction();
   }
   drag = null;
   useSnapGuides.getState().set(null);
   useSelectTool.getState().patch({ marquee: null, distances: [], rotate: null, dragging: false, cursor: 'default' });
   useUiStore.getState().setDragging(false);
+}
+
+/**
+ * Rundet die beim Ziehen geänderten Koordinaten auf 4 Nachkommastellen (innerhalb der laufenden Transaktion,
+ * also Teil desselben Undo-Schritts). Unveränderte Werte lösen keine Store-Änderung aus.
+ */
+function roundDragResult(d: DragState) {
+  const s = useProjectStore.getState();
+  const fid = d.floorId;
+  const floor = s.project.floors.find((f) => f.id === fid);
+  if (!floor) return;
+  const roundItems = (ids: string[]) => {
+    if (!ids.length) return;
+    s.updateItems(fid, ids, (it) => {
+      it.x = roundCoord(it.x);
+      it.y = roundCoord(it.y);
+      it.rotation = roundCoord(it.rotation);
+      it.width = roundCoord(it.width);
+      it.depth = roundCoord(it.depth);
+    });
+  };
+  const roundAnnotation = (id: string) => {
+    const a = floor.annotations.find((x) => x.id === id);
+    if (!a) return;
+    if (a.kind === 'text') {
+      const x = roundCoord(a.x);
+      const y = roundCoord(a.y);
+      if (x !== a.x || y !== a.y) s.updateAnnotation(fid, id, { x, y });
+    } else {
+      const start = roundVec(a.start);
+      const end = roundVec(a.end);
+      if (start !== a.start || end !== a.end) s.updateAnnotation(fid, id, { start, end });
+    }
+  };
+  const roundZone = (id: string) => {
+    const z = floor.zones.find((x) => x.id === id);
+    if (!z) return;
+    const polygon = roundPolygon(z.polygon);
+    if (polygon !== z.polygon) s.updateZone(fid, id, { polygon });
+  };
+  const roundVoid = (id: string) => {
+    const v = floor.voids.find((x) => x.id === id);
+    if (!v) return;
+    const polygon = roundPolygon(v.polygon);
+    if (polygon !== v.polygon) s.updateVoid(fid, id, { polygon });
+  };
+  switch (d.mode) {
+    case 'move':
+      roundItems([...(d.itemOrig?.keys() ?? [])]);
+      for (const id of d.polyOrig?.keys() ?? []) roundZone(id);
+      for (const id of d.voidOrigs?.keys() ?? []) roundVoid(id);
+      for (const id of d.annOrig?.keys() ?? []) roundAnnotation(id);
+      break;
+    case 'rotate':
+      roundItems([...(d.rotOrig?.keys() ?? [])]);
+      break;
+    case 'scale':
+      if (d.scaleOrig) roundItems([d.scaleOrig.id]);
+      break;
+    case 'hallVertex':
+    case 'hallEdge':
+      if (floor.hall && roundPolygon(floor.hall.polygon) !== floor.hall.polygon) s.updateHall(fid, (h) => { h.polygon = roundPolygon(h.polygon); });
+      break;
+    case 'wallMove':
+    case 'wallNode':
+      if (floor.walls.some((w) => roundVec(w.start) !== w.start || roundVec(w.end) !== w.end)) {
+        s.updateFloor(fid, (f) => {
+          for (const w of f.walls) {
+            w.start.x = roundCoord(w.start.x);
+            w.start.y = roundCoord(w.start.y);
+            w.end.x = roundCoord(w.end.x);
+            w.end.y = roundCoord(w.end.y);
+          }
+        });
+      }
+      break;
+    case 'opening': {
+      const oid = d.openingOrig?.id;
+      const o = oid ? floor.openings.find((x) => x.id === oid) : undefined;
+      if (o && roundCoord(o.offset) !== o.offset) s.updateOpening(fid, o.id, { offset: roundCoord(o.offset) });
+      break;
+    }
+    case 'zoneVertex':
+      if (d.polyId) roundZone(d.polyId);
+      break;
+    case 'voidVertex':
+      if (d.polyId) roundVoid(d.polyId);
+      break;
+    case 'measureEnd':
+      if (d.measureOrig) roundAnnotation(d.measureOrig.id);
+      break;
+    default:
+      break;
+  }
 }
 
 function racksOf(ctx: ToolContext, exclude: Set<string>): PlacedItem[] {
@@ -541,6 +643,7 @@ function prepareMoveDrag(e: ToolEvent, ctx: ToolContext, hit: Selection) {
 
 function onPointerDown(e: ToolEvent, ctx: ToolContext) {
   if (e.pointerType === 'mouse' && e.button !== 0) return;
+  clicks.down(e.screen);
   const st = useSelectTool.getState();
   if (st.lengthInput || st.textEdit) st.patch({ lengthInput: null, textEdit: null });
   if (drag) finishDrag(true);
@@ -563,6 +666,14 @@ function onPointerDown(e: ToolEvent, ctx: ToolContext) {
     return;
   }
   const target: Selection[] = hit.kind === 'item' ? groupMembers(hit.id, floor, ctx.items) : [hit];
+  // Auto-Raum oder gesperrte Zone (nicht verschiebbar): Ziehen zieht einen Rahmen auf, die Raum-/Zonenauswahl
+  // erfolgt erst beim Loslassen ohne Bewegung – sonst wäre in der Halle keine Rahmenauswahl möglich.
+  if (hit.kind === 'room' || (hit.kind === 'zone' && !isMovableHit(hit, floor, ctx.items))) {
+    const d = baseDrag(e, ctx, 'marquee');
+    d.click = { hit, target };
+    drag = d;
+    return;
+  }
   const already = isSelected(ui.selection, hit);
   let toggleOff: Selection | undefined;
   if (e.shift) {
@@ -899,6 +1010,11 @@ function onPointerUp(e: ToolEvent, ctx: ToolContext) {
     const ids = marqueeSelect(rect, ctx.items, marqueeMode(d.startWorld, e.world));
     const add: Selection[] = ids.map((id) => ({ kind: 'item', id }) as Selection);
     ctx.ui.setSelection(e.shift ? mergeSelection(freshSelection(), add) : add);
+  } else if (!d.active && d.click) {
+    const cur = freshSelection();
+    const { hit, target } = d.click;
+    if (e.shift) ctx.ui.setSelection(isSelected(cur, hit) ? removeFromSelection(cur, hit) : mergeSelection(cur, target));
+    else if (!isSelected(cur, hit) || cur.length !== target.length) ctx.ui.setSelection(target);
   } else if (!d.active && d.toggleOff) {
     ctx.ui.setSelection(removeFromSelection(freshSelection(), d.toggleOff));
   }
@@ -907,6 +1023,9 @@ function onPointerUp(e: ToolEvent, ctx: ToolContext) {
 }
 
 function onDoubleClick(e: ToolEvent, ctx: ToolContext) {
+  // Shift/Strg+Klick kurz nach einem anderen Klick ist Mehrfachauswahl, kein Doppelklick; ebenso zwei schnelle
+  // Klicks an verschiedenen Stellen (Konva prüft nur die Zeit, nicht den Abstand).
+  if (e.shift || e.ctrl || e.meta || !clicks.isDoubleClick()) return;
   if (drag) finishDrag(true);
   const ui = ctx.ui;
   const floor = ctx.floor;
@@ -976,6 +1095,7 @@ function onKeyDown(e: KeyboardEvent): boolean {
 
 function onCancel(ctx: ToolContext) {
   if (drag) finishDrag(false);
+  clicks.reset();
   useSelectTool.getState().reset();
   useSnapGuides.getState().set(null);
   if (ctx.ui.hoverId) ctx.ui.setHover(null);

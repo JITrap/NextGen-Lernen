@@ -61,6 +61,17 @@ describe('LibraryPanel – Suche & Filter (reine Funktionen)', () => {
     const fav = filterLibrary(BUILTIN_LIBRARY, { query: '', area: 'Kraftgeräte', manufacturer: '', series: '', muscle: 'Beine', favoritesOnly: true, verifiedOnly: true }, new Set(['atlantis-c403']), index).filtered;
     expect(fav.map((d) => d.id)).toEqual(['atlantis-c403']);
   });
+
+  it('Suche „C513“: exakter Modelltreffer (Power rack) steht vor Einträgen, die das Modell nur erwähnen', () => {
+    const index = new Map(BUILTIN_LIBRARY.map((d) => [d.id, [d.name, d.modell, d.serie, d.hersteller, d.unterkategorie, d.kategorie, ...(d.tags ?? [])].join(' ').toLowerCase()]));
+    const { filtered } = filterLibrary(BUILTIN_LIBRARY, { query: 'c513', area: '', manufacturer: '', series: '', muscle: '', favoritesOnly: false, verifiedOnly: false }, new Set(), index);
+    expect(filtered.some((d) => d.id === 'atlantis-c513')).toBe(true);
+    const groups = groupLibrary(filtered, 'c513');
+    expect(groups[0].defs[0].id).toBe('atlantis-c513');
+    // ohne Suchanfrage bleibt die Standardreihenfolge (Bereich, Hersteller, Serie)
+    const plain = groupLibrary(filtered);
+    expect(plain.map((g) => g.key).sort()).toEqual(groups.map((g) => g.key).sort());
+  });
 });
 
 describe('LibraryPanel – Komponente', () => {

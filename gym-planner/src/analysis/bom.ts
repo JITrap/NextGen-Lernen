@@ -15,6 +15,11 @@ export interface BomFloorCount {
   count: number;
 }
 export interface BomLine {
+  /**
+   * Eindeutiger Zeilenschlüssel (React-Key, CSV/PDF): Bibliotheks-ID, bei skalierbaren Objekten
+   * `defId|Breite|Tiefe|Höhe` – dieselbe defId kann dort mehrere Positionen (Größen) haben.
+   */
+  key: string;
   defId: string;
   name: string;
   hersteller: string;
@@ -82,6 +87,8 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
     dims: { width: number; depth: number; height: number | null };
   }
   const groups = new Map<string, Acc>();
+  const keyFor = (defId: string, scalable: boolean, dims: Acc['dims']) =>
+    scalable ? `${defId}|${r1(dims.width)}|${r1(dims.depth)}|${dims.height == null ? '' : r1(dims.height)}` : defId;
   for (const fc of ctx.floors) {
     for (const it of fc.items) {
       const def = ctx.def(it.defId);
@@ -89,7 +96,7 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
       const dims = scalable || !def
         ? { width: it.width, depth: it.depth, height: it.height ?? def?.hoehe_cm ?? null }
         : { width: def.breite_cm, depth: def.tiefe_cm, height: def.hoehe_cm };
-      const key = scalable ? `${it.defId}|${r1(dims.width)}|${r1(dims.depth)}|${dims.height == null ? '' : r1(dims.height)}` : it.defId;
+      const key = keyFor(it.defId, scalable, dims);
       let g = groups.get(key);
       if (!g) {
         g = { defId: it.defId, def, prices: [], count: 0, floorCounts: new Map(), itemIds: [], dims };
@@ -114,7 +121,7 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
   let itemsWithoutWeight = 0;
   let itemsWithoutPrice = 0;
 
-  for (const g of groups.values()) {
+  for (const [key, g] of groups) {
     const { defId, def } = g;
     let unit: number | null = null;
     let total: number | null = null;
@@ -127,6 +134,7 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
     const weight = itemWeightKg(def);
     const { width, depth, height } = g.dims;
     const line: BomLine = {
+      key,
       defId,
       name: def?.name ?? `Unbekanntes Objekt (${defId})`,
       hersteller: def?.hersteller ?? '–',

@@ -120,7 +120,9 @@ function NumberField({ value, onCommit, min = 0, suffix, ariaLabel, allowEmpty =
   return (
     <div className={`relative ${className}`}>
       <input
-        className="gp-input py-0.5! pr-7 text-right tabular-nums"
+        className="gp-input py-0.5! text-right tabular-nums"
+        // Platz für das Suffix rechts (≈ 7 px je Zeichen + Rand): „€“ 17 px, „m²“ 24 px, „kg/m²“ 45 px
+        style={suffix ? { paddingRight: suffix.length * 7 + 10 } : undefined}
         inputMode="decimal"
         aria-label={ariaLabel}
         placeholder={placeholder}
@@ -138,10 +140,19 @@ function NumberField({ value, onCommit, min = 0, suffix, ariaLabel, allowEmpty =
   );
 }
 
+/** Kachelraster: so viele Spalten, wie 7-rem-Kacheln passen (320-px-Panel → 2, breiter → 3); Werte werden nie abgeschnitten. */
+const TILES = 'grid grid-cols-[repeat(auto-fit,minmax(7rem,1fr))] gap-2';
 const TABLE = 'w-full border-collapse text-[11px] tabular-nums';
 const TH = 'py-1 pr-2 text-left font-semibold gp-muted whitespace-nowrap';
 const TD = 'py-1 pr-2 align-top';
 const TD_R = `${TD} text-right whitespace-nowrap`;
+/** Namensspalte: nimmt die Restbreite, bricht an Leerzeichen und notfalls im Wort (280-px-Panel), Zahlenspalten bleiben einzeilig. */
+const TD_NAME = `${TD} w-full [overflow-wrap:anywhere]`;
+
+/** Eindeutiger Schlüssel je Stücklistenzeile: skalierbare Objekte liefern je Größe eine Zeile mit derselben defId. */
+function bomLineKey(l: BomLine): string {
+  return `${l.defId}|${l.widthCm}|${l.depthCm}|${l.heightCm ?? ''}`;
+}
 
 function Swatch({ color }: { color: string }) {
   return <span className="mr-1.5 inline-block h-2.5 w-2.5 shrink-0 rounded-sm align-middle" style={{ background: color }} aria-hidden />;
@@ -277,7 +288,7 @@ export function OverviewPanel() {
       {/* Flächenbilanz */}
       <Section id="area" title="Flächenbilanz" icon={<LayoutGrid size={16} />} badge={<span className="text-xs gp-muted">{formatM2(ab.nettoM2)}</span>}>
         {noHall && <Hint tone="warn">Keine Halle gezeichnet – Nettofläche = Summe der Räume/Zonen. Halle mit dem Werkzeug „Halle“ anlegen.</Hint>}
-        <div className="grid grid-cols-3 gap-2">
+        <div className={TILES}>
           <StatTile label="Brutto" value={formatM2(ab.bruttoM2)} sub="Außenmaß" title="Fläche des Hallen-Außenpolygons" />
           <StatTile label="Netto" value={formatM2(ab.nettoM2)} sub={ab.voidM2 > 0 ? `abzgl. Luftraum ${formatM2(ab.voidM2)}` : 'ohne Außenwände'} tone="accent" title="Halle innen (Wandstärke abgezogen) minus Lufträume" />
           <StatTile label="Training" value={formatM2(ab.trainingM2)} sub={formatPercent(ab.nettoM2 > 0 ? (ab.trainingM2 / ab.nettoM2) * 100 : 0)} tone="ok" title="Flächenklasse Trainingsfläche" />
@@ -293,7 +304,7 @@ export function OverviewPanel() {
           emptyLabel="Keine Fläche"
         />
         {ab.untypedRoomCount > 0 && (
-          <Hint>{ab.untypedRoomCount === 1 ? 'Ein erkannter Raum hat noch keinen Typ' : `${ab.untypedRoomCount} erkannte Räume haben noch keinen Typ`} und zählen als „nicht zugeordnet“ – Typ im Eigenschaften-Panel wählen.</Hint>
+          <Hint>{ab.untypedRoomCount === 1 ? 'Ein erkannter Raum hat noch keinen Typ und zählt' : `${ab.untypedRoomCount} erkannte Räume haben noch keinen Typ und zählen`} als „nicht zugeordnet“ – Typ im Eigenschaften-Panel wählen.</Hint>
         )}
         {ab.byType.length > 0 && (
           <>
@@ -315,7 +326,7 @@ export function OverviewPanel() {
               <tbody>
                 {balance.floors.map((f) => (
                   <tr key={f.floorId} className={f.floorId === activeId ? 'font-semibold' : ''}>
-                    <td className={TD}>{f.floorName}</td>
+                    <td className={TD_NAME}>{f.floorName}</td>
                     <td className={TD_R}>{formatM2(f.bruttoM2)}</td>
                     <td className={TD_R}>{formatM2(f.nettoM2)}</td>
                     <td className={TD_R}>{formatM2(f.trainingM2)}</td>
@@ -339,7 +350,7 @@ export function OverviewPanel() {
           <Hint>Noch keine Objekte platziert – Geräte aus der Bibliothek auf den Plan ziehen.</Hint>
         ) : (
           <>
-            <div className="grid grid-cols-3 gap-2">
+            <div className={TILES}>
               <StatTile label="Objekte" value={String(es.itemCount)} sub={es.noFootprintCount ? `${es.noFootprintCount} ohne Stellfläche` : scopeLabel} />
               <StatTile label="Grundfläche" value={formatM2(es.footprintM2)} sub="Breite × Tiefe" />
               <StatTile label="inkl. Zonen" value={formatM2(es.withZonesM2)} sub="Sicherheitszonen" title="Grundfläche inkl. aktiver Sicherheitszonen (Überlappungen nicht abgezogen)" />
@@ -387,7 +398,7 @@ export function OverviewPanel() {
                 <tbody>
                   {es.freeByRoom.map((r) => (
                     <tr key={`${r.floorId}:${r.roomId}`}>
-                      <td className={TD} title={r.roomType}>{r.roomName}</td>
+                      <td className={TD_NAME} title={r.roomType}>{r.roomName}</td>
                       {scope === 'all' && <td className={TD}>{r.floorName}</td>}
                       <td className={TD_R}>{formatM2(r.roomM2)}</td>
                       <td className={TD_R}>{r.itemCount} · {formatM2(r.itemsM2)}</td>
@@ -448,7 +459,7 @@ export function OverviewPanel() {
             <tbody>
               {fl.rooms.map((r) => (
                 <tr key={`${r.floorId}:${r.roomId}`}>
-                  <td className={TD}>{r.roomName}</td>
+                  <td className={TD_NAME}>{r.roomName}</td>
                   {scope === 'all' && <td className={TD}>{r.floorName}</td>}
                   <td className={TD_R}>{formatKg(r.weightKg)}</td>
                   <td className={TD_R} style={{ color: r.exceeded ? 'var(--gp-danger)' : undefined, fontWeight: r.exceeded ? 600 : undefined }}>{r.kgM2 != null ? formatKgM2(r.kgM2) : '–'}</td>
@@ -516,24 +527,26 @@ export function OverviewPanel() {
         ) : (
           <>
             <div className="-mx-1 overflow-x-auto">
-              <table className={`${TABLE} min-w-[290px]`}>
+              <table className={`${TABLE} table-auto`}>
                 <thead>
                   <tr>
                     <th className={TH}>Gerät</th>
                     <th className={`${TH} text-right`}>Anz.</th>
                     <th className={`${TH} text-right`}>Stückpreis</th>
-                    <th className={`${TH} text-right`}>Summe</th>
+                    <th className={`${TH} pr-0 text-right`}>Summe</th>
                   </tr>
                 </thead>
                 <tbody>
                   {bomLines.map((l) => (
-                    <tr key={l.defId} className="border-t gp-border">
-                      <td className={`${TD} min-w-0`}>
-                        <div className="max-w-[150px] truncate font-medium" title={l.name}>{l.name}</div>
-                        <div className="max-w-[150px] truncate gp-muted" title={`${l.hersteller}${l.serie ? ` · ${l.serie}` : ''}${l.modell ? ` · ${l.modell}` : ''}`}>
+                    // Skalierbare Objekte ergeben je Größe eine Position → Schlüssel aus Bibliotheks-ID und Maßen
+                    <tr key={bomLineKey(l)} className="border-t gp-border">
+                      {/* w-full + max-w-0: Namensspalte nimmt den Rest der Tabellenbreite und kürzt per Ellipse (Tooltip zeigt den vollen Text) */}
+                      <td className={`${TD} w-full max-w-0`}>
+                        <div className="truncate font-medium" title={l.name}>{l.name}</div>
+                        <div className="truncate gp-muted" title={`${l.hersteller}${l.serie ? ` · ${l.serie}` : ''}${l.modell ? ` · ${l.modell}` : ''}`}>
                           {l.hersteller}{l.serie ? ` · ${l.serie}` : ''}{l.modell ? ` · ${l.modell}` : ''}
                         </div>
-                        <div className="max-w-[150px] truncate gp-muted">
+                        <div className="truncate gp-muted" title={`${l.ohneStellflaeche ? 'ohne Stellfläche' : l.dims}${l.weightKg != null ? ` · ${formatKg(l.weightKg)}` : ''}`}>
                           {l.ohneStellflaeche ? 'ohne Stellfläche' : l.dims}{l.weightKg != null ? ` · ${formatKg(l.weightKg)}` : ''}
                           {!l.verifiziert && !l.unknownDef && <span title="Maße ungeprüft" style={{ color: 'var(--gp-warn)' }}> · ungeprüft</span>}
                           {l.unknownDef && <span style={{ color: 'var(--gp-danger)' }}> · unbekannt</span>}
@@ -542,7 +555,7 @@ export function OverviewPanel() {
                       <td className={TD_R}>{l.count}</td>
                       <td className={`${TD} text-right`}>
                         <NumberField
-                          className="w-[84px]"
+                          className="w-[76px]"
                           value={l.unitPriceEur}
                           min={0}
                           suffix="€"
@@ -553,16 +566,19 @@ export function OverviewPanel() {
                         />
                         {l.priceMixed && <div className="text-[10px]" style={{ color: 'var(--gp-warn)' }} title="Objekte dieser Position haben unterschiedliche Preise; angezeigt wird der Mittelwert">Ø gemischt</div>}
                       </td>
-                      <td className={TD_R}>{l.totalEur != null ? formatEur(l.totalEur) : <span className="gp-muted">–</span>}</td>
+                      <td className={`${TD_R} pr-0`}>{l.totalEur != null ? formatEur(l.totalEur) : <span className="gp-muted">–</span>}</td>
                     </tr>
                   ))}
                 </tbody>
                 <tfoot>
                   <tr className="border-t-2 gp-border font-semibold">
-                    <td className={TD}>Gesamt · {bomLines.length} Pos.</td>
+                    <td className={TD}>
+                      Gesamt
+                      <div className="font-normal gp-muted">{bomLines.length} Pos.</div>
+                    </td>
                     <td className={TD_R}>{bomTotals.count}</td>
                     <td className={TD_R}>{formatKg(bomTotals.weight)}</td>
-                    <td className={TD_R}>{formatEur(bomTotals.eur)}</td>
+                    <td className={`${TD_R} pr-0`}>{formatEur(bomTotals.eur)}</td>
                   </tr>
                 </tfoot>
               </table>

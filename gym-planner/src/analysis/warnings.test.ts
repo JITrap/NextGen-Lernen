@@ -98,17 +98,38 @@ describe('Planungs-Warnungen', () => {
     expect(warnings(fresh(p)).some((x) => x.kind === 'wellness')).toBe(false);
   });
 
-  it('Maße ungeprüft → info mit Anzahl je Definition', () => {
+  it('Maße ungeprüft → eine Info-Warnung je Stockwerk mit Gesamtzahl und Objektnamen', () => {
     const p = projectWithHall(2500, 2000);
+    const f = firstFloor(p);
     const gen = addCustomDef(p, makeDef({ id: 't-unverified', name: 'Ergometer', verifiziert: false, breite_cm: 60, tiefe_cm: 120 }));
-    place(firstFloor(p), gen, 300, 300);
-    place(firstFloor(p), gen, 600, 300);
-    place(firstFloor(p), gen, 900, 300);
-    const w = warnings(p).filter((x) => x.kind === 'unverified');
+    const first = place(f, gen, 300, 300);
+    place(f, gen, 600, 300);
+    place(f, gen, 900, 300);
+    const other = addCustomDef(p, makeDef({ id: 't-unverified-2', name: 'Bank', verifiziert: false }));
+    place(f, other, 1500, 300);
+    // Bauelemente und geprüfte Definitionen zählen nicht
+    place(f, addCustomDef(p, makeDef({ id: 't-bau', name: 'Säule', verifiziert: false, bereich: 'Bauelemente' })), 1800, 300);
+    place(f, addCustomDef(p, makeDef({ id: 't-ok', name: 'Geprüft', verifiziert: true })), 2100, 300);
+    let w = warnings(p).filter((x) => x.kind === 'unverified');
     expect(w.length).toBe(1);
     expect(w[0].severity).toBe('info');
-    expect(w[0].message).toContain('(3×)');
-    expect(w[0].id).toBe('unverified:t-unverified');
+    expect(w[0].id).toBe(`unverified:${f.id}`);
+    expect(w[0].message).toBe('4 Objekte mit ungeprüften Maßen (generische Bibliothek): Ergometer (3×), Bank – vor dem Kauf beim Hersteller bestätigen.');
+    expect(w[0].target).toEqual({ kind: 'item', id: first.id });
+    // Zweites Stockwerk: eigene Warnung mit Stockwerksname, Singular bei einem Objekt
+    const og = addFloor(p, { name: 'OG 1' });
+    const single = place(og, gen, 300, 300);
+    w = warnings(fresh(p)).filter((x) => x.kind === 'unverified');
+    expect(w.length).toBe(2);
+    const ogW = w.find((x) => x.floorId === og.id)!;
+    expect(ogW.message).toBe('OG 1: 1 Objekt mit ungeprüften Maßen (generische Bibliothek): Ergometer – vor dem Kauf beim Hersteller bestätigen.');
+    expect(ogW.target).toEqual({ kind: 'item', id: single.id });
+    expect(w.find((x) => x.floorId === f.id)!.message.startsWith('EG: 4 Objekte')).toBe(true);
+    // Unbekannte Bibliotheks-ID bleibt eine eigene Warnung
+    f.items.push({ ...first, id: 'unk', defId: 'gibt-es-nicht' });
+    const unk = warnings(fresh(p)).filter((x) => x.kind === 'unverified' && x.id.startsWith('unverified:unknown:'));
+    expect(unk.length).toBe(1);
+    expect(unk[0].severity).toBe('warning');
   });
 
   it('Gerät außerhalb der Halle → outside-hall', () => {

@@ -26,7 +26,8 @@ import {
   createProject, openProject, renameProject, duplicateProject, deleteProject, createVariant, listProjects, listVersions, saveVersion,
   restoreVersion, saveNow, scheduleSave, flushSave, initPersistence, usePersistence, useProjectIndex, useSaveStatus, storageMode, summaryOf,
   exportAll, importAll, getStoredProject, handleChannelMessage, __resetPersistenceForTests, AUTOSAVE_DEBOUNCE_MS, LS_INDEX_KEY, LS_ACTIVE_KEY,
-  LS_LAST_KEY, LS_SAVED_KEY, MAX_VERSIONS, CHANNEL_NAME, CONFLICT_MESSAGE, DELETED_MESSAGE,
+  LS_LAST_KEY, LS_SAVED_KEY, MAX_VERSIONS, CHANNEL_NAME, CONFLICT_MESSAGE, DELETED_MESSAGE, LOCAL_MODE_MESSAGE, QUOTA_MESSAGE,
+  isQuotaError, storageErrorMessage,
 } from './persistence';
 import { useProjectStore, loadProject } from './projectStore';
 import { useUiStore } from './uiStore';
@@ -276,6 +277,67 @@ describe('localStorage-Fallback', () => {
     expect(useSaveStatus.getState().status).toBe('saved');
     const warnings = useUiStore.getState().toasts.filter((t) => t.text.includes('IndexedDB'));
     expect(warnings.length).toBe(1);
+    expect(warnings[0].kind).toBe('warning');
+    expect(warnings[0].text).toContain(LOCAL_MODE_MESSAGE);
+    expect(warnings[0].text).toContain('IDB kaputt');
+  });
+
+  it('meldet den localStorage-Modus beim Start genau einmal als Info', async () => {
+    disableIdb();
+    __resetPersistenceForTests();
+    await initPersistence();
+    expect(storageMode()).toBe('local');
+    expect(useProjectIndex.getState().storage).toBe('local');
+    const toasts = useUiStore.getState().toasts.filter((t) => t.text.includes(LOCAL_MODE_MESSAGE));
+    expect(toasts.length).toBe(1);
+    expect(toasts[0].kind).toBe('info');
+    // Weitere Speichervorgänge wiederholen den Hinweis nicht
+    await createProject(TEMPLATES[0], 'Noch eins');
+    await saveVersion('V');
+    expect(useUiStore.getState().toasts.filter((t) => t.text.includes(LOCAL_MODE_MESSAGE)).length).toBe(1);
+    // Mit IndexedDB kein Hinweis
+    enableIdb();
+    __resetPersistenceForTests();
+    useUiStore.setState({ toasts: [] });
+    await initPersistence();
+    expect(useUiStore.getState().toasts.some((t) => t.text.includes('IndexedDB'))).toBe(false);
+  });
+
+  it('voller Speicher → deutsche Meldung „Speicher voll“ statt Browsertext', async () => {
+    expect(isQuotaError(new DOMException('The quota has been exceeded.', 'QuotaExceededError'))).toBe(true);
+    expect(isQuotaError({ name: 'NS_ERROR_DOM_QUOTA_REACHED', code: 1014 })).toBe(true);
+    expect(isQuotaError(new Error("Failed to execute 'setItem' on 'Storage': Setting the value exceeded the quota."))).toBe(true);
+    expect(isQuotaError(new Error('IDB kaputt'))).toBe(false);
+    expect(storageErrorMessage(new Error('IDB kaputt'))).toBe('IDB kaputt');
+    expect(storageErrorMessage(new DOMException('x', 'QuotaExceededError'))).toBe(QUOTA_MESSAGE);
+
+    disableIdb();
+    __resetPersistenceForTests();
+    const p = await createProject(TEMPLATES[0], 'Voll');
+    useUiStore.setState({ toasts: [] });
+    const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation((key: string) => {
+      if (key.startsWith('gymplanner.data.')) throw new DOMException("Failed to execute 'setItem' on 'Storage': Setting the value exceeded the quota.", 'QuotaExceededError');
+    });
+    try {
+      useProjectStore.getState().renameProject('Voll 2');
+      expect(await saveNow()).toBe(false);
+      expect(useSaveStatus.getState().status).toBe('error');
+      expect(useSaveStatus.getState().error).toBe(QUOTA_MESSAGE);
+      const errs = useUiStore.getState().toasts.filter((t) => t.kind === 'error');
+      expect(errs.length).toBe(1);
+      expect(errs[0].text).toContain(QUOTA_MESSAGE);
+      expect(errs[0].text).not.toContain('exceeded the quota');
+      // Version ebenfalls mit deutscher Meldung
+      useUiStore.setState({ toasts: [] });
+      expect(await saveVersion('V')).toBeNull();
+      expect(useUiStore.getState().toasts.some((t) => t.kind === 'error' && t.text.includes(QUOTA_MESSAGE))).toBe(true);
+    } finally {
+      spy.mockRestore();
+    }
+    // Nach Freigabe funktioniert das Speichern wieder
+    expect(await saveNow()).toBe(true);
+    expect(useSaveStatus.getState().status).toBe('saved');
+    expect(JSON.parse(localStorage.getItem(`gymplanner.data.project:${p.id}`)!).name).toBe('Voll 2');
   });
 });
 

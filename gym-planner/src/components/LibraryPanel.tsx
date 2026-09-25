@@ -150,6 +150,21 @@ function matchesArea(d: EquipmentDef, area: LibraryArea): boolean {
   return d.bereich === area || (area === 'Eigene' && !!d.benutzerdefiniert);
 }
 
+/**
+ * Suchrang eines Eintrags: 0 = Modell, Name oder „Name Modell“ exakt gleich der Anfrage, 1 = beginnt damit,
+ * 2 = Name/Modell enthält die Anfrage, 3 = Treffer nur in anderen Feldern (Serie, Tags, Kategorie …).
+ */
+export function searchRank(d: EquipmentDef, query: string): number {
+  const q = query.trim().toLowerCase();
+  if (!q) return 3;
+  const name = d.name.toLowerCase();
+  const model = (d.modell ?? '').toLowerCase();
+  if (name === q || model === q || `${name} ${model}`.trim() === q) return 0;
+  if (name.startsWith(q) || model.startsWith(q)) return 1;
+  if (name.includes(q) || model.includes(q)) return 2;
+  return 3;
+}
+
 /** Filtert die Bibliothek; `index` = vorab berechnete Suchtexte je ID. */
 export function filterLibrary(lib: EquipmentDef[], f: LibraryFilter, favorites: Set<string>, index: Map<string, string>): { base: EquipmentDef[]; filtered: EquipmentDef[] } {
   const tokens = f.query.toLowerCase().split(/\s+/).filter(Boolean);
@@ -191,8 +206,14 @@ function groupKeyOf(d: EquipmentDef): string {
   return `${d.bereich}::${d.unterkategorie || d.kategorie}`;
 }
 
-/** Gruppiert nach Serie (Herstellergeräte) bzw. Unterkategorie (generische Objekte); eigene Geräte zuerst. */
-export function groupLibrary(defs: EquipmentDef[]): LibraryGroup[] {
+/**
+ * Gruppiert nach Serie (Herstellergeräte) bzw. Unterkategorie (generische Objekte); eigene Geräte zuerst.
+ * Mit `query` (laufende Suche) stehen exakte Treffer auf Modell/Name zuerst – sowohl die Gruppe als auch
+ * der Eintrag innerhalb der Gruppe (z. B. „C513“ → Power rack vor Plattformen, die es nur erwähnen).
+ */
+export function groupLibrary(defs: EquipmentDef[], query = ''): LibraryGroup[] {
+  const ranking = query.trim() ? new Map(defs.map((d) => [d.id, searchRank(d, query)])) : null;
+  const rankOf = (d: EquipmentDef) => ranking?.get(d.id) ?? 3;
   const map = new Map<string, LibraryGroup>();
   for (const d of defs) {
     const key = groupKeyOf(d);
@@ -212,8 +233,11 @@ export function groupLibrary(defs: EquipmentDef[]): LibraryGroup[] {
     return i < 0 ? LIBRARY_AREAS.length : i;
   };
   const groups = [...map.values()];
-  for (const g of groups) g.defs.sort((a, b) => a.name.localeCompare(b.name, 'de') || (a.modell ?? '').localeCompare(b.modell ?? '', 'de'));
+  for (const g of groups) g.defs.sort((a, b) => rankOf(a) - rankOf(b) || a.name.localeCompare(b.name, 'de') || (a.modell ?? '').localeCompare(b.modell ?? '', 'de'));
+  const groupRank = new Map(groups.map((g) => [g.key, ranking ? Math.min(...g.defs.map(rankOf)) : 3]));
   groups.sort((a, b) => {
+    const r = (groupRank.get(a.key) ?? 3) - (groupRank.get(b.key) ?? 3);
+    if (r) return r;
     if (a.key === CUSTOM_GROUP_KEY) return -1;
     if (b.key === CUSTOM_GROUP_KEY) return 1;
     return areaIndex(a.area) - areaIndex(b.area) || (a.sub ?? '').localeCompare(b.sub ?? '', 'de') || a.label.localeCompare(b.label, 'de');
@@ -594,7 +618,7 @@ export function LibraryPanel() {
   const activeFilterCount = (area ? 1 : 0) + (manufacturer ? 1 : 0) + (effectiveSeries ? 1 : 0) + (muscle && showMuscle ? 1 : 0) + (favoritesOnly ? 1 : 0) + (verifiedOnly ? 1 : 0);
   const anyFilter = activeFilterCount > 0 || !!query;
 
-  const groups = useMemo(() => groupLibrary(filtered), [filtered]);
+  const groups = useMemo(() => groupLibrary(filtered, query), [filtered, query]);
   const searching = query.trim().length > 0;
   const defaultOpen = groups.length <= 2 || filtered.length <= 40;
   const isOpen = useCallback(

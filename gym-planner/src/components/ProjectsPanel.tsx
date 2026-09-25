@@ -429,20 +429,26 @@ function VariantCompare({ projects, activeId }: { projects: ProjectSummary[]; ac
           {projects.map((p) => <option key={p.id} value={p.id}>{optionLabel(p)}</option>)}
         </select>
       </div>
-      <table className="w-full border-collapse text-xs">
+      {/* table-fixed mit festen Spaltenanteilen: passt auch ins 280-px-Panel; Namen werden gekürzt (Tooltip), Werte brechen um */}
+      <table className="w-full table-fixed border-collapse text-[11px]">
+        <colgroup>
+          <col className="w-[38%]" />
+          <col className="w-[31%]" />
+          <col className="w-[31%]" />
+        </colgroup>
         <thead>
           <tr className="gp-muted">
             <th className="py-1 text-left font-medium"><Columns2 size={12} className="inline" /></th>
-            <th className="max-w-[90px] truncate py-1 text-right font-medium" title={A?.name}>{A?.name ?? 'A'}</th>
-            <th className="max-w-[90px] truncate py-1 text-right font-medium" title={B?.name}>{B?.name ?? 'B'}</th>
+            <th className="truncate py-1 pl-1 text-right font-medium" title={A?.name}>{A?.name ?? 'A'}</th>
+            <th className="truncate py-1 pl-1 text-right font-medium" title={B?.name}>{B?.name ?? 'B'}</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((r) => (
             <tr key={r.label} className="border-t" style={{ borderColor: 'var(--gp-border)' }}>
-              <td className="py-1 pr-1">{r.label}</td>
-              <td className="py-1 text-right tabular-nums" style={r.better === 'a' ? { color: 'var(--gp-ok)', fontWeight: 600 } : undefined}>{r.a}</td>
-              <td className="py-1 text-right tabular-nums" style={r.better === 'b' ? { color: 'var(--gp-ok)', fontWeight: 600 } : undefined}>{r.b}</td>
+              <td className="break-words py-1 pr-1 align-top">{r.label}</td>
+              <td className="break-words py-1 pl-1 text-right align-top tabular-nums" style={r.better === 'a' ? { color: 'var(--gp-ok)', fontWeight: 600 } : undefined}>{r.a}</td>
+              <td className="break-words py-1 pl-1 text-right align-top tabular-nums" style={r.better === 'b' ? { color: 'var(--gp-ok)', fontWeight: 600 } : undefined}>{r.b}</td>
             </tr>
           ))}
         </tbody>
@@ -469,7 +475,7 @@ function SaveStatusLine() {
   const color = status === 'error' ? 'var(--gp-danger)' : status === 'saved' ? 'var(--gp-ok)' : 'var(--gp-muted)';
   return (
     <div className="flex items-center justify-between gap-2 text-[11px]">
-      <span className="flex items-center gap-1" style={{ color }}>
+      <span className="flex min-w-0 items-center gap-1" style={{ color }}>
         {status === 'saving' ? <LoaderCircle size={12} className="animate-spin" /> : status === 'error' ? <TriangleAlert size={12} /> : <Check size={12} />}
         <span className="truncate">{text}</span>
       </span>

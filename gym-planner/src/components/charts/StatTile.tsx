@@ -21,16 +21,20 @@ const TONE_COLOR: Record<StatTone, string> = {
   danger: 'var(--gp-danger)',
 };
 
-/** Kennzahl-Kachel (Label, Wert, Zusatzzeile). Farben ausschließlich über CSS-Variablen. */
+/**
+ * Kennzahl-Kachel (Label, Wert, Zusatzzeile). Farben ausschließlich über CSS-Variablen.
+ * Nichts wird abgeschnitten: Label, Wert und Zusatz dürfen umbrechen (Wert z. B. „400,00“ / „m²“),
+ * Ziffern in tabular-nums.
+ */
 export function StatTile({ label, value, sub, tone = 'default', icon, title, className = '' }: StatTileProps) {
   return (
     <div className={`gp-card flex min-w-0 flex-col gap-0.5 p-2.5! ${className}`} title={title}>
-      <div className="flex items-center gap-1 gp-label">
+      <div className="flex min-w-0 items-start gap-1 gp-label leading-tight">
         {icon && <span className="shrink-0 opacity-80">{icon}</span>}
-        <span className="truncate">{label}</span>
+        <span className="min-w-0 break-words">{label}</span>
       </div>
-      <div className="truncate text-lg font-semibold leading-tight tabular-nums" style={{ color: TONE_COLOR[tone] }}>{value}</div>
-      {sub && <div className="truncate text-[11px] gp-muted">{sub}</div>}
+      <div className="min-w-0 break-words text-lg font-semibold leading-tight tabular-nums" style={{ color: TONE_COLOR[tone] }}>{value}</div>
+      {sub && <div className="min-w-0 break-words text-[11px] leading-snug gp-muted">{sub}</div>}
     </div>
   );
 }

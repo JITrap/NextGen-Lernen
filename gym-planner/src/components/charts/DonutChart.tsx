@@ -1,3 +1,5 @@
+import { formatPercent } from '@/geometry/units';
+
 export interface DonutSlice {
   label: string;
   value: number;
@@ -22,7 +24,8 @@ export interface DonutChartProps {
 }
 
 const defaultFormat = (v: number) => new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(v);
-const pctFormat = (v: number) => `${new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 }).format(v)} %`;
+/** Prozent einheitlich mit einer Nachkommastelle („15,0 %“), wie überall in der App. */
+const pctFormat = formatPercent;
 
 /** Ring-/Donut-Diagramm als reines SVG (Kreis mit stroke-dasharray je Segment), Legende mit Prozent, Tooltip via <title>. */
 export function DonutChart({
@@ -81,7 +84,7 @@ export function DonutChart({
               <span className="h-2.5 w-2.5 shrink-0 rounded-sm" style={{ background: s.color }} aria-hidden />
               <span className="min-w-0 flex-1 truncate">{s.label}</span>
               <span className="shrink-0 tabular-nums">{s.valueLabel ?? format(s.value)}</span>
-              <span className="w-12 shrink-0 text-right tabular-nums gp-muted">{pctFormat(s.frac * 100)}</span>
+              <span className="min-w-12 shrink-0 text-right tabular-nums gp-muted">{pctFormat(s.frac * 100)}</span>
             </li>
           ))}
         </ul>

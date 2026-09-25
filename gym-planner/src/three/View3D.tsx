@@ -104,8 +104,11 @@ function CameraRig({ bounds, entrance, request }: { bounds: SceneBounds; entranc
         pos.set(bounds.cx, size * 2.4, bounds.cz + 0.01);
       } else if (preset === 'entrance') {
         if (entrance) {
-          pos.set(entrance.x + entrance.nx * 3.5, entrance.level + 1.7, entrance.z + entrance.nz * 3.5);
-          target.set(entrance.x - entrance.nx * 4, entrance.level + 1.2, entrance.z - entrance.nz * 4);
+          // Etwas seitlich (Tangente der Wand) und höher, damit das geöffnete Türblatt nicht das ganze Bild füllt.
+          const tx = -entrance.nz;
+          const tz = entrance.nx;
+          pos.set(entrance.x + entrance.nx * 4.5 + tx * 2.2, entrance.level + 2.6, entrance.z + entrance.nz * 4.5 + tz * 2.2);
+          target.set(entrance.x - entrance.nx * 4, entrance.level + 1.0, entrance.z - entrance.nz * 4);
         } else {
           pos.set(bounds.cx, 1.7, bounds.maxZ + Math.max(3, bounds.radius * 0.5));
           target.set(bounds.cx, 1.2, bounds.cz);

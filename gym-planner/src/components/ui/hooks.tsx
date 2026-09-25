@@ -26,17 +26,21 @@ export function useIsTouch(): boolean {
 
 /**
  * Schließt bei Klick/Tipp außerhalb der angegebenen Elemente und bei Esc.
- * `active` steuert, ob die Listener registriert sind.
+ * `active` steuert, ob die Listener registriert sind. Der pointerdown wird nur beobachtet (Capture-Phase), nie
+ * unterdrückt: Der Klick, der ein Popover schließt, erreicht sein Ziel (z. B. den Canvas) weiterhin.
+ * Der Umschalt-Button, der das Popover öffnet, gehört in `refs` (oder `opts.ignore`), damit ein erneuter Klick darauf
+ * das Popover schließt, statt es per pointerdown zu schließen und per click sofort wieder zu öffnen.
  */
 export function useOutsideClose(
   refs: Array<RefObject<HTMLElement | null>>,
   onClose: () => void,
   active: boolean,
-  opts: { closeOnScroll?: boolean } = {},
+  opts: { closeOnScroll?: boolean; ignore?: Array<RefObject<HTMLElement | null>> } = {},
 ) {
   useEffect(() => {
     if (!active) return;
-    const inside = (t: EventTarget | null) => refs.some((r) => r.current && t instanceof Node && r.current.contains(t));
+    const all = opts.ignore ? [...refs, ...opts.ignore] : refs;
+    const inside = (t: EventTarget | null) => all.some((r) => r.current && t instanceof Node && r.current.contains(t));
     const onDown = (e: PointerEvent) => {
       if (!inside(e.target)) onClose();
     };
@@ -62,7 +66,7 @@ export function useOutsideClose(
       window.removeEventListener('scroll', onScroll, true);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, onClose, opts.closeOnScroll, ...refs]);
+  }, [active, onClose, opts.closeOnScroll, ...refs, ...(opts.ignore ?? [])]);
 }
 
 /** Datum/Uhrzeit kurz formatiert („25.09.2026, 14:03“). */

@@ -30,6 +30,10 @@ export const LABEL_FONT_PX = 10;
 /** Beschriftung nur, wenn das Objekt auf dem Bildschirm breiter ist als … px. */
 export const LABEL_MIN_WIDTH_PX = 28;
 export const LABEL_MAX_CHARS = 18;
+/** Beschriftung darf (zentriert) bis zu diesem Vielfachen der Objektbreite überstehen, erst dann wird gekürzt („…“). */
+export const LABEL_OVERHANG_FACTOR = 1.6;
+/** Geschätzte mittlere Zeichenbreite (Anteil der Schriftgröße) für die Breite der Beschriftung. */
+const LABEL_CHAR_WIDTH = 0.62;
 const LABEL_FONT = 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
 
 /** viewport.scale auf 2 Nachkommastellen (Bucket), damit Objekte nicht bei jeder Zoom-Nuance neu rendern. */
@@ -56,6 +60,16 @@ export function itemLabelText(item: Pick<PlacedItem, 'label' | 'defId' | 'params
   }
   if (linkedFrom) lines.push(`von ${linkedFrom}`);
   return lines.join('\n');
+}
+
+/**
+ * Breite des Beschriftungsfelds: mindestens die Objektbreite, bei längerem Text bis zu `LABEL_OVERHANG_FACTOR` × Objektbreite
+ * (zentriert überstehend); erst darüber kürzt Konva mit „…“.
+ */
+export function labelBoxWidth(text: string, boxW: number, fontSize: number, factor = LABEL_OVERHANG_FACTOR): number {
+  const longest = text.split('\n').reduce((m, l) => Math.max(m, l.length), 0);
+  const need = longest * fontSize * LABEL_CHAR_WIDTH + fontSize * 0.4;
+  return Math.min(boxW * factor, Math.max(boxW, need));
 }
 
 /** Stockwerk-ID, von dem eine verlinkte Kopie (Treppe/Aufzug) stammt, sonst null. */
@@ -137,6 +151,7 @@ const ItemNode = memo(function ItemNode(p: NodeProps) {
   const fontSize = LABEL_FONT_PX * px;
   const boxW = box.maxX - box.minX;
   const boxH = box.maxY - box.minY;
+  const labelW = label ? labelBoxWidth(label, boxW, fontSize) : boxW;
 
   return (
     <Group x={item.x} y={item.y} opacity={linkedFrom ? 0.45 : 1} listening={false}>
@@ -145,9 +160,9 @@ const ItemNode = memo(function ItemNode(p: NodeProps) {
       </Group>
       {label && (
         <Text
-          x={box.minX}
+          x={box.minX - (labelW - boxW) / 2}
           y={box.minY}
-          width={boxW}
+          width={labelW}
           height={boxH}
           text={label}
           fontSize={fontSize}

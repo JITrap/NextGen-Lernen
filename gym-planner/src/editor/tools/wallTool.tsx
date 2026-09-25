@@ -11,7 +11,7 @@ import { Group, Line, Circle, Label, Tag, Text } from 'react-konva';
 import type { Vec2, Wall, Opening, Hall, WallType } from '@/types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
-import { createClickTracker, type ToolContext, type ToolEvent } from './types';
+import { createClickTracker, roundVec, type ToolContext, type ToolEvent } from './types';
 import { useSnapGuides } from '../overlays/SnapGuides';
 import { worldToScreen } from '../viewport';
 import { transaction } from '@/store/projectStore';
@@ -305,10 +305,15 @@ function snapCursor(e: ToolEvent, ctx: ToolContext): SnapResult {
 }
 
 /** Legt ein Wandsegment an (inkl. Teilen an T-Stößen/Kreuzungen) – ein Undo-Schritt. null bei zu kurzem Segment. */
-function commitSegment(ctx: ToolContext, start: Vec2, end: Vec2): WallSegmentRecord | null {
+function commitSegment(ctx: ToolContext, startIn: Vec2, endIn: Vec2): WallSegmentRecord | null {
+  // Koordinaten ohne Gleitkomma-Rauschen (Winkel-Snapping liefert z. B. 1000.0000000000001)
+  const start = roundVec(startIn);
+  const end = roundVec(endIn);
   if (distance(start, end) < MIN_SEGMENT_CM) return null;
   const wall = createWall({ start, end, ...wallPropsFromOptions(ctx.ui.toolOptions) });
-  const { removeIds, add, openings } = findWallSplits(wall, ctx.floor.walls, ctx.floor.openings);
+  const splits = findWallSplits(wall, ctx.floor.walls, ctx.floor.openings);
+  const { removeIds, openings } = splits;
+  const add = splits.add.map((w) => (roundVec(w.start) !== w.start || roundVec(w.end) !== w.end ? { ...w, start: roundVec(w.start), end: roundVec(w.end) } : w));
   const floorId = ctx.floor.id;
   const store = ctx.store;
   const removedSet = new Set(removeIds);
@@ -411,10 +416,11 @@ registerTool({
     const st = useWallTool.getState();
     const snapping = snappingEnabled(e, ctx);
     if (!st.chainStart) {
-      st.patch({ chainStart: r.point, cursor: r.point, count: 0, history: [], typedLength: '', typedAngle: '', field: 'length', snapping });
+      const p = roundVec(r.point);
+      st.patch({ chainStart: p, cursor: p, count: 0, history: [], typedLength: '', typedAngle: '', field: 'length', snapping });
       return;
     }
-    const end = r.point;
+    const end = roundVec(r.point);
     // Zweiter Klick eines Doppelklicks / Wackler (bildschirmbasiert, damit es bei jedem Zoom funktioniert): ignorieren
     if (distance(st.chainStart, end) < Math.max(MIN_SEGMENT_CM, ctx.pxToWorld(4))) return;
     const rec = commitSegment(ctx, st.chainStart, end);
@@ -491,8 +497,10 @@ registerTool({
 // Kontextmenü – während einer aktiven Kette wird es abgefangen und die Kette beendet.
 useUiStore.subscribe((s, prev) => {
   if (s.tool === 'wall' && s.contextMenu && s.contextMenu !== prev.contextMenu && useWallTool.getState().chainStart) {
+    const n = useWallTool.getState().count;
     finishWallChain();
     s.setContextMenu(null);
+    s.toast(n ? `Wandkette beendet · ${n === 1 ? '1 Segment' : `${n} Segmente`}` : 'Wandkette beendet', 'info');
   }
 });
 

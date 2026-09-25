@@ -28,6 +28,7 @@ import { SnapGuides } from './overlays/SnapGuides';
 import { useDropFromLibrary } from './useDropFromLibrary';
 import './tools'; // registriert alle Werkzeuge
 import { useSelectTool } from './tools/selectTool';
+import { pruneSelection } from './actions';
 
 /** Berechnet die Welt-Bounding-Box des Stockwerks (Halle, Wände, Objekte). */
 export function floorBounds(floor: ReturnType<typeof useActiveFloor>) {
@@ -151,6 +152,15 @@ export function Canvas() {
     if (sel) ui.setSelection([sel]);
     ui.clearFocusRequest();
   }, [size, focusNonce, setViewport]);
+
+  // Auswahl bereinigen, wenn gewählte Elemente nicht mehr existieren, ausgeblendet wurden oder ihre Ebene aus ist
+  // (Undo einer Anlage, „Ausblenden“, Stockwerkswechsel, Ebenen-Schalter) – sonst blieben Griffe/Statusleiste stehen.
+  useEffect(() => {
+    const ui = useUiStore.getState();
+    const roomIds = new Set(rooms.map((r) => r.id));
+    const next = pruneSelection(ui.selection, { floor, items, walls, roomIds, layers });
+    if (next !== ui.selection) ui.setSelection(next);
+  }, [floor, items, walls, rooms, layers]);
 
   // Kollisionen (memoisiert)
   const colliding = useMemo(() => {

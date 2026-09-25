@@ -13,7 +13,7 @@ import { bom, type BomLine } from '@/analysis';
 import { downloadBlob, safeFileName } from './json';
 
 export interface BomRow {
-  /** Gruppenschlüssel (= Bibliotheks-ID; gleiche Geräte werden über alle Stockwerke zusammengefasst). */
+  /** Eindeutiger Zeilenschlüssel (`BomLine.key`: Bibliotheks-ID, bei skalierbaren Objekten zusätzlich die Maße). */
   key: string;
   defId: string;
   hersteller: string;
@@ -69,11 +69,11 @@ function rowHint(line: BomLine, def: EquipmentDef | undefined): string {
   return parts.join(' · ');
 }
 
-/** Eine Zeile je Bibliotheks-ID (Adapter auf `BomLine`). */
+/** Eine Zeile je Stücklistenposition (Adapter auf `BomLine`; skalierbare Objekte: eine Zeile je Größe). */
 function rowFromLine(line: BomLine, project: Project): BomRow {
   const def = line.unknownDef ? undefined : getDef(line.defId, project);
   return {
-    key: line.defId,
+    key: line.key,
     defId: line.defId,
     hersteller: line.hersteller,
     serie: line.serie,

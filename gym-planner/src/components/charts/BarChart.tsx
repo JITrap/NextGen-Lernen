@@ -1,3 +1,5 @@
+import { formatPercent } from '@/geometry/units';
+
 export interface BarDatum {
   label: string;
   value: number;
@@ -32,9 +34,31 @@ export interface BarChartProps {
 }
 
 const defaultFormat = (v: number) => new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(v);
-const pctFormat = (v: number) => `${new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 }).format(v)} %`;
 
-/** Balkendiagramm als reines SVG. Text über CSS-Variablen (Hell/Dunkel), Tooltip via <title>. */
+/**
+ * Geschätzte Textbreite in px für Inter/System-Sans (ohne DOM-Messung – deterministisch, auch in Tests).
+ * Ziffern ≈ 0,6 em, Großbuchstaben ≈ 0,68 em, schmale Zeichen (i, l, Satzzeichen, Leerzeichen) ≈ 0,3 em.
+ */
+export function estimateTextWidth(text: string, fontSize: number): number {
+  let em = 0;
+  for (const ch of text) {
+    if (ch === ' ' || ch === '.' || ch === ',' || ch === ':' || ch === '·' || ch === "'") em += 0.28;
+    else if ('iljtfrI!|'.includes(ch)) em += 0.32;
+    else if ('mwMW'.includes(ch)) em += 0.85;
+    else if (ch === '%') em += 0.9;
+    else if (ch === '²' || ch === '³' || ch === '°') em += 0.42;
+    else if (ch >= '0' && ch <= '9') em += 0.6;
+    else if (ch >= 'A' && ch <= 'Z' || ch === 'Ä' || ch === 'Ö' || ch === 'Ü') em += 0.68;
+    else em += 0.56;
+  }
+  return em * fontSize;
+}
+
+/**
+ * Balkendiagramm als reines SVG. Text über CSS-Variablen (Hell/Dunkel), Tooltip via <title>.
+ * Die Wertspalte rechts wird nach der längsten Beschriftung bemessen (nichts wird abgeschnitten);
+ * bei sehr langen Werten wandert die Beschriftung unter den Balken.
+ */
 export function BarChart({
   bars, horizontal = true, max, format = defaultFormat, showPercent = false, width = 280, barHeight = 16, labelWidth = 96, marker, markerLabel, emptyLabel = 'Keine Daten', className = '',
 }: BarChartProps) {
@@ -42,7 +66,9 @@ export function BarChart({
   if (!valid.length) return <div className={`text-xs gp-muted ${className}`}>{emptyLabel}</div>;
   const globalMax = max != null && max > 0 ? max : Math.max(...valid.map((b) => b.max ?? b.value), marker ?? 0, 0);
   const fillFor = (b: BarDatum) => (b.danger ? 'var(--gp-danger)' : b.color);
-  const textFor = (b: BarDatum) => `${b.label}: ${b.valueLabel ?? format(b.value)}${showPercent ? ` (${pctFormat(((b.value) / ((b.max ?? globalMax) || 1)) * 100)})` : ''}`;
+  const refOf = (b: BarDatum) => (b.max ?? globalMax) || 1;
+  const valueText = (b: BarDatum) => `${b.valueLabel ?? format(b.value)}${showPercent ? ` · ${formatPercent((b.value / refOf(b)) * 100)}` : ''}`;
+  const textFor = (b: BarDatum) => `${b.label}: ${b.valueLabel ?? format(b.value)}${showPercent ? ` (${formatPercent((b.value / refOf(b)) * 100)})` : ''}`;
 
   if (!horizontal) {
     const gap = 6;
@@ -52,8 +78,7 @@ export function BarChart({
     return (
       <svg width="100%" viewBox={`0 0 ${width} ${h + labelH}`} preserveAspectRatio="xMinYMin meet" role="img" className={className} style={{ color: 'var(--gp-text)', display: 'block' }}>
         {valid.map((b, i) => {
-          const ref = (b.max ?? globalMax) || 1;
-          const bh = Math.max(0, Math.min(1, b.value / ref)) * (h - 4);
+          const bh = Math.max(0, Math.min(1, b.value / refOf(b))) * (h - 4);
           const x = gap + i * (bw + gap);
           return (
             <g key={`${b.label}-${i}`}>
@@ -69,29 +94,35 @@ export function BarChart({
     );
   }
 
-  const rowH = barHeight + 8;
-  const valueW = 78;
+  const valueFont = 10;
+  const values = valid.map(valueText);
+  // Schätzung + 4 % Reserve + Abstand, damit auch breitere Systemschriften nicht über den Rand laufen
+  const valueW = Math.ceil(Math.max(24, ...values.map((t) => estimateTextWidth(t, valueFont))) * 1.04) + 12;
   const trackX = labelWidth + 6;
-  const trackW = Math.max(20, width - trackX - valueW);
+  // Wertspalte rechts neben dem Balken, solange der Balken ≥ 60 px behält; sonst Wert unter dem Balken.
+  const inline = width - trackX - valueW >= 60;
+  const trackW = Math.max(20, inline ? width - trackX - valueW : width - trackX - 4);
+  const rowH = barHeight + (inline ? 8 : 8 + valueFont + 2);
   const height = valid.length * rowH + (marker != null && markerLabel ? 12 : 0);
   const markerX = marker != null && globalMax > 0 ? trackX + Math.min(1, marker / globalMax) * trackW : null;
   return (
-    <svg width="100%" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMinYMin meet" role="img" className={className} style={{ color: 'var(--gp-text)', display: 'block' }}>
+    <svg width="100%" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMinYMin meet" overflow="visible" role="img" className={className} style={{ color: 'var(--gp-text)', display: 'block' }}>
       {valid.map((b, i) => {
-        const ref = (b.max ?? globalMax) || 1;
-        const w = Math.max(0, Math.min(1, b.value / ref)) * trackW;
+        const w = Math.max(0, Math.min(1, b.value / refOf(b))) * trackW;
         const y = i * rowH;
         const label = b.label.length > 16 ? `${b.label.slice(0, 15)}…` : b.label;
+        const valueStyle = { fill: b.danger ? 'var(--gp-danger)' : 'var(--gp-muted)' };
         return (
           <g key={`${b.label}-${i}`}>
             <title>{textFor(b)}</title>
             <text x={labelWidth} y={y + barHeight / 2 + 4} textAnchor="end" fontSize={11} fill="currentColor">{label}</text>
             <rect x={trackX} y={y + 4} width={trackW} height={barHeight - 4} rx={3} style={{ fill: 'var(--gp-border)', opacity: 0.6 }} />
             <rect x={trackX} y={y + 4} width={w} height={barHeight - 4} rx={3} style={{ fill: fillFor(b) }} />
-            <text x={trackX + trackW + 6} y={y + barHeight / 2 + 4} fontSize={10} style={{ fill: b.danger ? 'var(--gp-danger)' : 'var(--gp-muted)' }}>
-              {b.valueLabel ?? format(b.value)}
-              {showPercent ? ` · ${pctFormat((b.value / ref) * 100)}` : ''}
-            </text>
+            {inline ? (
+              <text x={trackX + trackW + 6} y={y + barHeight / 2 + 4} fontSize={valueFont} style={valueStyle}>{values[i]}</text>
+            ) : (
+              <text x={trackX} y={y + barHeight + valueFont + 1} fontSize={valueFont} style={valueStyle}>{values[i]}</text>
+            )}
           </g>
         );
       })}

@@ -22,8 +22,8 @@ describe('Diagramm-Bausteine', () => {
       <DonutChart slices={[{ label: 'Training', value: 300, color: '#3b82f6' }, { label: 'Wellness', value: 100, color: '#f97316' }]} centerLabel="400" centerSub="m²" />,
     );
     expect(container.querySelectorAll('circle').length).toBe(3); // Hintergrund + 2 Segmente
-    expect(screen.getByText('75 %')).toBeInTheDocument();
-    expect(screen.getByText('25 %')).toBeInTheDocument();
+    expect(screen.getByText('75,0 %')).toBeInTheDocument();
+    expect(screen.getByText('25,0 %')).toBeInTheDocument();
     expect(container.querySelector('title')?.textContent).toContain('Training');
     expect(screen.getByText('400')).toBeInTheDocument();
   });

@@ -463,6 +463,13 @@ export interface BottleneckOptions {
   includeZones?: boolean;
   /** Abstände ≤ dieser Wert gelten als Berührung/Kollision, nicht als Engpass (Standard 1 cm). */
   touchTolerance?: number;
+  /**
+   * Nur Paare werten, an denen mindestens eines dieser Objekte beteiligt ist (z. B. Trainingsgeräte); bei
+   * Objekt–Wand/Hallenkante muss das Objekt selbst dazugehören. Ohne Angabe zählen alle Objekte.
+   */
+  subjectIds?: ReadonlySet<string>;
+  /** Objekte, die weder als Beteiligte noch als Hindernis zählen (z. B. Möbel in Nebenräumen). */
+  excludeIds?: ReadonlySet<string>;
 }
 
 interface Shape {
@@ -508,19 +515,23 @@ function backFaces(it: Pick<PlacedItem, 'rotation'>, dir: Vec2): boolean {
  * (lokal −y) und einer Wand/Hallenkante ist kein Laufweg (Gerät steht mit dem Rücken zur Wand). Paare werden
  * dedupliziert (kleinster Abstand gewinnt); Berührung/Überlappung (d ≤ 1 cm) ist Kollision, kein Engpass.
  * `walls` sollte die realen Wände enthalten, die Halle wird über `hallInner` (Innenpolygon) abgedeckt – doppelte
- * Hallen-Außenwände werden dedupliziert.
+ * Hallen-Außenwände werden dedupliziert. Mit `subjectIds` werden nur Paare mit mindestens einem dieser Objekte
+ * gewertet, `excludeIds` nimmt Objekte ganz aus der Prüfung.
  */
 export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallInner: Vec2[] | null | undefined, minWidth: number, opts: BottleneckOptions = {}): Bottleneck[] {
   const out: Bottleneck[] = [];
   if (!(minWidth > 0)) return out;
   const includeZones = opts.includeZones ?? true;
   const touch = opts.touchTolerance ?? 1;
+  const subjects = opts.subjectIds;
+  const excluded = opts.excludeIds;
+  const isSubject = (id: string) => !subjects || subjects.has(id);
   const idx = itemIndexFor(items);
   const shapes: Shape[] = [];
   const shapeItems: PlacedItem[] = [];
   for (let i = 0; i < items.length; i++) {
     const it = items[i];
-    if (it.hidden) continue;
+    if (it.hidden || excluded?.has(it.id)) continue;
     const z = includeZones ? idx.zones[i] : null;
     const poly = z ?? idx.footprints[i];
     shapes.push({ id: it.id, poly, box: z ? idx.zoneBoxes[i]! : idx.boxes[i] });
@@ -548,12 +559,14 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
   const sh = new SpatialHash<number>();
   for (let s = 0; s < shapes.length; s++) sh.insert(s, shapes[s].box);
   for (let s = 0; s < shapes.length; s++) {
-    sh.forEachIn(expandBox(shapes[s].box, minWidth), (t) => { if (t > s) record(shapes[s], shapes[t]); });
+    const sIsSubject = isSubject(shapes[s].id);
+    sh.forEachIn(expandBox(shapes[s].box, minWidth), (t) => { if (t > s && (sIsSubject || isSubject(shapes[t].id))) record(shapes[s], shapes[t]); });
   }
   // Objekt–Wand
   if (walls.length) {
     const widx = wallIndexFor(walls);
     for (let s = 0; s < shapes.length; s++) {
+      if (!isSubject(shapes[s].id)) continue;
       widx.hash.forEachIn(expandBox(shapes[s].box, minWidth), (wi) => {
         record(shapes[s], { id: widx.walls[wi].id, poly: widx.rects[wi], box: widx.boxes[wi] }, shapeItems[s]);
       });
@@ -567,6 +580,7 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
       edges.push({ id: `hall_${i}`, poly: seg, box: bbox(seg) });
     }
     for (let s = 0; s < shapes.length; s++) {
+      if (!isSubject(shapes[s].id)) continue;
       const qb = expandBox(shapes[s].box, minWidth);
       for (const e of edges) if (bboxOverlap(e.box, qb)) record(shapes[s], e, shapeItems[s]);
     }

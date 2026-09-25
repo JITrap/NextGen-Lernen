@@ -3,14 +3,41 @@ import { temporal } from 'zundo';
 import { produce, type Draft } from 'immer';
 import type {
   Project, Floor, Wall, Zone, Opening, PlacedItem, VoidArea, Annotation, RoomMeta,
-  Id, Hall, ProjectSettings, LayerVisibility, EquipmentDef, Vec2,
+  Id, Hall, ProjectSettings, LayerVisibility, EquipmentDef, Vec2, SafetyZone,
 } from '@/types';
 import { createEmptyProject, createFloor, duplicateFloor, cloneDeep } from './factories';
 import { newId } from '@/utils/id';
 
-/** Zeitstempel-Update ohne eigenen Undo-Schritt zu erzeugen: wird bei jeder Mutation gesetzt. */
-function touch(p: Draft<Project>) {
-  p.updatedAt = new Date().toISOString();
+/** Sicherheitszonen wertgleich? */
+function sameZone(a: SafetyZone | undefined, b: SafetyZone | undefined): boolean {
+  if (!a || !b) return a === b;
+  return a.vorne === b.vorne && a.hinten === b.hinten && a.links === b.links && a.rechts === b.rechts;
+}
+
+/**
+ * Gleicht platzierte Objekte einer bearbeiteten Bibliotheksdefinition ab:
+ * - Maße: nicht skalierbare Objekte übernehmen immer die Definitionsmaße; skalierbare nur, wenn sie noch das alte Standardmaß hatten.
+ * - Höhe und Sicherheitszone: nur, wenn sie noch dem alten Standard entsprachen (individuelle Anpassungen bleiben erhalten).
+ */
+function syncItemsWithDef(p: Draft<Project>, old: EquipmentDef, next: EquipmentDef) {
+  const dimsChanged = old.breite_cm !== next.breite_cm || old.tiefe_cm !== next.tiefe_cm || (old.skalierbar && !next.skalierbar);
+  const heightChanged = old.hoehe_cm !== next.hoehe_cm;
+  const zoneChanged = !sameZone(old.sicherheitszone_cm, next.sicherheitszone_cm);
+  if (!dimsChanged && !heightChanged && !zoneChanged) return;
+  for (const f of p.floors) {
+    for (const it of f.items) {
+      if (it.defId !== next.id) continue;
+      if (dimsChanged) {
+        const standard = it.width === old.breite_cm && it.depth === old.tiefe_cm;
+        if (!next.skalierbar || standard) {
+          it.width = next.breite_cm;
+          it.depth = next.tiefe_cm;
+        }
+      }
+      if (heightChanged && it.height === old.hoehe_cm) it.height = next.hoehe_cm;
+      if (zoneChanged && sameZone(it.safetyZone, old.sicherheitszone_cm)) it.safetyZone = { ...next.sicherheitszone_cm };
+    }
+  }
 }
 
 /**
@@ -114,8 +141,18 @@ function removeWalls(f: Draft<Floor>, set: Set<Id>) {
 export const useProjectStore = create<ProjectState>()(
   temporal(
     (set, get) => {
+      /**
+       * Führt eine Mutation per Immer aus. Ändert das Rezept nichts, liefert Immer das Ausgangsobjekt zurück –
+       * dann bleibt der Zustand identisch (kein Undo-Schritt, updatedAt unverändert). Nur bei tatsächlicher
+       * Änderung wird updatedAt gesetzt; No-op-Aufrufe (z. B. identischer Patch) sind damit folgenlos.
+       */
       const mutate = (fn: (p: Draft<Project>) => void) =>
-        set((s) => ({ project: produce(s.project, (d) => { fn(d); touch(d); }) }));
+        set((s) => {
+          const next = produce(s.project, fn);
+          if (next === s.project) return s;
+          const now = new Date().toISOString();
+          return { project: produce(next, (d) => { d.updatedAt = now; }) };
+        });
       const mutateFloor = (floorId: Id, fn: (f: Draft<Floor>, p: Draft<Project>) => void) =>
         mutate((p) => { const f = floorOf(p, floorId); if (f) fn(f, p); });
 
@@ -237,7 +274,16 @@ export const useProjectStore = create<ProjectState>()(
         deleteAnnotations: (floorId, ids) => mutateFloor(floorId, (f) => { const set = new Set(ids); f.annotations = f.annotations.filter((a) => !set.has(a.id)); }),
 
         addCustomEquipment: (def) => mutate((p) => { p.customEquipment.push({ ...def, benutzerdefiniert: true }); }),
-        updateCustomEquipment: (id, patch) => mutate((p) => { const d = p.customEquipment.find((x) => x.id === id); if (d) Object.assign(d, patch); }),
+        updateCustomEquipment: (id, patch) => {
+          const old = get().project.customEquipment.find((x) => x.id === id);
+          if (!old) return;
+          mutate((p) => {
+            const d = p.customEquipment.find((x) => x.id === id);
+            if (!d) return;
+            Object.assign(d, patch);
+            syncItemsWithDef(p, old, d);
+          });
+        },
         deleteCustomEquipment: (id) => mutate((p) => { p.customEquipment = p.customEquipment.filter((x) => x.id !== id); }),
         toggleFavorite: (defId) => mutate((p) => {
           const i = p.favorites.indexOf(defId);

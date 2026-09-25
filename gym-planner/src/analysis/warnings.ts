@@ -6,17 +6,21 @@
  * itemsInDoorSwing / emergencyExitClearanceRects (Türen), escapeRouteBottlenecks (Laufwege, inkl. aktiver
  * Sicherheitszonen als Objektausdehnung), itemInsideHall (Halle). Lücken unter MIN_CORRIDOR_CM gelten als
  * Aufstellabstand und nicht als (zu schmaler) Laufweg.
+ *
+ * Laufweg-Heuristik: Es zählen nur Paare, an denen mindestens ein Trainingsgerät (TRAINING_AREAS) beteiligt ist;
+ * Objekte in Nebenräumen (ESCAPE_ROUTE_EXCLUDED_ROOM_TYPES: Umkleiden, Duschen, WC, Büro, Lager …) bleiben außen vor.
+ * Die Engpässe werden je Raum (kleinster Raum am Engpass, Zonen vor Auto-Räumen) zu einer Warnung gebündelt.
  */
-import type { Project, PlanningWarning, WarningKind, Vec2, Wall, PlacedItem, Room, Selection, Id, Floor, Door } from '@/types';
+import type { Project, PlanningWarning, WarningKind, Vec2, Wall, PlacedItem, Room, Selection, Id, Floor, Door, LibraryArea, RoomType } from '@/types';
 import {
-  findCollisions, convexPolygonsOverlap, itemsInDoorSwing, emergencyExitClearanceRects, escapeRouteBottlenecks, itemInsideHall,
+  findCollisions, convexPolygonsOverlap, itemsInDoorSwing, emergencyExitClearanceRects, escapeRouteBottlenecks, itemInsideHall, type Bottleneck,
 } from '@/geometry/collision';
 import { allWalls, findWall, openingPlacement, wallMidpoint, isHallWallId } from '@/geometry/walls';
 import { itemFootprint } from '@/geometry/transform';
 import { centroid, distance, distanceToSegment, pointInPolygon } from '@/geometry/polygon';
 import { formatCm, formatKgM2 } from '@/geometry/units';
 import { DOOR_TYPE_MAP } from '@/data/wallTypes';
-import { analysisContext, memoByProject, itemName, itemHeight, hasFootprint, symbolOf, visibleItems, isLinkedCopy, type FloorContext, type AnalysisContext } from './common';
+import { analysisContext, memoByProject, itemName, itemHeight, hasFootprint, symbolOf, visibleItems, isLinkedCopy, isTypedRoom, pointInRoom, type FloorContext, type AnalysisContext } from './common';
 import { floorLoad } from './floorLoad';
 import { capacity } from './capacity';
 
@@ -49,6 +53,14 @@ export const MIN_CORRIDOR_CM = 40;
 export const EMERGENCY_CLEAR_MIN_CM = 150;
 /** Toleranz (cm) am Hallen-Rand. */
 const HALL_TOLERANCE_CM = 2;
+/** Bibliotheksbereiche, die in der Laufweg-Heuristik als Trainingsgeräte gelten (eigene Geräte eingeschlossen). */
+export const TRAINING_AREAS: ReadonlySet<LibraryArea> = new Set<LibraryArea>(['Kraftgeräte', 'Cardio', 'Functional', 'Freihantel-Zubehör', 'Eigene']);
+/** Raumtypen, deren Objekte (Möbel, Sanitär, Spinde …) nicht in die Laufweg-Heuristik eingehen. */
+export const ESCAPE_ROUTE_EXCLUDED_ROOM_TYPES: ReadonlySet<RoomType> = new Set<RoomType>([
+  'Umkleide Damen', 'Umkleide Herren', 'Umkleide Divers', 'Duschen', 'WC', 'Büro', 'Lager', 'Technik/Lüftung', 'Putzraum', 'Personalraum',
+]);
+/** Höchstens so viele Namen in der gebündelten „Maße ungeprüft“-Warnung. */
+const UNVERIFIED_LIST_MAX = 8;
 
 const q = (s: string) => `„${s}“`;
 
@@ -69,6 +81,28 @@ function distanceToPolygon(p: Vec2, poly: Vec2[]): number {
 
 function roomTarget(room: Room): PlanningWarning['target'] {
   return { kind: room.source === 'zone' ? 'zone' : 'room', id: room.id };
+}
+
+/** Indizes der Räume, in denen der Punkt liegt (Bounding-Box-Vorprüfung, Löcher ausgenommen). */
+function roomIndicesAt(p: Vec2, fc: FloorContext): number[] {
+  const out: number[] = [];
+  for (let r = 0; r < fc.rooms.length; r++) {
+    const b = fc.roomBoxes[r];
+    if (p.x < b.minX || p.x > b.maxX || p.y < b.minY || p.y > b.maxY) continue;
+    if (pointInRoom(p, fc.rooms[r])) out.push(r);
+  }
+  return out;
+}
+
+/** Kleinster Raum mit gesetztem Typ am Punkt (Zonen vor Auto-Räumen – wie in der Flächenbilanz); null ohne Raum. */
+function typedRoomAt(p: Vec2, fc: FloorContext): Room | null {
+  let best: Room | null = null;
+  for (const r of roomIndicesAt(p, fc)) {
+    const room = fc.rooms[r];
+    if (!isTypedRoom(room, fc.floor)) continue;
+    if (!best || (room.source === best.source ? room.areaM2 < best.areaM2 : room.source === 'zone')) best = room;
+  }
+  return best;
 }
 
 /** Sichtbare Objekte mit Stellfläche eines Stockwerks, nach ID. */
@@ -176,26 +210,61 @@ function doorWarnings(fc: FloorContext, fi: FloorItems, walls: Wall[], minEscape
   }
 }
 
-function escapeRouteWarnings(fc: FloorContext, fi: FloorItems, project: Project, out: PlanningWarning[]) {
+/**
+ * Zu schmale Laufwege: nur Paare mit mindestens einem Trainingsgerät, Objekte in Nebenräumen ausgenommen,
+ * gebündelt je Raum („Raum X: n Engpässe, schmalster b cm …“, Ziel = schmalster Punkt). Engpässe außerhalb typisierter
+ * Räume werden je Stockwerk zusammengefasst.
+ */
+function escapeRouteWarnings(fc: FloorContext, fi: FloorItems, project: Project, ctx: AnalysisContext, out: PlanningWarning[]) {
   const min = project.settings.minEscapeRouteCm;
   if (!Number.isFinite(min) || min <= 0) return;
   const floorId = fc.floor.id;
   const solidIds = new Set(fi.solid.map((it) => it.id));
+  const subjects = new Set<Id>();
+  const excluded = new Set<Id>();
+  fi.all.forEach((it, i) => {
+    // fi.all beginnt mit den eigenen Objekten des Stockwerks (Index wie fc.items); verlinkte Kopien folgen.
+    const rooms = i < fc.items.length && fc.items[i] === it ? fc.itemRooms[i] : roomIndicesAt({ x: it.x, y: it.y }, fc);
+    if (rooms.some((r) => ESCAPE_ROUTE_EXCLUDED_ROOM_TYPES.has(fc.rooms[r].type))) {
+      excluded.add(it.id);
+      return;
+    }
+    const def = ctx.def(it.defId);
+    if (def && TRAINING_AREAS.has(def.bereich) && solidIds.has(it.id)) subjects.add(it.id);
+  });
+  if (!subjects.size) return;
   const obstacleName = (id: Id) => {
     if (fi.byId.has(id)) return q(fi.name(id));
     return isHallWallId(id) ? 'Hallenwand' : 'Wand';
   };
-  for (const b of escapeRouteBottlenecks(fi.all, fc.floor.walls, fc.inner, min, { includeZones: true })) {
+  interface Group { room: Room | null; count: number; narrowest: Bottleneck }
+  const groups = new Map<string, Group>();
+  for (const b of escapeRouteBottlenecks(fi.all, fc.floor.walls, fc.inner, min, { includeZones: true, subjectIds: subjects, excludeIds: excluded })) {
     if (b.width < MIN_CORRIDOR_CM) continue;
     const aItem = fi.byId.has(b.a);
     const bItem = fi.byId.has(b.b);
     if (!aItem && !bItem) continue;
     if ((aItem && !solidIds.has(b.a)) || (bItem && !solidIds.has(b.b))) continue;
+    const room = typedRoomAt(b.point, fc);
+    const key = room ? room.id : '';
+    const g = groups.get(key);
+    if (!g) groups.set(key, { room, count: 1, narrowest: b });
+    else {
+      g.count += 1;
+      if (b.width < g.narrowest.width) g.narrowest = b;
+    }
+  }
+  for (const [key, g] of groups) {
+    const b = g.narrowest;
+    const where = g.room ? `Raum ${q(g.room.name)}` : `Stockwerk ${q(fc.floor.name)}`;
+    const pair = `zwischen ${obstacleName(b.a)} und ${obstacleName(b.b)}`;
     out.push({
-      id: `escape-route:${floorId}:${b.a}:${b.b}`,
+      id: `escape-route:${floorId}:${key || 'floor'}`,
       kind: 'escape-route',
       severity: 'warning',
-      message: `Laufweg zwischen ${obstacleName(b.a)} und ${obstacleName(b.b)} nur ${formatCm(Math.round(b.width))} (min. ${formatCm(min)}).`,
+      message: g.count === 1
+        ? `${where}: Laufweg ${pair} nur ${formatCm(Math.round(b.width))} (min. ${formatCm(min)}).`
+        : `${where}: ${g.count} Engpässe, schmalster ${formatCm(Math.round(b.width))} ${pair} (min. ${formatCm(min)}).`,
       floorId,
       target: { point: b.point },
     });
@@ -353,8 +422,10 @@ function outsideHallWarnings(fc: FloorContext, fi: FloorItems, ctx: AnalysisCont
   }
 }
 
+/** „Maße ungeprüft“: eine Info-Warnung je Stockwerk mit Gesamtzahl und den häufigsten Objekten; unbekannte IDs je Definition. */
 function libraryWarnings(ctx: AnalysisContext, out: PlanningWarning[]) {
-  const unverified = new Map<string, { name: string; count: number; floorId: Id; itemId: Id }>();
+  interface UnverifiedFloor { floorName: string; total: number; firstItemId: Id; byDef: Map<string, { name: string; count: number }> }
+  const unverified = new Map<Id, UnverifiedFloor>();
   const unknown = new Map<string, { count: number; floorId: Id; itemId: Id }>();
   for (const fc of ctx.floors) {
     for (const it of fc.items) {
@@ -367,9 +438,15 @@ function libraryWarnings(ctx: AnalysisContext, out: PlanningWarning[]) {
         continue;
       }
       if (def.verifiziert === false && def.bereich !== 'Bauelemente') {
-        const u = unverified.get(def.id) ?? { name: def.name, count: 0, floorId: fc.floor.id, itemId: it.id };
-        u.count += 1;
-        unverified.set(def.id, u);
+        let u = unverified.get(fc.floor.id);
+        if (!u) {
+          u = { floorName: fc.floor.name, total: 0, firstItemId: it.id, byDef: new Map() };
+          unverified.set(fc.floor.id, u);
+        }
+        u.total += 1;
+        const d = u.byDef.get(def.id) ?? { name: def.name, count: 0 };
+        d.count += 1;
+        u.byDef.set(def.id, d);
       }
       if (def.nur_an_rack) {
         const docked = !!it.dockedTo && fc.items.some((o) => o.id === it.dockedTo);
@@ -386,14 +463,19 @@ function libraryWarnings(ctx: AnalysisContext, out: PlanningWarning[]) {
       }
     }
   }
-  for (const [defId, u] of unverified) {
+  const multiFloor = ctx.floors.length > 1;
+  for (const [floorId, u] of unverified) {
+    const entries = [...u.byDef.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'de'));
+    const shown = entries.slice(0, UNVERIFIED_LIST_MAX);
+    const rest = entries.length - shown.length;
+    const list = shown.map((e) => (e.count > 1 ? `${e.name} (${e.count}×)` : e.name)).join(', ') + (rest > 0 ? ` … (+${rest} weitere)` : '');
     out.push({
-      id: `unverified:${defId}`,
+      id: `unverified:${floorId}`,
       kind: 'unverified',
       severity: 'info',
-      message: `Maße ungeprüft: ${q(u.name)} (${u.count}×) – vor dem Kauf beim Hersteller bestätigen.`,
-      floorId: u.floorId,
-      target: { kind: 'item', id: u.itemId },
+      message: `${multiFloor ? `${u.floorName}: ` : ''}${u.total} Objekt${u.total === 1 ? '' : 'e'} mit ungeprüften Maßen (generische Bibliothek): ${list} – vor dem Kauf beim Hersteller bestätigen.`,
+      floorId,
+      target: { kind: 'item', id: u.firstItemId },
     });
   }
   for (const [defId, u] of unknown) {
@@ -437,7 +519,7 @@ export const warnings: (project: Project) => PlanningWarning[] = memoByProject((
     const walls = allWalls(fc.floor);
     collisionWarnings(fc, fi, walls, ctx, out);
     doorWarnings(fc, fi, walls, project.settings.minEscapeRouteCm, out);
-    escapeRouteWarnings(fc, fi, project, out);
+    escapeRouteWarnings(fc, fi, project, ctx, out);
     ceilingWarnings(fc, ctx, out);
     facilityWarnings(fc, ctx, out);
     outsideHallWarnings(fc, fi, ctx, out);

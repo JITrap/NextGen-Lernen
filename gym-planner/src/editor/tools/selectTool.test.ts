@@ -14,6 +14,7 @@ import { useUiStore } from '@/store/uiStore';
 import { createEmptyProject, createHall, createItemFromDef, createWall, createFloor } from '@/store/factories';
 import { getDef } from '@/data/equipment';
 import { allWalls } from '@/geometry/walls';
+import { floorRooms } from '@/geometry/rooms';
 import { snapPoint } from '@/geometry/snap';
 
 function item(id: string, x: number, y: number, width: number, depth: number, rotation = 0, extra: Partial<PlacedItem> = {}): PlacedItem {
@@ -185,6 +186,8 @@ describe('Öffnungen und Wandknoten', () => {
 /* Integration: Werkzeug mit Store                                      */
 /* ------------------------------------------------------------------ */
 
+/** Räume (Halle/Wandzüge/Zonen) im Kontext mitgeben – Standard aus, damit Klicks „ins Leere“ keinen Raum treffen. */
+let withRooms = false;
 function mkCtx(): ToolContext {
   const project = useProjectStore.getState().project;
   const floor: Floor = project.floors.find((f) => f.id === project.activeFloorId) ?? project.floors[0];
@@ -193,7 +196,7 @@ function mkCtx(): ToolContext {
     project,
     floor,
     walls,
-    rooms: [],
+    rooms: withRooms ? floorRooms(floor) : [],
     items: floor.items,
     viewport: { scale: 1, x: 0, y: 0 },
     store: useProjectStore.getState(),
@@ -230,6 +233,7 @@ describe('Auswahl-Werkzeug (Integration)', () => {
     f.items = [a, b];
     f.walls = [createWall({ id: 'w1', start: { x: 300, y: 900 }, end: { x: 900, y: 900 } })];
     loadProject(p);
+    withRooms = false;
     useUiStore.getState().clearSelection();
     useSelectTool.getState().reset();
     tool().onCancel?.(mkCtx());
@@ -290,6 +294,7 @@ describe('Auswahl-Werkzeug (Integration)', () => {
     useProjectStore.getState().groupItems(floorNow().id, [a.id, b.id]);
     down(500, 500); up(500, 500);
     expect(sel().map((s) => s.id).sort()).toEqual([a.id, b.id].sort());
+    down(500, 500); up(500, 500); // zweiter Klick des Doppelklicks
     tool().onDoubleClick!(ev(500, 500), mkCtx());
     expect(sel()).toEqual([{ kind: 'item', id: a.id }]);
     expect(useUiStore.getState().rightPanel).toBe('properties');
@@ -312,11 +317,90 @@ describe('Auswahl-Werkzeug (Integration)', () => {
   });
 
   it('Doppelklick auf Hallenkante öffnet die Längeneingabe', () => {
+    down(1000, 0); up(1000, 0);
+    down(1000, 0); up(1000, 0);
     tool().onDoubleClick!(ev(1000, 0), mkCtx());
     const li = useSelectTool.getState().lengthInput;
     expect(li?.kind).toBe('hallEdge');
     expect(li?.id).toBe('0');
     expect(li?.initial).toBe('2000');
+  });
+
+  it('Doppelklick nur bei zwei Klicks an (fast) derselben Stelle und nie mit Shift (F2)', () => {
+    useUiStore.getState().setRightPanel('library');
+    // Klick a, schneller Shift+Klick b (< 400 ms → Konva-dblclick): Auswahl bleibt additiv
+    down(500, 500); up(500, 500);
+    down(1000, 500, { shift: true }); up(1000, 500, { shift: true });
+    tool().onDoubleClick!(ev(1000, 500, { shift: true }), mkCtx());
+    expect(sel().map((s) => s.id)).toEqual([a.id, b.id]);
+    expect(useUiStore.getState().rightPanel).toBe('library');
+    // Zwei schnelle Klicks an verschiedenen Stellen (ohne Shift) sind kein Doppelklick
+    down(500, 500); up(500, 500);
+    down(1000, 500); up(1000, 500);
+    tool().onDoubleClick!(ev(1000, 500), mkCtx());
+    expect(sel()).toEqual([{ kind: 'item', id: b.id }]);
+    expect(useUiStore.getState().rightPanel).toBe('library');
+    // Zweiter Klick 4 px daneben: echter Doppelklick → Eigenschaften
+    down(1000, 500); up(1000, 500);
+    down(1004, 500); up(1004, 500);
+    tool().onDoubleClick!(ev(1004, 500), mkCtx());
+    expect(useUiStore.getState().rightPanel).toBe('properties');
+  });
+
+  it('Rahmenauswahl startet auch auf dem Auto-Raum der Halle; Klick ohne Bewegung wählt den Raum (F1)', () => {
+    withRooms = true;
+    const room = mkCtx().rooms.find((r) => r.source === 'auto');
+    expect(room).toBeTruthy();
+    // Ziehen auf freier Hallenfläche → Rahmen, wählt die enthaltenen Objekte, keine Raumauswahl
+    down(300, 300);
+    expect(debugDragState()?.mode).toBe('marquee');
+    move(700, 500); move(1100, 700); up(1100, 700);
+    expect(sel().map((s) => s.id).sort()).toEqual([a.id, b.id].sort());
+    // Klick ohne Bewegung → Raum
+    down(300, 300); up(300, 300);
+    expect(sel()).toEqual([{ kind: 'room', id: room!.id }]);
+    // Bewegung unter der Schwelle zählt als Klick
+    down(1500, 1200); move(1500 + DRAG_THRESHOLD_PX - 1, 1200); up(1500 + DRAG_THRESHOLD_PX - 1, 1200);
+    expect(sel()).toEqual([{ kind: 'room', id: room!.id }]);
+    // Shift+Rahmen ergänzt, Shift+Klick auf den gewählten Raum wählt ihn ab
+    down(300, 300, { shift: true }); move(1100, 700, { shift: true }); up(1100, 700, { shift: true });
+    expect(sel().map((s) => s.id)).toEqual([room!.id, a.id, b.id]);
+    down(300, 300, { shift: true }); up(300, 300, { shift: true });
+    expect(sel().map((s) => s.id)).toEqual([a.id, b.id]);
+  });
+
+  it('gesperrte Zone: Ziehen zieht einen Rahmen auf, entsperrte Zone wird verschoben', () => {
+    withRooms = true;
+    const fid = floorNow().id;
+    const poly = [{ x: 300, y: 300 }, { x: 1200, y: 300 }, { x: 1200, y: 700 }, { x: 300, y: 700 }];
+    useProjectStore.getState().addZone(fid, { id: 'z1', name: 'Zone', type: 'Sonstiges', polygon: poly, locked: true });
+    down(320, 320);
+    expect(debugDragState()?.mode).toBe('marquee');
+    move(1100, 650); up(1100, 650);
+    expect(sel().map((s) => s.id).sort()).toEqual([a.id, b.id].sort());
+    down(320, 320); up(320, 320);
+    expect(sel()).toEqual([{ kind: 'zone', id: 'z1' }]);
+    useProjectStore.getState().updateZone(fid, 'z1', { locked: false });
+    down(320, 320);
+    expect(debugDragState()?.mode).toBe('move');
+    up(320, 320);
+  });
+
+  it('Koordinaten werden beim Loslassen auf 4 Nachkommastellen gerundet (ein Undo-Schritt)', () => {
+    const ref0 = historyLen();
+    transaction(() => useProjectStore.getState().renameFloor(floorNow().id, 'Ref'));
+    const perTransaction = historyLen() - ref0;
+    const before = historyLen();
+    down(500, 500); move(560, 540); move(600.00000000001, 580.123456789); up(600.00000000001, 580.123456789);
+    expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580.1235 });
+    expect(historyLen()).toBe(before + perTransaction);
+    // Freies Drehen zweier Objekte (Shift): Positionen/Winkel ohne Gleitkomma-Rauschen
+    useUiStore.getState().setSelection([{ kind: 'item', id: a.id }, { kind: 'item', id: b.id }]);
+    const rot = selectionHandles(sel(), { floor: floorNow(), items: floorNow().items, project: mkCtx().project }, 1).find((h) => h.kind === 'rotate')!;
+    down(rot.x, rot.y); move(rot.x + 30, rot.y + 17, { shift: true }); move(rot.x + 33, rot.y + 21, { shift: true }); up(rot.x + 33, rot.y + 21, { shift: true });
+    for (const it of floorNow().items) {
+      for (const v of [it.x, it.y, it.rotation]) expect(Math.abs(v * 1e4 - Math.round(v * 1e4))).toBeLessThan(1e-6);
+    }
   });
 
   it('Hover setzt die ID nur für Objekte', () => {

@@ -96,3 +96,29 @@ export function createClickTracker(maxPx = DBLCLICK_MAX_PX): ClickTracker {
     },
   };
 }
+
+/* ------------------------------------------------------------------ */
+/* Koordinaten runden                                                  */
+/* ------------------------------------------------------------------ */
+
+/** Rundet eine Koordinate/Länge auf 4 Nachkommastellen (kein Gleitkomma-Rauschen wie 1000.0000000000001 im Projekt). */
+export function roundCoord(v: number): number {
+  const r = Math.round(v * 1e4) / 1e4;
+  return r === 0 ? 0 : r;
+}
+/** Punkt gerundet; liefert dasselbe Objekt zurück, wenn nichts zu runden ist (keine unnötigen Store-Änderungen). */
+export function roundVec(p: Vec2): Vec2 {
+  const x = roundCoord(p.x);
+  const y = roundCoord(p.y);
+  return x === p.x && y === p.y ? p : { x, y };
+}
+/** Polygon gerundet; liefert dasselbe Array zurück, wenn kein Punkt geändert wurde. */
+export function roundPolygon(poly: Vec2[]): Vec2[] {
+  let changed = false;
+  const out = poly.map((p) => {
+    const q = roundVec(p);
+    if (q !== p) changed = true;
+    return q;
+  });
+  return changed ? out : poly;
+}

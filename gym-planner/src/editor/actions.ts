@@ -6,6 +6,7 @@
  */
 import type {
   Selection, PlacedItem, Zone, VoidArea, Annotation, Group, Wall, Opening, Floor, Hall, Vec2, SafetyZone, TextNote, MeasureLine, Id,
+  LayerVisibility,
 } from '@/types';
 import { useProjectStore, transaction, getActiveFloor } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
@@ -603,6 +604,38 @@ export function toggleHideSelection() {
   if (hidden) useUiStore.getState().clearSelection();
 }
 
+/** Anzahl ausgeblendeter Elemente eines Stockwerks (Objekte, Wände, Zonen, Öffnungen, Anmerkungen). */
+export function hiddenCount(floor: Floor): number {
+  let n = 0;
+  for (const list of [floor.items, floor.walls, floor.zones, floor.openings, floor.annotations] as { hidden?: boolean }[][]) {
+    for (const x of list) if (x.hidden) n++;
+  }
+  return n;
+}
+
+/**
+ * Blendet alle ausgeblendeten Elemente eines Stockwerks (Standard: aktives) wieder ein – ein Undo-Schritt.
+ * Rückgabe: Anzahl der eingeblendeten Elemente.
+ */
+export function showAllHidden(floorId?: Id): number {
+  const project = useProjectStore.getState().project;
+  const floor = floorId ? project.floors.find((f) => f.id === floorId) : getActiveFloor();
+  if (!floor) return 0;
+  const n = hiddenCount(floor);
+  if (!n) return 0;
+  const s = useProjectStore.getState();
+  const fid = floor.id;
+  const items = floor.items.filter((x) => x.hidden).map((x) => x.id);
+  transaction(() => {
+    if (items.length) s.updateItems(fid, items, (it) => { it.hidden = false; });
+    for (const w of floor.walls) if (w.hidden) s.updateWall(fid, w.id, { hidden: false });
+    for (const z of floor.zones) if (z.hidden) s.updateZone(fid, z.id, { hidden: false });
+    for (const o of floor.openings) if (o.hidden) s.updateOpening(fid, o.id, { hidden: false });
+    for (const a of floor.annotations) if (a.hidden) s.updateAnnotation(fid, a.id, { hidden: false });
+  });
+  return n;
+}
+
 /* ------------------------------------------------------------------ */
 /* Ausrichten / Verteilen                                              */
 /* ------------------------------------------------------------------ */
@@ -667,6 +700,64 @@ export function alignSelection(mode: AlignMode) {
 /* ------------------------------------------------------------------ */
 /* Auswahl                                                             */
 /* ------------------------------------------------------------------ */
+
+export interface PruneSelectionInput {
+  floor: Floor;
+  /** Sichtbare Objekte (inkl. verlinkter Treppen, ggf. ohne ausgeblendete Möbel-Ebene). */
+  items: PlacedItem[];
+  /** Alle Wände inkl. Hallen-Außenwände. */
+  walls: Wall[];
+  /** IDs der aktuell erkannten Räume/Zonen. */
+  roomIds: ReadonlySet<string>;
+  layers: Pick<LayerVisibility, 'items' | 'walls' | 'rooms' | 'openings' | 'annotations' | 'voids'>;
+}
+
+/**
+ * Entfernt Einträge aus der Auswahl, die es auf dem Stockwerk nicht (mehr) gibt, die ausgeblendet sind oder
+ * deren Ebene aus ist (rein) – liefert dieselbe Referenz, wenn nichts zu entfernen ist.
+ */
+export function pruneSelection(selection: Selection[], inp: PruneSelectionInput): Selection[] {
+  if (!selection.length) return selection;
+  const { floor, layers } = inp;
+  const itemById = new Map(inp.items.map((it) => [it.id, it] as const));
+  const ok = (s: Selection): boolean => {
+    switch (s.kind) {
+      case 'item': {
+        const it = itemById.get(s.id);
+        return layers.items && !!it && !it.hidden;
+      }
+      case 'wall': {
+        const w = inp.walls.find((x) => x.id === s.id);
+        return layers.walls && !!w && !w.hidden;
+      }
+      case 'zone': {
+        const z = floor.zones.find((x) => x.id === s.id);
+        return layers.rooms && !!z && !z.hidden;
+      }
+      case 'room':
+        return layers.rooms && inp.roomIds.has(s.id);
+      case 'opening': {
+        const o = floor.openings.find((x) => x.id === s.id);
+        return layers.openings && !!o && !o.hidden;
+      }
+      case 'annotation': {
+        const a = floor.annotations.find((x) => x.id === s.id);
+        return layers.annotations && !!a && !a.hidden;
+      }
+      case 'void':
+        return layers.voids && floor.voids.some((v) => v.id === s.id);
+      case 'hallVertex':
+      case 'hallEdge': {
+        const i = Number(s.id);
+        return !!floor.hall && Number.isInteger(i) && i >= 0 && i < floor.hall.polygon.length;
+      }
+      default:
+        return true;
+    }
+  };
+  const out = selection.filter(ok);
+  return out.length === selection.length ? selection : out;
+}
 
 /** Wählt alle sichtbaren Objekte des aktiven Stockwerks. */
 export function selectAll() {

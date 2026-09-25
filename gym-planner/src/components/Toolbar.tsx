@@ -298,12 +298,13 @@ const ToolButton = memo(function ToolButton({
   onActivate: (def: ToolDef) => void;
   onOpenFlyout: (def: ToolDef, el: HTMLElement) => void;
 }) {
-  const ref = useRef<HTMLButtonElement>(null);
+  // Anker des Flyouts ist der Wrapper (Werkzeug- + Optionen-Button): Klicks darauf zählen für das Popover als „innen“,
+  // sodass der Optionen-Button das Flyout auch wieder schließen kann (sonst schließt der pointerdown und der click öffnet erneut).
+  const ref = useRef<HTMLDivElement>(null);
   const title = def.key ? `${def.label} (${def.key})` : def.label;
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <button
-        ref={ref}
         type="button"
         title={def.flyout ? `${title} – erneut klicken für Optionen` : title}
         aria-label={title}
@@ -334,7 +335,9 @@ const ToolButton = memo(function ToolButton({
           style={{ color: active ? 'white' : 'var(--gp-muted)' }}
           onClick={(e) => {
             e.stopPropagation();
-            onActivate(def);
+            // Werkzeug nur aktivieren, wenn es nicht schon aktiv ist (onActivate schließt das Flyout) – so schließt
+            // ein erneuter Klick auf den Optionen-Button das offene Flyout statt es sofort wieder zu öffnen.
+            if (!active) onActivate(def);
             if (ref.current) onOpenFlyout(def, ref.current);
           }}
         >

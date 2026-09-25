@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { useProjectStore, undo, redo, clearHistory, transaction, loadProject, beginTransaction, endTransaction } from './projectStore';
-import { createEmptyProject, createWall, createHall } from './factories';
-import type { PlacedItem } from '@/types';
+import { createEmptyProject, createWall, createHall, createItemFromDef } from './factories';
+import type { PlacedItem, EquipmentDef } from '@/types';
 
 describe('Projekt-Store mit Undo/Redo', () => {
   beforeEach(() => {
@@ -183,5 +183,80 @@ describe('Review-Befunde Store', () => {
     expect(orderOf(f0)).toBeLessThan(orderOf(f2));
     const orders = useProjectStore.getState().project.floors.map((f) => f.order);
     expect(new Set(orders).size).toBe(orders.length);
+  });
+});
+
+describe('Abschlusskorrekturen Store', () => {
+  const past = () => useProjectStore.temporal.getState().pastStates.length;
+  const mk = (id: string, extra: Partial<PlacedItem> = {}): PlacedItem => ({ id, kind: 'equipment', defId: 'x', x: 0, y: 0, rotation: 0, width: 10, depth: 10, height: 10, safetyZone: { vorne: 0, hinten: 0, links: 0, rechts: 0 }, safetyZoneEnabled: true, ...extra });
+  const customDef = (id: string, extra: Partial<EquipmentDef> = {}): EquipmentDef => ({
+    id, kategorie: 'Eigene', unterkategorie: 'Eigene', hersteller: 'Eigene', name: id, breite_cm: 100, tiefe_cm: 50, hoehe_cm: 120, gewicht_kg: 80,
+    sicherheitszone_cm: { vorne: 50, hinten: 0, links: 0, rechts: 0 }, form: 'rechteck', skalierbar: false, verifiziert: false, bereich: 'Eigene', symbol: 'generic', ...extra,
+  });
+
+  beforeEach(() => {
+    loadProject(createEmptyProject('Fixes'));
+  });
+
+  it('No-op-Mutationen (identischer Patch, gleiche Einstellung) erzeugen keinen Undo-Schritt und lassen updatedAt unverändert', () => {
+    const s = useProjectStore.getState();
+    const fid = s.project.activeFloorId;
+    s.addItems(fid, [mk('a', { x: 100, y: 200, rotation: 90 })]);
+    const before = past();
+    const ref = useProjectStore.getState().project;
+    useProjectStore.getState().updateItem(fid, 'a', { x: 100, y: 200, rotation: 90 });
+    expect(useProjectStore.getState().project).toBe(ref);
+    expect(past()).toBe(before);
+    useProjectStore.getState().updateSettings({ gridSize: ref.settings.gridSize, snapEnabled: ref.settings.snapEnabled });
+    useProjectStore.getState().updateItem(fid, 'gibt-es-nicht', { x: 5 });
+    useProjectStore.getState().renameProject('Fixes');
+    expect(useProjectStore.getState().project).toBe(ref);
+    expect(useProjectStore.getState().project.updatedAt).toBe(ref.updatedAt);
+    expect(past()).toBe(before);
+    // Echte Änderung: neuer Zustand, ein Undo-Schritt
+    useProjectStore.getState().updateItem(fid, 'a', { x: 150 });
+    expect(useProjectStore.getState().project).not.toBe(ref);
+    expect(useProjectStore.getState().project.floors[0].items[0].x).toBe(150);
+    expect(past()).toBe(before + 1);
+    undo();
+    expect(useProjectStore.getState().project.floors[0].items[0].x).toBe(100);
+  });
+
+  it('updateCustomEquipment passt platzierte Objekte an (Maße, Höhe und Zone nur bei altem Standard)', () => {
+    const s = useProjectStore.getState();
+    const fid = s.project.activeFloorId;
+    const def = customDef('eig-1');
+    s.addCustomEquipment(def);
+    s.addItems(fid, [
+      createItemFromDef(def, 100, 100),
+      createItemFromDef(def, 400, 100, { height: 200, safetyZone: { vorne: 80, hinten: 0, links: 0, rechts: 0 } }),
+    ]);
+    const stepsBefore = past();
+    useProjectStore.getState().updateCustomEquipment('eig-1', { breite_cm: 120, tiefe_cm: 60, hoehe_cm: 130, sicherheitszone_cm: { vorne: 60, hinten: 0, links: 0, rechts: 0 } });
+    expect(past()).toBe(stepsBefore + 1);
+    let [a, b] = useProjectStore.getState().project.floors[0].items;
+    expect([a.width, a.depth, a.height, a.safetyZone.vorne]).toEqual([120, 60, 130, 60]);
+    // individuelle Höhe/Zone bleiben, Maße folgen (nicht skalierbar)
+    expect([b.width, b.depth, b.height, b.safetyZone.vorne]).toEqual([120, 60, 200, 80]);
+    expect(useProjectStore.getState().project.customEquipment[0].breite_cm).toBe(120);
+    // skalierbar: nur Objekte mit Standardmaß folgen
+    useProjectStore.getState().updateCustomEquipment('eig-1', { skalierbar: true });
+    useProjectStore.getState().updateItem(fid, b.id, { width: 300, depth: 60 });
+    useProjectStore.getState().updateCustomEquipment('eig-1', { breite_cm: 150 });
+    [a, b] = useProjectStore.getState().project.floors[0].items;
+    expect([a.width, a.depth]).toEqual([150, 60]);
+    expect([b.width, b.depth]).toEqual([300, 60]);
+    // wieder nicht skalierbar: alle Objekte auf Definitionsmaß
+    useProjectStore.getState().updateCustomEquipment('eig-1', { skalierbar: false });
+    [a, b] = useProjectStore.getState().project.floors[0].items;
+    expect([a.width, b.width]).toEqual([150, 150]);
+    // unbekannte ID: keine Änderung, kein Undo-Schritt
+    const n = past();
+    useProjectStore.getState().updateCustomEquipment('nope', { breite_cm: 1 });
+    expect(past()).toBe(n);
+    // Undo stellt Definition und Objekte gemeinsam zurück
+    undo();
+    expect(useProjectStore.getState().project.customEquipment[0].skalierbar).toBe(true);
+    expect(useProjectStore.getState().project.floors[0].items[1].width).toBe(300);
   });
 });

@@ -152,7 +152,8 @@ describe('CSV-Stückliste', () => {
     const sp = sampleProject();
     const srows = bomRows(sp);
     const sl = bom(sp);
-    expect(srows.map((r) => [r.defId, r.anzahl, r.stueckpreis, r.summe])).toEqual(sl.lines.map((l) => [l.defId, l.count, l.unitPriceEur, l.totalEur]));
+    expect(srows.map((r) => [r.key, r.defId, r.anzahl, r.stueckpreis, r.summe])).toEqual(sl.lines.map((l) => [l.key, l.defId, l.count, l.unitPriceEur, l.totalEur]));
+    expect(new Set(srows.map((r) => r.key)).size).toBe(srows.length);
     expect(bomTotals(srows)).toEqual({ anzahl: sl.totalCount, gewicht: sl.totalWeightKg, summe: sl.totalEur, ohnePreis: sl.linesWithoutPrice });
   });
 

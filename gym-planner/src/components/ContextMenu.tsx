@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
-  Copy, ClipboardPaste, Trash2, RotateCw, RotateCcw, FlipHorizontal2, FlipVertical2, Lock, LockOpen, EyeOff, Group, Ungroup,
+  Copy, ClipboardPaste, Trash2, RotateCw, RotateCcw, FlipHorizontal2, FlipVertical2, Lock, LockOpen, Eye, EyeOff, Group, Ungroup,
   AlignStartVertical, AlignCenterVertical, AlignEndVertical, AlignStartHorizontal, AlignCenterHorizontal, AlignEndHorizontal,
   AlignHorizontalDistributeCenter, AlignVerticalDistributeCenter, Library, SlidersHorizontal, Scissors, Pencil, LayoutDashboard,
   SquareDashedMousePointer, Maximize2, Square, Pentagon, DoorOpen, Grid3x3, Magnet, ArrowLeftRight, MoveVertical, Files,
@@ -115,10 +115,22 @@ export function ContextMenu() {
     const paste: MenuEntry = { label: 'Einfügen', icon: <ClipboardPaste size={15} />, kbd: 'Strg+V', disabled: clipboardEmpty, onSelect: () => actions.pasteClipboard() };
     const del = (label = 'Löschen'): MenuEntry => ({ label, icon: <Trash2 size={15} />, kbd: 'Entf', danger: true, onSelect: () => actions.deleteSelection() });
     const props: MenuEntry = { label: 'Eigenschaften', icon: <SlidersHorizontal size={15} />, onSelect: () => ui.setRightPanel('properties') };
+    // Ausgeblendete Elemente des Stockwerks wieder einblenden (nur anbieten, wenn es welche gibt)
+    const hiddenN = actions.hiddenCount(floor);
+    const showHidden: MenuEntry[] = hiddenN
+      ? [{
+          label: `Ausgeblendete Objekte einblenden (${hiddenN})`,
+          icon: <Eye size={15} />,
+          onSelect: () => {
+            const n = actions.showAllHidden(fid);
+            if (n) ui.toast(n === 1 ? '1 Element eingeblendet' : `${n} Elemente eingeblendet`, 'success');
+          },
+        }]
+      : [];
 
     if (!target) {
       // Leerfläche
-      const list: MenuEntry[] = [paste, { label: 'Alles auswählen', icon: <SquareDashedMousePointer size={15} />, kbd: 'Strg+A', onSelect: () => actions.selectAll() }, { label: 'Alles einpassen', icon: <Maximize2 size={15} />, kbd: 'G', onSelect: () => ui.requestFit() }, { separator: true }];
+      const list: MenuEntry[] = [paste, { label: 'Alles auswählen', icon: <SquareDashedMousePointer size={15} />, kbd: 'Strg+A', onSelect: () => actions.selectAll() }, ...showHidden, { label: 'Alles einpassen', icon: <Maximize2 size={15} />, kbd: 'G', onSelect: () => ui.requestFit() }, { separator: true }];
       if (!floor.hall) {
         list.push(
           { label: 'Halle anlegen (Rechteck)', icon: <Square size={15} />, kbd: 'H', onSelect: () => ui.setTool('hall-rect') },
@@ -261,6 +273,7 @@ export function ContextMenu() {
             { label: 'Ausblenden', icon: <EyeOff size={15} />, onSelect: () => transaction(() => store.updateZone(fid, zone.id, { hidden: true })) },
           );
         }
+        if (!zone) list.push(...showHidden);
         list.push(props);
         if (zone) list.push(del('Zone löschen'));
         else list.push({ label: 'Raum entsteht aus Wänden – zum Entfernen Wände löschen', disabled: true });

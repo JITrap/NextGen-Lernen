@@ -82,6 +82,8 @@ export function NumberField({
   const focusText = useRef<string | null>(null);
   /** Esc gedrückt: das durch blur() synchron ausgelöste onBlur darf den Entwurf nicht übernehmen. */
   const cancelling = useRef(false);
+  /** Enter hat bereits übernommen: das durch blur() synchron ausgelöste onBlur (veraltete Closure) darf nicht erneut committen. */
+  const committedByEnter = useRef(false);
   const fmt = (v: number) => (format ? format(v) : formatPlain(v, integer ? 0 : Math.max(decimals, 2)));
   const shown = value == null ? '' : fmt(value);
 
@@ -113,11 +115,21 @@ export function NumberField({
     if (value == null || Math.abs(v - value) > 1e-9) onChange(v);
   };
 
+  const onBlur = () => {
+    if (committedByEnter.current) {
+      committedByEnter.current = false;
+      return;
+    }
+    commit();
+  };
+
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       commit();
+      committedByEnter.current = true;
       e.currentTarget.blur();
+      committedByEnter.current = false;
     } else if (e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
@@ -147,7 +159,9 @@ export function NumberField({
         type="text"
         inputMode="decimal"
         autoComplete="off"
-        className={`gp-input tabular-nums ${compact ? 'h-8 py-0.5 text-xs' : 'min-h-[36px]'} ${unit ? 'pr-9' : ''} ${error ? 'ring-2 ring-red-500/50' : ''} ${inputClassName}`}
+        className={`gp-input tabular-nums ${compact ? 'h-8 py-0.5 text-xs' : 'min-h-[36px]'} ${error ? 'ring-2 ring-red-500/50' : ''} ${inputClassName}`}
+        // Platz für das Einheiten-Suffix (≈ 7 px je Zeichen + Rand), mindestens 36 px („cm“, „kg“); „kg/m²“ → 49 px
+        style={unit ? { paddingRight: Math.max(36, unit.length * 7 + 14) } : undefined}
         value={draft ?? shown}
         placeholder={placeholder}
         disabled={disabled}
@@ -160,11 +174,12 @@ export function NumberField({
         onFocus={(e) => {
           if (readOnly) return;
           cancelling.current = false;
+          committedByEnter.current = false;
           setDraft(shown);
           focusText.current = shown;
           if (selectOnFocus) e.target.select();
         }}
-        onBlur={commit}
+        onBlur={onBlur}
         onKeyDown={onKeyDown}
       />
       {unit && <span className="pointer-events-none absolute right-2 text-[11px] gp-muted">{unit}</span>}

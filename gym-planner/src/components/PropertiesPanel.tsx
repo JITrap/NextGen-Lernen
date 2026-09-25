@@ -234,7 +234,7 @@ function LockHideDelete({ floor, sel, locked, deleteLabel = 'Löschen', extra }:
       <Button size="sm" icon={locked ? <LockOpen size={14} /> : <Lock size={14} />} onClick={() => toggleLockFallback(floor, sel)} title="Strg+L">
         {locked ? 'Entsperren' : 'Sperren'}
       </Button>
-      <Button size="sm" icon={<EyeOff size={14} />} onClick={() => toggleHideFallback(floor, sel)} title="Ausblenden (über das Ebenen-Panel bzw. Kontextmenü wieder einblenden)">
+      <Button size="sm" icon={<EyeOff size={14} />} onClick={() => toggleHideFallback(floor, sel)} title="Ausblenden – wieder einblenden über „Ausgeblendete Objekte“ im Abschnitt „Stockwerk“ (Eigenschaften ohne Auswahl)">
         Ausblenden
       </Button>
       <Button size="sm" variant="danger" icon={<Trash2 size={14} />} onClick={() => deleteSelectionFallback(floor)} title="Entf">
@@ -279,7 +279,15 @@ function FloorHallProps({ floor, rooms }: { floor: Floor; rooms: Room[] }) {
     transaction(() => store().updateHall(floor.id, (h) => { h.polygon[(i + 1) % n] = nb; }));
   };
   const itemCount = floor.items.length;
-  const hiddenCount = floor.items.filter((it) => it.hidden).length;
+  const hiddenItems = floor.items.filter((it) => it.hidden);
+  const hiddenCount = hiddenItems.length;
+  const project = useProjectStore((s) => s.project);
+  /** Objekt wieder einblenden (ein Undo-Schritt) und auswählen. */
+  const showHidden = (ids: string[]) => {
+    if (!ids.length) return;
+    transaction(() => { for (const id of ids) store().updateItem(floor.id, id, { hidden: false }); });
+    ui().setSelection(ids.map((id) => ({ kind: 'item' as const, id })));
+  };
 
   return (
     <div className="flex flex-col">
@@ -300,6 +308,32 @@ function FloorHallProps({ floor, rooms }: { floor: Floor; rooms: Room[] }) {
           <KeyValue label="Objekte" value={hiddenCount ? `${itemCount} (${hiddenCount} ausgeblendet)` : String(itemCount)} mono />
           <KeyValue label="Öffnungen" value={String(floor.openings.length)} mono />
         </div>
+        {hiddenCount > 0 && (
+          <div className="flex flex-col gap-1" data-testid="hidden-items">
+            <div className="flex items-center justify-between gap-2">
+              <span className="gp-label">Ausgeblendete Objekte ({hiddenCount})</span>
+              {hiddenCount > 1 && (
+                <Button size="sm" icon={<Eye size={13} />} onClick={() => showHidden(hiddenItems.map((it) => it.id))} title="Alle ausgeblendeten Objekte dieses Stockwerks einblenden und auswählen">
+                  Alle einblenden
+                </Button>
+              )}
+            </div>
+            <ul className="flex flex-col gap-0.5">
+              {hiddenItems.map((it) => {
+                const name = it.label || getDef(it.defId, project)?.name || 'Objekt';
+                return (
+                  <li key={it.id} className="flex items-center gap-2 text-xs">
+                    <EyeOff size={12} className="shrink-0 gp-muted" aria-hidden="true" />
+                    <span className="min-w-0 flex-1 truncate" title={name}>{name}</span>
+                    <Button size="sm" icon={<Eye size={13} />} onClick={() => showHidden([it.id])} title={`„${name}“ einblenden und auswählen`} aria-label={`${name} einblenden`}>
+                      Einblenden
+                    </Button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </Section>
       {hall && stats ? (
         <>

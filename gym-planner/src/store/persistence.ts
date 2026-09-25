@@ -38,6 +38,10 @@ export const LS_SAVED_KEY = 'gymplanner.lastSaved';
 export const CHANNEL_NAME = 'gymplanner';
 export const CONFLICT_MESSAGE = 'In einem anderen Tab geändert – Seite neu laden';
 export const DELETED_MESSAGE = 'Projekt wurde gelöscht – Speichern abgebrochen (Projekt als JSON sichern oder Seite neu laden)';
+/** Hinweis beim Start bzw. Wechsel in den localStorage-Modus (einmalig je Sitzung). */
+export const LOCAL_MODE_MESSAGE = 'IndexedDB nicht verfügbar – Speicherung im localStorage (begrenzt)';
+/** Deutsche Meldung bei vollem Browserspeicher (QuotaExceededError). */
+export const QUOTA_MESSAGE = 'Speicher voll – bitte alte Projekte oder Versionen löschen';
 const LS_DATA_PREFIX = 'gymplanner.data.';
 export const MAX_VERSIONS = 20;
 /** Weniger Versionen im localStorage-Fallback (5 MB Limit). */
@@ -70,18 +74,35 @@ function detectMode(): StorageMode {
   mode = typeof indexedDB !== 'undefined' && indexedDB !== null ? 'idb' : 'local';
   return mode;
 }
+/** Meldet den localStorage-Modus genau einmal (Start: Info; Laufzeitfehler von IndexedDB: Warnung mit Grund). */
+function announceLocalMode(reason?: unknown) {
+  if (fallbackAnnounced) return;
+  fallbackAnnounced = true;
+  const msg = reason == null ? '' : reason instanceof Error ? reason.message : String(reason);
+  toast(msg ? `${LOCAL_MODE_MESSAGE} – Grund: ${msg}.` : `${LOCAL_MODE_MESSAGE}.`, reason == null ? 'info' : 'warning');
+}
 function switchToLocal(reason: unknown) {
   if (mode === 'local') return;
   mode = 'local';
   useProjectIndex.setState({ storage: 'local' });
-  if (!fallbackAnnounced) {
-    fallbackAnnounced = true;
-    const msg = reason instanceof Error ? reason.message : String(reason ?? '');
-    toast(`IndexedDB nicht verfügbar${msg ? ` (${msg})` : ''} – Projekte werden im localStorage gespeichert (begrenzter Platz).`, 'warning');
-  }
+  announceLocalMode(reason);
 }
 export function storageMode(): StorageMode {
   return detectMode();
+}
+
+/** Voller Speicher: QuotaExceededError (Chromium/Safari, code 22) bzw. NS_ERROR_DOM_QUOTA_REACHED (Firefox, code 1014). */
+export function isQuotaError(e: unknown): boolean {
+  if (!e || typeof e !== 'object') return false;
+  const { name, code, message } = e as { name?: unknown; code?: unknown; message?: unknown };
+  if (name === 'QuotaExceededError' || name === 'NS_ERROR_DOM_QUOTA_REACHED') return true;
+  if (code === 22 || code === 1014) return true;
+  return typeof message === 'string' && /quota/i.test(message);
+}
+/** Fehlertext für Speicherfehler: bei vollem Speicher die deutsche Meldung, sonst die Fehlermeldung. */
+export function storageErrorMessage(e: unknown): string {
+  if (isQuotaError(e)) return QUOTA_MESSAGE;
+  return e instanceof Error ? e.message : String(e);
 }
 
 function localGet<T>(key: string): T | undefined {
@@ -124,7 +145,7 @@ async function storeRead<T>(key: string): Promise<StoreReadResult<T>> {
       return { ok: true, value: await idbGet<T>(key) };
     } catch (e) {
       switchToLocal(e);
-      return { ok: false, error: e instanceof Error ? e.message : String(e) };
+      return { ok: false, error: storageErrorMessage(e) };
     }
   }
   return { ok: true, value: localGet<T>(key) };
@@ -219,7 +240,7 @@ function writeIndex(list: ProjectSummary[]) {
   try {
     if (hasLocalStorage()) localStorage.setItem(LS_INDEX_KEY, JSON.stringify(sorted));
   } catch (e) {
-    toast(`Projektliste konnte nicht gespeichert werden: ${e instanceof Error ? e.message : String(e)}`, 'error');
+    toast(`Projektliste konnte nicht gespeichert werden: ${storageErrorMessage(e)}`, 'error');
   }
   useProjectIndex.setState({ projects: sorted });
 }
@@ -498,7 +519,7 @@ async function persistProject(p: Project, force = false): Promise<boolean> {
     useSaveStatus.setState({ status: 'saved', lastSavedAt: savedAt, error: null, dirty: pending !== null });
     return true;
   } catch (e) {
-    const msg = e instanceof Error ? e.message : String(e);
+    const msg = storageErrorMessage(e);
     useSaveStatus.setState({ status: 'error', error: msg, dirty: true });
     toast(`Speichern fehlgeschlagen: ${msg}`, 'error');
     writeLastProjectSync(p);
@@ -601,6 +622,7 @@ let initPromise: Promise<void> | null = null;
 
 async function doInit(): Promise<void> {
   try {
+    if (detectMode() === 'local') announceLocalMode();
     let index = readIndex();
     if (!index.length) index = await rebuildIndexFromStorage();
     const activeId = readActiveId();
@@ -648,7 +670,7 @@ async function doInit(): Promise<void> {
     else useSaveStatus.setState({ status: 'saved', dirty: false, error: null, lastSavedAt: project.updatedAt });
     useUiStore.getState().requestFit();
   } catch (e) {
-    const msg = e instanceof Error ? e.message : String(e);
+    const msg = storageErrorMessage(e);
     toast(`Projekt konnte nicht geladen werden: ${msg}. Ein leeres Projekt wurde angelegt.`, 'error');
     const p = createEmptyProject();
     applyProject(p);
@@ -697,7 +719,7 @@ export async function saveVersion(label?: string, projectArg?: Project): Promise
     try {
       await storeSet(versionsKey(project.id), next.slice(0, 3));
     } catch {
-      toast(`Version konnte nicht gesichert werden: ${e instanceof Error ? e.message : String(e)}`, 'error');
+      toast(`Version konnte nicht gesichert werden: ${storageErrorMessage(e)}`, 'error');
       return null;
     }
   }
@@ -847,7 +869,7 @@ export async function renameProject(id: string, name: string): Promise<boolean> 
     broadcast({ type: 'project-saved', id, updatedAt: p.updatedAt });
     return true;
   } catch (e) {
-    toast(`Umbenennen fehlgeschlagen: ${e instanceof Error ? e.message : String(e)}`, 'error');
+    toast(`Umbenennen fehlgeschlagen: ${storageErrorMessage(e)}`, 'error');
     return false;
   }
 }
@@ -918,7 +940,7 @@ export async function deleteProject(id: string): Promise<boolean> {
     await storeDel(projectKey(id));
     await storeDel(versionsKey(id));
   } catch (e) {
-    toast(`Löschen fehlgeschlagen: ${e instanceof Error ? e.message : String(e)}`, 'error');
+    toast(`Löschen fehlgeschlagen: ${storageErrorMessage(e)}`, 'error');
     deletedIds.delete(id);
     return false;
   }
