@@ -4,15 +4,25 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 
+/**
+ * GP_SINGLE=1 erzeugt einen Ein-Datei-Build (keine Code-Aufteilung, dynamische Importe eingebettet)
+ * für Umgebungen, die nur eingebettete Skripte erlauben (z. B. Veröffentlichung als einzelne HTML-Seite).
+ */
+const single = process.env.GP_SINGLE === '1';
+
 export default defineConfig({
+  // Relative Pfade: läuft unter jeder Basis-URL (GitHub Pages, Unterordner, file://-Vorschau).
+  base: './',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { '@': new URL('./src', import.meta.url).pathname },
   },
   build: {
-    chunkSizeWarningLimit: 2500,
+    chunkSizeWarningLimit: 4000,
+    outDir: single ? 'dist-single' : 'dist',
+    modulePreload: !single,
     rolldownOptions: {
-      output: {
+      output: single ? { inlineDynamicImports: true } : {
         // Explizite Chunk-Gruppen (Rolldown): ohne sie zieht die konva-/three-Gruppe ihre Abhängigkeiten (React, Zustand,
         // use-sync-external-store, jsx-runtime …) mit hinein, der Einstiegs-Chunk importiert sie dann aus dem three-Chunk
         // und three.js (≈ 930 kB) wird beim Start per modulepreload geladen. Höhere Priorität = zuerst zugeordnet.

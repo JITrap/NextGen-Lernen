@@ -8,3 +8,6 @@ coverage
 # temporäre Prüf-Tests von Review-/Verifikationsläufen
 src/__review__/
 src/__verify__/
+
+# Ein-Datei-Build
+dist-single
