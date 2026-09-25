@@ -311,3 +311,56 @@ describe('Indizes gegen in-place veränderte Arrays (N1)', () => {
     expect(wallIndexFor(walls)).not.toBe(w1);
   });
 });
+
+describe('escapeRouteBottlenecks – Beteiligte, Ausschlüsse, Rücken an Rücken, belegte Spalte', () => {
+  it('subjectIds: nur Paare mit mindestens einem Beteiligten; excludeIds nimmt Objekte ganz heraus', () => {
+    const a = item('a', 0, 0, 100, 100);
+    const b = item('b', 200, 0, 100, 100); // 100 cm zu a
+    const c = item('c', 400, 0, 100, 100); // 100 cm zu b
+    const all = escapeRouteBottlenecks([a, b, c], [], null, 120);
+    expect(all.map((r) => [r.a, r.b].sort().join('|')).sort()).toEqual(['a|b', 'b|c']);
+    const onlyA = escapeRouteBottlenecks([a, b, c], [], null, 120, { subjectIds: new Set(['a']) });
+    expect(onlyA.map((r) => [r.a, r.b].sort().join('|'))).toEqual(['a|b']);
+    // Objekt–Wand/Hallenkante nur für Beteiligte
+    const w = wall('w', 550, -200, 550, 200, 10); // Fläche bei 545 → 95 cm zu c
+    expect(escapeRouteBottlenecks([a, b, c], [w], null, 120, { subjectIds: new Set(['c']) }).map((r) => [r.a, r.b].sort().join('|')).sort()).toEqual(['b|c', 'c|w']);
+    expect(escapeRouteBottlenecks([a, b, c], [w], null, 120, { subjectIds: new Set(['a']) }).some((r) => r.b === 'w' || r.a === 'w')).toBe(false);
+    // Ausgeschlossene Objekte sind weder Beteiligte noch Hindernis
+    const ex = escapeRouteBottlenecks([a, b, c], [w], null, 120, { subjectIds: new Set(['a', 'c']), excludeIds: new Set(['b']) });
+    expect(ex.map((r) => [r.a, r.b].sort().join('|')).sort()).toEqual(['c|w']); // a–c sind 300 cm auseinander
+  });
+
+  it('Spalt zwischen zwei Rückseiten (Reihen Rücken an Rücken) ist kein Laufweg', () => {
+    const upper = item('u', 0, 0, 100, 100, 180); // Rückseite zeigt nach +y (unten)
+    const lower = item('l', 0, 200, 100, 100, 0); // Rückseite zeigt nach −y (oben) → Rücken an Rücken, Spalt 100
+    expect(escapeRouteBottlenecks([upper, lower], [], null, 120)).toEqual([]);
+    // Nur eine Rückseite am Spalt → Laufweg
+    expect(escapeRouteBottlenecks([upper, { ...lower, rotation: 180 }], [], null, 120)).toHaveLength(1);
+    expect(escapeRouteBottlenecks([{ ...upper, rotation: 0 }, lower], [], null, 120)).toHaveLength(1);
+    // Seitlicher Spalt (x): Rückseiten zeigen bei 0° nach −y, also nicht in den Spalt → Laufweg; bei 90°/270° Rücken an Rücken
+    expect(escapeRouteBottlenecks([item('p', 0, 0, 100, 100, 0), item('q', 200, 0, 100, 100, 0)], [], null, 120)).toHaveLength(1);
+    expect(escapeRouteBottlenecks([item('p', 0, 0, 100, 100, 90), item('q', 200, 0, 100, 100, 90)], [], null, 120)).toHaveLength(1);
+    expect(escapeRouteBottlenecks([item('p', 0, 0, 100, 100, 90), item('q', 200, 0, 100, 100, 270)], [], null, 120)).toEqual([]);
+  });
+
+  it('von einem dritten Objekt oder einer Wand überwiegend belegter Spalt zählt nicht (Teil-Spalte werden separat geprüft)', () => {
+    const a = item('a', 0, 0, 100, 100);
+    const b = item('b', 300, 0, 100, 100); // Spalt 200 (x 50–250), Band y −50…50
+    // Ständer in der Mitte belegt 80 % des Bands → a|b entfällt, a|m und m|b (je 50 cm) bleiben
+    const m = item('m', 150, 0, 100, 80);
+    const res = escapeRouteBottlenecks([a, b, m], [], null, 250);
+    expect(res.map((r) => [r.a, r.b].sort().join('|')).sort()).toEqual(['a|m', 'b|m']);
+    expect(res.every((r) => r.width === 50)).toBe(true);
+    // Kleines Objekt (40 % des Bands) blockiert nicht: a|b bleibt (Teil-Spalte haben < 60 cm Überlappung)
+    const small = item('s', 150, 0, 100, 40);
+    const res2 = escapeRouteBottlenecks([a, b, small], [], null, 250);
+    expect(res2.map((r) => [r.a, r.b].sort().join('|'))).toEqual(['a|b']);
+    expect(res2[0].width).toBe(200);
+    // Wand zwischen zwei Objekten (Räume) → kein Laufweg zwischen ihnen, nur die Abstände zur Wandfläche (je 95 cm)
+    const w = wall('w', 150, -300, 150, 300, 10);
+    const withWall = escapeRouteBottlenecks([a, b], [w], null, 250);
+    expect(withWall.map((r) => [r.a, r.b].sort().join('|')).sort()).toEqual(['a|w', 'b|w']);
+    expect(withWall.every((r) => Math.abs(r.width - 95) < 1e-6)).toBe(true);
+    expect(escapeRouteBottlenecks([a, b], [w], null, 90)).toEqual([]);
+  });
+});

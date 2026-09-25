@@ -7,6 +7,7 @@ import { allWalls, findWall, hallInnerPolygon, hallOuterPolygon, wallLength } fr
 import { floorRooms } from '@/geometry/rooms';
 import { findCollisions, itemInsideHall, itemsInDoorSwing, emergencyExitBlocked } from '@/geometry/collision';
 import { itemFootprint, itemSafetyPolygon, zoneIsEmpty } from '@/geometry/transform';
+import { warnings } from '@/analysis';
 
 const EXPECTED_AREAS: Record<string, number> = { 'empty-20x25': 500, 'studio-400': 400, 'studio-800': 800 };
 
@@ -120,6 +121,25 @@ describe('Projekt-Vorlagen', () => {
           expect(emergencyExitBlocked(floor.items, d, findWall(floor, d.wallId)!), `Notausgang ${d.id} blockiert`).toBe(false);
         }
       });
+
+      if (t.id !== 'empty-20x25') {
+        it('startet mit höchstens 3 Laufweg-Warnungen (je Raum gebündelt) und genau einer Info „Maße ungeprüft“ je Stockwerk', () => {
+          const list = warnings(p);
+          const escape = list.filter((w) => w.kind === 'escape-route');
+          expect(escape.length, escape.map((w) => w.message).join('\n')).toBeLessThanOrEqual(3);
+          for (const w of escape) {
+            expect(w.message).toMatch(/^Raum „.+“: /);
+            expect(w.target && 'point' in w.target).toBe(true);
+          }
+          const unverified = list.filter((w) => w.kind === 'unverified');
+          expect(unverified.length).toBe(p.floors.length);
+          expect(unverified[0].severity).toBe('info');
+          expect(unverified[0].floorId).toBe(floor.id);
+          expect(unverified[0].message).toMatch(/^\d+ Objekte mit ungeprüften Maßen \(generische Bibliothek\): /);
+          // Keine weiteren Warnungsarten ab Werk (keine Kollisionen, Türen, Notausgänge, Deckenhöhe …)
+          expect(list.filter((w) => w.kind !== 'escape-route' && w.kind !== 'unverified').map((w) => w.message)).toEqual([]);
+        });
+      }
 
       it('zweimaliges create() liefert unabhängige Projekte mit neuen IDs', () => {
         const q = t.create();

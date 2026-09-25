@@ -7,11 +7,13 @@ import { serializeProject, parseProject, parseProjectDetailed, stableStringify, 
 import { bomRows, bomTotals, bomCsvText, csvNumber, csvCell, CSV_HEADER } from './csv';
 import {
   paperMmForCm, cmForPaperMm, pxPerCmForPaper, clampPxPerCm, floorContentBounds, layoutFloorRender, scaleBarLength, legendRoomTypes,
-  renderFloorToCanvas, MAX_IMAGE_PX, itemShortLabel,
+  renderFloorToCanvas, MAX_IMAGE_PX, itemShortLabel, roomLabelBoxes, hallSummaryText,
 } from './planRenderer';
 import { pngPxPerCm } from './png';
 import { paperFormatForPlan, floorAreaBalance, projectAreaBalance, buildPdf } from './pdf';
 import { floorRooms } from '@/geometry/rooms';
+import { rectPolygon } from '@/geometry/polygon';
+import { formatM2 } from '@/geometry/units';
 
 function sampleProject(): Project {
   const p = createEmptyProject('Studio Nord');
@@ -280,6 +282,43 @@ describe('Maßstab & Layout', () => {
     expect(legend).toContain('Maschinen');
     expect(itemShortLabel(p.floors[0].items[0], getDef('atlantis-a301'))).toBe('A301');
     expect(itemShortLabel({ ...p.floors[0].items[0], label: 'Mein Gerät' }, getDef('atlantis-a301'))).toBe('Mein Gerät');
+  });
+
+  it('Raumlabels: Auto-Raumlabel weicht überlappendem Zonenlabel nach oben aus, Zonenlabel bleibt mittig', () => {
+    const p = sampleProject();
+    const f = p.floors[0];
+    const rooms = floorRooms(f);
+    const boxes = roomLabelBoxes(rooms);
+    expect(boxes.length).toBe(rooms.length);
+    rooms.forEach((r, i) => {
+      const b = boxes[i]!;
+      expect(b.lines).toEqual([r.name, formatM2(r.areaM2)]);
+      expect(b.x + b.width / 2).toBeCloseTo(r.centroid.x, 6);
+      if (r.source === 'zone') expect(b.y + b.height / 2).toBeCloseTo(r.centroid.y, 6);
+    });
+    // Konstruierter Fall: Zone in der Mitte eines Auto-Raums – gleiche Schwerpunkte
+    const auto = { ...rooms[0], id: 'auto', source: 'auto' as const, name: 'Halle', polygon: rectPolygon({ x: 0, y: 0 }, { x: 2000, y: 1600 }), centroid: { x: 1000, y: 800 }, areaM2: 320 };
+    const zone = { ...rooms[0], id: 'zone', source: 'zone' as const, name: 'Maschinen', polygon: rectPolygon({ x: 600, y: 500 }, { x: 1400, y: 1100 }), centroid: { x: 1000, y: 800 }, areaM2: 48 };
+    const [a, z] = roomLabelBoxes([auto, zone]);
+    expect(z!.y + z!.height / 2).toBeCloseTo(800, 6);
+    expect(a!.y + a!.height).toBeLessThan(z!.y); // über dem Zonenlabel
+    expect(a!.y).toBeGreaterThan(0); // innerhalb des Raums
+    expect(a!.x + a!.width / 2).toBeCloseTo(1000, 6);
+    // Ohne Überlappung keine Verschiebung; labelMode 'none' → null; Schriftfaktor skaliert die Schrift
+    const far = { ...zone, id: 'far', polygon: rectPolygon({ x: 0, y: 1200 }, { x: 600, y: 1600 }), centroid: { x: 300, y: 1400 } };
+    expect(roomLabelBoxes([auto, far])[0]!.y + roomLabelBoxes([auto, far])[0]!.height / 2).toBeCloseTo(800, 6);
+    expect(roomLabelBoxes([{ ...auto, labelMode: 'none' }, zone])[0]).toBeNull();
+    expect(roomLabelBoxes([auto], 0.5)[0]!.fontSize).toBeCloseTo(roomLabelBoxes([auto], 1)[0]!.fontSize / 2, 6);
+    // Sehr flacher Raum: Label bleibt an der Oberkante (nicht darüber hinaus)
+    const flat = { ...auto, polygon: rectPolygon({ x: 0, y: 760 }, { x: 2000, y: 840 }), centroid: { x: 1000, y: 800 }, areaM2: 16 };
+    const [fb] = roomLabelBoxes([flat, zone]);
+    expect(fb!.y).toBeGreaterThanOrEqual(760);
+  });
+
+  it('Hallen-Zusammenfassung: Maße bei Rechteck, sonst nur Fläche', () => {
+    expect(hallSummaryText(rectPolygon({ x: 0, y: 0 }, { x: 2500, y: 1600 }))).toBe('Halle: 25,00 m × 16,00 m · 400,00 m²');
+    expect(hallSummaryText([{ x: 0, y: 0 }, { x: 2000, y: 0 }, { x: 2000, y: 1000 }, { x: 1000, y: 1000 }, { x: 1000, y: 2000 }, { x: 0, y: 2000 }])).toBe('Halle: 300,00 m²');
+    expect(hallSummaryText([])).toBe('Halle: 0,00 m²');
   });
 
   it('wählt das kleinste passende Querformat', () => {

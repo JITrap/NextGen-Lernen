@@ -7,7 +7,7 @@
  */
 import Konva from 'konva';
 import type { Project, Floor, PlacedItem, Room, Wall, Opening, Vec2, LibraryArea, RoomType, EquipmentDef } from '@/types';
-import { bbox, type BBox, ensureClockwise, flatten, polygonArea, centroid } from '@/geometry/polygon';
+import { bbox, bboxOverlap, type BBox, ensureClockwise, flatten, polygonArea, polygonAreaM2, centroid } from '@/geometry/polygon';
 import { allWalls, wallOutline, hallInnerPolygon, hallOuterPolygon, findWall, openingPlacement } from '@/geometry/walls';
 import { floorRooms } from '@/geometry/rooms';
 import { itemFootprint, itemSafetyPolygon, zoneIsEmpty } from '@/geometry/transform';
@@ -153,6 +153,75 @@ export function layoutFloorRender(project: Project, floor: Floor, opts: RenderOp
   };
 }
 
+/** Beschriftungsbox eines Raums in Weltkoordinaten (Text zentriert in der Box). */
+export interface RoomLabelBox {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fontSize: number;
+  lines: string[];
+}
+
+/** Abstand (cm) zwischen einem ausweichenden Raumlabel und dem Zonenlabel bzw. der Raumoberkante, relativ zur Schrifthöhe. */
+const LABEL_GAP_FACTOR = 0.6;
+
+/**
+ * Positionen der Raumbeschriftungen (null bei labelMode 'none'): Standard ist die Flächenmitte. Das Label eines
+ * automatisch erkannten Raums, das sich mit dem Label einer darin liegenden Zone überschneidet, wird nach oben
+ * über das Zonenlabel versetzt – höchstens bis zur Oberkante des Raums. Zonenlabels bleiben an ihrer Mitte.
+ */
+export function roomLabelBoxes(rooms: Room[], textScale = 1): (RoomLabelBox | null)[] {
+  const scale = Math.max(0.2, textScale);
+  const boxes: (RoomLabelBox | null)[] = rooms.map((r) => {
+    const mode = r.labelMode ?? 'name+area';
+    if (mode === 'none') return null;
+    const lines: string[] = [];
+    if (mode === 'name' || mode === 'name+area') lines.push(r.name);
+    if (mode === 'area' || mode === 'name+area') lines.push(formatM2(r.areaM2));
+    const side = Math.sqrt(Math.max(1, polygonArea(r.polygon)));
+    const fontSize = Math.max(18, Math.min(34, side * 0.09)) * scale;
+    const width = Math.max(200, side * 0.9);
+    const height = lines.length * fontSize * 1.15;
+    return { x: r.centroid.x - width / 2, y: r.centroid.y - height / 2, width, height, fontSize, lines };
+  });
+  const asBox = (b: RoomLabelBox): BBox => ({ minX: b.x, minY: b.y, maxX: b.x + b.width, maxY: b.y + b.height });
+  const zoneLabels = boxes.filter((b, i): b is RoomLabelBox => !!b && rooms[i].source === 'zone');
+  if (!zoneLabels.length) return boxes;
+  rooms.forEach((r, i) => {
+    const b = boxes[i];
+    if (!b || r.source !== 'auto' || r.polygon.length < 3) return;
+    const top = bbox(r.polygon).minY + b.fontSize * LABEL_GAP_FACTOR;
+    // Nacheinander über jedes überlappende Zonenlabel schieben (endlich viele Zonen, jede höchstens einmal).
+    for (let step = 0; step <= zoneLabels.length; step++) {
+      const hit = zoneLabels.find((z) => bboxOverlap(asBox(b), asBox(z)));
+      if (!hit) break;
+      b.y = hit.y - b.fontSize * LABEL_GAP_FACTOR - b.height;
+      if (b.y < top) {
+        b.y = top;
+        break;
+      }
+    }
+  });
+  return boxes;
+}
+
+/** Zusammenfassung der Halle: „Halle: 25,00 m × 16,00 m · 400,00 m²“ (achsparalleles Rechteck) bzw. „Halle: 400,00 m²“. */
+export function hallSummaryText(polygon: Vec2[]): string {
+  const area = formatM2(polygonAreaM2(polygon));
+  if (polygon.length < 3) return `Halle: ${area}`;
+  const b = bbox(polygon);
+  const w = b.maxX - b.minX;
+  const h = b.maxY - b.minY;
+  const axisAligned = polygon.length === 4 && Math.abs(polygonArea(polygon) - w * h) < 1e-6;
+  return axisAligned ? `Halle: ${formatM(w)} × ${formatM(h)} · ${area}` : `Halle: ${area}`;
+}
+
+/** Grobe Textbreite (cm) für Platzierungsentscheidungen im Rand. */
+function approxTextWidth(text: string, fontSize: number): number {
+  return text.length * fontSize * 0.6;
+}
+
 /** Schöne Länge für den Maßstabsbalken (≤ ¼ der Planbreite). */
 export function scaleBarLength(planWidthCm: number): number {
   const steps = [50, 100, 200, 500, 1000, 2000, 5000, 10000];
@@ -258,27 +327,20 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
     layer.add(new Konva.Line({ points: flatten(inner), closed: true, fill: HALL_FLOOR }));
   }
 
-  // Räume/Zonen
-  for (const r of rooms) {
+  // Räume/Zonen (Labels: Auto-Raumlabel weicht überlappenden Zonenlabels nach oben aus)
+  const labelBoxes = showLabels ? roomLabelBoxes(rooms, textScale) : [];
+  rooms.forEach((r, i) => {
     const color = roomColor(r.type, r.color);
     layer.add(new Konva.Line({ points: flatten(r.polygon), closed: true, fill: color, opacity: 0.28 }));
     layer.add(new Konva.Line({ points: flatten(r.polygon), closed: true, stroke: color, strokeWidth: 2, lineJoin: 'round' }));
-    if (showLabels && (r.labelMode ?? 'name+area') !== 'none') {
-      const mode = r.labelMode ?? 'name+area';
-      const lines: string[] = [];
-      if (mode === 'name' || mode === 'name+area') lines.push(r.name);
-      if (mode === 'area' || mode === 'name+area') lines.push(formatM2(r.areaM2));
-      const side = Math.sqrt(Math.max(1, polygonArea(r.polygon)));
-      const fontSize = Math.max(18, Math.min(34, side * 0.09)) * textScale;
-      if (fontSize * px >= minLabelPx) {
-        const w = Math.max(200, side * 0.9);
-        layer.add(new Konva.Text({
-          x: r.centroid.x - w / 2, y: r.centroid.y - (lines.length * fontSize * 1.15) / 2, width: w, text: lines.join('\n'),
-          fontSize, fontFamily: FONT, fontStyle: 'bold', fill: INK, align: 'center', lineHeight: 1.15, wrap: 'none', ellipsis: true,
-        }));
-      }
+    const lb = labelBoxes[i];
+    if (lb && lb.fontSize * px >= minLabelPx) {
+      layer.add(new Konva.Text({
+        x: lb.x, y: lb.y, width: lb.width, text: lb.lines.join('\n'),
+        fontSize: lb.fontSize, fontFamily: FONT, fontStyle: 'bold', fill: INK, align: 'center', lineHeight: 1.15, wrap: 'none', ellipsis: true,
+      }));
     }
-  }
+  });
 
   // Lufträume
   for (const v of floor.voids) {
@@ -358,13 +420,15 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
   }
 
   // Bemaßung der Hallenkanten
+  const DIM_OFFSET = 70;
   if ((opts.dimensions ?? true) && floor.hall && floor.hall.polygon.length >= 3) {
     const poly = ensureClockwise(floor.hall.polygon);
     for (let i = 0; i < poly.length; i++) {
       const a = poly[i];
       const b = poly[(i + 1) % poly.length];
-      drawDimension(layer, a, b, 70, px, minLabelPx);
+      drawDimension(layer, a, b, DIM_OFFSET, px, minLabelPx);
     }
+    drawHallSummary(layer, floor.hall.polygon, opts, layout, px, minLabelPx);
   }
 
   // Nordpfeil (oben rechts im Rand)
@@ -406,6 +470,50 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
       layer.add(new Konva.Text({ x: x + 46, y: y + 4, width: LEGEND_ENTRY_CM - 60, text: type, fontSize: 24 * textScale, fontFamily: FONT, fill: INK, wrap: 'none', ellipsis: true }));
     });
   }
+}
+
+/**
+ * Hallen-Zusammenfassung („Halle: B × T · Fläche“) im Rand außerhalb des Plans – nie über Türmarkern oder
+ * Bemaßungstexten: bevorzugt oben links über der oberen Maßzeile; reicht der Rand dafür nicht, rechts unten in der
+ * Zeile des Maßstabsbalkens, sofern dort weder die untere Maßzahl noch der Maßstabsbalken liegen. Sonst entfällt sie.
+ */
+function drawHallSummary(layer: Konva.Layer, polygon: Vec2[], opts: RenderOptions, layout: RenderLayout, px: number, minLabelPx: number) {
+  const fontSize = 20 * textScale;
+  if (fontSize * px < minLabelPx) return;
+  const text = hallSummaryText(polygon);
+  const textW = approxTextWidth(text, fontSize);
+  const { planBounds } = layout;
+  const hb = bbox(polygon);
+  const dimFont = 20 * textScale;
+  const dimTextW = approxTextWidth(formatM(hb.maxX - hb.minX), dimFont) + 40;
+  const cx = (hb.minX + hb.maxX) / 2;
+  // Obere Maßzeile: Text oberhalb der Maßlinie (Außenseite)
+  const topDimTextTop = hb.minY - 70 - 6 - dimFont;
+  const gap = fontSize * 0.5;
+  let x: number;
+  let y: number;
+  let align: 'left' | 'right';
+  const topY = planBounds.minY + gap;
+  const topCenter = planBounds.minX + 40 + textW / 2;
+  if (topY + fontSize + gap <= topDimTextTop || Math.abs(topCenter - cx) > textW / 2 + dimTextW / 2 + gap) {
+    // oben links: über der Maßzeile oder außerhalb des Bereichs der (mittigen) Maßzahl
+    x = planBounds.minX + 40;
+    y = topY;
+    align = 'left';
+  } else {
+    // rechts unten in der Zeile des Maßstabsbalkens (Balken links außen, Maßzahl der Unterkante mittig)
+    const rowY = planBounds.maxY - 46;
+    const right = planBounds.maxX - 40;
+    const left = right - textW;
+    const barEnd = (opts.scaleBar ?? true) ? planBounds.minX + 40 + scaleBarLength(planBounds.maxX - planBounds.minX) + 60 : -Infinity;
+    const bottomDimTextTop = hb.maxY + 70 + 6;
+    const clashesBottomDim = rowY < bottomDimTextTop + dimFont && rowY + fontSize > bottomDimTextTop && left < cx + dimTextW / 2 && right > cx - dimTextW / 2;
+    if (left <= barEnd || clashesBottomDim) return;
+    x = left;
+    y = rowY;
+    align = 'right';
+  }
+  layer.add(new Konva.Text({ x, y, width: textW, align, text, fontSize, fontFamily: FONT, fontStyle: 'bold', fill: INK, wrap: 'none' }));
 }
 
 function drawHatch(layer: Konva.Layer, poly: Vec2[], color: string) {

@@ -414,21 +414,21 @@ function createSmallStudio(name = 'Kleines Studio 400 m²'): Project {
   changingRoom(705, 1135, wSanD, wBD, 760, true);
   changingRoom(1145, IY1, wSanH, wDH, 1200, false);
 
-  /* ---- Trainingshalle: Cardio-Reihe oben (Front zur Wand, Sturzraum nach hinten) ---- */
+  /* ---- Trainingshalle: Cardio-Reihe oben (Front zur Wand, Sturzraum nach hinten); endet ≥ 120 cm vor der Freihantel-Spalte ---- */
   const cardio = b.rowX([
     S('gen-cardio-laufband', 180), S('gen-cardio-laufband', 180), S('gen-cardio-curved-treadmill', 180),
     S('gen-cardio-crosstrainer', 180), S('gen-cardio-crosstrainer', 180),
     S('gen-cardio-ergometer', 180), S('gen-cardio-liegeergometer', 180), S('gen-cardio-rudergeraet', 180),
-  ], { left: 950, top: IY0 }, { gap: 30, limit: 1970 });
+  ], { left: 930, top: IY0 }, { gap: 20, limit: 1970 });
   const cardioBox = b.boxOf(cardio);
 
-  /* ---- Maschinen: zwei Reihen Rücken an Rücken, Gang zur Cardio-Reihe ---- */
+  /* ---- Maschinen: zwei Reihen Rücken an Rücken (A: Front zum Cardio-Gang, B: Front zum Functional-Gang) ---- */
   const rowA = b.rowX([
-    S('prime-hybrid-leg-press'), S('prime-hybrid-leg-extension'), S('prime-hybrid-chest-press'), S('prime-hybrid-lat-pulldown'),
+    S('prime-hybrid-leg-press', 180), S('prime-hybrid-leg-extension', 180), S('prime-hybrid-chest-press', 180), S('prime-hybrid-lat-pulldown', 180),
   ], { left: 850, top: cardioBox.maxY + AISLE }, { limit: 1980 });
   b.assertAisleY(cardio, rowA);
   const rowB = b.rowX([
-    S('atlantis-p140', 180), S('atlantis-d123', 180), S('atlantis-c105', 180), S('atlantis-c108', 180),
+    S('atlantis-p140'), S('atlantis-d123'), S('atlantis-c105'), S('atlantis-c108'),
   ], { left: 850, top: b.boxOf(rowA).maxY }, { limit: 1980 });
 
   /* ---- Functional (unten links) ---- */
@@ -462,7 +462,7 @@ function createSmallStudio(name = 'Kleines Studio 400 m²'): Project {
   b.put(S('gen-ausstattung-aed', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1000 });
   b.put(S('gen-ausstattung-tv-55', 0, { wallId: top.id }), { cx: 800, top: IY0 });
   b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: right.id }), { right: IX1, cy: 1220 });
-  b.put(S('gen-ausstattung-lautsprecher', 0, { wallId: top.id }), { cx: 920, top: IY0 });
+  b.put(S('gen-ausstattung-lautsprecher', 0, { wallId: top.id }), { cx: 890, top: IY0 });
   b.put(S('gen-ausstattung-lautsprecher', 180, { wallId: bottom.id }), { cx: 880, bottom: IY1 });
   b.put(S('gen-ausstattung-muelleimer'), { cx: 880, cy: 540 });
 
@@ -643,43 +643,46 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: right.id }), { right: IX1, cy: 1780 });
   b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: right.id }), { right: IX1, bottom: IY1 });
 
-  /* ---- Trainingshalle: Cardio-Reihe oben ---- */
+  /* ---- Trainingshalle: Cardio-Reihe oben; endet ≥ 120 cm vor der Wellness-Wand ---- */
   const cardio = b.rowX([
     S('gen-cardio-laufband', 180), S('gen-cardio-laufband', 180), S('gen-cardio-laufband', 180), S('gen-cardio-curved-treadmill', 180),
     S('gen-cardio-crosstrainer', 180), S('gen-cardio-crosstrainer', 180),
     S('gen-cardio-ergometer', 180), S('gen-cardio-ergometer', 180), S('gen-cardio-liegeergometer', 180),
     S('gen-cardio-spinning-bike', 180), S('gen-cardio-air-bike', 180),
     S('gen-cardio-stairmaster', 180), S('gen-cardio-skierg', 180), S('gen-cardio-rudergeraet', 180),
-  ], { left: 950, top: IY0 }, { gap: 30, limit: WING_X1 - 20 });
+  ], { left: 950, top: IY0 }, { gap: 20, limit: WING_X1 - 20 });
 
-  /* ---- Maschinen: zwei Reihen Rücken an Rücken ---- */
+  /* ---- Gang entlang der Nebenraumwand (Türen der Umkleiden/Büro) ≥ 120 cm: Reihen beginnen bei x = 930 ---- */
+  const ROW_X0 = HALL_X + 125;
+
+  /* ---- Maschinen: zwei Reihen Rücken an Rücken (A: Front zum Cardio-Gang, B: Front zum Freihantel-Gang) ---- */
   const rowA = b.rowX([
-    S('prime-hybrid-leg-press'), S('prime-hybrid-leg-extension'), S('prime-hybrid-seated-leg-curl'),
-    S('prime-hybrid-chest-press'), S('prime-hybrid-lat-pulldown'), S('prime-hybrid-seated-row'),
-  ], { left: 900, top: b.boxOf(cardio).maxY + AISLE }, { limit: WING_X1 - 20 });
+    S('prime-hybrid-leg-press', 180), S('prime-hybrid-leg-extension', 180), S('prime-hybrid-seated-leg-curl', 180),
+    S('prime-hybrid-chest-press', 180), S('prime-hybrid-lat-pulldown', 180), S('prime-hybrid-seated-row', 180),
+  ], { left: ROW_X0, top: b.boxOf(cardio).maxY + AISLE }, { limit: WING_X1 - 20 });
   b.assertAisleY(cardio, rowA);
   const rowB = b.rowX([
-    S('atlantis-p140', 180), S('atlantis-p356', 180), S('atlantis-d123', 180), S('atlantis-c105', 180),
-    S('atlantis-c108', 180), S('atlantis-e352', 180), S('atlantis-b157', 180),
-  ], { left: 900, top: b.boxOf(rowA).maxY }, { limit: WING_X1 - 20 });
+    S('atlantis-p140'), S('atlantis-p356'), S('atlantis-d123'), S('atlantis-c105'),
+    S('atlantis-c108'), S('atlantis-e352'), S('atlantis-b157'),
+  ], { left: ROW_X0, top: b.boxOf(rowA).maxY }, { limit: WING_X1 - 20 });
 
   /* ---- Freihantel: Bänke-Reihe, Rack-Reihe an der Rückwand, Kurzhantel-Racks an der Kursraumwand ---- */
   const rowC = b.rowX([
     S('atlantis-b177'), S('atlantis-b275'), S('prime-benches-adjustable-bench'), S('atlantis-b256'), S('atlantis-p245'), S('atlantis-c117'),
     S('atlantis-a264'),
-  ], { left: 900, top: b.boxOf(rowB).maxY + AISLE }, { limit: 2600 });
+  ], { left: ROW_X0, top: b.boxOf(rowB).maxY + AISLE }, { limit: 2600 });
   b.assertAisleY(rowB, rowC);
   const rowD = b.rowX([
     S('atlantis-c513'), S('gen-freihantel-scheibenstaender', 180), S('atlantis-b7200'), S('prime-prodigy-racks-power-rack'),
     S('gen-freihantel-langhantelstaender', 180), S('atlantis-e155'), S('prime-specialty-functional-trainer'),
-  ], { left: 900, bottom: IY1 }, { gap: 5, limit: 2600 });
+  ], { left: ROW_X0, bottom: IY1 }, { gap: 5, limit: 2600 });
   b.assertAisleY(rowC, rowD);
   const dbRacks = b.rowY([S('atlantis-s187', 90), S('gen-freihantel-kurzhantel-rack-3', 90)], { top: b.boxOf(rowB).maxY + AISLE, right: WING_X1 }, { limit: IY1 });
   assert(b.boxOf(dbRacks).minX > Math.max(b.boxOf(rowC).maxX, b.boxOf(rowD).maxX) + 10, 'Kurzhantel-Racks kollidieren mit Freihantelreihen');
 
   /* ---- Functional (rechter Flügel x 2805–3976, y 605–1395) ---- */
   const rig = b.put(S('gen-functional-rig'), { right: IX1, top: FUNC_Y0 });
-  b.put(S('gen-functional-sled-bahn', 0, { width: 850, depth: 150 }), { right: 3900, bottom: FUNC_Y1 });
+  b.put(S('gen-functional-sled-bahn', 0, { width: 850, depth: 150 }), { right: IX1 - 125, bottom: FUNC_Y1 }); // ≥ 120 cm zur Hallenwand
   b.put(S('gen-functional-sled'), { cx: 3450, bottom: FUNC_Y1 - 160 });
   b.rowY([S('gen-functional-kettlebell-regal', 270), S('gen-functional-medizinball-regal', 270)], { top: 900, left: WING_X0 }, { limit: FUNC_Y1 - 160 });
   b.put(S('gen-functional-plyo-box-soft-set'), { cx: 3250, cy: 700 });
@@ -697,13 +700,13 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 880, cy: 1500 });
   b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 2840, cy: 1300 });
   b.put(S('gen-ausstattung-muelleimer'), { cx: 880, cy: 540 });
-  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2580, bottom: IY1 });
+  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2600, bottom: IY1 });
   b.put(S('gen-ausstattung-feuerloescher', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1100 });
   b.put(S('gen-ausstattung-aed', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1000 });
   b.put(S('gen-ausstattung-erste-hilfe', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1050 });
   b.put(S('gen-ausstattung-tv-65', 0, { wallId: top.id }), { cx: 880, top: IY0 });
   b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: wKursX.id }), { right: WING_X1, cy: 1900 });
-  b.put(S('gen-ausstattung-lautsprecher', 180, { wallId: bottom.id }), { cx: 2620, bottom: IY1 });
+  b.put(S('gen-ausstattung-lautsprecher', 180, { wallId: bottom.id }), { cx: 2630, bottom: IY1 });
   b.put(S('gen-ausstattung-lautsprecher', 270, { wallId: wCol.id }), { left: HALL_X, cy: 700 });
   b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: wWellX.id }), { right: WING_X1, cy: 500 });
   b.put(S('gen-ausstattung-kamera', 270, { wallId: wCol.id }), { left: HALL_X, cy: 300 });

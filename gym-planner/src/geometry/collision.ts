@@ -481,8 +481,23 @@ interface Shape {
 /** Mindest-Überlappung der Projektionen (cm), damit ein Spalt zwischen zwei Formen als Laufweg zählt. */
 export const MIN_BOTTLENECK_OVERLAP_CM = 60;
 
+/** Anteil des Bands [lo, hi] quer zum Spalt, den fremde Objekte belegen dürfen, bevor der Spalt nicht mehr als Laufweg zählt. */
+export const MAX_BLOCKED_BAND_RATIO = 0.5;
+
+interface AxisGap {
+  width: number;
+  from: Vec2;
+  to: Vec2;
+  aIsLeft: boolean;
+  /** Spalt entlang der Achse: [gapLo, gapHi]; Band quer dazu: [lo, hi]. */
+  gapLo: number;
+  gapHi: number;
+  lo: number;
+  hi: number;
+}
+
 /** Achsenparalleler Spalt zwischen zwei Formen (nur wenn sich ihre Projektionen um mindestens 60 cm überlappen). */
-function axisGap(A: Shape, B: Shape, axis: 'x' | 'y'): { width: number; from: Vec2; to: Vec2; aIsLeft: boolean } | null {
+function axisGap(A: Shape, B: Shape, axis: 'x' | 'y'): AxisGap | null {
   const lo = axis === 'x' ? Math.max(A.box.minY, B.box.minY) : Math.max(A.box.minX, B.box.minX);
   const hi = axis === 'x' ? Math.min(A.box.maxY, B.box.maxY) : Math.min(A.box.maxX, B.box.maxX);
   if (hi - lo < MIN_BOTTLENECK_OVERLAP_CM - EPS) return null;
@@ -497,7 +512,28 @@ function axisGap(A: Shape, B: Shape, axis: 'x' | 'y'): { width: number; from: Ve
   const mid = (lo + hi) / 2;
   const from = axis === 'x' ? { x: left.max, y: mid } : { x: mid, y: left.max };
   const to = axis === 'x' ? { x: right.min, y: mid } : { x: mid, y: right.min };
-  return { width, from, to, aIsLeft };
+  return { width, from, to, aIsLeft, gapLo: left.max, gapHi: right.min, lo, hi };
+}
+
+/** Rechteck des Spalts (Spalt entlang `axis`, Band quer dazu). */
+function gapBox(g: AxisGap, axis: 'x' | 'y'): BBox {
+  return axis === 'x'
+    ? { minX: g.gapLo, minY: g.lo, maxX: g.gapHi, maxY: g.hi }
+    : { minX: g.lo, minY: g.gapLo, maxX: g.hi, maxY: g.gapHi };
+}
+
+/** Länge der Vereinigung von Intervallen (bereits auf [lo, hi] beschnitten). */
+function unionLength(intervals: { min: number; max: number }[]): number {
+  if (!intervals.length) return 0;
+  intervals.sort((a, b) => a.min - b.min);
+  let total = 0;
+  let cur = { ...intervals[0] };
+  for (let i = 1; i < intervals.length; i++) {
+    const iv = intervals[i];
+    if (iv.min <= cur.max) cur.max = Math.max(cur.max, iv.max);
+    else { total += cur.max - cur.min; cur = { ...iv }; }
+  }
+  return total + (cur.max - cur.min);
 }
 
 /** Zeigt die Rückseite des Objekts (lokal −y) in Richtung `dir` (Weltkoordinaten, Toleranz ≈ ±41°)? */
@@ -511,9 +547,12 @@ function backFaces(it: Pick<PlacedItem, 'rotation'>, dir: Vec2): boolean {
 /**
  * Heuristik für zu schmale Laufwege: Für Objektpaare (inkl. aktiver Sicherheitszonen), Objekt–Wand und
  * Objekt–Hallenkante mit achsenparallelem Abstand 0 < d < minWidth, deren Projektionen sich um mindestens
- * 60 cm überlappen (also wirklich ein Durchgang dazwischen liegt). Der Spalt zwischen der Rückseite eines Objekts
- * (lokal −y) und einer Wand/Hallenkante ist kein Laufweg (Gerät steht mit dem Rücken zur Wand). Paare werden
- * dedupliziert (kleinster Abstand gewinnt); Berührung/Überlappung (d ≤ 1 cm) ist Kollision, kein Engpass.
+ * 60 cm überlappen (also wirklich ein Durchgang dazwischen liegt). Kein Laufweg ist der Spalt
+ * - zwischen der Rückseite eines Objekts (lokal −y) und einer Wand/Hallenkante (Gerät steht mit dem Rücken zur Wand),
+ * - zwischen zwei Objekten, die sich beide mit der Rückseite zuwenden (Reihen Rücken an Rücken),
+ * - der zu mehr als MAX_BLOCKED_BAND_RATIO von weiteren Objekten oder Wänden belegt ist (z. B. Ständer zwischen
+ *   zwei Racks, Wand zwischen zwei Räumen) – die Durchgänge zu diesem Objekt werden als eigene Paare geprüft.
+ * Paare werden dedupliziert (kleinster Abstand gewinnt); Berührung/Überlappung (d ≤ 1 cm) ist Kollision, kein Engpass.
  * `walls` sollte die realen Wände enthalten, die Halle wird über `hallInner` (Innenpolygon) abgedeckt – doppelte
  * Hallen-Außenwände werden dedupliziert. Mit `subjectIds` werden nur Paare mit mindestens einem dieser Objekte
  * gewertet, `excludeIds` nimmt Objekte ganz aus der Prüfung.
@@ -538,16 +577,57 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
     shapeItems.push(it);
   }
   const best = new Map<string, Bottleneck>();
-  /** `itemA`: Objekt zu Form A, wenn B eine Wand/Hallenkante ist (Rückseite an der Wand → kein Laufweg). */
-  const record = (A: Shape, B: Shape, itemA?: PlacedItem) => {
+  // Broadphase über eigenen Hash der Formen (um minWidth erweitert); Wände für Objekt–Wand und als Spalt-Blocker.
+  const sh = new SpatialHash<number>();
+  for (let s = 0; s < shapes.length; s++) sh.insert(s, shapes[s].box);
+  const widx = walls.length ? wallIndexFor(walls) : null;
+  const shapeIndex = new Map<string, number>();
+  for (let s = 0; s < shapes.length; s++) shapeIndex.set(shapes[s].id, s);
+
+  /** Anteil des Bands quer zum Spalt, den andere Objekte oder Wände belegen. */
+  const blockedRatio = (g: AxisGap, axis: 'x' | 'y', A: Shape, B: Shape): number => {
+    const band = g.hi - g.lo;
+    if (band <= EPS || g.gapHi - g.gapLo <= EPS) return 0;
+    const across = axis === 'x' ? 'y' : 'x';
+    const box = gapBox(g, axis);
+    const covered: { min: number; max: number }[] = [];
+    const take = (poly: Vec2[]) => {
+      const e = polygonExtentInBand(poly, across, g.gapLo, g.gapHi);
+      if (!e) return;
+      const min = Math.max(e.min, g.lo);
+      const max = Math.min(e.max, g.hi);
+      if (max - min > EPS) covered.push({ min, max });
+    };
+    sh.forEachIn(box, (t) => {
+      const S = shapes[t];
+      if (S.id === A.id || S.id === B.id || !bboxOverlap(S.box, box)) return;
+      take(S.poly);
+    });
+    widx?.hash.forEachIn(box, (wi) => {
+      if (widx.walls[wi].id === A.id || widx.walls[wi].id === B.id || !bboxOverlap(widx.boxes[wi], box)) return;
+      take(widx.rects[wi]);
+    });
+    return unionLength(covered) / band;
+  };
+
+  /**
+   * `itemA`/`itemB`: Objekte zu den Formen (B ohne Objekt = Wand/Hallenkante). Rückseite zur Wand bzw. beide
+   * Rückseiten zueinander → kein Laufweg; ebenso ein überwiegend belegter Spalt.
+   */
+  const record = (A: Shape, B: Shape, itemA?: PlacedItem, itemB?: PlacedItem) => {
     for (const axis of ['x', 'y'] as const) {
       const g = axisGap(A, B, axis);
       if (!g) continue;
       if (g.width <= touch || g.width >= minWidth) continue;
       if (itemA) {
         const sign = g.aIsLeft ? 1 : -1;
-        if (backFaces(itemA, axis === 'x' ? { x: sign, y: 0 } : { x: 0, y: sign })) continue;
+        const dirA = axis === 'x' ? { x: sign, y: 0 } : { x: 0, y: sign };
+        const aBack = backFaces(itemA, dirA);
+        if (itemB) {
+          if (aBack && backFaces(itemB, { x: -dirA.x, y: -dirA.y })) continue;
+        } else if (aBack) continue;
       }
+      if (blockedRatio(g, axis, A, B) > MAX_BLOCKED_BAND_RATIO) continue;
       const key = A.id < B.id ? `${A.id}|${B.id}` : `${B.id}|${A.id}`;
       const prev = best.get(key);
       if (prev && prev.width <= g.width) continue;
@@ -555,16 +635,15 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
     }
   };
 
-  // Objekt–Objekt (Broadphase über eigenen Hash der Formen, um minWidth erweitert)
-  const sh = new SpatialHash<number>();
-  for (let s = 0; s < shapes.length; s++) sh.insert(s, shapes[s].box);
+  // Objekt–Objekt
   for (let s = 0; s < shapes.length; s++) {
     const sIsSubject = isSubject(shapes[s].id);
-    sh.forEachIn(expandBox(shapes[s].box, minWidth), (t) => { if (t > s && (sIsSubject || isSubject(shapes[t].id))) record(shapes[s], shapes[t]); });
+    sh.forEachIn(expandBox(shapes[s].box, minWidth), (t) => {
+      if (t > s && (sIsSubject || isSubject(shapes[t].id))) record(shapes[s], shapes[t], shapeItems[s], shapeItems[t]);
+    });
   }
   // Objekt–Wand
-  if (walls.length) {
-    const widx = wallIndexFor(walls);
+  if (widx) {
     for (let s = 0; s < shapes.length; s++) {
       if (!isSubject(shapes[s].id)) continue;
       widx.hash.forEachIn(expandBox(shapes[s].box, minWidth), (wi) => {
