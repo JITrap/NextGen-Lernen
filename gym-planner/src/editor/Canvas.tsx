@@ -12,6 +12,7 @@ import { getTool } from './tools/registry';
 import type { ToolContext, ToolEvent } from './tools/types';
 import { snapPoint, type SnapContext } from '@/geometry/snap';
 import { findCollisions, collidingIds } from '@/geometry/collision';
+import { getDef } from '@/data/equipment';
 import { bbox } from '@/geometry/polygon';
 import { itemFootprint } from '@/geometry/transform';
 import {
@@ -107,8 +108,9 @@ export function Canvas() {
   // Kollisionen (memoisiert)
   const colliding = useMemo(() => {
     if (!layers.items) return new Set<string>();
-    return collidingIds(findCollisions(items, { includeZones: layers.safetyZones, walls }));
-  }, [items, walls, layers.items, layers.safetyZones]);
+    const wallMountedIds = new Set(items.filter((it) => getDef(it.defId, project)?.wandmontage).map((it) => it.id));
+    return collidingIds(findCollisions(items, { includeZones: layers.safetyZones, walls, wallMountedIds }));
+  }, [items, walls, layers.items, layers.safetyZones, project]);
 
   const pxToWorld = useCallback((px: number) => px / viewport.scale, [viewport.scale]);
 

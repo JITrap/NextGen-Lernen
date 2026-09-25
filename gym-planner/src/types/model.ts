@@ -172,6 +172,8 @@ export interface Room extends RoomMeta {
   areaM2: number;
   perimeterCm: number;
   centroid: Vec2;
+  /** Löcher (Raum im Raum), werden von areaM2 abgezogen; polygon bleibt die Außenkante. */
+  holes?: Vec2[][];
 }
 
 export type DoorType = 'einflügelig' | 'zweiflügelig' | 'Schiebetür' | 'Glastür' | 'Notausgang' | 'Rolltor';
