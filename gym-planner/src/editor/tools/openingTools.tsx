@@ -60,13 +60,7 @@ export interface OpeningPlacement {
  * Wandlänge begrenzt. null, wenn keine Wand in Reichweite ist.
  */
 export function placeOpeningOnWall(world: Vec2, walls: Wall[], width: number, threshold: number, grid = 0): OpeningPlacement | null {
-  let candidates = walls;
-  for (const w of walls) {
-    if (w.hidden || wallLength(w) < 1) {
-      candidates = walls.filter((x) => !x.hidden && wallLength(x) >= 1);
-      break;
-    }
-  }
+  const candidates = walls.filter((w) => !w.hidden && wallLength(w) >= 1);
   const near = nearestWall(candidates, world, threshold);
   if (!near) return null;
   let offset = near.offset;
@@ -100,11 +94,21 @@ export interface OpeningSpec {
   label: string;
 }
 
+function asNumber(v: unknown): number | null {
+  if (typeof v === 'number') return Number.isFinite(v) ? v : null;
+  if (typeof v === 'string' && v.trim()) {
+    const n = Number(v.replace(',', '.'));
+    return Number.isFinite(n) ? n : null;
+  }
+  return null;
+}
 function positive(v: unknown, fallback: number): number {
-  return typeof v === 'number' && Number.isFinite(v) && v > 0 ? v : fallback;
+  const n = asNumber(v);
+  return n !== null && n > 0 ? n : fallback;
 }
 function nonNegative(v: unknown, fallback: number): number {
-  return typeof v === 'number' && Number.isFinite(v) && v >= 0 ? v : fallback;
+  const n = asNumber(v);
+  return n !== null && n >= 0 ? n : fallback;
 }
 
 /**

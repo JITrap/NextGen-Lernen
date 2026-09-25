@@ -8,7 +8,6 @@ import type { Annotation, Project, Vec2 } from '@/types';
 import type { ToolContext } from './types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
-import { useSnapGuides } from '../overlays/SnapGuides';
 import { worldToScreen } from '../viewport';
 import { useProjectStore, beginTransaction, endTransaction } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
@@ -36,6 +35,7 @@ export const useTextEdit = createToolStore<TextEditState>({ editing: null });
  */
 export function onlyNoteAdded(snapshot: Project, current: Project, floorId: string, id: string): boolean {
   if (snapshot.floors.length !== current.floors.length) return false;
+  let found = false;
   for (let i = 0; i < current.floors.length; i++) {
     const a = snapshot.floors[i];
     const b = current.floors[i];
@@ -48,8 +48,9 @@ export function onlyNoteAdded(snapshot: Project, current: Project, floorId: stri
     if (b.annotations.length !== a.annotations.length + 1) return false;
     for (let k = 0; k < a.annotations.length; k++) if (a.annotations[k] !== b.annotations[k]) return false;
     if (b.annotations[b.annotations.length - 1].id !== id) return false;
+    found = true;
   }
-  return true;
+  return found;
 }
 
 /**

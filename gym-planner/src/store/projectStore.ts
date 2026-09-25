@@ -288,12 +288,15 @@ export function endTransaction() {
   txDepth = Math.max(0, txDepth - 1);
   if (txDepth === 0) {
     const temporal = useProjectStore.temporal.getState();
-    temporal.resume();
     const cur = useProjectStore.getState().project;
     if (txSnapshot && txSnapshot !== cur) {
-      // Einen Historieneintrag erzeugen: kurz auf den Snapshot zurück und dann den Endzustand setzen.
+      // Genau einen Historieneintrag erzeugen: noch pausiert auf den Snapshot zurück,
+      // dann mit aktivem Tracking den Endzustand setzen (zundo legt den Snapshot als Vergangenheit ab).
       useProjectStore.setState({ project: txSnapshot });
+      temporal.resume();
       useProjectStore.setState({ project: cur });
+    } else {
+      temporal.resume();
     }
     txSnapshot = null;
   }

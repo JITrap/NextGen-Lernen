@@ -36,10 +36,12 @@ function minEdgeDistance(p: Vec2, poly: Vec2[]): number {
 
 /**
  * Punkt für die Beschriftung: Flächenschwerpunkt, wenn er im Polygon (und in keinem Loch) liegt,
- * sonst Bounding-Box-Mitte, sonst der „innerste“ Mittelpunkt zwischen Schwerpunkt und einer Ecke (L-Formen).
+ * sonst Bounding-Box-Mitte, sonst (L-/U-Formen) der „innerste“ Kandidat aus Punkten zwischen Schwerpunkt und
+ * Ecken sowie nach innen versetzten Kantenmitten – der mit dem größten Abstand zum Rand gewinnt.
  */
 export function labelAnchor(polygon: Vec2[], centroid: Vec2, holes: Vec2[][] = []): Vec2 {
-  if (polygon.length < 3) return centroid;
+  const n = polygon.length;
+  if (n < 3) return centroid;
   const inside = (p: Vec2) => pointInPolygon(p, polygon) && !holes.some((h) => pointInPolygon(p, h));
   if (inside(centroid) && minEdgeDistance(centroid, polygon) > 1) return centroid;
   const b = bbox(polygon);
@@ -47,15 +49,27 @@ export function labelAnchor(polygon: Vec2[], centroid: Vec2, holes: Vec2[][] = [
   if (inside(bc) && minEdgeDistance(bc, polygon) > 1) return bc;
   let best: Vec2 | null = null;
   let bestD = 0;
-  for (const v of polygon) {
-    for (const t of [0.5, 0.35, 0.65]) {
-      const m = lerp(centroid, v, t);
-      if (!inside(m)) continue;
-      const d = minEdgeDistance(m, polygon);
-      if (d > bestD) {
-        bestD = d;
-        best = m;
-      }
+  const offer = (m: Vec2) => {
+    if (!inside(m)) return;
+    const d = minEdgeDistance(m, polygon);
+    if (d > bestD) {
+      bestD = d;
+      best = m;
+    }
+  };
+  for (const v of polygon) for (const t of [0.5, 0.35, 0.65]) offer(lerp(centroid, v, t));
+  // Kantenmitten nach innen versetzt (beide Seiten probieren, Orientierung egal)
+  for (let i = 0; i < n; i++) {
+    const p = polygon[i];
+    const q = polygon[(i + 1) % n];
+    const len = Math.hypot(q.x - p.x, q.y - p.y);
+    if (len < 1e-6) continue;
+    const mid = { x: (p.x + q.x) / 2, y: (p.y + q.y) / 2 };
+    const nx = -(q.y - p.y) / len;
+    const ny = (q.x - p.x) / len;
+    for (const d of [50, 100, 200, 400]) {
+      offer({ x: mid.x + nx * d, y: mid.y + ny * d });
+      offer({ x: mid.x - nx * d, y: mid.y - ny * d });
     }
   }
   return best ?? centroid;
@@ -275,7 +289,7 @@ export const RoomsLayer = memo(function RoomsLayer(props: LayerProps) {
   }, [selection]);
   const showLabels = project.layers.labels;
   const nodes: ReactNode[] = [];
-  for (const r of rooms) {
+  for (const r of project.layers.rooms ? rooms : []) {
     if (r.polygon.length < 3) continue;
     nodes.push(<RoomNode key={r.id} room={r} scale={scale} dark={dark} selected={selectedIds.has(r.id)} hovered={hoverId === r.id} showLabels={showLabels} />);
   }

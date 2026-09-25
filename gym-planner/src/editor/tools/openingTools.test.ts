@@ -6,6 +6,85 @@ import {
 import { createFloor, createHall } from '@/store/factories';
 import { allWalls, wallLength } from '@/geometry/walls';
 import { DOOR_TYPE_MAP, WINDOW_DEFAULT, MIRROR_DEFAULT } from '@/data/wallTypes';
+import { getTool } from './registry';
+import './zoneTools';
+import './voidTool';
+import './measureTool';
+import './textTool';
+import { RoomsLayer, labelAnchor } from '../layers/RoomsLayer';
+import { OpeningsLayer, readableAngle } from '../layers/OpeningsLayer';
+import { AnnotationsLayer } from '../layers/AnnotationsLayer';
+import { onlyNoteAdded } from './textTool';
+import { snapMeasurePoint } from './measureTool';
+import { zoneTypeFromOptions } from './zoneTools';
+import { createEmptyProject } from '@/store/factories';
+import type { Project, Vec2 } from '@/types';
+
+describe('Registrierung & Ebenen (Smoke)', () => {
+  it('registriert alle Werkzeuge dieses Moduls', () => {
+    for (const id of ['door', 'window', 'mirror', 'zone-rect', 'zone-polygon', 'void', 'measure', 'text'] as const) {
+      const t = getTool(id);
+      expect(t, id).toBeDefined();
+      expect(t!.hint, id).toBeTruthy();
+    }
+    expect(getTool('door')!.Overlay).toBeDefined();
+    expect(getTool('text')!.HtmlOverlay).toBeDefined();
+  });
+  it('Ebenen sind Komponenten', () => {
+    expect(RoomsLayer).toBeTruthy();
+    expect(OpeningsLayer).toBeTruthy();
+    expect(AnnotationsLayer).toBeTruthy();
+  });
+  it('readableAngle stellt Text nie kopfüber', () => {
+    expect(readableAngle(0)).toBe(0);
+    expect(readableAngle(180)).toBe(0);
+    expect(readableAngle(135)).toBe(-45);
+    expect(readableAngle(-135)).toBe(45);
+    expect(readableAngle(90)).toBe(-90);
+    expect(readableAngle(-90)).toBe(-90);
+  });
+  it('labelAnchor: Schwerpunkt bei Rechteck, Punkt im Inneren bei L-Form', () => {
+    const rect: Vec2[] = [{ x: 0, y: 0 }, { x: 400, y: 0 }, { x: 400, y: 300 }, { x: 0, y: 300 }];
+    expect(labelAnchor(rect, { x: 200, y: 150 })).toEqual({ x: 200, y: 150 });
+    // L-Form, Schwerpunkt liegt in der Aussparung
+    const l: Vec2[] = [{ x: 0, y: 0 }, { x: 1000, y: 0 }, { x: 1000, y: 100 }, { x: 100, y: 100 }, { x: 100, y: 1000 }, { x: 0, y: 1000 }];
+    const c = { x: 500, y: 500 };
+    const a = labelAnchor(l, c);
+    expect(a).not.toEqual(c);
+    const inside = (p: Vec2) => (p.x >= 0 && p.x <= 1000 && p.y >= 0 && p.y <= 100) || (p.x >= 0 && p.x <= 100 && p.y >= 0 && p.y <= 1000);
+    expect(inside(a)).toBe(true);
+  });
+  it('zoneTypeFromOptions: gültiger Typ oder Standard', () => {
+    expect(zoneTypeFromOptions({ roomType: 'Cardio' })).toBe('Cardio');
+    expect(zoneTypeFromOptions({ roomType: 'Quatsch' })).toBe('Trainingsfläche Freihantel');
+    expect(zoneTypeFromOptions({})).toBe('Trainingsfläche Freihantel');
+  });
+  it('onlyNoteAdded erkennt, ob nur die Notiz hinzukam', () => {
+    const before: Project = createEmptyProject();
+    const fid = before.floors[0].id;
+    const note = { id: 'a_1', kind: 'text' as const, x: 0, y: 0, text: 'Notiz', fontSize: 30, rotation: 0 };
+    const after: Project = { ...before, floors: [{ ...before.floors[0], annotations: [note] }] };
+    expect(onlyNoteAdded(before, after, fid, 'a_1')).toBe(true);
+    const other: Project = { ...before, floors: [{ ...before.floors[0], annotations: [note], name: 'Anders' }] };
+    expect(onlyNoteAdded(before, other, fid, 'a_1')).toBe(false);
+    expect(onlyNoteAdded(before, after, fid, 'a_2')).toBe(false);
+    expect(onlyNoteAdded(before, before, fid, 'a_1')).toBe(false);
+  });
+  it('snapMeasurePoint: Shift rastet auf 45° und Raster entlang des Strahls', () => {
+    const project = createEmptyProject();
+    const ctx = {
+      project,
+      ui: { snapOverride: false },
+      snap: (p: Vec2) => ({ point: p, kind: 'none' as const, guides: [] }),
+    } as unknown as Parameters<typeof snapMeasurePoint>[0];
+    const r = snapMeasurePoint(ctx, { world: { x: 100, y: 12 }, shift: true }, { x: 0, y: 0 });
+    expect(r.kind).toBe('angle');
+    expect(r.point.y).toBeCloseTo(0);
+    expect(r.point.x).toBe(100);
+    const free = snapMeasurePoint(ctx, { world: { x: 100, y: 12 }, shift: false }, { x: 0, y: 0 });
+    expect(free.point).toEqual({ x: 100, y: 12 });
+  });
+});
 
 let counter = 0;
 function wall(x1: number, y1: number, x2: number, y2: number, thickness = 10, extra: Partial<Wall> = {}): Wall {

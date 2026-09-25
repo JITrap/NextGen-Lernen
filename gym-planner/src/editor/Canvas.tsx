@@ -330,7 +330,7 @@ export function Canvas() {
         <Layer>
           {layers.lowerFloor && settings.showLowerFloor && lowerFloor && <LowerFloorLayer {...layerProps} />}
           <HallLayer {...layerProps} />
-          {layers.rooms && <RoomsLayer {...layerProps} />}
+          {(layers.rooms || layers.voids) && <RoomsLayer {...layerProps} />}
           {layers.walls && <WallsLayer {...layerProps} />}
           {layers.openings && <OpeningsLayer {...layerProps} />}
         </Layer>

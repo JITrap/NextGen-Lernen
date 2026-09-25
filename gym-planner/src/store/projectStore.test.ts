@@ -25,10 +25,19 @@ describe('Projekt-Store mit Undo/Redo', () => {
       for (let i = 0; i < 10; i++) s.addWall(fid, createWall({ start: { x: 0, y: i * 10 }, end: { x: 500, y: i * 10 } }));
     });
     expect(useProjectStore.getState().project.floors[0].walls.length).toBe(10);
+    expect(useProjectStore.temporal.getState().pastStates.length).toBe(1);
+    undo();
+    expect(useProjectStore.getState().project.floors[0].walls.length).toBe(0);
+    // Ein zweites Undo darf die Wände nicht wieder hinzufügen (kein doppelter Eintrag).
     undo();
     expect(useProjectStore.getState().project.floors[0].walls.length).toBe(0);
     redo();
     expect(useProjectStore.getState().project.floors[0].walls.length).toBe(10);
+    // Verschachtelte Transaktionen und eine ohne Änderung erzeugen keine zusätzlichen Einträge.
+    transaction(() => { transaction(() => {}); });
+    expect(useProjectStore.temporal.getState().pastStates.length).toBe(1);
+    transaction(() => s.addWall(fid, createWall({ start: { x: 0, y: 500 }, end: { x: 100, y: 500 } })));
+    expect(useProjectStore.temporal.getState().pastStates.length).toBe(2);
   });
 
   it('mindestens 100 Undo-Schritte', () => {
