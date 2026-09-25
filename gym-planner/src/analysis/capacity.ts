@@ -4,8 +4,9 @@
  * empfohlen 1/10), 1 WC je 25 Personen (Urinale zählen mit).
  *
  * Trainingsfläche = Flächenklasse „Trainingsfläche“ der Bilanz. Hat ein Stockwerk keine typisierten Räume/Zonen
- * (nur die leere Halle bzw. Auto-Räume ohne gewählten Typ), gilt seine gesamte Nettofläche als Trainingsfläche
- * (Kennzeichen usedNettoFallback).
+ * (nur die Halle bzw. Auto-Räume ohne gewählten Typ), aber bereits platzierte Objekte, gilt seine gesamte
+ * Nettofläche als Trainingsfläche (Kennzeichen usedNettoFallback). Eine leere Halle ohne Objekte hat keinen
+ * Bedarf (0 Personen) – sonst würde jedes neue Projekt sofort Kapazitätswarnungen erzeugen.
  */
 import type { Project, Id } from '@/types';
 import { analysisContext, memoByProject, numParam, symbolOf, type FloorContext, type AnalysisContext } from './common';
@@ -65,15 +66,19 @@ export function countFacilities(fc: FloorContext, ctx: AnalysisContext): Facilit
         f.lockers += Math.max(1, Math.round(numParam(it, def, 'faecher') ?? 1));
         break;
       case 'locker-row': {
+        // Fächer = Abteile × Stöcke; ohne Angabe: Breite / Abteilbreite (40 cm) × Stöcke
         const faecher = numParam(it, def, 'faecher');
-        f.lockers += Math.max(1, Math.round(faecher ?? it.width / 40));
+        const tiers = Math.min(4, Math.max(1, Math.round(numParam(it, def, 'stoeckig') ?? 1)));
+        const ab = numParam(it, def, 'abteilbreite');
+        f.lockers += Math.max(1, Math.round(faecher ?? (it.width / (ab != null && ab >= 5 ? ab : 40)) * tiers));
         break;
       }
       case 'shower':
         f.showers += Math.max(1, Math.round(numParam(it, def, 'anzahl') ?? 1));
         break;
       case 'shower-row': {
-        const anzahl = numParam(it, def, 'anzahl');
+        // Reihendusche: params.plaetze (wie das Symbol), alternativ params.anzahl, sonst Breite / 90 cm
+        const anzahl = numParam(it, def, 'plaetze') ?? numParam(it, def, 'anzahl');
         f.showers += Math.max(1, Math.round(anzahl ?? it.width / 90));
         break;
       }
@@ -111,7 +116,7 @@ export const capacity: (project: Project) => Capacity = memoByProject((project) 
   let usedNettoFallback = false;
   const floors: FloorCapacity[] = ctx.floors.map((fc, i) => {
     const fb = balance.floors[i];
-    const fallback = fc.typedRoomCount === 0;
+    const fallback = fc.typedRoomCount === 0 && fc.items.some((it) => !it.hidden);
     const t = fallback ? fb.nettoM2 : fb.trainingM2;
     if (fallback && t > 0) usedNettoFallback = true;
     trainingM2 += t;

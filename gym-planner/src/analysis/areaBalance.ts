@@ -4,7 +4,9 @@
  */
 import type { Project, RoomType, Id } from '@/types';
 import { AREA_CLASSES, ROOM_TYPE_MAP, type AreaClass } from '@/data/roomTypes';
-import { analysisContext, memoByProject, AREA_CLASS_COLORS, type FloorContext } from './common';
+import { wallRect } from '@/geometry/walls';
+import { polygonIntersectionArea } from './clip';
+import { analysisContext, memoByProject, AREA_CLASS_COLORS, CM2_PER_M2, type FloorContext } from './common';
 
 export interface AreaByType {
   type: RoomType;
@@ -34,7 +36,12 @@ export interface FloorAreaBalance {
   trainingM2: number;
   byType: AreaByType[];
   byClass: AreaByClass[];
-  /** Netto minus Summe aller typisierten Räume (min 0); enthält Auto-Räume ohne gewählten Typ. */
+  /**
+   * Innenwände: Wandflächen (Rechteck je Wand) innerhalb der Halle. Sie sind Teil der Nettofläche, liegen in keinem
+   * automatisch erkannten Raum und stecken daher in `unassignedM2` („davon Innenwände“ – Hinweis in der Anzeige).
+   */
+  wallsM2: number;
+  /** Netto minus Summe aller typisierten Räume (min 0); enthält Auto-Räume ohne gewählten Typ und Innenwände (`wallsM2`). */
   unassignedM2: number;
   unassignedPercent: number;
   /** Alle Räume/Zonen (inkl. untypisierter Auto-Räume). */
@@ -68,6 +75,10 @@ function balanceOfFloor(fc: FloorContext): FloorAreaBalance {
   const netto = fc.nettoM2;
   const assigned = fc.roomAreas.reduce((s, r) => s + (r.typed ? r.effectiveM2 : 0), 0);
   const unassignedM2 = Math.max(0, netto - assigned);
+  // Innenwände liegen in keinem (automatisch erkannten) Raum → Anteil von „nicht zugeordnet“; ohne Halle ist Netto die Raumsumme → 0.
+  let wallsCm2 = 0;
+  if (fc.inner) for (const w of fc.floor.walls) if (!w.hidden) wallsCm2 += polygonIntersectionArea(wallRect(w), fc.inner);
+  const wallsM2 = Math.min(unassignedM2, wallsCm2 / CM2_PER_M2);
   const byType: AreaByType[] = [...byTypeMap.entries()]
     .map(([type, v]) => ({ type, m2: v.m2, percent: pct(v.m2, netto), color: v.color, count: v.count }))
     .sort((a, b) => b.m2 - a.m2);
@@ -85,6 +96,7 @@ function balanceOfFloor(fc: FloorContext): FloorAreaBalance {
     trainingM2: byClassMap.get('Trainingsfläche') ?? 0,
     byType,
     byClass,
+    wallsM2,
     unassignedM2,
     unassignedPercent: pct(unassignedM2, netto),
     roomCount: fc.rooms.length,
@@ -99,6 +111,7 @@ export function sumAreaBalances(floors: FloorAreaBalance[], floorId = ALL_FLOORS
   let brutto = 0;
   let netto = 0;
   let voids = 0;
+  let walls = 0;
   let unassigned = 0;
   let rooms = 0;
   let untyped = 0;
@@ -107,6 +120,7 @@ export function sumAreaBalances(floors: FloorAreaBalance[], floorId = ALL_FLOORS
     brutto += f.bruttoM2;
     netto += f.nettoM2;
     voids += f.voidM2;
+    walls += f.wallsM2;
     unassigned += f.unassignedM2;
     rooms += f.roomCount;
     untyped += f.untypedRoomCount;
@@ -136,6 +150,7 @@ export function sumAreaBalances(floors: FloorAreaBalance[], floorId = ALL_FLOORS
     trainingM2: byClassMap.get('Trainingsfläche') ?? 0,
     byType,
     byClass,
+    wallsM2: walls,
     unassignedM2: unassigned,
     unassignedPercent: pct(unassigned, netto),
     roomCount: rooms,

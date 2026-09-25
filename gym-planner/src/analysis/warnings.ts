@@ -99,7 +99,9 @@ function collisionWarnings(fc: FloorContext, fi: FloorItems, walls: Wall[], ctx:
   for (const it of fi.all) if (ctx.def(it.defId)?.wandmontage) wallMountedIds.add(it.id);
   const floorId = fc.floor.id;
   for (const c of findCollisions(fi.all, { walls, includeZones: true, wallMountedIds })) {
-    const id = `collision:${floorId}:${c.a}:${c.b}`;
+    // Symmetrische Arten (Objekt–Objekt, Zone–Zone): ID unabhängig von der Reihenfolge der Beteiligten.
+    const symmetric = c.kind === 'item-item' || c.kind === 'zone-zone';
+    const id = symmetric && c.b < c.a ? `collision:${floorId}:${c.b}:${c.a}` : `collision:${floorId}:${c.a}:${c.b}`;
     const target = { kind: 'item' as const, id: c.a };
     switch (c.kind) {
       case 'item-item':

@@ -3,6 +3,7 @@ import type { Wall, Opening } from '@/types';
 import {
   wallOutline, wallOutlines, wallJoinPolygons, mergeCollinearWalls, mergeCollinearWallsDetailed,
   splitWallsAtIntersections, splitWallsAtIntersectionsDetailed, wallsBoundingBox, wallRect, hallWalls, allWalls, wallNodes,
+  splitWall, reassignOpeningsAfterSplit, wallNormal, findWall,
 } from './walls';
 import { createHall } from '@/store/factories';
 import { polygonArea, pointInPolygon } from './polygon';
@@ -325,5 +326,99 @@ describe('wallsBoundingBox / wallNodes', () => {
   });
   it('Knoten dedupliziert', () => {
     expect(wallNodes([wall(0, 0, 500, 0), wall(500, 0.2, 500, 400), wall(500, 400, 0, 400)])).toHaveLength(4);
+  });
+});
+
+describe('hallWalls – stabile IDs auf dem rohen Außenpolygon (M2)', () => {
+  const base = [{ x: 0, y: 0 }, { x: 1250, y: 0 }, { x: 2500, y: 0 }, { x: 2500, y: 2000 }, { x: 0, y: 2000 }];
+  const rightWall = (walls: Wall[]) => walls.find((w) => Math.abs(w.start.x - 2488) < 1e-6 && Math.abs(w.end.x - 2488) < 1e-6)!;
+
+  it('kollinearer Zwischenpunkt: Index = Index der Außenkante, rechte Wand bleibt hall_2 nach 1 cm Verschiebung', () => {
+    const hall = createHall(2500, 2000, { polygon: base });
+    const walls = hallWalls(hall);
+    expect(walls.map((w) => w.id)).toEqual(['hall_0', 'hall_1', 'hall_2', 'hall_3', 'hall_4']);
+    expect(rightWall(walls).id).toBe('hall_2');
+    // obere Kante in zwei Wänden, Achse 12 cm innen, an der Ecke (0,0) auf Gehrung (12,12)
+    expectPoint(walls[0].start, 12, 12);
+    expectPoint(walls[0].end, 1250, 12);
+    expectPoint(walls[1].start, 1250, 12);
+    expectPoint(walls[1].end, 2488, 12);
+    expectPoint(walls[2].end, 2488, 1988);
+    // Punkt 1 um 1 cm bewegt → keine kollineare Ecke mehr, aber gleiche IDs
+    const moved = createHall(2500, 2000, { polygon: base.map((p, i) => (i === 1 ? { x: 1250, y: -1 } : p)) });
+    const walls2 = hallWalls(moved);
+    expect(walls2.map((w) => w.id)).toEqual(['hall_0', 'hall_1', 'hall_2', 'hall_3', 'hall_4']);
+    expect(rightWall(walls2).id).toBe('hall_2');
+    expect(findWall({ hall: moved, walls: [] }, 'hall_2')!.start.x).toBeCloseTo(2488, 6);
+    // Tür an hall_2 bleibt an der rechten Wand
+    for (const w of walls2) expect(w.end.x - w.start.x !== 0 || w.end.y - w.start.y !== 0).toBe(true);
+  });
+
+  it('Kante ohne Länge liefert keine Wand, die Nummerierung der übrigen bleibt', () => {
+    const hall = createHall(2500, 2000, { polygon: [{ x: 0, y: 0 }, { x: 2500, y: 0 }, { x: 2500, y: 0 }, { x: 2500, y: 2000 }, { x: 0, y: 2000 }] });
+    const walls = hallWalls(hall);
+    expect(walls.map((w) => w.id)).toEqual(['hall_0', 'hall_2', 'hall_3', 'hall_4']);
+    expectPoint(walls[0].end, 2488, 12);
+    expectPoint(walls[1].start, 2488, 12);
+    expect(rightWall(walls).id).toBe('hall_2');
+  });
+
+  it('gegen den Uhrzeigersinn gezeichnete Halle: Index = Kante, Seite „a“ liegt außen', () => {
+    const ccw = [...createHall(1000, 800).polygon].reverse(); // (0,800),(1000,800),(1000,0),(0,0)
+    const walls = hallWalls(createHall(1000, 800, { polygon: ccw }));
+    expect(walls.map((w) => w.id)).toEqual(['hall_0', 'hall_1', 'hall_2', 'hall_3']);
+    // Kante 0 = untere Kante (0,800)→(1000,800): Achse bei y = 788, Normale „a“ zeigt nach außen (+y)
+    expect(walls[0].start.y).toBeCloseTo(788, 6);
+    expect(wallNormal(walls[0]).y).toBeCloseTo(1, 6);
+    // Kante 2 = obere Kante: Normale nach oben (−y)
+    expect(walls[2].start.y).toBeCloseTo(12, 6);
+    expect(wallNormal(walls[2]).y).toBeCloseTo(-1, 6);
+    expect(wallNodes(walls)).toHaveLength(4);
+  });
+
+  it('spitze Ecke: Achsen-Endpunkte werden gekappt statt weit hinaus zu laufen', () => {
+    const hall = createHall(2500, 2000, { polygon: [{ x: 0, y: 0 }, { x: 2000, y: 0 }, { x: 0, y: 300 }], wallThickness: 24 });
+    const walls = hallWalls(hall);
+    expect(walls).toHaveLength(3);
+    // Ecke (2000,0) mit ≈ 8,5°: Gehrung wäre ≈ 12 / sin(4,27°) ≈ 161 cm → gekappt auf 4 × 12 = 48 cm
+    const tip = walls[0].end;
+    expect(Math.hypot(tip.x - 2000, tip.y)).toBeCloseTo(48, 6);
+    expect(tip.x).toBeLessThan(2000);
+    expect(pointInPolygon(tip, hall.polygon)).toBe(true);
+  });
+});
+
+describe('Öffnungen beim Teilen – nie über das Wandende hinaus (M6)', () => {
+  const doorAt = (wallId: string, offset: number, width: number): Opening => ({ id: 'd', kind: 'door', wallId, offset, width, doorType: 'einflügelig', height: 210, hinge: 'left', swingSide: 'a' });
+  it('splitWallsAtIntersectionsDetailed: Tür über dem Teilungspunkt wird auf das nähere Teilstück begrenzt', () => {
+    const h = wall(0, 0, 1000, 0, 10);
+    const v = wall(500, -300, 500, 300, 10);
+    const { walls, openings } = splitWallsAtIntersectionsDetailed([h, v], [doorAt(h.id, 520, 100)]);
+    const part = walls.find((w) => w.id === openings[0].wallId)!;
+    expectPoint(part.start, 500, 0);
+    expectPoint(part.end, 1000, 0);
+    // vorher: offset 20 → Tür ragte 30 cm über das Wandende; jetzt beginnt sie am Wandanfang
+    expect(openings[0].offset).toBeCloseTo(50, 6);
+    // Mitte auf dem linken Teilstück → dort begrenzt
+    const r2 = splitWallsAtIntersectionsDetailed([h, v], [doorAt(h.id, 480, 100)]);
+    expect(r2.openings[0].wallId).toBe(h.id);
+    expect(r2.openings[0].offset).toBeCloseTo(450, 6);
+    // Passt vollständig → unverändert bzw. verschoben ohne Begrenzung
+    const r3 = splitWallsAtIntersectionsDetailed([h, v], [doorAt(h.id, 440, 100)]);
+    expect(r3.openings[0].wallId).toBe(h.id);
+    expect(r3.openings[0].offset).toBeCloseTo(440, 6);
+  });
+  it('reassignOpeningsAfterSplit wählt das Teilstück, das die Öffnung vollständig aufnimmt', () => {
+    const h = wall(0, 0, 1000, 0, 10);
+    const parts = splitWall(h, { x: 500, y: 0 })!;
+    const [near] = reassignOpeningsAfterSplit([doorAt(h.id, 520, 100)], h, parts);
+    expect(near.wallId).toBe(parts[1].id);
+    expect(near.offset).toBeCloseTo(50, 6);
+    const [fits] = reassignOpeningsAfterSplit([doorAt(h.id, 800, 90)], h, parts);
+    expect(fits.wallId).toBe(parts[1].id);
+    expect(fits.offset).toBeCloseTo(300, 6);
+    const [left] = reassignOpeningsAfterSplit([doorAt(h.id, 200, 90)], h, parts);
+    expect(left.wallId).toBe(h.id);
+    expect(left.offset).toBe(200);
   });
 });

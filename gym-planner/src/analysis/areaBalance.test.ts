@@ -1,7 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { areaBalance } from './areaBalance';
+import { analysisContext } from './common';
 import { projectWithHall, firstFloor, addZone, addFloor, fresh } from './testFixtures';
 import { floorRooms } from '@/geometry/rooms';
+import type { Wall } from '@/types';
 import { rectPolygon } from '@/geometry/polygon';
 import { createHall } from '@/store/factories';
 
@@ -124,6 +126,41 @@ describe('Flächenbilanz mit Wandräumen', () => {
     expect(fn.m2).toBeCloseTo(16, 6);
     expect(cardio.m2).toBeCloseTo(left.areaM2 - 16, 3);
     expect(b.untypedRoomCount).toBe(1);
+    // N4: die Trennwand (12,5 × 1952 cm innerhalb der Halle) liegt in keinem Raum und wird als Anteil von „nicht zugeordnet“ ausgewiesen
+    expect(b.wallsM2).toBeCloseTo((12.5 * 1952) / 10000, 6);
     expect(b.unassignedM2).toBeCloseTo(b.nettoM2 - cardio.m2 - fn.m2, 3);
+    expect(b.unassignedM2).toBeGreaterThanOrEqual(b.wallsM2);
+  });
+
+  it('Raum im Raum: der Wandring des inneren Wandzugs zählt nicht zur Fläche des äußeren Raums (M1)', () => {
+    const p = projectWithHall(2500, 2000);
+    const f = firstFloor(p);
+    const box: Wall[] = [
+      { id: 'b1', start: { x: 500, y: 500 }, end: { x: 1000, y: 500 }, thickness: 10, type: 'Trockenbau', height: null },
+      { id: 'b2', start: { x: 1000, y: 500 }, end: { x: 1000, y: 900 }, thickness: 10, type: 'Trockenbau', height: null },
+      { id: 'b3', start: { x: 1000, y: 900 }, end: { x: 500, y: 900 }, thickness: 10, type: 'Trockenbau', height: null },
+      { id: 'b4', start: { x: 500, y: 900 }, end: { x: 500, y: 500 }, thickness: 10, type: 'Trockenbau', height: null },
+    ];
+    f.walls.push(...box);
+    const rooms = floorRooms(f);
+    expect(rooms).toHaveLength(2);
+    const hallRoom = rooms.find((r) => r.areaM2 > 100)!;
+    const innerRoom = rooms.find((r) => r.areaM2 < 100)!;
+    expect(hallRoom.holes).toHaveLength(1);
+    expect(hallRoom.areaM2).toBeCloseTo(478.6304 - (510 * 410) / 10000, 4); // Label 457,72 m²
+    f.roomMeta[hallRoom.loopKey!] = { name: 'Halle', type: 'Maschinen' };
+    f.roomMeta[innerRoom.loopKey!] = { name: 'Büro', type: 'Büro' };
+    const q = fresh(p);
+    const fc = analysisContext(q).floors[0];
+    const hallArea = fc.roomAreas.find((ra) => ra.room.name === 'Halle')!;
+    const innerArea = fc.roomAreas.find((ra) => ra.room.name === 'Büro')!;
+    expect(hallArea.effectiveM2).toBeCloseTo(hallArea.room.areaM2, 4);
+    expect(hallArea.effectiveM2).toBeLessThanOrEqual(hallArea.room.areaM2 + 1e-9);
+    expect(innerArea.effectiveM2).toBeCloseTo((490 * 390) / 10000, 4);
+    const b = areaBalance(q).floors[0];
+    expect(b.byType.find((t) => t.type === 'Maschinen')!.m2).toBeCloseTo(457.72, 2);
+    expect(b.wallsM2).toBeCloseTo((2 * 510 * 10 + 2 * 390 * 10) / 10000, 4);
+    // Netto = Halle + Büro + Wandring → „nicht zugeordnet“ ist genau der Wandring (als Innenwände ausgewiesen)
+    expect(b.unassignedM2).toBeCloseTo(b.wallsM2, 3);
   });
 });

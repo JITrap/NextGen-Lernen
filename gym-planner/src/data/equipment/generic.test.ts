@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import type { EquipmentDef, LibraryArea, SymbolKind } from '@/types';
 import { GENERIC_LIBRARY, BUILTIN_LIBRARY, ATLANTIS_LIBRARY, PRIME_LIBRARY, LIBRARY_AREAS, getDef } from './index';
 import { createItemFromDef } from '@/store/factories';
+import { lockerColumns, lockerCount, lockerTiers } from '@/editor/symbols/common';
 
 /** Alle gültigen Draufsicht-Symbole (Kopie der Union `SymbolKind` aus src/types/model.ts). */
 const SYMBOL_KINDS: readonly SymbolKind[] = [
@@ -304,5 +305,30 @@ describe('Generische Objektbibliothek (generic.json)', () => {
       expect(createItemFromDef(def('gen-cardio-laufband'), 0, 0).kind).toBe('equipment');
       expect(createItemFromDef(def('gen-bau-podest'), 0, 0).kind).toBe('equipment');
     });
+  });
+});
+
+describe('Spinde: Breite = Abteile × Abteilbreite, Abteile = Fächer ÷ Stöcke (M5)', () => {
+  const lockers = GENERIC_LIBRARY.filter((d) => d.params?.faecher != null);
+  it('alle Spind-Einträge sind in sich konsistent', () => {
+    expect(lockers.length).toBeGreaterThanOrEqual(8);
+    for (const d of lockers) {
+      const faecher = Number(d.params!.faecher);
+      const stoeckig = Number(d.params!.stoeckig ?? 1);
+      const ab = Number(d.params!.abteilbreite);
+      expect(Math.ceil(faecher / stoeckig) * ab, d.id).toBe(d.breite_cm);
+    }
+  });
+  it('2-stöckige Spindreihe: 20 Fächer, 2 Stöcke, 40 cm → 10 Abteile, 400 cm breit', () => {
+    const d = def('gen-umkleide-spindreihe-2');
+    const it = createItemFromDef(d, 0, 0);
+    expect(lockerTiers(it, d)).toBe(2);
+    expect(lockerColumns(it, d)).toBe(10);
+    expect(lockerCount(it, d)).toBe(20);
+    expect(lockerColumns(it, d) * Number(d.params!.abteilbreite)).toBe(it.width);
+    // ohne Fächerangabe: Abteile aus Breite / Abteilbreite, Fächer = Abteile × Stöcke
+    const noF = { ...it, params: { abteilbreite: 40, stoeckig: 2 } };
+    expect(lockerColumns(noF, undefined)).toBe(10);
+    expect(lockerCount(noF, undefined)).toBe(20);
   });
 });

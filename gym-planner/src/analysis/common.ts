@@ -6,7 +6,8 @@
  * Flächen-Regeln (siehe areaBalance):
  * - brutto  = Hallen-Außenpolygon
  * - netto   = Hallen-Innenpolygon (Wandstärke abgezogen) minus Lufträume
- * - Räume werden auf das Innenpolygon beschnitten und um Lufträume reduziert.
+ * - Räume werden auf das Innenpolygon beschnitten und um Lufträume reduziert; Löcher (Raum im Raum: Außenkante
+ *   des inneren Wandzugs) zählen nicht zur Fläche des äußeren Raums.
  * - Automatisch erkannte Räume OHNE roomMeta-Eintrag (z. B. die leere Halle als ein großer Raum) haben keinen
  *   vom Nutzer gewählten Typ und zählen in der Bilanz als „nicht zugeordnet“ (bleiben aber als Räume für
  *   Objekt-Zuordnung, Bodenlast und Restfläche erhalten).
@@ -85,6 +86,19 @@ export function pointInRoom(p: Vec2, room: Room): boolean {
   return true;
 }
 
+/** Schnittfläche (cm²) der Region „`poly` ohne `holes`“ mit dem Polygon `other` (Löcher liegen vollständig in `poly`). */
+function regionIntersectionArea(poly: Vec2[], holes: Vec2[][], other: Vec2[]): number {
+  let a = polygonIntersectionArea(poly, other);
+  for (const h of holes) a -= polygonIntersectionArea(h, other);
+  return a;
+}
+/** Schnittfläche (cm²) zweier Regionen (Polygon minus Löcher). */
+function regionsIntersectionArea(poly: Vec2[], holes: Vec2[][], other: Vec2[], otherHoles: Vec2[][]): number {
+  let a = regionIntersectionArea(poly, holes, other);
+  for (const h of otherHoles) a -= regionIntersectionArea(poly, holes, h);
+  return a;
+}
+
 function buildFloorContext(floor: Floor): FloorContext {
   const rooms = floorRooms(floor);
   const hasHall = !!floor.hall && floor.hall.polygon.length >= 3;
@@ -102,16 +116,17 @@ function buildFloorContext(floor: Floor): FloorContext {
     .map((room, index) => ({ room, index, area: polygonArea(room.polygon) }))
     .sort((a, b) => (a.room.source === b.room.source ? a.area - b.area : a.room.source === 'zone' ? -1 : 1));
   const effective = new Array<number>(rooms.length).fill(0);
-  const processed: { poly: Vec2[]; box: BBox }[] = [];
+  const processed: { poly: Vec2[]; holes: Vec2[][]; box: BBox }[] = [];
   for (const { room, index, area } of order) {
     const poly = room.polygon;
     if (poly.length < 3) continue;
     const box = bbox(poly);
-    let cm2 = inner ? polygonIntersectionArea(poly, inner) : area;
-    for (const v of voids) cm2 -= polygonIntersectionArea(poly, v.polygon);
-    for (const p of processed) if (bboxOverlap(box, p.box)) cm2 -= polygonIntersectionArea(poly, p.poly);
+    const holes = room.holes ?? [];
+    let cm2 = inner ? regionIntersectionArea(poly, holes, inner) : area - holes.reduce((s, h) => s + polygonArea(h), 0);
+    for (const v of voids) cm2 -= regionIntersectionArea(poly, holes, v.polygon);
+    for (const p of processed) if (bboxOverlap(box, p.box)) cm2 -= regionsIntersectionArea(poly, holes, p.poly, p.holes);
     effective[index] = Math.max(0, cm2) / CM2_PER_M2;
-    processed.push({ poly, box });
+    processed.push({ poly, holes, box });
   }
   const roomAreas: RoomArea[] = rooms.map((room, i) => ({
     room,

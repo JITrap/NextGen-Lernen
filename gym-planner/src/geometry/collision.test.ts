@@ -7,6 +7,7 @@ import {
 } from './collision';
 import { polygonArea, bbox, pointInPolygon } from './polygon';
 import { hallInnerPolygon, hallWalls, openingPlacement } from './walls';
+import { itemIndexFor, wallIndexFor } from './spatialHash';
 
 function item(id: string, x: number, y: number, width: number, depth: number, rotation = 0, extra: Partial<PlacedItem> = {}): PlacedItem {
   return {
@@ -263,5 +264,50 @@ describe('escapeRouteBottlenecks', () => {
     const res = escapeRouteBottlenecks([a, b, c, h], [], null, 120);
     expect(res.map((r) => r.width)).toEqual([80, 100]);
     expect(res[0].axis).toBe('y');
+  });
+});
+
+describe('escapeRouteBottlenecks – Projektionsüberlappung und Rückseite (N7)', () => {
+  it('Überlappung der Projektionen unter 60 cm zählt nicht, ab 60 cm schon', () => {
+    const a = item('a', 0, 0, 100, 100); // y ∈ [−50, 50]
+    expect(escapeRouteBottlenecks([a, item('b', 200, 50, 100, 100)], [], null, 120)).toEqual([]); // 50 cm Überlappung
+    expect(escapeRouteBottlenecks([a, item('b', 200, 45, 100, 100)], [], null, 120)).toEqual([]); // 55 cm Überlappung
+    const res = escapeRouteBottlenecks([a, item('b', 200, 40, 100, 100)], [], null, 120); // 60 cm Überlappung
+    expect(res).toHaveLength(1);
+    expect(res[0].axis).toBe('x');
+    expect(res[0].width).toBe(100);
+  });
+  it('Rückseite eines Objekts an der Wand ist kein Laufweg, Vorderseite schon', () => {
+    const w = wall('w', 0, 5, 500, 5, 10); // Fläche y ∈ [0, 10]
+    const back = item('a', 100, 100, 100, 100, 0); // Rückseite (−y) zeigt zur Wand, Spalt 40 cm
+    expect(escapeRouteBottlenecks([back], [w], null, 120)).toEqual([]);
+    const front = item('a', 100, 100, 100, 100, 180); // Vorderseite zur Wand
+    const res = escapeRouteBottlenecks([front], [w], null, 120);
+    expect(res).toHaveLength(1);
+    expect(res[0].width).toBeCloseTo(40, 6);
+    // Hallenkante ebenso
+    const hall: Hall = { polygon: [{ x: 0, y: 0 }, { x: 1000, y: 0 }, { x: 1000, y: 800 }, { x: 0, y: 800 }], wallThickness: 24, floorCovering: 'Beton' };
+    const inner = hallInnerPolygon(hall);
+    const backToHall = item('a', 500, 24 + 40 + 50, 100, 100, 0);
+    expect(escapeRouteBottlenecks([backToHall], [], inner, 120)).toEqual([]);
+    expect(escapeRouteBottlenecks([{ ...backToHall, rotation: 90 }], [], inner, 120)).toHaveLength(1);
+  });
+});
+
+describe('Indizes gegen in-place veränderte Arrays (N1)', () => {
+  it('itemIndexFor / wallIndexFor bauen bei geänderter Länge neu statt mit undefinierten Einträgen zu rechnen', () => {
+    const items = [item('a', 0, 0, 100, 100)];
+    const idx = itemIndexFor(items);
+    expect(idx.footprints).toHaveLength(1);
+    items.push(item('b', 50, 0, 100, 100));
+    const idx2 = itemIndexFor(items);
+    expect(idx2).not.toBe(idx);
+    expect(idx2.footprints).toHaveLength(2);
+    expect(findCollisions(items).length).toBe(1);
+    const walls = [wall('w', 0, 0, 100, 0)];
+    const w1 = wallIndexFor(walls);
+    walls.push(wall('w2', 0, 0, 0, 100));
+    expect(wallIndexFor(walls).rects).toHaveLength(2);
+    expect(wallIndexFor(walls)).not.toBe(w1);
   });
 });

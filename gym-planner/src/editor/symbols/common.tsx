@@ -229,9 +229,24 @@ export function strParam(item: Pick<PlacedItem, 'params'>, def: EquipmentDef | u
   return raw == null ? '' : String(raw);
 }
 
-/** Anzahl Fächer einer Spindreihe: params.faecher, sonst Breite / 40 cm. */
+/** Stöcke (Fächer übereinander) einer Spindreihe: params.stoeckig, 1–4 (Standard 1). */
+export function lockerTiers(item: Pick<PlacedItem, 'params'>, def: EquipmentDef | undefined): number {
+  const n = numParam(item, def, 'stoeckig');
+  return n != null && n >= 1 ? clampInt(n, 1, 4) : 1;
+}
+/**
+ * Abteile (Spalten) einer Spindreihe = Fächer ÷ Stöcke (aufgerundet); ohne params.faecher aus der Breite:
+ * Breite / Abteilbreite (params.abteilbreite, sonst 40 cm). Die Breite der Reihe ist Abteile × Abteilbreite.
+ */
+export function lockerColumns(item: Pick<PlacedItem, 'params' | 'width'>, def: EquipmentDef | undefined): number {
+  const n = numParam(item, def, 'faecher');
+  if (n != null && n >= 1) return clampInt(Math.ceil(n / lockerTiers(item, def)), 1, 200);
+  const ab = numParam(item, def, 'abteilbreite');
+  return clampInt(item.width / (ab != null && ab >= 5 ? ab : 40), 1, 200);
+}
+/** Anzahl Fächer einer Spindreihe (Kapazität): params.faecher, sonst Abteile × Stöcke. */
 export function lockerCount(item: Pick<PlacedItem, 'params' | 'width'>, def: EquipmentDef | undefined): number {
   const n = numParam(item, def, 'faecher');
   if (n != null && n >= 1) return clampInt(n, 1, 200);
-  return clampInt(item.width / 40, 1, 200);
+  return clampInt(lockerColumns(item, def) * lockerTiers(item, def), 1, 200);
 }

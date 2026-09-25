@@ -123,6 +123,8 @@ export interface ItemIndex {
   zoneBoxes: (BBox | null)[];
   /** Broadphase über Indizes in `items`; Box = Grundfläche ∪ Sicherheitszone. Versteckte Objekte fehlen. */
   hash: SpatialHash<number>;
+  /** Länge des indizierten Arrays beim Aufbau – Schutz gegen in-place veränderte (nicht eingefrorene) Arrays. */
+  size: number;
 }
 
 function unionBox(a: BBox, b: BBox | null): BBox {
@@ -147,15 +149,15 @@ export function buildItemIndex(items: PlacedItem[], cellSize: number = DEFAULT_C
     zoneBoxes[i] = z ? bbox(z) : null;
     if (!it.hidden) hash.insert(i, unionBox(boxes[i], zoneBoxes[i]));
   }
-  return { items, footprints, boxes, zones, zoneBoxes, hash };
+  return { items, footprints, boxes, zones, zoneBoxes, hash, size: n };
 }
 
 const itemIndexCache = new WeakMap<PlacedItem[], ItemIndex>();
 
-/** Gecachter Objekt-Index (Schlüssel: Array-Identität). */
+/** Gecachter Objekt-Index (Schlüssel: Array-Identität; bei in-place geänderter Länge wird neu gebaut). */
 export function itemIndexFor(items: PlacedItem[]): ItemIndex {
   let idx = itemIndexCache.get(items);
-  if (!idx) {
+  if (!idx || idx.size !== items.length) {
     idx = buildItemIndex(items);
     itemIndexCache.set(items, idx);
   }
@@ -186,6 +188,8 @@ export interface WallIndex {
   boxes: BBox[];
   /** Broadphase über Indizes in `walls`; versteckte Wände fehlen. */
   hash: SpatialHash<number>;
+  /** Länge des indizierten Arrays beim Aufbau – Schutz gegen in-place veränderte (nicht eingefrorene) Arrays. */
+  size: number;
 }
 
 export function buildWallIndex(walls: Wall[], cellSize: number = DEFAULT_CELL_SIZE): WallIndex {
@@ -199,15 +203,15 @@ export function buildWallIndex(walls: Wall[], cellSize: number = DEFAULT_CELL_SI
     boxes[i] = bbox(r);
     if (!walls[i].hidden) hash.insert(i, boxes[i]);
   }
-  return { walls, rects, boxes, hash };
+  return { walls, rects, boxes, hash, size: n };
 }
 
 const wallIndexCache = new WeakMap<Wall[], WallIndex>();
 
-/** Gecachter Wand-Index (Schlüssel: Array-Identität). */
+/** Gecachter Wand-Index (Schlüssel: Array-Identität; bei in-place geänderter Länge wird neu gebaut). */
 export function wallIndexFor(walls: Wall[]): WallIndex {
   let idx = wallIndexCache.get(walls);
-  if (!idx) {
+  if (!idx || idx.size !== walls.length) {
     idx = buildWallIndex(walls);
     wallIndexCache.set(walls, idx);
   }

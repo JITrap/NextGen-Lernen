@@ -31,10 +31,11 @@ export function cm2ToM2(cm2: number): number {
   return cm2 / (CM_PER_M * CM_PER_M);
 }
 
-/** Rundet auf n Nachkommastellen (numerisch stabil für Anzeige). */
+/** Rundet auf n Nachkommastellen (numerisch stabil für Anzeige, symmetrisch für negative Werte, nie −0). */
 export function round(value: number, decimals = 2): number {
   const f = 10 ** decimals;
-  return Math.round((value + Number.EPSILON) * f) / f;
+  const r = Math.round((Math.abs(value) + Number.EPSILON) * f) / f;
+  return r === 0 ? 0 : value < 0 ? -r : r;
 }
 
 /** „12,45 m²“ */
@@ -83,15 +84,34 @@ export function formatNumber(v: number, decimals = 2): string {
 }
 
 /**
- * Parst Nutzereingaben wie „3,5 m“, „350“, „3.5m“, „12,5 cm“ → cm.
+ * Normalisiert eine Zahl in Nutzerschreibweise auf JS-Syntax: Komma als Dezimaltrennzeichen („3,5“ – mit Ziffern
+ * nach dem Komma, „3,“ ist eine unfertige Eingabe), Punkt als Dezimaltrennzeichen („3.5“, „.5“, „5.“),
+ * Tausenderpunkte („1.000“, „12.500,5“ → Punkt vor genau drei Ziffern ohne Komma), Vorzeichen („+5“) und
+ * Exponent („1e2“). null bei ungültiger Schreibweise.
+ */
+function normalizeNumber(s: string): string | null {
+  if (s.includes(',')) {
+    if (!/^[+-]?(?:\d[\d.]*)?,\d+(?:e[+-]?\d+)?$/.test(s)) return null;
+    return s.replace(/\./g, '').replace(',', '.');
+  }
+  if (!/^[+-]?(?:\d[\d.]*|\.\d+)(?:e[+-]?\d+)?$/.test(s)) return null;
+  if (/^[+-]?[1-9]\d{0,2}(?:\.\d{3})+(?:e[+-]?\d+)?$/.test(s)) return s.replace(/\./g, '');
+  if ((s.match(/\./g) ?? []).length > 1) return null;
+  return s;
+}
+
+/**
+ * Parst Nutzereingaben wie „3,5 m“, „350“, „3.5m“, „12,5 cm“, „.5“, „+5“, „1e2“, „1.000“ (= 1000) → cm.
  * Ohne Einheit wird `defaultUnit` angenommen.
  */
 export function parseLength(input: string, defaultUnit: 'cm' | 'm' = 'cm'): number | null {
   const s = input.trim().toLowerCase().replace(/\s+/g, '');
   if (!s) return null;
-  const m = s.match(/^(-?\d+(?:[.,]\d+)?)(mm|cm|m)?$/);
+  const m = s.match(/^(.+?)(mm|cm|m)?$/);
   if (!m) return null;
-  const value = parseFloat(m[1].replace(',', '.'));
+  const num = normalizeNumber(m[1]);
+  if (num == null) return null;
+  const value = Number(num);
   if (!Number.isFinite(value)) return null;
   const unit = (m[2] ?? defaultUnit) as 'mm' | 'cm' | 'm';
   switch (unit) {
@@ -104,11 +124,13 @@ export function parseLength(input: string, defaultUnit: 'cm' | 'm' = 'cm'): numb
   }
 }
 
-/** Parst eine Dezimalzahl mit Komma oder Punkt. */
+/** Parst eine Dezimalzahl mit Komma oder Punkt (auch „.5“, „+5“, „1e2“, „1.000“ = 1000). */
 export function parseNumber(input: string): number | null {
-  const s = input.trim().replace(/\s+/g, '').replace(',', '.');
+  const s = input.trim().toLowerCase().replace(/\s+/g, '');
   if (!s) return null;
-  const v = Number(s);
+  const num = normalizeNumber(s);
+  if (num == null) return null;
+  const v = Number(num);
   return Number.isFinite(v) ? v : null;
 }
 

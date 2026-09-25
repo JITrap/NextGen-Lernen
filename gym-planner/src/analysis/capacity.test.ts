@@ -53,17 +53,38 @@ describe('Kapazität', () => {
     expect(warnings(p).some((w) => w.kind === 'capacity')).toBe(false);
   });
 
-  it('ohne typisierte Räume gilt die Nettofläche als Trainingsfläche', () => {
+  it('ohne typisierte Räume gilt die Nettofläche als Trainingsfläche – sobald Objekte platziert sind (N3)', () => {
     const p = projectWithHall(1000, 1000); // Netto 9,52² = 90,63 m² (die Halle selbst ist ein Auto-Raum ohne Typ)
     p.settings.m2PerPerson = 9;
-    const c = capacity(p);
+    // Leere Halle: kein Bedarf, keine Kapazitätswarnungen (vorher drei Warnungen in jedem neuen Projekt)
+    const c0 = capacity(p);
+    expect(c0.usedNettoFallback).toBe(false);
+    expect(c0.persons).toBe(0);
+    expect(warnings(p).filter((w) => w.kind === 'capacity')).toEqual([]);
+    const d = addCustomDef(p, makeDef({ id: 't-any', breite_cm: 100, tiefe_cm: 100 }));
+    place(firstFloor(p), d, 300, 300);
+    const c = capacity(fresh(p));
     expect(c.usedNettoFallback).toBe(true);
     expect(c.trainingM2).toBeCloseTo(90.6304, 3);
     expect(c.persons).toBe(10);
+    expect(warnings(fresh(p)).some((w) => w.kind === 'capacity')).toBe(true);
     addZone(firstFloor(p), 100, 100, 400, 400, 'Büro');
     const c2 = capacity(fresh(p));
     expect(c2.usedNettoFallback).toBe(false);
     expect(c2.persons).toBe(0);
+  });
+
+  it('Reihendusche zählt params.plaetze wie das Symbol; Spindreihe Fächer = Abteile × Stöcke (N5, M5)', () => {
+    const p = projectWithHall(3000, 3000);
+    const f = firstFloor(p);
+    addZone(f, 100, 100, 2100, 2100, 'Maschinen');
+    const showerRow = addCustomDef(p, makeDef({ id: 't-shower-row-p', symbol: 'shower-row', bereich: 'Umkleide', breite_cm: 270, tiefe_cm: 90, params: { plaetze: 5 } }));
+    const lockerRow2 = addCustomDef(p, makeDef({ id: 't-locker-2', symbol: 'locker-row', bereich: 'Umkleide', breite_cm: 400, tiefe_cm: 50, params: { abteilbreite: 40, stoeckig: 2 } }));
+    place(f, showerRow, 2500, 200);
+    place(f, lockerRow2, 2500, 400); // 400 / 40 = 10 Abteile × 2 Stöcke = 20 Fächer
+    const c = capacity(p);
+    expect(c.showers).toBe(5);
+    expect(c.lockers).toBe(20);
   });
 
   it('ungültige m²/Person → 0 Personen, keine Hinweise', () => {

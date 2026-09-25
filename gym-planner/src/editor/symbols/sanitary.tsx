@@ -2,7 +2,7 @@
  * Draufsicht-Symbole: Umkleide und Sanitär (Spinde, Bänke, Duschen, WC, Waschtisch …).
  */
 import { Circle, Ellipse } from 'react-konva';
-import { Body, Box, Bars, Dots, Pad, Poly, Disc, clampInt, lockerCount, numParam, type SymbolRenderer } from './common';
+import { Body, Box, Bars, Dots, Pad, Poly, Disc, clampInt, lockerColumns, lockerTiers, numParam, type SymbolRenderer } from './common';
 
 /** Einzelspind: Tür vorne mit Griff, Scharnierseite links. */
 export const locker: SymbolRenderer = (p) => {
@@ -18,20 +18,26 @@ export const locker: SymbolRenderer = (p) => {
   );
 };
 
-/** Spindreihe: Fächer (Anzahl aus params.faecher, sonst Breite / 40 cm) mit Trennwänden und Griffen. */
+/**
+ * Spindreihe: Abteile (Spalten = Fächer ÷ Stöcke, sonst Breite / Abteilbreite) mit Trennwänden und Griffen;
+ * bei mehrstöckigen Reihen eine Griffreihe je Stock (hintereinander gestaffelt) als Hinweis auf die Stapelung.
+ */
 export const lockerRow: SymbolRenderer = (p) => {
   const { w, d, item, def, fill, stroke, sw, lw, ink, shade } = p;
   const hw = w / 2;
   const hd = d / 2;
-  const n = lockerCount(item, def);
+  const n = lockerColumns(item, def);
+  const tiers = lockerTiers(item, def);
   const comp = w / n;
   const dot = Math.max(lw * 2.5, Math.min(comp * 0.25, d * 0.12));
+  const rows: number[] = [];
+  for (let t = 0; t < tiers; t++) rows.push(hd - d * 0.18 - t * Math.max(dot * 1.6, d * 0.14));
   return (
     <>
       <Body w={w} d={d} fill={fill} stroke={stroke} sw={sw} />
       <Box x={-hw} y={-hd} w={w} h={d * 0.06} fill={shade} />
       {n > 1 && <Bars axis="x" from={-hw + comp} to={hw - comp * 0.5} at={0} thickness={d} step={comp} bar={lw * 1.2} color={ink} offset={lw * 0.6} />}
-      <Dots axis="x" from={-hw + comp / 2} to={hw} at={hd - d * 0.18} step={comp} size={dot} color={ink} />
+      {rows.map((y, i) => <Dots key={i} axis="x" from={-hw + comp / 2} to={hw} at={y} step={comp} size={i === 0 ? dot : dot * 0.7} color={ink} />)}
     </>
   );
 };

@@ -231,8 +231,42 @@ export function simplifyPolygon(poly: Vec2[], eps = 1e-3): Vec2[] {
   return res.length >= 3 ? res : out;
 }
 /**
+ * Gehrungsgrenze (wie SVG `stroke-miterlimit`): Liegt der Geradenschnitt zweier versetzter Kanten weiter als
+ * MITER_LIMIT × |d| vom Eckpunkt entfernt (spitze Ecke, Gehrungslänge d / sin(θ/2)), wird die Ecke auf diese
+ * Entfernung entlang der Winkelhalbierenden gekappt.
+ */
+export const MITER_LIMIT = 4;
+
+/**
+ * Eckpunkt zweier um `d` versetzter Kanten (`prev` endet, `cur` beginnt am Eckpunkt `corner`):
+ * Geradenschnitt, bei (nahezu) parallelen Kanten der versetzte Eckpunkt selbst, bei spitzen Ecken gekappt (MITER_LIMIT).
+ */
+export function offsetCorner(prev: { a: Vec2; b: Vec2 }, cur: { a: Vec2; b: Vec2 }, corner: Vec2, d: number): Vec2 {
+  const p = lineIntersection(prev.a, prev.b, cur.a, cur.b);
+  if (!p) return cur.a;
+  const limit = MITER_LIMIT * Math.abs(d);
+  const dist = distance(p, corner);
+  if (dist <= limit) return p;
+  return add(corner, scale(sub(p, corner), limit / dist));
+}
+
+/**
+ * Prüft ein nach innen versetztes Polygon gegen das Original: gleiche Orientierung (Uhrzeigersinn), kleinere
+ * Fläche und alle Punkte innerhalb des Originals. Schlägt bei zu schmalen/spitzen Formen fehl (Offset „kippt um“).
+ */
+function validInnerOffset(inner: Vec2[], outer: Vec2[]): boolean {
+  if (inner.length < 3) return false;
+  const a = signedArea(inner);
+  if (a <= 0 || a >= signedArea(outer)) return false;
+  return inner.every((p) => pointInPolygon(p, outer));
+}
+
+/**
  * Versetzt ein (einfaches) Polygon um `d` nach innen (d>0) bzw. außen (d<0),
- * per Kantenverschiebung und Geradenschnitt. Für konvexe und einfache konkave Polygone (L-Form) geeignet.
+ * per Kantenverschiebung und Geradenschnitt (Gehrung an spitzen Ecken gekappt, siehe `offsetCorner`).
+ * Für konvexe und einfache konkave Polygone (L-Form) geeignet.
+ * Ein Innen-Offset, der degeneriert (Orientierung kippt, Fläche wächst, Punkte außerhalb – z. B. Form schmaler
+ * als 2·d), liefert ein leeres Polygon statt einer unsinnigen Fläche.
  */
 export function offsetPolygon(polyIn: Vec2[], d: number): Vec2[] {
   const poly = ensureClockwise(simplifyPolygon(polyIn));
@@ -250,12 +284,8 @@ export function offsetPolygon(polyIn: Vec2[], d: number): Vec2[] {
     lines.push({ a: add(a, off), b: add(b, off) });
   }
   const out: Vec2[] = [];
-  for (let i = 0; i < n; i++) {
-    const prev = lines[(i - 1 + n) % n];
-    const cur = lines[i];
-    const p = lineIntersection(prev.a, prev.b, cur.a, cur.b);
-    out.push(p ?? cur.a);
-  }
+  for (let i = 0; i < n; i++) out.push(offsetCorner(lines[(i - 1 + n) % n], lines[i], poly[i], d));
+  if (d > 0 && !validInnerOffset(out, poly)) return [];
   return out;
 }
 /** Polygon als flaches Zahlen-Array für Konva. */

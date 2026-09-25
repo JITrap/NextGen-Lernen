@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { polygonArea, polygonAreaM2, perimeter, centroid, pointInPolygon, rectPolygon, offsetPolygon, segmentIntersection, simplifyPolygon, ensureClockwise, convexHull } from './polygon';
+import { polygonArea, polygonAreaM2, perimeter, centroid, pointInPolygon, rectPolygon, offsetPolygon, segmentIntersection, simplifyPolygon, ensureClockwise, convexHull, signedArea, MITER_LIMIT } from './polygon';
 
 describe('Flächenberechnung (Shoelace)', () => {
   it('25 × 20 m Halle = 500,00 m²', () => {
@@ -105,5 +105,31 @@ describe('Hilfsfunktionen', () => {
   it('convexHull', () => {
     const h = convexHull([{ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 5, y: 5 }, { x: 10, y: 10 }, { x: 0, y: 10 }]);
     expect(h.length).toBe(4);
+  });
+});
+
+describe('offsetPolygon – Degenerations-Schutz (M7)', () => {
+  it('spitzes, zu schmales Dreieck: Innen-Offset liefert leeres Polygon statt Netto > Brutto', () => {
+    const tri = [{ x: 0, y: 0 }, { x: 2000, y: 0 }, { x: 0, y: 20 }];
+    expect(polygonAreaM2(tri)).toBeCloseTo(2, 6);
+    const inner = offsetPolygon(tri, 24);
+    expect(inner).toEqual([]);
+    expect(polygonArea(inner)).toBe(0);
+  });
+  it('spitze Ecke wird gekappt: Ergebnis liegt innerhalb, gleiche Orientierung, kleinere Fläche', () => {
+    const poly = [{ x: 0, y: 0 }, { x: 2000, y: 0 }, { x: 0, y: 300 }];
+    const d = 24;
+    const inner = offsetPolygon(poly, d);
+    expect(inner.length).toBe(3);
+    expect(signedArea(inner)).toBeGreaterThan(0);
+    expect(polygonArea(inner)).toBeLessThan(polygonArea(poly));
+    for (const p of inner) expect(pointInPolygon(p, poly)).toBe(true);
+    const tip = inner.find((p) => p.x > 1000)!;
+    expect(Math.hypot(tip.x - 2000, tip.y)).toBeCloseTo(MITER_LIMIT * d, 6);
+  });
+  it('rechtwinklige und L-förmige Polygone bleiben exakt', () => {
+    const rect = rectPolygon({ x: 0, y: 0 }, { x: 1000, y: 800 });
+    expect(offsetPolygon(rect, 12)).toEqual([{ x: 12, y: 12 }, { x: 988, y: 12 }, { x: 988, y: 788 }, { x: 12, y: 788 }]);
+    expect(polygonArea(offsetPolygon(rect, -12))).toBeCloseTo(1024 * 824, 6);
   });
 });

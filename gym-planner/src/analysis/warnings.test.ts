@@ -213,6 +213,25 @@ describe('Planungs-Warnungen', () => {
     expect(w[0].floorId).toBe(og.id);
   });
 
+  it('Kollisions-IDs symmetrischer Arten sind reihenfolgeunabhängig (N2)', () => {
+    const p = projectWithHall(2500, 2000);
+    const d = plainDef(p);
+    const a = place(firstFloor(p), d, 500, 500, { id: 'zz' });
+    const b = place(firstFloor(p), d, 550, 550, { id: 'aa' });
+    const w = warnings(p).filter((x) => x.kind === 'collision');
+    expect(w).toHaveLength(1);
+    expect(w[0].id).toBe(`collision:${firstFloor(p).id}:aa:zz`);
+    firstFloor(p).items.reverse();
+    const w2 = warnings(fresh(p)).filter((x) => x.kind === 'collision');
+    expect(w2[0].id).toBe(w[0].id);
+    expect([a.id, b.id].sort()).toEqual(['aa', 'zz']);
+  });
+
+  it('leere Halle erzeugt keine Kapazitätswarnungen (N3)', () => {
+    const p = projectWithHall(2500, 2000);
+    expect(warnings(p).filter((x) => x.kind === 'capacity')).toEqual([]);
+  });
+
   it('leeres Projekt ohne Halle erzeugt keine Warnungen', () => {
     const p = projectWithHall(1000, 1000);
     firstFloor(p).hall = null;

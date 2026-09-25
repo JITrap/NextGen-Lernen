@@ -448,9 +448,15 @@ function drawOpening(layer: Konva.Layer, o: Opening, wall: Wall) {
         g.add(new Konva.Arc({ x: hx, y: wallEdge, innerRadius: r, outerRadius: r, angle: 90, rotation, stroke, strokeWidth: 1, dash: [6, 4] }));
       }
     } else if (o.doorType === 'Schiebetür') {
+      // Türblatt vor der Wandfläche (Aufschlagseite); Schieberichtung zum Anschlag wie im Editor: 'left' → Wandanfang (−x)
       const y = sideSign * (t / 2 + 3);
+      const dirSign = o.hinge === 'left' ? -1 : 1;
       g.add(new Konva.Line({ points: [-w / 2, y, w / 2, y], stroke, strokeWidth: 3 }));
-      g.add(new Konva.Line({ points: [w / 2, y, w / 2 + w * 0.8, y], stroke, strokeWidth: 3, opacity: 0.35 }));
+      g.add(new Konva.Line({ points: [dirSign * (w / 2), y, dirSign * (w / 2 + w * 0.8), y], stroke, strokeWidth: 3, opacity: 0.35 }));
+      const ay = y + sideSign * 6;
+      const reach = Math.min(w * 0.3, 60);
+      g.add(new Konva.Line({ points: [-dirSign * reach, ay, dirSign * reach, ay], stroke, strokeWidth: 1.2 }));
+      g.add(new Konva.Line({ points: [dirSign * (reach - 5), ay - 4, dirSign * reach, ay, dirSign * (reach - 5), ay + 4], stroke, strokeWidth: 1.2, lineCap: 'round', lineJoin: 'round' }));
       g.add(new Konva.Line({ points: [-w / 2, -t / 2, w / 2, -t / 2], stroke: INK, strokeWidth: 1, dash: [4, 4] }));
       g.add(new Konva.Line({ points: [-w / 2, t / 2, w / 2, t / 2], stroke: INK, strokeWidth: 1, dash: [4, 4] }));
     } else {

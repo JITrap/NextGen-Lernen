@@ -471,30 +471,44 @@ interface Shape {
   box: BBox;
 }
 
-/** Achsenparalleler Spalt zwischen zwei Formen (nur wenn sich ihre Projektionen überlappen). */
-function axisGap(A: Shape, B: Shape, axis: 'x' | 'y'): { width: number; from: Vec2; to: Vec2 } | null {
+/** Mindest-Überlappung der Projektionen (cm), damit ein Spalt zwischen zwei Formen als Laufweg zählt. */
+export const MIN_BOTTLENECK_OVERLAP_CM = 60;
+
+/** Achsenparalleler Spalt zwischen zwei Formen (nur wenn sich ihre Projektionen um mindestens 60 cm überlappen). */
+function axisGap(A: Shape, B: Shape, axis: 'x' | 'y'): { width: number; from: Vec2; to: Vec2; aIsLeft: boolean } | null {
   const lo = axis === 'x' ? Math.max(A.box.minY, B.box.minY) : Math.max(A.box.minX, B.box.minX);
   const hi = axis === 'x' ? Math.min(A.box.maxY, B.box.maxY) : Math.min(A.box.maxX, B.box.maxX);
-  if (hi - lo <= EPS) return null;
+  if (hi - lo < MIN_BOTTLENECK_OVERLAP_CM - EPS) return null;
   const ea = polygonExtentInBand(A.poly, axis, lo, hi);
   const eb = polygonExtentInBand(B.poly, axis, lo, hi);
   if (!ea || !eb) return null;
   let left: { min: number; max: number };
   let right: { min: number; max: number };
-  if (ea.max <= eb.min + EPS) { left = ea; right = eb; } else if (eb.max <= ea.min + EPS) { left = eb; right = ea; } else return null;
+  let aIsLeft: boolean;
+  if (ea.max <= eb.min + EPS) { left = ea; right = eb; aIsLeft = true; } else if (eb.max <= ea.min + EPS) { left = eb; right = ea; aIsLeft = false; } else return null;
   const width = right.min - left.max;
   const mid = (lo + hi) / 2;
   const from = axis === 'x' ? { x: left.max, y: mid } : { x: mid, y: left.max };
   const to = axis === 'x' ? { x: right.min, y: mid } : { x: mid, y: right.min };
-  return { width, from, to };
+  return { width, from, to, aIsLeft };
+}
+
+/** Zeigt die Rückseite des Objekts (lokal −y) in Richtung `dir` (Weltkoordinaten, Toleranz ≈ ±41°)? */
+function backFaces(it: Pick<PlacedItem, 'rotation'>, dir: Vec2): boolean {
+  const r = (it.rotation * Math.PI) / 180;
+  // lokal (0, −1) gedreht um r (im Uhrzeigersinn, y nach unten)
+  const back = { x: Math.sin(r), y: -Math.cos(r) };
+  return back.x * dir.x + back.y * dir.y > 0.75;
 }
 
 /**
  * Heuristik für zu schmale Laufwege: Für Objektpaare (inkl. aktiver Sicherheitszonen), Objekt–Wand und
- * Objekt–Hallenkante mit achsenparallelem Abstand 0 < d < minWidth, deren Projektionen sich überlappen
- * (also wirklich ein Durchgang dazwischen liegt). Paare werden dedupliziert (kleinster Abstand gewinnt);
- * Berührung/Überlappung (d ≤ 1 cm) ist Kollision, kein Engpass. `walls` sollte die realen Wände enthalten,
- * die Halle wird über `hallInner` (Innenpolygon) abgedeckt – doppelte Hallen-Außenwände werden dedupliziert.
+ * Objekt–Hallenkante mit achsenparallelem Abstand 0 < d < minWidth, deren Projektionen sich um mindestens
+ * 60 cm überlappen (also wirklich ein Durchgang dazwischen liegt). Der Spalt zwischen der Rückseite eines Objekts
+ * (lokal −y) und einer Wand/Hallenkante ist kein Laufweg (Gerät steht mit dem Rücken zur Wand). Paare werden
+ * dedupliziert (kleinster Abstand gewinnt); Berührung/Überlappung (d ≤ 1 cm) ist Kollision, kein Engpass.
+ * `walls` sollte die realen Wände enthalten, die Halle wird über `hallInner` (Innenpolygon) abgedeckt – doppelte
+ * Hallen-Außenwände werden dedupliziert.
  */
 export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallInner: Vec2[] | null | undefined, minWidth: number, opts: BottleneckOptions = {}): Bottleneck[] {
   const out: Bottleneck[] = [];
@@ -503,21 +517,26 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
   const touch = opts.touchTolerance ?? 1;
   const idx = itemIndexFor(items);
   const shapes: Shape[] = [];
-  const shapeIndexOfItem = new Map<number, number>();
+  const shapeItems: PlacedItem[] = [];
   for (let i = 0; i < items.length; i++) {
     const it = items[i];
     if (it.hidden) continue;
     const z = includeZones ? idx.zones[i] : null;
     const poly = z ?? idx.footprints[i];
-    shapeIndexOfItem.set(i, shapes.length);
     shapes.push({ id: it.id, poly, box: z ? idx.zoneBoxes[i]! : idx.boxes[i] });
+    shapeItems.push(it);
   }
   const best = new Map<string, Bottleneck>();
-  const record = (A: Shape, B: Shape) => {
+  /** `itemA`: Objekt zu Form A, wenn B eine Wand/Hallenkante ist (Rückseite an der Wand → kein Laufweg). */
+  const record = (A: Shape, B: Shape, itemA?: PlacedItem) => {
     for (const axis of ['x', 'y'] as const) {
       const g = axisGap(A, B, axis);
       if (!g) continue;
       if (g.width <= touch || g.width >= minWidth) continue;
+      if (itemA) {
+        const sign = g.aIsLeft ? 1 : -1;
+        if (backFaces(itemA, axis === 'x' ? { x: sign, y: 0 } : { x: 0, y: sign })) continue;
+      }
       const key = A.id < B.id ? `${A.id}|${B.id}` : `${B.id}|${A.id}`;
       const prev = best.get(key);
       if (prev && prev.width <= g.width) continue;
@@ -536,7 +555,7 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
     const widx = wallIndexFor(walls);
     for (let s = 0; s < shapes.length; s++) {
       widx.hash.forEachIn(expandBox(shapes[s].box, minWidth), (wi) => {
-        record(shapes[s], { id: widx.walls[wi].id, poly: widx.rects[wi], box: widx.boxes[wi] });
+        record(shapes[s], { id: widx.walls[wi].id, poly: widx.rects[wi], box: widx.boxes[wi] }, shapeItems[s]);
       });
     }
   }
@@ -549,7 +568,7 @@ export function escapeRouteBottlenecks(items: PlacedItem[], walls: Wall[], hallI
     }
     for (let s = 0; s < shapes.length; s++) {
       const qb = expandBox(shapes[s].box, minWidth);
-      for (const e of edges) if (bboxOverlap(e.box, qb)) record(shapes[s], e);
+      for (const e of edges) if (bboxOverlap(e.box, qb)) record(shapes[s], e, shapeItems[s]);
     }
   }
   for (const b of best.values()) out.push(b);

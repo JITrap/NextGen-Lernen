@@ -70,6 +70,58 @@ describe('Stückliste', () => {
     expect(b.totalWeightKg).toBe(60);
   });
 
+  it('Objektpreis an einem Objekt gilt nur für dieses Objekt (M4)', () => {
+    const p = projectWithHall(2500, 2000);
+    const d = addCustomDef(p, makeDef({ id: 't-500', preis_eur: 500 }));
+    place(firstFloor(p), d, 300, 300);
+    place(firstFloor(p), d, 600, 300);
+    place(firstFloor(p), d, 900, 300, { priceEur: 1000 });
+    const b = bom(p);
+    const line = b.lines[0];
+    expect(line.count).toBe(3);
+    expect(line.totalEur).toBe(2000);
+    expect(line.unitPriceEur).toBeCloseTo(2000 / 3, 6);
+    expect(line.priceMixed).toBe(true);
+    expect(line.itemsWithoutPrice).toBe(0);
+    expect(b.totalEur).toBe(2000);
+    expect(b.itemsWithoutPrice).toBe(0);
+  });
+
+  it('Objekte ohne Preis werden gezählt und fließen nicht in die Summe ein (M4)', () => {
+    const p = projectWithHall(2500, 2000);
+    const d = addCustomDef(p, makeDef({ id: 't-noprice' }));
+    place(firstFloor(p), d, 300, 300);
+    place(firstFloor(p), d, 600, 300, { priceEur: 800 });
+    const b = bom(p);
+    expect(b.lines[0].totalEur).toBe(800);
+    expect(b.lines[0].unitPriceEur).toBe(800);
+    expect(b.lines[0].priceMixed).toBe(false);
+    expect(b.lines[0].itemsWithoutPrice).toBe(1);
+    expect(b.itemsWithoutPrice).toBe(1);
+    expect(b.linesWithoutPrice).toBe(0);
+    expect(b.totalEur).toBe(800);
+  });
+
+  it('skalierbare Objekte: eine Position je Größe mit Objektmaßen (N9)', () => {
+    const p = projectWithHall(2500, 2000);
+    const mat = addCustomDef(p, makeDef({ id: 't-mat', name: 'Matte', skalierbar: true, breite_cm: 200, tiefe_cm: 100, hoehe_cm: 2 }));
+    place(firstFloor(p), mat, 300, 300);
+    place(firstFloor(p), mat, 600, 300, { width: 300, depth: 150 });
+    place(firstFloor(p), mat, 900, 300, { width: 300, depth: 150 });
+    const b = bom(p);
+    expect(b.lines).toHaveLength(2);
+    expect(b.lines.map((l) => [l.count, l.widthCm, l.depthCm, l.dims])).toEqual([[1, 200, 100, '200 × 100 × 2 cm'], [2, 300, 150, '300 × 150 × 2 cm']]);
+    expect(b.lines.every((l) => l.defId === 't-mat')).toBe(true);
+    expect(b.totalCount).toBe(3);
+    // nicht skalierbar: Bibliotheksmaße, eine Position
+    const fixed = addCustomDef(p, makeDef({ id: 't-fixed', breite_cm: 100, tiefe_cm: 100 }));
+    place(firstFloor(p), fixed, 300, 600, { width: 120, depth: 120 });
+    place(firstFloor(p), fixed, 600, 600);
+    const lines = bom(fresh(p)).lines.filter((l) => l.defId === 't-fixed');
+    expect(lines).toHaveLength(1);
+    expect(lines[0].dims).toBe('100 × 100 × 100 cm');
+  });
+
   it('unbekannte Bibliotheks-ID bleibt als Position erhalten', () => {
     const p = projectWithHall(2500, 2000);
     firstFloor(p).items.push({ id: 'x', kind: 'equipment', defId: 'gibt-es-nicht', x: 100, y: 100, rotation: 0, width: 50, depth: 50, height: null, safetyZone: { vorne: 0, hinten: 0, links: 0, rechts: 0 }, safetyZoneEnabled: false });

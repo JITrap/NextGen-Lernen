@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import type { Wall, Floor } from '@/types';
-import { detectWallRooms, floorRooms, floorRoomsWithHoles, loopKeyFor, roomFromPolygon } from './rooms';
+import { detectWallRooms, floorRooms, floorRoomsWithHoles, loopKeyFor, roomFromPolygon, parseLoopKey } from './rooms';
 import { allWalls, wallOutline } from './walls';
 import { createHall, createFloor } from '@/store/factories';
 import { polygonArea, pointInPolygon } from './polygon';
@@ -295,5 +295,52 @@ describe('floorRooms', () => {
     expect(r.areaM2).toBe(96);
     expect(r.polygon).toHaveLength(4);
     expect(pointInPolygon({ x: 200, y: 200 }, r.polygon)).toBe(true);
+  });
+});
+
+describe('loopKey – konzentrische Räume (M3)', () => {
+  const box = (dx = 0) => [wall(1000 + dx, 800, 1500 + dx, 800), wall(1500 + dx, 800, 1500 + dx, 1200), wall(1500 + dx, 1200, 1000 + dx, 1200), wall(1000 + dx, 1200, 1000 + dx, 800)];
+
+  it('Raum im Raum mittig in der Halle: verschiedene Schlüssel ohne #-Suffix, Metadaten überleben 10 cm Verschiebung', () => {
+    const hall = createHall(2500, 2000);
+    const floor = createFloor({ hall, walls: box() });
+    const rooms = floorRooms(floor);
+    expect(rooms).toHaveLength(2);
+    const outer = rooms.find((r) => r.areaM2 > 100)!;
+    const inner = rooms.find((r) => r.areaM2 < 100)!;
+    // gleicher Schwerpunkt, aber verschiedene Fläche → verschiedene Schlüssel
+    expect(outer.loopKey).toMatch(/^r:125:100:\d+$/);
+    expect(inner.loopKey).toMatch(/^r:125:100:\d+$/);
+    expect(outer.loopKey).not.toBe(inner.loopKey);
+    expect(rooms.some((r) => r.loopKey!.includes('#'))).toBe(false);
+    const meta = { [outer.loopKey!]: { name: 'Halle', type: 'Maschinen' as const }, [inner.loopKey!]: { name: 'Büro', type: 'Büro' as const } };
+    const named = floorRooms({ ...floor, roomMeta: meta });
+    expect(named.find((r) => r.areaM2 < 100)!.name).toBe('Büro');
+    expect(named.find((r) => r.areaM2 > 100)!.name).toBe('Halle');
+    // Box um 10 cm verschoben → Schwerpunkt-Nähe + Flächenverhältnis → Name bleibt
+    const moved = floorRooms({ ...floor, walls: box(10), roomMeta: meta });
+    expect(moved.find((r) => r.areaM2 < 100)!.name).toBe('Büro');
+    expect(moved.find((r) => r.areaM2 > 100)!.name).toBe('Halle');
+  });
+
+  it('alter Schlüssel r:x:y (ohne Fläche) wird weiterhin gefunden; #-Suffix wird toleriert', () => {
+    const hall = createHall(2500, 2000);
+    const floor = createFloor({ hall, walls: [], roomMeta: { 'r:125:100': { name: 'Alt', type: 'Cardio' } } });
+    const [room] = floorRooms(floor);
+    expect(room.name).toBe('Alt');
+    expect(room.loopKey).toBe('r:125:100');
+    expect(parseLoopKey('r:125:100')).toEqual({ p: { x: 1250, y: 1000 }, area: null });
+    expect(parseLoopKey('r:125:100#1')).toEqual({ p: { x: 1250, y: 1000 }, area: null });
+    expect(parseLoopKey('r:125:100:4786#2')).toEqual({ p: { x: 1250, y: 1000 }, area: 4786000 });
+    expect(parseLoopKey('zone')).toBeNull();
+    expect(loopKeyFor(hall.polygon)).toBe('r:125:100:5000');
+  });
+
+  it('alter Schlüssel bei konzentrischen Räumen: nur ein Raum übernimmt ihn, der andere bleibt Standard', () => {
+    const hall = createHall(2500, 2000);
+    const floor = createFloor({ hall, walls: box(), roomMeta: { 'r:125:100': { name: 'Alt', type: 'Cardio' } } });
+    const rooms = floorRooms(floor);
+    expect(rooms.filter((r) => r.name === 'Alt')).toHaveLength(1);
+    expect(new Set(rooms.map((r) => r.id)).size).toBe(2);
   });
 });

@@ -1,7 +1,7 @@
 import type { Wall, Vec2, Hall, Floor, Opening } from '@/types';
 import {
   add, sub, scale, normalize, distance, dot, cross, closestPointOnSegment, lineIntersection, segmentIntersection,
-  simplifyPolygon, polygonArea, EPS, perp, offsetPolygon, ensureClockwise, type BBox,
+  simplifyPolygon, polygonArea, EPS, perp, offsetPolygon, offsetCorner, ensureClockwise, signedArea, type BBox,
 } from './polygon';
 import { newId } from '@/utils/id';
 
@@ -332,14 +332,28 @@ export function splitWall(w: Wall, p: Vec2): [Wall, Wall] | null {
     { ...w, id: newId('w_'), start: mid },
   ];
 }
-/** Verteilt Öffnungen nach dem Teilen auf die passende Hälfte. */
+/**
+ * Setzt eine Öffnung der Wand `original` auf eines ihrer Teilstücke: bevorzugt das Teilstück, das die Öffnung
+ * vollständig aufnimmt; sonst das der Öffnungsmitte nächste, wobei der Offset auf die Teilstück-Länge begrenzt
+ * wird (die Öffnung ragt nie über ein Wandende hinaus).
+ */
+export function placeOpeningOnParts<O extends Pick<Opening, 'wallId' | 'offset' | 'width'>>(o: O, original: Pick<Wall, 'start' | 'end'>, parts: Wall[]): O {
+  if (!parts.length) return o;
+  const center = pointOnWall(original, o.offset);
+  let best: { part: Wall; offset: number; fits: boolean; d: number } | null = null;
+  for (const part of parts) {
+    const r = projectOntoWall(part, center);
+    const fits = r.offset - o.width / 2 >= -1e-6 && r.offset + o.width / 2 <= wallLength(part) + 1e-6;
+    if (!best || (fits && !best.fits) || (fits === best.fits && r.distance < best.d)) best = { part, offset: r.offset, fits, d: r.distance };
+  }
+  if (!best) return o;
+  const offset = best.fits ? best.offset : clampOpeningOffset(best.offset, o.width, best.part);
+  if (best.part.id === o.wallId && Math.abs(offset - o.offset) < 1e-9) return o;
+  return { ...o, wallId: best.part.id, offset };
+}
+/** Verteilt Öffnungen nach dem Teilen auf das passende Teilstück (siehe `placeOpeningOnParts`). */
 export function reassignOpeningsAfterSplit(openings: Opening[], original: Wall, parts: [Wall, Wall]): Opening[] {
-  const firstLen = wallLength(parts[0]);
-  return openings.map((o) => {
-    if (o.wallId !== original.id) return o;
-    if (o.offset <= firstLen) return o;
-    return { ...o, wallId: parts[1].id, offset: o.offset - firstLen };
-  });
+  return openings.map((o) => (o.wallId === original.id ? placeOpeningOnParts(o, original, parts) : o));
 }
 
 /** Achsensegment mit Stärke (Basis für die generische Teilung). */
@@ -456,17 +470,7 @@ export function splitWallsAtIntersectionsDetailed(walls: Wall[], openings: Openi
       const parts = byWallId.get(o.wallId);
       const orig = walls.find((w) => w.id === o.wallId);
       if (!parts || !orig || parts.length < 2) return o;
-      const center = pointOnWall(orig, o.offset);
-      let best = parts[0];
-      let bestD = Infinity;
-      for (const part of parts) {
-        const d = projectOntoWall(part, center).distance;
-        if (d < bestD) {
-          bestD = d;
-          best = part;
-        }
-      }
-      return { ...o, wallId: best.id, offset: projectOntoWall(best, center).offset };
+      return placeOpeningOnParts(o, orig, parts);
     });
   }
   return { walls: result, openings: outOpenings };
@@ -586,14 +590,52 @@ export function hallOuterPolygon(hall: Hall): Vec2[] {
 }
 /**
  * Außenwände der Halle als virtuelle Wände (Achse = Mitte der Außenwand).
- * IDs sind stabil („hall_<index>“), damit Türen/Fenster daran hängen können.
+ * IDs sind stabil: `hall_<i>` gehört zur Kante i des ROHEN Hallenpolygons (polygon[i] → polygon[i+1], wie
+ * `hitTest`), unabhängig von kollinearen Zwischenpunkten – Türen/Fenster springen beim Verschieben eines
+ * Eckpunkts nicht auf eine andere Wand. Kanten ohne Länge liefern keine Wand (die Nummerierung bleibt erhalten).
+ * Die Achse ist die um t/2 nach innen versetzte Kante, an den Ecken auf Gehrung geschnitten (spitze Ecken gekappt,
+ * kollineare Nachbarn einfach versetzt). Wandrichtung stets im Uhrzeigersinn um die Halle → Seite „a“ liegt außen.
  */
 export function hallWalls(hall: Hall): Wall[] {
-  const outer = hallOuterPolygon(hall);
-  const mid = offsetPolygon(outer, hall.wallThickness / 2);
+  const poly = hall.polygon;
+  const n = poly.length;
+  const t = hall.wallThickness;
+  if (n < 2) return [];
+  const cw = signedArea(poly) >= 0;
+  interface Edge { a: Vec2; b: Vec2; oa: Vec2; ob: Vec2 }
+  const edges: (Edge | null)[] = [];
+  for (let i = 0; i < n; i++) {
+    const p = poly[i];
+    const q = poly[(i + 1) % n];
+    const a = cw ? p : q;
+    const b = cw ? q : p;
+    const len = distance(a, b);
+    if (len < 1e-3) {
+      edges.push(null);
+      continue;
+    }
+    const dir = scale(sub(b, a), 1 / len);
+    const off = scale({ x: -dir.y, y: dir.x }, t / 2); // Innennormale bei Uhrzeigersinn
+    edges.push({ a, b, oa: add(a, off), ob: add(b, off) });
+  }
+  const valid: number[] = [];
+  edges.forEach((e, i) => { if (e) valid.push(i); });
   const out: Wall[] = [];
-  for (let i = 0; i < mid.length; i++) {
-    out.push({ id: `hall_${i}`, start: mid[i], end: mid[(i + 1) % mid.length], thickness: hall.wallThickness, type: 'Außenwand', height: null });
+  for (let k = 0; k < valid.length; k++) {
+    const i = valid[k];
+    const e = edges[i]!;
+    let start = e.oa;
+    let end = e.ob;
+    if (valid.length > 1) {
+      const before = edges[valid[(k - 1 + valid.length) % valid.length]]!;
+      const after = edges[valid[(k + 1) % valid.length]]!;
+      // Bei gegen den Uhrzeigersinn gezeichneter Halle laufen die Kanten rückwärts: Nachbar am Anfang ist dann die nächste Kante.
+      const atStart = cw ? before : after;
+      const atEnd = cw ? after : before;
+      start = offsetCorner({ a: atStart.oa, b: atStart.ob }, { a: e.oa, b: e.ob }, e.a, t / 2);
+      end = offsetCorner({ a: e.oa, b: e.ob }, { a: atEnd.oa, b: atEnd.ob }, e.b, t / 2);
+    }
+    out.push({ id: `hall_${i}`, start, end, thickness: t, type: 'Außenwand', height: null });
   }
   return out;
 }

@@ -18,11 +18,19 @@ const MIN_ROOM_AREA = 100;
 /** Bis zu diesem Abstand (cm) übernimmt `floorRooms` die Metadaten eines nahegelegenen, vorhandenen Schlüssels. */
 const META_MATCH_DIST = 50;
 
-/** Stabiler Schlüssel für einen automatisch erkannten Raum (Schwerpunkt auf 10 cm gerundet). */
+/**
+ * Stabiler Schlüssel für einen automatisch erkannten Raum: Schwerpunkt (10 cm) und Fläche des Polygons (0,1 m²),
+ * `r:<x>:<y>:<a>`. Konzentrische Räume (Raum im Raum) haben denselben Schwerpunkt, aber verschiedene Flächen und
+ * erhalten so verschiedene Schlüssel. Ältere Schlüssel ohne Fläche (`r:<x>:<y>`) werden weiterhin gefunden.
+ */
 export function loopKeyFor(polygon: Vec2[]): string {
   const c = centroid(polygon);
-  return `r:${Math.round(c.x / 10)}:${Math.round(c.y / 10)}`;
+  return `r:${Math.round(c.x / 10)}:${Math.round(c.y / 10)}:${Math.round(polygonArea(polygon) / LOOP_KEY_AREA_UNIT)}`;
 }
+/** Flächeneinheit im Schlüssel (cm²) = 0,1 m². */
+const LOOP_KEY_AREA_UNIT = 1000;
+/** Bis zu diesem Flächenverhältnis (größer/kleiner) gilt ein gespeicherter Schlüssel mit Fläche noch als derselbe Raum. */
+const META_MATCH_AREA_RATIO = 2;
 
 /** Baut ein `Room` aus einem Polygon; `holes` werden von der Fläche abgezogen (Polygon bleibt das Außenpolygon). */
 export function roomFromPolygon(polygon: Vec2[], base: Omit<Room, 'polygon' | 'areaM2' | 'perimeterCm' | 'centroid'>, holes: Vec2[][] = []): Room {
@@ -299,7 +307,8 @@ export function detectWallRooms(walls: Wall[]): DetectedRoom[] {
   for (const f of faces) {
     if (f.hes.length < 3 || f.area <= 0 || outerByComp.get(f.comp) === f) continue;
     const poly = offsetFace(f.axis, f.hes.map((h) => h.edge.t));
-    if (poly.length < 3 || signedArea(poly) <= 0 || polygonArea(poly) < MIN_ROOM_AREA) continue;
+    // Degenerierter Offset (Orientierung kippt, Fläche wächst) → kein Raum (z. B. Fläche schmaler als die Wandstärke).
+    if (poly.length < 3 || signedArea(poly) <= 0 || signedArea(poly) >= f.area || polygonArea(poly) < MIN_ROOM_AREA) continue;
     const wallIds: string[] = [];
     for (const h of f.hes) for (const id of h.edge.origins) if (!wallIds.includes(id)) wallIds.push(id);
     let holes: Vec2[][] | undefined;
@@ -323,15 +332,19 @@ export function detectWallRooms(walls: Wall[]): DetectedRoom[] {
 /* Räume eines Stockwerks                                              */
 /* ------------------------------------------------------------------ */
 
-function parseLoopKey(key: string): Vec2 | null {
-  const m = /^r:(-?\d+):(-?\d+)$/.exec(key);
-  return m ? { x: Number(m[1]) * 10, y: Number(m[2]) * 10 } : null;
+/** Schwerpunkt (cm) und Fläche (cm², null bei alten Schlüsseln) aus `r:<x>:<y>[:<a>][#i]`. */
+export function parseLoopKey(key: string): { p: Vec2; area: number | null } | null {
+  const m = /^r:(-?\d+):(-?\d+)(?::(\d+))?(?:#\d+)?$/.exec(key);
+  if (!m) return null;
+  return { p: { x: Number(m[1]) * 10, y: Number(m[2]) * 10 }, area: m[3] != null ? Number(m[3]) * LOOP_KEY_AREA_UNIT : null };
 }
 
 /**
  * Räume eines Stockwerks inkl. Löcher: automatisch erkannte (mit Metadaten) + Zonen.
  * Fehlt zum Schlüssel ein `roomMeta`-Eintrag, wird lesend der nächstgelegene vorhandene Schlüssel
- * innerhalb 50 cm übernommen (Wände minimal verschoben → Name/Typ bleiben erhalten).
+ * innerhalb 50 cm übernommen (Wände minimal verschoben → Name/Typ bleiben erhalten); enthält der gespeicherte
+ * Schlüssel eine Fläche, muss sie zur Raumfläche passen (Verhältnis ≤ 2), damit konzentrische Räume nicht
+ * die Metadaten des jeweils anderen übernehmen. Alte Schlüssel ohne Fläche werden nur über den Schwerpunkt zugeordnet.
  */
 export function floorRoomsWithHoles(floor: Floor): { room: Room; holes: Vec2[][] }[] {
   const out: { room: Room; holes: Vec2[][] }[] = [];
@@ -345,17 +358,28 @@ export function floorRoomsWithHoles(floor: Floor): { room: Room; holes: Vec2[][]
       used.add(keys[i]);
     }
   }
-  const metaPoints = Object.keys(floor.roomMeta).map((k) => ({ k, p: parseLoopKey(k) })).filter((e): e is { k: string; p: Vec2 } => !!e.p);
+  const metaPoints = Object.keys(floor.roomMeta)
+    .map((k) => ({ k, info: parseLoopKey(k) }))
+    .filter((e): e is { k: string; info: { p: Vec2; area: number | null } } => !!e.info);
   for (let i = 0; i < detected.length; i++) {
     if (effective[i]) continue;
     const c = centroid(detected[i].polygon);
+    const area = polygonArea(detected[i].polygon);
     let best: string | null = null;
     let bestD = META_MATCH_DIST;
+    let bestRatio = Infinity;
     for (const m of metaPoints) {
       if (used.has(m.k)) continue;
-      const d = distance(m.p, c);
-      if (d <= bestD) {
+      const d = distance(m.info.p, c);
+      if (d > META_MATCH_DIST) continue;
+      let ratio = 1;
+      if (m.info.area != null) {
+        ratio = Math.max(m.info.area, area) / Math.max(1, Math.min(m.info.area, area));
+        if (ratio > META_MATCH_AREA_RATIO) continue;
+      }
+      if (d < bestD - 1e-9 || (Math.abs(d - bestD) <= 1e-9 && ratio < bestRatio)) {
         bestD = d;
+        bestRatio = ratio;
         best = m.k;
       }
     }
