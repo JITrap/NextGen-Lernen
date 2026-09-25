@@ -18,7 +18,8 @@ Oberflächensprache: **Deutsch** (alle Labels, Hinweise, Tooltips).
 | `src/data/equipment/index.ts` | Bibliothek: `BUILTIN_LIBRARY`, `getDef(id, project)`, `fullLibrary(project)`. Generische Objekte in `generic.json` (EquipmentDef-Format inkl. `bereich`, `symbol`). |
 | `src/data/roomTypes.ts`, `wallTypes.ts` | Raumtypen (Farbe, Flächenklasse), Wandtypen/-stärken, Türtypen/-breiten. |
 | `src/editor/Canvas.tsx` | Konva-Stage, Viewport (Zoom/Pan/Pinch), Ebenen-Reihenfolge, Werkzeug-Dispatch, Drop aus Bibliothek. |
-| `src/editor/layers/*` | Eine Komponente je Ebene; erhält `LayerProps` und rendert eine Konva-`<Group>` in **Weltkoordinaten** (Stage ist bereits skaliert; Linienbreiten mit `1 / viewport.scale` konstant halten). |
+| `src/editor/layers/*` | Eine Komponente je Ebene; erhält `LayerProps` und rendert eine Konva-`<Group>` in **Weltkoordinaten** (Stage ist bereits skaliert; Linienbreiten mit `1 / viewport.scale` konstant halten). `LayerProps.viewport` enthält nur einen gerasterten Maßstab (`scale`), `x`/`y` sind 0 – so rendern Ebenen beim Pan nicht neu. Objekte außerhalb des sichtbaren Bereichs werden per `cullRect` ausgelassen. |
+| `src/editor/dragPreview.ts`, `layers/DragPreviewLayer.tsx` | Transientes Ziehen: Während eines Drags werden Positionen nur in der Vorschau geführt (kein Store-Update je Mausbewegung); `DragPreviewLayer` zeichnet die gezogenen Objekte und die Kollisionsvorschau; beim Loslassen ein einziges Store-Update (ein Undo-Schritt). |
 | `src/editor/tools/*` | Ein Werkzeug je Datei, registriert per `registerTool({...})` (Interface in `tools/types.ts`). Transienter Zustand über `createToolStore()`. |
 | `src/editor/actions.ts` | Aktionen auf der Auswahl (Löschen, Duplizieren, Drehen, Ausrichten, Gruppieren …) – von Kürzeln, Kontextmenü, Panels genutzt. |
 | `src/editor/hitTest.ts` | Objekt unter dem Cursor bestimmen. |
@@ -35,7 +36,8 @@ Oberflächensprache: **Deutsch** (alle Labels, Hinweise, Tooltips).
 - Wände: Achse `start→end`, `thickness`. Hallen-Außenwände sind virtuelle Wände mit IDs `hall_<i>` (`allWalls(floor)`, `findWall(floor, id)`), Öffnungen können daran hängen.
 - Räume: automatisch aus geschlossenen Wandzügen (`floorRooms(floor)`, Metadaten in `floor.roomMeta[loopKey]`) oder Zonen (`floor.zones`).
 - Treppen/Aufzüge: `PlacedItem` mit `linkedFloorIds`; erscheinen auf allen verlinkten Stockwerken (`useFloorVisibleItems`).
-- Alle Mutationen im Store; während Drag `beginTransaction()` … `endTransaction()` (ein Undo-Schritt).
+- Alle Mutationen im Store; während Drag `beginTransaction()` … `endTransaction()` (ein Undo-Schritt). Objekt-Drags nutzen die Vorschau (`useDragPreview`) und schreiben erst beim Loslassen. No-op-Mutationen erzeugen keinen Undo-Schritt.
+- Beim Pan werden die statischen Ebenen als Bitmap gecacht (`Group.cache`), beim Zoom nicht.
 - Styling: Tailwind 4 + CSS-Variablen `--gp-*` (Hell/Dunkel über `.dark`). Helferklassen: `gp-panel`, `gp-btn`, `gp-btn-primary`, `gp-input`, `gp-label`, `gp-card`, `gp-tool`, `gp-tab`, `gp-kbd`.
 - Icons: `lucide-react`.
 - Tests: Vitest, Dateien `*.test.ts` neben dem Modul.

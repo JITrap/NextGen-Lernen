@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import type { Floor, Room, PlacedItem, Wall } from '@/types';
+import type { Floor, Project, Room, PlacedItem, Wall } from '@/types';
 import { useProjectStore } from './projectStore';
+import { useUiStore } from './uiStore';
 import { floorRooms } from '@/geometry/rooms';
 import { allWalls } from '@/geometry/walls';
 
@@ -10,6 +11,21 @@ export function useProject() {
 }
 export function useActiveFloor(): Floor {
   return useProjectStore((s) => s.project.floors.find((f) => f.id === s.project.activeFloorId) ?? s.project.floors[0]);
+}
+/**
+ * Projekt für teure Panels (Analysen, Eigenschaften): während eines Zieh-Vorgangs (ui.dragging) bleibt der zuletzt
+ * gesehene Stand eingefroren – Store-Änderungen je Bewegung (Wände, Öffnungen, Zonen …) lösen dann kein Rendern aus;
+ * nach dem Loslassen kommt der aktuelle Stand. Objekte werden ohnehin transient gezogen (editor/dragPreview.ts).
+ */
+export function useProjectFrozenWhileDragging(): Project {
+  const dragging = useUiStore((s) => s.dragging);
+  const frozen = useRef<Project | null>(null);
+  const project = useProjectStore((s) => (dragging && frozen.current ? frozen.current : s.project));
+  if (!dragging) frozen.current = project;
+  return project;
+}
+export function activeFloorOf(project: Project): Floor {
+  return project.floors.find((f) => f.id === project.activeFloorId) ?? project.floors[0];
 }
 export function useSortedFloors(): Floor[] {
   return useProjectStore(useShallow((s) => [...s.project.floors].sort((a, b) => a.order - b.order)));

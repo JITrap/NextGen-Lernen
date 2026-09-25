@@ -13,6 +13,7 @@ import {
 import type { PlanningWarning, WarningKind, Id } from '@/types';
 import { useProjectStore, transaction } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
+import { useProjectFrozenWhileDragging } from '@/store/selectors';
 import {
   areaBalance, equipmentStats, floorLoad, capacity, bom, warnings, warningFocus, countWarnings,
   WARNING_KIND_LABELS, WARNING_KINDS, SEVERITY_LABELS, UNASSIGNED_COLOR, POINT_LOAD_THRESHOLD_KG,
@@ -175,7 +176,8 @@ function SeverityIcon({ severity }: { severity: PlanningWarning['severity'] }) {
 /* ------------------------------------------------------------------ */
 
 export function OverviewPanel() {
-  const liveProject = useProjectStore((s) => s.project);
+  // Während eines Zieh-Vorgangs eingefroren (keine Neuberechnung der Analysen je Bewegung), sonst verzögert
+  const liveProject = useProjectFrozenWhileDragging();
   const project = useDeferredValue(liveProject);
   const updateSettings = useProjectStore((s) => s.updateSettings);
   const setActiveFloor = useProjectStore((s) => s.setActiveFloor);

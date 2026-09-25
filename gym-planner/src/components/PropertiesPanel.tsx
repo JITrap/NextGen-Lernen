@@ -19,7 +19,7 @@ import type {
 import { useProjectStore, transaction } from '@/store/projectStore';
 import { newId } from '@/utils/id';
 import { useUiStore } from '@/store/uiStore';
-import { useActiveFloor, useFloorRooms, useSortedFloors } from '@/store/selectors';
+import { useFloorRooms, useSortedFloors, useProjectFrozenWhileDragging, activeFloorOf } from '@/store/selectors';
 import { getDef } from '@/data/equipment';
 import { ROOM_TYPES, roomColor, FLOOR_COVERINGS } from '@/data/roomTypes';
 import { WALL_THICKNESSES, WALL_TYPES, DOOR_TYPES, DOOR_TYPE_MAP, DOOR_WIDTHS } from '@/data/wallTypes';
@@ -1270,8 +1270,9 @@ function StaleSelection({ sel }: { sel: Selection[] }) {
 }
 
 export function PropertiesPanel() {
-  const floor = useActiveFloor();
-  const project = useProjectStore((s) => s.project);
+  // Während eines Zieh-Vorgangs eingefrorener Stand (Objekte werden transient gezogen; Wände/Öffnungen je Bewegung im Store)
+  const project = useProjectFrozenWhileDragging();
+  const floor = activeFloorOf(project);
   const rooms = useFloorRooms(floor);
   const selection = useUiStore((s) => s.selection);
 

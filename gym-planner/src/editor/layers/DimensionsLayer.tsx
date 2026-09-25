@@ -196,7 +196,7 @@ export function wallsToDimension(walls: Wall[], selectedIds: Set<string>, scale:
 /* ------------------------------------------------------------------ */
 
 export const DimensionsLayer = memo(function DimensionsLayer(props: LayerProps) {
-  const { floor, items, viewport, selection, dark } = props;
+  const { floor, items, viewport, selection, dark, previewIds } = props;
   const scale = viewport.scale;
   const s = 1 / scale;
   const pal = useMemo(() => dimPalette(dark), [dark]);
@@ -250,13 +250,15 @@ export const DimensionsLayer = memo(function DimensionsLayer(props: LayerProps) 
     const nodes: ReactNode[] = [];
     for (const it of items) {
       if (!ids.has(it.id) || it.hidden) continue;
+      // Transient gezogene Objekte bemaßt DragPreviewLayer (diese Ebene bleibt beim Ziehen unverändert)
+      if (previewIds?.has(it.id)) continue;
       const b = bbox(itemFootprint(it));
       nodes.push(
         <DimText key={`i:${it.id}`} x={(b.minX + b.maxX) / 2} y={b.maxY + 11 * s} text={`${formatNumber(it.width, 1)} × ${formatNumber(it.depth, 1)} cm`} s={s} color={pal.accent} bg={pal.bg} />,
       );
     }
     return nodes;
-  }, [selection, items, s, pal]);
+  }, [selection, items, s, pal, previewIds]);
 
   return (
     <Group listening={false}>

@@ -132,8 +132,9 @@ const FloorShape = memo(function FloorShape({ inner, style, s }: { inner: Vec2[]
   );
 });
 
-/** Hinweis in der Bildschirmmitte, wenn noch keine Halle existiert. */
-function EmptyHint({ viewport, dark }: { viewport: LayerProps['viewport']; dark: boolean }) {
+/** Hinweis in der Bildschirmmitte, wenn noch keine Halle existiert (liest den echten Viewport: die Ebenen-Props tragen nur den gerasterten Maßstab). */
+function EmptyHint({ dark }: { dark: boolean }) {
+  const viewport = useUiStore((st) => st.viewport);
   const stage = getStage();
   const width = stage?.width() ?? 800;
   const height = stage?.height() ?? 600;
@@ -179,7 +180,7 @@ export const HallLayer = memo(function HallLayer(props: LayerProps) {
   if (!geo) {
     // Während die Hallenwerkzeuge aktiv sind, zeichnet deren Overlay – Hinweis ausblenden.
     if (tool === 'hall-rect' || tool === 'hall-polygon') return <Group />;
-    return <EmptyHint viewport={viewport} dark={dark} />;
+    return <EmptyHint dark={dark} />;
   }
   const { outer, inner, b } = geo;
   const wallFill = dark ? '#cbd5e1' : '#334155';

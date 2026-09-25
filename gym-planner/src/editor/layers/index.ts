@@ -12,3 +12,4 @@ export { ItemsLayer } from './ItemsLayer';
 export { AnnotationsLayer } from './AnnotationsLayer';
 export { DimensionsLayer } from './DimensionsLayer';
 export { SelectionLayer } from './SelectionLayer';
+export { DragPreviewLayer } from './DragPreviewLayer';

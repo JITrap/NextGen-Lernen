@@ -9,6 +9,12 @@
  * Griffe werden nicht über Konva-Events erkannt, sondern per Abstand zum Weltpunkt (`handleAt`), die
  * Griffpositionen liefert `selectionHandles` aus der Auswahl-Ebene. Alle Änderungen laufen über den Store;
  * ein Zieh-Vorgang ist genau ein Undo-Schritt (beginTransaction … endTransaction).
+ *
+ * Objekte werden transient gezogen (editor/dragPreview.ts): Verschieben, Drehen und Skalieren schreiben je Bewegung
+ * nur die Vorschau (inkl. Kollisionsvorschau für die gezogenen Objekte); erst beim Loslassen erfolgt EIN Store-Update
+ * innerhalb der Transaktion. Esc verwirft die Vorschau. Wände, Öffnungen, Zonen, Hallenpunkte und Anmerkungen
+ * (selten, wenige Nodes) werden weiterhin je Bewegung im Store aktualisiert – Chrome liefert pointermove ohnehin
+ * höchstens einmal je Frame, eine zusätzliche rAF-Drosselung brächte nichts und würde die Tests asynchron machen.
  */
 import { useEffect, useRef, useState } from 'react';
 import { Group, Line, Rect } from 'react-konva';
@@ -21,6 +27,7 @@ import { selectionHandles, selectedItemsOf, itemsBounds, isItemScalable, type Ha
 import { DimensionLine, DimText, dimPalette } from '../layers/DimensionsLayer';
 import { worldToScreen } from '../viewport';
 import { useSnapGuides } from '../overlays/SnapGuides';
+import { useDragPreview, previewedItems } from '../dragPreview';
 import { useProjectStore, beginTransaction, endTransaction } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { useIsDark } from '@/hooks/useTheme';
@@ -30,7 +37,7 @@ import {
 } from '@/geometry/snap';
 import { itemFootprint, worldToLocal, localToWorld } from '@/geometry/transform';
 import { pointInPolygon, translatePolygon, rotateAround, distance, sub, type BBox } from '@/geometry/polygon';
-import { convexPolygonsOverlap } from '@/geometry/collision';
+import { convexPolygonsOverlap, findCollisions, collidingIds } from '@/geometry/collision';
 import {
   moveWallWithNeighbors, moveWallNode, projectOntoWall, nearestWall, clampOpeningOffset, findWall, isHallWallId, wallLength,
   hallInnerPolygon, hallWalls, WALL_NODE_TOL, wallMidpoint,
@@ -295,6 +302,10 @@ interface DragState {
   floorId: string;
   /** Projektstand vor dem Ziehen (für Abbruch per Esc). */
   snapshot: Project | null;
+  /** Transiente Vorschau der gezogenen Objekte (Verschieben/Drehen/Skalieren) – wird beim Loslassen committet. */
+  preview?: Map<string, PlacedItem>;
+  /** Wandmontage-Objekte (für die Kollisionsvorschau, einmal je Zieh-Vorgang bestimmt). */
+  wallMountedIds?: Set<string>;
   /** Shift-Klick auf bereits gewähltes Element: beim Loslassen ohne Bewegung abwählen. */
   toggleOff?: Selection;
   /** Treffer, der erst beim Loslassen ohne Bewegung ausgewählt wird (Auto-Raum/gesperrte Zone: Ziehen = Rahmen). */
@@ -393,10 +404,14 @@ function finishDrag(commit: boolean) {
   if (!drag) return;
   if (drag.tx) {
     if (!commit && drag.snapshot) useProjectStore.setState({ project: drag.snapshot });
-    else roundDragResult(drag);
+    else {
+      commitPreview(drag);
+      roundDragResult(drag);
+    }
     endTransaction();
   }
   drag = null;
+  useDragPreview.getState().clear();
   useSnapGuides.getState().set(null);
   useSelectTool.getState().patch({ marquee: null, distances: [], rotate: null, dragging: false, cursor: 'default' });
   useUiStore.getState().setDragging(false);
@@ -493,6 +508,47 @@ function roundDragResult(d: DragState) {
       break;
     default:
       break;
+  }
+}
+
+/** Schreibt die Vorschau der gezogenen Objekte in EINEM Store-Update (innerhalb der laufenden Transaktion). */
+function commitPreview(d: DragState) {
+  const map = d.preview;
+  if (!map || !map.size) return;
+  useProjectStore.getState().updateItems(d.floorId, [...map.keys()], (it) => {
+    const p = map.get(it.id);
+    if (!p) return;
+    if (it.x !== p.x) it.x = p.x;
+    if (it.y !== p.y) it.y = p.y;
+    if (it.rotation !== p.rotation) it.rotation = p.rotation;
+    if (it.width !== p.width) it.width = p.width;
+    if (it.depth !== p.depth) it.depth = p.depth;
+    if (it.dockedTo !== p.dockedTo) it.dockedTo = p.dockedTo;
+    if (it.wallId !== p.wallId) it.wallId = p.wallId;
+  });
+}
+
+/** Vorschau je Bewegung veröffentlichen, inkl. Kollisionsvorschau nur für die gezogenen Objekte (findCollisions onlyIds). */
+function publishPreview(ctx: ToolContext, d: DragState, map: Map<string, PlacedItem>) {
+  d.preview = map;
+  const layers = ctx.project.layers;
+  let colliding: ReadonlySet<string> = EMPTY_IDS;
+  if (layers.items && map.size) {
+    if (!d.wallMountedIds) d.wallMountedIds = new Set(ctx.items.filter((it) => getDef(it.defId, ctx.project)?.wandmontage).map((it) => it.id));
+    const items = previewedItems(ctx.items, map);
+    colliding = collidingIds(findCollisions(items, { includeZones: layers.safetyZones, walls: ctx.walls, wallMountedIds: d.wallMountedIds, onlyIds: new Set(map.keys()) }));
+  }
+  useDragPreview.getState().update(map, colliding);
+}
+const EMPTY_IDS: ReadonlySet<string> = new Set<string>();
+
+/** Objekte, die ein Zieh-Vorgang transient bewegt (Ausgangslage) – null, wenn der Modus keine Objekte betrifft. */
+function transientItemsOf(d: DragState): Map<string, PlacedItem> | null {
+  switch (d.mode) {
+    case 'move': return d.itemOrig?.size ? new Map(d.itemOrig) : null;
+    case 'rotate': return d.rotOrig?.size ? new Map(d.rotOrig) : null;
+    case 'scale': return d.scaleOrig ? new Map([[d.scaleOrig.id, d.scaleOrig]]) : null;
+    default: return null;
   }
 }
 
@@ -786,12 +842,10 @@ function moveSelection(e: ToolEvent, ctx: ToolContext, d: DragState) {
     }
   }
   if (d.itemOrig?.size) {
-    const orig = d.itemOrig;
-    s.updateItems(fid, [...orig.keys()], (it) => {
-      const o = orig.get(it.id);
-      if (!o) return;
-      it.x = o.x + dx;
-      it.y = o.y + dy;
+    // Transiente Vorschau statt Store-Update je Bewegung (Commit beim Loslassen)
+    const map = new Map<string, PlacedItem>();
+    for (const o of d.itemOrig.values()) {
+      const it: PlacedItem = { ...o, x: o.x + dx, y: o.y + dy };
       if (primaryPatch && primary && it.id === primary.id) {
         if (primaryPatch.x != null && primaryPatch.y != null) {
           it.x = primaryPatch.x;
@@ -801,7 +855,9 @@ function moveSelection(e: ToolEvent, ctx: ToolContext, d: DragState) {
         if ('dockedTo' in primaryPatch) it.dockedTo = primaryPatch.dockedTo;
         if ('wallId' in primaryPatch) it.wallId = primaryPatch.wallId;
       }
-    });
+      map.set(it.id, it);
+    }
+    publishPreview(ctx, d, map);
   }
   if (d.polyOrig) for (const [id, poly] of d.polyOrig) s.updateZone(fid, id, { polygon: translatePolygon(poly, dx, dy) });
   if (d.voidOrigs) for (const [id, poly] of d.voidOrigs) s.updateVoid(fid, id, { polygon: translatePolygon(poly, dx, dy) });
@@ -825,20 +881,17 @@ function moveSelection(e: ToolEvent, ctx: ToolContext, d: DragState) {
 function rotateDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
   if (!d.center || !d.rotOrig) return;
   const deg = rotationDelta(d.center, d.startWorld, e.world, !e.shift);
-  const s = useProjectStore.getState();
   const orig = d.rotOrig;
   const single = orig.size === 1;
-  s.updateItems(d.floorId, [...orig.keys()], (it) => {
-    const o = orig.get(it.id);
-    if (!o) return;
-    if (single) it.rotation = normalizeAngle(o.rotation + deg);
+  const map = new Map<string, PlacedItem>();
+  for (const o of orig.values()) {
+    if (single) map.set(o.id, { ...o, rotation: normalizeAngle(o.rotation + deg) });
     else {
-      const r = rotatedItem(o, d.center!, deg);
-      it.x = r.x;
-      it.y = r.y;
-      it.rotation = r.rotation;
+      const r = rotatedItem(o, d.center, deg);
+      map.set(o.id, { ...o, x: r.x, y: r.y, rotation: r.rotation });
     }
-  });
+  }
+  publishPreview(ctx, d, map);
   const box = itemsBounds([...orig.values()]);
   const radius = box ? Math.max(box.maxX - box.minX, box.maxY - box.minY) / 2 : 0;
   useSelectTool.getState().patch({ rotate: { center: d.center, angle: deg, radiusCm: radius + ctx.pxToWorld(36) } });
@@ -852,7 +905,7 @@ function scaleDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
   const snapOn = ctx.project.settings.snapEnabled && !ctx.ui.snapOverride && !e.alt;
   const g = snapOn ? ctx.project.settings.gridSize : 0;
   const r = scaleFromHandle(o, h.sx, h.sy, local, MIN_SCALE_SIZE_CM, g);
-  useProjectStore.getState().updateItem(d.floorId, o.id, { x: r.x, y: r.y, width: r.width, depth: r.depth });
+  publishPreview(ctx, d, new Map([[o.id, { ...o, x: r.x, y: r.y, width: r.width, depth: r.depth }]]));
 }
 
 function hallVertexDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
@@ -976,6 +1029,11 @@ function onPointerMove(e: ToolEvent, ctx: ToolContext) {
     if (d.mode === 'marquee') useSelectTool.getState().patch({ cursor: 'crosshair' });
     else {
       beginDragTx();
+      const transient = transientItemsOf(d);
+      if (transient) {
+        d.preview = transient;
+        useDragPreview.getState().begin(transient);
+      }
       useSelectTool.getState().patch({ cursor: d.mode === 'rotate' ? 'grabbing' : d.mode === 'scale' ? (d.handle?.cursor ?? 'move') : 'move' });
     }
   }

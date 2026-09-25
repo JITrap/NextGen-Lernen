@@ -5,6 +5,7 @@
  *
  * Die Griff-Positionen berechnet die reine Funktion `selectionHandles` – das Auswahl-Werkzeug nutzt
  * dieselbe Funktion, um Griffe per Abstand zum Weltpunkt zu erkennen (Konva-Nodes hier hören nicht auf Events).
+ * Beim transienten Ziehen (editor/dragPreview.ts) werden die Umrisse an der Vorschauposition gezeichnet.
  */
 import { memo, useMemo } from 'react';
 import { Group, Line, Rect, Circle } from 'react-konva';
@@ -14,6 +15,7 @@ import { getDef } from '@/data/equipment';
 import { bbox, flatten, type BBox } from '@/geometry/polygon';
 import { itemFootprint, localToWorld } from '@/geometry/transform';
 import { findWall, isHallWallId, openingPlacement, wallRect } from '@/geometry/walls';
+import { previewedItems, useDragPreview } from '../dragPreview';
 
 /* ------------------------------------------------------------------ */
 /* Griffe (rein)                                                       */
@@ -213,7 +215,10 @@ function itemStroke(it: PlacedItem, pal: Palette) {
 }
 
 export const SelectionLayer = memo(function SelectionLayer(props: LayerProps) {
-  const { floor, items, viewport, selection, dark, project, hoverId } = props;
+  const { floor, viewport, selection, dark, project, hoverId } = props;
+  // Transient gezogene Objekte an ihrer Vorschauposition (Umriss, Bounding-Box, Griffe folgen dem Zeiger)
+  const preview = useDragPreview((st) => st.items);
+  const items = useMemo(() => previewedItems(props.items, preview), [props.items, preview]);
   const s = 1 / viewport.scale;
   const pal = useMemo(() => palette(dark), [dark]);
 

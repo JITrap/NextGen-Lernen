@@ -6,7 +6,10 @@
  *   2. Gruppe aller Objekte: rotierte Group mit `ItemSymbol`, darüber (unrotiert) Beschriftung und Marker.
  *
  * Performance: Jedes Objekt ist eine React.memo-Komponente mit stabilen Props (Objekt-Referenz, Definition,
- * Zustands-Booleans, Scale-Bucket). Beim Pan ändert sich nur viewport.x/y → keine Objekt-Re-Renders.
+ * Zustands-Booleans, Scale-Bucket). Beim Pan bekommt die Ebene denselben gerasterten Maßstab → kein Re-Render;
+ * nur wenn der Culling-Bereich (`cullRect`, mit Rand quantisiert) wandert, wird die sichtbare Teilmenge neu bestimmt.
+ * Transient gezogene Objekte (`previewIds`) werden ausgelassen und von `DragPreviewLayer` in der Overlay-Ebene
+ * gezeichnet, damit diese große Ebene während des Ziehens unverändert bleibt (Konva zeichnet sie dann nicht neu).
  * Kein Node dieser Ebene hört auf Events (Hit-Test läuft geometrisch in editor/hitTest.ts).
  */
 import { memo, useMemo } from 'react';
@@ -15,8 +18,9 @@ import type { EquipmentDef, LibraryArea, PlacedItem } from '@/types';
 import type { LayerProps } from './LayerProps';
 import { getDef } from '@/data/equipment';
 import { itemZonePolygon } from '@/geometry/collision';
-import { bbox, flatten } from '@/geometry/polygon';
+import { bbox, flatten, type BBox } from '@/geometry/polygon';
 import { rectCorners } from '@/geometry/transform';
+import { itemIndexFor } from '@/geometry/spatialHash';
 import { ItemSymbol, lockerCount, statePalette } from '../symbols';
 
 /* ------------------------------------------------------------------ */
@@ -30,6 +34,10 @@ export const LABEL_FONT_PX = 10;
 /** Beschriftung nur, wenn das Objekt auf dem Bildschirm breiter ist als … px. */
 export const LABEL_MIN_WIDTH_PX = 28;
 export const LABEL_MAX_CHARS = 18;
+/** Unter diesem Maßstab (px/cm) werden keine Beschriftungen gezeichnet (Gesamtansicht großer Hallen). */
+export const LABEL_MIN_SCALE = 0.3;
+/** Unter diesem Maßstab (px/cm) werden Sicherheitszonen mit durchgehendem statt gestricheltem Rand gezeichnet (Strichelung ist in Software-Rasterisierung teuer). */
+export const ZONE_DASH_MIN_SCALE = 0.3;
 /** Beschriftung darf (zentriert) bis zu diesem Vielfachen der Objektbreite überstehen, erst dann wird gekürzt („…“). */
 export const LABEL_OVERHANG_FACTOR = 1.6;
 /** Geschätzte mittlere Zeichenbreite (Anteil der Schriftgröße) für die Breite der Beschriftung. */
@@ -90,14 +98,17 @@ export function hasDealerHint(def: EquipmentDef | undefined): boolean {
 interface ZoneProps {
   item: PlacedItem;
   colliding: boolean;
-  scale: number;
+  /** Gestrichelter Rand (ab ZONE_DASH_MIN_SCALE). */
+  dashed: boolean;
   dark: boolean;
 }
 
-const ItemZone = memo(function ItemZone({ item, colliding, scale, dark }: ZoneProps) {
+const ZONE_DASH = [5, 4];
+
+/** Sicherheitszone; Rand in Bildschirm-Pixeln (strokeScaleEnabled=false) → unabhängig vom Maßstab, kein Re-Render beim Zoom. */
+export const ItemZone = memo(function ItemZone({ item, colliding, dashed, dark }: ZoneProps) {
   const poly = useMemo(() => itemZonePolygon(item), [item]);
   if (!poly) return null;
-  const px = 1 / scale;
   const pal = statePalette(dark);
   const fill = colliding
     ? (dark ? 'rgba(248,113,113,0.22)' : 'rgba(239,68,68,0.16)')
@@ -108,11 +119,13 @@ const ItemZone = memo(function ItemZone({ item, colliding, scale, dark }: ZonePr
       closed
       fill={fill}
       stroke={colliding ? pal.danger : pal.warn}
-      strokeWidth={px}
-      dash={[5 * px, 4 * px]}
+      strokeWidth={1}
+      strokeScaleEnabled={false}
+      dash={dashed ? ZONE_DASH : undefined}
       opacity={linkedFromId(item) ? 0.5 : 1}
       listening={false}
       perfectDrawEnabled={false}
+      shadowForStrokeEnabled={false}
     />
   );
 });
@@ -137,7 +150,7 @@ interface NodeProps {
   linkedFrom: string | null;
 }
 
-const ItemNode = memo(function ItemNode(p: NodeProps) {
+export const ItemNode = memo(function ItemNode(p: NodeProps) {
   const { item, def, scale, dark, selected, colliding, hovered, showLabel, showMarkers, ceilingHeight, linkedFrom } = p;
   const px = 1 / scale;
   const pal = statePalette(dark);
@@ -215,11 +228,44 @@ interface VisibleEntry {
   linkedFrom: string | null;
 }
 
+/** Sichtbare Objekte der Ebene (ohne versteckte, ohne transient gezogene, optional nur im Culling-Bereich). */
+export function visibleEntries(
+  items: PlacedItem[],
+  lib: { customEquipment: EquipmentDef[] },
+  floorNames: ReadonlyMap<string, string>,
+  showFurniture: boolean,
+  cullRect?: BBox | null,
+  previewIds?: ReadonlySet<string> | null,
+): VisibleEntry[] {
+  const idx = cullRect ? itemIndexFor(items) : null;
+  const out: VisibleEntry[] = [];
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    if (it.hidden) continue;
+    if (previewIds?.has(it.id)) continue;
+    if (idx && cullRect) {
+      const b = idx.boxes[i];
+      const z = idx.zoneBoxes[i];
+      const minX = z ? Math.min(b.minX, z.minX) : b.minX;
+      const maxX = z ? Math.max(b.maxX, z.maxX) : b.maxX;
+      const minY = z ? Math.min(b.minY, z.minY) : b.minY;
+      const maxY = z ? Math.max(b.maxY, z.maxY) : b.maxY;
+      if (maxX < cullRect.minX || minX > cullRect.maxX || maxY < cullRect.minY || minY > cullRect.maxY) continue;
+    }
+    const def = getDef(it.defId, lib);
+    if (!showFurniture && def && FURNITURE_AREAS.has(def.bereich)) continue;
+    const from = linkedFromId(it);
+    out.push({ item: it, def, linkedFrom: from ? (floorNames.get(from) ?? 'anderem Stockwerk') : null });
+  }
+  return out;
+}
+
 export const ItemsLayer = memo(function ItemsLayer(props: LayerProps) {
-  const { project, floor, items, viewport, selection, hoverId, dark, collidingIds, presentation } = props;
+  const { project, floor, items, viewport, selection, hoverId, dark, collidingIds, presentation, cullRect, previewIds } = props;
   const scale = scaleBucket(viewport.scale);
   const showZones = project.layers.safetyZones;
-  const showLabels = project.layers.labels;
+  const showLabels = project.layers.labels && scale >= LABEL_MIN_SCALE;
+  const dashed = scale >= ZONE_DASH_MIN_SCALE;
   const showFurniture = project.layers.furniture;
   const showMarkers = !presentation;
   const custom = project.customEquipment;
@@ -232,26 +278,17 @@ export const ItemsLayer = memo(function ItemsLayer(props: LayerProps) {
   }, [selection]);
 
   const visible = useMemo<VisibleEntry[]>(() => {
-    const lib = { customEquipment: custom };
     const names = new Map<string, string>();
     for (const f of floors) names.set(f.id, f.name);
-    const out: VisibleEntry[] = [];
-    for (const it of items) {
-      if (it.hidden) continue;
-      const def = getDef(it.defId, lib);
-      if (!showFurniture && def && FURNITURE_AREAS.has(def.bereich)) continue;
-      const from = linkedFromId(it);
-      out.push({ item: it, def, linkedFrom: from ? (names.get(from) ?? 'anderem Stockwerk') : null });
-    }
-    return out;
-  }, [items, custom, floors, showFurniture]);
+    return visibleEntries(items, { customEquipment: custom }, names, showFurniture, cullRect, previewIds);
+  }, [items, custom, floors, showFurniture, cullRect, previewIds]);
 
   return (
     <Group listening={false}>
       {showZones && (
         <Group listening={false}>
           {visible.map(({ item, linkedFrom }) =>
-            item.safetyZoneEnabled ? <ItemZone key={linkedFrom ? `${item.id}:l` : item.id} item={item} colliding={collidingIds.has(item.id)} scale={scale} dark={dark} /> : null,
+            item.safetyZoneEnabled ? <ItemZone key={linkedFrom ? `${item.id}:l` : item.id} item={item} colliding={collidingIds.has(item.id)} dashed={dashed} dark={dark} /> : null,
           )}
         </Group>
       )}

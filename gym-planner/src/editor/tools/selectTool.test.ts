@@ -6,6 +6,7 @@ import {
   rotationDelta, rotatedItem, scaleFromHandle, normalShift, openingDragTarget, wallsAtNode, isMovableHit, debugDragState, useSelectTool,
   DRAG_THRESHOLD_PX,
 } from './selectTool';
+import { useDragPreview } from '../dragPreview';
 import { getTool } from './registry';
 import type { ToolContext, ToolEvent } from './types';
 import { selectionHandles, type Handle } from '../layers/SelectionLayer';
@@ -261,17 +262,38 @@ describe('Auswahl-Werkzeug (Integration)', () => {
     move(500 + DRAG_THRESHOLD_PX - 1, 500);
     expect(debugDragState()?.active).toBe(false);
     expect(floorNow().items[0].x).toBe(500);
+    expect(useDragPreview.getState().items).toBeNull();
     move(560, 540);
     expect(debugDragState()?.active).toBe(true);
     move(600, 580);
-    expect(floorNow().items[0].x).toBe(600);
-    expect(floorNow().items[0].y).toBe(580);
+    // Während des Ziehens bleibt der Store unverändert (transiente Vorschau); die Vorschau trägt die neue Position
+    expect(floorNow().items[0]).toMatchObject({ x: 500, y: 500 });
+    expect(useDragPreview.getState().ids?.has(a.id)).toBe(true);
+    expect(useDragPreview.getState().items?.get(a.id)).toMatchObject({ x: 600, y: 580 });
     up(600, 580);
     expect(debugDragState()).toBeNull();
+    expect(useDragPreview.getState().items).toBeNull();
     expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580 });
     expect(historyLen()).toBe(before + perTransaction);
     useProjectStore.temporal.getState().undo();
     expect(floorNow().items[0]).toMatchObject({ x: 500, y: 500 });
+  });
+
+  it('Kollisionsvorschau beim Ziehen: gezogenes und berührtes Objekt, Esc verwirft die Vorschau', () => {
+    down(500, 500); move(560, 540);
+    expect(useDragPreview.getState().colliding.size).toBe(0);
+    // a (Breite ≥ 100 cm) über b schieben → beide kollidieren in der Vorschau, Store unverändert
+    move(1000, 500);
+    const col = useDragPreview.getState().colliding;
+    expect(col.has(a.id)).toBe(true);
+    expect(col.has(b.id)).toBe(true);
+    expect(floorNow().items[0]).toMatchObject({ x: 500, y: 500 });
+    const handled = tool().onKeyDown!(new KeyboardEvent('keydown', { key: 'Escape' }), mkCtx());
+    expect(handled).toBe(true);
+    expect(useDragPreview.getState().items).toBeNull();
+    expect(useDragPreview.getState().colliding.size).toBe(0);
+    expect(floorNow().items[0]).toMatchObject({ x: 500, y: 500 });
+    expect(useUiStore.getState().dragging).toBe(false);
   });
 
   it('gesperrte Objekte werden nicht verschoben', () => {
@@ -453,7 +475,7 @@ describe('Zieh-Vorgang robust beenden (H1/H2)', () => {
     down(500, 500);
     move(560, 540);
     move(600, 580);
-    expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580 });
+    expect(useDragPreview.getState().items?.get(a.id)).toMatchObject({ x: 600, y: 580 });
     // Loslassen kam nicht an (z. B. außerhalb des Fensters); nächste Bewegung meldet buttons = 0
     move(700, 700, { buttons: 0 });
     expect(debugDragState()).toBeNull();
@@ -461,6 +483,7 @@ describe('Zieh-Vorgang robust beenden (H1/H2)', () => {
     expect(useProjectStore.temporal.getState().isTracking).toBe(true);
     // Objekt folgt dem Zeiger nicht weiter, Stand von vor dem Loslassen bleibt
     expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580 });
+    expect(useDragPreview.getState().items).toBeNull();
     expect(historyLen()).toBeGreaterThan(before);
     // Spätere Änderungen laufen wieder in eigene Undo-Schritte
     const mid = historyLen();
