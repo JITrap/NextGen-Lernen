@@ -91,6 +91,14 @@ function TextEditor({ ctx, editing }: { ctx: ToolContext; editing: NonNullable<T
     if (!el) return;
     el.focus();
     el.select();
+    // Der Mausklick, der die Notiz angelegt hat, feuert nach pointerdown noch ein mousedown auf dem Canvas.
+    // Dessen Standardaktion (Fokuswechsel) würde das Textfeld sofort wieder verlassen → auf dem Canvas unterdrücken.
+    const onDown = (ev: MouseEvent) => {
+      const t = ev.target;
+      if (t instanceof Element && t.closest('.konvajs-content')) ev.preventDefault();
+    };
+    document.addEventListener('mousedown', onDown, true);
+    return () => document.removeEventListener('mousedown', onDown, true);
   }, []);
   const screen = worldToScreen(editing.world, ctx.viewport);
   const fontPx = Math.max(13, Math.min(40, DEFAULT_NOTE_FONT_CM * ctx.viewport.scale));
@@ -152,18 +160,11 @@ registerTool({
     ctx.store.addAnnotation(ctx.floor.id, { id, kind: 'text', x: r.point.x, y: r.point.y, text: DEFAULT_NOTE_TEXT, fontSize: DEFAULT_NOTE_FONT_CM, rotation: 0 });
     useTextEdit.getState().patch({ editing: { id, floorId: ctx.floor.id, world: r.point, snapshot } });
     ctx.ui.setSelection([{ kind: 'annotation', id }]);
-    useSnapGuides.getState().set(null);
     if (!ctx.project.layers.annotations) ctx.ui.toast('Ebene „Anmerkungen“ ist ausgeblendet – die Notiz ist nach dem Speichern nicht sichtbar', 'info');
   },
-  onPointerMove: (e, ctx) => {
-    if (useTextEdit.getState().editing) return;
-    useSnapGuides.getState().set(ctx.snap(e.world, { targets: { grid: true, 'wall-end': false, 'wall-mid': false, 'hall-vertex': false, 'item-edge': false, angle: false } }));
-  },
-  onKeyDown: () => false,
   onCancel: () => {
     // Werkzeugwechsel während der Eingabe: Text übernehmen (leer → verwerfen).
     finishTextEdit('save', currentDraft());
-    useSnapGuides.getState().set(null);
   },
 });
 
