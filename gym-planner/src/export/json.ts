@@ -125,8 +125,19 @@ export function safeFileName(name: string, fallback = 'projekt'): string {
 }
 
 /** Löst einen Browser-Download eines Blobs aus. */
-export function downloadBlob(blob: Blob, filename: string) {
-  if (typeof document === 'undefined') return;
+/** Speicherfunktion eines Seiten-Hosters (z. B. claude.ai-Artefakt), falls die Seite dort läuft. */
+type HostDownloads = { save: (req: { filename: string; data: Blob | string }) => Promise<{ status: string }> };
+type HostClaude = { use?: (name: string) => Promise<unknown> };
+let hostDownloads: Promise<HostDownloads | null> | null = null;
+function hostDownloadsApi(): Promise<HostDownloads | null> {
+  if (hostDownloads) return hostDownloads;
+  const claude = (globalThis as { claude?: HostClaude }).claude;
+  hostDownloads = typeof claude?.use === 'function'
+    ? claude.use('downloads').then((ns) => (ns && typeof (ns as HostDownloads).save === 'function' ? (ns as HostDownloads) : null)).catch(() => null)
+    : Promise.resolve(null);
+  return hostDownloads;
+}
+function browserDownload(blob: Blob, filename: string) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
@@ -138,6 +149,26 @@ export function downloadBlob(blob: Blob, filename: string) {
     a.remove();
     URL.revokeObjectURL(url);
   }, 1000);
+}
+/**
+ * Bietet eine Datei zum Speichern an. Läuft die App in einem Seiten-Hoster mit eigener
+ * Speicherfunktion (Artefakt-Ansicht), wird diese genutzt; sonst der normale Browser-Download.
+ */
+export function downloadBlob(blob: Blob, filename: string) {
+  if (typeof document === 'undefined') return;
+  const claude = (globalThis as { claude?: HostClaude }).claude;
+  if (typeof claude?.use !== 'function') { browserDownload(blob, filename); return; }
+  void hostDownloadsApi().then(async (api) => {
+    if (!api) { browserDownload(blob, filename); return; }
+    try {
+      await api.save({ filename, data: blob });
+    } catch (e) {
+      const code = (e as { code?: string } | null)?.code;
+      if (code === 'declined') return;
+      if (code === 'rate_limited') { useUiStore.getState().toast('Bitte kurz warten, ein Speichern-Dialog ist noch offen.', 'warning'); return; }
+      useUiStore.getState().toast('Speichern in dieser Ansicht nicht möglich – bitte die App unter der GitHub-Pages-Adresse öffnen.', 'error');
+    }
+  });
 }
 
 /** Exportiert ein Projekt als „<Name>.gymplanner.json“. Ohne Argument: aktuelles Projekt aus dem Store. */

@@ -19,7 +19,7 @@ import { roomColor } from '@/data/roomTypes';
 import { areaBalance, sumAreaBalances, areaClassOf, type FloorAreaBalance as AnalysisFloorAreaBalance } from '@/analysis';
 import { renderFloorToCanvas, layoutFloorRender, paperMmForCm, pxPerCmForPaper, clampPxPerCm, scaleBarLength, legendRoomTypes, MAX_IMAGE_PX } from './planRenderer';
 import { bomRows, bomTotals } from './csv';
-import { safeFileName } from './json';
+import { downloadBlob, safeFileName } from './json';
 
 export type PdfScale = 50 | 100 | 200;
 
@@ -468,7 +468,7 @@ export async function exportPdf(opts: PdfOptions = {}): Promise<void> {
   try {
     const { doc, warnings } = await buildPdf(project, opts);
     for (const w of warnings) ui.toast(w, 'warning');
-    if (opts.download !== false) doc.save(`${safeFileName(project.name)}.pdf`);
+    if (opts.download !== false) downloadBlob(doc.output('blob'), `${safeFileName(project.name)}.pdf`);
     ui.toast(`PDF „${project.name}“ exportiert (${doc.getNumberOfPages()} Seiten, Maßstab 1:${opts.scale ?? 100}).`, 'success');
   } catch (e) {
     ui.toast(`PDF-Export fehlgeschlagen: ${e instanceof Error ? e.message : String(e)}`, 'error');
