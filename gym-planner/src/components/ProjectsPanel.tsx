@@ -13,6 +13,7 @@ import { useUiStore } from '@/store/uiStore';
 import {
   useProjectIndex, useSaveStatus, createProject, openProject, renameProject, duplicateProject, deleteProject, createVariant,
   listVersions, saveVersion, restoreVersion, getStoredProject, exportAll, importAll, formatDateTime, displayName, saveNow,
+  MAX_VERSIONS, MAX_VERSIONS_LOCAL,
 } from '@/store/persistence';
 import { TEMPLATES, type ProjectTemplate } from '@/data/templates';
 import { exportJson, pickJsonFile, importProjectFromText, downloadBlob, safeFileName } from '@/export/json';
@@ -282,6 +283,8 @@ function ProjectRow({ p, active, variant, isLast, parentName }: { p: ProjectSumm
 
 function VersionHistory({ projectId }: { projectId: string }) {
   const nonce = useProjectIndex((s) => s.versionsNonce);
+  const storage = useProjectIndex((s) => s.storage);
+  const maxVersions = storage === 'local' ? MAX_VERSIONS_LOCAL : MAX_VERSIONS;
   const [versions, setVersions] = useState<ProjectVersion[]>([]);
   const [loading, setLoading] = useState(false);
   const [label, setLabel] = useState('');
@@ -318,7 +321,7 @@ function VersionHistory({ projectId }: { projectId: string }) {
 
   return (
     <section className="flex flex-col gap-2">
-      <SectionTitle right={loading ? <LoaderCircle size={12} className="animate-spin gp-muted" /> : <span className="gp-muted text-[11px]">{versions.length} / 20</span>}>
+      <SectionTitle right={loading ? <LoaderCircle size={12} className="animate-spin gp-muted" /> : <span className="gp-muted text-[11px]">{versions.length} / {maxVersions}</span>}>
         Versionsverlauf
       </SectionTitle>
       <div className="flex items-center gap-1">

@@ -1,7 +1,8 @@
 import { useState, type ReactNode } from 'react';
 import { Download, FileImage, FileText, Table, FileJson, Upload, ChevronDown, LoaderCircle } from 'lucide-react';
 import { useUiStore } from '@/store/uiStore';
-import { useProjectStore, loadProject } from '@/store/projectStore';
+import { useProjectStore } from '@/store/projectStore';
+import { createProject } from '@/store/persistence';
 import { exportPng, exportPdf, exportCsv, exportJson, importJsonFile } from '@/export';
 import { Dropdown } from './ui/Menu';
 import { Button, IconButton } from './ui/Button';
@@ -41,7 +42,8 @@ export async function runExport(kind: ExportKind, opts: { pdfScale?: PdfScale } 
       case 'import': {
         const p = await importJsonFile();
         if (p) {
-          loadProject(p);
+          // Als (neues) Projekt registrieren und öffnen; bei bereits vorhandener ID entsteht eine Kopie.
+          await createProject(p);
           const u = useUiStore.getState();
           u.clearSelection();
           u.requestFit();

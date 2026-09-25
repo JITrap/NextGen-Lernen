@@ -5,11 +5,11 @@
  * Maßstab: 1 cm Welt = 10/scale mm Papier (paperMmForCm). Bei 1:100 sind 25 m Halle = 250 mm.
  * jsPDF wird erst beim Export dynamisch geladen (eigener Chunk).
  */
-import type { Project, Floor, RoomType } from '@/types';
+import type { Project, Floor, Room, RoomType } from '@/types';
 import type { jsPDF as JsPdf } from 'jspdf';
 import { useProjectStore } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
-import { polygonArea } from '@/geometry/polygon';
+import { polygonArea, polygonInside } from '@/geometry/polygon';
 import { hallInnerPolygon } from '@/geometry/walls';
 import { floorRooms } from '@/geometry/rooms';
 import { formatNumber, formatM2 } from '@/geometry/units';
@@ -66,21 +66,37 @@ export interface ProjectAreaBalance {
 
 const m2 = (poly: { x: number; y: number }[]) => polygonArea(poly) / 10000;
 
-export function floorAreaBalance(floor: Floor): FloorAreaBalance {
+/**
+ * Effektive Fläche je Raum: Zonen, die vollständig in einem automatisch erkannten Raum liegen, werden von diesem
+ * abgezogen (die Zone „Cardio“ in der offenen Halle zählt nur einmal). Lufträume werden ebenfalls abgezogen.
+ */
+export function effectiveRoomAreas(floor: Floor): { room: Room; m2: number }[] {
   const rooms = floorRooms(floor);
+  return rooms.map((room) => {
+    let area = room.areaM2;
+    if (room.source === 'auto') {
+      for (const z of rooms) if (z.source === 'zone' && z.id !== room.id && polygonInside(z.polygon, room.polygon)) area -= z.areaM2;
+    }
+    for (const v of floor.voids) if (v.polygon.length >= 3 && polygonInside(v.polygon, room.polygon)) area -= m2(v.polygon);
+    return { room, m2: Math.max(0, area) };
+  });
+}
+
+export function floorAreaBalance(floor: Floor): FloorAreaBalance {
+  const rooms = effectiveRoomAreas(floor);
   const grossM2 = floor.hall && floor.hall.polygon.length >= 3 ? m2(floor.hall.polygon) : 0;
   const innerM2 = floor.hall && floor.hall.polygon.length >= 3 ? m2(hallInnerPolygon(floor.hall)) : 0;
   const voidM2 = floor.voids.reduce((s, v) => s + (v.polygon.length >= 3 ? m2(v.polygon) : 0), 0);
-  const roomSum = rooms.reduce((s, r) => s + r.areaM2, 0);
+  const roomSum = rooms.reduce((s, r) => s + r.m2, 0);
   const base = grossM2 > 0 ? grossM2 : roomSum;
   const netM2 = grossM2 > 0 ? Math.max(0, innerM2 - voidM2) : roomSum;
   const typeMap = new Map<RoomType, AreaByType>();
-  for (const r of rooms) {
+  for (const { room: r, m2: area } of rooms) {
     const info = ROOM_TYPE_MAP[r.type];
     let e = typeMap.get(r.type);
     if (!e) { e = { type: r.type, areaClass: info?.areaClass ?? 'Nebenfläche', count: 0, m2: 0, percent: 0 }; typeMap.set(r.type, e); }
     e.count += 1;
-    e.m2 += r.areaM2;
+    e.m2 += area;
   }
   const byType = [...typeMap.values()].sort((a, b) => b.m2 - a.m2);
   for (const e of byType) e.percent = base > 0 ? (e.m2 / base) * 100 : 0;

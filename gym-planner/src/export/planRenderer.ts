@@ -220,12 +220,14 @@ export function renderFloorToCanvas(project: Project, floor: Floor, opts: Render
   const stage = new Konva.Stage({ container, width: layout.widthPx, height: layout.heightPx });
   try {
     const layer = new Konva.Layer({ listening: false });
+    // Leere Ebene zuerst hinzufügen (Stage.add zeichnet sofort), dann ihren Bildschirm-Canvas freigeben:
+    // gezeichnet wird ausschließlich in den Export-Canvas von layer.toCanvas() (nur ein Vollbild-Canvas im Speicher).
+    stage.add(layer);
+    layer.getCanvas().setSize(1, 1);
     layer.scale({ x: layout.pxPerCm, y: layout.pxPerCm });
     layer.offset({ x: layout.bounds.minX, y: layout.bounds.minY });
-    stage.add(layer);
     drawFloor(layer, project, floor, opts, layout);
-    layer.draw();
-    const canvas = stage.toCanvas({ pixelRatio: 1 });
+    const canvas = layer.toCanvas({ x: 0, y: 0, width: layout.widthPx, height: layout.heightPx, pixelRatio: 1 });
     return { ...layout, canvas };
   } finally {
     stage.destroy();

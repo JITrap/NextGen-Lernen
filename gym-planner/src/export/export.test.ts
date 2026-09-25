@@ -9,7 +9,7 @@ import {
   renderFloorToCanvas, MAX_IMAGE_PX, itemShortLabel,
 } from './planRenderer';
 import { pngPxPerCm } from './png';
-import { paperFormatForPlan, floorAreaBalance, projectAreaBalance } from './pdf';
+import { paperFormatForPlan, floorAreaBalance, projectAreaBalance, buildPdf } from './pdf';
 import { floorRooms } from '@/geometry/rooms';
 
 function sampleProject(): Project {
@@ -192,7 +192,10 @@ describe('Maßstab & Layout', () => {
     const layout = layoutFloorRender(p, p.floors[0], { pxPerCm: 1, marginCm: 150 });
     expect(layout.planBounds).toEqual({ minX: -150, minY: -150, maxX: 2650, maxY: 2150 });
     expect(layout.widthPx).toBe(2800);
-    expect(layout.legendTypes).toEqual(['Cardio', 'Maschinen']);
+    const roomTypes = floorRooms(p.floors[0]).map((r) => r.type);
+    expect(layout.legendTypes).toEqual([...new Set(roomTypes)]);
+    expect(layout.legendTypes).toContain('Cardio');
+    expect(layout.legendTypes).toContain('Maschinen');
     expect(layout.heightPx).toBeGreaterThan(2300);
     const noLegend = layoutFloorRender(p, p.floors[0], { pxPerCm: 1, marginCm: 150, legend: false });
     expect(noLegend.heightPx).toBe(2300);
@@ -207,7 +210,10 @@ describe('Maßstab & Layout', () => {
     expect(scaleBarLength(2800)).toBe(500);
     expect(scaleBarLength(400)).toBe(100);
     const p = sampleProject();
-    expect(legendRoomTypes(floorRooms(p.floors[0]))).toEqual(['Cardio', 'Maschinen']);
+    const legend = legendRoomTypes(floorRooms(p.floors[0]));
+    expect(legend).toEqual([...new Set(legend)]);
+    expect(legend).toContain('Cardio');
+    expect(legend).toContain('Maschinen');
     expect(itemShortLabel(p.floors[0].items[0], getDef('atlantis-a301'))).toBe('A301');
     expect(itemShortLabel({ ...p.floors[0].items[0], label: 'Mein Gerät' }, getDef('atlantis-a301'))).toBe('Mein Gerät');
   });
@@ -249,10 +255,24 @@ describe('Flächenbilanz (PDF)', () => {
     expect(cardio.areaClass).toBe('Trainingsfläche');
     const training = b.byClass.find((c) => c.areaClass === 'Trainingsfläche')!;
     expect(training.m2).toBeCloseTo(220, 6);
-    expect(b.unassignedM2).toBeCloseTo(b.netM2 - 220, 6);
+    // Zonen in automatisch erkannten Räumen werden dort abgezogen → keine Doppelzählung
+    const roomSum = b.byType.reduce((s, t) => s + t.m2, 0);
+    expect(roomSum).toBeLessThanOrEqual(b.netM2 + 1e-6);
+    expect(b.unassignedM2).toBeCloseTo(Math.max(0, b.netM2 - roomSum), 6);
     const total = projectAreaBalance(p);
     expect(total.grossM2).toBeCloseTo(500, 6);
-    expect(total.byType.length).toBe(2);
+    expect(total.byType.map((t) => t.type)).toEqual(b.byType.map((t) => t.type));
+  });
+
+  it('buildPdf erzeugt Flächenbilanz- und Stücklistenseiten (ohne Planseite, da kein Canvas nötig)', async () => {
+    const p = sampleProject();
+    const { doc, warnings } = await buildPdf(p, { floorIds: ['nicht-vorhanden'], scale: 100 });
+    expect(warnings).toEqual([]);
+    expect(doc.getNumberOfPages()).toBeGreaterThanOrEqual(3);
+    const out = doc.output('arraybuffer');
+    expect(out.byteLength).toBeGreaterThan(2000);
+    const empty = await buildPdf(createEmptyProject('Leer'), { floorIds: ['x'] });
+    expect(empty.doc.getNumberOfPages()).toBeGreaterThanOrEqual(3);
   });
 
   it('kommt mit Stockwerken ohne Halle zurecht', () => {

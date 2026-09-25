@@ -622,8 +622,7 @@ export async function renameProject(id: string, name: string): Promise<boolean> 
   const cur = currentProject();
   if (cur.id === id) {
     transaction(() => useProjectStore.getState().renameProject(trimmed));
-    await flushSave();
-    return true;
+    return saveNow();
   }
   const r = await loadStoredProject(id);
   if (!r) return false;
