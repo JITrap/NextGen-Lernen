@@ -27,7 +27,7 @@ import { useProjectStore, loadProject, newProjectFrom, transaction } from './pro
 import { useUiStore } from './uiStore';
 import { createEmptyProject, cloneDeep } from './factories';
 import { validateProject, migrateProject } from './migrate';
-import { TEMPLATES, type ProjectTemplate } from '@/data/templates';
+import { defaultTemplate, type ProjectTemplate } from '@/data/templates';
 import { polygonArea } from '@/geometry/polygon';
 import { newId } from '@/utils/id';
 
@@ -659,7 +659,7 @@ async function doInit(): Promise<void> {
       }
     }
     if (!project) {
-      project = createFromTemplate(TEMPLATES[0]);
+      project = createFromTemplate(defaultTemplate());
       needsPersist = true;
     }
     undelete(project.id);
@@ -792,7 +792,7 @@ async function projectExists(id: string): Promise<boolean> {
 
 /**
  * Legt ein neues Projekt an und öffnet es.
- * - ohne Argument: erste Vorlage (TEMPLATES[0])
+ * - ohne Argument: Standardvorlage (Beispielstudio, sonst leere Halle)
  * - ProjectTemplate: Vorlage
  * - Project (z. B. aus JSON-Import): wird übernommen; existiert die ID bereits, entsteht eine Kopie mit neuer ID.
  */
@@ -809,7 +809,7 @@ export async function createProject(template?: ProjectTemplate | Project, name?:
       if (trimmed) p.name = trimmed;
     }
   } else {
-    p = createFromTemplate(template ?? TEMPLATES[0], name);
+    p = createFromTemplate(template ?? defaultTemplate(), name);
   }
   undelete(p.id);
   applyProject(p);
@@ -951,7 +951,7 @@ export async function deleteProject(id: string): Promise<boolean> {
   if (wasActive) {
     const next = readIndex()[0];
     const ok = next ? await openProject(next.id) : false;
-    if (!ok) await createProject(TEMPLATES[0]);
+    if (!ok) await createProject(defaultTemplate());
   }
   toast('Projekt gelöscht.', 'info');
   return true;

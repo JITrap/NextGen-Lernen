@@ -26,6 +26,21 @@ npm run lint       # ESLint
 
 Voraussetzungen: Node.js 20 oder neuer.
 
+## Vorlagen & Beispielprojekt
+
+Beim ersten Start öffnet die App das **Beispielstudio 1.000 m²** (40 × 25 m): ein vollständig eingerichtetes
+Muster-Studio mit Empfang/Lounge, Büro, Personalraum, barrierefreiem WC, Umkleiden mit Duschen und WCs, Freihantelbereich
+mit zwei Power Racks, Half Rack, Kreuzheben-Plattform und Spiegelwand, zwei Reihen Prime-Hybrid-Maschinen, einer
+Plate-Loaded-Reihe, 18 Cardio-Geräten am Fensterband, Functional-Bereich mit Rig und Sled-Bahn, Kursraum mit Spiegelwand
+und Indoor-Cycling, Wellness mit Sauna, Infrarotkabine, Cold Plunge und Ruheliegen sowie Lager, Technik und Putzraum.
+Die Vorlage startet ohne Kollisions-, Tür-, Notausgang- oder Laufweg-Warnungen; Spinde, Duschen und WCs reichen laut
+Kapazitätsanalyse für die berechnete Personenzahl.
+
+Weitere Vorlagen unter **Projekte → Neues Projekt**: leere Halle 20 × 25 m, kleines Studio 400 m², mittleres Studio 800 m².
+
+Das Beispielstudio liegt zusätzlich als Projektdatei in `examples/Beispielstudio-1000.gymplanner.json` und lässt sich
+über **Projekte → JSON importieren** in jede Installation laden.
+
 ## Technik
 
 | Bereich | Wahl | Begründung |

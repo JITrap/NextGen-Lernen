@@ -1,0 +1,4822 @@
+{
+  "app": "GymPlanner",
+  "exportedAt": "2026-09-25T00:00:00.000Z",
+  "format": "gymplanner-project",
+  "project": {
+    "activeFloorId": "f_H7dCvQxmMCwc",
+    "createdAt": "2026-09-25T20:45:06.001Z",
+    "customEquipment": [],
+    "favorites": [],
+    "floors": [
+      {
+        "annotations": [],
+        "ceilingHeight": 400,
+        "groups": [],
+        "hall": {
+          "floorCovering": "Gummiboden",
+          "polygon": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 2500
+            },
+            {
+              "x": 0,
+              "y": 2500
+            }
+          ],
+          "wallThickness": 24
+        },
+        "id": "f_H7dCvQxmMCwc",
+        "items": [
+          {
+            "defId": "gen-empfang-theke",
+            "depth": 80,
+            "height": 110,
+            "id": "i_StUComidoMms",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 300,
+            "x": 500,
+            "y": 380
+          },
+          {
+            "defId": "gen-empfang-shakebar",
+            "depth": 70,
+            "height": 110,
+            "id": "i_Pf9q2tXtOfkv",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 160,
+            "x": 270,
+            "y": 380
+          },
+          {
+            "defId": "gen-empfang-barhocker",
+            "depth": 40,
+            "height": 75,
+            "id": "i_zezSZq3uEZR9",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 220,
+            "y": 300
+          },
+          {
+            "defId": "gen-empfang-barhocker",
+            "depth": 40,
+            "height": 75,
+            "id": "i_f8gf4BgLG1cl",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 300,
+            "y": 300
+          },
+          {
+            "defId": "gen-empfang-drehkreuz",
+            "depth": 120,
+            "height": 100,
+            "id": "i_PYamHMULlFTz",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 830,
+            "y": 350
+          },
+          {
+            "defId": "gen-empfang-zugangsschranke",
+            "depth": 40,
+            "height": 100,
+            "id": "i_jnObZmqQT52f",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 870,
+            "y": 480
+          },
+          {
+            "defId": "gen-empfang-sofa-3",
+            "depth": 90,
+            "height": 85,
+            "id": "i_vzqtCKPd2HV3",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 220,
+            "x": 70,
+            "y": 360
+          },
+          {
+            "defId": "gen-empfang-sessel",
+            "depth": 90,
+            "height": 85,
+            "id": "i_VrWHtbMSbirD",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 70,
+            "y": 550
+          },
+          {
+            "defId": "gen-empfang-loungetisch",
+            "depth": 60,
+            "height": 45,
+            "id": "i_9zhGJ7VqpPrn",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 190,
+            "y": 560
+          },
+          {
+            "defId": "gen-empfang-sessel",
+            "depth": 90,
+            "height": 85,
+            "id": "i_ciKXEyPos9em",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 300,
+            "y": 560
+          },
+          {
+            "defId": "gen-empfang-stehtisch",
+            "depth": 70,
+            "height": 110,
+            "id": "i_h8ElyerfCfRk",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 70,
+            "x": 460,
+            "y": 560
+          },
+          {
+            "defId": "gen-empfang-stehtisch",
+            "depth": 70,
+            "height": 110,
+            "id": "i_d0nMrgePKn6g",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 70,
+            "x": 580,
+            "y": 560
+          },
+          {
+            "defId": "gen-empfang-kuehlschrank",
+            "depth": 65,
+            "height": 190,
+            "id": "i_PeMXdl6Oeujr",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 860,
+            "y": 660
+          },
+          {
+            "defId": "gen-empfang-getraenkeautomat",
+            "depth": 90,
+            "height": 185,
+            "id": "i_ApsCNdrrieP0",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 770,
+            "y": 650
+          },
+          {
+            "defId": "gen-empfang-snackautomat",
+            "depth": 90,
+            "height": 185,
+            "id": "i_0M1kMoXTe89f",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 670,
+            "y": 650
+          },
+          {
+            "defId": "gen-empfang-garderobe",
+            "depth": 40,
+            "height": 180,
+            "id": "i_lrs7JD9z8cij",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 100,
+            "x": 600,
+            "y": 50
+          },
+          {
+            "defId": "gen-empfang-info-stele",
+            "depth": 40,
+            "height": 190,
+            "id": "i_rBp2TvT66Ovh",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 700,
+            "y": 50
+          },
+          {
+            "defId": "gen-empfang-info-bildschirm",
+            "depth": 8,
+            "height": 75,
+            "id": "i_qUFDqx3fLqIa",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_0",
+            "width": 125,
+            "x": 800,
+            "y": 30
+          },
+          {
+            "defId": "gen-ausstattung-pflanze-gross",
+            "depth": 60,
+            "height": 200,
+            "id": "i_XIA2e9x0GOQE",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 60,
+            "y": 60
+          },
+          {
+            "defId": "gen-ausstattung-pflanze-gross",
+            "depth": 60,
+            "height": 200,
+            "id": "i_yH8ChKyESEd8",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 510,
+            "y": 60
+          },
+          {
+            "defId": "gen-ausstattung-pflanze",
+            "depth": 40,
+            "height": 150,
+            "id": "i_322af2nhURqo",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 50,
+            "y": 670
+          },
+          {
+            "defId": "gen-ausstattung-wasserspender",
+            "depth": 35,
+            "height": 110,
+            "id": "i_9iFjclYNK0kE",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 35,
+            "x": 700,
+            "y": 560
+          },
+          {
+            "defId": "gen-ausstattung-muelleimer",
+            "depth": 40,
+            "height": 80,
+            "id": "i_Z4zorSTAaNu2",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 640,
+            "y": 470
+          },
+          {
+            "defId": "gen-ausstattung-aed",
+            "depth": 20,
+            "height": 40,
+            "id": "i_Li0UMNJukUZZ",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_cmBlfbng3rkZ",
+            "width": 40,
+            "x": 300,
+            "y": 680
+          },
+          {
+            "defId": "gen-ausstattung-erste-hilfe",
+            "depth": 15,
+            "height": 30,
+            "id": "i_1Ic5qYDXfSTb",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_cmBlfbng3rkZ",
+            "width": 30,
+            "x": 350,
+            "y": 680
+          },
+          {
+            "defId": "gen-ausstattung-feuerloescher",
+            "depth": 20,
+            "height": 60,
+            "id": "i_2xQnoSUOUUWS",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_cmBlfbng3rkZ",
+            "width": 20,
+            "x": 400,
+            "y": 680
+          },
+          {
+            "defId": "gen-ausstattung-notausgang-schild",
+            "depth": 5,
+            "height": 20,
+            "id": "i_DFPjRVtR8ViM",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_0",
+            "width": 35,
+            "x": 430,
+            "y": 30
+          },
+          {
+            "defId": "gen-ausstattung-kamera",
+            "depth": 15,
+            "height": 15,
+            "id": "i_h9hSyAFRxbtc",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_0",
+            "width": 15,
+            "x": 880,
+            "y": 40
+          },
+          {
+            "defId": "gen-bau-heizkoerper",
+            "depth": 10,
+            "height": 60,
+            "id": "i_NYaxbCwR4YqJ",
+            "kind": "radiator",
+            "params": {
+              "kind": "radiator"
+            },
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_3",
+            "width": 100,
+            "x": 30,
+            "y": 170
+          },
+          {
+            "defId": "gen-buero-schreibtisch",
+            "depth": 80,
+            "height": 75,
+            "id": "i_DXuvMqbrE7nJ",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 160,
+            "x": 300,
+            "y": 900
+          },
+          {
+            "defId": "gen-buero-buerostuhl",
+            "depth": 65,
+            "height": 120,
+            "id": "i_BMcxDL9cfab0",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 65,
+            "x": 200,
+            "y": 900
+          },
+          {
+            "defId": "gen-buero-rollcontainer",
+            "depth": 60,
+            "height": 60,
+            "id": "i_L1S5NJBfuyw8",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 45,
+            "x": 320,
+            "y": 1010
+          },
+          {
+            "defId": "gen-buero-aktenschrank",
+            "depth": 42,
+            "height": 200,
+            "id": "i_iF9eEkDcPjfr",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 80,
+            "x": 70,
+            "y": 1020
+          },
+          {
+            "defId": "gen-bau-heizkoerper",
+            "depth": 10,
+            "height": 60,
+            "id": "i_41XwnNwNa1Gw",
+            "kind": "radiator",
+            "params": {
+              "kind": "radiator"
+            },
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_3",
+            "width": 100,
+            "x": 30,
+            "y": 880
+          },
+          {
+            "defId": "gen-buero-personaltisch",
+            "depth": 80,
+            "height": 75,
+            "id": "i_tGawXkadEgz2",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 500,
+            "y": 940
+          },
+          {
+            "defId": "gen-empfang-stuhl",
+            "depth": 55,
+            "height": 85,
+            "id": "i_K9gKCqsPYXJn",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 50,
+            "x": 410,
+            "y": 940
+          },
+          {
+            "defId": "gen-empfang-stuhl",
+            "depth": 55,
+            "height": 85,
+            "id": "i_PL6tS4eYChLw",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 50,
+            "x": 590,
+            "y": 940
+          },
+          {
+            "defId": "gen-buero-personalschrank",
+            "depth": 50,
+            "height": 180,
+            "id": "i_h5zfcPBCfhQm",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 390,
+            "y": 730
+          },
+          {
+            "defId": "gen-buero-teekueche",
+            "depth": 60,
+            "height": 90,
+            "id": "i_MTVnb0jzyxNN",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 600,
+            "y": 740
+          },
+          {
+            "defId": "gen-ausstattung-erste-hilfe",
+            "depth": 15,
+            "height": 30,
+            "id": "i_k3mwaF1JGSWN",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_NYnIeohNQbTh",
+            "width": 30,
+            "x": 630,
+            "y": 1000
+          },
+          {
+            "defId": "gen-sanitaer-wc-barrierefrei",
+            "depth": 220,
+            "height": 220,
+            "id": "i_Bc0pYsJM9oEt",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 730,
+            "y": 820
+          },
+          {
+            "defId": "gen-umkleide-waschtisch",
+            "depth": 50,
+            "height": 85,
+            "id": "i_nwdIW18c1hTi",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_OkEazxsUhL84",
+            "width": 60,
+            "x": 850,
+            "y": 1020
+          },
+          {
+            "defId": "gen-umkleide-handtuchspender",
+            "depth": 15,
+            "height": 40,
+            "id": "i_rrExdcrkiHR3",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_OkEazxsUhL84",
+            "width": 30,
+            "x": 770,
+            "y": 1030
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_4vhqhnGk4pPa",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 70,
+            "y": 1100
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_he6W2bR1buxk",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 160,
+            "y": 1100
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_56xklQDoHfmB",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 250,
+            "y": 1100
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_c7lMgb2WpkJo",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 340,
+            "y": 1100
+          },
+          {
+            "defId": "gen-sanitaer-dusche-barrierefrei",
+            "depth": 150,
+            "height": 220,
+            "id": "i_ZZUBd1xen3wY",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 100,
+            "y": 1670
+          },
+          {
+            "defId": "gen-sanitaer-wc-kabine",
+            "depth": 150,
+            "height": 220,
+            "id": "i_FUYQO8kZt9B3",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 230,
+            "y": 1670
+          },
+          {
+            "defId": "gen-sanitaer-wc-kabine",
+            "depth": 150,
+            "height": 220,
+            "id": "i_HcgK9iCLObrg",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 330,
+            "y": 1670
+          },
+          {
+            "defId": "gen-sanitaer-wc-kabine",
+            "depth": 150,
+            "height": 220,
+            "id": "i_PnhvmcwbGi40",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 320,
+            "y": 1390
+          },
+          {
+            "defId": "gen-umkleide-waschtisch-doppel",
+            "depth": 50,
+            "height": 85,
+            "id": "i_D68A0LV7qQwr",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_U5yytPq0d8Jz",
+            "width": 120,
+            "x": 370,
+            "y": 1510
+          },
+          {
+            "defId": "gen-umkleide-handtuchspender",
+            "depth": 15,
+            "height": 40,
+            "id": "i_0Rqoa7b5MZwL",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_U5yytPq0d8Jz",
+            "width": 30,
+            "x": 380,
+            "y": 1210
+          },
+          {
+            "defId": "gen-sanitaer-wickeltisch",
+            "depth": 60,
+            "height": 100,
+            "id": "i_ifxaDPxUgkB2",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_3",
+            "width": 90,
+            "x": 60,
+            "y": 1470
+          },
+          {
+            "defId": "gen-umkleide-waeschesammler",
+            "depth": 60,
+            "height": 90,
+            "id": "i_6e9KkxWgQgBX",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 220,
+            "y": 1470
+          },
+          {
+            "defId": "gen-umkleide-spindreihe-2",
+            "depth": 50,
+            "height": 180,
+            "id": "i_Swrjb0f4f80t",
+            "kind": "equipment",
+            "label": "Spinde Damen A (32 Fächer)",
+            "params": {
+              "abteilbreite": 30,
+              "faecher": 32,
+              "stoeckig": 2
+            },
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 480,
+            "x": 650,
+            "y": 1720
+          },
+          {
+            "defId": "gen-umkleide-spindreihe-2",
+            "depth": 50,
+            "height": 180,
+            "id": "i_hqPHyoaVF5W6",
+            "kind": "equipment",
+            "label": "Spinde Damen B (34 Fächer)",
+            "params": {
+              "abteilbreite": 30,
+              "faecher": 34,
+              "stoeckig": 2
+            },
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 510,
+            "x": 430,
+            "y": 1320
+          },
+          {
+            "defId": "gen-umkleide-einzelkabine",
+            "depth": 100,
+            "height": 200,
+            "id": "i_MtpaR8RM3fVu",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 100,
+            "x": 840,
+            "y": 1240
+          },
+          {
+            "defId": "gen-umkleide-mittelbank",
+            "depth": 70,
+            "height": 180,
+            "id": "i_bwmV8PmgV5UC",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 700,
+            "y": 1460
+          },
+          {
+            "defId": "gen-umkleide-spiegel",
+            "depth": 3,
+            "height": 150,
+            "id": "i_FyWNGXTHyZS8",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 100,
+            "x": 890,
+            "y": 1460
+          },
+          {
+            "defId": "gen-umkleide-foehnplatz",
+            "depth": 30,
+            "height": 100,
+            "id": "i_eaVpqKE1kVfj",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 60,
+            "x": 880,
+            "y": 1560
+          },
+          {
+            "defId": "gen-umkleide-wertfaecher",
+            "depth": 30,
+            "height": 100,
+            "id": "i_2H7pGCT1hft4",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_OkEazxsUhL84",
+            "width": 80,
+            "x": 700,
+            "y": 1070
+          },
+          {
+            "defId": "gen-umkleide-bank-schuhrost",
+            "depth": 40,
+            "height": 45,
+            "id": "i_FF52ir6yBOjk",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 700,
+            "y": 1560
+          },
+          {
+            "defId": "gen-ausstattung-muelleimer",
+            "depth": 40,
+            "height": 80,
+            "id": "i_oH8lNRG8mN80",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 830,
+            "y": 1560
+          },
+          {
+            "defId": "gen-bau-lueftungsauslass",
+            "depth": 60,
+            "height": 30,
+            "id": "i_NlzIID16LS0H",
+            "kind": "vent",
+            "params": {
+              "kind": "vent"
+            },
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 620,
+            "y": 1120
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_uIMVYgK5enia",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 70,
+            "y": 1800
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_QR4E9KuzdGIr",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 160,
+            "y": 1800
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_48leNDQddFcT",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 250,
+            "y": 1800
+          },
+          {
+            "defId": "gen-sanitaer-einzeldusche",
+            "depth": 90,
+            "height": 220,
+            "id": "i_ScX1MCZHMkDf",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 340,
+            "y": 1800
+          },
+          {
+            "defId": "gen-sanitaer-dusche-barrierefrei",
+            "depth": 150,
+            "height": 220,
+            "id": "i_VXkgJbaxouei",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 100,
+            "y": 2400
+          },
+          {
+            "defId": "gen-sanitaer-wc-kabine",
+            "depth": 150,
+            "height": 220,
+            "id": "i_1I7u6pKn8Bqy",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 230,
+            "y": 2400
+          },
+          {
+            "defId": "gen-sanitaer-wc-kabine",
+            "depth": 150,
+            "height": 220,
+            "id": "i_lsB7YNHXJC3f",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 330,
+            "y": 2400
+          },
+          {
+            "defId": "gen-sanitaer-wc-kabine",
+            "depth": 150,
+            "height": 220,
+            "id": "i_eZtQzAVjdWr2",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 320,
+            "y": 2090
+          },
+          {
+            "defId": "gen-sanitaer-urinal",
+            "depth": 45,
+            "height": 120,
+            "id": "i_FnDsYQhF2kOK",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_GN1LhIqoF0Sp",
+            "width": 60,
+            "x": 370,
+            "y": 2170
+          },
+          {
+            "defId": "gen-sanitaer-urinal",
+            "depth": 45,
+            "height": 120,
+            "id": "i_6LiOnb8F1MdX",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_GN1LhIqoF0Sp",
+            "width": 60,
+            "x": 370,
+            "y": 2240
+          },
+          {
+            "defId": "gen-umkleide-waschtisch-doppel",
+            "depth": 50,
+            "height": 85,
+            "id": "i_9ZFRXAkVzXZ7",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_3",
+            "width": 120,
+            "x": 50,
+            "y": 2130
+          },
+          {
+            "defId": "gen-umkleide-handtuchspender",
+            "depth": 15,
+            "height": 40,
+            "id": "i_0qwoqIQMVfC8",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_3",
+            "width": 30,
+            "x": 40,
+            "y": 2220
+          },
+          {
+            "defId": "gen-umkleide-waeschesammler",
+            "depth": 60,
+            "height": 90,
+            "id": "i_4fgTreFDj4sh",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 220,
+            "y": 2170
+          },
+          {
+            "defId": "gen-umkleide-spindreihe-2",
+            "depth": 50,
+            "height": 180,
+            "id": "i_ar76yVrscoC4",
+            "kind": "equipment",
+            "label": "Spinde Herren A (32 Fächer)",
+            "params": {
+              "abteilbreite": 30,
+              "faecher": 32,
+              "stoeckig": 2
+            },
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 480,
+            "x": 650,
+            "y": 2450
+          },
+          {
+            "defId": "gen-umkleide-spindreihe-2",
+            "depth": 50,
+            "height": 180,
+            "id": "i_xhUGRtO5oRhL",
+            "kind": "equipment",
+            "label": "Spinde Herren B (36 Fächer)",
+            "params": {
+              "abteilbreite": 30,
+              "faecher": 36,
+              "stoeckig": 2
+            },
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 540,
+            "x": 430,
+            "y": 2040
+          },
+          {
+            "defId": "gen-umkleide-einzelkabine",
+            "depth": 100,
+            "height": 200,
+            "id": "i_FLdr6udJzTgj",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 100,
+            "x": 840,
+            "y": 1940
+          },
+          {
+            "defId": "gen-umkleide-mittelbank",
+            "depth": 70,
+            "height": 180,
+            "id": "i_J7nbdu3ZQj68",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 700,
+            "y": 2160
+          },
+          {
+            "defId": "gen-umkleide-spiegel",
+            "depth": 3,
+            "height": 150,
+            "id": "i_b5hYiNclDQGg",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 100,
+            "x": 890,
+            "y": 2160
+          },
+          {
+            "defId": "gen-umkleide-foehnplatz",
+            "depth": 30,
+            "height": 100,
+            "id": "i_BMaZe87qAJgC",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 60,
+            "x": 880,
+            "y": 2260
+          },
+          {
+            "defId": "gen-umkleide-wertfaecher",
+            "depth": 30,
+            "height": 100,
+            "id": "i_5XJ68lRToOna",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_qvLmH0cgbyIq",
+            "width": 80,
+            "x": 700,
+            "y": 1770
+          },
+          {
+            "defId": "gen-umkleide-bank-schuhrost",
+            "depth": 40,
+            "height": 45,
+            "id": "i_vU2g03ejwdhX",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 700,
+            "y": 2290
+          },
+          {
+            "defId": "gen-ausstattung-muelleimer",
+            "depth": 40,
+            "height": 80,
+            "id": "i_56RH4lEE1jqs",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 830,
+            "y": 2290
+          },
+          {
+            "defId": "gen-bau-lueftungsauslass",
+            "depth": 60,
+            "height": 30,
+            "id": "i_c9QuGGbNoXp4",
+            "kind": "vent",
+            "params": {
+              "kind": "vent"
+            },
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 620,
+            "y": 1820
+          },
+          {
+            "defId": "gen-lager-schwerlastregal",
+            "depth": 60,
+            "height": 200,
+            "id": "i_FFNTmrfvKLyk",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3460,
+            "y": 120
+          },
+          {
+            "defId": "gen-lager-schwerlastregal",
+            "depth": 60,
+            "height": 200,
+            "id": "i_J9iYtCdxp0pV",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3460,
+            "y": 310
+          },
+          {
+            "defId": "gen-lager-waschmaschine",
+            "depth": 65,
+            "height": 85,
+            "id": "i_5ldcYf0Ldn0Y",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 3140,
+            "y": 510
+          },
+          {
+            "defId": "gen-lager-trockner",
+            "depth": 65,
+            "height": 85,
+            "id": "i_gMFuIWkDPKJB",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 3210,
+            "y": 510
+          },
+          {
+            "defId": "gen-lager-regal",
+            "depth": 40,
+            "height": 180,
+            "id": "i_uPAUgfpn1KI3",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3360,
+            "y": 520
+          },
+          {
+            "defId": "gen-freihantel-hantelscheiben-satz",
+            "depth": 30,
+            "height": 30,
+            "id": "i_Tp9NVRsfY34y",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 30,
+            "x": 3130,
+            "y": 220
+          },
+          {
+            "defId": "gen-lager-lueftungsanlage",
+            "depth": 100,
+            "height": 180,
+            "id": "i_gGc7SpBaXaev",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3810,
+            "y": 80
+          },
+          {
+            "defId": "gen-lager-warmwasserspeicher",
+            "depth": 70,
+            "height": 180,
+            "id": "i_2lr58GtcJKXB",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 70,
+            "x": 3940,
+            "y": 260
+          },
+          {
+            "defId": "gen-lager-serverschrank",
+            "depth": 60,
+            "height": 120,
+            "id": "i_pC4DcLqAZsAG",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 3690,
+            "y": 260
+          },
+          {
+            "defId": "gen-lager-schaltschrank",
+            "depth": 40,
+            "height": 200,
+            "id": "i_C5zVgWvgzf89",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_ezbA74X68SUe",
+            "width": 80,
+            "x": 3530,
+            "y": 250
+          },
+          {
+            "defId": "gen-lager-putzwagen",
+            "depth": 55,
+            "height": 110,
+            "id": "i_Q6NfOmu4jYf0",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 110,
+            "x": 3920,
+            "y": 510
+          },
+          {
+            "defId": "gen-lager-regal",
+            "depth": 40,
+            "height": 180,
+            "id": "i_4LB8tHlay7Zz",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 3930,
+            "y": 330
+          },
+          {
+            "defId": "gen-sanitaer-putzraum-ausguss",
+            "depth": 40,
+            "height": 60,
+            "id": "i_ChvFgktQSFOd",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_IDLFaRnfGM20",
+            "width": 50,
+            "x": 3700,
+            "y": 520
+          },
+          {
+            "defId": "gen-wellness-sauna-300",
+            "depth": 300,
+            "height": 210,
+            "id": "i_PzGRmdIWmNzE",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 300,
+            "x": 3820,
+            "y": 710
+          },
+          {
+            "defId": "gen-wellness-infrarotkabine",
+            "depth": 105,
+            "height": 195,
+            "id": "i_xMiasBo9rQ4s",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3910,
+            "y": 930
+          },
+          {
+            "defId": "gen-wellness-erlebnisdusche",
+            "depth": 120,
+            "height": 230,
+            "id": "i_2p95KzSHSapv",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3180,
+            "y": 620
+          },
+          {
+            "defId": "gen-wellness-eisbrunnen",
+            "depth": 60,
+            "height": 110,
+            "id": "i_yLLuDH3tNzeU",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 3280,
+            "y": 590
+          },
+          {
+            "defId": "gen-wellness-cold-plunge",
+            "depth": 80,
+            "height": 75,
+            "id": "i_4UvQRGm4KTRg",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3410,
+            "y": 600
+          },
+          {
+            "defId": "gen-wellness-red-light-panel",
+            "depth": 15,
+            "height": 180,
+            "id": "i_bhFRW5nJidK2",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_IDLFaRnfGM20",
+            "width": 90,
+            "x": 3600,
+            "y": 570
+          },
+          {
+            "defId": "gen-wellness-ruheliege",
+            "depth": 70,
+            "height": 40,
+            "id": "i_cJq386TiUFd8",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3120,
+            "y": 1360
+          },
+          {
+            "defId": "gen-wellness-ruheliege",
+            "depth": 70,
+            "height": 40,
+            "id": "i_J9ysXx6KtPz3",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3350,
+            "y": 1360
+          },
+          {
+            "defId": "gen-wellness-ruheliege",
+            "depth": 70,
+            "height": 40,
+            "id": "i_uyL3m2wxciRE",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3580,
+            "y": 1360
+          },
+          {
+            "defId": "gen-wellness-ruheliege",
+            "depth": 70,
+            "height": 40,
+            "id": "i_MIDehsIe9vvG",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3810,
+            "y": 1360
+          },
+          {
+            "defId": "gen-wellness-wasserbett",
+            "depth": 90,
+            "height": 50,
+            "id": "i_cGcALIcfp5cF",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3120,
+            "y": 1000
+          },
+          {
+            "defId": "gen-wellness-massagestuhl",
+            "depth": 150,
+            "height": 120,
+            "id": "i_mvat5mJf5tL9",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 80,
+            "x": 3370,
+            "y": 1000
+          },
+          {
+            "defId": "gen-wellness-teestation",
+            "depth": 60,
+            "height": 110,
+            "id": "i_91QJdgrrBjzV",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3350,
+            "y": 780
+          },
+          {
+            "defId": "gen-umkleide-waeschesammler",
+            "depth": 60,
+            "height": 90,
+            "id": "i_myUZBfelUzFa",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 3940,
+            "y": 1280
+          },
+          {
+            "defId": "gen-umkleide-handtuchspender",
+            "depth": 15,
+            "height": 40,
+            "id": "i_JvxjFD2waBPB",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_1",
+            "width": 30,
+            "x": 3960,
+            "y": 1150
+          },
+          {
+            "defId": "gen-ausstattung-wasserspender",
+            "depth": 35,
+            "height": 110,
+            "id": "i_Ze4QHnww6rfF",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 35,
+            "x": 3600,
+            "y": 1000
+          },
+          {
+            "defId": "gen-ausstattung-pflanze",
+            "depth": 40,
+            "height": 150,
+            "id": "i_jCHr8szkXjnQ",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 3800,
+            "y": 1150
+          },
+          {
+            "defId": "gen-kursraum-trainer-podest",
+            "depth": 150,
+            "height": 30,
+            "id": "i_XhMWwkQs6fg9",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 3900,
+            "y": 1950
+          },
+          {
+            "defId": "gen-kursraum-musikanlage",
+            "depth": 50,
+            "height": 120,
+            "id": "i_Mt44pLdMAs6p",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 3940,
+            "y": 1430
+          },
+          {
+            "defId": "gen-kursraum-mattenregal",
+            "depth": 40,
+            "height": 180,
+            "id": "i_WnA5PG7TvbmN",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 100,
+            "x": 3250,
+            "y": 1430
+          },
+          {
+            "defId": "gen-kursraum-step-wagen",
+            "depth": 60,
+            "height": 150,
+            "id": "i_aWRIESlZpD61",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3370,
+            "y": 1440
+          },
+          {
+            "defId": "gen-kursraum-gymnastikball-regal",
+            "depth": 50,
+            "height": 180,
+            "id": "i_JVEeF9zwDh7J",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3500,
+            "y": 1430
+          },
+          {
+            "defId": "gen-kursraum-kurshantel-regal",
+            "depth": 50,
+            "height": 100,
+            "id": "i_YAezFJ6p2ibZ",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 3630,
+            "y": 1430
+          },
+          {
+            "defId": "gen-kursraum-spinning-rad",
+            "depth": 125,
+            "height": 110,
+            "id": "i_TFzgDbfX7K3W",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 55,
+            "x": 3080,
+            "y": 2380
+          },
+          {
+            "defId": "gen-kursraum-spinning-rad",
+            "depth": 125,
+            "height": 110,
+            "id": "i_AUMVC9Wp8an7",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 55,
+            "x": 3200,
+            "y": 2380
+          },
+          {
+            "defId": "gen-kursraum-spinning-rad",
+            "depth": 125,
+            "height": 110,
+            "id": "i_04oNh4zMbUTP",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 55,
+            "x": 3320,
+            "y": 2380
+          },
+          {
+            "defId": "gen-kursraum-spinning-rad",
+            "depth": 125,
+            "height": 110,
+            "id": "i_zUO8ACyjetGw",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 55,
+            "x": 3440,
+            "y": 2380
+          },
+          {
+            "defId": "gen-kursraum-spinning-rad",
+            "depth": 125,
+            "height": 110,
+            "id": "i_S4SS5gZ5wCy4",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 55,
+            "x": 3560,
+            "y": 2380
+          },
+          {
+            "defId": "gen-kursraum-spinning-rad",
+            "depth": 125,
+            "height": 110,
+            "id": "i_ZKQnG2b1Nle1",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 55,
+            "x": 3680,
+            "y": 2380
+          },
+          {
+            "defId": "gen-kursraum-kursmatte",
+            "depth": 60,
+            "height": 1,
+            "id": "i_pUbYNpcDhf6C",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3310,
+            "y": 1690
+          },
+          {
+            "defId": "gen-kursraum-kursmatte",
+            "depth": 60,
+            "height": 1,
+            "id": "i_V9BVWJvs0bSs",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3310,
+            "y": 1780
+          },
+          {
+            "defId": "gen-kursraum-kursmatte",
+            "depth": 60,
+            "height": 1,
+            "id": "i_ONa5EflkmHqV",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3310,
+            "y": 1870
+          },
+          {
+            "defId": "gen-kursraum-kursmatte",
+            "depth": 60,
+            "height": 1,
+            "id": "i_IgaT1BSqaFAj",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3540,
+            "y": 1690
+          },
+          {
+            "defId": "gen-kursraum-kursmatte",
+            "depth": 60,
+            "height": 1,
+            "id": "i_iayypE2BdXSi",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3540,
+            "y": 1780
+          },
+          {
+            "defId": "gen-kursraum-kursmatte",
+            "depth": 60,
+            "height": 1,
+            "id": "i_KYopsYhoPscd",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 180,
+            "x": 3540,
+            "y": 1870
+          },
+          {
+            "defId": "gen-kursraum-step",
+            "depth": 40,
+            "height": 20,
+            "id": "i_gbE1dPLZarww",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 110,
+            "x": 3740,
+            "y": 1720
+          },
+          {
+            "defId": "gen-kursraum-step",
+            "depth": 40,
+            "height": 20,
+            "id": "i_GV6g0TZfNi5Z",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 110,
+            "x": 3740,
+            "y": 1790
+          },
+          {
+            "defId": "gen-ausstattung-lautsprecher",
+            "depth": 25,
+            "height": 40,
+            "id": "i_GrmEcL39m2Xt",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_1",
+            "width": 25,
+            "x": 3960,
+            "y": 1650
+          },
+          {
+            "defId": "gen-ausstattung-lautsprecher",
+            "depth": 25,
+            "height": 40,
+            "id": "i_buQ5M9RacfTr",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_1",
+            "width": 25,
+            "x": 3960,
+            "y": 2200
+          },
+          {
+            "defId": "gen-ausstattung-notausgang-schild",
+            "depth": 5,
+            "height": 20,
+            "id": "i_th4L6PGhKWi5",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_1",
+            "width": 35,
+            "x": 3970,
+            "y": 2380
+          },
+          {
+            "defId": "gen-ausstattung-feuerloescher",
+            "depth": 20,
+            "height": 60,
+            "id": "i_PciRVYtwQGsZ",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_1",
+            "width": 20,
+            "x": 3960,
+            "y": 2420
+          },
+          {
+            "defId": "atlantis-c513",
+            "depth": 203,
+            "height": 246,
+            "id": "i_dg5fTTZdvlT8",
+            "kind": "equipment",
+            "note": "Power Rack 1",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 165,
+            "x": 1180,
+            "y": 190
+          },
+          {
+            "defId": "atlantis-c513",
+            "depth": 203,
+            "height": 246,
+            "id": "i_OIT4rfvjlWgE",
+            "kind": "equipment",
+            "note": "Power Rack 2",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 165,
+            "x": 1480,
+            "y": 190
+          },
+          {
+            "defId": "atlantis-rs611",
+            "depth": 135,
+            "height": 246,
+            "id": "i_6QnwIZxDAOfj",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 168,
+            "x": 1780,
+            "y": 160
+          },
+          {
+            "defId": "atlantis-b4800",
+            "depth": 135,
+            "height": null,
+            "id": "i_SvY0ZCAfKMOZ",
+            "kind": "equipment",
+            "note": "Kreuzheben-Plattform",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 244,
+            "x": 2060,
+            "y": 100
+          },
+          {
+            "defId": "gen-freihantel-scheibenstaender",
+            "depth": 60,
+            "height": 120,
+            "id": "i_einPT68H2GPi",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 2220,
+            "y": 60
+          },
+          {
+            "defId": "gen-freihantel-langhantelstaender",
+            "depth": 70,
+            "height": 110,
+            "id": "i_OXQO0RI28hT6",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 70,
+            "x": 2290,
+            "y": 60
+          },
+          {
+            "defId": "atlantis-b177",
+            "depth": 118.5,
+            "height": 43,
+            "id": "i_GbahIliTPegV",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 76.5,
+            "x": 1190,
+            "y": 610
+          },
+          {
+            "defId": "atlantis-b177",
+            "depth": 118.5,
+            "height": 43,
+            "id": "i_Kb5a48t5SwfJ",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 76.5,
+            "x": 1400,
+            "y": 610
+          },
+          {
+            "defId": "atlantis-b275",
+            "depth": 130,
+            "height": 41,
+            "id": "i_bFBj4q3qUChh",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 76,
+            "x": 1610,
+            "y": 610
+          },
+          {
+            "defId": "atlantis-p337",
+            "depth": 180,
+            "height": 124,
+            "id": "i_uIe3oQuf5EgC",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 168,
+            "x": 1860,
+            "y": 640
+          },
+          {
+            "defId": "atlantis-p338",
+            "depth": 165,
+            "height": 144,
+            "id": "i_Wn9vBw26y5QG",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 168,
+            "x": 2160,
+            "y": 630
+          },
+          {
+            "defId": "atlantis-s189",
+            "depth": 71,
+            "height": 119,
+            "id": "i_sII5FMRQYFmq",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 239,
+            "x": 950,
+            "y": 540
+          },
+          {
+            "defId": "gen-freihantel-hantelscheiben-satz-gross",
+            "depth": 30,
+            "height": 30,
+            "id": "i_tHBTznkaKzgE",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 30,
+            "x": 2210,
+            "y": 220
+          },
+          {
+            "defId": "gen-functional-rig",
+            "depth": 180,
+            "height": 275,
+            "id": "i_O6xPk3wbf0ah",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 360,
+            "x": 2570,
+            "y": 180
+          },
+          {
+            "defId": "gen-functional-kettlebell-regal",
+            "depth": 50,
+            "height": 80,
+            "id": "i_KgQcZAiBKevl",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 2390,
+            "y": 370
+          },
+          {
+            "defId": "gen-functional-medizinball-regal",
+            "depth": 50,
+            "height": 150,
+            "id": "i_H6XkmSQTsXH5",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 100,
+            "x": 2510,
+            "y": 370
+          },
+          {
+            "defId": "gen-functional-plyo-box-soft-set",
+            "depth": 60,
+            "height": 90,
+            "id": "i_w9OklRwlEuql",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 2650,
+            "y": 370
+          },
+          {
+            "defId": "gen-functional-sled",
+            "depth": 100,
+            "height": 90,
+            "id": "i_7p1u1JGcNg6y",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 2800,
+            "y": 390
+          },
+          {
+            "defId": "gen-functional-bodenmatte",
+            "depth": 100,
+            "height": 2,
+            "id": "i_1LCaKQCNMceL",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 2430,
+            "y": 570
+          },
+          {
+            "defId": "gen-functional-bodenmatte",
+            "depth": 100,
+            "height": 2,
+            "id": "i_UfUZnXNE422r",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 2640,
+            "y": 570
+          },
+          {
+            "defId": "gen-functional-sled-bahn",
+            "depth": 520,
+            "height": 2,
+            "id": "i_BFmAvReNL8EM",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 2590,
+            "y": 710
+          },
+          {
+            "defId": "gen-functional-plyo-box",
+            "depth": 60,
+            "height": 75,
+            "id": "i_pylhd6b7zzNP",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 50,
+            "x": 2790,
+            "y": 600
+          },
+          {
+            "defId": "prime-hybrid-leg-press",
+            "depth": 191,
+            "height": 181,
+            "id": "i_imek8e0JDuct",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 1150,
+            "y": 1080
+          },
+          {
+            "defId": "prime-hybrid-leg-extension",
+            "depth": 120,
+            "height": 150,
+            "id": "i_tuMdsidNE5qM",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 125,
+            "x": 1410,
+            "y": 1040
+          },
+          {
+            "defId": "prime-hybrid-seated-leg-curl",
+            "depth": 183,
+            "height": 150,
+            "id": "i_WI9ePY01krRt",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 117,
+            "x": 1670,
+            "y": 1070
+          },
+          {
+            "defId": "prime-hybrid-prone-leg-curl",
+            "depth": 194,
+            "height": 150,
+            "id": "i_c4RtaomXzdBT",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 112,
+            "x": 1920,
+            "y": 1080
+          },
+          {
+            "defId": "prime-hybrid-inner-outer-thigh",
+            "depth": 178,
+            "height": 150,
+            "id": "i_YbKHSXcEoirs",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 2190,
+            "y": 1070
+          },
+          {
+            "defId": "prime-hybrid-seated-calf-press",
+            "depth": 168,
+            "height": 150,
+            "id": "i_QdLzHRd9GbUd",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 125,
+            "x": 2460,
+            "y": 1060
+          },
+          {
+            "defId": "prime-hybrid-multi-hip",
+            "depth": 153,
+            "height": 150,
+            "id": "i_ZfSA1va13tOZ",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 133,
+            "x": 2720,
+            "y": 1060
+          },
+          {
+            "defId": "prime-hybrid-chest-press",
+            "depth": 155,
+            "height": 186,
+            "id": "i_DCHsGUEOvuDh",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 161,
+            "x": 1180,
+            "y": 1380
+          },
+          {
+            "defId": "prime-hybrid-pec-rear-delt",
+            "depth": 94,
+            "height": 193,
+            "id": "i_rT3KYOoLE77W",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 1470,
+            "y": 1350
+          },
+          {
+            "defId": "prime-hybrid-lat-pulldown",
+            "depth": 161,
+            "height": 183,
+            "id": "i_urySesXgvsba",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 140,
+            "x": 1750,
+            "y": 1380
+          },
+          {
+            "defId": "prime-hybrid-seated-row",
+            "depth": 130,
+            "height": 180,
+            "id": "i_yDeYlXLPeEEN",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 130,
+            "x": 2020,
+            "y": 1370
+          },
+          {
+            "defId": "prime-hybrid-shoulder-press",
+            "depth": 158,
+            "height": 150,
+            "id": "i_n6dN6v9Meqj8",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 160,
+            "x": 2300,
+            "y": 1380
+          },
+          {
+            "defId": "prime-hybrid-lateral-raise",
+            "depth": 110,
+            "height": 150,
+            "id": "i_4bh02U0yAwgU",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 143,
+            "x": 2590,
+            "y": 1360
+          },
+          {
+            "defId": "prime-plate-loaded-hack-squat",
+            "depth": 259,
+            "height": 140,
+            "id": "i_dltLJCcrqZbm",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 1220,
+            "y": 1790
+          },
+          {
+            "defId": "prime-plate-loaded-leg-press",
+            "depth": 237,
+            "height": 143,
+            "id": "i_SUf4nUBKIk2b",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 150,
+            "x": 1600,
+            "y": 1790
+          },
+          {
+            "defId": "prime-plate-loaded-pendulum-squat",
+            "depth": 282,
+            "height": 181,
+            "id": "i_G9MVXfOse3K7",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 120,
+            "x": 1990,
+            "y": 1770
+          },
+          {
+            "defId": "prime-plate-loaded-extreme-row",
+            "depth": 199,
+            "height": 138,
+            "id": "i_vV0D1Na25ac0",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 163,
+            "x": 2370,
+            "y": 1790
+          },
+          {
+            "defId": "prime-hybrid-arm-curl",
+            "depth": 137,
+            "height": 150,
+            "id": "i_iXhTWc8VKuDk",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 60,
+              "rechts": 60,
+              "vorne": 60
+            },
+            "safetyZoneEnabled": true,
+            "width": 115,
+            "x": 2660,
+            "y": 1780
+          },
+          {
+            "defId": "gen-freihantel-scheibenstaender",
+            "depth": 60,
+            "height": 120,
+            "id": "i_Sr9QlBfJhLkC",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 100
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 2830,
+            "y": 1690
+          },
+          {
+            "defId": "gen-cardio-laufband",
+            "depth": 210,
+            "height": 160,
+            "id": "i_9gpuxn4rpLc1",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 200,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 1080,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-laufband",
+            "depth": 210,
+            "height": 160,
+            "id": "i_17pSEuNYt2mj",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 200,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 1180,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-laufband",
+            "depth": 210,
+            "height": 160,
+            "id": "i_CeHOurvMW2YE",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 200,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 1280,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-laufband",
+            "depth": 210,
+            "height": 160,
+            "id": "i_S0olsrkCYMRt",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 200,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 1380,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-laufband",
+            "depth": 210,
+            "height": 160,
+            "id": "i_jyYyeDZ1uEWy",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 200,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 1480,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-curved-treadmill",
+            "depth": 190,
+            "height": 170,
+            "id": "i_9ywNwEOamLMW",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 200,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 90,
+            "x": 1580,
+            "y": 2380
+          },
+          {
+            "defId": "gen-cardio-crosstrainer",
+            "depth": 210,
+            "height": 170,
+            "id": "i_3nOWOitdyBSv",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 75,
+            "x": 1680,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-crosstrainer",
+            "depth": 210,
+            "height": 170,
+            "id": "i_Wcw4vLvI2ZhE",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 75,
+            "x": 1770,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-crosstrainer",
+            "depth": 210,
+            "height": 170,
+            "id": "i_iY2ilhTpj7uk",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 75,
+            "x": 1860,
+            "y": 2370
+          },
+          {
+            "defId": "gen-cardio-ergometer",
+            "depth": 120,
+            "height": 140,
+            "id": "i_JpYccLCjwf2q",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 1970,
+            "y": 2380
+          },
+          {
+            "defId": "gen-cardio-ergometer",
+            "depth": 120,
+            "height": 140,
+            "id": "i_Elae4732Sv9u",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 2100,
+            "y": 2380
+          },
+          {
+            "defId": "gen-cardio-liegeergometer",
+            "depth": 170,
+            "height": 130,
+            "id": "i_wGN4xBEz81Sq",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 70,
+            "x": 2240,
+            "y": 2360
+          },
+          {
+            "defId": "gen-cardio-rudergeraet",
+            "depth": 245,
+            "height": 50,
+            "id": "i_EHHrPBmrvYsQ",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 2350,
+            "y": 2350
+          },
+          {
+            "defId": "gen-cardio-rudergeraet",
+            "depth": 245,
+            "height": 50,
+            "id": "i_96IDdZx7VfTn",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 2420,
+            "y": 2350
+          },
+          {
+            "defId": "gen-cardio-stairmaster",
+            "depth": 150,
+            "height": 210,
+            "id": "i_yHtOi3MoquVm",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 80,
+            "x": 2500,
+            "y": 2400
+          },
+          {
+            "defId": "gen-cardio-stairmaster",
+            "depth": 150,
+            "height": 210,
+            "id": "i_JFZKhWdtV2gW",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 80,
+            "x": 2590,
+            "y": 2400
+          },
+          {
+            "defId": "gen-cardio-skierg",
+            "depth": 125,
+            "height": 215,
+            "id": "i_MvxGdekpQPBc",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 60,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 2670,
+            "y": 2410
+          },
+          {
+            "defId": "gen-cardio-air-bike",
+            "depth": 130,
+            "height": 130,
+            "id": "i_TgOshpIGsNmV",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 30,
+              "links": 30,
+              "rechts": 30,
+              "vorne": 30
+            },
+            "safetyZoneEnabled": true,
+            "width": 65,
+            "x": 2780,
+            "y": 2380
+          },
+          {
+            "defId": "gen-ausstattung-wasserspender",
+            "depth": 35,
+            "height": 110,
+            "id": "i_da8g3P9bvb0H",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 35,
+            "x": 2840,
+            "y": 1970
+          },
+          {
+            "defId": "gen-ausstattung-desinfektionsstation",
+            "depth": 40,
+            "height": 130,
+            "id": "i_roFSadpgL8xy",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 2840,
+            "y": 2030
+          },
+          {
+            "defId": "gen-umkleide-handtuchspender",
+            "depth": 15,
+            "height": 40,
+            "id": "i_dHNayZUfPNEw",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_e4dulDYQDshE",
+            "width": 30,
+            "x": 2980,
+            "y": 2100
+          },
+          {
+            "defId": "gen-ausstattung-feuerloescher",
+            "depth": 20,
+            "height": 60,
+            "id": "i_1wDFhnJFOT0z",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 20,
+            "x": 920,
+            "y": 1300
+          },
+          {
+            "defId": "gen-ausstattung-erste-hilfe",
+            "depth": 15,
+            "height": 30,
+            "id": "i_caDJuPYtDUha",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 30,
+            "x": 920,
+            "y": 1350
+          },
+          {
+            "defId": "gen-ausstattung-feuerloescher",
+            "depth": 20,
+            "height": 60,
+            "id": "i_t1KH3bH88A2T",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_e4dulDYQDshE",
+            "width": 20,
+            "x": 2980,
+            "y": 1300
+          },
+          {
+            "defId": "gen-ausstattung-feuerloescher",
+            "depth": 20,
+            "height": 60,
+            "id": "i_3RjqsBGkUWOd",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 20,
+            "x": 920,
+            "y": 2250
+          },
+          {
+            "defId": "gen-ausstattung-desinfektionsstation",
+            "depth": 40,
+            "height": 130,
+            "id": "i_ya4U9YWoP4u5",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 930,
+            "y": 1480
+          },
+          {
+            "defId": "gen-ausstattung-wasserspender",
+            "depth": 35,
+            "height": 110,
+            "id": "i_emUaPbbnY1SI",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 35,
+            "x": 930,
+            "y": 1560
+          },
+          {
+            "defId": "gen-ausstattung-muelleimer",
+            "depth": 40,
+            "height": 80,
+            "id": "i_kdavBXktW5HK",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 930,
+            "y": 1620
+          },
+          {
+            "defId": "gen-ausstattung-tv-65",
+            "depth": 8,
+            "height": 84,
+            "id": "i_kwkpmUBj3Iru",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 145,
+            "x": 910,
+            "y": 2150
+          },
+          {
+            "defId": "gen-ausstattung-tv-65",
+            "depth": 8,
+            "height": 84,
+            "id": "i_XTssezS0Zli5",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 145,
+            "x": 910,
+            "y": 2350
+          },
+          {
+            "defId": "gen-ausstattung-lautsprecher",
+            "depth": 25,
+            "height": 40,
+            "id": "i_m8rFcqGjZgLI",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 25,
+            "x": 920,
+            "y": 700
+          },
+          {
+            "defId": "gen-ausstattung-lautsprecher",
+            "depth": 25,
+            "height": 40,
+            "id": "i_bwQESZ37BSGT",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_e4dulDYQDshE",
+            "width": 25,
+            "x": 2980,
+            "y": 1000
+          },
+          {
+            "defId": "gen-ausstattung-lautsprecher",
+            "depth": 25,
+            "height": 40,
+            "id": "i_1iZDyivP5DIk",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_2",
+            "width": 25,
+            "x": 2900,
+            "y": 2460
+          },
+          {
+            "defId": "gen-ausstattung-kamera",
+            "depth": 15,
+            "height": 15,
+            "id": "i_zWsyTPs8vcCj",
+            "kind": "equipment",
+            "rotation": 270,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 15,
+            "x": 920,
+            "y": 250
+          },
+          {
+            "defId": "gen-ausstattung-kamera",
+            "depth": 15,
+            "height": 15,
+            "id": "i_wAQX1yaOHfcD",
+            "kind": "equipment",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_e4dulDYQDshE",
+            "width": 15,
+            "x": 2980,
+            "y": 2400
+          },
+          {
+            "defId": "gen-ausstattung-notausgang-schild",
+            "depth": 5,
+            "height": 20,
+            "id": "i_I3Kh6faSZd1p",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "hall_0",
+            "width": 35,
+            "x": 2830,
+            "y": 30
+          },
+          {
+            "defId": "gen-bau-saeule-rund-50",
+            "depth": 50,
+            "height": null,
+            "id": "i_Tba3wO5p2IvO",
+            "kind": "column",
+            "params": {
+              "form": "rund",
+              "kind": "column"
+            },
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 50,
+            "x": 2280,
+            "y": 850
+          },
+          {
+            "defId": "gen-bau-saeule-rund-50",
+            "depth": 50,
+            "height": null,
+            "id": "i_fXMcmXd0Zwp7",
+            "kind": "column",
+            "params": {
+              "form": "rund",
+              "kind": "column"
+            },
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 50,
+            "x": 2280,
+            "y": 1570
+          }
+        ],
+        "name": "EG",
+        "openings": [
+          {
+            "doorType": "Notausgang",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_MxhmwQeiFo9Z",
+            "kind": "door",
+            "note": "Haupteingang, zweiflügelige Glastür",
+            "offset": 288,
+            "swingSide": "b",
+            "wallId": "hall_0",
+            "width": 200
+          },
+          {
+            "doorType": "Glastür",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_QCgO1I0ELiLz",
+            "kind": "door",
+            "note": "Zugang Halle (hinter Drehkreuz)",
+            "offset": 325.99999999999994,
+            "swingSide": "a",
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 100
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_LiNFU5lFBSea",
+            "kind": "door",
+            "offset": 156,
+            "swingSide": "b",
+            "wallId": "w_cmBlfbng3rkZ",
+            "width": 90
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_9IjeFr28Ojaz",
+            "kind": "door",
+            "offset": 476,
+            "swingSide": "b",
+            "wallId": "w_cmBlfbng3rkZ",
+            "width": 90
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_hG6ra6qPiCfk",
+            "kind": "door",
+            "note": "WC barrierefrei (schlägt nach außen auf)",
+            "offset": 856,
+            "swingSide": "a",
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 100
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_8QBC6Gu9Oes7",
+            "kind": "door",
+            "note": "Umkleide Damen",
+            "offset": 1106,
+            "swingSide": "b",
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 90
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_wRGTYUZHDfSo",
+            "kind": "door",
+            "offset": 250,
+            "swingSide": "b",
+            "wallId": "w_U5yytPq0d8Jz",
+            "width": 80
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_inLPXMfU0wxZ",
+            "kind": "door",
+            "note": "Umkleide Herren",
+            "offset": 1806.0000000000002,
+            "swingSide": "b",
+            "wallId": "w_tdOk92wx9Epr",
+            "width": 90
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_sE4Rxtzamk2V",
+            "kind": "door",
+            "offset": 250,
+            "swingSide": "b",
+            "wallId": "w_GN1LhIqoF0Sp",
+            "width": 80
+          },
+          {
+            "doorType": "Rolltor",
+            "height": 300,
+            "hinge": "left",
+            "id": "o_Rjtb1heVybLC",
+            "kind": "door",
+            "note": "Anlieferung Lager",
+            "offset": 3238,
+            "swingSide": "b",
+            "wallId": "hall_0",
+            "width": 250
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_4vFAXFLw9Myg",
+            "kind": "door",
+            "note": "Lager",
+            "offset": 406,
+            "swingSide": "a",
+            "wallId": "w_e4dulDYQDshE",
+            "width": 100
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_w91uLMVK9iXM",
+            "kind": "door",
+            "offset": 136,
+            "swingSide": "a",
+            "wallId": "w_ezbA74X68SUe",
+            "width": 90
+          },
+          {
+            "doorType": "einflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_vt9JaSIoslfN",
+            "kind": "door",
+            "offset": 406,
+            "swingSide": "a",
+            "wallId": "w_ezbA74X68SUe",
+            "width": 90
+          },
+          {
+            "doorType": "Glastür",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_9kv37zguHqt4",
+            "kind": "door",
+            "note": "Wellness",
+            "offset": 676,
+            "swingSide": "a",
+            "wallId": "w_e4dulDYQDshE",
+            "width": 100
+          },
+          {
+            "doorType": "zweiflügelig",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_31BsJVdqZWsT",
+            "kind": "door",
+            "note": "Kursraum",
+            "offset": 1476,
+            "swingSide": "a",
+            "wallId": "w_e4dulDYQDshE",
+            "width": 150
+          },
+          {
+            "doorType": "Notausgang",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_HSvLQfdlGFon",
+            "kind": "door",
+            "offset": 2288,
+            "swingSide": "a",
+            "wallId": "hall_1",
+            "width": 100
+          },
+          {
+            "doorType": "Notausgang",
+            "height": 210,
+            "hinge": "left",
+            "id": "o_UQhdvpqli2Tc",
+            "kind": "door",
+            "offset": 2898,
+            "swingSide": "a",
+            "wallId": "hall_0",
+            "width": 100
+          },
+          {
+            "height": 120,
+            "id": "o_cSNp7SybQaz2",
+            "kind": "window",
+            "offset": 138,
+            "sillHeight": 90,
+            "wallId": "hall_0",
+            "width": 150
+          },
+          {
+            "height": 120,
+            "id": "o_wbw8jPbmFbcX",
+            "kind": "window",
+            "offset": 2188,
+            "sillHeight": 90,
+            "wallId": "hall_3",
+            "width": 150
+          },
+          {
+            "height": 120,
+            "id": "o_or4F6l0VSO5F",
+            "kind": "window",
+            "offset": 1608,
+            "sillHeight": 90,
+            "wallId": "hall_3",
+            "width": 120
+          },
+          {
+            "height": 220,
+            "id": "o_ABghDwtopmZy",
+            "kind": "window",
+            "offset": 2838,
+            "sillHeight": 90,
+            "wallId": "hall_2",
+            "width": 300
+          },
+          {
+            "height": 220,
+            "id": "o_zPSpxxbvewwc",
+            "kind": "window",
+            "offset": 2438,
+            "sillHeight": 90,
+            "wallId": "hall_2",
+            "width": 300
+          },
+          {
+            "height": 220,
+            "id": "o_muKCO5E8zML8",
+            "kind": "window",
+            "offset": 2038,
+            "sillHeight": 90,
+            "wallId": "hall_2",
+            "width": 300
+          },
+          {
+            "height": 220,
+            "id": "o_Lf1w8sNAJW3f",
+            "kind": "window",
+            "offset": 1638,
+            "sillHeight": 90,
+            "wallId": "hall_2",
+            "width": 300
+          },
+          {
+            "height": 220,
+            "id": "o_QApZjeaY2P6U",
+            "kind": "window",
+            "offset": 1238,
+            "sillHeight": 90,
+            "wallId": "hall_2",
+            "width": 300
+          },
+          {
+            "height": 120,
+            "id": "o_E7u0xG0P0dp6",
+            "kind": "window",
+            "offset": 888,
+            "sillHeight": 90,
+            "wallId": "hall_1",
+            "width": 150
+          },
+          {
+            "height": 120,
+            "id": "o_0GfeDHwhi9kv",
+            "kind": "window",
+            "offset": 1788,
+            "sillHeight": 90,
+            "wallId": "hall_1",
+            "width": 200
+          },
+          {
+            "height": 120,
+            "id": "o_agy8034csnnd",
+            "kind": "window",
+            "offset": 2038,
+            "sillHeight": 90,
+            "wallId": "hall_1",
+            "width": 200
+          },
+          {
+            "height": 220,
+            "id": "o_0r3vQJsJ9NUW",
+            "kind": "mirror",
+            "offset": 1588,
+            "side": "b",
+            "wallId": "hall_0",
+            "width": 800
+          },
+          {
+            "height": 220,
+            "id": "o_EyNcao8YRV5X",
+            "kind": "mirror",
+            "offset": 1975.9999999999998,
+            "side": "a",
+            "wallId": "w_e4dulDYQDshE",
+            "width": 800
+          }
+        ],
+        "order": 0,
+        "roomMeta": {
+          "r:18:88:109": {
+            "name": "Büro",
+            "type": "Büro"
+          },
+          "r:195:125:5125": {
+            "labelMode": "none",
+            "name": "Trainingshalle",
+            "type": "Flur/Verkehrsfläche"
+          },
+          "r:21:140:256": {
+            "name": "Duschen / WC Damen",
+            "type": "Duschen"
+          },
+          "r:21:212:267": {
+            "name": "Duschen / WC Herren",
+            "type": "Duschen"
+          },
+          "r:325:28:255": {
+            "name": "Lager",
+            "type": "Lager"
+          },
+          "r:349:194:1040": {
+            "name": "Kursraum",
+            "type": "Kursraum"
+          },
+          "r:349:98:816": {
+            "name": "Wellness",
+            "type": "Wellness/Sauna"
+          },
+          "r:374:16:128": {
+            "name": "Technik / Lüftung",
+            "type": "Technik/Lüftung"
+          },
+          "r:374:43:113": {
+            "name": "Putzraum",
+            "type": "Putzraum"
+          },
+          "r:46:36:584": {
+            "name": "Empfang / Lounge",
+            "type": "Empfang/Lounge"
+          },
+          "r:50:88:99": {
+            "name": "Personalraum",
+            "type": "Personalraum"
+          },
+          "r:65:140:338": {
+            "name": "Umkleide Damen",
+            "type": "Umkleide Damen"
+          },
+          "r:65:212:353": {
+            "name": "Umkleide Herren",
+            "type": "Umkleide Herren"
+          },
+          "r:78:88:82": {
+            "name": "WC barrierefrei",
+            "type": "WC"
+          }
+        },
+        "voids": [],
+        "walls": [
+          {
+            "end": {
+              "x": 900,
+              "y": 2476
+            },
+            "height": null,
+            "id": "w_tdOk92wx9Epr",
+            "start": {
+              "x": 900,
+              "y": 24
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 900,
+              "y": 700
+            },
+            "height": null,
+            "id": "w_cmBlfbng3rkZ",
+            "start": {
+              "x": 24,
+              "y": 700
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 900,
+              "y": 1050
+            },
+            "height": null,
+            "id": "w_OkEazxsUhL84",
+            "start": {
+              "x": 24,
+              "y": 1050
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 350,
+              "y": 1050
+            },
+            "height": null,
+            "id": "w_qY63bruRuUTp",
+            "start": {
+              "x": 350,
+              "y": 700
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 650,
+              "y": 1050
+            },
+            "height": null,
+            "id": "w_NYnIeohNQbTh",
+            "start": {
+              "x": 650,
+              "y": 700
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 900,
+              "y": 1750
+            },
+            "height": null,
+            "id": "w_qvLmH0cgbyIq",
+            "start": {
+              "x": 24,
+              "y": 1750
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 400,
+              "y": 1750
+            },
+            "height": null,
+            "id": "w_U5yytPq0d8Jz",
+            "start": {
+              "x": 400,
+              "y": 1050
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 400,
+              "y": 2476
+            },
+            "height": null,
+            "id": "w_GN1LhIqoF0Sp",
+            "start": {
+              "x": 400,
+              "y": 1750
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 3000,
+              "y": 2476
+            },
+            "height": null,
+            "id": "w_e4dulDYQDshE",
+            "start": {
+              "x": 3000,
+              "y": 24
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 3976,
+              "y": 550
+            },
+            "height": null,
+            "id": "w_IDLFaRnfGM20",
+            "start": {
+              "x": 3000,
+              "y": 550
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 3500,
+              "y": 550
+            },
+            "height": null,
+            "id": "w_ezbA74X68SUe",
+            "start": {
+              "x": 3500,
+              "y": 24
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 3976,
+              "y": 300
+            },
+            "height": null,
+            "id": "w_hcsMSlBT1qWO",
+            "start": {
+              "x": 3500,
+              "y": 300
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          },
+          {
+            "end": {
+              "x": 3976,
+              "y": 1400
+            },
+            "height": null,
+            "id": "w_afUs37iCsVK8",
+            "start": {
+              "x": 3000,
+              "y": 1400
+            },
+            "thickness": 10,
+            "type": "Trockenbau"
+          }
+        ],
+        "zones": [
+          {
+            "id": "z_GvqOLCugvQeY",
+            "name": "Freihantel",
+            "polygon": [
+              {
+                "x": 1000,
+                "y": 24
+              },
+              {
+                "x": 2325,
+                "y": 24
+              },
+              {
+                "x": 2325,
+                "y": 787
+              },
+              {
+                "x": 1000,
+                "y": 787
+              }
+            ],
+            "type": "Trainingsfläche Freihantel"
+          },
+          {
+            "id": "z_YmxsaISnwtsu",
+            "name": "Functional",
+            "polygon": [
+              {
+                "x": 2320,
+                "y": 24
+              },
+              {
+                "x": 2995,
+                "y": 24
+              },
+              {
+                "x": 2995,
+                "y": 787
+              },
+              {
+                "x": 2320,
+                "y": 787
+              }
+            ],
+            "type": "Functional/Stretching"
+          },
+          {
+            "id": "z_zPVjH9uBJjUA",
+            "name": "Maschinen",
+            "polygon": [
+              {
+                "x": 1000,
+                "y": 886
+              },
+              {
+                "x": 2995,
+                "y": 886
+              },
+              {
+                "x": 2995,
+                "y": 1550.5
+              },
+              {
+                "x": 1000,
+                "y": 1550.5
+              }
+            ],
+            "type": "Maschinen"
+          },
+          {
+            "id": "z_RHggo46WeBvF",
+            "name": "Plate Loaded",
+            "polygon": [
+              {
+                "x": 1000,
+                "y": 1618.5
+              },
+              {
+                "x": 2995,
+                "y": 1618.5
+              },
+              {
+                "x": 2995,
+                "y": 1961.5
+              },
+              {
+                "x": 1000,
+                "y": 1961.5
+              }
+            ],
+            "type": "Maschinen"
+          },
+          {
+            "id": "z_L7goUDKji3ab",
+            "name": "Cardio",
+            "polygon": [
+              {
+                "x": 1000,
+                "y": 2025
+              },
+              {
+                "x": 2995,
+                "y": 2025
+              },
+              {
+                "x": 2995,
+                "y": 2476
+              },
+              {
+                "x": 1000,
+                "y": 2476
+              }
+            ],
+            "type": "Cardio"
+          }
+        ]
+      }
+    ],
+    "id": "p_mue6GJ0K2W0Q",
+    "layers": {
+      "annotations": true,
+      "dimensions": true,
+      "furniture": true,
+      "grid": true,
+      "items": true,
+      "labels": true,
+      "lowerFloor": true,
+      "openings": true,
+      "rooms": true,
+      "safetyZones": true,
+      "voids": true,
+      "walls": true
+    },
+    "name": "Beispielstudio 1.000 m²",
+    "priceOverrides": {},
+    "schemaVersion": 1,
+    "settings": {
+      "defaultSafetyZoneCm": 60,
+      "floorLoadLimitKgM2": 500,
+      "gridSize": 10,
+      "lowerFloorOpacity": 0.3,
+      "m2PerPerson": 9,
+      "minEscapeRouteCm": 120,
+      "showGrid": true,
+      "showLowerFloor": true,
+      "snapEnabled": true
+    },
+    "updatedAt": "2026-09-25T20:45:06.001Z"
+  },
+  "schemaVersion": 1
+}

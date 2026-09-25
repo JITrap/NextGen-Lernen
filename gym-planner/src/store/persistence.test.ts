@@ -33,8 +33,11 @@ import { useProjectStore, loadProject } from './projectStore';
 import { useUiStore } from './uiStore';
 import { createEmptyProject, createWall, createItemFromDef } from './factories';
 import { getDef } from '@/data/equipment';
-import { TEMPLATES } from '@/data/templates';
+import { getTemplate } from '@/data/templates';
 import type { Project } from '@/types';
+
+/** Leere Halle (500 m², keine Wände) – unabhängig von der Standardvorlage der App. */
+const EMPTY = getTemplate('empty-20x25')!;
 
 function enableIdb() {
   Object.defineProperty(globalThis, 'indexedDB', { value: {}, configurable: true, writable: true });
@@ -60,7 +63,7 @@ afterEach(() => {
 
 describe('Projekte speichern und laden', () => {
   it('speichern → laden ergibt ein identisches Projekt', async () => {
-    const p = await createProject(TEMPLATES[0], 'Halle A');
+    const p = await createProject(EMPTY, 'Halle A');
     expect(useProjectStore.getState().project.id).toBe(p.id);
     expect(localStorage.getItem(LS_ACTIVE_KEY)).toBe(p.id);
     const s = useProjectStore.getState();
@@ -72,7 +75,7 @@ describe('Projekte speichern und laden', () => {
     const cur = useProjectStore.getState().project;
     expect(stored(p.id)).toEqual(cur);
 
-    const q = await createProject(TEMPLATES[0], 'Halle B');
+    const q = await createProject(EMPTY, 'Halle B');
     expect(useProjectStore.getState().project.id).toBe(q.id);
     expect(await openProject(p.id)).toBe(true);
     expect(useProjectStore.getState().project).toEqual(cur);
@@ -85,7 +88,7 @@ describe('Projekte speichern und laden', () => {
 
   it('Autosave speichert debounced nach 800 ms', async () => {
     vi.useFakeTimers();
-    const p = await createProject(TEMPLATES[0], 'Auto');
+    const p = await createProject(EMPTY, 'Auto');
     useProjectStore.getState().renameProject('Auto 2');
     scheduleSave(useProjectStore.getState().project);
     expect(useSaveStatus.getState().dirty).toBe(true);
@@ -143,7 +146,7 @@ describe('Projekte speichern und laden', () => {
 
 describe('Versionsverlauf', () => {
   it('begrenzt die Versionsliste auf MAX_VERSIONS (neueste zuerst)', async () => {
-    const p = await createProject(TEMPLATES[0], 'V');
+    const p = await createProject(EMPTY, 'V');
     for (let i = 0; i < 25; i++) {
       useProjectStore.getState().renameProject(`V${i}`);
       const v = await saveVersion(`L${i}`);
@@ -158,7 +161,7 @@ describe('Versionsverlauf', () => {
   });
 
   it('stellt eine Version wieder her und sichert vorher den aktuellen Stand', async () => {
-    const p = await createProject(TEMPLATES[0], 'R');
+    const p = await createProject(EMPTY, 'R');
     const fid = p.floors[0].id;
     const wall = createWall({ start: { x: 0, y: 0 }, end: { x: 400, y: 0 } });
     useProjectStore.getState().addWall(fid, wall);
@@ -181,7 +184,7 @@ describe('Versionsverlauf', () => {
 
 describe('Projektverwaltung', () => {
   it('umbenennen, duplizieren, Variante anlegen', async () => {
-    const p = await createProject(TEMPLATES[0], 'Studio');
+    const p = await createProject(EMPTY, 'Studio');
     expect(await renameProject(p.id, '  Studio Nord ')).toBe(true);
     expect(useProjectStore.getState().project.name).toBe('Studio Nord');
     expect(stored(p.id)!.name).toBe('Studio Nord');
@@ -210,10 +213,10 @@ describe('Projektverwaltung', () => {
   });
 
   it('löscht nicht das letzte Projekt und öffnet nach dem Löschen ein anderes', async () => {
-    const p = await createProject(TEMPLATES[0], 'Einzig');
+    const p = await createProject(EMPTY, 'Einzig');
     expect(await deleteProject(p.id)).toBe(false);
     expect(listProjects().length).toBe(1);
-    const q = await createProject(TEMPLATES[0], 'Zwei');
+    const q = await createProject(EMPTY, 'Zwei');
     await saveVersion('x');
     expect(useProjectStore.getState().project.id).toBe(q.id);
     expect(await deleteProject(q.id)).toBe(true);
@@ -228,7 +231,7 @@ describe('Projektverwaltung', () => {
   });
 
   it('importiert ein Projekt mit bestehender ID als Kopie', async () => {
-    const p = await createProject(TEMPLATES[0], 'Original');
+    const p = await createProject(EMPTY, 'Original');
     const again = await createProject(structuredClone(useProjectStore.getState().project), 'Import');
     expect(again.id).not.toBe(p.id);
     expect(again.name).toBe('Import');
@@ -239,8 +242,8 @@ describe('Projektverwaltung', () => {
   });
 
   it('Sicherung aller Projekte exportieren und importieren', async () => {
-    const p = await createProject(TEMPLATES[0], 'S1');
-    await createProject(TEMPLATES[0], 'S2');
+    const p = await createProject(EMPTY, 'S1');
+    await createProject(EMPTY, 'S2');
     const text = await exportAll();
     const parsed = JSON.parse(text) as { format: string; projects: Project[] };
     expect(parsed.format).toBe('gymplanner-backup');
@@ -258,11 +261,11 @@ describe('localStorage-Fallback', () => {
   it('speichert ohne IndexedDB im localStorage', async () => {
     disableIdb();
     __resetPersistenceForTests();
-    const p = await createProject(TEMPLATES[0], 'Lokal');
+    const p = await createProject(EMPTY, 'Lokal');
     expect(storageMode()).toBe('local');
     expect(mem.size).toBe(0);
     expect(localStorage.getItem(`gymplanner.data.project:${p.id}`)).toBeTruthy();
-    await createProject(TEMPLATES[0], 'Lokal 2');
+    await createProject(EMPTY, 'Lokal 2');
     expect(await openProject(p.id)).toBe(true);
     expect(useProjectStore.getState().project).toEqual(p);
     for (let i = 0; i < 8; i++) await saveVersion(`L${i}`);
@@ -271,7 +274,7 @@ describe('localStorage-Fallback', () => {
 
   it('wechselt bei IndexedDB-Fehlern auf localStorage und meldet dies einmal', async () => {
     ctl.fail = true;
-    const p = await createProject(TEMPLATES[0], 'Kaputt');
+    const p = await createProject(EMPTY, 'Kaputt');
     expect(storageMode()).toBe('local');
     expect(localStorage.getItem(`gymplanner.data.project:${p.id}`)).toBeTruthy();
     expect(useSaveStatus.getState().status).toBe('saved');
@@ -292,7 +295,7 @@ describe('localStorage-Fallback', () => {
     expect(toasts.length).toBe(1);
     expect(toasts[0].kind).toBe('info');
     // Weitere Speichervorgänge wiederholen den Hinweis nicht
-    await createProject(TEMPLATES[0], 'Noch eins');
+    await createProject(EMPTY, 'Noch eins');
     await saveVersion('V');
     expect(useUiStore.getState().toasts.filter((t) => t.text.includes(LOCAL_MODE_MESSAGE)).length).toBe(1);
     // Mit IndexedDB kein Hinweis
@@ -313,7 +316,7 @@ describe('localStorage-Fallback', () => {
 
     disableIdb();
     __resetPersistenceForTests();
-    const p = await createProject(TEMPLATES[0], 'Voll');
+    const p = await createProject(EMPTY, 'Voll');
     useUiStore.setState({ toasts: [] });
     const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation((key: string) => {
       if (key.startsWith('gymplanner.data.')) throw new DOMException("Failed to execute 'setItem' on 'Storage': Setting the value exceeded the quota.", 'QuotaExceededError');
@@ -343,8 +346,8 @@ describe('localStorage-Fallback', () => {
 
 describe('Review-Befunde Persistenz', () => {
   it('H1: ein mit gelöschter ID erneut angelegtes Projekt (JSON-Import) wird wieder gespeichert', async () => {
-    const a = await createProject(TEMPLATES[0], 'A');
-    const b = await createProject(TEMPLATES[0], 'B');
+    const a = await createProject(EMPTY, 'A');
+    const b = await createProject(EMPTY, 'B');
     const exported = structuredClone(useProjectStore.getState().project);
     expect(await deleteProject(b.id)).toBe(true);
     expect(useProjectStore.getState().project.id).toBe(a.id);
@@ -367,8 +370,8 @@ describe('Review-Befunde Persistenz', () => {
   });
 
   it('H1: abgelehntes Speichern des aktiven Projekts ist sichtbar (Status error), explizites Speichern stellt es wieder her', async () => {
-    await createProject(TEMPLATES[0], 'A');
-    const b = await createProject(TEMPLATES[0], 'B');
+    await createProject(EMPTY, 'A');
+    const b = await createProject(EMPTY, 'B');
     // Anderer Tab hat B gelöscht
     handleChannelMessage({ type: 'project-deleted', id: b.id });
     expect(useSaveStatus.getState().status).toBe('error');
@@ -386,8 +389,8 @@ describe('Review-Befunde Persistenz', () => {
   });
 
   it('M3: behält den Indexeintrag bei einem temporären Speicherfehler, entfernt ihn nur bei bestätigt fehlendem Projekt', async () => {
-    const a = await createProject(TEMPLATES[0], 'A');
-    const b = await createProject(TEMPLATES[0], 'B');
+    const a = await createProject(EMPTY, 'A');
+    const b = await createProject(EMPTY, 'B');
     ctl.fail = true;
     expect(await openProject(a.id)).toBe(false);
     expect(listProjects().map((s) => s.id)).toContain(a.id);
@@ -402,7 +405,7 @@ describe('Review-Befunde Persistenz', () => {
   });
 
   it('M4: überschreibt keinen in einem anderen Tab geänderten Stand; explizites Speichern schon', async () => {
-    const p = await createProject(TEMPLATES[0], 'Tab A');
+    const p = await createProject(EMPTY, 'Tab A');
     mem.set(`project:${p.id}`, { ...stored(p.id)!, name: 'Aus Tab B', updatedAt: '2099-01-01T00:00:00.000Z' });
     useProjectStore.getState().renameProject('Meine Änderung');
     scheduleSave(useProjectStore.getState().project);
@@ -444,7 +447,7 @@ describe('Review-Befunde Persistenz', () => {
     await initPersistence();
     const ch = FakeChannel.instances.at(-1)!;
     expect(ch.name).toBe(CHANNEL_NAME);
-    const p = await createProject(TEMPLATES[0], 'Zwei');
+    const p = await createProject(EMPTY, 'Zwei');
     expect(ch.posted).toContainEqual({ type: 'project-saved', id: p.id, updatedAt: p.updatedAt });
     // Anderer Tab speichert dasselbe Projekt → Konflikt sofort sichtbar
     ch.onmessage!({ data: { type: 'project-saved', id: p.id, updatedAt: '2099-01-01T00:00:00.000Z' } } as MessageEvent);
@@ -461,8 +464,8 @@ describe('Review-Befunde Persistenz', () => {
   });
 
   it('M4: gelöschte Projekte aus anderen Tabs werden nicht durch späte Autosaves wiederbelebt', async () => {
-    const a = await createProject(TEMPLATES[0], 'A');
-    const b = await createProject(TEMPLATES[0], 'B');
+    const a = await createProject(EMPTY, 'A');
+    const b = await createProject(EMPTY, 'B');
     expect(await openProject(a.id)).toBe(true);
     mem.delete(`project:${b.id}`);
     handleChannelMessage({ type: 'project-deleted', id: b.id });
@@ -497,7 +500,7 @@ describe('Review-Befunde Persistenz', () => {
     await initPersistence();
     expect(useProjectStore.getState().project.name).toBe('Gespeichert');
     // deleteProject räumt Notfallkopie und Stempel des gelöschten Projekts auf
-    await createProject(TEMPLATES[0], 'Zweites');
+    await createProject(EMPTY, 'Zweites');
     localStorage.setItem(LS_LAST_KEY, JSON.stringify({ savedAt: '2026-05-01T00:00:00.000Z', project: p }));
     localStorage.setItem(LS_SAVED_KEY, JSON.stringify({ id: p.id, savedAt: '2026-05-01T00:00:00.000Z' }));
     expect(await deleteProject(p.id)).toBe(true);

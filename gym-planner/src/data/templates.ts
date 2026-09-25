@@ -13,7 +13,7 @@
  *   `roomMeta` eingetragen, sodass `floorRooms` sie ohne weitere Konfiguration anzeigt.
  */
 import type {
-  Project, Floor, Wall, Door, Window, Zone, PlacedItem, EquipmentDef, RoomType, Vec2, DoorType, SafetyZone,
+  Project, Floor, Wall, Door, Window, Mirror, Zone, PlacedItem, EquipmentDef, RoomType, Vec2, DoorType, SafetyZone,
 } from '@/types';
 import { createEmptyProject, createHall, createWall, createZone, createItemFromDef } from '@/store/factories';
 import { getDef } from '@/data/equipment';
@@ -164,6 +164,17 @@ class FloorBuilder {
     };
     this.floor.openings.push(w);
     return w;
+  }
+
+  /** Spiegelwand an einer Wand; `faceTo` = Punkt auf der Seite, auf der der Spiegel hängt. */
+  mirror(wall: Wall, at: Vec2, faceTo: Vec2, width: number, height = 220): Mirror {
+    const offset = this.offsetOn(wall, at, width);
+    const center = pointOnWall(wall, offset);
+    const n = wallNormal(wall);
+    const side = n.x * (faceTo.x - center.x) + n.y * (faceTo.y - center.y) >= 0 ? 'a' : 'b';
+    const m: Mirror = { id: newId('o_'), kind: 'mirror', wallId: wall.id, offset, width, height, side };
+    this.floor.openings.push(m);
+    return m;
   }
 
   /* ---- Zonen / Räume ---- */
@@ -715,11 +726,336 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   return project;
 }
 
+
+/* ------------------------------------------------------------------ */
+/* Vorlage 4: Beispielstudio 1.000 m² (40 × 25 m)                       */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Durchdachtes Muster-Studio:
+ * - Linke Servicezeile (x 24–895): Empfang/Lounge am Haupteingang, Büro, Personalraum, barrierefreies WC,
+ *   Umkleide Damen und Herren mit je eigenem Dusch-/WC-Raum (Zugang jeweils von der Halle).
+ * - Rechte Zeile (x 3005–3976): Lager mit Rolltor, Technik, Putzraum (oben), Wellness (Mitte), Kursraum mit
+ *   Spiegelwand (unten, eigener Notausgang).
+ * - Trainingshalle (x 905–2995): Freihantel mit Racks an der Spiegelwand (oben links), Functional (oben rechts),
+ *   zwei Maschinenreihen Rücken an Rücken (Beine / Oberkörper), Plate-Loaded-Reihe, Cardio am Fensterband (unten).
+ * - Alle Gänge ≥ 125 cm zwischen Belegungsboxen; Notausgänge oben rechts und im Kursraum; Türen ohne Geräte im
+ *   Schwenkbereich; Cardio-Sturzräume (200 cm) frei.
+ */
+function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
+  const { project, floor } = baseProject(name, 4000, 2500, 400);
+  const b = new FloorBuilder(floor);
+  const { minX: IX0, minY: IY0, maxX: IX1, maxY: IY1 } = b.inner; // 24 / 24 / 3976 / 2476
+  const hf = INNER_WALL / 2;
+
+  /* ---- Wände: linke Servicezeile ---- */
+  const COL = 900;
+  const wCol = b.wall(COL, IY0, COL, IY1);
+  const wEmpf = b.wall(IX0, 700, COL, 700); // Empfang | Büro/Personal/WC
+  const wRow = b.wall(IX0, 1050, COL, 1050); // Büro-Zeile | Umkleide Damen
+  b.wall(350, 700, 350, 1050); // Büro | Personalraum
+  const wWcBf = b.wall(650, 700, 650, 1050); // Personalraum | WC barrierefrei
+  const wDH = b.wall(IX0, 1750, COL, 1750); // Umkleide Damen | Herren
+  const wSanD = b.wall(400, 1050, 400, 1750);
+  const wSanH = b.wall(400, 1750, 400, IY1);
+  /* ---- Wände: rechte Zeile ---- */
+  const RC = 3000;
+  const wRC = b.wall(RC, IY0, RC, IY1);
+  const wLagerY = b.wall(RC, 550, IX1, 550); // Lager/Technik | Wellness
+  const wLagerX = b.wall(3500, IY0, 3500, 550); // Lager | Technik/Putzraum
+  b.wall(3500, 300, IX1, 300); // Technik | Putzraum
+  b.wall(RC, 1400, IX1, 1400); // Wellness | Kursraum
+
+  const HALL_X0 = COL + hf; // 905
+  const HALL_X1 = RC - hf; // 2995
+  const ROOM_X1 = COL - hf; // 895
+  const SAN_X1 = 400 - hf; // 395
+  const UMK_X0 = 400 + hf; // 405
+  const RX0 = RC + hf; // 3005
+
+  /* ---- Türen, Fenster, Spiegel ---- */
+  const top = b.hallWall(0);
+  const right = b.hallWall(1);
+  const bottom = b.hallWall(2);
+  const left = b.hallWall(3);
+  b.door(top, { x: 300, y: IY0 }, { x: 300, y: 200 }, { type: 'Notausgang', width: 200, note: 'Haupteingang, zweiflügelige Glastür' });
+  b.door(wCol, { x: COL, y: 350 }, { x: 1000, y: 350 }, { type: 'Glastür', width: 100, note: 'Zugang Halle (hinter Drehkreuz)' });
+  b.door(wEmpf, { x: 180, y: 700 }, { x: 180, y: 800 }, { width: 90 }); // Büro
+  b.door(wEmpf, { x: 500, y: 700 }, { x: 500, y: 800 }, { width: 90 }); // Personalraum
+  b.door(wCol, { x: COL, y: 880 }, { x: 1000, y: 880 }, { width: 100, note: 'WC barrierefrei (schlägt nach außen auf)' });
+  b.door(wCol, { x: COL, y: 1130 }, { x: 800, y: 1130 }, { width: 90, note: 'Umkleide Damen' });
+  b.door(wSanD, { x: 400, y: 1300 }, { x: 300, y: 1300 }, { width: 80 });
+  b.door(wCol, { x: COL, y: 1830 }, { x: 800, y: 1830 }, { width: 90, note: 'Umkleide Herren' });
+  b.door(wSanH, { x: 400, y: 2000 }, { x: 300, y: 2000 }, { width: 80 });
+  b.door(top, { x: 3250, y: IY0 }, { x: 3250, y: 200 }, { type: 'Rolltor', width: 250, note: 'Anlieferung Lager' });
+  b.door(wRC, { x: RC, y: 430 }, { x: 3100, y: 430 }, { width: 100, note: 'Lager' });
+  b.door(wLagerX, { x: 3500, y: 160 }, { x: 3600, y: 160 }, { width: 90 }); // Technik
+  b.door(wLagerX, { x: 3500, y: 430 }, { x: 3600, y: 430 }, { width: 90 }); // Putzraum
+  b.door(wRC, { x: RC, y: 700 }, { x: 3100, y: 700 }, { type: 'Glastür', width: 100, note: 'Wellness' });
+  b.door(wRC, { x: RC, y: 1500 }, { x: 3100, y: 1500 }, { type: 'zweiflügelig', width: 150, note: 'Kursraum' });
+  b.door(right, { x: IX1, y: 2300 }, { x: 4200, y: 2300 }, { type: 'Notausgang', width: 100 });
+  b.door(top, { x: 2910, y: IY0 }, { x: 2910, y: -100 }, { type: 'Notausgang', width: 100 });
+  b.window(top, { x: 150, y: IY0 }, 150);
+  b.window(left, { x: IX0, y: 300 }, 150);
+  b.window(left, { x: IX0, y: 880 }, 120);
+  for (const x of [1150, 1550, 1950, 2350, 2750]) b.window(bottom, { x, y: IY1 }, 300, { sillHeight: 90, height: 220 });
+  b.window(right, { x: IX1, y: 900 }, 150);
+  b.window(right, { x: IX1, y: 1800 }, 200);
+  b.window(right, { x: IX1, y: 2050 }, 200);
+  b.mirror(top, { x: 1600, y: IY0 }, { x: 1600, y: 300 }, 800); // Spiegelwand Freihantel
+  b.mirror(wRC, { x: RC, y: 2000 }, { x: 3300, y: 2000 }, 800); // Spiegelwand Kursraum
+
+  /* ---- Raumnamen ---- */
+  b.nameRooms([
+    { at: { x: 450, y: 350 }, name: 'Empfang / Lounge', type: 'Empfang/Lounge' },
+    { at: { x: 180, y: 900 }, name: 'Büro', type: 'Büro' },
+    { at: { x: 500, y: 900 }, name: 'Personalraum', type: 'Personalraum' },
+    { at: { x: 770, y: 900 }, name: 'WC barrierefrei', type: 'WC' },
+    { at: { x: 650, y: 1400 }, name: 'Umkleide Damen', type: 'Umkleide Damen' },
+    { at: { x: 200, y: 1400 }, name: 'Duschen / WC Damen', type: 'Duschen' },
+    { at: { x: 650, y: 2100 }, name: 'Umkleide Herren', type: 'Umkleide Herren' },
+    { at: { x: 200, y: 2100 }, name: 'Duschen / WC Herren', type: 'Duschen' },
+    { at: { x: 3250, y: 300 }, name: 'Lager', type: 'Lager' },
+    { at: { x: 3740, y: 160 }, name: 'Technik / Lüftung', type: 'Technik/Lüftung' },
+    { at: { x: 3740, y: 430 }, name: 'Putzraum', type: 'Putzraum' },
+    { at: { x: 3500, y: 1000 }, name: 'Wellness', type: 'Wellness/Sauna' },
+    { at: { x: 3500, y: 1900 }, name: 'Kursraum', type: 'Kursraum' },
+    { at: { x: 1950, y: 1570 }, name: 'Trainingshalle', type: 'Flur/Verkehrsfläche' },
+  ]);
+  for (const meta of Object.values(floor.roomMeta)) if (meta.name === 'Trainingshalle') meta.labelMode = 'none';
+
+  /* ---- Empfang / Lounge (x 24–895, y 24–695) – Eingang oben bei x 200–400 ---- */
+  b.put(S('gen-empfang-theke', 180), { cx: 500, cy: 380 });
+  b.put(S('gen-empfang-shakebar', 180, { width: 160 }), { cx: 270, cy: 380 });
+  b.put(S('gen-empfang-barhocker'), { cx: 220, cy: 300 });
+  b.put(S('gen-empfang-barhocker'), { cx: 300, cy: 300 });
+  b.put(S('gen-empfang-drehkreuz', 270), { right: ROOM_X1, cy: 350 });
+  b.put(S('gen-empfang-zugangsschranke', 270), { right: ROOM_X1, cy: 480 });
+  b.put(S('gen-empfang-sofa-3', 90), { left: IX0, top: 250 });
+  b.put(S('gen-empfang-sessel'), { left: IX0, top: 500 });
+  b.put(S('gen-empfang-loungetisch', 90), { cx: 190, cy: 560 });
+  b.put(S('gen-empfang-sessel'), { cx: 300, cy: 560 });
+  b.put(S('gen-empfang-stehtisch'), { cx: 460, cy: 560 });
+  b.put(S('gen-empfang-stehtisch'), { cx: 580, cy: 560 });
+  b.put(S('gen-empfang-kuehlschrank'), { right: ROOM_X1, bottom: 695 });
+  b.put(S('gen-empfang-getraenkeautomat'), { right: ROOM_X1 - 80, bottom: 695 });
+  b.put(S('gen-empfang-snackautomat'), { right: ROOM_X1 - 180, bottom: 695 });
+  b.put(S('gen-empfang-garderobe'), { cx: 600, top: IY0 });
+  b.put(S('gen-empfang-info-stele'), { cx: 700, top: IY0 });
+  b.put(S('gen-empfang-info-bildschirm', 0, { wallId: top.id }), { cx: 800, top: IY0 });
+  b.put(S('gen-ausstattung-pflanze-gross'), { left: IX0, top: IY0 });
+  b.put(S('gen-ausstattung-pflanze-gross'), { cx: 510, top: IY0 });
+  b.put(S('gen-ausstattung-pflanze'), { left: IX0, bottom: 695 });
+  b.put(S('gen-ausstattung-wasserspender'), { cx: 700, cy: 560 });
+  b.put(S('gen-ausstattung-muelleimer'), { cx: 640, cy: 470 });
+  b.put(S('gen-ausstattung-aed', 180, { wallId: wEmpf.id }), { cx: 300, bottom: 695 });
+  b.put(S('gen-ausstattung-erste-hilfe', 180, { wallId: wEmpf.id }), { cx: 350, bottom: 695 });
+  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: wEmpf.id }), { cx: 400, bottom: 695 });
+  b.put(S('gen-ausstattung-notausgang-schild', 0, { wallId: top.id }), { cx: 430, top: IY0 });
+  b.put(S('gen-ausstattung-kamera', 0, { wallId: top.id }), { right: ROOM_X1, top: IY0 });
+  b.put(S('gen-bau-heizkoerper', 270, { wallId: left.id }), { left: IX0, cy: 165 });
+
+  /* ---- Büro (x 24–345) – Tür bei x 180 (Schwenk y 705–795) ---- */
+  b.put(S('gen-buero-schreibtisch', 90), { right: 345, cy: 900 });
+  b.put(S('gen-buero-buerostuhl'), { cx: 200, cy: 900 });
+  b.put(S('gen-buero-rollcontainer'), { right: 345, bottom: 1045 });
+  b.put(S('gen-buero-aktenschrank'), { left: IX0, bottom: 1045 });
+  b.put(S('gen-bau-heizkoerper', 270, { wallId: left.id }), { left: IX0, cy: 880 });
+  /* ---- Personalraum (x 355–645) – Tür bei x 500 (Schwenk x 455–545, y 705–795) ---- */
+  b.put(S('gen-buero-personaltisch'), { cx: 500, cy: 940 });
+  b.put(S('gen-empfang-stuhl', 90), { cx: 410, cy: 940 });
+  b.put(S('gen-empfang-stuhl', 270), { cx: 590, cy: 940 });
+  b.put(S('gen-buero-personalschrank'), { left: 355, top: 705 });
+  b.put(S('gen-buero-teekueche', 0, { width: 90 }), { right: 645, top: 705 });
+  b.put(S('gen-ausstattung-erste-hilfe', 90, { wallId: wWcBf.id }), { right: 645, cy: 1000 });
+  /* ---- WC barrierefrei (x 655–895) – Tür von der Halle bei y 880 (Schwenk x 805–895, y 835–925) ---- */
+  b.put(S('gen-sanitaer-wc-barrierefrei'), { left: 655, top: 705 });
+  b.put(S('gen-umkleide-waschtisch', 180, { wallId: wRow.id }), { cx: 850, bottom: 1045 });
+  b.put(S('gen-umkleide-handtuchspender', 180, { wallId: wRow.id }), { cx: 770, bottom: 1045 });
+
+  /* ---- Umkleiden ---- */
+  const changingRoom = (y0: number, y1: number, sanWall: Wall, topWall: Wall, doorY: number, women: boolean) => {
+    // Sanitärraum (x 24–395): 4 Duschen oben, barrierefreie Dusche unten links, WC-Kabinen unten, Tür von der Umkleide
+    // bei doorY + 170 (Schwenk x 315–395, y doorY+130…doorY+210); Waschtisch, WC und Urinale an der Trennwand darunter
+    b.rowX([S('gen-sanitaer-einzeldusche'), S('gen-sanitaer-einzeldusche'), S('gen-sanitaer-einzeldusche'), S('gen-sanitaer-einzeldusche')], { left: IX0, top: y0 }, { gap: 0, limit: SAN_X1 });
+    b.put(S('gen-sanitaer-dusche-barrierefrei'), { left: IX0, bottom: y1 });
+    b.rowX([S('gen-sanitaer-wc-kabine'), S('gen-sanitaer-wc-kabine')], { left: 180, bottom: y1 }, { gap: 5, limit: SAN_X1 });
+    b.put(S('gen-sanitaer-wc-kabine', 90), { right: SAN_X1, cy: doorY + 260 }); // unter dem Türschwenk, y doorY+215…+305
+    if (women) {
+      b.put(S('gen-umkleide-waschtisch-doppel', 90, { wallId: sanWall.id }), { right: SAN_X1, cy: doorY + 375 });
+      b.put(S('gen-umkleide-handtuchspender', 90, { wallId: sanWall.id }), { right: SAN_X1, cy: doorY + 75 });
+      b.put(S('gen-sanitaer-wickeltisch', 270, { wallId: left.id }), { left: IX0, cy: doorY + 340 });
+    } else {
+      b.put(S('gen-sanitaer-urinal', 90, { wallId: sanWall.id }), { right: SAN_X1, cy: doorY + 340 });
+      b.put(S('gen-sanitaer-urinal', 90, { wallId: sanWall.id }), { right: SAN_X1, cy: doorY + 405 });
+      b.put(S('gen-umkleide-waschtisch-doppel', 270, { wallId: left.id }), { left: IX0, cy: doorY + 300 });
+      b.put(S('gen-umkleide-handtuchspender', 270, { wallId: left.id }), { left: IX0, cy: doorY + 390 });
+    }
+    b.put(S('gen-umkleide-waeschesammler'), { left: IX0 + 160, cy: doorY + 340 });
+    // Umkleide (x 405–895): Tür von der Halle bei doorY (Schwenk x 805–895, y doorY−45…doorY+45)
+    const rowBottom = b.put(lockerRow(16, 180, women ? 'Spinde Damen A (32 Fächer)' : 'Spinde Herren A (32 Fächer)'), { left: UMK_X0, bottom: y1 });
+    const freeY = extentsOf(rowBottom).minY - 10 - (y0 + 10);
+    const abteile = Math.min(18, Math.floor(freeY / 30));
+    b.put(lockerRow(abteile, 270, women ? `Spinde Damen B (${abteile * 2} Fächer)` : `Spinde Herren B (${abteile * 2} Fächer)`), { left: UMK_X0, top: y0 + 10 });
+    b.put(S('gen-umkleide-einzelkabine'), { right: ROOM_X1, top: doorY + 60 });
+    b.put(S('gen-umkleide-mittelbank', 0, { width: 180 }), { cx: 700, cy: doorY + 330 });
+    b.put(S('gen-umkleide-spiegel', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: doorY + 330 });
+    b.put(S('gen-umkleide-foehnplatz', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: doorY + 430 });
+    b.put(S('gen-umkleide-wertfaecher', 0, { wallId: topWall.id }), { cx: 700, top: y0 });
+    b.put(S('gen-umkleide-bank-schuhrost', 0, { width: 120 }), { cx: 700, bottom: extentsOf(rowBottom).minY - 10 });
+    b.put(S('gen-ausstattung-muelleimer'), { right: ROOM_X1 - 40, bottom: extentsOf(rowBottom).minY - 10 });
+    b.put(S('gen-bau-lueftungsauslass'), { cx: 620, cy: y0 + 60 });
+  };
+  changingRoom(1055, 1745, wSanD, wRow, 1130, true);
+  changingRoom(1755, IY1, wSanH, wDH, 1830, false);
+
+  /* ---- Lager (x 3005–3495, y 24–545) – Rolltor oben x 3125–3375, Tür von der Halle bei y 430 ---- */
+  b.rowY([S('gen-lager-schwerlastregal', 90), S('gen-lager-schwerlastregal', 90)], { top: 30, right: 3495 }, { limit: 545 });
+  b.rowX([S('gen-lager-waschmaschine'), S('gen-lager-trockner')], { left: 3110, bottom: 545 });
+  b.put(S('gen-lager-regal', 0, { width: 120 }), { right: 3495 - 70, bottom: 545 });
+  b.put(S('gen-freihantel-hantelscheiben-satz'), { left: 3110, top: 200 });
+  /* ---- Technik (x 3505–3976, y 24–295) – Tür bei y 160 (Schwenk x 3505–3595) ---- */
+  b.put(S('gen-lager-lueftungsanlage'), { right: IX1, top: IY0 });
+  b.put(S('gen-lager-warmwasserspeicher'), { right: IX1, bottom: 295 });
+  b.put(S('gen-lager-serverschrank'), { left: 3660, bottom: 295 });
+  b.put(S('gen-lager-schaltschrank', 270, { wallId: wLagerX.id }), { left: 3505, cy: 250 });
+  /* ---- Putzraum (x 3505–3976, y 305–545) – Tür bei y 430 ---- */
+  b.put(S('gen-lager-putzwagen'), { right: IX1, bottom: 545 });
+  b.put(S('gen-lager-regal'), { right: IX1, top: 305 });
+  b.put(S('gen-sanitaer-putzraum-ausguss', 180, { wallId: wLagerY.id }), { cx: 3700, bottom: 545 });
+
+  /* ---- Wellness (x 3005–3976, y 555–1395) – Tür bei y 700 (Schwenk x 3005–3105, y 650–750) ---- */
+  const sauna = b.put(S('gen-wellness-sauna-300'), { right: IX1, top: 555 });
+  b.put(S('gen-wellness-infrarotkabine'), { right: IX1, top: extentsOf(sauna).maxY + 10 });
+  b.put(S('gen-wellness-erlebnisdusche'), { left: 3120, top: 555 });
+  b.put(S('gen-wellness-eisbrunnen'), { left: 3250, top: 555 });
+  b.put(S('gen-wellness-cold-plunge'), { left: 3320, top: 555 });
+  b.put(S('gen-wellness-red-light-panel', 0, { wallId: wLagerY.id }), { cx: 3600, top: 555 });
+  b.rowX([S('gen-wellness-ruheliege', 180), S('gen-wellness-ruheliege', 180), S('gen-wellness-ruheliege', 180), S('gen-wellness-ruheliege', 180)], { left: 3020, bottom: 1395 }, { gap: 30, limit: IX1 });
+  b.put(S('gen-wellness-wasserbett'), { left: RX0 + 10, cy: 1000 });
+  b.put(S('gen-wellness-massagestuhl', 90), { cx: 3370, cy: 1000 });
+  b.put(S('gen-wellness-teestation'), { cx: 3350, cy: 780 });
+  b.put(S('gen-umkleide-waeschesammler'), { right: IX1, bottom: 1395 - 80 });
+  b.put(S('gen-umkleide-handtuchspender', 90, { wallId: right.id }), { right: IX1, cy: 1150 });
+  b.put(S('gen-ausstattung-wasserspender'), { cx: 3600, cy: 1000 });
+  b.put(S('gen-ausstattung-pflanze'), { cx: 3800, cy: 1150 });
+
+  /* ---- Kursraum (x 3005–3976, y 1405–2476) – Tür bei y 1500 (Schwenk x 3005–3155), Spiegel x 3000 y 1600–2400 ---- */
+  b.put(S('gen-kursraum-trainer-podest', 90), { right: IX1, cy: 1950 });
+  b.put(S('gen-kursraum-musikanlage'), { right: IX1, top: 1405 });
+  b.rowX([S('gen-kursraum-mattenregal'), S('gen-kursraum-step-wagen'), S('gen-kursraum-gymnastikball-regal'), S('gen-kursraum-kurshantel-regal')], { left: 3200, top: 1405 }, { limit: 3880 });
+  b.rowX([
+    S('gen-kursraum-spinning-rad', 180), S('gen-kursraum-spinning-rad', 180), S('gen-kursraum-spinning-rad', 180),
+    S('gen-kursraum-spinning-rad', 180), S('gen-kursraum-spinning-rad', 180), S('gen-kursraum-spinning-rad', 180),
+  ], { left: 3020, bottom: IY1 }, { gap: 5, limit: 3800 }); // Freihaltefläche vor dem Notausgang (x ≥ 3826)
+  for (const col of [3220, 3450]) b.rowY([S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte')], { top: 1660, left: col }, { gap: 25, limit: 2250 });
+  b.rowY([S('gen-kursraum-step'), S('gen-kursraum-step')], { top: 1700, left: 3680 }, { gap: 25 });
+  b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: right.id }), { right: IX1, cy: 1650 });
+  b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: right.id }), { right: IX1, cy: 2200 });
+  b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: right.id }), { right: IX1, cy: 2380 });
+  b.put(S('gen-ausstattung-feuerloescher', 90, { wallId: right.id }), { right: IX1, cy: 2420 });
+
+  /* ---- Trainingshalle: Gang entlang der Servicezeile (Türen) → Reihen beginnen bei x 1030 ---- */
+  const ROW_X0 = HALL_X0 + 125; // 1030
+  const ROW_X1 = HALL_X1 - 125; // 2870 (Gang vor Wellness-/Kursraum-Tür)
+
+  /* Freihantel (oben links): Racks an der Spiegelwand, Bänke davor, Kurzhantel-Rack an der Servicewand */
+  const racks = b.rowX([
+    S('atlantis-c513', 0, { note: 'Power Rack 1' }), S('atlantis-c513', 0, { note: 'Power Rack 2' }), S('atlantis-rs611'), S('atlantis-b4800', 0, { note: 'Kreuzheben-Plattform' }),
+  ], { left: ROW_X0, top: IY0 }, { limit: 2200 });
+  b.put(S('gen-freihantel-scheibenstaender'), { left: extentsOf(racks[3]).maxX + 8, top: IY0 }); // x 2190–2250
+  b.put(S('gen-freihantel-langhantelstaender'), { right: 2325, top: IY0 }); // x 2255–2325, vor der Rig-Zone (2330)
+  const benches = b.rowX([
+    S('atlantis-b177'), S('atlantis-b177'), S('atlantis-b275'), S('atlantis-p337'), S('atlantis-p338'),
+  ], { left: 1090, top: b.boxOf(racks).maxY + 130 }, { gap: 5, limit: 2310 });
+  b.assertAisleY(racks, benches, 125);
+  const dbRack = b.put(S('atlantis-s189', 270), { left: HALL_X0, top: 420 }); // Front zur Halle
+  assert(extentsOf(dbRack).maxX <= 1090, 'Kurzhantel-Rack ragt in die Bänkereihe');
+  b.put(S('gen-freihantel-hantelscheiben-satz-gross'), { left: extentsOf(racks[3]).maxX + 10, top: 200 });
+
+  /* Functional (oben rechts, x 2320–2850; Notausgang oben bei x 2910 – Freihaltefläche x 2860–2960) */
+  // Laufweg-Regel: Lücken zwischen Trainingsobjekten entweder < 40 cm (kein Gang) oder ≥ 120 cm
+  b.put(S('gen-functional-rig', 0, { width: 360, depth: 180 }), { left: 2330, top: IY0 }); // Box x 2330–2810, y 24–324
+  b.put(S('gen-functional-kettlebell-regal'), { left: 2330, top: 340 }); // x 2330–2450, Box bis y 495
+  b.put(S('gen-functional-medizinball-regal'), { left: 2460, top: 340 }); // x 2460–2560
+  b.put(S('gen-functional-plyo-box-soft-set'), { left: 2570, top: 340 }); // x 2575–2725, y 340–400
+  b.put(S('gen-functional-sled'), { left: 2750, top: 340 }); // x 2755–2845, y 340–440
+  b.rowX([S('gen-functional-bodenmatte'), S('gen-functional-bodenmatte')], { left: 2330, top: 520 }, { limit: 2745 }); // y 520–620
+  b.put(S('gen-functional-sled-bahn', 90, { width: 150, depth: 520 }), { left: 2330, bottom: 787 }); // 520 × 150, y 635–785
+  b.put(S('gen-functional-plyo-box'), { left: 2760, top: 570 }); // x 2765–2815, y 570–630
+
+  /* Maschinen (Prime Hybrid), zwei Reihen Rücken an Rücken: A1 Beine (Front nach oben), A2 Oberkörper (Front nach unten) */
+  const rowA1 = b.rowX([
+    S('prime-hybrid-leg-press', 180), S('prime-hybrid-leg-extension', 180), S('prime-hybrid-seated-leg-curl', 180),
+    S('prime-hybrid-prone-leg-curl', 180), S('prime-hybrid-inner-outer-thigh', 180), S('prime-hybrid-seated-calf-press', 180),
+    S('prime-hybrid-multi-hip', 180),
+  ], { left: ROW_X0, top: b.boxOf(benches).maxY + 125 }, { limit: ROW_X1 });
+  b.assertAisleY(benches, rowA1, 125);
+  const rowA2 = b.rowX([
+    S('prime-hybrid-chest-press'), S('prime-hybrid-pec-rear-delt'), S('prime-hybrid-lat-pulldown'), S('prime-hybrid-seated-row'),
+    S('prime-hybrid-shoulder-press'), S('prime-hybrid-lateral-raise'),
+  ], { left: ROW_X0, top: b.boxOf(rowA1).maxY }, { limit: ROW_X1 });
+
+  /* Plate-Loaded-Reihe (Front nach oben, große Geräte quer) */
+  const rowP = b.rowX([
+    S('prime-plate-loaded-hack-squat', 90), S('prime-plate-loaded-leg-press', 90), S('prime-plate-loaded-pendulum-squat', 90),
+    S('prime-plate-loaded-extreme-row', 90), S('prime-hybrid-arm-curl', 180),
+  ], { left: ROW_X0, top: b.boxOf(rowA2).maxY + 125 }, { limit: ROW_X1 });
+  b.assertAisleY(rowA2, rowP, 125);
+  b.put(S('gen-freihantel-scheibenstaender'), { left: extentsOf(rowP[4]).maxX + 15, top: extentsOf(rowP[4]).minY });
+
+  /* Cardio am Fensterband (Front zum Fenster, Sturzraum 200 cm nach innen) */
+  const cardio = b.rowX([
+    S('gen-cardio-laufband'), S('gen-cardio-laufband'), S('gen-cardio-laufband'), S('gen-cardio-laufband'), S('gen-cardio-laufband'),
+    S('gen-cardio-curved-treadmill'), S('gen-cardio-crosstrainer'), S('gen-cardio-crosstrainer'), S('gen-cardio-crosstrainer'),
+    S('gen-cardio-ergometer'), S('gen-cardio-ergometer'), S('gen-cardio-liegeergometer'), S('gen-cardio-rudergeraet'), S('gen-cardio-rudergeraet'),
+    S('gen-cardio-stairmaster'), S('gen-cardio-stairmaster'), S('gen-cardio-skierg'), S('gen-cardio-air-bike'),
+  ], { left: ROW_X0, bottom: IY1 }, { gap: 8, limit: 2850 });
+  b.assertAisleY(rowP, cardio, 120);
+  b.put(S('gen-ausstattung-wasserspender'), { right: 2860, top: b.boxOf(rowP).maxY + 20 });
+  b.put(S('gen-ausstattung-desinfektionsstation'), { right: 2860, top: b.boxOf(rowP).maxY + 70 });
+  b.put(S('gen-umkleide-handtuchspender', 90, { wallId: wRC.id }), { right: HALL_X1, cy: 2100 });
+
+  /* Zonen */
+  b.zone(1000, IY0, 2325, 787, 'Freihantel', 'Trainingsfläche Freihantel');
+  b.zone(2320, IY0, HALL_X1, 787, 'Functional', 'Functional/Stretching');
+  b.zone(1000, b.boxOf(rowA1).minY - 30, HALL_X1, b.boxOf(rowA2).maxY + 30, 'Maschinen', 'Maschinen');
+  b.zone(1000, b.boxOf(rowP).minY - 30, HALL_X1, b.boxOf(rowP).maxY + 30, 'Plate Loaded', 'Maschinen');
+  b.zone(1000, b.boxOf(cardio).minY - 40, HALL_X1, IY1, 'Cardio', 'Cardio');
+
+  /* Ausstattung Halle: Wandobjekte in den Gängen, Säulen im Raster */
+  b.put(S('gen-ausstattung-feuerloescher', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 1300 });
+  b.put(S('gen-ausstattung-erste-hilfe', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 1350 });
+  b.put(S('gen-ausstattung-feuerloescher', 90, { wallId: wRC.id }), { right: HALL_X1, cy: 1300 });
+  b.put(S('gen-ausstattung-feuerloescher', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 2250 });
+  b.put(S('gen-ausstattung-desinfektionsstation'), { left: HALL_X0, cy: 1480 });
+  b.put(S('gen-ausstattung-wasserspender'), { left: HALL_X0, cy: 1560 });
+  b.put(S('gen-ausstattung-muelleimer'), { left: HALL_X0, cy: 1620 });
+  b.put(S('gen-ausstattung-tv-65', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 2150 });
+  b.put(S('gen-ausstattung-tv-65', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 2350 });
+  b.put(S('gen-ausstattung-lautsprecher', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 700 });
+  b.put(S('gen-ausstattung-lautsprecher', 90, { wallId: wRC.id }), { right: HALL_X1, cy: 1000 });
+  b.put(S('gen-ausstattung-lautsprecher', 180, { wallId: bottom.id }), { cx: 2900, bottom: IY1 });
+  b.put(S('gen-ausstattung-kamera', 270, { wallId: wCol.id }), { left: HALL_X0, cy: 250 });
+  b.put(S('gen-ausstattung-kamera', 90, { wallId: wRC.id }), { right: HALL_X1, cy: 2400 });
+  b.put(S('gen-ausstattung-notausgang-schild', 0, { wallId: top.id }), { cx: 2830, top: IY0 });
+  b.put(S('gen-bau-saeule-rund-50'), { cx: 2280, cy: 850 });
+  b.put(S('gen-bau-saeule-rund-50'), { cx: 2280, cy: 1570 });
+
+  return project;
+}
+
 /* ------------------------------------------------------------------ */
 /* Export                                                              */
 /* ------------------------------------------------------------------ */
 
 export const TEMPLATES: ProjectTemplate[] = [
+  {
+    id: 'beispiel-1000',
+    name: 'Beispielstudio 1.000 m²',
+    description: '40 × 25 m: vollständig eingerichtetes Muster-Studio – Empfang, Umkleiden mit Duschen/WC, Freihantel mit Racks und Spiegelwand, Prime-Hybrid-Maschinen, Plate-Loaded, Cardio am Fensterband, Functional, Kursraum, Wellness, Lager/Technik',
+    create: createExampleStudio,
+  },
   {
     id: 'empty-20x25',
     name: 'Leere Halle 20 × 25 m',
@@ -743,4 +1079,12 @@ export const TEMPLATES: ProjectTemplate[] = [
 /** Vorlage per ID (undefined, wenn unbekannt). */
 export function getTemplate(id: string): ProjectTemplate | undefined {
   return TEMPLATES.find((t) => t.id === id);
+}
+
+/** Vorlage, die beim allerersten Start geladen wird. */
+export const DEFAULT_TEMPLATE_ID = 'beispiel-1000';
+/** Leere Halle (Fallback, z. B. für Persistenz-Tests). */
+export const EMPTY_TEMPLATE_ID = 'empty-20x25';
+export function defaultTemplate(): ProjectTemplate {
+  return getTemplate(DEFAULT_TEMPLATE_ID) ?? getTemplate(EMPTY_TEMPLATE_ID) ?? TEMPLATES[0];
 }

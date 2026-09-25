@@ -1,15 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import type { Door, Floor, PlacedItem, Project } from '@/types';
-import { TEMPLATES, getTemplate } from './templates';
+import { TEMPLATES, getTemplate, defaultTemplate, DEFAULT_TEMPLATE_ID, EMPTY_TEMPLATE_ID } from './templates';
 import { getDef } from '@/data/equipment';
 import { polygonAreaM2, pointInPolygon } from '@/geometry/polygon';
 import { allWalls, findWall, hallInnerPolygon, hallOuterPolygon, wallLength } from '@/geometry/walls';
 import { floorRooms } from '@/geometry/rooms';
 import { findCollisions, itemInsideHall, itemsInDoorSwing, emergencyExitBlocked } from '@/geometry/collision';
 import { itemFootprint, itemSafetyPolygon, zoneIsEmpty } from '@/geometry/transform';
-import { warnings } from '@/analysis';
+import { warnings, capacity, areaBalance } from '@/analysis';
 
-const EXPECTED_AREAS: Record<string, number> = { 'empty-20x25': 500, 'studio-400': 400, 'studio-800': 800 };
+const EXPECTED_AREAS: Record<string, number> = { 'beispiel-1000': 1000, 'empty-20x25': 500, 'studio-400': 400, 'studio-800': 800 };
 
 function firstFloor(p: Project): Floor {
   const f = p.floors.find((x) => x.id === p.activeFloorId) ?? p.floors[0];
@@ -23,12 +23,15 @@ function label(it: PlacedItem, p: Project): string {
 }
 
 describe('Projekt-Vorlagen', () => {
-  it('es gibt genau die drei Vorlagen mit eindeutigen IDs und deutschen Namen', () => {
-    expect(TEMPLATES.map((t) => t.id)).toEqual(['empty-20x25', 'studio-400', 'studio-800']);
-    expect(TEMPLATES.map((t) => t.name)).toEqual(['Leere Halle 20 × 25 m', 'Kleines Studio 400 m²', 'Mittleres Studio 800 m²']);
+  it('es gibt genau die vier Vorlagen mit eindeutigen IDs und deutschen Namen, Beispielstudio zuerst', () => {
+    expect(TEMPLATES.map((t) => t.id)).toEqual(['beispiel-1000', 'empty-20x25', 'studio-400', 'studio-800']);
+    expect(TEMPLATES.map((t) => t.name)).toEqual(['Beispielstudio 1.000 m²', 'Leere Halle 20 × 25 m', 'Kleines Studio 400 m²', 'Mittleres Studio 800 m²']);
     for (const t of TEMPLATES) expect(t.description.length).toBeGreaterThan(10);
     expect(getTemplate('studio-400')?.name).toBe('Kleines Studio 400 m²');
     expect(getTemplate('nope')).toBeUndefined();
+    expect(DEFAULT_TEMPLATE_ID).toBe('beispiel-1000');
+    expect(EMPTY_TEMPLATE_ID).toBe('empty-20x25');
+    expect(defaultTemplate().id).toBe('beispiel-1000');
   });
 
   for (const t of TEMPLATES) {
@@ -305,6 +308,104 @@ describe('Projekt-Vorlagen', () => {
         expect(pointInPolygon({ x: r.x, y: r.y }, damen.polygon) || pointInPolygon({ x: r.x, y: r.y }, herren.polygon), label(r, p)).toBe(true);
       }
       expect(lockers).toBeGreaterThanOrEqual(80);
+    });
+  });
+
+  describe('Beispielstudio 1.000 m²', () => {
+    const p = getTemplate('beispiel-1000')!.create();
+    const f = firstFloor(p);
+    const rooms = floorRooms(f);
+    const autoRooms = rooms.filter((r) => r.source === 'auto');
+    const zones = rooms.filter((r) => r.source === 'zone');
+    const byName = new Map(autoRooms.map((r) => [r.name, r]));
+    const defs = f.items.map((it) => getDef(it.defId, p)!);
+
+    it('ist 40 × 25 m mit 14 benannten, typisierten Räumen und 5 Trainingszonen', () => {
+      const xs = f.hall!.polygon.map((v) => v.x);
+      const ys = f.hall!.polygon.map((v) => v.y);
+      expect(Math.max(...xs) - Math.min(...xs)).toBe(4000);
+      expect(Math.max(...ys) - Math.min(...ys)).toBe(2500);
+      for (const [name, type] of [
+        ['Empfang / Lounge', 'Empfang/Lounge'], ['Büro', 'Büro'], ['Personalraum', 'Personalraum'], ['WC barrierefrei', 'WC'],
+        ['Umkleide Damen', 'Umkleide Damen'], ['Duschen / WC Damen', 'Duschen'], ['Umkleide Herren', 'Umkleide Herren'], ['Duschen / WC Herren', 'Duschen'],
+        ['Lager', 'Lager'], ['Technik / Lüftung', 'Technik/Lüftung'], ['Putzraum', 'Putzraum'], ['Wellness', 'Wellness/Sauna'], ['Kursraum', 'Kursraum'],
+        ['Trainingshalle', 'Flur/Verkehrsfläche'],
+      ] as const) {
+        expect(byName.get(name)?.type, name).toBe(type);
+      }
+      expect(autoRooms.length).toBe(14);
+      expect(autoRooms.every((r) => r.type !== 'Sonstiges' && r.name !== 'Raum')).toBe(true);
+      expect(zones.map((z) => z.name).sort()).toEqual(['Cardio', 'Freihantel', 'Functional', 'Maschinen', 'Plate Loaded']);
+      // Hallen-Label ausgeblendet (Zonen tragen die Beschriftung)
+      const hallMeta = Object.values(f.roomMeta).find((m) => m.name === 'Trainingshalle');
+      expect(hallMeta?.labelMode).toBe('none');
+      const balance = areaBalance(p).floors[0];
+      expect(balance.bruttoM2).toBe(1000);
+      expect(balance.untypedRoomCount).toBe(0);
+      expect(balance.nettoM2).toBeGreaterThan(950);
+    });
+
+    it('hat Haupteingang, zwei weitere Notausgänge, Rolltor, Fensterband und zwei Spiegelwände', () => {
+      const doors = f.openings.filter((o): o is Door => o.kind === 'door');
+      expect(doors.length).toBeGreaterThanOrEqual(17);
+      const exits = doors.filter((d) => d.doorType === 'Notausgang');
+      expect(exits.length).toBe(3);
+      expect(exits.every((d) => d.wallId.startsWith('hall_'))).toBe(true);
+      expect(doors.some((d) => d.doorType === 'Rolltor')).toBe(true);
+      expect(doors.some((d) => d.doorType === 'zweiflügelig')).toBe(true);
+      expect(f.openings.filter((o) => o.kind === 'window').length).toBeGreaterThanOrEqual(10);
+      expect(f.openings.filter((o) => o.kind === 'mirror').length).toBe(2);
+    });
+
+    it('ist mit über 200 Objekten eingerichtet: Atlantis-Racks, Prime-Hybrid- und Plate-Loaded-Reihe, 18 Cardio-Geräte, Functional, Kursraum, Wellness', () => {
+      expect(f.items.length).toBeGreaterThanOrEqual(200);
+      const equipment = defs.filter((d) => ['Kraftgeräte', 'Cardio', 'Functional', 'Freihantel-Zubehör'].includes(d.bereich));
+      expect(equipment.length).toBeGreaterThanOrEqual(45);
+      expect(defs.filter((d) => d.hersteller === 'Atlantis').length).toBeGreaterThanOrEqual(9);
+      expect(defs.filter((d) => d.hersteller === 'Prime').length).toBeGreaterThanOrEqual(18);
+      expect(defs.filter((d) => d.id === 'atlantis-c513').length).toBe(2);
+      expect(defs.some((d) => d.id === 'atlantis-b4800')).toBe(true);
+      expect(defs.some((d) => d.id === 'atlantis-s189')).toBe(true);
+      expect(defs.filter((d) => d.id.startsWith('prime-hybrid-')).length).toBeGreaterThanOrEqual(13);
+      expect(defs.filter((d) => d.id.startsWith('prime-plate-loaded-')).length).toBe(4);
+      expect(defs.filter((d) => d.bereich === 'Cardio').length).toBe(18);
+      expect(defs.filter((d) => d.id === 'gen-cardio-laufband').length).toBe(5);
+      for (const sym of ['rig', 'sauna', 'plunge', 'shower-experience', 'podium', 'counter', 'turnstile', 'platform']) {
+        expect(defs.some((d) => d.symbol === sym), sym).toBe(true);
+      }
+      expect(defs.filter((d) => d.symbol === 'spin-bike').length).toBe(6);
+      expect(defs.filter((d) => d.symbol === 'lounger').length).toBe(4);
+      expect(defs.filter((d) => d.symbol === 'shower').length).toBeGreaterThanOrEqual(10);
+      expect(defs.filter((d) => d.symbol === 'locker-row').length).toBe(4);
+      expect(f.items.filter((it) => it.kind === 'column').length).toBe(2);
+    });
+
+    it('Kapazität: alle Kennzahlen (Spinde, Duschen, WCs) reichen für die Personenzahl', () => {
+      const c = capacity(p);
+      expect(c.persons).toBeGreaterThanOrEqual(50);
+      for (const k of c.counters) expect(k.status, `${k.key}: ${k.actual}/${k.required}`).toBe('ok');
+    });
+
+    it('startet ohne Kollisions-, Tür-, Notausgang- und Laufweg-Warnungen', () => {
+      const list = warnings(p).filter((w) => w.kind !== 'unverified');
+      expect(list.map((w) => `${w.kind}: ${w.message}`)).toEqual([]);
+    });
+
+    it('Wellness-, Kursraum- und Sanitärobjekte liegen in ihren Räumen; Trainingsgeräte in der Halle', () => {
+      const wellness = byName.get('Wellness')!;
+      const kurs = byName.get('Kursraum')!;
+      const halle = byName.get('Trainingshalle')!;
+      const sanitary = ['Duschen / WC Damen', 'Duschen / WC Herren', 'WC barrierefrei', 'Putzraum'].map((n) => byName.get(n)!);
+      for (const it of f.items) {
+        const d = getDef(it.defId, p)!;
+        const at = { x: it.x, y: it.y };
+        if (d.bereich === 'Wellness') expect(pointInPolygon(at, wellness.polygon), label(it, p)).toBe(true);
+        if (d.bereich === 'Kursraum') expect(pointInPolygon(at, kurs.polygon), label(it, p)).toBe(true);
+        if (d.bereich === 'Sanitär') expect(sanitary.some((r) => pointInPolygon(at, r.polygon)), label(it, p)).toBe(true);
+        if (['Kraftgeräte', 'Cardio'].includes(d.bereich) && !d.ohne_stellflaeche) {
+          expect(pointInPolygon(at, halle.polygon), label(it, p)).toBe(true);
+        }
+      }
     });
   });
 });
