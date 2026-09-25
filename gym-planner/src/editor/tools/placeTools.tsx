@@ -162,15 +162,19 @@ const genericCache = new Map<string, EquipmentDef | null>();
 function preferredIds(kind: PlaceKind, opts: PlaceOptions): string[] {
   if (kind === 'stairs') {
     const t = opts.stairsType;
-    const ids = [`gen-bauelemente-treppe-${stairsSlug(t)}`, `gen-bauelemente-treppe-${t.toLowerCase()}`];
+    const slug = stairsSlug(t);
+    const ids = [
+      t === 'Wendeltreppe' ? 'gen-bau-wendeltreppe' : `gen-bau-treppe-${slug}`,
+      `gen-bauelemente-treppe-${slug}`, `gen-bauelemente-treppe-${t.toLowerCase()}`,
+    ];
     if (t === 'Wendeltreppe') ids.push('gen-bauelemente-treppe-wendel', 'gen-bauelemente-wendeltreppe', 'gen-bauelemente-treppe-spirale');
     if (t === 'L') ids.push('gen-bauelemente-treppe-l-treppe', 'gen-bauelemente-l-treppe');
     if (t === 'U') ids.push('gen-bauelemente-treppe-u-treppe', 'gen-bauelemente-u-treppe');
     return ids;
   }
-  if (kind === 'elevator') return ['gen-bauelemente-aufzug', 'gen-bauelemente-lift', 'gen-bauelemente-fahrstuhl'];
+  if (kind === 'elevator') return ['gen-bau-aufzug', 'gen-bauelemente-aufzug', 'gen-bauelemente-lift', 'gen-bauelemente-fahrstuhl'];
   const s = opts.columnShape;
-  return [`gen-bauelemente-saeule-${s}`, `gen-bauelemente-stuetze-${s}`, `gen-bauelemente-saeule-${s === 'rund' ? 'rund' : 'quadratisch'}`];
+  return [`gen-bau-saeule-${s}`, `gen-bauelemente-saeule-${s}`, `gen-bauelemente-stuetze-${s}`, `gen-bauelemente-saeule-${s === 'rund' ? 'rund' : 'quadratisch'}`];
 }
 
 function matchesColumnShape(d: EquipmentDef, shape: ColumnShape): boolean {

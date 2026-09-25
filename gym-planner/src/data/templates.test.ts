@@ -6,7 +6,7 @@ import { polygonAreaM2, pointInPolygon } from '@/geometry/polygon';
 import { allWalls, findWall, hallInnerPolygon, hallOuterPolygon, wallLength } from '@/geometry/walls';
 import { floorRooms } from '@/geometry/rooms';
 import { findCollisions, itemInsideHall, itemsInDoorSwing, emergencyExitBlocked } from '@/geometry/collision';
-import { itemFootprint } from '@/geometry/transform';
+import { itemFootprint, itemSafetyPolygon, zoneIsEmpty } from '@/geometry/transform';
 
 const EXPECTED_AREAS: Record<string, number> = { 'empty-20x25': 500, 'studio-400': 400, 'studio-800': 800 };
 
@@ -207,11 +207,20 @@ describe('Projekt-Vorlagen', () => {
       expect(f.items.length).toBeGreaterThanOrEqual(60);
     });
 
-    it('Cardio-Geräte stehen in einer Reihe mit gleicher Ausrichtung', () => {
+    it('Cardio-Geräte stehen in einer Reihe mit gleicher Ausrichtung (Belegungsboxen oben bündig)', () => {
       const cardio = f.items.filter((it) => getDef(it.defId, p)!.bereich === 'Cardio');
+      expect(cardio.length).toBeGreaterThanOrEqual(6);
       expect(new Set(cardio.map((it) => it.rotation)).size).toBe(1);
-      const tops = cardio.map((it) => it.y - it.depth / 2);
+      const tops = cardio.map((it) => {
+        const poly = zoneIsEmpty(it.safetyZone) ? itemFootprint(it) : itemSafetyPolygon(it, it.safetyZone);
+        return Math.min(...poly.map((v) => v.y));
+      });
       expect(Math.max(...tops) - Math.min(...tops)).toBeLessThanOrEqual(10);
+      // Laufbänder: Sturzraum 200 cm zeigt in die Halle (nach unten), nicht in die Wand
+      for (const it of cardio.filter((x) => x.defId === 'gen-cardio-laufband')) {
+        const zone = itemSafetyPolygon(it, it.safetyZone);
+        expect(Math.max(...zone.map((v) => v.y)) - (it.y + it.depth / 2)).toBeCloseTo(200, 6);
+      }
     });
   });
 
@@ -232,7 +241,7 @@ describe('Projekt-Vorlagen', () => {
 
     it('ist mit 50–70 Geräten, 12–15 Cardio-Geräten, zwei Racks, Plattform und Functional Trainer eingerichtet', () => {
       const defs = f.items.map((it) => getDef(it.defId, p)!);
-      const equipment = defs.filter((d) => ['Kraftgeräte', 'Cardio', 'Functional', 'Freihantel-Zubehör', 'Kursraum'].includes(d.bereich));
+      const equipment = defs.filter((d) => ['Kraftgeräte', 'Cardio', 'Functional', 'Freihantel-Zubehör'].includes(d.bereich));
       expect(equipment.length).toBeGreaterThanOrEqual(50);
       expect(equipment.length).toBeLessThanOrEqual(70);
       const cardio = defs.filter((d) => d.bereich === 'Cardio').length;

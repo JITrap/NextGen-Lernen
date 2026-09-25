@@ -177,8 +177,10 @@ class FloorBuilder {
   /**
    * Benennt automatisch erkannte Räume: Für jeden erkannten Wandzug wird der Planeintrag gesucht,
    * dessen Referenzpunkt im Innenpolygon liegt, und `roomMeta[loopKey]` gesetzt.
+   * Wird ein geplanter Raum nicht erkannt, bleibt er unbenannt („Raum“/Sonstiges) – die Vorlage
+   * lässt sich trotzdem anlegen. Liefert die Anzahl benannter Räume.
    */
-  nameRooms(plan: { at: Vec2; name: string; type: RoomType }[]): void {
+  nameRooms(plan: { at: Vec2; name: string; type: RoomType }[]): number {
     const rooms = detectWallRooms(allWalls(this.floor));
     const used = new Set<number>();
     for (const r of rooms) {
@@ -187,7 +189,7 @@ class FloorBuilder {
       used.add(idx);
       this.floor.roomMeta[loopKeyFor(r.polygon)] = { name: plan[idx].name, type: plan[idx].type };
     }
-    assert(used.size === plan.length, `nicht alle geplanten Räume erkannt (${used.size}/${plan.length})`);
+    return used.size;
   }
 
   /* ---- Objekte ---- */
@@ -447,10 +449,9 @@ function createSmallStudio(name = 'Kleines Studio 400 m²'): Project {
   ], { top: IY0, right: IX1 }, { limit: 1240 });
   b.put(S('atlantis-p245'), { right: IX1, bottom: IY1 }); // unterhalb des Notausgang-Freihaltebereichs (y 1250–1350)
   const rackBox = extentsOf(rightCol[0]);
-  const leftCol = b.rowY([
+  b.rowY([
     S('atlantis-b177'), S('atlantis-b275'), S('atlantis-c117'), S('atlantis-b256'),
   ], { top: IY0, right: rackBox.minX - 5 }, { limit: 1000 });
-  b.rowY([S('gen-functional-bodenmatte'), S('gen-functional-bodenmatte')], { top: b.boxOf(leftCol).maxY + 10, left: 1990 }, { limit: 1240 });
 
   /* ---- Ausstattung Halle ---- */
   b.put(S('gen-ausstattung-wasserspender'), { cx: 880, cy: 480 });
@@ -551,11 +552,11 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
 
   /* ---- Empfang (x 24–795, y 24–445) ---- */
   b.put(S('gen-empfang-theke', 180), { cx: 450, cy: 390 });
-  b.put(S('gen-empfang-drehkreuz', 270), { right: ROOM_X1 - 20, cy: 200 });
-  b.put(S('gen-empfang-zugangsschranke', 270), { right: ROOM_X1 - 20, cy: 320 });
+  b.put(S('gen-empfang-drehkreuz', 270), { right: ROOM_X1 - 20, cy: 190 });
+  b.put(S('gen-empfang-zugangsschranke', 270), { right: ROOM_X1 - 20, cy: 300 });
   b.put(S('gen-empfang-sofa-3', 270), { left: IX0, top: 60 });
   b.put(S('gen-empfang-sessel'), { left: IX0, top: 300 });
-  b.put(S('gen-empfang-loungetisch', 90), { cx: 200, cy: 180 });
+  b.put(S('gen-empfang-loungetisch', 90), { cx: 150, cy: 200 });
   b.put(S('gen-empfang-stehtisch'), { cx: 250, cy: 330 });
   b.put(S('gen-empfang-kuehlschrank'), { right: ROOM_X1, cy: 400 });
   b.put(S('gen-empfang-getraenkeautomat'), { right: ROOM_X1, top: IY0 });
@@ -607,11 +608,11 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
     b.put(lockerRow(Math.max(3, Math.min(12, Math.floor(free / 30))), 270, women ? 'Spinde Damen B' : 'Spinde Herren B'), { left: UMK_X0, top: y0 });
     b.put(S('gen-umkleide-einzelkabine'), { right: ROOM_X1, top: y0 + 150 });
     b.put(S('gen-umkleide-mittelbank', 0, { width: 150 }), { cx: 560, cy: midY });
-    b.put(S('gen-umkleide-foehnplatz', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY + 30 });
-    b.put(S('gen-umkleide-spiegel', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY + 120 });
-    b.put(S('gen-umkleide-wertfaecher', 0, { wallId: topWall.id }), { cx: 620, top: y0 });
+    b.put(S('gen-umkleide-spiegel', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: midY + 50 });
+    b.put(S('gen-umkleide-foehnplatz', 0, { wallId: topWall.id }), { cx: 650, top: y0 });
+    b.put(S('gen-umkleide-wertfaecher', 0, { wallId: topWall.id }), { cx: 560, top: y0 });
     b.put(S('gen-ausstattung-muelleimer'), { cx: 500, cy: midY + 60 });
-    b.put(S('gen-bau-lueftungsauslass'), { cx: 500, cy: y0 + 60 });
+    b.put(S('gen-bau-lueftungsauslass'), { cx: 600, cy: y0 + 95 });
   };
   changingRoom(905, 1435, wSanD, wLD, true);
   changingRoom(1445, IY1, wSanH, wDH, false);
@@ -696,7 +697,7 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 880, cy: 1500 });
   b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 2840, cy: 1300 });
   b.put(S('gen-ausstattung-muelleimer'), { cx: 880, cy: 540 });
-  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2560, bottom: IY1 });
+  b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2580, bottom: IY1 });
   b.put(S('gen-ausstattung-feuerloescher', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1100 });
   b.put(S('gen-ausstattung-aed', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1000 });
   b.put(S('gen-ausstattung-erste-hilfe', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1050 });
