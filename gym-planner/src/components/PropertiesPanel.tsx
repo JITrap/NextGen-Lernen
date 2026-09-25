@@ -1257,8 +1257,10 @@ export function PropertiesPanel() {
         const room = rooms.find((r) => r.id === s.id);
         const zone = s.kind === 'zone' ? floor.zones.find((z) => z.id === s.id) : undefined;
         if (zone && !room) {
-          // ausgeblendete Zone: Raum wird nicht berechnet – minimal aus dem Polygon ableiten
-          const fake: Room = { ...zone, source: 'zone', areaM2: polygonAreaM2(zone.polygon), perimeterCm: perimeter(zone.polygon), centroid: bbox(zone.polygon) && { x: (bbox(zone.polygon).minX + bbox(zone.polygon).maxX) / 2, y: (bbox(zone.polygon).minY + bbox(zone.polygon).maxY) / 2 } };
+          // ausgeblendete Zone: floorRooms lässt sie aus – Kennzahlen direkt aus dem Polygon ableiten
+          const b = bbox(zone.polygon);
+          const { locked: _l, hidden: _h, ...meta } = zone;
+          const fake: Room = { ...meta, source: 'zone', areaM2: polygonAreaM2(zone.polygon), perimeterCm: perimeter(zone.polygon), centroid: { x: (b.minX + b.maxX) / 2, y: (b.minY + b.maxY) / 2 } };
           return <RoomProps room={fake} zone={zone} floor={floor} />;
         }
         return room ? <RoomProps room={room} zone={zone} floor={floor} /> : <StaleSelection sel={sel} />;

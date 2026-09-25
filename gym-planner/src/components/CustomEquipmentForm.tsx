@@ -288,11 +288,13 @@ export function buildDef(f: FormState, id: string): EquipmentDef {
 
 function Field({ label, error, children, hint, className = '' }: { label: string; error?: string; hint?: string; children: React.ReactNode; className?: string }) {
   return (
-    <label className={`flex flex-col gap-1 ${className}`}>
-      <span className="gp-label">{label}</span>
-      {children}
+    <div className={`flex flex-col gap-1 ${className}`}>
+      <label className="flex flex-col gap-1">
+        <span className="gp-label">{label}</span>
+        {children}
+      </label>
       {error ? <span className="text-[11px] gp-danger">{error}</span> : hint ? <span className="text-[11px] gp-muted">{hint}</span> : null}
-    </label>
+    </div>
   );
 }
 

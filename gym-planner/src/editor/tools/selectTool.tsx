@@ -29,13 +29,13 @@ import {
   snapItemPosition, snapToWallSide, dockToRack, nearestDistances, snapRotation, type SnapContext, type NearestDistance,
 } from '@/geometry/snap';
 import { itemFootprint, worldToLocal, localToWorld } from '@/geometry/transform';
-import { bbox, pointInPolygon, translatePolygon, rotateAround, distance, sub, type BBox } from '@/geometry/polygon';
+import { pointInPolygon, translatePolygon, rotateAround, distance, sub, type BBox } from '@/geometry/polygon';
 import { convexPolygonsOverlap } from '@/geometry/collision';
 import {
   moveWallWithNeighbors, moveWallNode, projectOntoWall, nearestWall, clampOpeningOffset, findWall, isHallWallId, wallLength,
-  hallInnerPolygon, WALL_NODE_TOL, wallMidpoint,
+  hallInnerPolygon, hallWalls, WALL_NODE_TOL, wallMidpoint,
 } from '@/geometry/walls';
-import { formatDegrees, formatLength, parseLength, normalizeAngle, formatCm } from '@/geometry/units';
+import { formatDegrees, formatLength, parseLength, normalizeAngle } from '@/geometry/units';
 import { setWallLength, setHallEdgeLength, clampOpeningsOnWalls, setTextAnnotation } from '../actions';
 
 /* ------------------------------------------------------------------ */
@@ -514,6 +514,12 @@ function prepareMoveDrag(e: ToolEvent, ctx: ToolContext, hit: Selection) {
         break;
     }
   }
+  // Angedockte Rack-Module folgen ihrem Rack
+  if (itemOrig.size) {
+    for (const it of floor.items) {
+      if (it.dockedTo && !it.locked && !itemOrig.has(it.id) && itemOrig.has(it.dockedTo)) itemOrig.set(it.id, it);
+    }
+  }
   if (!itemOrig.size && !polyOrig.size && !voidOrigs.size && !annOrig.size) {
     d.mode = 'none';
     drag = d;
@@ -743,7 +749,15 @@ function hallVertexDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
   const res = ctx.snap(e.world, { hall: others.length >= 3 ? { ...ctx.floor.hall, polygon: others } : null, ignoreIds: new Set(poly.map((_, i) => `hall_${i}`)) });
   useSnapGuides.getState().set(res);
   const next = poly.map((p, i) => (i === idx ? res.point : p));
-  useProjectStore.getState().updateHall(d.floorId, (h) => { h.polygon = next; });
+  applyHallPolygon(ctx, d, next);
+}
+
+/** Setzt das Hallenpolygon und hält Öffnungen an den (virtuellen) Außenwänden innerhalb der neuen Kantenlängen. */
+function applyHallPolygon(ctx: ToolContext, d: DragState, polygon: Vec2[]) {
+  const hall = ctx.floor.hall;
+  if (!hall) return;
+  useProjectStore.getState().updateHall(d.floorId, (h) => { h.polygon = polygon; });
+  clampOpeningsOnWalls(ctx.floor, hallWalls({ ...hall, polygon }));
 }
 
 function hallEdgeDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
@@ -755,11 +769,11 @@ function hallEdgeDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
   const b = poly[(idx + 1) % n];
   const shift = normalShift(a, b, sub(e.world, d.startWorld));
   // Rastern: verschobenen Anfangspunkt fangen (ohne die Halle selbst), dann Verschiebung erneut auf die Normale projizieren
-  const res = ctx.snap({ x: a.x + shift.x, y: a.y + shift.y }, { hall: null, angleFrom: null, targets: { 'wall-mid': false, 'item-edge': false } });
+  const res = ctx.snap({ x: a.x + shift.x, y: a.y + shift.y }, { hall: null, angleFrom: null, ignoreIds: new Set(poly.map((_, i) => `hall_${i}`)), targets: { 'wall-mid': false, 'item-edge': false } });
   useSnapGuides.getState().set(res.kind === 'grid' ? null : res);
   const fin = normalShift(a, b, sub(res.point, a));
   const next = poly.map((p, i) => (i === idx || i === (idx + 1) % n ? { x: p.x + fin.x, y: p.y + fin.y } : p));
-  useProjectStore.getState().updateHall(d.floorId, (h) => { h.polygon = next; });
+  applyHallPolygon(ctx, d, next);
 }
 
 function wallMoveDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
@@ -956,3 +970,185 @@ function onCancel(ctx: ToolContext) {
   useSnapGuides.getState().set(null);
   if (ctx.ui.hoverId) ctx.ui.setHover(null);
 }
+
+/* ------------------------------------------------------------------ */
+/* Overlays                                                            */
+/* ------------------------------------------------------------------ */
+
+/** Konva-Overlay: Auswahlrahmen, Abstände beim Ziehen, Live-Winkel beim Drehen. */
+function SelectOverlay({ ctx }: { ctx: ToolContext }) {
+  const marquee = useSelectTool((s) => s.marquee);
+  const distances = useSelectTool((s) => s.distances);
+  const rotate = useSelectTool((s) => s.rotate);
+  const dark = useIsDark();
+  const s = 1 / ctx.viewport.scale;
+  const pal = dimPalette(dark);
+  const accent = pal.accent;
+  const nodes: React.ReactNode[] = [];
+  if (marquee) {
+    const r = marqueeRect(marquee.start, marquee.end);
+    const touch = marqueeMode(marquee.start, marquee.end) === 'touch';
+    nodes.push(
+      <Rect
+        key="marquee"
+        x={r.minX}
+        y={r.minY}
+        width={r.maxX - r.minX}
+        height={r.maxY - r.minY}
+        fill={dark ? 'rgba(96,165,250,0.12)' : 'rgba(37,99,235,0.10)'}
+        stroke={accent}
+        strokeWidth={1 * s}
+        dash={touch ? [5 * s, 3 * s] : undefined}
+        listening={false}
+      />,
+    );
+  }
+  for (const d of distances) {
+    nodes.push(<DimensionLine key={`dist:${d.side}`} from={d.from} to={d.to} label={formatLength(d.distance)} s={s} color={pal.accent} textColor={pal.text} bg={pal.bg} dashed />);
+  }
+  if (rotate) {
+    nodes.push(
+      <Group key="rot" listening={false}>
+        <Line points={[rotate.center.x - 6 * s, rotate.center.y, rotate.center.x + 6 * s, rotate.center.y]} stroke={accent} strokeWidth={1 * s} />
+        <Line points={[rotate.center.x, rotate.center.y - 6 * s, rotate.center.x, rotate.center.y + 6 * s]} stroke={accent} strokeWidth={1 * s} />
+        <DimText x={rotate.center.x} y={rotate.center.y - rotate.radiusCm} text={formatDegrees(rotate.angle)} s={s} color={pal.text} bg={pal.bg} bold />
+      </Group>,
+    );
+  }
+  return <Group listening={false}>{nodes}</Group>;
+}
+
+function stopKeys(e: React.KeyboardEvent) {
+  e.stopPropagation();
+}
+
+/** Numerische Längeneingabe (Hallenkante / Wand) an der Kantenmitte. */
+function LengthInputBox({ ctx, state }: { ctx: ToolContext; state: LengthInputState }) {
+  const [value, setValue] = useState(state.initial);
+  const [error, setError] = useState<string | null>(null);
+  const ref = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    setValue(state.initial);
+    setError(null);
+    const t = window.setTimeout(() => {
+      ref.current?.focus();
+      ref.current?.select();
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [state]);
+  const close = () => useSelectTool.getState().patch({ lengthInput: null });
+  const commit = () => {
+    const cm = parseLength(value, 'cm');
+    if (cm == null || !(cm >= 1)) {
+      setError('Bitte eine Länge ≥ 1 cm eingeben (z. B. 350 oder 3,5 m).');
+      return;
+    }
+    const ok = state.kind === 'hallEdge' ? setHallEdgeLength(Number(state.id), cm, ctx.floor) : setWallLength(state.id, cm, ctx.floor);
+    if (!ok) {
+      ctx.ui.toast('Länge konnte nicht gesetzt werden', 'warning');
+      close();
+      return;
+    }
+    close();
+  };
+  const p = worldToScreen(state.world, ctx.viewport);
+  return (
+    <div
+      className="gp-panel absolute z-20 rounded-lg border p-2 shadow-lg"
+      style={{ left: p.x, top: p.y, transform: 'translate(-50%, -50%)', minWidth: 190 }}
+      onPointerDown={(e) => e.stopPropagation()}
+    >
+      <label className="gp-label block pb-1">{state.kind === 'hallEdge' ? 'Kantenlänge (Außenmaß)' : 'Wandlänge (Achsmaß)'}</label>
+      <div className="flex items-center gap-1.5">
+        <input
+          ref={ref}
+          className="gp-input"
+          value={value}
+          inputMode="decimal"
+          aria-label="Länge"
+          onChange={(e) => { setValue(e.target.value); setError(null); }}
+          onKeyDown={(e) => {
+            stopKeys(e);
+            if (e.key === 'Enter') { e.preventDefault(); commit(); }
+            else if (e.key === 'Escape') { e.preventDefault(); close(); }
+          }}
+        />
+        <span className="gp-muted text-xs whitespace-nowrap">cm / m</span>
+      </div>
+      <div className="mt-1 flex items-center justify-between gap-2">
+        <span className="gp-muted text-[11px]">Enter = übernehmen · Esc = abbrechen</span>
+        <button type="button" className="gp-btn gp-btn-primary py-0.5 text-xs" onClick={commit}>OK</button>
+      </div>
+      {error && <div className="gp-danger mt-1 text-[11px]">{error}</div>}
+    </div>
+  );
+}
+
+/** Inline-Bearbeitung einer Textanmerkung. */
+function TextEditBox({ ctx, state }: { ctx: ToolContext; state: TextEditState }) {
+  const [value, setValue] = useState(state.initial);
+  const ref = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => {
+    setValue(state.initial);
+    const t = window.setTimeout(() => {
+      ref.current?.focus();
+      ref.current?.select();
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [state]);
+  const close = () => useSelectTool.getState().patch({ textEdit: null });
+  const commit = () => {
+    const text = value.replace(/\s+$/, '');
+    if (text && text !== state.initial) setTextAnnotation(state.id, { text }, ctx.floor);
+    close();
+  };
+  const p = worldToScreen(state.world, ctx.viewport);
+  const fontPx = Math.max(12, Math.min(48, state.fontSize * ctx.viewport.scale));
+  return (
+    <div className="absolute z-20" style={{ left: p.x - 4, top: p.y - 4 }} onPointerDown={(e) => e.stopPropagation()}>
+      <textarea
+        ref={ref}
+        className="gp-input resize-none shadow-lg"
+        style={{ fontSize: fontPx, lineHeight: 1.3, minWidth: 180, width: Math.max(180, value.split('\n').reduce((m, l) => Math.max(m, l.length), 0) * fontPx * 0.62 + 24), minHeight: fontPx * 1.3 + 12 }}
+        rows={Math.max(1, value.split('\n').length)}
+        value={value}
+        aria-label="Text bearbeiten"
+        onChange={(e) => setValue(e.target.value)}
+        onBlur={commit}
+        onKeyDown={(e) => {
+          stopKeys(e);
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); commit(); }
+          else if (e.key === 'Escape') { e.preventDefault(); close(); }
+        }}
+      />
+      <div className="gp-muted mt-1 text-[11px]">Enter = übernehmen · Shift+Enter = Zeilenumbruch · Esc = abbrechen</div>
+    </div>
+  );
+}
+
+function SelectHtmlOverlay({ ctx }: { ctx: ToolContext }) {
+  const lengthInput = useSelectTool((s) => s.lengthInput);
+  const textEdit = useSelectTool((s) => s.textEdit);
+  if (lengthInput) return <LengthInputBox ctx={ctx} state={lengthInput} />;
+  if (textEdit) return <TextEditBox ctx={ctx} state={textEdit} />;
+  return null;
+}
+
+/* ------------------------------------------------------------------ */
+/* Registrierung                                                       */
+/* ------------------------------------------------------------------ */
+
+registerTool({
+  id: 'select',
+  hint: 'Klicken: auswählen · Shift+Klick: mehrfach · Ziehen: verschieben/Rahmen · Doppelklick: Eigenschaften/Länge · R: drehen',
+  cursor: () => useSelectTool.getState().cursor,
+  onPointerDown,
+  onPointerMove,
+  onPointerUp,
+  onDoubleClick,
+  onKeyDown: (e) => onKeyDown(e),
+  onCancel,
+  onActivate: () => useSelectTool.getState().patch({ cursor: 'default' }),
+  Overlay: SelectOverlay,
+  HtmlOverlay: SelectHtmlOverlay,
+});

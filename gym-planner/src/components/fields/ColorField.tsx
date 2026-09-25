@@ -35,7 +35,8 @@ function normalizeHex(v: string): string | null {
 /** Farbfeld (nativer Farbwähler) + Preset-Swatches + Hex-Eingabe; optional „Standard verwenden“. */
 export function ColorField({ value, onChange, fallback = '#e5e7eb', label, ariaLabel, presets = COLOR_PRESETS, onReset, resetLabel = 'Standard verwenden', disabled, hint, className = '' }: ColorFieldProps) {
   const id = useId();
-  const shown = value ?? fallback;
+  const raw = value ?? fallback;
+  const shown = normalizeHex(raw) ?? normalizeHex(fallback) ?? '#e5e7eb';
   const hexRef = useRef<HTMLInputElement>(null);
   const commitHex = () => {
     const el = hexRef.current;

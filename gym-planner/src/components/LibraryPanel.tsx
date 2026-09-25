@@ -28,7 +28,7 @@ import { ConfirmDialog } from './ui/Modal';
 import { useIsTouch } from './ui/hooks';
 import { SelectField } from './fields/SelectField';
 import { KeyValue } from './fields/KeyValue';
-import { Section } from './fields/Section';
+import { Section, useSectionStore } from './fields/Section';
 import { CustomEquipmentForm } from './CustomEquipmentForm';
 
 /* ------------------------------------------------------------------ */
@@ -57,6 +57,7 @@ export const RACK_MODULE_HINT = 'Rack-Modul: nur an Atlantis-Racks andockbar (Sn
 const CUSTOM_GROUP_KEY = '__custom';
 const GROUP_H = 34;
 const ITEM_H = 64;
+const ITEM_H_TOUCH = 72;
 const OVERSCAN_PX = 400;
 const SEARCH_DEBOUNCE_MS = 150;
 
@@ -304,6 +305,7 @@ interface RowProps {
 
 const LibraryRow = memo(function LibraryRow({ def, favorite, highlighted, touch, onPlace, onToggleFavorite, onDetail, onDragStart, onDragEnd }: RowProps) {
   const evolution = isEvolution(def);
+  const btn = touch ? 'h-8 w-8' : 'h-7 w-7';
   const meta: string[] = [];
   if (def.benutzerdefiniert) meta.push(def.hersteller);
   else if (def.serie) meta.push(def.hersteller === 'Generisch' ? def.serie : `${def.hersteller} ${def.serie}`);
@@ -313,7 +315,7 @@ const LibraryRow = memo(function LibraryRow({ def, favorite, highlighted, touch,
     <div
       role="listitem"
       tabIndex={0}
-      draggable={!touch}
+      draggable
       title={title}
       data-def-id={def.id}
       onDragStart={(e) => onDragStart(e, def)}
@@ -365,7 +367,7 @@ const LibraryRow = memo(function LibraryRow({ def, favorite, highlighted, touch,
       <div className="flex shrink-0 flex-col items-center gap-0.5">
         <button
           type="button"
-          className="inline-flex h-7 w-7 items-center justify-center rounded-md transition-colors hover:[background:color-mix(in_srgb,var(--gp-warn)_18%,transparent)]"
+          className={`inline-flex ${btn} items-center justify-center rounded-md transition-colors hover:[background:color-mix(in_srgb,var(--gp-warn)_18%,transparent)]`}
           title={favorite ? 'Favorit entfernen' : 'Als Favorit markieren'}
           aria-label={favorite ? 'Favorit entfernen' : 'Als Favorit markieren'}
           aria-pressed={favorite}
@@ -380,7 +382,7 @@ const LibraryRow = memo(function LibraryRow({ def, favorite, highlighted, touch,
         <div className="flex items-center gap-0.5">
           <button
             type="button"
-            className="inline-flex h-7 w-7 items-center justify-center rounded-md gp-muted transition-colors hover:[background:color-mix(in_srgb,var(--gp-accent)_14%,transparent)]"
+            className={`inline-flex ${btn} items-center justify-center rounded-md gp-muted transition-colors hover:[background:color-mix(in_srgb,var(--gp-accent)_14%,transparent)]`}
             title="Details anzeigen"
             aria-label={`Details zu ${def.name}`}
             onClick={(e) => {
@@ -392,7 +394,7 @@ const LibraryRow = memo(function LibraryRow({ def, favorite, highlighted, touch,
           </button>
           <button
             type="button"
-            className="inline-flex h-7 w-7 items-center justify-center rounded-md transition-colors hover:[background:color-mix(in_srgb,var(--gp-accent)_14%,transparent)]"
+            className={`inline-flex ${btn} items-center justify-center rounded-md transition-colors hover:[background:color-mix(in_srgb,var(--gp-accent)_14%,transparent)]`}
             style={{ color: 'var(--gp-accent)' }}
             title="Platzieren (in der Bildmitte anlegen)"
             aria-label={`${def.name} platzieren`}
@@ -608,12 +610,13 @@ export function LibraryPanel() {
     }
     return out;
   }, [groups, isOpen]);
+  const itemH = touch ? ITEM_H_TOUCH : ITEM_H;
   const offsets = useMemo(() => {
     const o = new Array<number>(rows.length + 1);
     o[0] = 0;
-    for (let i = 0; i < rows.length; i++) o[i + 1] = o[i] + (rows[i].kind === 'group' ? GROUP_H : ITEM_H);
+    for (let i = 0; i < rows.length; i++) o[i + 1] = o[i] + (rows[i].kind === 'group' ? GROUP_H : itemH);
     return o;
-  }, [rows]);
+  }, [rows, itemH]);
   const totalH = offsets[rows.length];
   const allOpen = groups.length > 0 && groups.every((g) => isOpen(g.key));
 
@@ -690,14 +693,14 @@ export function LibraryPanel() {
     pendingScrollRef.current = null;
     const el = listRef.current;
     if (el) {
-      el.scrollTop = Math.max(0, offsets[idx] - Math.max(0, (viewH || 300) / 2 - ITEM_H));
+      el.scrollTop = Math.max(0, offsets[idx] - Math.max(0, (viewH || 300) / 2 - itemH));
       setScrollTop(el.scrollTop);
     }
     window.setTimeout(() => {
       const esc = typeof CSS !== 'undefined' && typeof CSS.escape === 'function' ? CSS.escape(id) : id.replace(/["\\]/g, '\\$&');
       el?.querySelector<HTMLElement>(`[data-def-id="${esc}"]`)?.focus();
     }, 0);
-  }, [rows, offsets, viewH]);
+  }, [rows, offsets, viewH, itemH]);
   useEffect(() => {
     if (!highlightId) return;
     const t = window.setTimeout(() => setHighlightId(null), 6000);
@@ -893,7 +896,7 @@ export function LibraryPanel() {
                 );
               }
               return (
-                <div key={row.def.id} style={{ position: 'absolute', top, left: 0, right: 0, height: ITEM_H }}>
+                <div key={row.def.id} style={{ position: 'absolute', top, left: 0, right: 0, height: itemH }}>
                   <LibraryRow
                     def={row.def}
                     favorite={favorites.has(row.def.id)}
@@ -955,7 +958,20 @@ export function LibraryPanel() {
         )}
       </Popover>
 
-      <CustomEquipmentForm open={formOpen} initial={editDef} onClose={() => setFormOpen(false)} onSaved={(d) => { setHighlightId(d.id); pendingScrollRef.current = d.id; }} />
+      <CustomEquipmentForm
+        open={formOpen}
+        initial={editDef}
+        onClose={() => setFormOpen(false)}
+        onSaved={(d) => {
+          // Neues/geändertes Gerät sichtbar machen: Filter zurücksetzen, Gruppe und Abschnitt „Eigene Geräte“ öffnen, hervorheben
+          resetFilters();
+          setDraft('');
+          setGroupOpen(CUSTOM_GROUP_KEY, true);
+          useSectionStore.getState().set('library.custom', true);
+          setHighlightId(d.id);
+          pendingScrollRef.current = d.id;
+        }}
+      />
 
       <ConfirmDialog
         open={!!deleteDef}

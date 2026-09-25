@@ -87,10 +87,12 @@ export function TextField({
     );
   }
   return (
-    <label htmlFor={id} className={`flex flex-col gap-1 ${className}`}>
-      <span className="gp-label">{label}</span>
+    <div className={`flex flex-col gap-1 ${className}`}>
+      <label htmlFor={id} className="gp-label">
+        {label}
+      </label>
       {control}
       {below}
-    </label>
+    </div>
   );
 }

@@ -1,5 +1,20 @@
-import { useId, useState, type KeyboardEvent, type ReactNode } from 'react';
-import { formatNumber, parseNumber } from '@/geometry/units';
+import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { parseNumber } from '@/geometry/units';
+
+/**
+ * Anzeigeformat ohne Tausendertrennzeichen (sonst würde „1.250“ als 1,25 gelesen), Komma als Dezimaltrennzeichen,
+ * ohne nachlaufende Nullen. Zeigt bis zu max(decimals, 2) Stellen, damit z. B. 12,5 in einem 0-Stellen-Feld
+ * nicht als „13“ erscheint (übernommen wird nur, was der Nutzer tatsächlich ändert).
+ */
+export function formatPlain(v: number, decimals = 2): string {
+  const d = Math.max(0, Math.min(6, decimals));
+  const f = 10 ** d;
+  let r = Math.round((v + Number.EPSILON * Math.sign(v)) * f) / f;
+  if (Object.is(r, -0)) r = 0;
+  let s = r.toFixed(d);
+  if (d > 0) s = s.replace(/\.?0+$/, '');
+  return s.replace('.', ',');
+}
 
 export interface NumberFieldProps {
   /** Aktueller Wert; null = leer (nur sinnvoll mit allowEmpty). */
@@ -63,7 +78,9 @@ export function NumberField({
 }: NumberFieldProps) {
   const id = useId();
   const [draft, setDraft] = useState<string | null>(null);
-  const fmt = (v: number) => (format ? format(v) : formatNumber(v, integer ? 0 : decimals));
+  /** Text beim Fokussieren – unveränderter Text wird beim Verlassen nicht übernommen (keine Rundungsänderung). */
+  const focusText = useRef<string | null>(null);
+  const fmt = (v: number) => (format ? format(v) : formatPlain(v, integer ? 0 : Math.max(decimals, 2)));
   const shown = value == null ? '' : fmt(value);
 
   const normalize = (v: number): number => {
@@ -74,7 +91,10 @@ export function NumberField({
   const commit = () => {
     if (draft == null) return;
     const text = draft.trim();
+    const unchanged = draft === focusText.current;
+    focusText.current = null;
     setDraft(null);
+    if (unchanged) return;
     if (!text) {
       if (allowEmpty && value != null) onChange(null);
       return;
@@ -94,6 +114,7 @@ export function NumberField({
       e.preventDefault();
       e.stopPropagation();
       setDraft(null);
+      focusText.current = null;
       e.currentTarget.blur();
     } else if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && step && !readOnly && !disabled) {
       e.preventDefault();
@@ -129,6 +150,7 @@ export function NumberField({
         onFocus={(e) => {
           if (readOnly) return;
           setDraft(shown);
+          focusText.current = shown;
           if (selectOnFocus) e.target.select();
         }}
         onBlur={commit}
@@ -150,10 +172,12 @@ export function NumberField({
     );
   }
   return (
-    <label htmlFor={id} className={`flex flex-col gap-1 ${className}`}>
-      <span className="gp-label">{label}</span>
+    <div className={`flex flex-col gap-1 ${className}`}>
+      <label htmlFor={id} className="gp-label">
+        {label}
+      </label>
       {control}
       {below}
-    </label>
+    </div>
   );
 }

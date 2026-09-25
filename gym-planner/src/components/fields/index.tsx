@@ -1,4 +1,4 @@
-export { NumberField } from './NumberField';
+export { NumberField, formatPlain } from './NumberField';
 export type { NumberFieldProps } from './NumberField';
 export { LengthField } from './LengthField';
 export type { LengthFieldProps } from './LengthField';
