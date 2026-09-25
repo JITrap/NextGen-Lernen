@@ -9,7 +9,11 @@ const SIZE = 22;
 export function Rulers({ viewport, width, height }: { viewport: Viewport; width: number; height: number }) {
   const dark = useIsDark();
   const step = niceStep(viewport.scale, 80);
-  const label = (cm: number) => (Math.abs(cm) >= 100 ? `${(cm / 100).toLocaleString('de-DE')} m` : `${cm} cm`);
+  const label = (cm: number) => {
+    if (cm === 0) return '0';
+    const v = Math.abs(cm) >= 100 ? `${(Math.abs(cm) / 100).toLocaleString('de-DE')} m` : `${Math.abs(cm)} cm`;
+    return cm < 0 ? `−${v}` : v;
+  };
   const ticksX = useMemo(() => {
     const out: { px: number; text: string }[] = [];
     const minWorld = -viewport.x / viewport.scale;
