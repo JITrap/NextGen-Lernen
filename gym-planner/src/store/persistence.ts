@@ -4,7 +4,8 @@
  * Ablage:
  * - localStorage 'gymplanner.projects'      Projektindex (ProjectSummary[])
  * - localStorage 'gymplanner.activeProject' ID des aktiven Projekts
- * - localStorage 'gymplanner.lastProject'   Notfallkopie des aktiven Projekts (synchron bei beforeunload)
+ * - localStorage 'gymplanner.lastProject'   Notfallkopie des aktiven Projekts { savedAt, project } (synchron bei beforeunload)
+ * - localStorage 'gymplanner.lastSaved'     { id, savedAt } der letzten erfolgreichen Speicherung (monoton, unabhängig von updatedAt)
  * - IndexedDB (idb-keyval) 'project:<id>'   Projektdaten, 'versions:<id>' Versionsverlauf (max. MAX_VERSIONS)
  * Ist IndexedDB nicht verfügbar (oder schlägt fehl), werden dieselben Schlüssel unter 'gymplanner.data.<key>'
  * im localStorage abgelegt.
@@ -12,6 +13,11 @@
  * usePersistence() wird einmal in App.tsx aufgerufen: lädt beim Start das aktive Projekt (oder legt eines aus der
  * ersten Vorlage an), speichert nach jeder Änderung debounced (800 ms) und legt alle 2 Minuten automatisch eine
  * Version an, wenn sich das Projekt geändert hat.
+ *
+ * Mehrere Tabs: Vor jedem Autosave wird der gespeicherte Stand gelesen; weicht er vom zuletzt in diesem Tab
+ * gelesenen/geschriebenen Stand ab, wird nicht überschrieben (Status 'error', Hinweis „In einem anderen Tab geändert“).
+ * Explizites saveNow() überschreibt. Über BroadcastChannel('gymplanner') (falls verfügbar) erfahren andere Tabs von
+ * Löschungen und Speicherungen.
  */
 import { useEffect } from 'react';
 import { create } from 'zustand';
@@ -28,6 +34,10 @@ import { newId } from '@/utils/id';
 export const LS_INDEX_KEY = 'gymplanner.projects';
 export const LS_ACTIVE_KEY = 'gymplanner.activeProject';
 export const LS_LAST_KEY = 'gymplanner.lastProject';
+export const LS_SAVED_KEY = 'gymplanner.lastSaved';
+export const CHANNEL_NAME = 'gymplanner';
+export const CONFLICT_MESSAGE = 'In einem anderen Tab geändert – Seite neu laden';
+export const DELETED_MESSAGE = 'Projekt wurde gelöscht – Speichern abgebrochen (Projekt als JSON sichern oder Seite neu laden)';
 const LS_DATA_PREFIX = 'gymplanner.data.';
 export const MAX_VERSIONS = 20;
 /** Weniger Versionen im localStorage-Fallback (5 MB Limit). */
@@ -102,15 +112,27 @@ function localKeys(): string[] {
   return out;
 }
 
-async function storeGet<T>(key: string): Promise<T | undefined> {
+type StoreReadResult<T> = { ok: true; value: T | undefined } | { ok: false; error: string };
+
+/**
+ * Liest einen Schlüssel. Ein Lesefehler (z. B. IndexedDB temporär gestört) ist vom Fehlen des Schlüssels
+ * unterscheidbar: { ok: false } – der Aufrufer darf dann keine Einträge verwerfen.
+ */
+async function storeRead<T>(key: string): Promise<StoreReadResult<T>> {
   if (detectMode() === 'idb') {
     try {
-      return await idbGet<T>(key);
+      return { ok: true, value: await idbGet<T>(key) };
     } catch (e) {
       switchToLocal(e);
+      return { ok: false, error: e instanceof Error ? e.message : String(e) };
     }
   }
-  return localGet<T>(key);
+  return { ok: true, value: localGet<T>(key) };
+}
+/** Bequemer Lesezugriff: Fehler → undefined (für unkritische Aufrufer). */
+async function storeGet<T>(key: string): Promise<T | undefined> {
+  const r = await storeRead<T>(key);
+  return r.ok ? r.value : undefined;
 }
 async function storeSet(key: string, value: unknown): Promise<void> {
   if (detectMode() === 'idb') {
@@ -275,7 +297,84 @@ let saveTimer: ReturnType<typeof setTimeout> | null = null;
 let pending: Project | null = null;
 let saving: Promise<void> | null = null;
 let suppressSave = false;
+/** Nächster Schreibvorgang ist ein explizites Speichern (überschreibt Konflikte/Löschsperre). */
+let forceNextSave = false;
+/** IDs gelöschter Projekte (auch aus anderen Tabs): späte Autosaves dürfen sie nicht wiederbeleben. */
 const deletedIds = new Set<string>();
+/** Projekt wieder freigeben, sobald es bewusst (neu) angelegt oder geöffnet wird. */
+function undelete(id: string) {
+  deletedIds.delete(id);
+}
+/**
+ * updatedAt des gespeicherten Stands je Projekt, wie ihn dieser Tab zuletzt gelesen oder geschrieben hat.
+ * Weicht der Speicher davon ab, hat ein anderer Tab geschrieben (Konflikt).
+ */
+const knownSavedAt = new Map<string, string>();
+/** Projekt-ID, für die der Konflikt bereits gemeldet wurde (Toast nur einmal). */
+let conflictFlagged: string | null = null;
+
+function storedUpdatedAt(raw: unknown): string {
+  const v = raw && typeof raw === 'object' ? (raw as { updatedAt?: unknown }).updatedAt : undefined;
+  return typeof v === 'string' ? v : '';
+}
+function markConflict(id: string) {
+  useSaveStatus.setState({ status: 'error', error: CONFLICT_MESSAGE, dirty: true });
+  if (conflictFlagged !== id) {
+    conflictFlagged = id;
+    toast(`${CONFLICT_MESSAGE}. Ungespeicherte Änderungen können über „Speichern“ erzwungen werden.`, 'error');
+  }
+}
+
+/* ---- Tab-übergreifende Benachrichtigungen (BroadcastChannel, optional) ---- */
+
+export type ChannelMessage =
+  | { type: 'project-deleted'; id: string }
+  | { type: 'project-saved'; id: string; updatedAt: string };
+
+let channel: BroadcastChannel | null = null;
+
+/** Verarbeitet eine Nachricht eines anderen Tabs (exportiert für Tests). */
+export function handleChannelMessage(msg: unknown) {
+  if (!msg || typeof msg !== 'object') return;
+  const m = msg as Partial<ChannelMessage>;
+  if (typeof m.id !== 'string') return;
+  if (m.type === 'project-deleted') {
+    deletedIds.add(m.id);
+    useProjectIndex.setState({ projects: readIndex() });
+    if (currentProject().id === m.id) {
+      useSaveStatus.setState({ status: 'error', error: DELETED_MESSAGE, dirty: true });
+      toast('Dieses Projekt wurde in einem anderen Tab gelöscht. Über „Speichern“ kann es wiederhergestellt werden.', 'warning');
+    }
+  } else if (m.type === 'project-saved') {
+    useProjectIndex.setState({ projects: readIndex() });
+    const at = typeof m.updatedAt === 'string' ? m.updatedAt : '';
+    if (currentProject().id === m.id && knownSavedAt.get(m.id) !== at) markConflict(m.id);
+  }
+}
+function openChannel() {
+  if (channel || typeof BroadcastChannel === 'undefined') return;
+  try {
+    channel = new BroadcastChannel(CHANNEL_NAME);
+    channel.onmessage = (ev: MessageEvent) => handleChannelMessage(ev.data);
+  } catch {
+    channel = null;
+  }
+}
+function closeChannel() {
+  try {
+    channel?.close();
+  } catch {
+    /* ignorieren */
+  }
+  channel = null;
+}
+function broadcast(msg: ChannelMessage) {
+  try {
+    channel?.postMessage(msg);
+  } catch {
+    /* ignorieren */
+  }
+}
 
 function currentProject(): Project {
   return useProjectStore.getState().project;
@@ -294,33 +393,109 @@ function applyProject(p: Project) {
   ui.setContextMenu(null);
 }
 
+interface LastCopy {
+  /** Zeitpunkt der Sicherung (monoton, unabhängig von updatedAt, das durch Undo zurückwandern kann). */
+  savedAt: string;
+  project: Project;
+}
 function writeLastProjectSync(p: Project) {
   if (!hasLocalStorage()) return;
   try {
-    localStorage.setItem(LS_LAST_KEY, JSON.stringify(p));
+    const copy: LastCopy = { savedAt: new Date().toISOString(), project: p };
+    localStorage.setItem(LS_LAST_KEY, JSON.stringify(copy));
   } catch {
     /* Quota – ignorieren */
   }
 }
-function readLastProjectSync(): Project | null {
+/** Liest die Notfallkopie; akzeptiert auch das alte Format (nacktes Projekt, savedAt = updatedAt). */
+function readLastProjectSync(): LastCopy | null {
   if (!hasLocalStorage()) return null;
   try {
     const raw = localStorage.getItem(LS_LAST_KEY);
     if (!raw) return null;
-    const r = validateProject(JSON.parse(raw));
-    return r.ok ? migrateProject(r.project) : null;
+    const parsed: unknown = JSON.parse(raw);
+    const rec = parsed && typeof parsed === 'object' ? (parsed as { project?: unknown; savedAt?: unknown; floors?: unknown }) : null;
+    const wrapped = !!rec && rec.project !== undefined && rec.floors === undefined;
+    const projRaw = wrapped ? rec.project : parsed;
+    const r = validateProject(projRaw);
+    if (!r.ok) return null;
+    const project = migrateProject(r.project);
+    const savedAt = wrapped && typeof rec.savedAt === 'string' ? rec.savedAt : project.updatedAt;
+    return { savedAt, project };
+  } catch {
+    return null;
+  }
+}
+function removeLastProjectSync(id: string) {
+  if (!hasLocalStorage()) return;
+  try {
+    const last = readLastProjectSync();
+    if (last && last.project.id === id) localStorage.removeItem(LS_LAST_KEY);
+    const stamp = readSavedStamp();
+    if (stamp && stamp.id === id) localStorage.removeItem(LS_SAVED_KEY);
+  } catch {
+    /* ignorieren */
+  }
+}
+interface SavedStamp {
+  id: string;
+  savedAt: string;
+}
+function writeSavedStamp(id: string, savedAt: string) {
+  if (!hasLocalStorage()) return;
+  try {
+    localStorage.setItem(LS_SAVED_KEY, JSON.stringify({ id, savedAt } satisfies SavedStamp));
+  } catch {
+    /* ignorieren */
+  }
+}
+function readSavedStamp(): SavedStamp | null {
+  if (!hasLocalStorage()) return null;
+  try {
+    const raw = localStorage.getItem(LS_SAVED_KEY);
+    const v: unknown = raw ? JSON.parse(raw) : null;
+    return !!v && typeof v === 'object' && typeof (v as SavedStamp).id === 'string' && typeof (v as SavedStamp).savedAt === 'string' ? (v as SavedStamp) : null;
   } catch {
     return null;
   }
 }
 
-async function persistProject(p: Project): Promise<boolean> {
-  if (deletedIds.has(p.id)) return false;
+/**
+ * Schreibt ein Projekt in den Speicher.
+ * - Gelöschte Projekte werden nicht wiederbelebt (späte Autosaves still verworfen; ist das aktive Projekt betroffen,
+ *   wird das sichtbar: Status 'error').
+ * - Konfliktprüfung: Hat ein anderer Tab den gespeicherten Stand geändert, wird nicht überschrieben.
+ * force (explizites Speichern) setzt beides außer Kraft.
+ */
+async function persistProject(p: Project, force = false): Promise<boolean> {
+  if (deletedIds.has(p.id)) {
+    if (!force) {
+      if (currentProject().id === p.id) {
+        useSaveStatus.setState({ status: 'error', error: DELETED_MESSAGE, dirty: true });
+        toast(DELETED_MESSAGE, 'error');
+      }
+      return false;
+    }
+    undelete(p.id);
+  }
+  if (!force) {
+    const known = knownSavedAt.get(p.id);
+    const stored = await storeRead<unknown>(projectKey(p.id));
+    if (stored.ok && stored.value !== undefined && storedUpdatedAt(stored.value) !== (known ?? '')) {
+      markConflict(p.id);
+      return false;
+    }
+  }
   useSaveStatus.setState({ status: 'saving', error: null });
   try {
     await storeSet(projectKey(p.id), p);
     upsertSummary(p);
-    useSaveStatus.setState({ status: 'saved', lastSavedAt: new Date().toISOString(), error: null, dirty: pending !== null });
+    knownSavedAt.set(p.id, p.updatedAt);
+    if (conflictFlagged === p.id) conflictFlagged = null;
+    const savedAt = new Date().toISOString();
+    writeSavedStamp(p.id, savedAt);
+    broadcast({ type: 'project-saved', id: p.id, updatedAt: p.updatedAt });
+    useSaveStatus.setState({ status: 'saved', lastSavedAt: savedAt, error: null, dirty: pending !== null });
     return true;
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -352,16 +527,19 @@ export async function flushSave(): Promise<void> {
   if (!pending) return;
   const p = pending;
   pending = null;
-  saving = persistProject(p).then(() => undefined).finally(() => {
+  const force = forceNextSave;
+  forceNextSave = false;
+  saving = persistProject(p, force).then(() => undefined).finally(() => {
     saving = null;
   });
   await saving;
   if (pending) await flushSave();
 }
 
-/** Explizites Speichern (Schaltfläche „Speichern“). Liefert true bei Erfolg. */
+/** Explizites Speichern (Schaltfläche „Speichern“): überschreibt auch einen Stand aus einem anderen Tab. Liefert true bei Erfolg. */
 export async function saveNow(): Promise<boolean> {
   pending = currentProject();
+  forceNextSave = true;
   await flushSave();
   return useSaveStatus.getState().status !== 'error';
 }
@@ -374,18 +552,34 @@ interface LoadResult {
   project: Project;
   migrated: boolean;
 }
+type LoadOutcome =
+  | ({ kind: 'ok' } & LoadResult)
+  /** Schlüssel bestätigt nicht vorhanden. */
+  | { kind: 'missing' }
+  /** Daten vorhanden, aber ungültig. */
+  | { kind: 'corrupt'; error: string }
+  /** Lesefehler (z. B. IndexedDB gestört) – Eintrag nicht verwerfen. */
+  | { kind: 'error'; error: string };
 
-/** Liest ein Projekt aus dem Speicher (validiert + migriert). null, wenn nicht vorhanden oder beschädigt. */
-async function loadStoredProject(id: string, quiet = false): Promise<LoadResult | null> {
-  const raw = await storeGet<unknown>(projectKey(id));
-  if (raw === undefined || raw === null) return null;
+/** Liest ein Projekt aus dem Speicher (validiert + migriert) und unterscheidet Fehlen, Beschädigung und Lesefehler. */
+async function readStoredProject(id: string): Promise<LoadOutcome> {
+  const res = await storeRead<unknown>(projectKey(id));
+  if (!res.ok) return { kind: 'error', error: res.error };
+  const raw = res.value;
+  if (raw === undefined || raw === null) return { kind: 'missing' };
   const r = validateProject(raw);
-  if (!r.ok) {
-    if (!quiet) toast(`Gespeichertes Projekt ist beschädigt und kann nicht geladen werden (${r.errors[0]}).`, 'error');
-    return null;
-  }
+  if (!r.ok) return { kind: 'corrupt', error: r.errors[0] };
+  knownSavedAt.set(id, storedUpdatedAt(raw));
   const migrated = migrateProject(r.project);
-  return { project: migrated, migrated: migrated !== r.project };
+  return { kind: 'ok', project: migrated, migrated: migrated !== r.project };
+}
+
+/** Wie readStoredProject, aber null bei allen Fehlschlägen (beschädigte Daten werden gemeldet, außer quiet). */
+async function loadStoredProject(id: string, quiet = false): Promise<LoadResult | null> {
+  const r = await readStoredProject(id);
+  if (r.kind === 'ok') return r;
+  if (r.kind === 'corrupt' && !quiet) toast(`Gespeichertes Projekt ist beschädigt und kann nicht geladen werden (${r.error}).`, 'error');
+  return null;
 }
 
 /** Projektdaten lesen: aktives Projekt aus dem Store, andere aus dem Speicher. */
@@ -411,6 +605,7 @@ async function doInit(): Promise<void> {
     if (!index.length) index = await rebuildIndexFromStorage();
     const activeId = readActiveId();
     const last = readLastProjectSync();
+    const stamp = readSavedStamp();
     let project: Project | null = null;
     let needsPersist = false;
 
@@ -421,10 +616,15 @@ async function doInit(): Promise<void> {
         needsPersist = r.migrated;
       }
     }
-    // Notfallkopie verwenden, wenn IDB leer ist oder die Kopie neuer ist.
-    if (last && (project ? last.id === project.id && last.updatedAt > project.updatedAt : !activeId || last.id === activeId)) {
-      project = last;
-      needsPersist = true;
+    // Notfallkopie verwenden, wenn IDB leer ist oder die Kopie jünger als die letzte Speicherung ist
+    // (Vergleich über savedAt, nicht updatedAt – das wandert mit Undo zurück).
+    if (last) {
+      const storedAt = project && stamp && stamp.id === project.id ? stamp.savedAt : project?.updatedAt ?? '';
+      const useLast = project ? last.project.id === project.id && last.savedAt > storedAt : !activeId || last.project.id === activeId;
+      if (useLast) {
+        project = last.project;
+        needsPersist = true;
+      }
     }
     if (!project) {
       for (const s of index) {
@@ -440,10 +640,11 @@ async function doInit(): Promise<void> {
       project = createFromTemplate(TEMPLATES[0]);
       needsPersist = true;
     }
+    undelete(project.id);
     applyProject(project);
     setActiveId(project.id);
     upsertSummary(project);
-    if (needsPersist) await persistProject(project);
+    if (needsPersist) await persistProject(project, true);
     else useSaveStatus.setState({ status: 'saved', dirty: false, error: null, lastSavedAt: project.updatedAt });
     useUiStore.getState().requestFit();
   } catch (e) {
@@ -535,7 +736,7 @@ export async function restoreVersion(versionId: string): Promise<boolean> {
   await saveVersion('Vor Wiederherstellung', cur);
   const restored: Project = { ...migrateProject(r.project), id: cur.id, updatedAt: new Date().toISOString() };
   applyProject(restored);
-  await persistProject(restored);
+  await persistProject(restored, true);
   lastVersionedUpdatedAt = null;
   toast(`Version vom ${formatDateTime(v.savedAt)} wiederhergestellt.`, 'success');
   return true;
@@ -588,9 +789,10 @@ export async function createProject(template?: ProjectTemplate | Project, name?:
   } else {
     p = createFromTemplate(template ?? TEMPLATES[0], name);
   }
+  undelete(p.id);
   applyProject(p);
   setActiveId(p.id);
-  await persistProject(p);
+  await persistProject(p, true);
   lastVersionedUpdatedAt = null;
   useUiStore.getState().requestFit();
   return p;
@@ -600,17 +802,28 @@ export async function createProject(template?: ProjectTemplate | Project, name?:
 export async function openProject(id: string): Promise<boolean> {
   if (currentProject().id === id && useProjectIndex.getState().activeId === id) return true;
   await flushSave();
-  const r = await loadStoredProject(id);
-  if (!r) {
+  const r = await readStoredProject(id);
+  if (r.kind === 'missing') {
+    // Bestätigt nicht vorhanden → Indexeintrag entfernen.
     toast('Projekt wurde nicht gefunden.', 'error');
     removeSummary(id);
     return false;
   }
+  if (r.kind === 'error') {
+    // Temporärer Speicherfehler: Eintrag behalten.
+    toast(`Projekt konnte nicht geladen werden: ${r.error}`, 'error');
+    return false;
+  }
+  if (r.kind === 'corrupt') {
+    toast(`Gespeichertes Projekt ist beschädigt und kann nicht geladen werden (${r.error}).`, 'error');
+    return false;
+  }
+  undelete(id);
   applyProject(r.project);
   setActiveId(id);
   upsertSummary(r.project);
   lastVersionedUpdatedAt = null;
-  if (r.migrated) await persistProject(r.project);
+  if (r.migrated) await persistProject(r.project, true);
   else useSaveStatus.setState({ status: 'saved', dirty: false, error: null, lastSavedAt: r.project.updatedAt });
   useUiStore.getState().requestFit();
   return true;
@@ -630,6 +843,8 @@ export async function renameProject(id: string, name: string): Promise<boolean> 
   try {
     await storeSet(projectKey(id), p);
     upsertSummary(p);
+    knownSavedAt.set(id, p.updatedAt);
+    broadcast({ type: 'project-saved', id, updatedAt: p.updatedAt });
     return true;
   } catch (e) {
     toast(`Umbenennen fehlgeschlagen: ${e instanceof Error ? e.message : String(e)}`, 'error');
@@ -655,9 +870,10 @@ export async function duplicateProject(id: string, name?: string): Promise<Proje
     return null;
   }
   const copy = newProjectFrom(src, name?.trim() || `${src.name} (Kopie)`);
+  undelete(copy.id);
   applyProject(copy);
   setActiveId(copy.id);
-  await persistProject(copy);
+  await persistProject(copy, true);
   lastVersionedUpdatedAt = null;
   toast(`Kopie „${copy.name}“ angelegt.`, 'success');
   return copy;
@@ -674,9 +890,10 @@ export async function createVariant(id: string, variantName: string): Promise<Pr
   const v = newProjectFrom(src, vn, true);
   v.name = src.name;
   v.variantName = vn;
+  undelete(v.id);
   applyProject(v);
   setActiveId(v.id);
-  await persistProject(v);
+  await persistProject(v, true);
   lastVersionedUpdatedAt = null;
   toast(`Variante „${vn}“ angelegt.`, 'success');
   return v;
@@ -706,14 +923,9 @@ export async function deleteProject(id: string): Promise<boolean> {
     return false;
   }
   removeSummary(id);
-  if (hasLocalStorage()) {
-    try {
-      const last = localStorage.getItem(LS_LAST_KEY);
-      if (last && last.includes(`"id":"${id}"`)) localStorage.removeItem(LS_LAST_KEY);
-    } catch {
-      /* ignorieren */
-    }
-  }
+  removeLastProjectSync(id);
+  knownSavedAt.delete(id);
+  broadcast({ type: 'project-deleted', id });
   if (wasActive) {
     const next = readIndex()[0];
     const ok = next ? await openProject(next.id) : false;
@@ -761,8 +973,11 @@ export async function importAll(json: string): Promise<number> {
     if (!r.ok) continue;
     let p = migrateProject(r.project);
     if (await projectExists(p.id)) p = newProjectFrom(p, p.name, !!p.parentId);
+    undelete(p.id);
     await storeSet(projectKey(p.id), p);
     upsertSummary(p);
+    knownSavedAt.set(p.id, p.updatedAt);
+    broadcast({ type: 'project-saved', id: p.id, updatedAt: p.updatedAt });
     count += 1;
   }
   return count;
@@ -785,6 +1000,7 @@ export function formatDateTime(iso: string): string {
  */
 export function usePersistence() {
   useEffect(() => {
+    openChannel();
     void initPersistence();
     const unsub = useProjectStore.subscribe((s, prev) => {
       if (s.project === prev.project || suppressSave) return;
@@ -825,6 +1041,7 @@ export function usePersistence() {
       document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('storage', onStorage);
       clearInterval(versionTimer);
+      closeChannel();
     };
   }, []);
 }
@@ -838,7 +1055,11 @@ export function __resetPersistenceForTests() {
   pending = null;
   saving = null;
   suppressSave = false;
+  forceNextSave = false;
   deletedIds.clear();
+  knownSavedAt.clear();
+  conflictFlagged = null;
+  closeChannel();
   initPromise = null;
   lastVersionedUpdatedAt = null;
   useProjectIndex.setState({ projects: readIndex(), activeId: readActiveId(), versionsNonce: 0, ready: false, storage: null });

@@ -24,8 +24,9 @@ vi.mock('idb-keyval', () => ({
 
 import {
   createProject, openProject, renameProject, duplicateProject, deleteProject, createVariant, listProjects, listVersions, saveVersion,
-  restoreVersion, saveNow, scheduleSave, initPersistence, usePersistence, useProjectIndex, useSaveStatus, storageMode, summaryOf,
-  exportAll, importAll, getStoredProject, __resetPersistenceForTests, AUTOSAVE_DEBOUNCE_MS, LS_INDEX_KEY, LS_ACTIVE_KEY, LS_LAST_KEY, MAX_VERSIONS,
+  restoreVersion, saveNow, scheduleSave, flushSave, initPersistence, usePersistence, useProjectIndex, useSaveStatus, storageMode, summaryOf,
+  exportAll, importAll, getStoredProject, handleChannelMessage, __resetPersistenceForTests, AUTOSAVE_DEBOUNCE_MS, LS_INDEX_KEY, LS_ACTIVE_KEY,
+  LS_LAST_KEY, LS_SAVED_KEY, MAX_VERSIONS, CHANNEL_NAME, CONFLICT_MESSAGE, DELETED_MESSAGE,
 } from './persistence';
 import { useProjectStore, loadProject } from './projectStore';
 import { useUiStore } from './uiStore';
@@ -53,6 +54,7 @@ beforeEach(() => {
 });
 afterEach(() => {
   vi.useRealTimers();
+  vi.unstubAllGlobals();
 });
 
 describe('Projekte speichern und laden', () => {
@@ -274,5 +276,170 @@ describe('localStorage-Fallback', () => {
     expect(useSaveStatus.getState().status).toBe('saved');
     const warnings = useUiStore.getState().toasts.filter((t) => t.text.includes('IndexedDB'));
     expect(warnings.length).toBe(1);
+  });
+});
+
+describe('Review-Befunde Persistenz', () => {
+  it('H1: ein mit gelöschter ID erneut angelegtes Projekt (JSON-Import) wird wieder gespeichert', async () => {
+    const a = await createProject(TEMPLATES[0], 'A');
+    const b = await createProject(TEMPLATES[0], 'B');
+    const exported = structuredClone(useProjectStore.getState().project);
+    expect(await deleteProject(b.id)).toBe(true);
+    expect(useProjectStore.getState().project.id).toBe(a.id);
+    const again = await createProject(exported);
+    expect(again.id).toBe(b.id);
+    expect(stored(b.id)).toBeDefined();
+    useProjectStore.getState().renameProject('B wieder da');
+    expect(await saveNow()).toBe(true);
+    expect(useSaveStatus.getState().status).toBe('saved');
+    expect(stored(b.id)!.name).toBe('B wieder da');
+    // auch über Backup-Import + Öffnen
+    const backup = await exportAll();
+    expect(await deleteProject(b.id)).toBe(true);
+    await importAll(backup);
+    const restoredId = listProjects().find((s) => s.name === 'B wieder da')!.id;
+    expect(await openProject(restoredId)).toBe(true);
+    useProjectStore.getState().renameProject('B erneut');
+    expect(await saveNow()).toBe(true);
+    expect(stored(restoredId)!.name).toBe('B erneut');
+  });
+
+  it('H1: abgelehntes Speichern des aktiven Projekts ist sichtbar (Status error), explizites Speichern stellt es wieder her', async () => {
+    await createProject(TEMPLATES[0], 'A');
+    const b = await createProject(TEMPLATES[0], 'B');
+    // Anderer Tab hat B gelöscht
+    handleChannelMessage({ type: 'project-deleted', id: b.id });
+    expect(useSaveStatus.getState().status).toBe('error');
+    useUiStore.setState({ toasts: [] });
+    useProjectStore.getState().renameProject('B geändert');
+    scheduleSave(useProjectStore.getState().project);
+    await flushSave();
+    expect(useSaveStatus.getState().status).toBe('error');
+    expect(useSaveStatus.getState().error).toBe(DELETED_MESSAGE);
+    expect(useUiStore.getState().toasts.some((t) => t.kind === 'error' && t.text === DELETED_MESSAGE)).toBe(true);
+    expect(stored(b.id)!.name).toBe('B');
+    expect(await saveNow()).toBe(true);
+    expect(stored(b.id)!.name).toBe('B geändert');
+    expect(useSaveStatus.getState().status).toBe('saved');
+  });
+
+  it('M3: behält den Indexeintrag bei einem temporären Speicherfehler, entfernt ihn nur bei bestätigt fehlendem Projekt', async () => {
+    const a = await createProject(TEMPLATES[0], 'A');
+    const b = await createProject(TEMPLATES[0], 'B');
+    ctl.fail = true;
+    expect(await openProject(a.id)).toBe(false);
+    expect(listProjects().map((s) => s.id)).toContain(a.id);
+    expect(useUiStore.getState().toasts.some((t) => t.kind === 'error' && t.text.includes('konnte nicht geladen werden'))).toBe(true);
+    expect(useProjectStore.getState().project.id).toBe(b.id);
+    ctl.fail = false;
+    // bestätigt fehlend (Index-Leiche) → Eintrag wird entfernt
+    localStorage.setItem(LS_INDEX_KEY, JSON.stringify([...listProjects(), { id: 'leiche', name: 'Leiche', updatedAt: '', createdAt: '', floorCount: 1, totalAreaM2: 0 }]));
+    expect(await openProject('leiche')).toBe(false);
+    expect(listProjects().map((s) => s.id)).not.toContain('leiche');
+    expect(listProjects().map((s) => s.id)).toContain(a.id);
+  });
+
+  it('M4: überschreibt keinen in einem anderen Tab geänderten Stand; explizites Speichern schon', async () => {
+    const p = await createProject(TEMPLATES[0], 'Tab A');
+    mem.set(`project:${p.id}`, { ...stored(p.id)!, name: 'Aus Tab B', updatedAt: '2099-01-01T00:00:00.000Z' });
+    useProjectStore.getState().renameProject('Meine Änderung');
+    scheduleSave(useProjectStore.getState().project);
+    await flushSave();
+    expect(stored(p.id)!.name).toBe('Aus Tab B');
+    expect(useSaveStatus.getState().status).toBe('error');
+    expect(useSaveStatus.getState().error).toBe(CONFLICT_MESSAGE);
+    expect(useSaveStatus.getState().dirty).toBe(true);
+    expect(useUiStore.getState().toasts.filter((t) => t.text.includes(CONFLICT_MESSAGE)).length).toBe(1);
+    // Zweiter Autosave: weiterhin blockiert, kein zweiter Toast
+    scheduleSave(useProjectStore.getState().project);
+    await flushSave();
+    expect(useUiStore.getState().toasts.filter((t) => t.text.includes(CONFLICT_MESSAGE)).length).toBe(1);
+    expect(stored(p.id)!.name).toBe('Aus Tab B');
+    // Explizites Speichern überschreibt und hebt den Konflikt auf
+    expect(await saveNow()).toBe(true);
+    expect(stored(p.id)!.name).toBe('Meine Änderung');
+    expect(useSaveStatus.getState().status).toBe('saved');
+    scheduleSave(useProjectStore.getState().project);
+    await flushSave();
+    expect(useSaveStatus.getState().status).toBe('saved');
+  });
+
+  it('M4: BroadcastChannel (falls vorhanden) meldet Speichern/Löschen an andere Tabs und meldet Konflikte', async () => {
+    class FakeChannel {
+      static instances: FakeChannel[] = [];
+      onmessage: ((ev: MessageEvent) => void) | null = null;
+      posted: unknown[] = [];
+      constructor(public name: string) {
+        FakeChannel.instances.push(this);
+      }
+      postMessage(m: unknown) {
+        this.posted.push(m);
+      }
+      close() {}
+    }
+    vi.stubGlobal('BroadcastChannel', FakeChannel);
+    const { unmount } = renderHook(() => usePersistence());
+    await initPersistence();
+    const ch = FakeChannel.instances.at(-1)!;
+    expect(ch.name).toBe(CHANNEL_NAME);
+    const p = await createProject(TEMPLATES[0], 'Zwei');
+    expect(ch.posted).toContainEqual({ type: 'project-saved', id: p.id, updatedAt: p.updatedAt });
+    // Anderer Tab speichert dasselbe Projekt → Konflikt sofort sichtbar
+    ch.onmessage!({ data: { type: 'project-saved', id: p.id, updatedAt: '2099-01-01T00:00:00.000Z' } } as MessageEvent);
+    expect(useSaveStatus.getState().status).toBe('error');
+    expect(useSaveStatus.getState().error).toBe(CONFLICT_MESSAGE);
+    // Unbekannte Nachrichten sind harmlos
+    ch.onmessage!({ data: 'unsinn' } as MessageEvent);
+    ch.onmessage!({ data: { type: 'project-saved' } } as MessageEvent);
+    // Löschen wird gemeldet
+    const other = listProjects().find((s) => s.id !== p.id)!;
+    expect(await deleteProject(other.id)).toBe(true);
+    expect(ch.posted).toContainEqual({ type: 'project-deleted', id: other.id });
+    unmount();
+  });
+
+  it('M4: gelöschte Projekte aus anderen Tabs werden nicht durch späte Autosaves wiederbelebt', async () => {
+    const a = await createProject(TEMPLATES[0], 'A');
+    const b = await createProject(TEMPLATES[0], 'B');
+    expect(await openProject(a.id)).toBe(true);
+    mem.delete(`project:${b.id}`);
+    handleChannelMessage({ type: 'project-deleted', id: b.id });
+    expect(useSaveStatus.getState().status).not.toBe('error');
+    scheduleSave({ ...b, name: 'Zombie' });
+    await flushSave();
+    expect(mem.has(`project:${b.id}`)).toBe(false);
+    expect(useSaveStatus.getState().status).not.toBe('error');
+  });
+
+  it('L4: Notfallkopie wird per savedAt verglichen (updatedAt kann nach Undo älter sein)', async () => {
+    const p = createEmptyProject('Undo');
+    p.updatedAt = '2026-03-01T00:00:00.000Z';
+    mem.set(`project:${p.id}`, structuredClone(p));
+    localStorage.setItem(LS_ACTIVE_KEY, p.id);
+    localStorage.setItem(LS_INDEX_KEY, JSON.stringify([summaryOf(p)]));
+    localStorage.setItem(LS_SAVED_KEY, JSON.stringify({ id: p.id, savedAt: '2026-03-01T00:00:10.000Z' }));
+    localStorage.setItem(LS_LAST_KEY, JSON.stringify({ savedAt: '2026-03-01T00:01:00.000Z', project: { ...p, name: 'Nach Undo', updatedAt: '2026-02-01T00:00:00.000Z' } }));
+    await initPersistence();
+    expect(useProjectStore.getState().project.name).toBe('Nach Undo');
+    expect(stored(p.id)!.name).toBe('Nach Undo');
+    // Speichern schreibt einen neuen monotonen Stempel
+    const stamp = JSON.parse(localStorage.getItem(LS_SAVED_KEY)!) as { id: string; savedAt: string };
+    expect(stamp.id).toBe(p.id);
+    expect(stamp.savedAt > '2026-03-01T00:01:00.000Z').toBe(true);
+
+    // Ältere Notfallkopie (savedAt vor dem Speicherstempel) wird ignoriert
+    __resetPersistenceForTests();
+    mem.set(`project:${p.id}`, structuredClone({ ...p, name: 'Gespeichert' }));
+    localStorage.setItem(LS_SAVED_KEY, JSON.stringify({ id: p.id, savedAt: '2026-03-02T00:00:00.000Z' }));
+    localStorage.setItem(LS_LAST_KEY, JSON.stringify({ savedAt: '2026-03-01T00:01:00.000Z', project: { ...p, name: 'Alt', updatedAt: '2026-04-01T00:00:00.000Z' } }));
+    await initPersistence();
+    expect(useProjectStore.getState().project.name).toBe('Gespeichert');
+    // deleteProject räumt Notfallkopie und Stempel des gelöschten Projekts auf
+    await createProject(TEMPLATES[0], 'Zweites');
+    localStorage.setItem(LS_LAST_KEY, JSON.stringify({ savedAt: '2026-05-01T00:00:00.000Z', project: p }));
+    localStorage.setItem(LS_SAVED_KEY, JSON.stringify({ id: p.id, savedAt: '2026-05-01T00:00:00.000Z' }));
+    expect(await deleteProject(p.id)).toBe(true);
+    expect(localStorage.getItem(LS_LAST_KEY)).toBeNull();
+    expect(localStorage.getItem(LS_SAVED_KEY)).toBeNull();
   });
 });

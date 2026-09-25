@@ -17,6 +17,7 @@ import type {
   SafetyZone, Vec2, Project,
 } from '@/types';
 import { useProjectStore, transaction } from '@/store/projectStore';
+import { newId } from '@/utils/id';
 import { useUiStore } from '@/store/uiStore';
 import { useActiveFloor, useFloorRooms, useSortedFloors } from '@/store/selectors';
 import { getDef } from '@/data/equipment';
@@ -441,12 +442,16 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
       ui().toast(v == null ? `Preis für ${sameDefCount} Objekte entfernt` : `Preis für ${sameDefCount} Objekte gesetzt: ${formatEur(v)}`, 'success');
     } else setItemProps(floor, item.id, { priceEur: v ?? undefined });
   };
+  // Spindreihe: Breite = Abteile × Abteilbreite, Abteile = Fächer ÷ Stöcke (mehrstöckig: Fächer übereinander)
+  const stoeckig = Math.min(4, Math.max(1, Math.round(Number(item.params?.stoeckig ?? def?.params?.stoeckig ?? 1)) || 1));
   const faecher = Math.max(1, Math.round(Number(item.params?.faecher ?? def?.params?.faecher ?? 1)));
-  const abteilbreite = Number(item.params?.abteilbreite ?? def?.params?.abteilbreite ?? (faecher > 0 ? Math.round(item.width / faecher) : item.width)) || 30;
-  const setLocker = (f: number, ab: number) => {
+  const abteile = Math.max(1, Math.ceil(faecher / stoeckig));
+  const abteilbreite = Number(item.params?.abteilbreite ?? def?.params?.abteilbreite ?? Math.round(item.width / abteile)) || 30;
+  const setLocker = (f: number, ab: number, st: number) => {
+    const nst = Math.min(4, Math.max(1, Math.round(st)));
     const nf = Math.max(1, Math.round(f));
     const nab = Math.max(5, ab);
-    setItemProps(floor, item.id, { width: nf * nab, params: { ...(item.params ?? {}), faecher: nf, abteilbreite: nab } });
+    setItemProps(floor, item.id, { width: Math.ceil(nf / nst) * nab, params: { ...(item.params ?? {}), faecher: nf, abteilbreite: nab, stoeckig: nst } });
   };
   const toggleLinkedFloor = (fid: string, on: boolean) => {
     const cur = new Set(item.linkedFloorIds ?? []);
@@ -514,16 +519,17 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
       <Section title="Maße & Gewicht" icon={<Ruler size={15} />} storageKey="props.item.dims" badge={formatDims(item.width, item.depth, height)}>
         {lockerRow && (
           <>
-            <Grid2>
-              <NumberField label="Fächer" value={faecher} onChange={(v) => v != null && setLocker(v, abteilbreite)} integer min={1} max={200} step={1} disabled={locked} />
-              <LengthField label="Abteilbreite" value={abteilbreite} onChange={(v) => v != null && setLocker(faecher, v)} min={5} max={200} decimals={0} disabled={locked} />
-            </Grid2>
-            <p className="text-[11px] gp-muted">Breite = Fächer × Abteilbreite = {formatCm(faecher * abteilbreite)}</p>
+            <div className="grid grid-cols-3 gap-2">
+              <NumberField label="Fächer" value={faecher} onChange={(v) => v != null && setLocker(v, abteilbreite, stoeckig)} integer min={1} max={200} step={1} disabled={locked} />
+              <NumberField label="Stöcke" value={stoeckig} onChange={(v) => v != null && setLocker(faecher, abteilbreite, v)} integer min={1} max={4} step={1} disabled={locked} title="Fächer übereinander je Abteil (1–4)" />
+              <LengthField label="Abteilbreite" value={abteilbreite} onChange={(v) => v != null && setLocker(faecher, v, stoeckig)} min={5} max={200} decimals={0} disabled={locked} />
+            </div>
+            <p className="text-[11px] gp-muted">Breite = Abteile (Fächer ÷ Stöcke) × Abteilbreite = {abteile} × {formatCm(abteilbreite)} = {formatCm(abteile * abteilbreite)}</p>
           </>
         )}
         {scalable ? (
           <div className="grid grid-cols-3 gap-2">
-            <LengthField label="Breite" value={item.width} onChange={(v) => v != null && setSize(v, item.depth)} min={1} decimals={1} disabled={locked || lockerRow} title={lockerRow ? 'Ergibt sich aus Fächern × Abteilbreite' : undefined} />
+            <LengthField label="Breite" value={item.width} onChange={(v) => v != null && setSize(v, item.depth)} min={1} decimals={1} disabled={locked || lockerRow} title={lockerRow ? 'Ergibt sich aus Abteilen × Abteilbreite' : undefined} />
             <LengthField label="Tiefe" value={item.depth} onChange={(v) => v != null && setSize(item.width, v)} min={1} decimals={1} disabled={locked} />
             <LengthField label="Höhe" value={item.height} onChange={(v) => setItemProps(floor, item.id, { height: v })} min={0} decimals={1} allowEmpty placeholder="–" disabled={locked} />
           </div>
@@ -643,7 +649,7 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
 }
 
 function duplicateItemFallback(floor: Floor, item: PlacedItem) {
-  const copy: PlacedItem = { ...item, id: `i_${Math.random().toString(36).slice(2, 10)}`, x: item.x + 50, y: item.y + 50, groupId: undefined, dockedTo: undefined, locked: false, params: item.params ? { ...item.params } : undefined };
+  const copy: PlacedItem = { ...item, id: newId('i_'), x: item.x + 50, y: item.y + 50, groupId: undefined, dockedTo: undefined, locked: false, params: item.params ? { ...item.params } : undefined };
   transaction(() => store().addItem(floor.id, copy));
   ui().setSelection([{ kind: 'item', id: copy.id }]);
 }

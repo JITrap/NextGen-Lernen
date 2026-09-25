@@ -1,6 +1,7 @@
 import type { Floor, Project, ProjectSettings, LayerVisibility, Hall, Wall, Zone, PlacedItem, EquipmentDef, SafetyZone } from '@/types';
 import { newId } from '@/utils/id';
 import { rectPolygon } from '@/geometry/polygon';
+import { isHallWallId } from '@/geometry/walls';
 
 export const SCHEMA_VERSION = 1;
 
@@ -103,7 +104,7 @@ export function createItemFromDef(def: EquipmentDef, x: number, y: number, parti
     height: def.hoehe_cm,
     safetyZone: zoneFromDef(def),
     safetyZoneEnabled: true,
-    params: def.params ? { ...def.params } : undefined,
+    ...(def.params ? { params: { ...def.params } } : {}),
     ...partial,
   };
 }
@@ -140,20 +141,23 @@ export function duplicateFloor(src: Floor, name: string): Floor {
     if (!idMap.has(old)) idMap.set(old, newId(prefix));
     return idMap.get(old)!;
   };
+  // Virtuelle Hallen-Außenwände (hall_<i>) sind je Stockwerk gleich benannt und werden nicht umbenannt.
+  const remapWall = (id: string) => (isHallWallId(id) ? id : remap(id, 'w_'));
   f.id = newId('f_');
   f.name = name;
   f.walls = f.walls.map((w) => ({ ...w, id: remap(w.id, 'w_') }));
   f.zones = f.zones.map((z) => ({ ...z, id: remap(z.id, 'z_') }));
-  f.openings = f.openings.map((o) => ({ ...o, id: remap(o.id, 'o_'), wallId: remap(o.wallId, 'w_') }));
+  f.openings = f.openings.map((o) => ({ ...o, id: remap(o.id, 'o_'), wallId: remapWall(o.wallId) }));
   f.groups = f.groups.map((g) => ({ ...g, id: remap(g.id, 'g_'), itemIds: g.itemIds.map((i) => remap(i, 'i_')) }));
-  f.items = f.items.map((it) => ({
-    ...it,
-    id: remap(it.id, 'i_'),
-    groupId: it.groupId ? remap(it.groupId, 'g_') : undefined,
-    dockedTo: it.dockedTo ? remap(it.dockedTo, 'i_') : undefined,
-    wallId: it.wallId ? remap(it.wallId, 'w_') : undefined,
-    linkedFloorIds: undefined,
-  }));
+  f.items = f.items.map((it) => {
+    // Optionale Referenzen nur setzen, wenn vorhanden (keine expliziten undefined-Eigenschaften).
+    const { groupId, dockedTo, wallId, linkedFloorIds: _linked, ...rest } = it;
+    const copy: PlacedItem = { ...rest, id: remap(it.id, 'i_') };
+    if (groupId) copy.groupId = remap(groupId, 'g_');
+    if (dockedTo) copy.dockedTo = remap(dockedTo, 'i_');
+    if (wallId) copy.wallId = remapWall(wallId);
+    return copy;
+  });
   f.voids = f.voids.map((v) => ({ ...v, id: remap(v.id, 'v_') }));
   f.annotations = f.annotations.map((a) => ({ ...a, id: remap(a.id, 'a_') }));
   return f;

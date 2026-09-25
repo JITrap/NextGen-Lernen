@@ -65,11 +65,14 @@ export async function renderFloorPng(project: Project, floor: Floor, opts: PngOp
     legend: opts.legend ?? true,
     background: opts.transparent ? null : '#ffffff',
   });
-  const blob = await canvasToBlob(r.canvas);
-  // Speicher freigeben
-  r.canvas.width = 0;
-  r.canvas.height = 0;
-  return { blob, widthPx: r.widthPx, heightPx: r.heightPx };
+  try {
+    const blob = await canvasToBlob(r.canvas);
+    return { blob, widthPx: r.widthPx, heightPx: r.heightPx };
+  } finally {
+    // Speicher auch bei Fehlern freigeben
+    r.canvas.width = 0;
+    r.canvas.height = 0;
+  }
 }
 
 /** PNG des aktiven (oder angegebenen) Stockwerks herunterladen: „<Projekt>-<Stockwerk>.png“. */

@@ -22,9 +22,9 @@ export const GridLayer = memo(function GridLayer({ viewport, width, height, grid
   const minY = -y / scale;
   const maxX = (width - x) / scale;
   const maxY = (height - y) / scale;
-  // Nebenraster ausdünnen, wenn zu dicht (< 6 px)
-  let minor = gridSize;
-  while (minor * scale < 6) minor *= 2;
+  // Nebenraster ausdünnen, wenn zu dicht (< 6 px). Defensiv gegen ungültige Rastergrößen/Maßstäbe (keine Endlosschleife).
+  let minor = Number.isFinite(gridSize) && gridSize > 0 ? gridSize : 10;
+  for (let i = 0; minor * scale < 6 && i < 32; i++) minor *= 2;
   const major = Math.max(100, niceStep(scale, 100));
   const minorColor = dark ? '#1e293b' : '#e2e8f0';
   const majorColor = dark ? '#334155' : '#cbd5e1';

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { validateProject, migrateProject, validateAndMigrate } from './migrate';
+import { validateProject, migrateProject, validateAndMigrate, sanitizeSettings, sanitizeLayers, isValidSetting } from './migrate';
 import { createEmptyProject, createHall, createWall, createZone, createItemFromDef, SCHEMA_VERSION, DEFAULT_SETTINGS, DEFAULT_LAYERS } from './factories';
 import { getDef } from '@/data/equipment';
 import type { Project } from '@/types';
@@ -160,5 +160,133 @@ describe('migrateProject', () => {
       expect(r.project.schemaVersion).toBe(SCHEMA_VERSION);
       expect(r.project.floors[0].items).toEqual([]);
     }
+  });
+});
+
+describe('Datenintegrität (Review-Befunde)', () => {
+  it('H2: sanitisiert ungültige Einstellungen und Ebenen (kein Endlos-Raster)', () => {
+    const p = sampleProject();
+    const bad = {
+      ...p,
+      settings: { ...p.settings, gridSize: 0, floorLoadLimitKgM2: -1, lowerFloorOpacity: 5, showGrid: 'ja', m2PerPerson: 9, fremd: 'bleibt' },
+      layers: { ...p.layers, walls: 'nein', grid: false },
+    } as unknown as Project;
+    expect(validateProject(bad).ok).toBe(true);
+    const m = migrateProject(bad);
+    expect(m).not.toBe(bad);
+    expect(m.settings.gridSize).toBe(DEFAULT_SETTINGS.gridSize);
+    expect(m.settings.floorLoadLimitKgM2).toBe(DEFAULT_SETTINGS.floorLoadLimitKgM2);
+    expect(m.settings.lowerFloorOpacity).toBe(DEFAULT_SETTINGS.lowerFloorOpacity);
+    expect(m.settings.showGrid).toBe(true);
+    expect(m.settings.m2PerPerson).toBe(9);
+    expect((m.settings as unknown as Record<string, unknown>).fremd).toBe('bleibt');
+    expect(m.layers.walls).toBe(true);
+    expect(m.layers.grid).toBe(false);
+    // Sanitisiertes Projekt ist vollständig → keine erneute Migration
+    expect(migrateProject(m)).toBe(m);
+    // Negative/NaN Rastergröße oder Zahl außerhalb des Bereichs zwingt zur Migration
+    expect(migrateProject({ ...p, settings: { ...p.settings, gridSize: -10 } } as unknown as Project).settings.gridSize).toBe(10);
+    expect(migrateProject({ ...p, settings: { ...p.settings, gridSize: Number.NaN } } as unknown as Project).settings.gridSize).toBe(10);
+    expect(migrateProject({ ...p, settings: { ...p.settings, minEscapeRouteCm: 10 } } as Project).settings.minEscapeRouteCm).toBe(DEFAULT_SETTINGS.minEscapeRouteCm);
+    expect(isValidSetting('gridSize', 7)).toBe(false);
+    expect(isValidSetting('gridSize', 25)).toBe(true);
+    expect(sanitizeSettings(null)).toEqual(DEFAULT_SETTINGS);
+    expect(sanitizeSettings({ gridSize: 50, defaultSafetyZoneCm: 999 })).toEqual({ ...DEFAULT_SETTINGS, gridSize: 50 });
+    expect(sanitizeLayers({ rooms: 0 })).toEqual(DEFAULT_LAYERS);
+  });
+
+  it('H4: prüft eigene Geräte (Form, Polygon) und fällt bei unbekanntem Bereich auf „Eigene“ zurück', () => {
+    const base = { id: 'c1', name: 'Eigen', breite_cm: 100, tiefe_cm: 50 };
+    const mk = (extra: Record<string, unknown>) => ({ ...sampleProject(), customEquipment: [{ ...base, ...extra }] });
+    expect(validateProject(mk({ form: 'dreieck' })).ok).toBe(false);
+    expect(validateProject(mk({ form: 'polygon', polygon: 'abc' })).ok).toBe(false);
+    expect(validateProject(mk({ form: 'polygon', polygon: [1, 2, 3] })).ok).toBe(false);
+    expect(validateProject(mk({ form: 'polygon', polygon: [[0, 0], [1, 0]] })).ok).toBe(false);
+    expect(validateProject(mk({ form: 'polygon', polygon: [[0, 0], [1, 'x'], [1, 1]] })).ok).toBe(false);
+    expect(validateProject(mk({ form: 'polygon' })).ok).toBe(false);
+    expect(validateProject(mk({ symbol: 42 })).ok).toBe(false);
+    const ok = validateAndMigrate(mk({ form: 'polygon', polygon: [[0, 0], [1, 0], [1, 1]], bereich: 'Unbekannt', symbol: 'nicht-registriert' }));
+    expect(ok.ok).toBe(true);
+    if (ok.ok) {
+      const d = ok.project.customEquipment[0];
+      expect(d.bereich).toBe('Eigene');
+      expect(d.form).toBe('polygon');
+      expect(d.polygon).toEqual([[0, 0], [1, 0], [1, 1]]);
+      expect(d.symbol).toBe('nicht-registriert'); // Renderer fällt auf „generic“ zurück
+      expect(migrateProject(ok.project)).toBe(ok.project);
+    }
+    // Vollständiges Projekt mit ungültigem Bereich wird beim Laden repariert
+    const p = sampleProject();
+    p.customEquipment.push({ ...base, kategorie: 'Eigene', unterkategorie: '', hersteller: 'Generisch', hoehe_cm: null, sicherheitszone_cm: { vorne: 0, hinten: 0, links: 0, rechts: 0 }, form: 'rechteck', skalierbar: true, verifiziert: false, bereich: 'Falsch' as never, symbol: 'generic' });
+    const m = migrateProject(p);
+    expect(m).not.toBe(p);
+    expect(m.customEquipment[0].bereich).toBe('Eigene');
+  });
+
+  it('M6: doppelte Element-IDs werden gemeldet und bei der Migration ersetzt (Referenzen zeigen auf das erste Element)', () => {
+    const p = sampleProject();
+    const f = p.floors[0];
+    const first = f.items[0];
+    f.items.push({ ...first, x: 900 });
+    f.groups.push({ id: 'g1', itemIds: [first.id, 'x'] });
+    f.walls.push({ ...f.walls[0], start: { x: 0, y: 500 }, end: { x: 300, y: 500 } });
+    const r = validateProject(p);
+    expect(r.ok).toBe(true);
+    if (r.ok) expect(r.warnings.some((w) => w.includes('Doppelte IDs') && w.includes(first.id))).toBe(true);
+    const m = migrateProject(p);
+    expect(m).not.toBe(p);
+    const ids = m.floors[0].items.map((i) => i.id);
+    expect(new Set(ids).size).toBe(2);
+    expect(ids[0]).toBe(first.id);
+    expect(ids[1]).toMatch(/^i_/);
+    const wids = m.floors[0].walls.map((w) => w.id);
+    expect(new Set(wids).size).toBe(2);
+    expect(wids[0]).toBe(f.walls[0].id);
+    expect(m.floors[0].groups[0].itemIds).toContain(first.id);
+    expect(migrateProject(m)).toBe(m);
+    expect(validateProject(m).ok).toBe(true);
+    if (validateProject(m).ok) expect((validateProject(m) as { warnings: string[] }).warnings).toEqual([]);
+  });
+
+  it('L3: übernimmt keine __proto__/constructor-Schlüssel (roomMeta, priceOverrides, settings)', () => {
+    const raw = JSON.parse(
+      '{"id":"p","name":"X","floors":[{"id":"f","name":"EG","roomMeta":{"__proto__":{"name":"a","type":"b"},"constructor":{"name":"c","type":"d"},"ok":{"name":"Raum","type":"Büro"}}}],'
+      + '"priceOverrides":{"__proto__":{"polluted":1},"atlantis-a301":5,"kaputt":"x"},"settings":{"__proto__":{"polluted":2},"gridSize":25}}',
+    ) as unknown;
+    const r = validateAndMigrate(raw);
+    expect(r.ok).toBe(true);
+    if (r.ok) {
+      expect(Object.keys(r.project.floors[0].roomMeta)).toEqual(['ok']);
+      expect(Object.keys(r.project.priceOverrides)).toEqual(['atlantis-a301']);
+      expect(Object.keys(r.project.settings)).not.toContain('__proto__');
+      expect(r.project.settings.gridSize).toBe(25);
+      expect(Object.getPrototypeOf(r.project.floors[0].roomMeta)).toBe(Object.prototype);
+      expect(({} as Record<string, unknown>).polluted).toBeUndefined();
+    }
+    // Vollständiges Projekt mit unsicherem Schlüssel wird bei der Migration bereinigt
+    const p = sampleProject();
+    Object.defineProperty(p.floors[0].roomMeta, '__proto__', { value: { name: 'x', type: 'y' }, enumerable: true, configurable: true, writable: true });
+    const m = migrateProject(p);
+    expect(m).not.toBe(p);
+    expect(Object.keys(m.floors[0].roomMeta)).toEqual([]);
+  });
+
+  it('L6: vergibt doppelte order-Werte bei der Migration neu (stabil)', () => {
+    const p = sampleProject();
+    p.floors = [
+      { ...p.floors[0], id: 'a', order: 1 },
+      { ...p.floors[0], id: 'b', order: 0 },
+      { ...p.floors[0], id: 'c', order: 0 },
+    ];
+    p.activeFloorId = 'a';
+    const m = migrateProject(p);
+    expect(m).not.toBe(p);
+    expect(m.floors.map((f) => [f.id, f.order])).toEqual([['a', 2], ['b', 0], ['c', 1]]);
+    expect(migrateProject(m)).toBe(m);
+    // Eindeutige (auch negative) Reihenfolgen bleiben unverändert
+    const q = sampleProject();
+    q.floors = [{ ...q.floors[0], id: 'ug', order: -1 }, { ...q.floors[0], id: 'eg', order: 0 }];
+    q.activeFloorId = 'eg';
+    expect(migrateProject(q)).toBe(q);
   });
 });

@@ -126,9 +126,14 @@ export function csvNumber(v: number | null | undefined, decimals = 2): string {
   return String(r).replace('.', ',');
 }
 
+/**
+ * Zelle für Excel DE: Textzellen, die wie eine Formel beginnen (= + - @ Tab CR), erhalten ein führendes
+ * Apostroph (CSV-Injection-Schutz); Zahlen werden über csvNumber formatiert und nie geschützt.
+ */
 export function csvCell(v: string | number | null | undefined): string {
   if (v == null) return '';
-  const s = typeof v === 'number' ? csvNumber(v) : String(v);
+  let s = typeof v === 'number' ? csvNumber(v) : String(v);
+  if (typeof v === 'string' && /^[=+\-@\t\r]/.test(s)) s = `'${s}`;
   return /[;"\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 }
 

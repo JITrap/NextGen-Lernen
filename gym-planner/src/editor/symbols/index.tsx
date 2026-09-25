@@ -281,14 +281,14 @@ export function resolveSymbolStyle(kind: SymbolKind, item: Pick<PlacedItem, 'loc
 
 /** Polygon-Grundfläche (def.polygon) in lokale Koordinaten: normiert (0..1) oder in cm ab linker oberer Ecke. */
 function polygonPoints(def: EquipmentDef, w: number, d: number): number[] | null {
-  const poly = def.polygon;
-  if (!poly || poly.length < 3) return null;
+  // Defensiv: def.polygon kann aus alten/fremden Projektdateien stammen (kein Array, falsche Tupel …).
+  const poly: unknown = def.polygon;
+  if (!Array.isArray(poly) || poly.length < 3) return null;
+  const isPt = (p: unknown): p is [number, number] => Array.isArray(p) && p.length === 2 && Number.isFinite(p[0]) && Number.isFinite(p[1]);
+  if (!poly.every(isPt)) return null;
   const normalized = poly.every(([x, y]) => x >= 0 && x <= 1 && y >= 0 && y <= 1);
   const out: number[] = [];
-  for (const [x, y] of poly) {
-    if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
-    out.push((normalized ? x * w : x) - w / 2, (normalized ? y * d : y) - d / 2);
-  }
+  for (const [x, y] of poly) out.push((normalized ? x * w : x) - w / 2, (normalized ? y * d : y) - d / 2);
   return out;
 }
 

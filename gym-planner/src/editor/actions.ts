@@ -249,19 +249,19 @@ export function insertEntries(floor: Floor, entries: ClipboardEntry[], dx: numbe
   const items: PlacedItem[] = [];
   for (const e of entries) {
     if (e.kind !== 'item') continue;
+    // Optionale Referenzen nur setzen, wenn vorhanden (keine expliziten undefined-Eigenschaften).
+    const { groupId: _groupId, dockedTo: _dockedTo, wallId: srcWallId, linkedFloorIds: _linked, params: srcParams, ...rest } = e.data;
     const it: PlacedItem = {
-      ...e.data,
+      ...rest,
       id: remap(e.data.id, 'i_'),
       x: e.data.x + dx,
       y: e.data.y + dy,
       locked: false,
       hidden: false,
-      groupId: undefined,
-      dockedTo: undefined,
-      wallId: e.data.wallId ? (idMap.get(e.data.wallId) ?? (findWall(floor, e.data.wallId) ? e.data.wallId : undefined)) : undefined,
-      linkedFloorIds: undefined,
-      params: e.data.params ? { ...e.data.params } : undefined,
     };
+    const wallId = srcWallId ? (idMap.get(srcWallId) ?? (findWall(floor, srcWallId) ? srcWallId : undefined)) : undefined;
+    if (wallId) it.wallId = wallId;
+    if (srcParams) it.params = { ...srcParams };
     if (it.params && '__linkedFrom' in it.params) delete it.params.__linkedFrom;
     items.push(it);
     sel.push({ kind: 'item', id: it.id });

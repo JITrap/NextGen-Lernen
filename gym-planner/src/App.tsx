@@ -11,6 +11,7 @@ import { ContextMenu } from '@/components/ContextMenu';
 import { ShortcutsOverlay } from '@/components/ShortcutsOverlay';
 import { Tutorial } from '@/components/Tutorial';
 import { Toasts } from '@/components/Toasts';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { usePersistence } from '@/store/persistence';
 
 const View3D = lazy(() => import('@/three/View3D').then((m) => ({ default: m.View3D })));
@@ -31,14 +32,22 @@ export default function App() {
         {!presentation && leftOpen && <Toolbar />}
         <main className="relative min-w-0 flex-1">
           {view3d ? (
-            <Suspense fallback={<div className="flex h-full items-center justify-center gp-muted">3D-Ansicht wird geladen …</div>}>
-              <View3D />
-            </Suspense>
+            <ErrorBoundary variant="section" label="3D-Ansicht">
+              <Suspense fallback={<div className="flex h-full items-center justify-center gp-muted">3D-Ansicht wird geladen …</div>}>
+                <View3D />
+              </Suspense>
+            </ErrorBoundary>
           ) : (
-            <Canvas />
+            <ErrorBoundary variant="section" label="Zeichenfläche">
+              <Canvas />
+            </ErrorBoundary>
           )}
         </main>
-        {!presentation && rightOpen && <RightPanel />}
+        {!presentation && rightOpen && (
+          <ErrorBoundary variant="section" label="Seitenpanel" className="w-[320px] shrink-0 border-l gp-panel max-[1099px]:w-[280px]">
+            <RightPanel />
+          </ErrorBoundary>
+        )}
       </div>
       {!presentation && <StatusBar />}
       <ContextMenu />

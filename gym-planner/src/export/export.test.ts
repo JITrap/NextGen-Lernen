@@ -3,7 +3,7 @@ import type { Project } from '@/types';
 import { createEmptyProject, createFloor, createHall, createWall, createZone, createItemFromDef } from '@/store/factories';
 import { getDef } from '@/data/equipment';
 import { areaBalance, bom } from '@/analysis';
-import { serializeProject, parseProject, parseProjectDetailed, stableStringify, safeFileName } from './json';
+import { serializeProject, parseProject, parseProjectDetailed, stableStringify, safeFileName, importSizeError, MAX_IMPORT_BYTES } from './json';
 import { bomRows, bomTotals, bomCsvText, csvNumber, csvCell, CSV_HEADER } from './csv';
 import {
   paperMmForCm, cmForPaperMm, pxPerCmForPaper, clampPxPerCm, floorContentBounds, layoutFloorRender, scaleBarLength, legendRoomTypes,
@@ -399,5 +399,34 @@ describe('Flächenbilanz (PDF)', () => {
     expect(total.byType).toEqual(ref.total.byType);
     expect(total.byClass).toEqual(ref.total.byClass);
     expect(total.unassignedM2).toBe(ref.total.unassignedM2);
+  });
+});
+
+describe('Review-Befunde Export', () => {
+  it('L2: CSV-Zellen mit Formelzeichen am Anfang werden entschärft, Zahlen nicht', () => {
+    expect(csvCell('=SUM(A1:A3)')).toBe("'=SUM(A1:A3)");
+    expect(csvCell('+1')).toBe("'+1");
+    expect(csvCell('-x')).toBe("'-x");
+    expect(csvCell('@cmd')).toBe("'@cmd");
+    expect(csvCell('\tx')).toBe("'\tx");
+    expect(csvCell('=1;2')).toBe('"\'=1;2"');
+    expect(csvCell('Normal')).toBe('Normal');
+    expect(csvCell(-5)).toBe('-5');
+    expect(csvCell(-5.5)).toBe('-5,5');
+    const p = sampleProject();
+    p.customEquipment[0].name = '=HYPERLINK("x")';
+    const text = bomCsvText(p);
+    expect(text).toContain("\"'=HYPERLINK(\"\"x\"\")\"");
+    expect(text).not.toMatch(/;=HYPERLINK/);
+  });
+
+  it('L8: Importdateien über 50 MB werden abgelehnt', () => {
+    expect(MAX_IMPORT_BYTES).toBe(50 * 1024 * 1024);
+    expect(importSizeError({ name: 'a.json', size: 10 })).toBeNull();
+    expect(importSizeError({ name: 'a.json', size: MAX_IMPORT_BYTES })).toBeNull();
+    const msg = importSizeError({ name: 'gross.json', size: MAX_IMPORT_BYTES + 1 });
+    expect(msg).toContain('gross.json');
+    expect(msg).toContain('zu groß');
+    expect(msg).toContain('50 MB');
   });
 });

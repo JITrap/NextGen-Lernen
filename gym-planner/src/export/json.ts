@@ -12,6 +12,15 @@ import { SCHEMA_VERSION } from '@/store/factories';
 
 export const JSON_FORMAT = 'gymplanner-project';
 export const JSON_FILE_SUFFIX = '.gymplanner.json';
+/** Maximale Größe einer Importdatei (50 MB). */
+export const MAX_IMPORT_BYTES = 50 * 1024 * 1024;
+
+/** Liefert eine Fehlermeldung, wenn die Datei das Importlimit überschreitet, sonst null. */
+export function importSizeError(file: { name: string; size: number }): string | null {
+  if (!Number.isFinite(file.size) || file.size <= MAX_IMPORT_BYTES) return null;
+  const mb = (n: number) => `${Math.round((n / 1048576) * 10) / 10} MB`.replace('.', ',');
+  return `Datei „${file.name}“ ist zu groß (${mb(file.size)}, maximal ${mb(MAX_IMPORT_BYTES)}).`;
+}
 
 /** JSON mit rekursiv sortierten Objektschlüsseln (Arrays behalten ihre Reihenfolge). */
 export function stableStringify(value: unknown, indent = 2): string {
@@ -166,6 +175,12 @@ export function pickJsonFile(): Promise<{ name: string; text: string } | null> {
     input.addEventListener('change', () => {
       const file = input.files?.[0];
       if (!file) { finish(null); return; }
+      const sizeError = importSizeError(file);
+      if (sizeError) {
+        useUiStore.getState().toast(sizeError, 'error');
+        finish(null);
+        return;
+      }
       file.text().then((text) => finish({ name: file.name, text })).catch(() => finish(null));
     });
     document.body.appendChild(input);

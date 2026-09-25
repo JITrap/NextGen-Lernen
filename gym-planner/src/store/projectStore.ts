@@ -13,6 +13,21 @@ function touch(p: Draft<Project>) {
   p.updatedAt = new Date().toISOString();
 }
 
+/**
+ * Gleichheit für die Undo-Historie: zwei Projektstände gelten als gleich, wenn sie sich höchstens in
+ * activeFloorId unterscheiden – ein Stockwerkwechsel ist damit kein Undo-Schritt.
+ */
+export function sameExceptActiveFloor(a: Project, b: Project): boolean {
+  if (a === b) return true;
+  const ra = a as unknown as Record<string, unknown>;
+  const rb = b as unknown as Record<string, unknown>;
+  for (const k of new Set([...Object.keys(ra), ...Object.keys(rb)])) {
+    if (k === 'activeFloorId') continue;
+    if (ra[k] !== rb[k]) return false;
+  }
+  return true;
+}
+
 export interface ProjectState {
   project: Project;
   /* ---- Projekt ---- */
@@ -80,6 +95,22 @@ function floorOf(p: Draft<Project>, id: Id): Draft<Floor> | undefined {
   return p.floors.find((f) => f.id === id);
 }
 
+/** Entfernt Objekte und bereinigt Referenzen (Andockung, Gruppen). */
+function removeItems(f: Draft<Floor>, set: Set<Id>) {
+  if (!set.size) return;
+  f.items = f.items.filter((it) => !set.has(it.id));
+  for (const it of f.items) if (it.dockedTo && set.has(it.dockedTo)) it.dockedTo = undefined;
+  for (const g of f.groups) g.itemIds = g.itemIds.filter((i) => !set.has(i));
+  f.groups = f.groups.filter((g) => g.itemIds.length > 1);
+}
+/** Entfernt Wände samt ihrer Öffnungen und löst die Wandmontage betroffener Objekte. */
+function removeWalls(f: Draft<Floor>, set: Set<Id>) {
+  if (!set.size) return;
+  f.walls = f.walls.filter((w) => !set.has(w.id));
+  f.openings = f.openings.filter((o) => !set.has(o.wallId));
+  for (const it of f.items) if (it.wallId && set.has(it.wallId)) it.wallId = undefined;
+}
+
 export const useProjectStore = create<ProjectState>()(
   temporal(
     (set, get) => {
@@ -135,6 +166,8 @@ export const useProjectStore = create<ProjectState>()(
           if (idx < 0 || j < 0 || j >= sorted.length) return;
           const a = sorted[idx];
           const b = sorted[j];
+          // Gleiche order-Werte (alte Daten): Reihenfolge zuerst eindeutig vergeben, sonst wäre der Tausch wirkungslos.
+          if (a.order === b.order) sorted.forEach((f, i) => { f.order = i; });
           const tmp = a.order;
           a.order = b.order;
           b.order = tmp;
@@ -147,12 +180,7 @@ export const useProjectStore = create<ProjectState>()(
         addWall: (floorId, wall) => mutateFloor(floorId, (f) => { f.walls.push(wall); }),
         addWalls: (floorId, walls) => mutateFloor(floorId, (f) => { f.walls.push(...walls); }),
         updateWall: (floorId, id, patch) => mutateFloor(floorId, (f) => { const w = f.walls.find((x) => x.id === id); if (w) Object.assign(w, patch); }),
-        deleteWalls: (floorId, ids) => mutateFloor(floorId, (f) => {
-          const set = new Set(ids);
-          f.walls = f.walls.filter((w) => !set.has(w.id));
-          f.openings = f.openings.filter((o) => !set.has(o.wallId));
-          for (const it of f.items) if (it.wallId && set.has(it.wallId)) it.wallId = undefined;
-        }),
+        deleteWalls: (floorId, ids) => mutateFloor(floorId, (f) => removeWalls(f, new Set(ids))),
         replaceWalls: (floorId, removeIds, add) => mutateFloor(floorId, (f) => {
           const set = new Set(removeIds);
           f.walls = f.walls.filter((w) => !set.has(w.id));
@@ -180,13 +208,7 @@ export const useProjectStore = create<ProjectState>()(
           const set = new Set(ids);
           for (const it of f.items) if (set.has(it.id) && !it.locked) { it.x += dx; it.y += dy; }
         }),
-        deleteItems: (floorId, ids) => mutateFloor(floorId, (f) => {
-          const set = new Set(ids);
-          f.items = f.items.filter((it) => !set.has(it.id));
-          for (const it of f.items) if (it.dockedTo && set.has(it.dockedTo)) it.dockedTo = undefined;
-          for (const g of f.groups) g.itemIds = g.itemIds.filter((i) => !set.has(i));
-          f.groups = f.groups.filter((g) => g.itemIds.length > 1);
-        }),
+        deleteItems: (floorId, ids) => mutateFloor(floorId, (f) => removeItems(f, new Set(ids))),
 
         groupItems: (floorId, ids) => {
           if (ids.length < 2) return null;
@@ -234,13 +256,14 @@ export const useProjectStore = create<ProjectState>()(
           const anns = by('annotation');
           const voids = by('void');
           if (items.size) {
-            f.items = f.items.filter((it) => !items.has(it.id) || it.locked);
-            for (const g of f.groups) g.itemIds = g.itemIds.filter((i) => !items.has(i));
-            f.groups = f.groups.filter((g) => g.itemIds.length > 1);
+            // Gesperrte Objekte bleiben – nur tatsächlich entfernte bereinigen (Gruppen, Andockung) wie in deleteItems.
+            const removed = new Set(f.items.filter((it) => items.has(it.id) && !it.locked).map((it) => it.id));
+            removeItems(f, removed);
           }
           if (walls.size) {
-            f.walls = f.walls.filter((w) => !walls.has(w.id) || w.locked);
-            f.openings = f.openings.filter((o) => !walls.has(o.wallId));
+            // Gesperrte Wände bleiben samt Öffnungen und Wandmontage-Objekten.
+            const removed = new Set(f.walls.filter((w) => walls.has(w.id) && !w.locked).map((w) => w.id));
+            removeWalls(f, removed);
           }
           if (zones.size) f.zones = f.zones.filter((z) => !zones.has(z.id) || z.locked);
           if (openings.size) f.openings = f.openings.filter((o) => !openings.has(o.id) || o.locked);
@@ -252,7 +275,7 @@ export const useProjectStore = create<ProjectState>()(
     {
       limit: 200,
       partialize: (s) => ({ project: s.project }),
-      equality: (a, b) => a.project === b.project,
+      equality: (a, b) => sameExceptActiveFloor(a.project, b.project),
     },
   ),
 );
@@ -289,7 +312,10 @@ export function endTransaction() {
   if (txDepth === 0) {
     const temporal = useProjectStore.temporal.getState();
     const cur = useProjectStore.getState().project;
-    if (txSnapshot && txSnapshot !== cur) {
+    if (txSnapshot && txSnapshot.id !== cur.id) {
+      // Während der Transaktion wurde ein anderes Projekt geladen: Snapshot verwerfen, keinen Eintrag anlegen.
+      temporal.resume();
+    } else if (txSnapshot && txSnapshot !== cur) {
       // Genau einen Historieneintrag erzeugen: noch pausiert auf den Snapshot zurück,
       // dann mit aktivem Tracking den Endzustand setzen (zundo legt den Snapshot als Vergangenheit ab).
       useProjectStore.setState({ project: txSnapshot });
@@ -307,8 +333,11 @@ export function transaction(fn: () => void) {
   try { fn(); } finally { endTransaction(); }
 }
 
-/** Projekt laden und Historie leeren. */
+/** Projekt laden und Historie leeren; eine laufende Transaktion wird verworfen. */
 export function loadProject(p: Project) {
+  txDepth = 0;
+  txSnapshot = null;
+  useProjectStore.temporal.getState().resume();
   useProjectStore.setState({ project: p });
   clearHistory();
 }

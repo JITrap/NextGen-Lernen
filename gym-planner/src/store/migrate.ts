@@ -8,10 +8,11 @@
  */
 import type {
   Project, Floor, Wall, Zone, Opening, PlacedItem, Group, VoidArea, Annotation, RoomMeta, Vec2, Hall,
-  EquipmentDef, SafetyZone, ProjectSettings, LayerVisibility,
+  EquipmentDef, SafetyZone, ProjectSettings, LayerVisibility, LibraryArea, ShapeKind,
 } from '@/types';
 import { SCHEMA_VERSION, DEFAULT_SETTINGS, DEFAULT_LAYERS, DEFAULT_CEILING_HEIGHT, DEFAULT_OUTER_WALL_THICKNESS } from './factories';
 import { getDef } from '@/data/equipment';
+import { newId } from '@/utils/id';
 
 export interface ValidationOk {
   ok: true;
@@ -47,6 +48,86 @@ function isPolygon(v: unknown, minPoints = 3): v is Vec2[] {
 }
 function isSafetyZone(v: unknown): v is SafetyZone {
   return isRec(v) && isNum(v.vorne) && isNum(v.hinten) && isNum(v.links) && isNum(v.rechts);
+}
+/** Schlüssel, die in Objekt-Wörterbüchern (roomMeta, priceOverrides …) nie übernommen werden (Prototype Pollution). */
+const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
+export function isSafeKey(k: string): boolean {
+  return !UNSAFE_KEYS.has(k);
+}
+
+/* ------------------------------------------------------------------ */
+/* Einstellungen und Ebenen: Wertebereiche                             */
+/* ------------------------------------------------------------------ */
+
+export const GRID_SIZES: readonly number[] = [5, 10, 25, 50, 100];
+/** Zulässige Zahlenbereiche der numerischen Einstellungen [min, max]. */
+export const SETTING_RANGES: Record<'floorLoadLimitKgM2' | 'm2PerPerson' | 'minEscapeRouteCm' | 'defaultSafetyZoneCm' | 'lowerFloorOpacity', readonly [number, number]> = {
+  floorLoadLimitKgM2: [50, 5000],
+  m2PerPerson: [1, 50],
+  minEscapeRouteCm: [60, 400],
+  defaultSafetyZoneCm: [0, 300],
+  lowerFloorOpacity: [0, 1],
+};
+
+/** Prüft einen einzelnen Einstellungswert (Typ und Wertebereich). */
+export function isValidSetting(key: keyof ProjectSettings, v: unknown): boolean {
+  switch (key) {
+    case 'gridSize':
+      return isNum(v) && GRID_SIZES.includes(v);
+    case 'showGrid':
+    case 'snapEnabled':
+    case 'showLowerFloor':
+      return typeof v === 'boolean';
+    default: {
+      const [min, max] = SETTING_RANGES[key];
+      return isNum(v) && v >= min && v <= max;
+    }
+  }
+}
+
+/**
+ * Liefert vollständige, gültige Einstellungen: ungültige oder fehlende Werte werden durch die Defaults ersetzt.
+ * Unbekannte Schlüssel (neuere Programmversionen) bleiben erhalten.
+ */
+export function sanitizeSettings(input: unknown): ProjectSettings {
+  const out: ProjectSettings = { ...DEFAULT_SETTINGS };
+  if (!isRec(input)) return out;
+  const known = new Set(Object.keys(DEFAULT_SETTINGS));
+  for (const [k, v] of Object.entries(input)) {
+    if (!isSafeKey(k)) continue;
+    if (known.has(k)) {
+      const key = k as keyof ProjectSettings;
+      if (isValidSetting(key, v)) (out as unknown as Rec)[key] = v;
+    } else {
+      (out as unknown as Rec)[k] = v;
+    }
+  }
+  return out;
+}
+
+/** Liefert vollständige Ebenen-Sichtbarkeiten: nur Wahrheitswerte werden übernommen, sonst Default. */
+export function sanitizeLayers(input: unknown): LayerVisibility {
+  const out: LayerVisibility = { ...DEFAULT_LAYERS };
+  if (!isRec(input)) return out;
+  const known = new Set(Object.keys(DEFAULT_LAYERS));
+  for (const [k, v] of Object.entries(input)) {
+    if (!isSafeKey(k)) continue;
+    if (known.has(k)) {
+      if (typeof v === 'boolean') (out as unknown as Rec)[k] = v;
+    } else {
+      (out as unknown as Rec)[k] = v;
+    }
+  }
+  return out;
+}
+
+const LIBRARY_AREAS: ReadonlySet<string> = new Set<LibraryArea>([
+  'Kraftgeräte', 'Freihantel-Zubehör', 'Cardio', 'Functional', 'Empfang & Lounge', 'Umkleide', 'Sanitär', 'Wellness',
+  'Kursraum', 'Büro & Personal', 'Lager & Technik', 'Ausstattung', 'Bauelemente', 'Eigene',
+]);
+const SHAPE_KINDS: ReadonlySet<string> = new Set<ShapeKind>(['rechteck', 'polygon', 'kreis']);
+function isPolygonTuple(v: unknown): v is [number, number] {
+  return Array.isArray(v) && v.length === 2 && isNum(v[0]) && isNum(v[1]);
 }
 
 class Collector {
@@ -219,6 +300,34 @@ function checkCustomEquipment(c: Collector, d: unknown, path: string) {
   if (d.gewicht_kg !== undefined && d.gewicht_kg !== null && !isNum(d.gewicht_kg)) c.error(`${path}.gewicht_kg`, 'Gewicht oder null erwartet');
   if (d.sicherheitszone_cm !== undefined && !isSafetyZone(d.sicherheitszone_cm)) c.error(`${path}.sicherheitszone_cm`, 'Sicherheitszone erwartet');
   if (d.preis_eur !== undefined && !isNum(d.preis_eur)) c.error(`${path}.preis_eur`, 'Preis muss eine Zahl sein');
+  if (d.form !== undefined && (!isStr(d.form) || !SHAPE_KINDS.has(d.form))) c.error(`${path}.form`, 'Form muss „rechteck“, „polygon“ oder „kreis“ sein');
+  if (d.polygon !== undefined && !(Array.isArray(d.polygon) && d.polygon.length >= 3 && d.polygon.every(isPolygonTuple))) {
+    c.error(`${path}.polygon`, 'Liste von mindestens 3 Punkten [x, y] erwartet');
+  }
+  if (d.form === 'polygon' && d.polygon === undefined) c.error(`${path}.polygon`, 'Form „polygon“ benötigt ein Polygon');
+  if (d.symbol !== undefined && !isStr(d.symbol)) c.error(`${path}.symbol`, 'Symbol muss eine Zeichenkette sein');
+  if (d.bereich !== undefined && !isStr(d.bereich)) c.error(`${path}.bereich`, 'Bereich muss eine Zeichenkette sein');
+  checkOptionalBool(c, d, 'skalierbar', path);
+  checkOptionalBool(c, d, 'verifiziert', path);
+}
+
+const FLOOR_LISTS = ['walls', 'zones', 'openings', 'items', 'groups', 'voids', 'annotations'] as const;
+type FloorListKey = (typeof FLOOR_LISTS)[number];
+
+/** Doppelte IDs innerhalb einer Liste eines Stockwerks (z. B. zwei Objekte mit derselben ID). */
+function duplicateIds(list: unknown): string[] {
+  if (!Array.isArray(list)) return [];
+  const seen = new Set<string>();
+  const dup: string[] = [];
+  for (const e of list) {
+    const id = isRec(e) ? e.id : undefined;
+    if (!isStr(id)) continue;
+    if (seen.has(id)) { if (!dup.includes(id)) dup.push(id); } else seen.add(id);
+  }
+  return dup;
+}
+function hasDuplicateIds(f: Floor): boolean {
+  return FLOOR_LISTS.some((k) => duplicateIds(f[k]).length > 0);
 }
 
 /**
@@ -259,6 +368,14 @@ export function validateProject(input: unknown): ValidationResult {
     seen.add(id);
   }
   if (c.errors.length) return { ok: false, errors: c.errors, warnings: c.warnings };
+
+  // Doppelte Element-IDs innerhalb eines Stockwerks: werden bei der Migration durch neue IDs ersetzt → Warnung
+  for (const f of floors) {
+    for (const k of FLOOR_LISTS) {
+      const dup = duplicateIds(f[k]);
+      if (dup.length) c.warn(`Doppelte IDs in „${String(f.name)}“ (${k}: ${dup.join(', ')}) – die Dubletten erhalten beim Laden neue IDs.`);
+    }
+  }
 
   // Unbekannte Geräte-IDs sind erlaubt → Warnung
   const custom = Array.isArray(p.customEquipment) ? (p.customEquipment as EquipmentDef[]) : [];
@@ -303,8 +420,8 @@ function fillFloor(f: Partial<Floor> & Pick<Floor, 'id' | 'name'>, index: number
     };
   });
   const roomMeta: Record<string, RoomMeta> = {};
-  for (const [k, m] of Object.entries(f.roomMeta ?? {})) roomMeta[k] = { ...m };
-  return {
+  for (const [k, m] of Object.entries(f.roomMeta ?? {})) if (isSafeKey(k) && isRec(m)) roomMeta[k] = { ...m };
+  return dedupeFloorIds({
     id: f.id,
     name: f.name,
     order: isNum(f.order) ? f.order : index,
@@ -318,11 +435,39 @@ function fillFloor(f: Partial<Floor> & Pick<Floor, 'id' | 'name'>, index: number
     groups: (f.groups ?? []) as Group[],
     voids: (f.voids ?? []) as VoidArea[],
     annotations: (f.annotations ?? []) as Annotation[],
-  };
+  });
+}
+
+const ID_PREFIX: Record<FloorListKey, string> = { walls: 'w_', zones: 'z_', openings: 'o_', items: 'i_', groups: 'g_', voids: 'v_', annotations: 'a_' };
+
+/**
+ * Ersetzt doppelte IDs innerhalb der Listen eines Stockwerks durch neue IDs (das erste Vorkommen behält seine ID,
+ * Referenzen wie groupId/dockedTo/itemIds/wallId zeigen damit weiterhin auf das erste Element).
+ */
+function dedupeFloorIds(f: Floor): Floor {
+  if (!hasDuplicateIds(f)) return f;
+  const out = { ...f };
+  for (const k of FLOOR_LISTS) {
+    const seen = new Set<string>();
+    out[k] = (f[k] as { id: string }[]).map((e) => {
+      if (!seen.has(e.id)) { seen.add(e.id); return e; }
+      return { ...e, id: newId(ID_PREFIX[k]) };
+    }) as never;
+  }
+  return out;
+}
+
+/** Vergibt bei doppelten order-Werten die Reihenfolge neu (Index nach Sortierung, stabil). */
+function normalizeFloorOrders(floors: Floor[]): Floor[] {
+  const orders = floors.map((f) => f.order);
+  if (new Set(orders).size === orders.length) return floors;
+  const sorted = floors.map((f, i) => ({ f, i })).sort((a, b) => a.f.order - b.f.order || a.i - b.i);
+  const order = new Map(sorted.map(({ f }, i) => [f.id, i]));
+  return floors.map((f) => ({ ...f, order: order.get(f.id) ?? f.order }));
 }
 
 function fillCustomEquipment(d: Partial<EquipmentDef> & Pick<EquipmentDef, 'id' | 'name' | 'breite_cm' | 'tiefe_cm'>): EquipmentDef {
-  return {
+  const out: EquipmentDef = {
     kategorie: 'Eigene',
     unterkategorie: '',
     hersteller: 'Generisch',
@@ -336,6 +481,22 @@ function fillCustomEquipment(d: Partial<EquipmentDef> & Pick<EquipmentDef, 'id' 
     benutzerdefiniert: true,
     ...d,
   };
+  // Whitelist mit Fallback: unbekannter Bereich → „Eigene“, ungültige Form/Polygon → Rechteck.
+  if (!LIBRARY_AREAS.has(out.bereich)) out.bereich = 'Eigene';
+  if (!isStr(out.symbol) || !out.symbol) out.symbol = 'generic';
+  if (!SHAPE_KINDS.has(out.form)) out.form = 'rechteck';
+  if (out.polygon !== undefined && !(Array.isArray(out.polygon) && out.polygon.length >= 3 && out.polygon.every(isPolygonTuple))) delete out.polygon;
+  if (out.form === 'polygon' && !out.polygon) out.form = 'rechteck';
+  return out;
+}
+function isCustomEquipmentClean(d: EquipmentDef): boolean {
+  if (!LIBRARY_AREAS.has(d.bereich) || !isStr(d.symbol) || !d.symbol || !SHAPE_KINDS.has(d.form)) return false;
+  if (d.polygon !== undefined && !(Array.isArray(d.polygon) && d.polygon.length >= 3 && d.polygon.every(isPolygonTuple))) return false;
+  if (d.form === 'polygon' && !d.polygon) return false;
+  return true;
+}
+function hasUnsafeKeys(o: Rec): boolean {
+  return Object.keys(o).some((k) => !isSafeKey(k));
 }
 
 /** Prüft, ob ein Projekt alle Felder der aktuellen Schema-Version besitzt. */
@@ -343,15 +504,21 @@ function isComplete(p: Project): boolean {
   if (!isNum(p.schemaVersion) || p.schemaVersion < SCHEMA_VERSION) return false;
   if (!isRec(p.settings) || !isRec(p.layers) || !Array.isArray(p.favorites) || !isRec(p.priceOverrides) || !Array.isArray(p.customEquipment)) return false;
   if (!isStr(p.createdAt) || !isStr(p.updatedAt) || !isStr(p.activeFloorId)) return false;
-  for (const k of Object.keys(DEFAULT_SETTINGS) as (keyof ProjectSettings)[]) if (p.settings[k] === undefined) return false;
-  for (const k of Object.keys(DEFAULT_LAYERS) as (keyof LayerVisibility)[]) if (p.layers[k] === undefined) return false;
+  for (const k of Object.keys(DEFAULT_SETTINGS) as (keyof ProjectSettings)[]) if (!isValidSetting(k, p.settings[k])) return false;
+  for (const k of Object.keys(DEFAULT_LAYERS) as (keyof LayerVisibility)[]) if (typeof p.layers[k] !== 'boolean') return false;
+  if (hasUnsafeKeys(p.settings as unknown as Rec) || hasUnsafeKeys(p.layers as unknown as Rec) || hasUnsafeKeys(p.priceOverrides)) return false;
+  for (const v of Object.values(p.priceOverrides)) if (!isNum(v)) return false;
   if (!p.floors.some((f) => f.id === p.activeFloorId)) return false;
+  if (new Set(p.floors.map((f) => f.order)).size !== p.floors.length) return false;
   for (const f of p.floors) {
     if (!Array.isArray(f.walls) || !Array.isArray(f.zones) || !Array.isArray(f.openings) || !Array.isArray(f.items)) return false;
     if (!Array.isArray(f.groups) || !Array.isArray(f.voids) || !Array.isArray(f.annotations) || !isRec(f.roomMeta)) return false;
     if (!isNum(f.order) || !isNum(f.ceilingHeight)) return false;
+    if (hasUnsafeKeys(f.roomMeta)) return false;
     for (const it of f.items) if (!isSafetyZone(it.safetyZone) || typeof it.safetyZoneEnabled !== 'boolean' || it.height === undefined) return false;
+    if (hasDuplicateIds(f)) return false;
   }
+  for (const d of p.customEquipment) if (!isCustomEquipmentClean(d)) return false;
   return true;
 }
 
@@ -363,20 +530,24 @@ export function migrateProject(input: Project): Project {
   if (isComplete(input)) return input;
   const p = input as Partial<Project> & Pick<Project, 'id' | 'name' | 'floors'>;
   const now = new Date().toISOString();
-  const floors = p.floors.map((f, i) => fillFloor(f, i));
+  const floors = normalizeFloorOrders(p.floors.map((f, i) => fillFloor(f, i)));
   const activeFloorId = floors.some((f) => f.id === p.activeFloorId) ? (p.activeFloorId as string) : floors[0].id;
+  const priceOverrides: Record<string, number> = {};
+  if (isRec(p.priceOverrides)) {
+    for (const [k, v] of Object.entries(p.priceOverrides)) if (isSafeKey(k) && isNum(v)) priceOverrides[k] = v;
+  }
   const out: Project = {
     ...(p as Project),
     schemaVersion: SCHEMA_VERSION,
     createdAt: isStr(p.createdAt) ? p.createdAt : now,
     updatedAt: isStr(p.updatedAt) ? p.updatedAt : now,
-    settings: { ...DEFAULT_SETTINGS, ...(isRec(p.settings) ? p.settings : {}) },
-    layers: { ...DEFAULT_LAYERS, ...(isRec(p.layers) ? p.layers : {}) },
+    settings: sanitizeSettings(p.settings),
+    layers: sanitizeLayers(p.layers),
     floors,
     activeFloorId,
     customEquipment: (Array.isArray(p.customEquipment) ? p.customEquipment : []).map(fillCustomEquipment),
     favorites: Array.isArray(p.favorites) ? [...p.favorites] : [],
-    priceOverrides: isRec(p.priceOverrides) ? { ...(p.priceOverrides as Record<string, number>) } : {},
+    priceOverrides,
   };
   if (out.parentId === undefined) delete out.parentId;
   if (out.variantName === undefined) delete out.variantName;
