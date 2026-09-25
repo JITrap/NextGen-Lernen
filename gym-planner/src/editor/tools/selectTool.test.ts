@@ -336,3 +336,75 @@ describe('Import-Rauchtest', () => {
     expect(marqueeRect(v, v)).toEqual({ minX: 1, minY: 2, maxX: 1, maxY: 2 });
   });
 });
+
+describe('Zieh-Vorgang robust beenden (H1/H2)', () => {
+  let a: PlacedItem;
+  beforeEach(() => {
+    const p = createEmptyProject('Test');
+    const f = p.floors[0];
+    f.hall = createHall(2000, 1500);
+    p.settings.snapEnabled = false;
+    a = createItemFromDef(getDef('atlantis-a301')!, 500, 500);
+    f.items = [a];
+    loadProject(p);
+    useUiStore.getState().clearSelection();
+    useSelectTool.getState().reset();
+    tool().onCancel?.(mkCtx());
+  });
+
+  it('setzt das zentrale ui.dragging-Flag während der Transaktion', () => {
+    expect(useUiStore.getState().dragging).toBe(false);
+    down(500, 500);
+    move(560, 540);
+    expect(debugDragState()?.active).toBe(true);
+    expect(useUiStore.getState().dragging).toBe(true);
+    up(560, 540);
+    expect(useUiStore.getState().dragging).toBe(false);
+    expect(debugDragState()).toBeNull();
+  });
+
+  it('Bewegung ohne gedrückte Taste (buttons = 0) schließt das Ziehen mit dem letzten Stand ab – ein Undo-Schritt', () => {
+    const before = historyLen();
+    down(500, 500);
+    move(560, 540);
+    move(600, 580);
+    expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580 });
+    // Loslassen kam nicht an (z. B. außerhalb des Fensters); nächste Bewegung meldet buttons = 0
+    move(700, 700, { buttons: 0 });
+    expect(debugDragState()).toBeNull();
+    expect(useUiStore.getState().dragging).toBe(false);
+    expect(useProjectStore.temporal.getState().isTracking).toBe(true);
+    // Objekt folgt dem Zeiger nicht weiter, Stand von vor dem Loslassen bleibt
+    expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580 });
+    expect(historyLen()).toBeGreaterThan(before);
+    // Spätere Änderungen laufen wieder in eigene Undo-Schritte
+    const mid = historyLen();
+    transaction(() => useProjectStore.getState().renameFloor(floorNow().id, 'Danach'));
+    expect(historyLen()).toBeGreaterThan(mid);
+    // Esc verwirft nichts mehr (kein offener Zieh-Vorgang)
+    tool().onKeyDown!(new KeyboardEvent('keydown', { key: 'Escape' }), mkCtx());
+    expect(floorNow().name).toBe('Danach');
+    expect(floorNow().items[0]).toMatchObject({ x: 600, y: 580 });
+  });
+
+  it('buttons = undefined (Touch/unbekannt) beendet das Ziehen nicht', () => {
+    down(500, 500);
+    move(560, 540);
+    move(600, 580, { pointerType: 'touch' });
+    expect(debugDragState()?.active).toBe(true);
+    up(600, 580, { pointerType: 'touch' });
+    expect(debugDragState()).toBeNull();
+  });
+
+  it('onCancel (Unmount des Canvas) schließt die Transaktion und setzt das Flag zurück', () => {
+    down(500, 500);
+    move(560, 540);
+    expect(useProjectStore.temporal.getState().isTracking).toBe(false);
+    tool().onCancel!(mkCtx());
+    expect(debugDragState()).toBeNull();
+    expect(useUiStore.getState().dragging).toBe(false);
+    expect(useProjectStore.temporal.getState().isTracking).toBe(true);
+    // Abbruch stellt den Ausgangszustand wieder her
+    expect(floorNow().items[0]).toMatchObject({ x: 500, y: 500 });
+  });
+});

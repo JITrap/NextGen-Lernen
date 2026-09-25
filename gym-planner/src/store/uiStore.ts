@@ -37,6 +37,12 @@ export interface UiState {
   setViewport: (v: Viewport | ((v: Viewport) => Viewport)) => void;
   fitRequest: number;
   requestFit: () => void;
+  /** Zuletzt vom Canvas ausgeführte Einpass-Anfrage (fitRequest-Zähler). */
+  fitApplied: number;
+  setFitApplied: (n: number) => void;
+  /** Projekt-ID, für die der Viewport bereits eingepasst wurde – beim Remount des Canvas (z. B. nach der 3D-Ansicht) kein erneutes Auto-Einpassen. */
+  viewportInitialized: Id | null;
+  setViewportInitialized: (id: Id | null) => void;
 
   theme: Theme;
   setTheme: (t: Theme) => void;
@@ -68,6 +74,9 @@ export interface UiState {
   /** Objekt, das gerade aus der Bibliothek gezogen wird. */
   draggingDefId: string | null;
   setDraggingDefId: (id: string | null) => void;
+  /** Ein Zieh-Vorgang mit offener Transaktion läuft (Auswahl-Werkzeug) – Ansichtswechsel/Undo/Werkzeugtasten warten. */
+  dragging: boolean;
+  setDragging: (v: boolean) => void;
   /** Zwischenablage (kopierte Objekte, als JSON-Klone). */
   clipboard: unknown[] | null;
   setClipboard: (c: unknown[] | null) => void;
@@ -82,6 +91,8 @@ export interface UiState {
   /** Ziel eines „Hinspringen“-Befehls (Warnungen). */
   focusRequest: { point: Vec2; selection?: Selection; nonce: number } | null;
   requestFocus: (point: Vec2, selection?: Selection) => void;
+  /** Vom Canvas nach dem Ausführen aufgerufen (die Anfrage ist verbraucht). */
+  clearFocusRequest: () => void;
 
   /** Statusleisten-Info (Cursor-Position etc.). */
   cursorWorld: Vec2 | null;
@@ -91,6 +102,8 @@ export interface UiState {
 }
 
 let toastCounter = 0;
+/** Laufende Ausblend-Timer je Toast (werden beim manuellen Schließen gelöscht). */
+const toastTimers = new Map<string, ReturnType<typeof setTimeout>>();
 
 export const useUiStore = create<UiState>()(
   persist(
@@ -115,6 +128,10 @@ export const useUiStore = create<UiState>()(
       setViewport: (v) => set((s) => ({ viewport: typeof v === 'function' ? v(s.viewport) : v })),
       fitRequest: 0,
       requestFit: () => set((s) => ({ fitRequest: s.fitRequest + 1 })),
+      fitApplied: 0,
+      setFitApplied: (fitApplied) => set({ fitApplied }),
+      viewportInitialized: null,
+      setViewportInitialized: (viewportInitialized) => set({ viewportInitialized }),
 
       theme: 'system',
       setTheme: (theme) => set({ theme }),
@@ -145,6 +162,8 @@ export const useUiStore = create<UiState>()(
 
       draggingDefId: null,
       setDraggingDefId: (draggingDefId) => set({ draggingDefId }),
+      dragging: false,
+      setDragging: (dragging) => set((s) => (s.dragging === dragging ? s : { dragging })),
       clipboard: null,
       setClipboard: (clipboard) => set({ clipboard }),
 
@@ -155,12 +174,20 @@ export const useUiStore = create<UiState>()(
       toast: (text, kind = 'info') => {
         const id = `t${++toastCounter}`;
         set((s) => ({ toasts: [...s.toasts, { id, text, kind }] }));
-        setTimeout(() => get().dismissToast(id), 4000);
+        toastTimers.set(id, setTimeout(() => get().dismissToast(id), 4000));
       },
-      dismissToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
+      dismissToast: (id) => {
+        const t = toastTimers.get(id);
+        if (t !== undefined) {
+          clearTimeout(t);
+          toastTimers.delete(id);
+        }
+        set((s) => (s.toasts.some((t) => t.id === id) ? { toasts: s.toasts.filter((t) => t.id !== id) } : s));
+      },
 
       focusRequest: null,
       requestFocus: (point, selection) => set((s) => ({ focusRequest: { point, selection, nonce: (s.focusRequest?.nonce ?? 0) + 1 } })),
+      clearFocusRequest: () => set((s) => (s.focusRequest ? { focusRequest: null } : s)),
 
       cursorWorld: null,
       setCursorWorld: (cursorWorld) => set({ cursorWorld }),

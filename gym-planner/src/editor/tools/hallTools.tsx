@@ -6,15 +6,16 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { Group, Line, Circle } from 'react-konva';
 import { Check, Undo2, X } from 'lucide-react';
-import type { Floor, Hall, Vec2 } from '@/types';
+import type { Floor, Hall, Id, Opening, Vec2 } from '@/types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
-import type { ToolContext, ToolEvent } from './types';
+import { createClickTracker, type ToolContext, type ToolEvent } from './types';
 import { MeasureLabel } from './wallTool';
 import { useSnapGuides } from '../overlays/SnapGuides';
 import { transaction } from '@/store/projectStore';
 import { DEFAULT_OUTER_WALL_THICKNESS } from '@/store/factories';
 import { useIsDark } from '@/hooks/useTheme';
+import { hallWalls, isHallWallId, nearestWall, pointOnWall, clampOpeningOffset, wallLength } from '@/geometry/walls';
 import {
   rectPolygon, bbox, flatten, distance, polygonArea, polygonAreaM2, ensureClockwise, simplifyPolygon, segmentIntersection, centroid,
 } from '@/geometry/polygon';
@@ -30,6 +31,8 @@ export const MIN_HALL_SIDE_CM = 100;
 export const MIN_HALL_AREA_CM2 = 10000;
 /** Klick-Radius (px) um den Startpunkt, der das Polygon schließt. */
 const CLOSE_PX = 12;
+/** Bis zu diesem Abstand (cm) werden Öffnungen der alten Außenwand beim Neuzeichnen der Halle an die nächste neue Außenwand gehängt. */
+export const HALL_OPENING_REATTACH_CM = 100;
 
 export interface HallToolState {
   /** Rechteck: Start- und aktueller Punkt beim Ziehen (gesnappt). */
@@ -110,6 +113,41 @@ function floorHasContent(floor: Floor): boolean {
   return floor.walls.length > 0 || floor.items.length > 0 || floor.zones.length > 0 || floor.openings.length > 0 || floor.voids.length > 0;
 }
 
+export interface HallReattachPlan {
+  /** Öffnungen, die an eine neue Außenwand wandern. */
+  update: { id: Id; wallId: Id; offset: number }[];
+  /** Öffnungen ohne passende neue Außenwand (werden gelöscht). */
+  remove: Id[];
+}
+
+/**
+ * Öffnungen an den alten Hallen-Außenwänden (`hall_<i>`) beim Ersetzen des Hallenumrisses umhängen (rein):
+ * Jede Öffnung wird über ihre Weltposition an die nächste neue Außenwand innerhalb `maxDist` gehängt (Offset projiziert
+ * und auf die Wandlänge begrenzt); gibt es keine, wird sie entfernt. Öffnungen an echten Wänden bleiben unberührt.
+ */
+export function reattachHallOpenings(openings: Opening[], oldHall: Hall | null, newHall: Hall, maxDist = HALL_OPENING_REATTACH_CM): HallReattachPlan {
+  const plan: HallReattachPlan = { update: [], remove: [] };
+  const oldWalls = new Map((oldHall ? hallWalls(oldHall) : []).map((w) => [w.id, w]));
+  const newWalls = hallWalls(newHall).filter((w) => wallLength(w) >= 1);
+  for (const o of openings) {
+    if (!isHallWallId(o.wallId)) continue;
+    const oldWall = oldWalls.get(o.wallId);
+    if (!oldWall) {
+      plan.remove.push(o.id);
+      continue;
+    }
+    const center = pointOnWall(oldWall, o.offset);
+    const hit = nearestWall(newWalls, center, maxDist);
+    if (!hit) {
+      plan.remove.push(o.id);
+      continue;
+    }
+    const offset = clampOpeningOffset(hit.offset, o.width, hit.wall);
+    if (hit.wall.id !== o.wallId || Math.abs(offset - o.offset) > 1e-6) plan.update.push({ id: o.id, wallId: hit.wall.id, offset });
+  }
+  return plan;
+}
+
 /** Legt die Halle an (ersetzt eine vorhandene nach Rückfrage), wechselt zur Auswahl und passt die Ansicht ein. */
 function commitHall(ctx: ToolContext, polygon: Vec2[]): boolean {
   const problem = hallPolygonProblem(polygon);
@@ -120,23 +158,40 @@ function commitHall(ctx: ToolContext, polygon: Vec2[]): boolean {
   const floor = ctx.floor;
   if (floor.hall && floorHasContent(floor)) {
     const ok = window.confirm(
-      'Auf diesem Stockwerk gibt es bereits eine Halle mit Wänden oder Objekten.\nSoll der Hallenumriss ersetzt werden? Wände und Objekte bleiben erhalten, liegen danach aber möglicherweise außerhalb.',
+      'Auf diesem Stockwerk gibt es bereits eine Halle mit Wänden oder Objekten.\nSoll der Hallenumriss ersetzt werden? Wände und Objekte bleiben erhalten, liegen danach aber möglicherweise außerhalb. Türen und Fenster in der Außenwand werden auf die nächstliegende neue Außenwand übernommen oder – ohne passende Wand in der Nähe – entfernt.',
     );
     if (!ok) return false;
   }
   const hall = hallFromPolygon(polygon, ctx.ui.toolOptions);
-  transaction(() => ctx.store.setHall(floor.id, hall));
+  const plan = reattachHallOpenings(floor.openings, floor.hall, hall);
+  const store = ctx.store;
+  transaction(() => {
+    store.setHall(floor.id, hall);
+    for (const u of plan.update) store.updateOpening(floor.id, u.id, { wallId: u.wallId, offset: u.offset });
+    if (plan.remove.length) store.deleteOpenings(floor.id, plan.remove);
+  });
   useHallTool.getState().reset();
   useSnapGuides.getState().set(null);
+  clicks.reset();
   ctx.ui.toast(`Halle angelegt · ${formatM2(polygonAreaM2(hall.polygon))}`, 'success');
+  if (plan.remove.length) {
+    ctx.ui.toast(
+      plan.remove.length === 1 ? '1 Öffnung der alten Außenwand entfernt – keine neue Außenwand in der Nähe' : `${plan.remove.length} Öffnungen der alten Außenwand entfernt – keine neue Außenwand in der Nähe`,
+      'warning',
+    );
+  }
   ctx.ui.setTool('select');
   ctx.ui.requestFit();
   return true;
 }
 
+/** Letzte Klickpositionen (Polygon-Werkzeug): Doppelklick nur bei zwei Klicks an derselben Stelle. */
+const clicks = createClickTracker();
+
 function cancelHallTool(): void {
   useHallTool.getState().reset();
   useSnapGuides.getState().set(null);
+  clicks.reset();
 }
 
 function snapAt(e: ToolEvent, ctx: ToolContext, angleFrom: Vec2 | null) {
@@ -165,7 +220,7 @@ registerTool({
     useSnapGuides.getState().set(r);
     if (!st.dragStart) return;
     // Maus außerhalb des Canvas losgelassen → Ziehen abbrechen (Touch meldet keine buttons)
-    if (e.pointerType !== 'touch' && (e.evt.evt as PointerEvent).buttons === 0) {
+    if (e.pointerType !== 'touch' && e.buttons === 0) {
       st.patch({ dragStart: null, dragCurrent: null });
       return;
     }
@@ -314,6 +369,7 @@ registerTool({
   onCancel: cancelHallTool,
   onPointerDown: (e, ctx) => {
     if (e.button !== 0) return;
+    clicks.down(e.screen);
     const st = useHallTool.getState();
     const pts = st.points;
     if (pts.length >= 3 && distance(e.world, pts[0]) <= ctx.pxToWorld(CLOSE_PX)) {
@@ -336,6 +392,8 @@ registerTool({
     if (!st.cursor || st.cursor.x !== r.point.x || st.cursor.y !== r.point.y || st.nearStart !== nearStart) st.patch({ cursor: r.point, nearStart });
   },
   onDoubleClick: (_e, ctx) => {
+    // Zwei schnelle Klicks an verschiedenen Stellen sind zwei Eckpunkte, kein Doppelklick.
+    if (!clicks.isDoubleClick()) return;
     if (useHallTool.getState().points.length >= 3) closePolygon(ctx);
   },
   onKeyDown: (e, ctx) => {

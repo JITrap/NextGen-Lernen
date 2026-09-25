@@ -378,6 +378,8 @@ function beginDragTx() {
   beginTransaction();
   drag.tx = true;
   useSelectTool.getState().patch({ dragging: true });
+  // Zentrales Flag: Kürzel (Undo, 3D, Werkzeugwechsel) warten, bis der Zieh-Vorgang beendet ist.
+  useUiStore.getState().setDragging(true);
 }
 
 function finishDrag(commit: boolean) {
@@ -389,6 +391,7 @@ function finishDrag(commit: boolean) {
   drag = null;
   useSnapGuides.getState().set(null);
   useSelectTool.getState().patch({ marquee: null, distances: [], rotate: null, dragging: false, cursor: 'default' });
+  useUiStore.getState().setDragging(false);
 }
 
 function racksOf(ctx: ToolContext, exclude: Set<string>): PlacedItem[] {
@@ -844,6 +847,13 @@ function measureEndDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
 function onPointerMove(e: ToolEvent, ctx: ToolContext) {
   const d = drag;
   if (!d) {
+    updateHover(e, ctx);
+    return;
+  }
+  // Keine Taste mehr gedrückt (Loslassen kam nicht als Pointer-Up an, z. B. außerhalb des Fensters):
+  // Zieh-Vorgang mit dem letzten Stand abschließen statt dem Zeiger weiter zu folgen.
+  if (e.pointerType !== 'touch' && e.buttons === 0) {
+    finishDrag(true);
     updateHover(e, ctx);
     return;
   }

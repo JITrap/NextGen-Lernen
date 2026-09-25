@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import type { Viewport } from '@/store/uiStore';
 import { niceStep } from '../viewport';
 import { useIsDark } from '@/hooks/useTheme';
@@ -6,7 +6,7 @@ import { useIsDark } from '@/hooks/useTheme';
 const SIZE = 22;
 
 /** Lineale am oberen und linken Rand (in m bzw. cm). */
-export function Rulers({ viewport, width, height }: { viewport: Viewport; width: number; height: number }) {
+export const Rulers = memo(function Rulers({ viewport, width, height }: { viewport: Viewport; width: number; height: number }) {
   const dark = useIsDark();
   const step = niceStep(viewport.scale, 80);
   const label = (cm: number) => {
@@ -53,4 +53,4 @@ export function Rulers({ viewport, width, height }: { viewport: Viewport; width:
       <div className="absolute left-0 top-0" style={{ width: SIZE, height: SIZE, background: bg }} />
     </>
   );
-}
+});

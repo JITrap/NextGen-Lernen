@@ -22,8 +22,11 @@ export function useKeyboardShortcuts() {
       const ui = useUiStore.getState();
       const mod = e.ctrlKey || e.metaKey;
       const key = e.key.toLowerCase();
-      if (mod && key === 'z' && !e.shiftKey) { e.preventDefault(); undo(); return; }
-      if ((mod && key === 'y') || (mod && e.shiftKey && key === 'z')) { e.preventDefault(); redo(); return; }
+      // Während eines Zieh-Vorgangs (offene Transaktion) keine Historie und keinen Ansichts-/Werkzeugwechsel:
+      // Undo würde die Historie vermischen, ein Unmount des Canvas ließe die Transaktion offen.
+      const dragging = ui.dragging;
+      if (mod && key === 'z' && !e.shiftKey) { e.preventDefault(); if (!dragging) undo(); return; }
+      if ((mod && key === 'y') || (mod && e.shiftKey && key === 'z')) { e.preventDefault(); if (!dragging) redo(); return; }
       if (mod && key === 'c') { e.preventDefault(); actions.copySelection(); return; }
       if (mod && key === 'v') { e.preventDefault(); actions.pasteClipboard(); return; }
       if (mod && key === 'd') { e.preventDefault(); actions.duplicateSelection(); return; }
@@ -50,6 +53,7 @@ export function useKeyboardShortcuts() {
         return;
       }
       if (key === 'g' && !e.shiftKey) { useUiStore.getState().requestFit(); return; }
+      if (dragging) return;
       if (key === '3') { ui.setView3d(!ui.view3d); return; }
       if (key === 'p' && e.shiftKey) { ui.setPresentationMode(!ui.presentationMode); return; }
       const t = TOOL_KEYS[key];

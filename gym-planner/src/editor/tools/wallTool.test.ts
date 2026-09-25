@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import type { Wall, Opening, Vec2 } from '@/types';
 import { snapPoint, type SnapContext } from '@/geometry/snap';
 import { detectWallRooms, floorRooms } from '@/geometry/rooms';
@@ -234,5 +234,185 @@ describe('Hallenwerkzeuge', () => {
     const d = hallFromPolygon([{ x: 0, y: 0 }, { x: 800, y: 0 }, { x: 800, y: 500 }, { x: 0, y: 500 }], {});
     expect(d.wallThickness).toBe(24);
     expect(d.floorCovering).toBe('Gummiboden');
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/* Doppelklick-Erkennung, Segment zurück, Hallen-Öffnungen             */
+/* ------------------------------------------------------------------ */
+
+import type Konva from 'konva';
+import { getTool } from './registry';
+import { createClickTracker, DBLCLICK_MAX_PX, type ToolContext, type ToolEvent } from './types';
+import { useWallTool, undoLastSegment } from './wallTool';
+import { reattachHallOpenings, HALL_OPENING_REATTACH_CM } from './hallTools';
+import { useProjectStore, loadProject, transaction } from '@/store/projectStore';
+import { useUiStore } from '@/store/uiStore';
+import { createEmptyProject, createWall as makeWall } from '@/store/factories';
+import { allWalls, hallWalls, pointOnWall, findWall } from '@/geometry/walls';
+import { distance as dist } from '@/geometry/polygon';
+import './index';
+
+describe('createClickTracker (M4)', () => {
+  it('erkennt zwei Klicks an derselben Stelle als Doppelklick, entfernte Klicks nicht', () => {
+    const t = createClickTracker();
+    expect(t.isDoubleClick()).toBe(false);
+    t.down({ x: 100, y: 100 });
+    expect(t.isDoubleClick()).toBe(false);
+    t.down({ x: 100 + DBLCLICK_MAX_PX, y: 100 });
+    expect(t.isDoubleClick()).toBe(true);
+    t.down({ x: 400, y: 250 });
+    expect(t.isDoubleClick()).toBe(false);
+    t.down({ x: 401, y: 251 });
+    expect(t.isDoubleClick()).toBe(true);
+    t.reset();
+    expect(t.isDoubleClick()).toBe(false);
+  });
+});
+
+function wallCtx(): ToolContext {
+  const project = useProjectStore.getState().project;
+  const floor = project.floors.find((f) => f.id === project.activeFloorId) ?? project.floors[0];
+  const walls = allWalls(floor);
+  return {
+    project,
+    floor,
+    walls,
+    rooms: [],
+    items: floor.items,
+    viewport: { scale: 1, x: 0, y: 0 },
+    store: useProjectStore.getState(),
+    ui: useUiStore.getState(),
+    snap: (p, o) => snapPoint(p, { gridSize: project.settings.gridSize, enabled: false, threshold: 8, walls, items: floor.items, hall: floor.hall, ...o }),
+    pxToWorld: (px) => px,
+    stageSize: { width: 800, height: 600 },
+  };
+}
+function wallEv(x: number, y: number, extra: Partial<ToolEvent> = {}): ToolEvent {
+  return {
+    world: { x, y }, screen: { x, y }, shift: false, alt: false, ctrl: false, meta: false, button: 0, buttons: 1, pointerType: 'mouse',
+    evt: {} as Konva.KonvaEventObject<PointerEvent>, target: {} as Konva.Node, ...extra,
+  };
+}
+const wallTool = () => getTool('wall')!;
+const wallsNow = () => wallCtx().floor.walls;
+const key = (k: string) => wallTool().onKeyDown!(new KeyboardEvent('keydown', { key: k }), wallCtx());
+
+describe('Wandwerkzeug: Kette, Doppelklick und „Segment zurück“ (M4/M5/L1)', () => {
+  beforeEach(() => {
+    const p = createEmptyProject('Test');
+    p.floors[0].hall = createHall(3000, 2000);
+    p.settings.snapEnabled = false;
+    loadProject(p);
+    useUiStore.getState().setTool('wall');
+    wallTool().onActivate?.(wallCtx());
+  });
+  afterEach(() => {
+    wallTool().onCancel?.(wallCtx());
+    useUiStore.getState().setTool('select');
+  });
+
+  it('zwei schnelle Klicks an verschiedenen Punkten beenden die Kette nicht (kein Doppelklick)', () => {
+    wallTool().onPointerDown!(wallEv(100, 100), wallCtx());
+    wallTool().onPointerDown!(wallEv(600, 100), wallCtx());
+    // Konva meldet nach zwei Klicks < 400 ms ein dblclick – die Klicks lagen aber 500 px auseinander
+    wallTool().onDoubleClick!(wallEv(600, 100), wallCtx());
+    expect(useWallTool.getState().chainStart).toEqual({ x: 600, y: 100 });
+    expect(wallsNow()).toHaveLength(1);
+    // Echter Doppelklick (zweiter Klick an derselben Stelle) beendet die Kette
+    wallTool().onPointerDown!(wallEv(600, 100), wallCtx());
+    wallTool().onDoubleClick!(wallEv(600, 100), wallCtx());
+    expect(useWallTool.getState().chainStart).toBeNull();
+    expect(wallsNow()).toHaveLength(1);
+  });
+
+  it('Backspace nimmt nur das letzte Segment zurück – fremde Undo-Schritte bleiben unberührt', () => {
+    wallTool().onPointerDown!(wallEv(100, 100), wallCtx());
+    wallTool().onPointerDown!(wallEv(600, 100), wallCtx());
+    expect(wallsNow()).toHaveLength(1);
+    // Zwischenzeitlich ein anderer Undo-Eintrag (z. B. Raster-Schalter)
+    transaction(() => useProjectStore.getState().updateSettings({ showGrid: false }));
+    expect(useProjectStore.getState().project.settings.showGrid).toBe(false);
+    expect(key('Backspace')).toBe(true);
+    expect(wallsNow()).toHaveLength(0);
+    expect(useProjectStore.getState().project.settings.showGrid).toBe(false);
+    const st = useWallTool.getState();
+    expect(st.chainStart).toEqual({ x: 100, y: 100 });
+    expect(st.count).toBe(0);
+    expect(st.history).toHaveLength(0);
+    // Die Rücknahme ist ein eigener Undo-Schritt: Undo bringt das Segment zurück, Raster bleibt aus
+    useProjectStore.temporal.getState().undo();
+    expect(wallsNow()).toHaveLength(1);
+    expect(useProjectStore.getState().project.settings.showGrid).toBe(false);
+  });
+
+  it('Backspace baut eine Teilung an einem T-Stoß samt Öffnungsbezug zurück', () => {
+    const fid = wallCtx().floor.id;
+    const existing = makeWall({ id: 'wx', start: { x: 300, y: 0 }, end: { x: 300, y: 400 } });
+    transaction(() => {
+      useProjectStore.getState().addWall(fid, existing);
+      useProjectStore.getState().addOpening(fid, { id: 'ox', kind: 'window', wallId: 'wx', offset: 300, width: 100, height: 100, sillHeight: 90 } as Opening);
+    });
+    wallTool().onPointerDown!(wallEv(100, 100), wallCtx());
+    wallTool().onPointerDown!(wallEv(600, 100), wallCtx());
+    // Bestehende Wand wurde bei y = 100 geteilt, die Öffnung (Offset 300) liegt jetzt auf dem zweiten Teilstück
+    expect(wallsNow().length).toBeGreaterThanOrEqual(3);
+    const opening = wallCtx().floor.openings.find((o) => o.id === 'ox')!;
+    expect(opening.wallId).not.toBe('wx');
+    expect(key('Backspace')).toBe(true);
+    const walls = wallsNow();
+    expect(walls).toHaveLength(1);
+    expect(walls[0]).toMatchObject({ id: 'wx', start: { x: 300, y: 0 }, end: { x: 300, y: 400 } });
+    expect(wallCtx().floor.openings.find((o) => o.id === 'ox')).toMatchObject({ wallId: 'wx', offset: 300 });
+    expect(undoLastSegment(wallCtx())).toBe(false); // nichts mehr zurückzunehmen
+  });
+
+  it('verbraucht während der Kette Buchstaben (kein Werkzeugwechsel) und ohne Kette Ziffern (kein 3D-Kürzel)', () => {
+    expect(key('3')).toBe(true);
+    expect(key('h')).toBe(false);
+    expect(key('Escape')).toBe(false);
+    wallTool().onPointerDown!(wallEv(100, 100), wallCtx());
+    expect(key('3')).toBe(true);
+    expect(key('5')).toBe(true);
+    expect(useWallTool.getState().typedLength).toBe('35');
+    expect(key('g')).toBe(true);
+    expect(key('h')).toBe(true);
+    expect(useWallTool.getState().typedLength).toBe('35');
+    expect(useWallTool.getState().chainStart).toEqual({ x: 100, y: 100 });
+    expect(wallTool().onKeyDown!(new KeyboardEvent('keydown', { key: 'z', ctrlKey: true }), wallCtx())).toBe(false);
+  });
+});
+
+describe('reattachHallOpenings (M6, Halle neu zeichnen)', () => {
+  it('hängt Öffnungen an die nächste neue Außenwand und entfernt entfernte', () => {
+    const oldHall = createHall(2000, 1500);
+    const newHall = createHall(2400, 1500);
+    const oldWalls = hallWalls(oldHall);
+    const right = oldWalls.find((w) => w.id === 'hall_1')!;
+    const bottom = oldWalls.find((w) => w.id === 'hall_2')!;
+    const openings = [
+      { id: 'door', kind: 'door', wallId: 'hall_1', offset: 700, width: 90, height: 210, doorType: 'einflügelig', hinge: 'left', swingSide: 'a' },
+      { id: 'win', kind: 'window', wallId: 'hall_2', offset: 1000, width: 120, height: 100, sillHeight: 90 },
+      { id: 'inner', kind: 'window', wallId: 'w_real', offset: 50, width: 120, height: 100, sillHeight: 90 },
+    ] as Opening[];
+    const plan = reattachHallOpenings(openings, oldHall, newHall);
+    // Rechte Wand ist um 4 m gewandert → Tür ohne passende Wand
+    expect(plan.remove).toEqual(['door']);
+    // Fenster an der unteren Wand bleibt an Ort und Stelle (neuer Offset, gleiche Weltposition)
+    expect(plan.update).toHaveLength(1);
+    const u = plan.update[0];
+    expect(u).toMatchObject({ id: 'win', wallId: 'hall_2' });
+    const newBottom = hallWalls(newHall).find((w) => w.id === 'hall_2')!;
+    expect(dist(pointOnWall(newBottom, u.offset), pointOnWall(bottom, 1000))).toBeLessThan(1);
+    expect(dist(pointOnWall(right, 700), pointOnWall(newBottom, u.offset))).toBeGreaterThan(HALL_OPENING_REATTACH_CM);
+    // Öffnungen an echten Wänden sind nicht betroffen
+    expect(plan.update.some((x) => x.id === 'inner') || plan.remove.includes('inner')).toBe(false);
+    // Unveränderte Halle → keine Änderungen
+    const same = reattachHallOpenings(openings, oldHall, oldHall);
+    expect(same.update).toHaveLength(0);
+    expect(same.remove).toHaveLength(0);
+    // Ohne alte Halle sind Hallen-Öffnungen verwaist → entfernen
+    expect(reattachHallOpenings(openings, null, newHall).remove.sort()).toEqual(['door', 'win']);
+    expect(findWall({ walls: [], hall: newHall }, 'hall_2')).toBeTruthy();
   });
 });

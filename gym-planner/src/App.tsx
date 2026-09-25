@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Canvas } from '@/editor/Canvas';
 import { useTheme } from '@/hooks/useTheme';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
@@ -14,12 +14,30 @@ import { Toasts } from '@/components/Toasts';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { usePersistence } from '@/store/persistence';
 
-const View3D = lazy(() => import('@/three/View3D').then((m) => ({ default: m.View3D })));
+const loadView3D = () => import('@/three/View3D');
+const View3D = lazy(() => loadView3D().then((m) => ({ default: m.View3D })));
+
+/** 3D-Chunk nach dem Start im Leerlauf vorladen: kein Suspense-Fallback und keine Wartezeit beim ersten Umschalten. */
+function usePreloadView3D() {
+  useEffect(() => {
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    let timer: number | null = null;
+    let idle: number | null = null;
+    const load = () => { void loadView3D().catch(() => undefined); };
+    if (typeof w.requestIdleCallback === 'function') idle = w.requestIdleCallback(load, { timeout: 3000 });
+    else timer = window.setTimeout(load, 1500);
+    return () => {
+      if (idle != null && typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(idle);
+      if (timer != null) window.clearTimeout(timer);
+    };
+  }, []);
+}
 
 export default function App() {
   useTheme();
   useKeyboardShortcuts();
   usePersistence();
+  usePreloadView3D();
   const presentation = useUiStore((s) => s.presentationMode);
   const view3d = useUiStore((s) => s.view3d);
   const leftOpen = useUiStore((s) => s.leftPanelOpen);

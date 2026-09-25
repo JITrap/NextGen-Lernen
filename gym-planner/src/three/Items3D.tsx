@@ -2,12 +2,13 @@
  * 3D-Darstellung platzierter Objekte: Boxen je Bereich, Säulen, Treppen (gerade/L/U/Wendel),
  * Aufzugschächte, Rampen, Sicherheitszonen und Beschriftungen.
  */
-import { memo, useMemo, type CSSProperties, type ReactNode } from 'react';
-import { Html } from '@react-three/drei';
-import type { ThreeEvent } from '@react-three/fiber';
+import { memo, useEffect, useMemo, type ReactNode } from 'react';
+import { useThree, type ThreeEvent } from '@react-three/fiber';
+import * as THREE from 'three';
 import type { EquipmentDef, PlacedItem } from '@/types';
 import { rotateAround } from '@/geometry/polygon';
 import { zoneIsEmpty } from '@/geometry/transform';
+import { useIsDark } from '@/hooks/useTheme';
 import { cm, rotationY } from './coords';
 import { UNIT_BOX, UNIT_CYLINDER, UNIT_PLANE_XZ, material, rampGeometry, useDisposeGeometries } from './geometry';
 import {
@@ -36,26 +37,82 @@ export interface ItemMeshProps {
   onSelect: (item: PlacedItem, additive: boolean) => void;
 }
 
-const LABEL_STYLE: CSSProperties = {
-  pointerEvents: 'none',
-  whiteSpace: 'nowrap',
-  fontSize: 11,
-  lineHeight: '16px',
-  padding: '1px 7px',
-  borderRadius: 6,
-  border: '1px solid var(--gp-border)',
-  background: 'var(--gp-panel)',
-  color: 'var(--gp-text)',
-  boxShadow: '0 1px 3px rgba(0,0,0,0.25)',
-  userSelect: 'none',
-};
+/* ---------------- Beschriftungen ---------------- */
 
-/** HTML-Beschriftung über einem Objekt (konstante Bildschirmgröße). */
+/** Bildschirmhöhe einer Beschriftung (px), unabhängig von der Kameradistanz. */
+const LABEL_HEIGHT_PX = 18;
+const LABEL_FONT_PX = 11;
+const LABEL_PAD_X = 7;
+const LABEL_RADIUS = 6;
+const LABEL_FONT = 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+
+interface LabelTexture {
+  texture: THREE.CanvasTexture;
+  /** Breite / Höhe der gezeichneten Beschriftung. */
+  aspect: number;
+}
+
+/** Zeichnet die Beschriftung (abgerundete Box mit Rahmen, wie das 2D-Etikett) in eine Canvas-Textur. */
+function makeLabelTexture(text: string, accent: boolean, dark: boolean): LabelTexture | null {
+  if (typeof document === 'undefined') return null;
+  const dpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+  const k = Math.min(4, Math.max(2, dpr * 2)); // Überabtastung für scharfen Text
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
+  ctx.font = `${accent ? 600 : 500} ${LABEL_FONT_PX}px ${LABEL_FONT}`;
+  const textW = Math.max(4, ctx.measureText(text).width);
+  const w = Math.ceil(textW + LABEL_PAD_X * 2);
+  const h = LABEL_HEIGHT_PX;
+  canvas.width = Math.ceil(w * k);
+  canvas.height = Math.ceil(h * k);
+  ctx.scale(k, k);
+  const bg = dark ? '#1e293b' : '#ffffff';
+  const fg = dark ? '#e2e8f0' : '#0f172a';
+  const border = accent ? (dark ? '#60a5fa' : '#2563eb') : dark ? '#475569' : '#cbd5e1';
+  const inset = 0.75;
+  ctx.beginPath();
+  ctx.roundRect(inset, inset, w - inset * 2, h - inset * 2, LABEL_RADIUS);
+  ctx.fillStyle = bg;
+  ctx.fill();
+  ctx.lineWidth = accent ? 1.5 : 1;
+  ctx.strokeStyle = border;
+  ctx.stroke();
+  ctx.font = `${accent ? 600 : 500} ${LABEL_FONT_PX}px ${LABEL_FONT}`;
+  ctx.fillStyle = fg;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, w / 2, h / 2 + 0.5);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+  texture.generateMipmaps = false;
+  texture.anisotropy = 4;
+  return { texture, aspect: w / h };
+}
+
+/**
+ * Beschriftung über einem Objekt in konstanter Bildschirmgröße – als Sprite mit Canvas-Textur statt drei-`Html`:
+ * `Html` legt je Label einen eigenen React-DOM-Wurzelknoten an, was beim ersten (lazy) Laden der 3D-Ansicht im
+ * StrictMode zu doppelten Wurzeln und beim Zurückschalten zu „removeChild … not a child of this node“ führte.
+ * Das Sprite lebt vollständig in der three-Szene (keine DOM-Portale), wird immer vor der Geometrie gezeichnet und
+ * folgt dem Hell-/Dunkelmodus.
+ */
 export function Label3D({ text, y, accent }: { text: string; y: number; accent?: boolean }) {
+  const dark = useIsDark();
+  const height = useThree((s) => s.size.height);
+  const camera = useThree((s) => s.camera);
+  const label = useMemo(() => makeLabelTexture(text, !!accent, dark), [text, accent, dark]);
+  useEffect(() => () => label?.texture.dispose(), [label]);
+  if (!label) return null;
+  // Ohne Größenabschwächung entspricht scale.y der NDC-Höhe · tan(fov/2): gewünschte Pixelhöhe umrechnen.
+  const fov = (camera as THREE.PerspectiveCamera).isPerspectiveCamera ? (camera as THREE.PerspectiveCamera).fov : 50;
+  const scaleY = (LABEL_HEIGHT_PX * 2 * Math.tan((fov * Math.PI) / 360)) / Math.max(1, height);
   return (
-    <Html position={[0, y, 0]} center zIndexRange={[10, 0]} pointerEvents="none" style={{ pointerEvents: 'none' }}>
-      <div style={accent ? { ...LABEL_STYLE, borderColor: 'var(--gp-accent)', fontWeight: 600 } : LABEL_STYLE}>{text}</div>
-    </Html>
+    <sprite position={[0, y, 0]} scale={[scaleY * label.aspect, scaleY, 1]} renderOrder={1000} frustumCulled={false}>
+      <spriteMaterial map={label.texture} sizeAttenuation={false} transparent depthTest={false} depthWrite={false} toneMapped={false} />
+    </sprite>
   );
 }
 

@@ -10,7 +10,7 @@
 import { memo } from 'react';
 import { Group, Line, Rect, Circle, Text } from 'react-konva';
 import type { Vec2, Tool, RoomType } from '@/types';
-import type { ToolContext, ToolHandler } from './types';
+import { createClickTracker, type ToolContext, type ToolHandler } from './types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
 import { useSnapGuides } from '../overlays/SnapGuides';
@@ -308,10 +308,13 @@ export interface PolyDrawState {
 }
 
 export const usePolyDraw = createToolStore<PolyDrawState>({ points: [], cursor: null, closable: false });
+/** Letzte Klickpositionen: Doppelklick nur bei zwei Klicks an derselben Stelle (Konva prüft nur die Zeit). */
+const polyClicks = createClickTracker();
 
 function resetPoly() {
   usePolyDraw.getState().reset();
   useSnapGuides.getState().set(null);
+  polyClicks.reset();
 }
 
 function snapVertex(ctx: ToolContext, p: Vec2, last: Vec2 | null): Vec2 {
@@ -375,6 +378,7 @@ registerTool({
   Overlay: ZonePolyOverlay,
   onPointerDown: (e, ctx) => {
     if (e.button !== 0) return;
+    polyClicks.down(e.screen);
     const st = usePolyDraw.getState();
     const last = st.points.length ? st.points[st.points.length - 1] : null;
     if (st.points.length >= 3 && distance(e.world, st.points[0]) <= ctx.pxToWorld(CLOSE_PX)) {
@@ -397,6 +401,8 @@ registerTool({
     st.patch({ cursor: snapVertex(ctx, e.world, last), closable: false });
   },
   onDoubleClick: (_e, ctx) => {
+    // Zwei schnelle Klicks an verschiedenen Stellen sind zwei Eckpunkte, kein Doppelklick.
+    if (!polyClicks.isDoubleClick()) return;
     const st = usePolyDraw.getState();
     if (st.points.length < 3) return;
     // Der zweite Klick des Doppelklicks hat ggf. einen fast identischen Punkt angehängt → entfernen.

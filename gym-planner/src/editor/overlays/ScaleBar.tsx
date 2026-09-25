@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import type { Viewport } from '@/store/uiStore';
 import { niceStep } from '../viewport';
 import { formatLength } from '@/geometry/units';
 
 /** Maßstabsbalken unten links (immer sichtbar). */
-export function ScaleBar({ viewport }: { viewport: Viewport }) {
+export const ScaleBar = memo(function ScaleBar({ viewport }: { viewport: Viewport }) {
   const step = niceStep(viewport.scale, 120);
   const px = step * viewport.scale;
   return (
@@ -16,4 +17,4 @@ export function ScaleBar({ viewport }: { viewport: Viewport }) {
       </div>
     </div>
   );
-}
+});

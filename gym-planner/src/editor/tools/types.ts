@@ -15,6 +15,8 @@ export interface ToolEvent {
   ctrl: boolean;
   meta: boolean;
   button: number;
+  /** Aktuell gedrückte Tasten (PointerEvent.buttons); undefined = unbekannt (z. B. Touch, Tests). 0 = keine Taste gedrückt. */
+  buttons?: number;
   pointerType: string;
   evt: Konva.KonvaEventObject<PointerEvent | MouseEvent | TouchEvent>;
   /** Konva-Target (für Hit-Tests auf gerenderte Nodes). */
@@ -30,7 +32,9 @@ export interface ToolContext {
   /** Sichtbare Objekte (inkl. verlinkter Treppen). */
   items: PlacedItem[];
   viewport: Viewport;
+  /** Projekt-Store-Zustand (Momentaufnahme beim Ereignis; Aktionen sind stabil). */
   store: ProjectState;
+  /** UI-Store-Zustand (Momentaufnahme beim Ereignis; Aktionen sind stabil). Für spätere Lesezugriffe useUiStore.getState() nutzen. */
   ui: UiState;
   /** Snapping mit Kontext (berücksichtigt Alt-Taste & Einstellungen). */
   snap: (p: Vec2, overrides?: Partial<SnapContext>) => SnapResult;
@@ -60,4 +64,35 @@ export interface ToolHandler {
   HtmlOverlay?: ComponentType<{ ctx: ToolContext }>;
   /** Hinweistext für die Statusleiste. */
   hint?: string;
+}
+
+/** Bis zu diesem Bildschirmabstand (px) gelten zwei aufeinanderfolgende Klicks als Doppelklick. */
+export const DBLCLICK_MAX_PX = 4;
+
+export interface ClickTracker {
+  /** Bei jedem Pointer-Down mit der Bildschirmposition aufrufen. */
+  down: (screen: Vec2) => void;
+  /** true, wenn die letzten beiden Pointer-Downs nahe beieinander lagen (echter Doppelklick, kein schneller Klick an anderer Stelle). */
+  isDoubleClick: () => boolean;
+  reset: () => void;
+}
+
+/**
+ * Konva meldet `dblclick` rein zeitbasiert (zwei Klicks < 400 ms), auch an weit entfernten Punkten. Werkzeuge mit
+ * Klick-Ketten (Wand, Hallen-/Zonen-Polygon) prüfen damit zusätzlich den Abstand der letzten beiden Klicks.
+ */
+export function createClickTracker(maxPx = DBLCLICK_MAX_PX): ClickTracker {
+  let prev: Vec2 | null = null;
+  let last: Vec2 | null = null;
+  return {
+    down: (screen) => {
+      prev = last;
+      last = screen;
+    },
+    isDoubleClick: () => !!prev && !!last && Math.hypot(prev.x - last.x, prev.y - last.y) <= maxPx,
+    reset: () => {
+      prev = null;
+      last = null;
+    },
+  };
 }

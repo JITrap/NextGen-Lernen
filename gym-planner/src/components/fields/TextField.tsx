@@ -1,4 +1,4 @@
-import { useId, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 
 export interface TextFieldProps {
   value: string;
@@ -37,9 +37,16 @@ export function TextField({
 }: TextFieldProps) {
   const id = useId();
   const [draft, setDraft] = useState<string | null>(null);
+  /** Esc gedrückt: das durch blur() synchron ausgelöste onBlur darf den Entwurf nicht übernehmen. */
+  const cancelling = useRef(false);
   const shown = live ? value : (draft ?? value);
 
   const commit = () => {
+    if (cancelling.current) {
+      cancelling.current = false;
+      setDraft(null);
+      return;
+    }
     if (live || draft == null) return;
     const v = trim ? draft.trim() : draft;
     setDraft(null);
@@ -49,8 +56,10 @@ export function TextField({
     if (e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
+      cancelling.current = true;
       setDraft(null);
       e.currentTarget.blur();
+      cancelling.current = false;
       return;
     }
     if (e.key === 'Enter' && (!multiline || e.ctrlKey || e.metaKey)) {
@@ -72,6 +81,9 @@ export function TextField({
     'data-autofocus': autoFocus ? 'true' : undefined,
     value: shown,
     onChange: (e: { target: { value: string } }) => (live ? onChange(e.target.value) : setDraft(e.target.value)),
+    onFocus: () => {
+      cancelling.current = false;
+    },
     onBlur: commit,
     onKeyDown,
   };

@@ -5,7 +5,7 @@
  * Alle Aktionen arbeiten auf dem aktiven Stockwerk und lesen die Auswahl aus dem UI-Store.
  */
 import type {
-  Selection, PlacedItem, Zone, VoidArea, Annotation, Group, Wall, Opening, Floor, Vec2, SafetyZone, TextNote, MeasureLine, Id,
+  Selection, PlacedItem, Zone, VoidArea, Annotation, Group, Wall, Opening, Floor, Hall, Vec2, SafetyZone, TextNote, MeasureLine, Id,
 } from '@/types';
 import { useProjectStore, transaction, getActiveFloor } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
@@ -16,7 +16,7 @@ import { itemFootprint } from '@/geometry/transform';
 import { normalizeAngle } from '@/geometry/units';
 import {
   splitWall, reassignOpeningsAfterSplit, isHallWallId, findWall, clampOpeningOffset, moveWallNode, wallLength, wallDirection,
-  pointOnWall, WALL_NODE_TOL,
+  pointOnWall, projectOntoWall, hallWalls, WALL_NODE_TOL,
 } from '@/geometry/walls';
 
 /* ------------------------------------------------------------------ */
@@ -147,6 +147,61 @@ export function selectionBounds(floor: Floor, sel: Selection[] = currentSelectio
 /* Löschen                                                             */
 /* ------------------------------------------------------------------ */
 
+/** Bis zu diesem Abstand (cm) wird eine Öffnung an einer geänderten Hallen-Außenwand auf die neue Kante projiziert; sonst wird sie entfernt. */
+export const HALL_OPENING_REMAP_MAX_CM = 100;
+
+export interface HallOpeningPlan {
+  /** Öffnungen mit neuem Wandbezug/Offset. */
+  update: { id: Id; wallId: Id; offset: number }[];
+  /** Öffnungen ohne sinnvolle Projektion (werden gelöscht). */
+  remove: Id[];
+}
+
+/**
+ * Öffnungen an den Hallen-Außenwänden nach dem Entfernen von Eckpunkt `removedIndex` umschreiben (rein).
+ * `hall_<i>` ist die Kante i des rohen Polygons (polygon[i] → polygon[i+1]). Die beiden Kanten am entfernten Punkt
+ * verschmelzen zur neuen Kante `k-1` (bzw. `n-2` für k = 0), alle folgenden Indizes rücken um 1 nach vorn. Jede Öffnung
+ * wird über ihre Weltposition auf die neue Kante projiziert (Offset-Richtung/Gehrung können sich ändern); liegt sie
+ * weiter als `maxDist` von der neuen Kante entfernt, wird sie gelöscht.
+ */
+export function hallOpeningsAfterVertexRemoval(openings: Opening[], oldHall: Hall, removedIndex: number, newHall: Hall, maxDist = HALL_OPENING_REMAP_MAX_CM): HallOpeningPlan {
+  const plan: HallOpeningPlan = { update: [], remove: [] };
+  const n = oldHall.polygon.length;
+  const k = removedIndex;
+  if (!Number.isInteger(k) || k < 0 || k >= n || n < 4) return plan;
+  const oldWalls = new Map(hallWalls(oldHall).map((w) => [w.id, w]));
+  const newWalls = new Map(hallWalls(newHall).map((w) => [w.id, w]));
+  const merged = k === 0 ? n - 2 : k - 1;
+  const mapIndex = (i: number): number => {
+    if (i === k || i === (k - 1 + n) % n) return merged;
+    return i > k ? i - 1 : i;
+  };
+  for (const o of openings) {
+    if (!isHallWallId(o.wallId)) continue;
+    const i = Number(o.wallId.slice('hall_'.length));
+    const oldWall = oldWalls.get(o.wallId);
+    if (!Number.isInteger(i) || !oldWall) {
+      plan.remove.push(o.id);
+      continue;
+    }
+    const center = pointOnWall(oldWall, o.offset);
+    const target = newWalls.get(`hall_${mapIndex(i)}`);
+    if (!target || wallLength(target) < 1) {
+      plan.remove.push(o.id);
+      continue;
+    }
+    const pr = projectOntoWall(target, center);
+    const len = wallLength(target);
+    if (pr.distance > maxDist || pr.offset < -maxDist || pr.offset > len + maxDist) {
+      plan.remove.push(o.id);
+      continue;
+    }
+    const offset = clampOpeningOffset(pr.offset, o.width, target);
+    if (target.id !== o.wallId || Math.abs(offset - o.offset) > 1e-6) plan.update.push({ id: o.id, wallId: target.id, offset });
+  }
+  return plan;
+}
+
 /** Löscht die Auswahl (gesperrte Elemente bleiben). Ein gewählter Hallen-Eckpunkt wird aus dem Polygon entfernt (min. 3 Ecken). */
 export function deleteSelection() {
   const sel = currentSelection();
@@ -155,14 +210,34 @@ export function deleteSelection() {
   const s = useProjectStore.getState();
   const vertexIdx = [...idsOf(sel, 'hallVertex')].map(Number).filter((i) => Number.isInteger(i)).sort((a, b) => b - a);
   const keep: Selection[] = [];
+  let droppedOpenings = 0;
   transaction(() => {
     s.deleteSelection(floor.id, sel);
     if (vertexIdx.length && floor.hall) {
       const n = floor.hall.polygon.length;
       const removable = vertexIdx.filter((i) => i >= 0 && i < n).slice(0, Math.max(0, n - 3));
-      if (removable.length) s.updateHall(floor.id, (h) => { h.polygon = h.polygon.filter((_, i) => !removable.includes(i)); });
+      // Absteigend sortiert: höhere Indizes zuerst entfernen, damit die übrigen Indizes gültig bleiben.
+      for (const idx of removable) {
+        const cur = getActiveFloor();
+        if (!cur.hall || cur.hall.polygon.length <= 3) break;
+        const oldHall = cur.hall;
+        const newHall: Hall = { ...oldHall, polygon: oldHall.polygon.filter((_, i) => i !== idx) };
+        const plan = hallOpeningsAfterVertexRemoval(cur.openings, oldHall, idx, newHall);
+        s.updateHall(floor.id, (h) => { h.polygon = newHall.polygon; });
+        for (const u of plan.update) s.updateOpening(floor.id, u.id, { wallId: u.wallId, offset: u.offset });
+        if (plan.remove.length) {
+          s.deleteOpenings(floor.id, plan.remove);
+          droppedOpenings += plan.remove.length;
+        }
+      }
     }
   });
+  if (droppedOpenings) {
+    useUiStore.getState().toast(
+      droppedOpenings === 1 ? '1 Öffnung an der Außenwand entfernt – sie lag nicht mehr an der neuen Kante' : `${droppedOpenings} Öffnungen an der Außenwand entfernt – sie lagen nicht mehr an der neuen Kante`,
+      'warning',
+    );
+  }
   // Gesperrte Elemente bleiben ausgewählt, damit der Nutzer sieht, warum nichts passiert ist.
   const after = getActiveFloor();
   for (const x of sel) {

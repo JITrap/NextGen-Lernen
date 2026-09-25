@@ -11,10 +11,10 @@ import { Group, Line, Circle, Label, Tag, Text } from 'react-konva';
 import type { Vec2, Wall, Opening, Hall, WallType } from '@/types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
-import type { ToolContext, ToolEvent } from './types';
+import { createClickTracker, type ToolContext, type ToolEvent } from './types';
 import { useSnapGuides } from '../overlays/SnapGuides';
 import { worldToScreen } from '../viewport';
-import { transaction, undo, useProjectStore } from '@/store/projectStore';
+import { transaction } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { createWall, DEFAULT_WALL_THICKNESS } from '@/store/factories';
 import { WALL_TYPE_MAP } from '@/data/wallTypes';
@@ -39,6 +39,18 @@ const MAX_TYPED = 12;
 
 export type WallInputField = 'length' | 'angle';
 
+/** Was ein Segment-Commit im Stockwerk geändert hat – für „letztes Segment zurück“ ohne globales Undo. */
+export interface WallSegmentRecord {
+  /** Startpunkt des Segments (wird bei Rücknahme wieder Kettenstart). */
+  start: Vec2;
+  /** IDs der angelegten Wände (neues Segment und Teilstücke geteilter Wände). */
+  addedIds: string[];
+  /** Wände, die durch Teilstücke ersetzt wurden (Originale zum Wiederherstellen). */
+  removed: Wall[];
+  /** Öffnungen, die auf Teilstücke gewandert sind (mit ursprünglichem Wandbezug/Offset). */
+  openings: Pick<Opening, 'id' | 'wallId' | 'offset'>[];
+}
+
 export interface WallToolState {
   /** Startpunkt des Segments, das gerade „in der Luft hängt“ (null = keine Kette aktiv). */
   chainStart: Vec2 | null;
@@ -46,8 +58,8 @@ export interface WallToolState {
   cursor: Vec2 | null;
   /** Bereits angelegte Segmente in dieser Kette. */
   count: number;
-  /** Startpunkte der angelegten Segmente (für „letztes Segment zurück“ per Backspace). */
-  history: Vec2[];
+  /** Angelegte Segmente dieser Kette (für „letztes Segment zurück“ per Backspace). */
+  history: WallSegmentRecord[];
   /** Tastatureingabe für Länge („350“, „3,5m“) und Winkel (Grad). */
   typedLength: string;
   typedAngle: string;
@@ -292,18 +304,29 @@ function snapCursor(e: ToolEvent, ctx: ToolContext): SnapResult {
   });
 }
 
-/** Legt ein Wandsegment an (inkl. Teilen an T-Stößen/Kreuzungen) – ein Undo-Schritt. false bei zu kurzem Segment. */
-function commitSegment(ctx: ToolContext, start: Vec2, end: Vec2): boolean {
-  if (distance(start, end) < MIN_SEGMENT_CM) return false;
+/** Legt ein Wandsegment an (inkl. Teilen an T-Stößen/Kreuzungen) – ein Undo-Schritt. null bei zu kurzem Segment. */
+function commitSegment(ctx: ToolContext, start: Vec2, end: Vec2): WallSegmentRecord | null {
+  if (distance(start, end) < MIN_SEGMENT_CM) return null;
   const wall = createWall({ start, end, ...wallPropsFromOptions(ctx.ui.toolOptions) });
   const { removeIds, add, openings } = findWallSplits(wall, ctx.floor.walls, ctx.floor.openings);
   const floorId = ctx.floor.id;
   const store = ctx.store;
+  const removedSet = new Set(removeIds);
+  const record: WallSegmentRecord = {
+    start,
+    // Alle eingefügten Wände – auch das erste Teilstück, das die ID der geteilten Wand behält.
+    addedIds: add.map((w) => w.id),
+    removed: ctx.floor.walls.filter((w) => removedSet.has(w.id)),
+    openings: openings.map((o) => {
+      const orig = ctx.floor.openings.find((x) => x.id === o.id);
+      return { id: o.id, wallId: orig?.wallId ?? o.wallId, offset: orig?.offset ?? o.offset };
+    }),
+  };
   transaction(() => {
     for (const o of openings) store.updateOpening(floorId, o.id, { wallId: o.wallId, offset: o.offset });
     store.replaceWalls(floorId, removeIds, add);
   });
-  return true;
+  return record;
 }
 
 /** Beendet die Kette (angelegte Wände bleiben, das schwebende Segment wird verworfen). */
@@ -311,17 +334,36 @@ export function finishWallChain(): void {
   const st = useWallTool.getState();
   if (st.chainStart) st.reset();
   useSnapGuides.getState().set(null);
+  clicks.reset();
 }
 
-/** Nimmt das zuletzt angelegte Segment der Kette zurück (genau ein Undo-Schritt) und setzt den Kettenstart zurück. */
-function undoLastSegment(): void {
+/**
+ * Nimmt das zuletzt angelegte Segment der Kette gezielt zurück (eigener Undo-Schritt, kein globales Undo –
+ * zwischenzeitliche andere Aktionen bleiben unberührt): angelegte Wände entfernen, geteilte Wände samt
+ * Öffnungsbezügen wiederherstellen, Kettenstart auf den Segmentanfang setzen.
+ */
+export function undoLastSegment(ctx: ToolContext): boolean {
   const st = useWallTool.getState();
-  if (!st.history.length || !st.chainStart) return;
-  if (useProjectStore.temporal.getState().pastStates.length === 0) return;
-  const prev = st.history[st.history.length - 1];
-  undo();
-  st.patch({ chainStart: prev, history: st.history.slice(0, -1), count: Math.max(0, st.count - 1), typedLength: '', typedAngle: '', field: 'length' });
+  if (!st.history.length || !st.chainStart) return false;
+  const rec = st.history[st.history.length - 1];
+  const floor = ctx.floor;
+  const store = ctx.store;
+  const present = new Set(floor.walls.map((w) => w.id));
+  // Eingefügte Wände (inkl. Teilstücke) entfernen und die geteilten Originale wiederherstellen.
+  const removeIds = rec.addedIds.filter((id) => present.has(id));
+  transaction(() => {
+    // Öffnungen zuerst zurückhängen, damit replaceWalls sie nicht mit den Teilstücken entfernt.
+    for (const o of rec.openings) {
+      if (floor.openings.some((x) => x.id === o.id)) store.updateOpening(floor.id, o.id, { wallId: o.wallId, offset: o.offset });
+    }
+    store.replaceWalls(floor.id, removeIds, rec.removed);
+  });
+  st.patch({ chainStart: rec.start, cursor: st.cursor, history: st.history.slice(0, -1), count: Math.max(0, st.count - 1), typedLength: '', typedAngle: '', field: 'length' });
+  return true;
 }
+
+/** Letzte Klickpositionen: Doppelklick nur bei zwei Klicks an derselben Stelle (Konva prüft nur die Zeit). */
+const clicks = createClickTracker();
 
 /** Vorschau-Endpunkt aus Zustand (Tastatur hat Vorrang vor Cursor). */
 function previewEnd(st: WallToolState): Vec2 | null {
@@ -363,6 +405,7 @@ registerTool({
   },
   onPointerDown: (e, ctx) => {
     if (e.button !== 0) return;
+    clicks.down(e.screen);
     const r = snapCursor(e, ctx);
     useSnapGuides.getState().set(r);
     const st = useWallTool.getState();
@@ -374,8 +417,9 @@ registerTool({
     const end = r.point;
     // Zweiter Klick eines Doppelklicks / Wackler (bildschirmbasiert, damit es bei jedem Zoom funktioniert): ignorieren
     if (distance(st.chainStart, end) < Math.max(MIN_SEGMENT_CM, ctx.pxToWorld(4))) return;
-    if (commitSegment(ctx, st.chainStart, end)) {
-      st.patch({ chainStart: end, cursor: end, count: st.count + 1, history: [...st.history, st.chainStart], typedLength: '', typedAngle: '', field: 'length', snapping });
+    const rec = commitSegment(ctx, st.chainStart, end);
+    if (rec) {
+      st.patch({ chainStart: end, cursor: end, count: st.count + 1, history: [...st.history, rec], typedLength: '', typedAngle: '', field: 'length', snapping });
     }
   },
   onPointerMove: (e, ctx) => {
@@ -386,17 +430,20 @@ registerTool({
     useSnapGuides.getState().set(r);
   },
   onDoubleClick: () => {
+    // Zwei schnelle Klicks an verschiedenen Punkten sind zwei Segmente, kein Doppelklick (Konva prüft nur die Zeit).
+    if (!clicks.isDoubleClick()) return;
     finishWallChain();
   },
   onKeyDown: (e, ctx) => {
-    if (e.ctrlKey || e.metaKey) return false;
+    if (e.ctrlKey || e.metaKey || e.altKey) return false;
     const st = useWallTool.getState();
     if (e.key === 'Escape') {
       if (!st.chainStart) return false;
       finishWallChain();
       return true;
     }
-    if (!st.chainStart) return false;
+    // Ohne aktive Kette: Ziffern gehören zur Längeneingabe des Werkzeugs (z. B. „3“ nicht als 3D-Ansicht werten).
+    if (!st.chainStart) return /^[0-9]$/.test(e.key);
     switch (e.key) {
       case 'Enter': {
         const typedLen = parseTypedLength(st.typedLength);
@@ -406,8 +453,9 @@ registerTool({
           return true;
         }
         const end = computeSegmentEnd(st.chainStart, st.cursor ?? st.chainStart, typedLen, typedAng, st.snapping);
-        if (commitSegment(ctx, st.chainStart, end)) {
-          st.patch({ chainStart: end, count: st.count + 1, history: [...st.history, st.chainStart], typedLength: '', typedAngle: '', field: 'length' });
+        const rec = commitSegment(ctx, st.chainStart, end);
+        if (rec) {
+          st.patch({ chainStart: end, count: st.count + 1, history: [...st.history, rec], typedLength: '', typedAngle: '', field: 'length' });
         } else {
           ctx.ui.toast('Segment zu kurz – mindestens 2 cm.', 'warning');
         }
@@ -419,7 +467,7 @@ registerTool({
       case 'Backspace':
         if (st.field === 'length' && st.typedLength) st.patch({ typedLength: st.typedLength.slice(0, -1) });
         else if (st.field === 'angle' && st.typedAngle) st.patch({ typedAngle: st.typedAngle.slice(0, -1) });
-        else if (!st.typedLength && !st.typedAngle) undoLastSegment();
+        else if (!st.typedLength && !st.typedAngle) undoLastSegment(ctx);
         return true;
       case 'Delete':
         // Während des Zeichnens nicht die Auswahl löschen.
@@ -427,7 +475,12 @@ registerTool({
       default:
         break;
     }
-    if (e.key.length === 1) return appendTyped(st, e.key);
+    // Während der Kette alle einzelnen Zeichen verbrauchen: Ziffern/Einheiten füllen die Eingabe, Buchstaben-Kürzel
+    // (G = einpassen, H/W/… = Werkzeugwechsel, 3 = 3D) würden Kette und Eingabe sonst verwerfen.
+    if (e.key.length === 1) {
+      appendTyped(st, e.key);
+      return true;
+    }
     return false;
   },
   Overlay: WallOverlay,

@@ -696,10 +696,11 @@ export function LibraryPanel() {
       el.scrollTop = Math.max(0, offsets[idx] - Math.max(0, (viewH || 300) / 2 - itemH));
       setScrollTop(el.scrollTop);
     }
-    window.setTimeout(() => {
+    const t = window.setTimeout(() => {
       const esc = typeof CSS !== 'undefined' && typeof CSS.escape === 'function' ? CSS.escape(id) : id.replace(/["\\]/g, '\\$&');
       el?.querySelector<HTMLElement>(`[data-def-id="${esc}"]`)?.focus();
     }, 0);
+    return () => window.clearTimeout(t);
   }, [rows, offsets, viewH, itemH]);
   useEffect(() => {
     if (!highlightId) return;

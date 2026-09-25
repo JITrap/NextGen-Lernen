@@ -1,11 +1,13 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { PlacedItem, Floor } from '@/types';
+import type { PlacedItem, Floor, Opening } from '@/types';
 import {
   deleteSelection, duplicateSelection, copySelection, pasteClipboard, rotateSelection, nudgeSelection, flipSelection,
   groupSelection, ungroupSelection, toggleLockSelection, toggleHideSelection, alignSelection, alignOffsets, selectAll,
   splitWallAtPoint, setWallLength, hallPolygonWithEdgeLength, setHallEdgeLength, setItemSize, setItemRotation, setItemPosition,
-  selectionBounds, movablesOf,
+  selectionBounds, movablesOf, hallOpeningsAfterVertexRemoval, HALL_OPENING_REMAP_MAX_CM,
 } from './actions';
+import { hallWalls, pointOnWall } from '@/geometry/walls';
+import { distance } from '@/geometry/polygon';
 import { useProjectStore, loadProject } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { createEmptyProject, createHall, createItemFromDef, createWall } from '@/store/factories';
@@ -308,5 +310,69 @@ describe('Wrapper für das Eigenschaften-Panel', () => {
     expect(movablesOf(floor()).map((m) => m.key)).toEqual(['item:a', 'item:b']);
     useUiStore.getState().clearSelection();
     expect(selectionBounds(floor())).toBeNull();
+  });
+});
+
+describe('Hallen-Eckpunkt entfernen: Öffnungen an den Außenwänden (M6)', () => {
+  // Konvexes Fünfeck: Kante i verläuft von p[i] nach p[i+1]
+  const pent = [{ x: 0, y: 0 }, { x: 1200, y: -400 }, { x: 2000, y: 400 }, { x: 1200, y: 1500 }, { x: 0, y: 1500 }];
+  const openingsOn = (spec: { id: string; wallId: string; offset: number }[]): Opening[] =>
+    spec.map((s) => ({ id: s.id, kind: 'window', wallId: s.wallId, offset: s.offset, width: 100, height: 100, sillHeight: 90 }) as Opening);
+
+  it('hallOpeningsAfterVertexRemoval verschiebt Indizes und projiziert auf die neue Kante', () => {
+    const oldHall = createHall(1, 1, { polygon: pent });
+    const newHall = { ...oldHall, polygon: pent.filter((_, i) => i !== 1) };
+    const oldW = hallWalls(oldHall);
+    const door = pointOnWall(oldW.find((w) => w.id === 'hall_2')!, 700); // rechte (schräge) Kante
+    const win = pointOnWall(oldW.find((w) => w.id === 'hall_3')!, 500); // untere Kante
+    const nearP2 = pointOnWall(oldW.find((w) => w.id === 'hall_1')!, 1050); // Kante 1 nahe p2 → nahe an der neuen Sehne
+    const plan = hallOpeningsAfterVertexRemoval(
+      openingsOn([{ id: 'door', wallId: 'hall_2', offset: 700 }, { id: 'win', wallId: 'hall_3', offset: 500 }, { id: 'far', wallId: 'hall_0', offset: 1100 }, { id: 'near', wallId: 'hall_1', offset: 1050 }, { id: 'left', wallId: 'hall_4', offset: 600 }]),
+      oldHall, 1, newHall,
+    );
+    // Öffnung nahe der entfernten Ecke liegt > 1 m von der neuen Sehne entfernt → löschen
+    expect(plan.remove).toEqual(['far']);
+    const byId = new Map(plan.update.map((u) => [u.id, u]));
+    const newW = new Map(hallWalls(newHall).map((w) => [w.id, w]));
+    // Indizes rücken nach: hall_2 → hall_1, hall_3 → hall_2, hall_4 → hall_3; verschmolzene Kanten 0/1 → hall_0
+    expect(byId.get('door')?.wallId).toBe('hall_1');
+    expect(byId.get('win')?.wallId).toBe('hall_2');
+    expect(byId.get('near')?.wallId).toBe('hall_0');
+    expect(byId.get('left')?.wallId).toBe('hall_3');
+    // Weltposition bleibt (bis auf Gehrungsversatz an den Ecken) erhalten
+    expect(distance(pointOnWall(newW.get('hall_1')!, byId.get('door')!.offset), door)).toBeLessThan(5);
+    expect(distance(pointOnWall(newW.get('hall_2')!, byId.get('win')!.offset), win)).toBeLessThan(5);
+    expect(distance(pointOnWall(newW.get('hall_0')!, byId.get('near')!.offset), nearP2)).toBeLessThan(HALL_OPENING_REMAP_MAX_CM);
+    // Ecke 0 entfernen: Kanten 4 und 0 verschmelzen zur neuen Kante n−2 = 3
+    const plan0 = hallOpeningsAfterVertexRemoval(openingsOn([{ id: 'win', wallId: 'hall_3', offset: 500 }, { id: 'left', wallId: 'hall_4', offset: 1400 }]), oldHall, 0, { ...oldHall, polygon: pent.slice(1) });
+    expect(plan0.update.find((u) => u.id === 'win')?.wallId).toBe('hall_2');
+    expect(plan0.update.find((u) => u.id === 'left')?.wallId ?? (plan0.remove.includes('left') ? 'removed' : null)).toMatch(/^(hall_3|removed)$/);
+  });
+
+  it('deleteSelection entfernt den Eckpunkt und hält Tür/Fenster an ihren Wänden', () => {
+    const p = createEmptyProject('Test');
+    const f = p.floors[0];
+    f.hall = createHall(1, 1, { polygon: pent });
+    f.openings = openingsOn([{ id: 'door', wallId: 'hall_2', offset: 700 }, { id: 'win', wallId: 'hall_3', offset: 500 }]);
+    loadProject(p);
+    const oldW = hallWalls(f.hall);
+    const doorPos = pointOnWall(oldW.find((w) => w.id === 'hall_2')!, 700);
+    const winPos = pointOnWall(oldW.find((w) => w.id === 'hall_3')!, 500);
+    useUiStore.getState().setSelection([{ kind: 'hallVertex', id: '1' }]);
+    deleteSelection();
+    const after = floor();
+    expect(after.hall!.polygon).toHaveLength(4);
+    expect(after.openings).toHaveLength(2);
+    const nw = new Map(hallWalls(after.hall!).map((w) => [w.id, w]));
+    const door = after.openings.find((o) => o.id === 'door')!;
+    const win = after.openings.find((o) => o.id === 'win')!;
+    expect(door.wallId).toBe('hall_1');
+    expect(win.wallId).toBe('hall_2');
+    expect(distance(pointOnWall(nw.get(door.wallId)!, door.offset), doorPos)).toBeLessThan(5);
+    expect(distance(pointOnWall(nw.get(win.wallId)!, win.offset), winPos)).toBeLessThan(5);
+    // Ein Undo-Schritt für Polygon + Öffnungen
+    undo();
+    expect(floor().hall!.polygon).toHaveLength(5);
+    expect(floor().openings.find((o) => o.id === 'door')).toMatchObject({ wallId: 'hall_2', offset: 700 });
   });
 });

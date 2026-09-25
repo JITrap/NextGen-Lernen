@@ -80,6 +80,8 @@ export function NumberField({
   const [draft, setDraft] = useState<string | null>(null);
   /** Text beim Fokussieren – unveränderter Text wird beim Verlassen nicht übernommen (keine Rundungsänderung). */
   const focusText = useRef<string | null>(null);
+  /** Esc gedrückt: das durch blur() synchron ausgelöste onBlur darf den Entwurf nicht übernehmen. */
+  const cancelling = useRef(false);
   const fmt = (v: number) => (format ? format(v) : formatPlain(v, integer ? 0 : Math.max(decimals, 2)));
   const shown = value == null ? '' : fmt(value);
 
@@ -89,6 +91,12 @@ export function NumberField({
   };
 
   const commit = () => {
+    if (cancelling.current) {
+      cancelling.current = false;
+      focusText.current = null;
+      setDraft(null);
+      return;
+    }
     if (draft == null) return;
     const text = draft.trim();
     const unchanged = draft === focusText.current;
@@ -113,9 +121,11 @@ export function NumberField({
     } else if (e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
+      cancelling.current = true;
       setDraft(null);
       focusText.current = null;
       e.currentTarget.blur();
+      cancelling.current = false;
     } else if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && step && !readOnly && !disabled) {
       e.preventDefault();
       const base = draft != null && draft.trim() ? parse(draft.trim()) : value;
@@ -149,6 +159,7 @@ export function NumberField({
         onChange={(e) => setDraft(e.target.value)}
         onFocus={(e) => {
           if (readOnly) return;
+          cancelling.current = false;
           setDraft(shown);
           focusText.current = shown;
           if (selectOnFocus) e.target.select();

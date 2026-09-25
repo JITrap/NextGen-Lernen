@@ -1,4 +1,4 @@
-import { useEffect, useState, type InputHTMLAttributes, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type InputHTMLAttributes, type ReactNode } from 'react';
 import { parseNumber } from '@/geometry/units';
 
 export interface TextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
@@ -39,11 +39,18 @@ export function NumberInput({ value, onChange, min, max, step, label, unit, deci
   const fmt = (v: number) => String(Math.round(v * 10 ** decimals) / 10 ** decimals).replace('.', ',');
   const [text, setText] = useState(() => fmt(value));
   const [focused, setFocused] = useState(false);
+  /** Esc gedrückt: das durch blur() synchron ausgelöste onBlur darf den getippten Text nicht übernehmen. */
+  const cancelling = useRef(false);
   useEffect(() => {
     if (!focused) setText(fmt(value));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, focused]);
   const commit = () => {
+    if (cancelling.current) {
+      cancelling.current = false;
+      setText(fmt(value));
+      return;
+    }
     const n = parseNumber(text);
     if (n == null) {
       setText(fmt(value));
@@ -63,7 +70,10 @@ export function NumberInput({ value, onChange, min, max, step, label, unit, deci
         className={`gp-input min-h-[36px] tabular-nums ${unit ? 'pr-12' : ''} ${className}`}
         value={text}
         onChange={(e) => setText(e.target.value)}
-        onFocus={() => setFocused(true)}
+        onFocus={() => {
+          cancelling.current = false;
+          setFocused(true);
+        }}
         onBlur={() => {
           setFocused(false);
           commit();
@@ -73,8 +83,10 @@ export function NumberInput({ value, onChange, min, max, step, label, unit, deci
             commit();
             (e.target as HTMLInputElement).blur();
           } else if (e.key === 'Escape') {
+            cancelling.current = true;
             setText(fmt(value));
             (e.target as HTMLInputElement).blur();
+            cancelling.current = false;
           } else if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && step) {
             e.preventDefault();
             const cur = parseNumber(text) ?? value;
