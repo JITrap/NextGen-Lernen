@@ -13,12 +13,12 @@ import { getStage } from '../stageRegistry';
 import { hallInnerPolygon, hallOuterPolygon } from '@/geometry/walls';
 import { bbox, flatten, polygonAreaM2 } from '@/geometry/polygon';
 import { formatM, formatM2 } from '@/geometry/units';
-import { HALL_DIM_OFFSET_PX } from './DimensionsLayer';
 
-/** Abstand (px) der Hallen-Zusammenfassung über der Außenkante: außerhalb von Türmarkern/-maßen (≈ 20 px) … */
+/**
+ * Abstand (px) der Hallen-Zusammenfassung über der Außenkante: außerhalb von Türmarkern/-maßen (reichen ≈ 20 px nach
+ * außen), aber noch unterhalb der Maßlinie der Außenkanten (40 px), damit das Label nach „Einpassen“ sichtbar bleibt.
+ */
 export const HALL_LABEL_LIFT_PX = 34;
-/** … und, wenn die Bemaßung sichtbar ist, oberhalb der Maßlinie der Außenkanten. */
-export const HALL_LABEL_LIFT_DIMS_PX = HALL_DIM_OFFSET_PX + 24;
 
 /* ------------------------------------------------------------------ */
 /* Farben & Bodenbelag                                                 */
@@ -161,8 +161,7 @@ function EmptyHint({ viewport, dark }: { viewport: LayerProps['viewport']; dark:
 }
 
 export const HallLayer = memo(function HallLayer(props: LayerProps) {
-  const { floor, viewport, dark, presentation, project } = props;
-  const dimsVisible = project.layers.dimensions && !presentation;
+  const { floor, viewport, dark, presentation } = props;
   const hall = floor.hall;
   const tool = useUiStore((st) => st.tool);
   const s = 1 / viewport.scale;
@@ -194,7 +193,7 @@ export const HallLayer = memo(function HallLayer(props: LayerProps) {
       <Line points={flatten(outer)} closed stroke={edge} strokeWidth={1 * s} opacity={0.9} />
       {inner.length >= 3 && <Line points={flatten(inner)} closed stroke={edge} strokeWidth={0.75 * s} opacity={0.6} />}
       {!presentation && outer.map((p, i) => <Circle key={i} x={p.x} y={p.y} radius={2.5 * s} fill={dark ? '#0f172a' : '#ffffff'} stroke={edge} strokeWidth={1 * s} />)}
-      <Text x={b.minX + 2 * s} y={b.minY - (dimsVisible ? HALL_LABEL_LIFT_DIMS_PX : HALL_LABEL_LIFT_PX) * s} text={label} fontSize={11 * s} fill={dark ? '#94a3b8' : '#64748b'} fontFamily="Inter, system-ui, sans-serif" />
+      <Text x={b.minX + 2 * s} y={b.minY - HALL_LABEL_LIFT_PX * s} text={label} fontSize={11 * s} fill={dark ? '#94a3b8' : '#64748b'} fontFamily="Inter, system-ui, sans-serif" />
     </Group>
   );
 });

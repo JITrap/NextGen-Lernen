@@ -318,7 +318,6 @@ export function ContextMenu() {
       default:
         return [props, del()];
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [menu, target, selection, floor, customEquipment, settings.showGrid, settings.snapEnabled]);
 
   const anchor = useMemo(() => (menu ? { x: menu.x, y: menu.y } : null), [menu]);
