@@ -136,7 +136,7 @@ export interface Wall {
 }
 
 export type RoomType =
-  | 'Trainingsfläche Freihantel' | 'Maschinen' | 'Cardio' | 'Functional/Stretching' | 'Kursraum'
+  | 'Trainingsfläche Freihantel' | 'Maschinen' | 'Cardio' | 'Functional/Stretching' | 'HYROX' | 'Kursraum'
   | 'Empfang/Lounge' | 'Umkleide Damen' | 'Umkleide Herren' | 'Umkleide Divers' | 'Duschen' | 'WC'
   | 'Wellness/Sauna' | 'Ruheraum' | 'Büro' | 'Lager' | 'Technik/Lüftung' | 'Putzraum' | 'Personalraum'
   | 'Kinderbetreuung' | 'Physio/Massage' | 'Flur/Verkehrsfläche' | 'Treppenhaus' | 'Sonstiges';
