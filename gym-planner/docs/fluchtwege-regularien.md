@@ -108,9 +108,9 @@ Deckenhöhe und Bodenlast bleiben Planungs-Warnungen.
 * Löschmitteleinheiten: konservativ 6 LE je Feuerlöscher (6 l Schaum); 6 kg ABC-Pulver hätte 10 LE – deshalb „prüfen“,
   wenn das Soll nur damit erreicht würde. `params.le` am Objekt überschreibt.
 * Beschäftigten-Toiletten werden nicht nach Geschlecht getrennt gezählt.
-* Die Vorlage „Beispielstudio 1.000 m²“ liefert keine Prüfung „nicht erfüllt“; offen als „prüfen“: nach innen
-  aufschlagender Haupteingang, Löschmitteleinheiten (5 × 6 LE < 36 LE, mit 10-LE-Geräten erfüllt) und fehlende
-  Rettungszeichenleuchten an den drei Notausgängen.
+* Die Vorlage „Beispielstudio 1.000 m²“ liefert weder „nicht erfüllt“ noch „prüfen“ (Fluchtwege auf den Mittellinien der
+  Gänge, Flucht- und Rettungsplan am Empfang; siehe `docs/beispielstudio.md`, Abschnitt „Fluchtwege und Regularien-Prüfung“);
+  offen bleiben nur Hinweise (Organisatorisches, Beschäftigten-WC, Bewegungsfläche des barrierefreien WCs).
 
 ## Dateien
 

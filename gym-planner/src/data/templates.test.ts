@@ -7,7 +7,7 @@ import { allWalls, findWall, hallInnerPolygon, hallOuterPolygon, wallLength, ope
 import { floorRooms } from '@/geometry/rooms';
 import { findCollisions, itemInsideHall, itemsInDoorSwing, emergencyExitBlocked, convexPolygonsOverlap } from '@/geometry/collision';
 import { itemFootprint, itemSafetyPolygon, zoneIsEmpty } from '@/geometry/transform';
-import { warnings, capacity, areaBalance } from '@/analysis';
+import { warnings, capacity, areaBalance, regulations } from '@/analysis';
 
 const EXPECTED_AREAS: Record<string, number> = { 'beispiel-1000': 1000, 'empty-20x25': 500, 'studio-400': 400, 'studio-800': 800 };
 
@@ -692,6 +692,23 @@ describe('Projekt-Vorlagen', () => {
       const list = warnings(p);
       expect(list.filter((w) => w.kind !== 'unverified').map((w) => `${w.kind}: ${w.message}`)).toEqual([]);
       expect(list.length).toBe(1);
+    });
+
+    it('Regularien: keine Prüfung „nicht erfüllt“ oder „prüfen“ (Fluchtweg-Korridore frei, Flucht- und Rettungsplan am Empfang)', () => {
+      const r = regulations(p);
+      const open = r.checks.filter((c) => c.status === 'fail' || c.status === 'warn').map((c) => `${c.status}: ${c.titel} – ${c.ist}`);
+      expect(open).toEqual([]);
+      expect(r.counts.fail).toBe(0);
+      expect(r.counts.warn).toBe(0);
+      expect(r.counts.ok).toBeGreaterThanOrEqual(70);
+      // Korridor-Prüfung je gezeichnetem Fluchtweg vorhanden und erfüllt
+      const routes = f.annotations.filter((a): a is EscapeRoute => a.kind === 'escape-route');
+      for (const a of routes) expect(r.checks.find((c) => c.id === `route:${a.id}:corridor`)?.status, a.label).toBe('ok');
+      // Flucht- und Rettungsplan hängt als Wandobjekt im Empfang
+      const plan = f.items.filter((it) => it.defId === 'gen-ausstattung-fluchtplan');
+      expect(plan.length).toBeGreaterThanOrEqual(1);
+      expect(plan.every((it) => it.wallId && pointInPolygon(at(it), roomOf('Empfang / Lounge').polygon))).toBe(true);
+      expect(r.checks.find((c) => c.id === 'orga:escape-plan')?.status).toBe('ok');
     });
 
     it('Wellness-, Kursraum- und Sanitärobjekte liegen in ihren Räumen; Trainingsgeräte in der Halle', () => {

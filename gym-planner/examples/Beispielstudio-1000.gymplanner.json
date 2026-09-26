@@ -3,7 +3,7 @@
   "exportedAt": "2026-09-26T00:00:00.000Z",
   "format": "gymplanner-project",
   "project": {
-    "activeFloorId": "f_Rt0iW4TzGScX",
+    "activeFloorId": "f_O0ZwRmgMV7zN",
     "createdAt": "2026-09-26T00:00:00.000Z",
     "customEquipment": [],
     "favorites": [],
@@ -12,7 +12,7 @@
         "annotations": [
           {
             "fontSize": 26,
-            "id": "a_PdJf7AK7hcY6",
+            "id": "a_keDeugqWa8dX",
             "kind": "text",
             "rotation": 0,
             "text": "2 Sled Push · 3 Sled Pull",
@@ -21,7 +21,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_U9OYMUECVGTg",
+            "id": "a_g6jK8tVSi1Eh",
             "kind": "text",
             "rotation": 0,
             "text": "4 Burpee Broad Jump · 6 Farmers Carry · 7 Sandbag Lunges",
@@ -30,7 +30,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_m9DsTBesvYDo",
+            "id": "a_YGzAyzfgfER2",
             "kind": "text",
             "rotation": 0,
             "text": "8 Wall Balls",
@@ -39,7 +39,7 @@
           },
           {
             "fontSize": 30,
-            "id": "a_sTTfPRWPqf5Z",
+            "id": "a_DCW1Jy5koINk",
             "kind": "text",
             "rotation": 0,
             "text": "HYROX – 8 Stationen",
@@ -48,7 +48,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_SGDpDxGe6FTN",
+            "id": "a_NfK04Q9nasCd",
             "kind": "text",
             "rotation": 0,
             "text": "5 Rowing",
@@ -57,7 +57,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_h7DbEEq0akRy",
+            "id": "a_w8Wn6i0ingSZ",
             "kind": "text",
             "rotation": 0,
             "text": "1 SkiErg",
@@ -66,7 +66,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_lSbUsh8tNRMk",
+            "id": "a_ZsbPa1bUOAfb",
             "kind": "text",
             "rotation": 0,
             "text": "Kettlebells",
@@ -75,7 +75,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_bJG8mWzVo2Lg",
+            "id": "a_xdlabS8ZNLCT",
             "kind": "text",
             "rotation": 0,
             "text": "7 Sandbags",
@@ -84,7 +84,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_ojjSF3gg7nCy",
+            "id": "a_WKwvfrdOjuDD",
             "kind": "text",
             "rotation": 0,
             "text": "8 Wall Balls",
@@ -93,7 +93,7 @@
           },
           {
             "fontSize": 26,
-            "id": "a_QEfqPKT3bhj7",
+            "id": "a_Z5Iyy7WMBcv6",
             "kind": "text",
             "rotation": 0,
             "text": "6 Farmers",
@@ -101,20 +101,16 @@
             "y": 772.5
           },
           {
-            "id": "a_8TlyQiwGC6cg",
+            "id": "a_NAohUS1ROGGm",
             "kind": "escape-route",
             "label": "Fluchtweg 1 – Kursraum → Notausgang Kursraum",
             "points": [
               {
-                "x": 3650,
-                "y": 1840
+                "x": 3330,
+                "y": 1400
               },
               {
-                "x": 3300,
-                "y": 1840
-              },
-              {
-                "x": 3300,
+                "x": 3330,
                 "y": 2290
               },
               {
@@ -124,17 +120,17 @@
             ]
           },
           {
-            "id": "a_CeP3cHzV3PGU",
+            "id": "a_IlbdShKFcqfr",
             "kind": "escape-route",
             "label": "Fluchtweg 2 – Wellness → Notausgang Halle Ost",
             "points": [
               {
                 "x": 3880,
-                "y": 1150
+                "y": 1160
               },
               {
                 "x": 3160,
-                "y": 1150
+                "y": 1160
               },
               {
                 "x": 3160,
@@ -155,49 +151,17 @@
             ]
           },
           {
-            "id": "a_oI1HNePAzQHn",
+            "id": "a_1RJbBwF05ubV",
             "kind": "escape-route",
             "label": "Fluchtweg 3 – Umkleide Herren → Notausgang Halle Süd",
             "points": [
               {
-                "x": 120,
-                "y": 1900
-              },
-              {
-                "x": 300,
-                "y": 1900
-              },
-              {
-                "x": 300,
-                "y": 1845
-              },
-              {
-                "x": 480,
-                "y": 1845
-              },
-              {
-                "x": 480,
-                "y": 1905
-              },
-              {
-                "x": 775,
-                "y": 1905
-              },
-              {
-                "x": 775,
+                "x": 900,
                 "y": 1565
-              },
-              {
-                "x": 960,
-                "y": 1565
-              },
-              {
-                "x": 960,
-                "y": 1550
               },
               {
                 "x": 2020,
-                "y": 1550
+                "y": 1565
               },
               {
                 "x": 2020,
@@ -214,7 +178,7 @@
             ]
           },
           {
-            "id": "a_5SLNMGW4hxJ5",
+            "id": "a_CGbEb2OuPJ6Y",
             "kind": "escape-route",
             "label": "Fluchtweg 4 – Cardio (Ecke Südwest) → Notausgang Halle Süd",
             "points": [
@@ -233,7 +197,7 @@
             ]
           },
           {
-            "id": "a_TmJryL2o1o9c",
+            "id": "a_5iDGtZE0IaHk",
             "kind": "escape-route",
             "label": "Fluchtweg 5 – Freihantel → Haupteingang",
             "points": [
@@ -256,28 +220,20 @@
             ]
           },
           {
-            "id": "a_zrpq3cp9Xqry",
+            "id": "a_FraPZnKP0eg7",
             "kind": "escape-route",
             "label": "Fluchtweg 6 – Technik/Lager → Notausgang Halle Süd",
             "points": [
               {
-                "x": 340,
-                "y": 2160
-              },
-              {
-                "x": 340,
+                "x": 390,
                 "y": 2280
               },
               {
-                "x": 450,
+                "x": 790,
                 "y": 2280
               },
               {
-                "x": 840,
-                "y": 2280
-              },
-              {
-                "x": 840,
+                "x": 790,
                 "y": 2180
               },
               {
@@ -286,11 +242,11 @@
               },
               {
                 "x": 960,
-                "y": 1550
+                "y": 1565
               },
               {
                 "x": 2020,
-                "y": 1550
+                "y": 1565
               },
               {
                 "x": 2020,
@@ -331,13 +287,13 @@
           ],
           "wallThickness": 24
         },
-        "id": "f_Rt0iW4TzGScX",
+        "id": "f_O0ZwRmgMV7zN",
         "items": [
           {
             "defId": "gen-empfang-theke",
             "depth": 80,
             "height": 110,
-            "id": "i_c39ybTZFVMri",
+            "id": "i_QDWIwYWamlDO",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -355,7 +311,7 @@
             "defId": "gen-empfang-drehkreuz",
             "depth": 120,
             "height": 100,
-            "id": "i_6AF1jHMJ5EGv",
+            "id": "i_pMB2JGNSLlLO",
             "kind": "equipment",
             "note": "Eintritt",
             "rotation": 270,
@@ -374,7 +330,7 @@
             "defId": "gen-empfang-zugangsschranke",
             "depth": 40,
             "height": 100,
-            "id": "i_xkbRAETNGt7c",
+            "id": "i_s37TlX46rEf1",
             "kind": "equipment",
             "note": "Ausgang / Fluchtweg (Paniköffnung)",
             "rotation": 270,
@@ -393,7 +349,7 @@
             "defId": "gen-empfang-sofa-3",
             "depth": 90,
             "height": 85,
-            "id": "i_MnalQoD9dnm7",
+            "id": "i_jPlBqdg640UV",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -405,13 +361,13 @@
             "safetyZoneEnabled": true,
             "width": 220,
             "x": 70,
-            "y": 310
+            "y": 290
           },
           {
             "defId": "gen-empfang-loungetisch",
             "depth": 60,
             "height": 45,
-            "id": "i_XYuC9uNsLmcR",
+            "id": "i_r5Hk8a8Aeagh",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -423,13 +379,13 @@
             "safetyZoneEnabled": true,
             "width": 120,
             "x": 190,
-            "y": 310
+            "y": 300
           },
           {
             "defId": "gen-empfang-sessel",
             "depth": 90,
             "height": 85,
-            "id": "i_iiI40sro2uZG",
+            "id": "i_RKPAxORqXLeg",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -447,7 +403,7 @@
             "defId": "gen-empfang-sessel",
             "depth": 90,
             "height": 85,
-            "id": "i_WBi6qWmImMCT",
+            "id": "i_kocMAVOenVnC",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -459,103 +415,13 @@
             "safetyZoneEnabled": true,
             "width": 90,
             "x": 200,
-            "y": 400
-          },
-          {
-            "defId": "gen-empfang-shakebar",
-            "depth": 70,
-            "height": 110,
-            "id": "i_P0jDhOEj1p7F",
-            "kind": "equipment",
-            "rotation": 180,
-            "safetyZone": {
-              "hinten": 0,
-              "links": 0,
-              "rechts": 0,
-              "vorne": 0
-            },
-            "safetyZoneEnabled": true,
-            "width": 200,
-            "x": 560,
-            "y": 510
-          },
-          {
-            "defId": "gen-empfang-barhocker",
-            "depth": 40,
-            "height": 75,
-            "id": "i_ESnYYaDDZvTP",
-            "kind": "equipment",
-            "rotation": 0,
-            "safetyZone": {
-              "hinten": 0,
-              "links": 0,
-              "rechts": 0,
-              "vorne": 0
-            },
-            "safetyZoneEnabled": true,
-            "width": 40,
-            "x": 490,
-            "y": 450
-          },
-          {
-            "defId": "gen-empfang-barhocker",
-            "depth": 40,
-            "height": 75,
-            "id": "i_snwBcMfrtryf",
-            "kind": "equipment",
-            "rotation": 0,
-            "safetyZone": {
-              "hinten": 0,
-              "links": 0,
-              "rechts": 0,
-              "vorne": 0
-            },
-            "safetyZoneEnabled": true,
-            "width": 40,
-            "x": 560,
-            "y": 450
-          },
-          {
-            "defId": "gen-empfang-barhocker",
-            "depth": 40,
-            "height": 75,
-            "id": "i_mnU9dlsDMI4H",
-            "kind": "equipment",
-            "rotation": 0,
-            "safetyZone": {
-              "hinten": 0,
-              "links": 0,
-              "rechts": 0,
-              "vorne": 0
-            },
-            "safetyZoneEnabled": true,
-            "width": 40,
-            "x": 630,
-            "y": 450
-          },
-          {
-            "defId": "gen-empfang-kuehlschrank",
-            "depth": 65,
-            "height": 190,
-            "id": "i_QMIeAOJHnRJs",
-            "kind": "equipment",
-            "rotation": 0,
-            "safetyZone": {
-              "hinten": 0,
-              "links": 0,
-              "rechts": 0,
-              "vorne": 0
-            },
-            "safetyZoneEnabled": true,
-            "width": 60,
-            "x": 700,
-            "y": 510
+            "y": 380
           },
           {
             "defId": "gen-empfang-getraenkeautomat",
             "depth": 90,
             "height": 185,
-            "id": "i_GVSAbYK0jppZ",
+            "id": "i_lYyhCS1q2tgA",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -566,14 +432,104 @@
             },
             "safetyZoneEnabled": true,
             "width": 90,
-            "x": 790,
+            "x": 70,
             "y": 500
+          },
+          {
+            "defId": "gen-empfang-shakebar",
+            "depth": 70,
+            "height": 110,
+            "id": "i_ruvegt0qltPi",
+            "kind": "equipment",
+            "rotation": 180,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 200,
+            "x": 230,
+            "y": 510
+          },
+          {
+            "defId": "gen-empfang-barhocker",
+            "depth": 40,
+            "height": 75,
+            "id": "i_yN4obdg0yeqP",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 160,
+            "y": 450
+          },
+          {
+            "defId": "gen-empfang-barhocker",
+            "depth": 40,
+            "height": 75,
+            "id": "i_zImdNzpRNvka",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 230,
+            "y": 450
+          },
+          {
+            "defId": "gen-empfang-barhocker",
+            "depth": 40,
+            "height": 75,
+            "id": "i_bNpWkA2Ran7T",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 40,
+            "x": 300,
+            "y": 450
+          },
+          {
+            "defId": "gen-empfang-kuehlschrank",
+            "depth": 65,
+            "height": 190,
+            "id": "i_SYXMO9EP4xEx",
+            "kind": "equipment",
+            "rotation": 0,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "width": 60,
+            "x": 370,
+            "y": 510
           },
           {
             "defId": "gen-empfang-garderobe",
             "depth": 40,
             "height": 180,
-            "id": "i_ZgxQp0J31Kro",
+            "id": "i_B6RTeC9CgTAE",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -591,7 +547,7 @@
             "defId": "gen-empfang-info-stele",
             "depth": 40,
             "height": 190,
-            "id": "i_7SQ1rkfMlGkh",
+            "id": "i_bIO7VHLp9AOB",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -609,7 +565,7 @@
             "defId": "gen-empfang-info-bildschirm",
             "depth": 8,
             "height": 75,
-            "id": "i_GZNL3FpeVsMv",
+            "id": "i_78IHrsvqmEoa",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -619,16 +575,36 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 125,
             "x": 890,
             "y": 150
           },
           {
+            "defId": "gen-ausstattung-fluchtplan",
+            "depth": 3,
+            "height": 30,
+            "id": "i_9STj1JB93foH",
+            "kind": "equipment",
+            "note": "Aushang am Empfang (DIN ISO 23601)",
+            "rotation": 90,
+            "safetyZone": {
+              "hinten": 0,
+              "links": 0,
+              "rechts": 0,
+              "vorne": 0
+            },
+            "safetyZoneEnabled": true,
+            "wallId": "w_kqzJcKxl805T",
+            "width": 42,
+            "x": 890,
+            "y": 60
+          },
+          {
             "defId": "gen-ausstattung-pflanze-gross",
             "depth": 60,
             "height": 200,
-            "id": "i_HZKkhpR37dkD",
+            "id": "i_mL96i8jynEZS",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -639,14 +615,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 60,
-            "x": 60,
+            "x": 810,
             "y": 510
           },
           {
             "defId": "gen-ausstattung-pflanze",
             "depth": 40,
             "height": 150,
-            "id": "i_WJw9JDHuIL96",
+            "id": "i_y5sN2rrKLIxa",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -657,14 +633,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 40,
-            "x": 250,
-            "y": 500
+            "x": 620,
+            "y": 510
           },
           {
             "defId": "gen-ausstattung-pflanze",
             "depth": 40,
             "height": 150,
-            "id": "i_6jHwRFDgGYEa",
+            "id": "i_qq7pd9kPw9M7",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -682,7 +658,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_vZtSjP324hDN",
+            "id": "i_q4y6Xn38p8mi",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -700,7 +676,7 @@
             "defId": "gen-ausstattung-desinfektionsstation",
             "depth": 40,
             "height": 130,
-            "id": "i_0LdmapGbsdUm",
+            "id": "i_gAVRmwVdU5xJ",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -718,7 +694,7 @@
             "defId": "gen-ausstattung-muelleimer",
             "depth": 40,
             "height": 80,
-            "id": "i_1VgqotLBRKtZ",
+            "id": "i_qrjuD5vUnrmy",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -736,7 +712,7 @@
             "defId": "gen-ausstattung-aed",
             "depth": 20,
             "height": 40,
-            "id": "i_fd1y6is1Mbxf",
+            "id": "i_0wHBT1JQoC1s",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -755,7 +731,7 @@
             "defId": "gen-ausstattung-erste-hilfe",
             "depth": 15,
             "height": 30,
-            "id": "i_bPJyVhYmEUUC",
+            "id": "i_cjSebrAQExpO",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -765,7 +741,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 30,
             "x": 880,
             "y": 240
@@ -774,7 +750,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_WbmCnXdsH6ac",
+            "id": "i_7bfsrLANZS4Z",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -793,7 +769,7 @@
             "defId": "gen-ausstattung-notausgang-schild",
             "depth": 5,
             "height": 20,
-            "id": "i_EtbovOurZmIJ",
+            "id": "i_ez0saYrETOjv",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -811,8 +787,8 @@
           {
             "defId": "gen-ausstattung-rettungszeichenleuchte",
             "depth": 8,
-            "height": 15,
-            "id": "i_YolVdM6Pfcxj",
+            "height": 20,
+            "id": "i_fMCMy8zZVKVG",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -823,7 +799,7 @@
             },
             "safetyZoneEnabled": true,
             "wallId": "hall_0",
-            "width": 30,
+            "width": 35,
             "x": 170,
             "y": 30
           },
@@ -831,7 +807,7 @@
             "defId": "gen-ausstattung-kamera",
             "depth": 15,
             "height": 15,
-            "id": "i_E9jawZxVMbUv",
+            "id": "i_nmCGnUpLf470",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -850,7 +826,7 @@
             "defId": "gen-bau-heizkoerper",
             "depth": 10,
             "height": 60,
-            "id": "i_tabQINV3i6ub",
+            "id": "i_vPsgVOAilhoW",
             "kind": "radiator",
             "params": {
               "kind": "radiator"
@@ -872,7 +848,7 @@
             "defId": "gen-buero-schreibtisch",
             "depth": 80,
             "height": 75,
-            "id": "i_PjSdxlg7atwe",
+            "id": "i_P7aqAN7k9ntQ",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -890,7 +866,7 @@
             "defId": "gen-buero-buerostuhl",
             "depth": 65,
             "height": 120,
-            "id": "i_3I3iaoKs8hiL",
+            "id": "i_okg3x0fIvLZL",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -908,7 +884,7 @@
             "defId": "gen-buero-rollcontainer",
             "depth": 60,
             "height": 60,
-            "id": "i_wTCH9nIaFqLn",
+            "id": "i_Eeun5Gu8ol50",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -926,7 +902,7 @@
             "defId": "gen-buero-aktenschrank",
             "depth": 42,
             "height": 200,
-            "id": "i_ttfXB3HtTsIt",
+            "id": "i_DpfeOxwKfuZv",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -944,7 +920,7 @@
             "defId": "gen-bau-heizkoerper",
             "depth": 10,
             "height": 60,
-            "id": "i_yaLy1NteKWBI",
+            "id": "i_ifO9u9NxdEgU",
             "kind": "radiator",
             "params": {
               "kind": "radiator"
@@ -966,7 +942,7 @@
             "defId": "gen-buero-personaltisch",
             "depth": 80,
             "height": 75,
-            "id": "i_Ezs4nkYQg3ae",
+            "id": "i_oqX9Qvi2drHs",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -984,7 +960,7 @@
             "defId": "gen-empfang-stuhl",
             "depth": 55,
             "height": 85,
-            "id": "i_sLqRuXfMMdRF",
+            "id": "i_oDLzLqLLv4EA",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1002,7 +978,7 @@
             "defId": "gen-empfang-stuhl",
             "depth": 55,
             "height": 85,
-            "id": "i_ZRkNENH5G0pL",
+            "id": "i_IxdFyA8ejBOj",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -1020,7 +996,7 @@
             "defId": "gen-buero-personalschrank",
             "depth": 50,
             "height": 180,
-            "id": "i_JixmoeNUYUPn",
+            "id": "i_piPzN3UlxBtx",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1038,7 +1014,7 @@
             "defId": "gen-buero-teekueche",
             "depth": 60,
             "height": 90,
-            "id": "i_cXc8KJKSPt3Z",
+            "id": "i_znVTyyBcoRlt",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1056,7 +1032,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_mLKRlLiMoR8y",
+            "id": "i_I7xGhPzi04hK",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1066,7 +1042,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_xFwU3yHfybAR",
+            "wallId": "w_9hyzVgUz6x4a",
             "width": 20,
             "x": 430,
             "y": 570
@@ -1075,7 +1051,7 @@
             "defId": "gen-ausstattung-erste-hilfe",
             "depth": 15,
             "height": 30,
-            "id": "i_ZJFZ8JjB56Eq",
+            "id": "i_c6U2NEdHtgEV",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1085,7 +1061,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_ZqqTu9b1hoqB",
+            "wallId": "w_BxseQcaxmo2P",
             "width": 30,
             "x": 630,
             "y": 860
@@ -1094,7 +1070,7 @@
             "defId": "gen-sanitaer-wc-barrierefrei",
             "depth": 220,
             "height": 220,
-            "id": "i_F0BEwfg2SvHN",
+            "id": "i_qTfIxtYycpyf",
             "kind": "equipment",
             "note": "Bewegungsfläche 150 × 150 cm rechts davor frei",
             "rotation": 90,
@@ -1113,7 +1089,7 @@
             "defId": "gen-umkleide-waschtisch",
             "depth": 50,
             "height": 85,
-            "id": "i_nvM6K6iXncOw",
+            "id": "i_AEAa04dSHauu",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -1123,7 +1099,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_4wpokxu7Nf8C",
+            "wallId": "w_TamnBUg2fJFA",
             "width": 60,
             "x": 690,
             "y": 870
@@ -1132,7 +1108,7 @@
             "defId": "gen-umkleide-handtuchspender",
             "depth": 15,
             "height": 40,
-            "id": "i_UKr0geUG1CMm",
+            "id": "i_reEtDgFvJDT9",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -1142,7 +1118,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_4wpokxu7Nf8C",
+            "wallId": "w_TamnBUg2fJFA",
             "width": 30,
             "x": 760,
             "y": 880
@@ -1151,7 +1127,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_bfdfI7Xg2QzG",
+            "id": "i_x0lwxC2043ea",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1169,7 +1145,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_jFgBg8FtQbop",
+            "id": "i_BFgfvxO647ZK",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1187,7 +1163,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_UY4YeQ4Ll88q",
+            "id": "i_rwajjK1UehoR",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1205,7 +1181,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_fpE5KEKq3oN1",
+            "id": "i_nMHUtBwkq86n",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1223,7 +1199,7 @@
             "defId": "gen-sanitaer-dusche-barrierefrei",
             "depth": 150,
             "height": 220,
-            "id": "i_Whwp9lQob7FL",
+            "id": "i_Oey6UjIm5oM9",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1241,7 +1217,7 @@
             "defId": "gen-sanitaer-wc-kabine",
             "depth": 150,
             "height": 220,
-            "id": "i_nrJ8C7rBcBM1",
+            "id": "i_pyOY7slJ5Kho",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1259,7 +1235,7 @@
             "defId": "gen-sanitaer-wc-kabine",
             "depth": 150,
             "height": 220,
-            "id": "i_t1HcOzZ0HG1b",
+            "id": "i_aAHQF3s2aVTp",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1277,7 +1253,7 @@
             "defId": "gen-umkleide-waschtisch-doppel",
             "depth": 50,
             "height": 85,
-            "id": "i_u8G5CUerSaVl",
+            "id": "i_plbl6ia0eQf4",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -1296,7 +1272,7 @@
             "defId": "gen-umkleide-handtuchspender",
             "depth": 15,
             "height": 40,
-            "id": "i_sELSdHVa4Bbi",
+            "id": "i_SkoicXnpx0Ye",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -1315,7 +1291,7 @@
             "defId": "gen-sanitaer-wickeltisch",
             "depth": 60,
             "height": 100,
-            "id": "i_Wf78DGfgve3C",
+            "id": "i_0r2ptKxjHzwt",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1325,7 +1301,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_Y92r7653pXg3",
+            "wallId": "w_p6euMc0r9TUK",
             "width": 90,
             "x": 360,
             "y": 1110
@@ -1334,7 +1310,7 @@
             "defId": "gen-umkleide-waeschesammler",
             "depth": 60,
             "height": 90,
-            "id": "i_n5mthFgNhM9v",
+            "id": "i_TUuRwDGA8LSA",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1352,7 +1328,7 @@
             "defId": "gen-umkleide-spindreihe-2",
             "depth": 50,
             "height": 180,
-            "id": "i_GG81DSFyhff5",
+            "id": "i_0rMVrM8s3HYK",
             "kind": "equipment",
             "label": "Spinde Damen A (32 Fächer)",
             "params": {
@@ -1376,7 +1352,7 @@
             "defId": "gen-umkleide-spindreihe-2",
             "depth": 50,
             "height": 180,
-            "id": "i_PL43Zr5FqZlC",
+            "id": "i_Xp5R0Hw9utst",
             "kind": "equipment",
             "label": "Spinde Damen B (18 Fächer)",
             "params": {
@@ -1400,7 +1376,7 @@
             "defId": "gen-umkleide-einzelkabine",
             "depth": 100,
             "height": 200,
-            "id": "i_erDJ0F6ztD9u",
+            "id": "i_9fVMwTOqFS85",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1418,7 +1394,7 @@
             "defId": "gen-umkleide-mittelbank",
             "depth": 70,
             "height": 180,
-            "id": "i_7VKWjQR72tGO",
+            "id": "i_Kh2XdQP2ElXC",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1436,7 +1412,7 @@
             "defId": "gen-umkleide-bank-schuhrost",
             "depth": 40,
             "height": 45,
-            "id": "i_lDDv3AviPKcj",
+            "id": "i_Y9IdEcMozWxA",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1454,7 +1430,7 @@
             "defId": "gen-umkleide-spiegel",
             "depth": 3,
             "height": 150,
-            "id": "i_CMXFBdePXCb1",
+            "id": "i_966wdqcucEHd",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1464,7 +1440,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 100,
             "x": 890,
             "y": 1190
@@ -1473,7 +1449,7 @@
             "defId": "gen-umkleide-foehnplatz",
             "depth": 30,
             "height": 100,
-            "id": "i_9ExBavLpuPDx",
+            "id": "i_ePGlU0MA7YZe",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1483,7 +1459,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 60,
             "x": 880,
             "y": 1280
@@ -1492,7 +1468,7 @@
             "defId": "gen-umkleide-wertfaecher",
             "depth": 30,
             "height": 100,
-            "id": "i_dvHTieQgZgKt",
+            "id": "i_T70cPuu7Dxih",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1502,7 +1478,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_4wpokxu7Nf8C",
+            "wallId": "w_TamnBUg2fJFA",
             "width": 80,
             "x": 690,
             "y": 920
@@ -1511,7 +1487,7 @@
             "defId": "gen-ausstattung-muelleimer",
             "depth": 40,
             "height": 80,
-            "id": "i_neQZt8cDUXLf",
+            "id": "i_XhtpaD0yeMSL",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1529,7 +1505,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_AfnDaCF7Nh1t",
+            "id": "i_mYwcUcQgO4Pp",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1539,7 +1515,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_4wpokxu7Nf8C",
+            "wallId": "w_TamnBUg2fJFA",
             "width": 20,
             "x": 770,
             "y": 920
@@ -1548,7 +1524,7 @@
             "defId": "gen-bau-lueftungsauslass",
             "depth": 60,
             "height": 30,
-            "id": "i_MdgMzy8YWuiq",
+            "id": "i_nbPs5ggsANeG",
             "kind": "vent",
             "params": {
               "kind": "vent"
@@ -1569,7 +1545,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_70mduiYZSfzf",
+            "id": "i_mbmHSDJ5hXDm",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1587,7 +1563,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_ZlGYPpniTehA",
+            "id": "i_mVbAMCT0GrAc",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1605,7 +1581,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_YUWNJNUPvfAD",
+            "id": "i_bkvbbCvfJK5S",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1623,7 +1599,7 @@
             "defId": "gen-sanitaer-einzeldusche",
             "depth": 90,
             "height": 220,
-            "id": "i_vUtStiD3e1MY",
+            "id": "i_5RbW4fqe5TC3",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1641,7 +1617,7 @@
             "defId": "gen-sanitaer-dusche-barrierefrei",
             "depth": 150,
             "height": 220,
-            "id": "i_Hj3Cso2LRckO",
+            "id": "i_Mwy1p6Dpqg2x",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1659,7 +1635,7 @@
             "defId": "gen-sanitaer-wc-kabine",
             "depth": 150,
             "height": 220,
-            "id": "i_h90pPIMKyeVv",
+            "id": "i_vSizv7okyPsg",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1677,7 +1653,7 @@
             "defId": "gen-sanitaer-wc-kabine",
             "depth": 150,
             "height": 220,
-            "id": "i_cz2f2hg8h3CW",
+            "id": "i_dgDagd03y2NH",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1695,7 +1671,7 @@
             "defId": "gen-umkleide-waschtisch-doppel",
             "depth": 50,
             "height": 85,
-            "id": "i_WojsV0NKJEje",
+            "id": "i_t0L0UVBhxSfe",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -1714,7 +1690,7 @@
             "defId": "gen-umkleide-handtuchspender",
             "depth": 15,
             "height": 40,
-            "id": "i_PUIciPNk83h7",
+            "id": "i_V2eXdoQbMGm8",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -1733,7 +1709,7 @@
             "defId": "gen-sanitaer-urinal",
             "depth": 45,
             "height": 120,
-            "id": "i_Rpa6DFJQqyMn",
+            "id": "i_cQZJWZ7EHIXw",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1743,7 +1719,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_pTdyc0zQMfZW",
+            "wallId": "w_uFMdiz9ClY4E",
             "width": 60,
             "x": 370,
             "y": 1650
@@ -1752,7 +1728,7 @@
             "defId": "gen-sanitaer-urinal",
             "depth": 45,
             "height": 120,
-            "id": "i_2VTyQrappabs",
+            "id": "i_TgKt1JuuI0Ad",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1762,7 +1738,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_pTdyc0zQMfZW",
+            "wallId": "w_uFMdiz9ClY4E",
             "width": 60,
             "x": 370,
             "y": 1710
@@ -1771,7 +1747,7 @@
             "defId": "gen-umkleide-waeschesammler",
             "depth": 60,
             "height": 90,
-            "id": "i_KTr58OhMTqPQ",
+            "id": "i_1Nzp2Mgl4eSJ",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1789,7 +1765,7 @@
             "defId": "gen-umkleide-spindreihe-2",
             "depth": 50,
             "height": 180,
-            "id": "i_wccYaS9EbQGH",
+            "id": "i_c7oXU1DNRzm5",
             "kind": "equipment",
             "label": "Spinde Herren A (32 Fächer)",
             "params": {
@@ -1813,7 +1789,7 @@
             "defId": "gen-umkleide-spindreihe-2",
             "depth": 50,
             "height": 180,
-            "id": "i_4sBqDkGazbt1",
+            "id": "i_DwBGYGXdGwQP",
             "kind": "equipment",
             "label": "Spinde Herren B (18 Fächer)",
             "params": {
@@ -1837,7 +1813,7 @@
             "defId": "gen-umkleide-einzelkabine",
             "depth": 100,
             "height": 200,
-            "id": "i_f1yMgiqQaS3G",
+            "id": "i_rXNbAg0b8oHp",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1855,7 +1831,7 @@
             "defId": "gen-umkleide-mittelbank",
             "depth": 70,
             "height": 180,
-            "id": "i_Bs3W8VF9woch",
+            "id": "i_i0S72cDS0Qa1",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1873,7 +1849,7 @@
             "defId": "gen-umkleide-bank-schuhrost",
             "depth": 40,
             "height": 45,
-            "id": "i_zOvXxCnceLJU",
+            "id": "i_EaUsEnjdeeSY",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1891,7 +1867,7 @@
             "defId": "gen-umkleide-spiegel",
             "depth": 3,
             "height": 150,
-            "id": "i_93BAFa6uk0W4",
+            "id": "i_WSMcHnXcaB1u",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1901,7 +1877,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 100,
             "x": 890,
             "y": 1790
@@ -1910,7 +1886,7 @@
             "defId": "gen-umkleide-foehnplatz",
             "depth": 30,
             "height": 100,
-            "id": "i_Q3F3ZY0rPJhY",
+            "id": "i_81jo9SIwka8O",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -1920,7 +1896,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 60,
             "x": 880,
             "y": 1880
@@ -1929,7 +1905,7 @@
             "defId": "gen-umkleide-wertfaecher",
             "depth": 30,
             "height": 100,
-            "id": "i_DRIrbRTzDasG",
+            "id": "i_n7wUX9fvmnbw",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1939,7 +1915,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_iAcGSQYl70oU",
+            "wallId": "w_xbZceyRJZjdg",
             "width": 80,
             "x": 690,
             "y": 1520
@@ -1948,7 +1924,7 @@
             "defId": "gen-ausstattung-muelleimer",
             "depth": 40,
             "height": 80,
-            "id": "i_QADWSr382LfM",
+            "id": "i_fFRZq4rkKRXX",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1966,7 +1942,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_Zzx1QBwkB9Fz",
+            "id": "i_dH9wwccwmj69",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -1976,7 +1952,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_iAcGSQYl70oU",
+            "wallId": "w_xbZceyRJZjdg",
             "width": 20,
             "x": 770,
             "y": 1520
@@ -1985,7 +1961,7 @@
             "defId": "gen-bau-lueftungsauslass",
             "depth": 60,
             "height": 30,
-            "id": "i_VPzKEffqppib",
+            "id": "i_tc6d9Clrg00O",
             "kind": "vent",
             "params": {
               "kind": "vent"
@@ -2006,7 +1982,7 @@
             "defId": "gen-lager-schwerlastregal",
             "depth": 60,
             "height": 200,
-            "id": "i_NVFH4MazJPfv",
+            "id": "i_ZD2ZRR6sLxjF",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2024,7 +2000,7 @@
             "defId": "gen-lager-schwerlastregal",
             "depth": 60,
             "height": 200,
-            "id": "i_Sm0gXYaeBekO",
+            "id": "i_juUUWkuIiF7A",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2042,7 +2018,7 @@
             "defId": "gen-lager-regal",
             "depth": 40,
             "height": 180,
-            "id": "i_ViUGGEpy7Wua",
+            "id": "i_JDxf4yD3szr8",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -2054,13 +2030,13 @@
             "safetyZoneEnabled": true,
             "width": 90,
             "x": 870,
-            "y": 2280
+            "y": 2340
           },
           {
             "defId": "gen-lager-waschmaschine",
             "depth": 65,
             "height": 85,
-            "id": "i_1IDgaXp18qvt",
+            "id": "i_AVaI5HkGIrSo",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2078,7 +2054,7 @@
             "defId": "gen-lager-trockner",
             "depth": 65,
             "height": 85,
-            "id": "i_XVUjjQP1ySG7",
+            "id": "i_2uZ4HcN0PM4U",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2096,7 +2072,7 @@
             "defId": "gen-freihantel-hantelscheiben-satz",
             "depth": 30,
             "height": 30,
-            "id": "i_eaKE8tgn8Tl7",
+            "id": "i_eXOaDJMfd4YO",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2114,7 +2090,7 @@
             "defId": "gen-freihantel-hantelscheiben-satz-gross",
             "depth": 30,
             "height": 30,
-            "id": "i_NB8VRwNnxuyy",
+            "id": "i_uanGZSGCQ5H0",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2132,7 +2108,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_qmPOuRGpbwWL",
+            "id": "i_wCZXlUAKKJZy",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -2142,7 +2118,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 20,
             "x": 880,
             "y": 2400
@@ -2151,7 +2127,7 @@
             "defId": "gen-lager-lueftungsanlage",
             "depth": 100,
             "height": 180,
-            "id": "i_S8pqe1aWsQcG",
+            "id": "i_fcITvt44TXPT",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2169,7 +2145,7 @@
             "defId": "gen-lager-schaltschrank",
             "depth": 40,
             "height": 200,
-            "id": "i_oHBGBxCcqLe2",
+            "id": "i_Ii3FqpFWwVrh",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -2188,7 +2164,7 @@
             "defId": "gen-lager-warmwasserspeicher",
             "depth": 70,
             "height": 180,
-            "id": "i_adTuPokzeJ6G",
+            "id": "i_5nYjnYq52raY",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2206,7 +2182,7 @@
             "defId": "gen-lager-serverschrank",
             "depth": 60,
             "height": 120,
-            "id": "i_jDlaa5MU5tnx",
+            "id": "i_3WH1Y4Uj7MMm",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2224,7 +2200,7 @@
             "defId": "gen-lager-putzwagen",
             "depth": 55,
             "height": 110,
-            "id": "i_zkn5gb7xXRnX",
+            "id": "i_FPNqoDhXWwIi",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2242,7 +2218,7 @@
             "defId": "gen-lager-regal",
             "depth": 40,
             "height": 180,
-            "id": "i_C0NHeV99tape",
+            "id": "i_dEg8U1iFEzYu",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2260,7 +2236,7 @@
             "defId": "gen-sanitaer-putzraum-ausguss",
             "depth": 40,
             "height": 60,
-            "id": "i_ywuiIkrQ4aJC",
+            "id": "i_Kd5GUll1owan",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -2279,7 +2255,7 @@
             "defId": "gen-wellness-sauna-300",
             "depth": 300,
             "height": 210,
-            "id": "i_0MXkJVdgTsdC",
+            "id": "i_lF8ahjLyF0cQ",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2297,7 +2273,7 @@
             "defId": "gen-wellness-infrarotkabine",
             "depth": 105,
             "height": 195,
-            "id": "i_72IDNsXJXqgr",
+            "id": "i_zsLSfVpOee5G",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2315,7 +2291,7 @@
             "defId": "gen-wellness-erlebnisdusche",
             "depth": 120,
             "height": 230,
-            "id": "i_EHay8fezbcmd",
+            "id": "i_2LKgLupsIehf",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2333,7 +2309,7 @@
             "defId": "gen-wellness-eisbrunnen",
             "depth": 60,
             "height": 110,
-            "id": "i_MNClgdEfakL8",
+            "id": "i_7E1aFdqTr1EK",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2351,7 +2327,7 @@
             "defId": "gen-wellness-cold-plunge",
             "depth": 80,
             "height": 75,
-            "id": "i_V4xoG7ooa4KN",
+            "id": "i_cefnW06Z49ZK",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2369,7 +2345,7 @@
             "defId": "gen-wellness-red-light-panel",
             "depth": 15,
             "height": 180,
-            "id": "i_gVpzxfLNM5nT",
+            "id": "i_NGz093trRW4y",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2379,7 +2355,7 @@
               "vorne": 100
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_9HCDgyP2MfC3",
+            "wallId": "w_6fZhaqBqrNGU",
             "width": 90,
             "x": 3580,
             "y": 590
@@ -2388,7 +2364,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_yjD9SMWpNXCC",
+            "id": "i_iDjNPeBurmLF",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2398,7 +2374,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_9HCDgyP2MfC3",
+            "wallId": "w_6fZhaqBqrNGU",
             "width": 20,
             "x": 3660,
             "y": 590
@@ -2407,7 +2383,7 @@
             "defId": "gen-wellness-ruheliege",
             "depth": 70,
             "height": 40,
-            "id": "i_S7X6nZJfShFB",
+            "id": "i_BaUP3GSjY6uX",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2425,7 +2401,7 @@
             "defId": "gen-wellness-ruheliege",
             "depth": 70,
             "height": 40,
-            "id": "i_XlxtJgfZYYyJ",
+            "id": "i_sxPKFUqcupC8",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2443,7 +2419,7 @@
             "defId": "gen-wellness-ruheliege",
             "depth": 70,
             "height": 40,
-            "id": "i_i2PeETPkdHYB",
+            "id": "i_aCXwSFIpxFld",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2461,7 +2437,7 @@
             "defId": "gen-wellness-ruheliege",
             "depth": 70,
             "height": 40,
-            "id": "i_V5P302g7e3L4",
+            "id": "i_vJla1FunRL1n",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -2479,7 +2455,7 @@
             "defId": "gen-wellness-teestation",
             "depth": 60,
             "height": 110,
-            "id": "i_SRjaDjZ61KvZ",
+            "id": "i_JEMKTJ8J90ld",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2497,7 +2473,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_hibJJXfKq5qQ",
+            "id": "i_dJhWudb3rLf5",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2515,7 +2491,7 @@
             "defId": "gen-wellness-wasserbett",
             "depth": 90,
             "height": 50,
-            "id": "i_sulpjEMUpBJA",
+            "id": "i_eIjXgZ6dQ8al",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2527,13 +2503,13 @@
             "safetyZoneEnabled": true,
             "width": 200,
             "x": 3400,
-            "y": 1050
+            "y": 1030
           },
           {
             "defId": "gen-wellness-massagestuhl",
             "depth": 150,
             "height": 120,
-            "id": "i_edz80H42JFGL",
+            "id": "i_aqaugk2Mo5eW",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2545,13 +2521,13 @@
             "safetyZoneEnabled": true,
             "width": 80,
             "x": 3600,
-            "y": 1030
+            "y": 1000
           },
           {
             "defId": "gen-ausstattung-pflanze",
             "depth": 40,
             "height": 150,
-            "id": "i_lwQ4jSq1wXga",
+            "id": "i_wavqZGl134Cp",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2569,7 +2545,7 @@
             "defId": "gen-umkleide-waeschesammler",
             "depth": 60,
             "height": 90,
-            "id": "i_d7jyUaHBfkyY",
+            "id": "i_zxZhXTaFcFXW",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2587,7 +2563,7 @@
             "defId": "gen-umkleide-handtuchspender",
             "depth": 15,
             "height": 40,
-            "id": "i_yqYXbQ5GeSOW",
+            "id": "i_Jpg3tp8EgEbm",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -2597,7 +2573,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 30,
             "x": 3120,
             "y": 1050
@@ -2606,7 +2582,7 @@
             "defId": "gen-kursraum-trainer-podest",
             "depth": 150,
             "height": 30,
-            "id": "i_ITkgzjugdDza",
+            "id": "i_agjLlZmXsHD2",
             "kind": "equipment",
             "label": "Trainer",
             "rotation": 90,
@@ -2625,7 +2601,7 @@
             "defId": "gen-kursraum-musikanlage",
             "depth": 50,
             "height": 120,
-            "id": "i_dkRM4ud4i5qb",
+            "id": "i_fe8mN9eoWEaH",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2643,7 +2619,7 @@
             "defId": "gen-kursraum-mattenregal",
             "depth": 40,
             "height": 180,
-            "id": "i_JDHb0WzaDfnv",
+            "id": "i_ZYhEEVkQNa7T",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2661,7 +2637,7 @@
             "defId": "gen-kursraum-step-wagen",
             "depth": 60,
             "height": 150,
-            "id": "i_lT8eIa092NOw",
+            "id": "i_wV6Zkn9yhBRM",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2679,7 +2655,7 @@
             "defId": "gen-kursraum-kurshantel-regal",
             "depth": 50,
             "height": 100,
-            "id": "i_KpHExpruHiAS",
+            "id": "i_aKhYTOyR6RKf",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2697,7 +2673,7 @@
             "defId": "gen-kursraum-gymnastikball-regal",
             "depth": 50,
             "height": 180,
-            "id": "i_bFh4jNWbLNp2",
+            "id": "i_W7J4phXbzM9x",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -2715,7 +2691,7 @@
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_LaWMda1Dz4rK",
+            "id": "i_09brNomOf5WX",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2726,14 +2702,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3440,
+            "x": 3490,
             "y": 1770
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_xaLvlyldbBGx",
+            "id": "i_cn1pjHGREZYs",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2744,14 +2720,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3440,
+            "x": 3490,
             "y": 1910
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_pB2wQyXaJebN",
+            "id": "i_1VcaavXcl4gr",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2762,14 +2738,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3440,
+            "x": 3490,
             "y": 2050
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_6Ji7HbciixeZ",
+            "id": "i_XSnq7o49B7KU",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2780,14 +2756,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3440,
+            "x": 3490,
             "y": 2190
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_DKEmtxJxUZ14",
+            "id": "i_ARoWol49I3gd",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2798,14 +2774,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3650,
+            "x": 3680,
             "y": 1770
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_A92qMBElluK0",
+            "id": "i_GW7cfheBlUfQ",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2816,14 +2792,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3650,
+            "x": 3680,
             "y": 1910
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_YKNPChvKmYOy",
+            "id": "i_SfQUqSflofB6",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2834,14 +2810,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3650,
+            "x": 3680,
             "y": 2050
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_iuZSiSr1quZd",
+            "id": "i_yY4LhiJOuJil",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2852,14 +2828,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3650,
+            "x": 3680,
             "y": 2190
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_EVPAgGsXQCgI",
+            "id": "i_6h42uFNLX50D",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2870,14 +2846,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3860,
+            "x": 3870,
             "y": 1770
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_djeEyfhCOVIN",
+            "id": "i_wW6dybIWmiMm",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2888,14 +2864,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3860,
+            "x": 3870,
             "y": 1910
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_vWP2ekIXeLz1",
+            "id": "i_YaJsck0jOzU6",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2906,14 +2882,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3860,
+            "x": 3870,
             "y": 2050
           },
           {
             "defId": "gen-kursraum-kursmatte",
             "depth": 60,
             "height": 1,
-            "id": "i_2QIIh6SKc191",
+            "id": "i_o9Xduv077oAq",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2924,14 +2900,14 @@
             },
             "safetyZoneEnabled": true,
             "width": 180,
-            "x": 3860,
+            "x": 3870,
             "y": 2190
           },
           {
             "defId": "gen-kursraum-spinning-rad",
             "depth": 125,
             "height": 110,
-            "id": "i_HUjq3zgS1Nvh",
+            "id": "i_Gn5iQmTZiObo",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2949,7 +2925,7 @@
             "defId": "gen-kursraum-spinning-rad",
             "depth": 125,
             "height": 110,
-            "id": "i_caLrUV6BxJeM",
+            "id": "i_2sCPBl8v3IsK",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2967,7 +2943,7 @@
             "defId": "gen-kursraum-spinning-rad",
             "depth": 125,
             "height": 110,
-            "id": "i_TaPoemqsmF26",
+            "id": "i_3T0mhPyx4ylD",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -2985,7 +2961,7 @@
             "defId": "gen-kursraum-spinning-rad",
             "depth": 125,
             "height": 110,
-            "id": "i_rq3hIYcJGVX6",
+            "id": "i_fhmXQWAqGuAY",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3003,7 +2979,7 @@
             "defId": "gen-kursraum-spinning-rad",
             "depth": 125,
             "height": 110,
-            "id": "i_JDZXwgaV30W5",
+            "id": "i_krjrZieRY6sq",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3021,7 +2997,7 @@
             "defId": "gen-kursraum-spinning-rad",
             "depth": 125,
             "height": 110,
-            "id": "i_LGegcTw5kAKe",
+            "id": "i_bYuKRuIrud8d",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3039,7 +3015,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_kTRt7aE7extp",
+            "id": "i_4CcOm8JIwVeS",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3057,7 +3033,7 @@
             "defId": "gen-ausstattung-desinfektionsstation",
             "depth": 40,
             "height": 130,
-            "id": "i_h3EuY21qtgnO",
+            "id": "i_cYoJyAhXb4fG",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3075,7 +3051,7 @@
             "defId": "gen-bau-lueftungsauslass",
             "depth": 60,
             "height": 30,
-            "id": "i_251gCC7DX0fI",
+            "id": "i_GU2Ybomwi5Wn",
             "kind": "vent",
             "params": {
               "kind": "vent"
@@ -3096,7 +3072,7 @@
             "defId": "gen-bau-lueftungsauslass",
             "depth": 60,
             "height": 30,
-            "id": "i_SIO9xLj1Mj5y",
+            "id": "i_vaAVPaodDlmp",
             "kind": "vent",
             "params": {
               "kind": "vent"
@@ -3117,7 +3093,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_ucixAGcDpK7h",
+            "id": "i_22FJpAhSVgM1",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3127,7 +3103,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_3AyD4kxl2hpe",
+            "wallId": "w_VRYAvN4LdT9t",
             "width": 25,
             "x": 3200,
             "y": 1320
@@ -3136,7 +3112,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_4ztmdvPX6fCq",
+            "id": "i_B49AcRnwnyjX",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -3155,7 +3131,7 @@
             "defId": "gen-ausstattung-erste-hilfe",
             "depth": 15,
             "height": 30,
-            "id": "i_naveogBROZBR",
+            "id": "i_XlTmsTIoa7wN",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3165,7 +3141,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_3AyD4kxl2hpe",
+            "wallId": "w_VRYAvN4LdT9t",
             "width": 30,
             "x": 3380,
             "y": 1320
@@ -3174,7 +3150,7 @@
             "defId": "gen-ausstattung-notausgang-schild",
             "depth": 5,
             "height": 20,
-            "id": "i_JUBC0a4ufGNB",
+            "id": "i_Hw8tNI5Dmgp4",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -3192,8 +3168,8 @@
           {
             "defId": "gen-ausstattung-rettungszeichenleuchte",
             "depth": 8,
-            "height": 15,
-            "id": "i_qKUnjklEsvnj",
+            "height": 20,
+            "id": "i_EdKv5p1sHYej",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -3204,7 +3180,7 @@
             },
             "safetyZoneEnabled": true,
             "wallId": "hall_1",
-            "width": 30,
+            "width": 35,
             "x": 3970,
             "y": 2230
           },
@@ -3212,7 +3188,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_FwVCKnkpaNl8",
+            "id": "i_OMqpzuw2JUJ2",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -3231,7 +3207,7 @@
             "defId": "atlantis-s189",
             "depth": 71,
             "height": 119,
-            "id": "i_M1OgPggami6L",
+            "id": "i_VdF4YPZ14ehG",
             "kind": "equipment",
             "note": "Kurzhanteln 2,5–40 kg",
             "rotation": 0,
@@ -3250,7 +3226,7 @@
             "defId": "atlantis-s187",
             "depth": 77,
             "height": 75,
-            "id": "i_gFuh0ab3e3yr",
+            "id": "i_i6e1jEBYPZkg",
             "kind": "equipment",
             "note": "Kurzhanteln 42,5–60 kg",
             "rotation": 0,
@@ -3269,7 +3245,7 @@
             "defId": "atlantis-c513",
             "depth": 203,
             "height": 246,
-            "id": "i_a2bj08qej4mG",
+            "id": "i_Hh3VhUBLAbX1",
             "kind": "equipment",
             "note": "Power Rack",
             "rotation": 0,
@@ -3288,7 +3264,7 @@
             "defId": "atlantis-rs611",
             "depth": 135,
             "height": 246,
-            "id": "i_cFTKTaXhdDBn",
+            "id": "i_fGOnXTbZYd5W",
             "kind": "equipment",
             "note": "Half Rack",
             "rotation": 0,
@@ -3307,7 +3283,7 @@
             "defId": "atlantis-r400",
             "depth": 22,
             "height": 5,
-            "id": "i_RsKTs9T2IJeS",
+            "id": "i_2ZHx2ahDXahN",
             "kind": "equipment",
             "note": "Wadenheben",
             "rotation": 0,
@@ -3326,7 +3302,7 @@
             "defId": "atlantis-b4800",
             "depth": 135,
             "height": null,
-            "id": "i_C0QhoxpfP5tN",
+            "id": "i_b6agcbtaexlt",
             "kind": "equipment",
             "note": "Kreuzheben-Plattform",
             "rotation": 0,
@@ -3345,7 +3321,7 @@
             "defId": "gen-freihantel-scheibenstaender",
             "depth": 60,
             "height": 120,
-            "id": "i_oNtTXKGfJbND",
+            "id": "i_qQxY9iNDndJ3",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3363,7 +3339,7 @@
             "defId": "gen-freihantel-langhantelstaender",
             "depth": 70,
             "height": 110,
-            "id": "i_ln31vAySGsRm",
+            "id": "i_6XKBVAycx2Ge",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3381,7 +3357,7 @@
             "defId": "prime-hybrid-abdominal-crunch",
             "depth": 143,
             "height": 150,
-            "id": "i_L4ipcSxw0UHz",
+            "id": "i_AFaBFZ4buxWU",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3399,7 +3375,7 @@
             "defId": "prime-hybrid-low-back-extension",
             "depth": 130,
             "height": 150,
-            "id": "i_lQQgarwCcc89",
+            "id": "i_2vtdSgx4yquW",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3417,7 +3393,7 @@
             "defId": "gen-functional-sled-bahn",
             "depth": 1520,
             "height": 2,
-            "id": "i_XUDoLuv5CpIL",
+            "id": "i_UGVxJKJHFL1s",
             "kind": "equipment",
             "label": "Bahn 1 – Sled Push / Sled Pull",
             "rotation": 90,
@@ -3436,7 +3412,7 @@
             "defId": "gen-functional-matte",
             "depth": 1520,
             "height": 1,
-            "id": "i_oXXgoleg0r0s",
+            "id": "i_iBzdY1nTaia6",
             "kind": "equipment",
             "label": "Bahn 2 – Burpee Broad Jump, Farmers Carry, Sandbag Lunges",
             "rotation": 90,
@@ -3455,7 +3431,7 @@
             "defId": "gen-functional-sled",
             "depth": 100,
             "height": 90,
-            "id": "i_67M0APghvjGD",
+            "id": "i_3wuoLYU8DZBY",
             "kind": "equipment",
             "note": "Schlitten 1",
             "rotation": 0,
@@ -3474,7 +3450,7 @@
             "defId": "gen-functional-sled",
             "depth": 100,
             "height": 90,
-            "id": "i_cXvTrKy5wpnZ",
+            "id": "i_DyWOEvvYUBwg",
             "kind": "equipment",
             "note": "Schlitten 2",
             "rotation": 0,
@@ -3493,7 +3469,7 @@
             "defId": "gen-cardio-rudergeraet",
             "depth": 245,
             "height": 50,
-            "id": "i_3m4DKWL036mF",
+            "id": "i_sLDqmYr0saNW",
             "kind": "equipment",
             "note": "Rowing 1",
             "rotation": 0,
@@ -3512,7 +3488,7 @@
             "defId": "gen-cardio-rudergeraet",
             "depth": 245,
             "height": 50,
-            "id": "i_GfpQDWD0j3gW",
+            "id": "i_hTFa7FAlm5oy",
             "kind": "equipment",
             "note": "Rowing 2",
             "rotation": 0,
@@ -3531,7 +3507,7 @@
             "defId": "gen-cardio-skierg",
             "depth": 125,
             "height": 215,
-            "id": "i_aMYdzWPFPpdt",
+            "id": "i_oLbMFfxYtVQA",
             "kind": "equipment",
             "note": "SkiErg 1",
             "rotation": 0,
@@ -3550,7 +3526,7 @@
             "defId": "gen-cardio-skierg",
             "depth": 125,
             "height": 215,
-            "id": "i_ujDY5t6XcH1C",
+            "id": "i_EYEJRRkkl9Xc",
             "kind": "equipment",
             "note": "SkiErg 2",
             "rotation": 0,
@@ -3569,7 +3545,7 @@
             "defId": "gen-functional-kettlebell-regal",
             "depth": 50,
             "height": 80,
-            "id": "i_SXzOcy7hVhWd",
+            "id": "i_tzQLJYhddcup",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3587,7 +3563,7 @@
             "defId": "gen-hyrox-sandbag-regal",
             "depth": 50,
             "height": 120,
-            "id": "i_lcHFFLRKWQhF",
+            "id": "i_s3cca2S9UI5j",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3605,7 +3581,7 @@
             "defId": "gen-hyrox-wall-ball-regal",
             "depth": 50,
             "height": 150,
-            "id": "i_BcQf3Xhbr05B",
+            "id": "i_66BBYMw9RQDH",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3623,7 +3599,7 @@
             "defId": "gen-hyrox-farmers-carry-griffe",
             "depth": 120,
             "height": 25,
-            "id": "i_CtGA3ZJjXIhw",
+            "id": "i_D8qaQupPfL6o",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3641,7 +3617,7 @@
             "defId": "gen-hyrox-wall-ball-ziel",
             "depth": 10,
             "height": 40,
-            "id": "i_vedbB1RDcB76",
+            "id": "i_Fa1skdTc7eZx",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3660,7 +3636,7 @@
             "defId": "gen-hyrox-wall-ball-ziel",
             "depth": 10,
             "height": 40,
-            "id": "i_ivvwRwQu8ZPv",
+            "id": "i_gKskg29xuXYf",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3679,7 +3655,7 @@
             "defId": "gen-hyrox-intervall-timer",
             "depth": 8,
             "height": 20,
-            "id": "i_QrgmxxN5fPmX",
+            "id": "i_zlvARXNDCq2K",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3698,7 +3674,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_32buTs8fvDur",
+            "id": "i_i2GeATovZlBD",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3716,7 +3692,7 @@
             "defId": "gen-ausstattung-notausgang-schild",
             "depth": 5,
             "height": 20,
-            "id": "i_gNw8GDbFxFST",
+            "id": "i_5qPHX3Mgsb9u",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -3734,8 +3710,8 @@
           {
             "defId": "gen-ausstattung-rettungszeichenleuchte",
             "depth": 8,
-            "height": 15,
-            "id": "i_wMdalvz6abOA",
+            "height": 20,
+            "id": "i_ZCJCtjZtqTzt",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -3746,7 +3722,7 @@
             },
             "safetyZoneEnabled": true,
             "wallId": "hall_1",
-            "width": 30,
+            "width": 35,
             "x": 3970,
             "y": 380
           },
@@ -3754,7 +3730,7 @@
             "defId": "gen-ausstattung-erste-hilfe",
             "depth": 15,
             "height": 30,
-            "id": "i_xXiSStM2DGHa",
+            "id": "i_R6E7PF3Ypyso",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3773,7 +3749,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_mc8WevrYfMEv",
+            "id": "i_pZeta9m1YUD4",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3792,7 +3768,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_bkTKMixVqppL",
+            "id": "i_IS7UvPAsMG4s",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3811,7 +3787,7 @@
             "defId": "prime-hybrid-chest-press",
             "depth": 155,
             "height": 186,
-            "id": "i_Qx3AU1mcOkrN",
+            "id": "i_aYfHa6qG5LUl",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -3829,7 +3805,7 @@
             "defId": "prime-hybrid-incline-press",
             "depth": 161,
             "height": 150,
-            "id": "i_MIMNWGQVy71o",
+            "id": "i_0eWIdXgpetr6",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -3847,7 +3823,7 @@
             "defId": "prime-hybrid-pec-rear-delt",
             "depth": 94,
             "height": 193,
-            "id": "i_zkIvF2CtsQpy",
+            "id": "i_KjoodMa8IW9K",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -3865,7 +3841,7 @@
             "defId": "prime-specialty-functional-trainer",
             "depth": 119,
             "height": 239,
-            "id": "i_CNy5dXTGGPRX",
+            "id": "i_uqgE4XyBQghg",
             "kind": "equipment",
             "note": "Cable Crossover",
             "rotation": 180,
@@ -3884,7 +3860,7 @@
             "defId": "atlantis-p337",
             "depth": 180,
             "height": 124,
-            "id": "i_BmfLAyScIvjw",
+            "id": "i_MJtYqERe1PKL",
             "kind": "equipment",
             "note": "Flachbank mit Langhantel",
             "rotation": 180,
@@ -3903,7 +3879,7 @@
             "defId": "atlantis-p338",
             "depth": 165,
             "height": 144,
-            "id": "i_uaeWGBdxY2zZ",
+            "id": "i_KQ3rpPJi6ibn",
             "kind": "equipment",
             "note": "Schrägbank mit Langhantel",
             "rotation": 180,
@@ -3922,7 +3898,7 @@
             "defId": "atlantis-pw625",
             "depth": 144,
             "height": 124,
-            "id": "i_bmx4WGOlyoPx",
+            "id": "i_12jnClZTbw8T",
             "kind": "equipment",
             "note": "T-Bar Row (Plate Loaded)",
             "rotation": 0,
@@ -3941,7 +3917,7 @@
             "defId": "atlantis-pw637",
             "depth": 148,
             "height": 157,
-            "id": "i_rwbKjsXx3w9j",
+            "id": "i_INDEvEypWQnn",
             "kind": "equipment",
             "note": "Low Row (Plate Loaded)",
             "rotation": 0,
@@ -3960,7 +3936,7 @@
             "defId": "prime-hybrid-lat-pulldown",
             "depth": 161,
             "height": 183,
-            "id": "i_w0PX0lmQrlT3",
+            "id": "i_oVnSw1YYTP10",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3978,7 +3954,7 @@
             "defId": "prime-hybrid-seated-row",
             "depth": 130,
             "height": 180,
-            "id": "i_bswrn4VhOj0o",
+            "id": "i_CctDLW8nqClA",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -3996,7 +3972,7 @@
             "defId": "prime-specialty-chin-dip-assist",
             "depth": 110,
             "height": 211,
-            "id": "i_ayhH4i9VxzO7",
+            "id": "i_ilcMRa8rjcm3",
             "kind": "equipment",
             "note": "Pull-up / Dip",
             "rotation": 0,
@@ -4015,7 +3991,7 @@
             "defId": "prime-hybrid-shoulder-press",
             "depth": 158,
             "height": 150,
-            "id": "i_2G1jI2XjouXG",
+            "id": "i_NENp1Ct7ag5n",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4033,7 +4009,7 @@
             "defId": "prime-hybrid-lateral-raise",
             "depth": 110,
             "height": 150,
-            "id": "i_zMjs6aFr5vyD",
+            "id": "i_cDXESOEqYxu3",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4051,7 +4027,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_UzxCuZVVSqvw",
+            "id": "i_ODyp4kpAgCS2",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4069,7 +4045,7 @@
             "defId": "gen-ausstattung-desinfektionsstation",
             "depth": 40,
             "height": 130,
-            "id": "i_6OAv1AUTpzNi",
+            "id": "i_CRidWcjNyEle",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4087,7 +4063,7 @@
             "defId": "gen-ausstattung-muelleimer",
             "depth": 40,
             "height": 80,
-            "id": "i_Gb5AZ4CPj1p8",
+            "id": "i_ilqJHi7CmcLu",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4105,7 +4081,7 @@
             "defId": "gen-freihantel-scheibenstaender",
             "depth": 60,
             "height": 120,
-            "id": "i_OEiIeq5vVCPo",
+            "id": "i_h03qyJYoaVgj",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4123,7 +4099,7 @@
             "defId": "prime-plate-loaded-leg-press",
             "depth": 237,
             "height": 143,
-            "id": "i_TB27Wd64gxWx",
+            "id": "i_WKuQmYfl90kk",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4141,7 +4117,7 @@
             "defId": "prime-plate-loaded-hack-squat",
             "depth": 259,
             "height": 140,
-            "id": "i_KxSOyAx12FFF",
+            "id": "i_oJ8BkdkXlYGR",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4159,7 +4135,7 @@
             "defId": "prime-plate-loaded-pendulum-squat",
             "depth": 282,
             "height": 181,
-            "id": "i_YiSlNpL1fEFd",
+            "id": "i_gI45WU4haRLf",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4177,7 +4153,7 @@
             "defId": "gen-freihantel-scheibenstaender",
             "depth": 60,
             "height": 120,
-            "id": "i_It5x0Rc2tjYP",
+            "id": "i_PVRLUmA7BWCy",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4195,7 +4171,7 @@
             "defId": "prime-hybrid-arm-curl",
             "depth": 137,
             "height": 150,
-            "id": "i_HXp8kA3F4ugA",
+            "id": "i_fdSnBVkmRhKO",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4213,7 +4189,7 @@
             "defId": "prime-hybrid-tricep-extension",
             "depth": 127,
             "height": 150,
-            "id": "i_ZgixiqF54sNr",
+            "id": "i_H7xLGxMDbeNv",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4231,7 +4207,7 @@
             "defId": "atlantis-b256",
             "depth": 91,
             "height": 107,
-            "id": "i_9CC6KEkLcxhF",
+            "id": "i_ra9sp4aVaVjD",
             "kind": "equipment",
             "note": "Preacher Curl",
             "rotation": 180,
@@ -4250,7 +4226,7 @@
             "defId": "prime-hybrid-leg-extension-leg-curl-combo",
             "depth": 168,
             "height": 150,
-            "id": "i_AmsZcB91voaG",
+            "id": "i_ov4NLn8RWwoz",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4268,7 +4244,7 @@
             "defId": "atlantis-pw702",
             "depth": 187,
             "height": 113,
-            "id": "i_yEGksppbzixI",
+            "id": "i_9UGTJwZ5dIYV",
             "kind": "equipment",
             "note": "Hip Thrust",
             "rotation": 0,
@@ -4287,7 +4263,7 @@
             "defId": "prime-hybrid-inner-outer-thigh",
             "depth": 178,
             "height": 150,
-            "id": "i_crdITukmmNZ4",
+            "id": "i_8f5G00LGtACb",
             "kind": "equipment",
             "note": "Abduktor / Adduktor",
             "rotation": 0,
@@ -4306,7 +4282,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_zzy5WaMDr1wo",
+            "id": "i_MCkFT117lrGO",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4324,7 +4300,7 @@
             "defId": "gen-ausstattung-desinfektionsstation",
             "depth": 40,
             "height": 130,
-            "id": "i_WUZk6wglnKeS",
+            "id": "i_unaook0fo9VE",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4342,7 +4318,7 @@
             "defId": "gen-ausstattung-handtuchhalter",
             "depth": 20,
             "height": 40,
-            "id": "i_mznrnsaCrnCK",
+            "id": "i_UK8l3nXfJWrj",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -4352,7 +4328,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 30,
             "x": 3080,
             "y": 1050
@@ -4361,7 +4337,7 @@
             "defId": "gen-cardio-laufband",
             "depth": 210,
             "height": 160,
-            "id": "i_ilkiZ2Uznvvz",
+            "id": "i_iBzfWVAj55Ry",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4379,7 +4355,7 @@
             "defId": "gen-cardio-laufband",
             "depth": 210,
             "height": 160,
-            "id": "i_hLvtrGM8w15v",
+            "id": "i_UQIcuXJzB6MA",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4397,7 +4373,7 @@
             "defId": "gen-cardio-laufband",
             "depth": 210,
             "height": 160,
-            "id": "i_sLndBnQ7jHHn",
+            "id": "i_DAHE2ZFcd7zc",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4415,7 +4391,7 @@
             "defId": "gen-cardio-laufband",
             "depth": 210,
             "height": 160,
-            "id": "i_q4io9mfayfdt",
+            "id": "i_gf6EduwcOukF",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4433,7 +4409,7 @@
             "defId": "gen-cardio-curved-treadmill",
             "depth": 190,
             "height": 170,
-            "id": "i_tcw4ruLPv85m",
+            "id": "i_ZhrnKd82kmV6",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4451,7 +4427,7 @@
             "defId": "gen-cardio-crosstrainer",
             "depth": 210,
             "height": 170,
-            "id": "i_eAzofjESepni",
+            "id": "i_ECndsKK4JPxo",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4469,7 +4445,7 @@
             "defId": "gen-cardio-stairmaster",
             "depth": 150,
             "height": 210,
-            "id": "i_BMhyBegINZ1n",
+            "id": "i_X9ytztlylSSb",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4487,7 +4463,7 @@
             "defId": "gen-cardio-ergometer",
             "depth": 120,
             "height": 140,
-            "id": "i_DtlFafKRLEQS",
+            "id": "i_OmfMcGYRACx3",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4505,7 +4481,7 @@
             "defId": "gen-cardio-crosstrainer",
             "depth": 210,
             "height": 170,
-            "id": "i_LlUMMOnL1awA",
+            "id": "i_uOsmun9Zft6Z",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4523,7 +4499,7 @@
             "defId": "gen-cardio-crosstrainer",
             "depth": 210,
             "height": 170,
-            "id": "i_VCwF4GzU8xbx",
+            "id": "i_kKbDQh5iamGP",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4541,7 +4517,7 @@
             "defId": "gen-cardio-crosstrainer",
             "depth": 210,
             "height": 170,
-            "id": "i_oz1lVjjkI11R",
+            "id": "i_DuvrbxN9Cj4R",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4559,7 +4535,7 @@
             "defId": "gen-cardio-crosstrainer",
             "depth": 210,
             "height": 170,
-            "id": "i_8IW9adWAUfzJ",
+            "id": "i_n9IZiramO6GD",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4577,7 +4553,7 @@
             "defId": "gen-ausstattung-tv-65",
             "depth": 8,
             "height": 84,
-            "id": "i_kcY9Lo20qouL",
+            "id": "i_yVxQJEpTEe4j",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4596,7 +4572,7 @@
             "defId": "gen-ausstattung-tv-65",
             "depth": 8,
             "height": 84,
-            "id": "i_uGBYybwNafIR",
+            "id": "i_IJGQKEtc0uvS",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4615,7 +4591,7 @@
             "defId": "gen-ausstattung-tv-65",
             "depth": 8,
             "height": 84,
-            "id": "i_MpTakypqpv4a",
+            "id": "i_QK7ErB5vfWgo",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4634,7 +4610,7 @@
             "defId": "gen-ausstattung-wasserspender",
             "depth": 35,
             "height": 110,
-            "id": "i_iuQlFfsc0lQY",
+            "id": "i_qDHbNQaIzAHP",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4652,7 +4628,7 @@
             "defId": "gen-ausstattung-desinfektionsstation",
             "depth": 40,
             "height": 130,
-            "id": "i_9RfQ2F1YyH9T",
+            "id": "i_K9Pwu6UWwqsf",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4670,7 +4646,7 @@
             "defId": "gen-ausstattung-notausgang-schild",
             "depth": 5,
             "height": 20,
-            "id": "i_ZavEDpgwIyH5",
+            "id": "i_m5wGGT2YVUJX",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4688,8 +4664,8 @@
           {
             "defId": "gen-ausstattung-rettungszeichenleuchte",
             "depth": 8,
-            "height": 15,
-            "id": "i_PVbjxO5Eq1re",
+            "height": 20,
+            "id": "i_HF8UzXAiHn6C",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4700,7 +4676,7 @@
             },
             "safetyZoneEnabled": true,
             "wallId": "hall_2",
-            "width": 30,
+            "width": 35,
             "x": 2000,
             "y": 2470
           },
@@ -4708,7 +4684,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_Va6bqNpz0QXN",
+            "id": "i_Ux52t2klFhPp",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4727,7 +4703,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_n1Q1fUX6Cek7",
+            "id": "i_NE3KYDOiXG37",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4737,7 +4713,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 20,
             "x": 920,
             "y": 800
@@ -4746,7 +4722,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_UKNyED3XBXuP",
+            "id": "i_EzQkXKxv2hFh",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4756,7 +4732,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 20,
             "x": 920,
             "y": 1400
@@ -4765,7 +4741,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_8BCesENuTdU8",
+            "id": "i_3fiTci7RXdy1",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4775,7 +4751,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 20,
             "x": 920,
             "y": 2050
@@ -4784,7 +4760,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_rxGdJEKgvr4K",
+            "id": "i_MVwE3wc8yAPW",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -4794,7 +4770,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 20,
             "x": 3080,
             "y": 1150
@@ -4803,7 +4779,7 @@
             "defId": "gen-ausstattung-feuerloescher",
             "depth": 20,
             "height": 60,
-            "id": "i_fC6zjqHae0KE",
+            "id": "i_G3EVBB9v61rL",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -4813,7 +4789,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 20,
             "x": 3080,
             "y": 1950
@@ -4822,7 +4798,7 @@
             "defId": "gen-ausstattung-erste-hilfe",
             "depth": 15,
             "height": 30,
-            "id": "i_Q07YkeZGyGgi",
+            "id": "i_fagQ7oTYrJ4L",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4832,7 +4808,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 30,
             "x": 920,
             "y": 1440
@@ -4841,7 +4817,7 @@
             "defId": "gen-ausstattung-aed",
             "depth": 20,
             "height": 40,
-            "id": "i_pfYInYSUPwuR",
+            "id": "i_Na9Zp9gmgTVy",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4851,7 +4827,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 40,
             "x": 920,
             "y": 1490
@@ -4860,7 +4836,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_55aRgHtSZjmJ",
+            "id": "i_dOwNv32HpgtB",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4879,7 +4855,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_M5Iaq779KMil",
+            "id": "i_ZDedysZS7caB",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4898,7 +4874,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_fdFebY0bUThD",
+            "id": "i_GzWofxcG1cU8",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -4917,7 +4893,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_qh0q6Sy8TfhJ",
+            "id": "i_32Jfcx99Ni97",
             "kind": "equipment",
             "rotation": 90,
             "safetyZone": {
@@ -4927,7 +4903,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 25,
             "x": 3080,
             "y": 1300
@@ -4936,7 +4912,7 @@
             "defId": "gen-ausstattung-lautsprecher",
             "depth": 25,
             "height": 40,
-            "id": "i_cYun8XQ6zNOd",
+            "id": "i_6jw9nNK5L5v4",
             "kind": "equipment",
             "rotation": 180,
             "safetyZone": {
@@ -4955,7 +4931,7 @@
             "defId": "gen-ausstattung-kamera",
             "depth": 15,
             "height": 15,
-            "id": "i_TQUFehYtuFcF",
+            "id": "i_w5lyE7DdKf9H",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4965,7 +4941,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 15,
             "x": 920,
             "y": 250
@@ -4974,7 +4950,7 @@
             "defId": "gen-ausstattung-kamera",
             "depth": 15,
             "height": 15,
-            "id": "i_RcqQVveogJxL",
+            "id": "i_9vVMyj1N8cAd",
             "kind": "equipment",
             "rotation": 270,
             "safetyZone": {
@@ -4984,7 +4960,7 @@
               "vorne": 0
             },
             "safetyZoneEnabled": true,
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 15,
             "x": 920,
             "y": 2440
@@ -4993,7 +4969,7 @@
             "defId": "gen-ausstattung-kamera",
             "depth": 15,
             "height": 15,
-            "id": "i_icVjnjmF6tqG",
+            "id": "i_8Xlg177ZS3DR",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -5012,7 +4988,7 @@
             "defId": "gen-ausstattung-muelleimer",
             "depth": 40,
             "height": 80,
-            "id": "i_cFeouImndGP8",
+            "id": "i_vHoiRxGoW7bE",
             "kind": "equipment",
             "rotation": 0,
             "safetyZone": {
@@ -5033,7 +5009,7 @@
             "doorType": "Notausgang",
             "height": 210,
             "hinge": "left",
-            "id": "o_hwbVacHgajXO",
+            "id": "o_LJivTm7FjwiB",
             "kind": "door",
             "note": "Haupteingang, zweiflügelig (lichte Breite 200 cm)",
             "offset": 288,
@@ -5045,111 +5021,111 @@
             "doorType": "Glastür",
             "height": 210,
             "hinge": "left",
-            "id": "o_YGTO84dAHMHL",
+            "id": "o_XIfMoNFhUCiA",
             "kind": "door",
             "note": "Zugang Halle (hinter Zugangsschranke)",
             "offset": 396,
             "swingSide": "a",
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 100
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_b6aqgrOGRdxl",
+            "id": "o_iVIV2kKQpmCq",
             "kind": "door",
             "offset": 156,
             "swingSide": "b",
-            "wallId": "w_xFwU3yHfybAR",
+            "wallId": "w_9hyzVgUz6x4a",
             "width": 90
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_I1B7rgkmh8DO",
+            "id": "o_5BmyVMDcBWVc",
             "kind": "door",
             "offset": 476,
             "swingSide": "b",
-            "wallId": "w_xFwU3yHfybAR",
+            "wallId": "w_9hyzVgUz6x4a",
             "width": 90
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_4aOgXA6HEkES",
+            "id": "o_h3eqFf0nMH55",
             "kind": "door",
             "note": "WC barrierefrei (schlägt nach außen auf)",
             "offset": 706,
             "swingSide": "a",
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 100
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_hPS9enlwu5zq",
+            "id": "o_Xc04iA1vNP9v",
             "kind": "door",
             "note": "Umkleide Damen",
             "offset": 941,
             "swingSide": "b",
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 90
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_FJKsFmuk4fzS",
+            "id": "o_3ILCEXetFJvA",
             "kind": "door",
             "offset": 345,
             "swingSide": "b",
-            "wallId": "w_Y92r7653pXg3",
+            "wallId": "w_p6euMc0r9TUK",
             "width": 80
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_JwIWhwij1fxv",
+            "id": "o_7os3yoghIt09",
             "kind": "door",
             "note": "Umkleide Herren",
             "offset": 1541,
             "swingSide": "b",
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 90
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_GrIe1JJGsa07",
+            "id": "o_u7uLDOtUCek3",
             "kind": "door",
             "offset": 345,
             "swingSide": "b",
-            "wallId": "w_pTdyc0zQMfZW",
+            "wallId": "w_uFMdiz9ClY4E",
             "width": 80
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_FKqH9JK39Vso",
+            "id": "o_7orFw7eEfycd",
             "kind": "door",
             "note": "Lager",
             "offset": 2156,
             "swingSide": "b",
-            "wallId": "w_eL95uNlWK3QE",
+            "wallId": "w_kqzJcKxl805T",
             "width": 90
           },
           {
             "doorType": "Rolltor",
             "height": 300,
             "hinge": "left",
-            "id": "o_RqNTX6CP3Gqo",
+            "id": "o_KcgdVrXMiejj",
             "kind": "door",
             "note": "Anlieferung Lager",
             "offset": 3388,
@@ -5161,55 +5137,55 @@
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_pBg4bLSHFAKt",
+            "id": "o_e8GhQ1Sa9ai9",
             "kind": "door",
             "note": "Technik",
             "offset": 180,
             "swingSide": "a",
-            "wallId": "w_UrQzz0I3mSWA",
+            "wallId": "w_XFrRsIjrZd71",
             "width": 90
           },
           {
             "doorType": "einflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_I9zTXSD0S6dj",
+            "id": "o_nihyBFgNHQnw",
             "kind": "door",
             "note": "Putzraum",
             "offset": 320,
             "swingSide": "a",
-            "wallId": "w_UrQzz0I3mSWA",
+            "wallId": "w_XFrRsIjrZd71",
             "width": 80
           },
           {
             "doorType": "Glastür",
             "height": 210,
             "hinge": "left",
-            "id": "o_BlhCPmUcbEE3",
+            "id": "o_VTgBLTFmX8R6",
             "kind": "door",
             "note": "Wellness",
             "offset": 330,
             "swingSide": "a",
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 100
           },
           {
             "doorType": "zweiflügelig",
             "height": 210,
             "hinge": "left",
-            "id": "o_KbI3t0l3Al6z",
+            "id": "o_nHnnkmBSRgAZ",
             "kind": "door",
             "note": "Kursraum",
             "offset": 860,
             "swingSide": "a",
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 150
           },
           {
             "doorType": "Notausgang",
             "height": 210,
             "hinge": "left",
-            "id": "o_jzsQgpCCntTU",
+            "id": "o_q8L1eR2cZclg",
             "kind": "door",
             "note": "Notausgang Kursraum",
             "offset": 2288,
@@ -5221,7 +5197,7 @@
             "doorType": "Notausgang",
             "height": 210,
             "hinge": "left",
-            "id": "o_c2NN5aV4AAut",
+            "id": "o_BUisRmGJre2f",
             "kind": "door",
             "note": "Notausgang Halle Ost (HYROX)",
             "offset": 488,
@@ -5233,7 +5209,7 @@
             "doorType": "Notausgang",
             "height": 210,
             "hinge": "left",
-            "id": "o_9jtvY2xvnlqt",
+            "id": "o_2p0Fmv0wWXsY",
             "kind": "door",
             "note": "Notausgang Halle Süd",
             "offset": 1888,
@@ -5243,7 +5219,7 @@
           },
           {
             "height": 120,
-            "id": "o_iyHyQuDjyA94",
+            "id": "o_tUOcyg4QjH0e",
             "kind": "window",
             "offset": 108,
             "sillHeight": 90,
@@ -5252,7 +5228,7 @@
           },
           {
             "height": 120,
-            "id": "o_uuNgrVdwlegc",
+            "id": "o_neP2rMDzNF5o",
             "kind": "window",
             "offset": 2188,
             "sillHeight": 90,
@@ -5261,7 +5237,7 @@
           },
           {
             "height": 120,
-            "id": "o_pHEqYRtZDjOq",
+            "id": "o_Fg5Fa3uGgsg1",
             "kind": "window",
             "offset": 1768,
             "sillHeight": 90,
@@ -5270,7 +5246,7 @@
           },
           {
             "height": 220,
-            "id": "o_JCMcDOjL54m8",
+            "id": "o_XLeQcv0qA0g9",
             "kind": "window",
             "offset": 2838,
             "sillHeight": 90,
@@ -5279,7 +5255,7 @@
           },
           {
             "height": 220,
-            "id": "o_fdhiqaPsLgjq",
+            "id": "o_Xphg3gd9T89f",
             "kind": "window",
             "offset": 2488,
             "sillHeight": 90,
@@ -5288,7 +5264,7 @@
           },
           {
             "height": 220,
-            "id": "o_xnbvwCbjAr6D",
+            "id": "o_9RgOKeekvLJr",
             "kind": "window",
             "offset": 2138,
             "sillHeight": 90,
@@ -5297,7 +5273,7 @@
           },
           {
             "height": 220,
-            "id": "o_Q1TkGyLnd2t5",
+            "id": "o_42zDgQotFhU2",
             "kind": "window",
             "offset": 1638,
             "sillHeight": 90,
@@ -5306,7 +5282,7 @@
           },
           {
             "height": 220,
-            "id": "o_KVM84wRCnqJC",
+            "id": "o_V0oV2CJokQXV",
             "kind": "window",
             "offset": 1238,
             "sillHeight": 90,
@@ -5315,7 +5291,7 @@
           },
           {
             "height": 100,
-            "id": "o_RLXh3rcTV8d8",
+            "id": "o_flwpaHhLOUwv",
             "kind": "window",
             "offset": 2588,
             "sillHeight": 180,
@@ -5324,7 +5300,7 @@
           },
           {
             "height": 100,
-            "id": "o_626Jc6Scr6vN",
+            "id": "o_C00ACOcGfZqa",
             "kind": "window",
             "offset": 2988,
             "sillHeight": 180,
@@ -5333,7 +5309,7 @@
           },
           {
             "height": 100,
-            "id": "o_zHPOk8AW7bAF",
+            "id": "o_So5ORTl1j2bH",
             "kind": "window",
             "offset": 3538,
             "sillHeight": 180,
@@ -5342,7 +5318,7 @@
           },
           {
             "height": 120,
-            "id": "o_AEa1EkH6k2v1",
+            "id": "o_Jec0wjSMa2NK",
             "kind": "window",
             "offset": 988,
             "sillHeight": 90,
@@ -5351,7 +5327,7 @@
           },
           {
             "height": 120,
-            "id": "o_UUUgwIzFWuLk",
+            "id": "o_CMe8QIe4fnc6",
             "kind": "window",
             "offset": 1788,
             "sillHeight": 90,
@@ -5360,7 +5336,7 @@
           },
           {
             "height": 120,
-            "id": "o_Rpg0FycXn8ie",
+            "id": "o_cz8PlgwrLPwo",
             "kind": "window",
             "offset": 2038,
             "sillHeight": 90,
@@ -5369,7 +5345,7 @@
           },
           {
             "height": 220,
-            "id": "o_bHgGguvkpEkF",
+            "id": "o_4vV8lGdlM4HP",
             "kind": "mirror",
             "offset": 1568,
             "side": "b",
@@ -5378,11 +5354,11 @@
           },
           {
             "height": 220,
-            "id": "o_PjezBNkVAeRE",
+            "id": "o_Uq1qDbk297kL",
             "kind": "mirror",
             "offset": 1410,
             "side": "a",
-            "wallId": "w_Nr9m5y4nfLpK",
+            "wallId": "w_cZ9ypfxsjbUY",
             "width": 840
           }
         ],
@@ -5454,7 +5430,7 @@
               "y": 2476
             },
             "height": null,
-            "id": "w_eL95uNlWK3QE",
+            "id": "w_kqzJcKxl805T",
             "start": {
               "x": 900,
               "y": 24
@@ -5468,7 +5444,7 @@
               "y": 550
             },
             "height": null,
-            "id": "w_xFwU3yHfybAR",
+            "id": "w_9hyzVgUz6x4a",
             "start": {
               "x": 24,
               "y": 550
@@ -5482,7 +5458,7 @@
               "y": 900
             },
             "height": null,
-            "id": "w_4wpokxu7Nf8C",
+            "id": "w_TamnBUg2fJFA",
             "start": {
               "x": 24,
               "y": 900
@@ -5496,7 +5472,7 @@
               "y": 900
             },
             "height": null,
-            "id": "w_NIB7LYQLMgvO",
+            "id": "w_6PduLCPaLXxz",
             "start": {
               "x": 350,
               "y": 550
@@ -5510,7 +5486,7 @@
               "y": 900
             },
             "height": null,
-            "id": "w_ZqqTu9b1hoqB",
+            "id": "w_BxseQcaxmo2P",
             "start": {
               "x": 650,
               "y": 550
@@ -5524,7 +5500,7 @@
               "y": 1500
             },
             "height": null,
-            "id": "w_iAcGSQYl70oU",
+            "id": "w_xbZceyRJZjdg",
             "start": {
               "x": 24,
               "y": 1500
@@ -5538,7 +5514,7 @@
               "y": 1500
             },
             "height": null,
-            "id": "w_Y92r7653pXg3",
+            "id": "w_p6euMc0r9TUK",
             "start": {
               "x": 400,
               "y": 900
@@ -5552,7 +5528,7 @@
               "y": 2100
             },
             "height": null,
-            "id": "w_pTdyc0zQMfZW",
+            "id": "w_uFMdiz9ClY4E",
             "start": {
               "x": 400,
               "y": 1500
@@ -5566,7 +5542,7 @@
               "y": 2100
             },
             "height": null,
-            "id": "w_0039zUw3czNU",
+            "id": "w_VuBEVH1CClvR",
             "start": {
               "x": 24,
               "y": 2100
@@ -5580,7 +5556,7 @@
               "y": 2476
             },
             "height": null,
-            "id": "w_UrQzz0I3mSWA",
+            "id": "w_XFrRsIjrZd71",
             "start": {
               "x": 400,
               "y": 2100
@@ -5594,7 +5570,7 @@
               "y": 2360
             },
             "height": null,
-            "id": "w_UTY0NugInY8z",
+            "id": "w_KlsK4Oegukr0",
             "start": {
               "x": 24,
               "y": 2360
@@ -5608,7 +5584,7 @@
               "y": 2476
             },
             "height": null,
-            "id": "w_Nr9m5y4nfLpK",
+            "id": "w_cZ9ypfxsjbUY",
             "start": {
               "x": 3100,
               "y": 570
@@ -5622,7 +5598,7 @@
               "y": 570
             },
             "height": null,
-            "id": "w_9HCDgyP2MfC3",
+            "id": "w_6fZhaqBqrNGU",
             "start": {
               "x": 3100,
               "y": 570
@@ -5636,7 +5612,7 @@
               "y": 1300
             },
             "height": null,
-            "id": "w_3AyD4kxl2hpe",
+            "id": "w_VRYAvN4LdT9t",
             "start": {
               "x": 3100,
               "y": 1300
@@ -5647,7 +5623,7 @@
         ],
         "zones": [
           {
-            "id": "z_ZAf5Fl06yBbU",
+            "id": "z_EzYhfmXcs2SC",
             "name": "Freihantel",
             "polygon": [
               {
@@ -5678,7 +5654,7 @@
             "type": "Trainingsfläche Freihantel"
           },
           {
-            "id": "z_03WC6lx0aE4z",
+            "id": "z_yDB3YE9lnv2s",
             "name": "Core",
             "polygon": [
               {
@@ -5701,7 +5677,7 @@
             "type": "Maschinen"
           },
           {
-            "id": "z_Hhlk8C1Gmnqf",
+            "id": "z_5idasGQvhEQB",
             "name": "HYROX",
             "polygon": [
               {
@@ -5732,7 +5708,7 @@
             "type": "HYROX"
           },
           {
-            "id": "z_pE0zfjzz0oc6",
+            "id": "z_nYiVlHTgwo1I",
             "name": "Brust",
             "polygon": [
               {
@@ -5755,7 +5731,7 @@
             "type": "Maschinen"
           },
           {
-            "id": "z_D7rKFPTVR3K9",
+            "id": "z_5oszDLpCgIs1",
             "name": "Rücken",
             "polygon": [
               {
@@ -5778,7 +5754,7 @@
             "type": "Maschinen"
           },
           {
-            "id": "z_uUwzp4qbEFwn",
+            "id": "z_BduiTPdGECja",
             "name": "Schultern & Arme",
             "polygon": [
               {
@@ -5809,7 +5785,7 @@
             "type": "Maschinen"
           },
           {
-            "id": "z_lYZse44HU6nh",
+            "id": "z_jYxWdzU4vcvg",
             "name": "Beine",
             "polygon": [
               {
@@ -5848,7 +5824,7 @@
             "type": "Maschinen"
           },
           {
-            "id": "z_RWfWU0hJsRT9",
+            "id": "z_hgH6HR7ZQk78",
             "name": "Cardio",
             "polygon": [
               {
@@ -5881,7 +5857,7 @@
         ]
       }
     ],
-    "id": "p_2NBUfr7t3tuI",
+    "id": "p_963P7gtbFAtv",
     "layers": {
       "annotations": true,
       "dimensions": true,
