@@ -116,13 +116,16 @@ describe('CSV-Stückliste', () => {
     const custom = rows.find((r) => r.defId === 'custom-1')!;
     expect(custom.stueckpreis).toBe(999);
     expect(custom.verifiziert).toBe(false);
+    // Die Beinpresse hat weder Objektpreis noch Überschreibung → Bibliothekspreis aus prices.json
+    const lpPrice = getDef('prime-hybrid-leg-press')!.preis_eur!;
+    expect(lpPrice).toBeGreaterThan(0);
     const lp = rows.find((r) => r.defId === 'prime-hybrid-leg-press')!;
-    expect(lp.stueckpreis).toBeNull();
-    expect(lp.summe).toBeNull();
+    expect(lp.stueckpreis).toBe(lpPrice);
+    expect(lp.summe).toBe(lpPrice);
     const t = bomTotals(rows);
     expect(t.anzahl).toBe(4);
-    expect(t.summe).toBe(2999);
-    expect(t.ohnePreis).toBe(1);
+    expect(t.summe).toBe(2999 + lpPrice);
+    expect(t.ohnePreis).toBe(0);
     expect(t.gewicht).toBe(284 * 2 + 524);
   });
 
@@ -205,7 +208,7 @@ describe('CSV-Stückliste', () => {
     const last = lines[lines.length - 1];
     expect(last.startsWith('Summe;')).toBe(true);
     expect(last.split(';')[8]).toBe('4');
-    expect(last.split(';')[10]).toBe('2999');
+    expect(last.split(';')[10]).toBe(String(2999 + getDef('prime-hybrid-leg-press')!.preis_eur!));
     expect(last.split(';')[7]).toBe(String(284 * 2 + 524));
     expect(text).toContain('Eigene Theke');
     expect(text.endsWith('\r\n')).toBe(true);

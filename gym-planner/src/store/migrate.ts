@@ -8,9 +8,10 @@
  */
 import type {
   Project, Floor, Wall, Zone, Opening, PlacedItem, Group, VoidArea, Annotation, RoomMeta, Vec2, Hall,
-  EquipmentDef, SafetyZone, ProjectSettings, LayerVisibility, LibraryArea, ShapeKind,
+  EquipmentDef, SafetyZone, ProjectSettings, LayerVisibility, LibraryArea, ShapeKind, CostAssumptions,
 } from '@/types';
 import { SCHEMA_VERSION, DEFAULT_SETTINGS, DEFAULT_LAYERS, DEFAULT_CEILING_HEIGHT, DEFAULT_OUTER_WALL_THICKNESS } from './factories';
+import { DEFAULT_COST_ASSUMPTIONS } from '@/analysis/costs';
 import { getDef } from '@/data/equipment';
 import { newId } from '@/utils/id';
 
@@ -103,6 +104,39 @@ export function sanitizeSettings(input: unknown): ProjectSettings {
     }
   }
   return out;
+}
+
+const COST_KEYS: ReadonlySet<string> = new Set(Object.keys(DEFAULT_COST_ASSUMPTIONS));
+
+/** Gültiger Wert einer Kosten-Annahme: endliche Zahl ≥ 0. */
+export function isValidCostAssumption(v: unknown): v is number {
+  return isNum(v) && v >= 0;
+}
+
+/**
+ * Bereinigt die Kosten-Annahmen eines Projekts: nur bekannte Schlüssel (CostAssumptions) mit Zahlen ≥ 0 werden
+ * übernommen, unbekannte Schlüssel und unsichere Schlüssel (__proto__ …) verworfen. Liefert undefined, wenn
+ * nichts übrig bleibt (Projekt nutzt dann die Standardwerte).
+ */
+export function sanitizeCosts(input: unknown): Partial<CostAssumptions> | undefined {
+  if (!isRec(input)) return undefined;
+  const out: Partial<Record<keyof CostAssumptions, number>> = {};
+  let any = false;
+  for (const [k, v] of Object.entries(input)) {
+    if (!isSafeKey(k) || !COST_KEYS.has(k) || !isValidCostAssumption(v)) continue;
+    out[k as keyof CostAssumptions] = v;
+    any = true;
+  }
+  return any ? out : undefined;
+}
+
+/** Sind die Kosten-Annahmen bereits bereinigt (fehlend oder nur bekannte Schlüssel mit Zahlen ≥ 0)? */
+function isCostsClean(c: unknown): boolean {
+  if (c === undefined) return true;
+  if (!isRec(c)) return false;
+  const keys = Object.keys(c);
+  if (keys.length === 0) return false;
+  return keys.every((k) => isSafeKey(k) && COST_KEYS.has(k) && isValidCostAssumption(c[k]));
 }
 
 /** Liefert vollständige Ebenen-Sichtbarkeiten: nur Wahrheitswerte werden übernommen, sonst Default. */
@@ -358,6 +392,7 @@ export function validateProject(input: unknown): ValidationResult {
   if (p.layers !== undefined && !isRec(p.layers)) c.error(`${path}.layers`, 'Objekt erwartet');
   if (p.favorites !== undefined && !(Array.isArray(p.favorites) && p.favorites.every(isStr))) c.error(`${path}.favorites`, 'Liste von IDs erwartet');
   if (p.priceOverrides !== undefined && !isRec(p.priceOverrides)) c.error(`${path}.priceOverrides`, 'Objekt erwartet');
+  if (p.costs !== undefined && p.costs !== null && !isRec(p.costs)) c.error(`${path}.costs`, 'Objekt mit Kosten-Annahmen erwartet');
   checkList(c, p, 'customEquipment', path, checkCustomEquipment);
 
   if (c.errors.length) return { ok: false, errors: c.errors, warnings: c.warnings };
@@ -511,6 +546,7 @@ function isComplete(p: Project): boolean {
   for (const k of Object.keys(DEFAULT_LAYERS) as (keyof LayerVisibility)[]) if (typeof p.layers[k] !== 'boolean') return false;
   if (hasUnsafeKeys(p.settings as unknown as Rec) || hasUnsafeKeys(p.layers as unknown as Rec) || hasUnsafeKeys(p.priceOverrides)) return false;
   for (const v of Object.values(p.priceOverrides)) if (!isNum(v)) return false;
+  if (!isCostsClean(p.costs)) return false;
   if (!p.floors.some((f) => f.id === p.activeFloorId)) return false;
   if (new Set(p.floors.map((f) => f.order)).size !== p.floors.length) return false;
   for (const f of p.floors) {
@@ -552,6 +588,8 @@ export function migrateProject(input: Project): Project {
     favorites: Array.isArray(p.favorites) ? [...p.favorites] : [],
     priceOverrides,
   };
+  const costs = sanitizeCosts(p.costs);
+  if (costs) out.costs = costs; else delete out.costs;
   if (out.parentId === undefined) delete out.parentId;
   if (out.variantName === undefined) delete out.variantName;
   return out;
