@@ -14,6 +14,7 @@ export const ROOM_TYPES: RoomTypeInfo[] = [
   { type: 'Maschinen', color: '#3b82f6', areaClass: 'Trainingsfläche' },
   { type: 'Cardio', color: '#ef4444', areaClass: 'Trainingsfläche' },
   { type: 'Functional/Stretching', color: '#22c55e', areaClass: 'Trainingsfläche' },
+  { type: 'HYROX', color: '#eab308', areaClass: 'Trainingsfläche' },
   { type: 'Kursraum', color: '#a855f7', areaClass: 'Trainingsfläche' },
   { type: 'Empfang/Lounge', color: '#14b8a6', areaClass: 'Nebenfläche' },
   { type: 'Umkleide Damen', color: '#ec4899', areaClass: 'Umkleide/Sanitär' },

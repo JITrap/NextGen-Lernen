@@ -4978,6 +4978,185 @@
         "Bühne",
         "Stufe"
       ]
+    },
+    {
+      "id": "gen-hyrox-farmers-carry-griffe",
+      "kategorie": "Functional",
+      "unterkategorie": "HYROX",
+      "hersteller": "Generisch",
+      "name": "Farmers-Carry-Griffe (Paar)",
+      "breite_cm": 40,
+      "tiefe_cm": 120,
+      "hoehe_cm": 25,
+      "gewicht_kg": 48,
+      "extra": "2 × 24 kg Griffe, Ablage am Bahnanfang",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "sled",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "HYROX",
+        "Farmers Carry"
+      ]
+    },
+    {
+      "id": "gen-hyrox-sandbag-regal",
+      "kategorie": "Functional",
+      "unterkategorie": "HYROX",
+      "hersteller": "Generisch",
+      "name": "Sandbag-Regal (10–30 kg)",
+      "breite_cm": 120,
+      "tiefe_cm": 50,
+      "hoehe_cm": 120,
+      "gewicht_kg": 35,
+      "extra": "2 Ebenen, ohne Sandbags",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "shelf",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "HYROX",
+        "Sandbag",
+        "Lunges"
+      ]
+    },
+    {
+      "id": "gen-hyrox-wall-ball-ziel",
+      "kategorie": "Functional",
+      "unterkategorie": "HYROX",
+      "hersteller": "Generisch",
+      "name": "Wall-Ball-Ziel (Wandmontage, 2,7/3 m)",
+      "breite_cm": 60,
+      "tiefe_cm": 10,
+      "hoehe_cm": 40,
+      "gewicht_kg": 6,
+      "extra": "Zielmarkierung in 2,7 m (Frauen) und 3 m (Männer) Höhe",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "screen",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Functional",
+        "HYROX",
+        "Wall Balls"
+      ]
+    },
+    {
+      "id": "gen-hyrox-wall-ball-regal",
+      "kategorie": "Functional",
+      "unterkategorie": "HYROX",
+      "hersteller": "Generisch",
+      "name": "Wall-Ball-Regal",
+      "breite_cm": 100,
+      "tiefe_cm": 50,
+      "hoehe_cm": 150,
+      "gewicht_kg": 30,
+      "extra": "3 Ebenen, für 12 Wall Balls (4–9 kg)",
+      "sicherheitszone_cm": {
+        "vorne": 100,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "ball-rack",
+      "tags": [
+        "Generisch",
+        "Functional",
+        "HYROX",
+        "Wall Balls"
+      ]
+    },
+    {
+      "id": "gen-hyrox-intervall-timer",
+      "kategorie": "Functional",
+      "unterkategorie": "HYROX",
+      "hersteller": "Generisch",
+      "name": "Intervall-Timer (Wand)",
+      "breite_cm": 60,
+      "tiefe_cm": 8,
+      "hoehe_cm": 20,
+      "gewicht_kg": 3,
+      "extra": "LED-Anzeige, Intervall-/Countdown-Modus",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Functional",
+      "symbol": "screen",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Functional",
+        "HYROX",
+        "Timer"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-sicherheitsleuchte",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Sicherheitsleuchte / Rettungszeichenleuchte",
+      "breite_cm": 30,
+      "tiefe_cm": 8,
+      "hoehe_cm": 15,
+      "gewicht_kg": 1,
+      "extra": "Einzelbatterie, 3 h Nennbetriebsdauer",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "exit-sign",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Sicherheitsbeleuchtung",
+        "Rettungszeichen"
+      ]
     }
   ]
 }
