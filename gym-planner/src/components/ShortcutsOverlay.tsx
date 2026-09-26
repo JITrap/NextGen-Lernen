@@ -24,6 +24,7 @@ export const SHORTCUT_GROUPS: ShortcutGroup[] = [
       { keys: ['D'], label: 'Tür' },
       { keys: ['F'], label: 'Fenster' },
       { keys: ['M'], label: 'Messen' },
+      { keys: ['E'], label: 'Fluchtweg' },
       { keys: ['T'], label: 'Text / Notiz' },
       { keys: ['Esc'], label: 'Abbrechen / zurück zur Auswahl' },
     ],
