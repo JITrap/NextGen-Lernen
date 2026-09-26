@@ -1,6 +1,6 @@
 /**
  * Regularien-Prüfung: Fluchtwege und Notausgänge (ASR A2.3 / MBO), Verkehrswege (ASR A1.8), Brandschutz (ASR A2.2),
- * Erste Hilfe (ASR A4.3 / DGUV Vorschrift 1), Kennzeichnung (ASR A1.3), Sicherheitsbeleuchtung (ASR A3.4/7),
+ * Erste Hilfe (ASR A4.3 / DGUV Vorschrift 1), Kennzeichnung (ASR A1.3), Sicherheitsbeleuchtung (ASR A2.3 Abschnitt 9),
  * Barrierefreiheit (ASR V3a.2 / DIN 18040-1), Sanitär (ASR A4.1), Gerätefreiräume (DIN EN ISO 20957-1),
  * Versammlungsstätten (MVStättVO) und organisatorische Pflichten. Jede Prüfung liefert Ist/Soll, Status,
  * Erläuterung und Quelle; `target` erlaubt das Hinspringen im Plan.
@@ -80,18 +80,24 @@ export const REGULATION_RULES = {
   /** MBO § 33 / ASR A2.3: zweiter Rettungsweg ab dieser Nettofläche (m²) bzw. Personenzahl je Stockwerk. */
   zweiterNotausgangAbM2: 200,
   zweiterNotausgangAbPersonen: 20,
-  /** ASR A2.3 Tabelle 1: lichte Mindestbreite (cm) von Fluchtwegen/Notausgängen nach Personenzahl. */
+  /**
+   * ASR A2.3 (März 2022) Tabelle 1: lichte Mindestbreite (cm) von Fluchtwegen (Spalte „Weg“) und von Türen im
+   * Fluchtweg (Spalte „Tür“) nach der höchstmöglichen Personenzahl im Einzugsgebiet. Bestand bis 30.09.2022:
+   * 87,5 cm Weg (bis 5 Personen) bzw. 85 cm Tür (bis 20 Personen).
+   */
   ausgangsbreite: [
-    { bisPersonen: 5, cm: 87.5 },
-    { bisPersonen: 20, cm: 100 },
-    { bisPersonen: 200, cm: 120 },
-    { bisPersonen: 300, cm: 180 },
-    { bisPersonen: 400, cm: 240 },
+    { bisPersonen: 5, cm: 90, tuerCm: 80 },
+    { bisPersonen: 20, cm: 100, tuerCm: 90 },
+    { bisPersonen: 50, cm: 120, tuerCm: 90 },
+    { bisPersonen: 100, cm: 120, tuerCm: 100 },
+    { bisPersonen: 200, cm: 120, tuerCm: 105 },
+    { bisPersonen: 300, cm: 180, tuerCm: 165 },
+    { bisPersonen: 400, cm: 240, tuerCm: 225 },
   ],
-  /** Über 400 Personen: je weitere 100 Personen zusätzlich (cm). */
+  /** Über 400 Personen: je weitere 100 Personen zusätzlich (cm, Weg wie Tür). */
   ausgangsbreiteJeWeitere100Cm: 60,
-  /** Jede Notausgangstür mindestens (cm). */
-  mindestTuerbreiteCm: 87.5,
+  /** Jede Notausgangstür mindestens (cm) – Tabelle 1 Spalte Tür bei bis zu 5 Personen. */
+  mindestTuerbreiteCm: 80,
   /** ASR A2.2 Tabelle 3: Löschmitteleinheiten (LE) je Grundfläche (m²), mittlere Brandgefährdung. */
   loeschmittel: [
     { bisM2: 50, le: 6 }, { bisM2: 100, le: 9 }, { bisM2: 200, le: 12 }, { bisM2: 300, le: 15 }, { bisM2: 400, le: 18 },
@@ -140,7 +146,7 @@ const SRC = {
   a22: { quelle: 'ASR A2.2 „Maßnahmen gegen Brände“', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A2-2.html' },
   a18: { quelle: 'ASR A1.8 „Verkehrswege“', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A1-8.html' },
   a13: { quelle: 'ASR A1.3 „Sicherheits- und Gesundheitsschutzkennzeichnung“', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A1-3.html' },
-  a347: { quelle: 'ASR A3.4/7 „Sicherheitsbeleuchtung, optische Sicherheitsleitsysteme“', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A3-4-7.html' },
+  a347: { quelle: 'ASR A2.3 Abschnitt 9 „Sicherheitsbeleuchtung“ (ehem. ASR A3.4/7, zurückgezogen GMBl 2022 S. 248)', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A2-3.html' },
   a41: { quelle: 'ASR A4.1 „Sanitärräume“', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A4-1.html' },
   a43: { quelle: 'ASR A4.3 „Erste-Hilfe-Räume, Mittel und Einrichtungen zur Ersten Hilfe“', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A4-3.html' },
   v3a2: { quelle: 'ASR V3a.2 „Barrierefreie Gestaltung von Arbeitsstätten“ / DIN 18040-1', url: 'https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-V3a-2.html' },
@@ -182,12 +188,20 @@ export const DEF_WC_ACCESSIBLE = 'gen-sanitaer-wc-barrierefrei';
 /* Reine Regelfunktionen (exportiert, getestet)                         */
 /* ------------------------------------------------------------------ */
 
-/** Sollbreite (cm) der Notausgänge in Summe nach ASR A2.3 Tabelle 1. */
+/** Sollbreite (cm) der Fluchtwege/Notausgänge in Summe nach ASR A2.3 Tabelle 1 (Spalte Weg). */
 export function requiredExitWidthCm(persons: number): number {
   const p = Math.max(0, persons);
   for (const row of REGULATION_RULES.ausgangsbreite) if (p <= row.bisPersonen) return row.cm;
   const last = REGULATION_RULES.ausgangsbreite[REGULATION_RULES.ausgangsbreite.length - 1];
   return last.cm + Math.ceil((p - last.bisPersonen) / 100) * REGULATION_RULES.ausgangsbreiteJeWeitere100Cm;
+}
+
+/** Mindestbreite (cm) einer Tür im Fluchtweg nach ASR A2.3 Tabelle 1 (Spalte Tür) für die Personenzahl ihres Einzugsgebiets. */
+export function requiredDoorWidthCm(persons: number): number {
+  const p = Math.max(0, persons);
+  for (const row of REGULATION_RULES.ausgangsbreite) if (p <= row.bisPersonen) return row.tuerCm;
+  const last = REGULATION_RULES.ausgangsbreite[REGULATION_RULES.ausgangsbreite.length - 1];
+  return last.tuerCm + Math.ceil((p - last.bisPersonen) / 100) * REGULATION_RULES.ausgangsbreiteJeWeitere100Cm;
 }
 
 /** Soll-Löschmitteleinheiten nach ASR A2.2 Tabelle 3 (mittlere Brandgefährdung) für eine Grundfläche in m². */
@@ -480,7 +494,7 @@ function drawnRouteChecks(fs: FloorSafety, project: Project, ctx: AnalysisContex
       ist: crossings.length ? `${crossings.length} Wanddurchdringung${crossings.length === 1 ? '' : 'en'} ohne Tür` : 'keine Wanddurchdringung', soll: 'Wände nur innerhalb einer Türöffnung kreuzen', floorId,
       target: crossings.length ? { point: crossings[0].point } : target,
       erlaeuterung: crossings.length
-        ? 'Der Fluchtweg kreuzt eine Wand außerhalb einer Türöffnung. Wegführung ändern oder eine Tür (Fluchttür ≥ 87,5 cm, in Fluchtrichtung aufschlagend) einplanen.'
+        ? 'Der Fluchtweg kreuzt eine Wand außerhalb einer Türöffnung. Wegführung ändern oder eine Tür (Fluchttür ≥ 0,80 m, bis 100 Personen ≥ 1,00 m, in Fluchtrichtung aufschlagend) einplanen.'
         : 'Der Fluchtweg führt nur durch Türöffnungen.',
       quelle: `${SRC.a23.quelle}, Abs. 4`, quelleUrl: SRC.a23.url,
     });
@@ -502,7 +516,7 @@ function exitCountChecks(fs: FloorSafety, floorPersons: number, out: RegulationC
     ist: `${n} Notausg${n === 1 ? 'ang' : 'änge'} · ${formatM2(area)} · ${floorPersons} Personen`,
     soll: needsTwo ? '≥ 2 unabhängige Rettungswege' : '≥ 1 Rettungsweg (2 empfohlen)', floorId,
     target: fs.exits[0] ? { kind: 'opening', id: fs.exits[0].door.id } : (fc.inner ? { point: centroid(fc.inner) } : undefined),
-    erlaeuterung: `Ab ${R.zweiterNotausgangAbM2} m² Nettofläche oder mehr als ${R.zweiterNotausgangAbPersonen} Personen sind zwei voneinander unabhängige Rettungswege erforderlich (MBO § 33, ASR A2.3 Abs. 4). Als Notausgang zählen Türen vom Typ „Notausgang“ und aufschlagende Türen in der Hallen-Außenwand.`,
+    erlaeuterung: `Ab ${R.zweiterNotausgangAbM2} m² Nettofläche oder mehr als ${R.zweiterNotausgangAbPersonen} Personen sind zwei voneinander unabhängige Fluchtwege in unterschiedliche Richtungen erforderlich (ASR A2.3 Abschnitt 4: Nebenfluchtweg bei hoher Personenzahl bzw. Räumen über 400 m²; MBO § 33 verlangt für Nutzungseinheiten zwei Rettungswege, bei ebenerdigen Einheiten genügt nach MBO 2024 ein direkter Ausgang ins Freie – die Landesbauordnungen weichen ab). Als Notausgang zählen Türen vom Typ „Notausgang“ und aufschlagende Türen in der Hallen-Außenwand.`,
     quelle: `${SRC.mbo.quelle} / ${SRC.a23.quelle}, Abs. 4`, quelleUrl: SRC.a23.url,
   });
   const inner = fs.exits.filter((e) => !e.onHallWall);
@@ -529,7 +543,21 @@ function exitWidthChecks(fs: FloorSafety, persons: number, out: RegulationCheck[
       id: `exits:width:${floorId}`, thema: THEMA.flucht, titel: `Ausgangsbreite gesamt ${q(fc.floor.name)}`, status: sum >= soll ? 'ok' : 'fail',
       ist: `${formatCm(sum)} (${fs.exits.map((e) => formatCm(e.width)).join(' + ')})`, soll: `≥ ${formatCm(soll)} für ${persons} Personen`, floorId,
       target: { kind: 'opening', id: fs.exits[0].door.id },
-      erlaeuterung: 'Die Summe der lichten Breiten aller Notausgänge muss die Sollbreite nach Personenzahl erreichen (bis 5: 87,5 cm; bis 20: 1,00 m; bis 200: 1,20 m; bis 300: 1,80 m; bis 400: 2,40 m; je weitere 100 Personen + 0,60 m).',
+      erlaeuterung: 'Die Summe der lichten Breiten aller Notausgänge muss die Sollbreite nach Personenzahl erreichen (ASR A2.3 Tabelle 1, Fluchtweg: bis 5 Personen 0,90 m; bis 20: 1,00 m; bis 200: 1,20 m; bis 300: 1,80 m; bis 400: 2,40 m; je weitere 100 Personen + 0,60 m). Türen im Fluchtweg: bis 5 Personen 0,80 m; bis 50: 0,90 m; bis 100: 1,00 m; bis 200: 1,05 m; bis 300: 1,65 m; bis 400: 2,25 m.',
+      quelle: `${SRC.a23.quelle}, Tabelle 1`, quelleUrl: SRC.a23.url,
+    });
+  }
+  const doorSoll = requiredDoorWidthCm(persons);
+  const widest = fs.exits.reduce((m, e) => Math.max(m, e.width), 0);
+  if (fs.exits.length) {
+    // Haupt-Notausgang: mindestens eine Tür muss die Türbreite für die gesamte Personenzahl haben (Einzugsgebiet = Stockwerk).
+    out.push({
+      id: `exits:doorwidth:${floorId}`, thema: THEMA.flucht, titel: `Türbreite Hauptausgang ${q(fc.floor.name)}`, status: widest >= doorSoll ? 'ok' : 'warn',
+      ist: `breiteste Notausgangstür ${formatCm(widest)}`, soll: `≥ ${formatCm(doorSoll)} für ${persons} Personen`, floorId,
+      target: { kind: 'opening', id: fs.exits.reduce((a, b) => (b.width > a.width ? b : a)).door.id },
+      erlaeuterung: widest >= doorSoll
+        ? 'Mindestens eine Notausgangstür erreicht die Türbreite nach ASR A2.3 Tabelle 1 (Spalte Tür) für die Personenzahl des Stockwerks.'
+        : 'Keine Notausgangstür erreicht die Türbreite für die Personenzahl des Stockwerks (ASR A2.3 Tabelle 1, Spalte Tür: bis 20 Personen 0,90 m, bis 100 Personen 1,00 m, bis 200 Personen 1,05 m). Verteilen sich die Personen auf mehrere Ausgänge, gilt je Tür die Personenzahl ihres Einzugsgebiets.',
       quelle: `${SRC.a23.quelle}, Tabelle 1`, quelleUrl: SRC.a23.url,
     });
   }
@@ -539,7 +567,7 @@ function exitWidthChecks(fs: FloorSafety, persons: number, out: RegulationCheck[
     out.push({
       id: `exit:${e.door.id}:width`, thema: THEMA.flucht, titel: `Türbreite ${doorLabel(e)}`, status: tooNarrow ? 'fail' : 'ok',
       ist: formatCm(e.width), soll: `≥ ${formatCm(R.mindestTuerbreiteCm)}`, floorId, target,
-      erlaeuterung: tooNarrow ? 'Jede Notausgangstür braucht eine lichte Breite von mindestens 87,5 cm (bei bis zu 5 Personen); ab 21 Personen 1,00 m.' : 'Die lichte Breite der Notausgangstür ist ausreichend.',
+      erlaeuterung: tooNarrow ? 'Jede Tür im Fluchtweg braucht eine lichte Breite von mindestens 0,80 m (bis 5 Personen); bis 50 Personen 0,90 m, bis 100 Personen 1,00 m, bis 200 Personen 1,05 m (ASR A2.3 Tabelle 1, Spalte Tür).' : 'Die lichte Breite der Notausgangstür ist ausreichend.',
       quelle: `${SRC.a23.quelle}, Tabelle 1`, quelleUrl: SRC.a23.url,
     });
     if (!doorSwings(e.door)) {

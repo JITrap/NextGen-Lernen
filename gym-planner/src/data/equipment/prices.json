@@ -52,12 +52,13 @@
       "hinweis": "Original: USD 5.550 · Listenpreis lt. Händler, Aktionspreis USD 4.995"
     },
     "atlantis-p156": {
-      "preis_eur": 7520,
-      "quelle": "Show Me Weights (P-156)",
-      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
+      "preis_eur": 6430,
+      "quelle": "Show Me Weights (P-156 Standgerät, regulär)",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+P156&type=product",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: USD 8.570 · Zweite SMW-Listung USD 6.450, True Iron USD 7.650 – Spanne 6.450–8.570"
+      "hinweis": "Original: USD 7.330 regulär (Aktion 6.450; True Iron 7.650) · Standgerät, nicht das MS-9-Tower-Modul",
+      "preis_original": "USD 7.330"
     },
     "atlantis-p356": {
       "preis_eur": 8330,
@@ -324,12 +325,13 @@
       "hinweis": "Original: USD 3.730 · True Iron 3.650"
     },
     "atlantis-pw256": {
-      "preis_eur": 4440,
-      "quelle": "Show Me Weights (PW256)",
-      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
+      "preis_eur": 3750,
+      "quelle": "Mittelwert Show Me Weights USD 5.060 / True Iron USD 3.490",
+      "quelle_url": "https://trueironfitness.com/search?q=PW256&type=product",
       "stand": "2026-09",
-      "konfidenz": "haendler",
-      "hinweis": "Original: USD 5.060 · True Iron 3.490 (deutlich niedriger, evtl. Aktion)"
+      "konfidenz": "schaetzung",
+      "hinweis": "Original: Händlerspanne USD 3.490–5.060 · Mittelwert",
+      "preis_original": "USD 4.275 (Mittelwert)"
     },
     "atlantis-p443": {
       "preis_eur": 5080,
@@ -340,12 +342,13 @@
       "hinweis": "Original: USD 5.790 · True Iron 6.450"
     },
     "atlantis-p439": {
-      "preis_eur": 4960,
-      "quelle": "Show Me Weights (P439)",
+      "preis_eur": 5770,
+      "quelle": "Show Me Weights (P-439 regulär)",
       "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: USD 5.660 · True Iron Liste 7.250 / Sale 6.250"
+      "hinweis": "Original: USD 6.580 regulär (Aktion 5.660; True Iron 6.250–7.250)",
+      "preis_original": "USD 6.580"
     },
     "atlantis-pw739": {
       "preis_eur": 5660,
@@ -356,12 +359,13 @@
       "hinweis": "Original: USD 6.450 · Kein Händlerpreis gefunden"
     },
     "atlantis-p441": {
-      "preis_eur": 4950,
-      "quelle": "Show Me Weights (P-441)",
-      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
+      "preis_eur": 4270,
+      "quelle": "Mittelwert Show Me Weights USD 5.640 / True Iron USD 4.090",
+      "quelle_url": "https://trueironfitness.com/collections/atlantis-strength?page=2",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: USD 5.640 · True Iron 4.090 – Spanne 4.090–5.640"
+      "hinweis": "Original: Händlerspanne USD 4.090–5.640",
+      "preis_original": "USD 4.865 (Mittelwert)"
     },
     "atlantis-pw737": {
       "preis_eur": 5390,
@@ -389,11 +393,11 @@
     },
     "atlantis-pw120": {
       "preis_eur": 3510,
-      "quelle": "Ableitung: AU-Händler AUD 4.892 (≈ USD 3.200) und Hinweis \"neue Version ca. 5.400\"; Mittelwert",
-      "quelle_url": "https://rawfitnessequipment.com.au/products/atlantis-total-neck-machine",
+      "quelle": "Schätzung (kein Händlerpreis belegt; Vergleich Precision-Nackengeräte)",
+      "quelle_url": "https://atlantisstrength.com/gym-equipment/pw120",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Original: USD 4.000 · Kein US-Händlerpreis gefunden"
+      "hinweis": "Original: ca. USD 4.000 · unbelegte Schätzung"
     },
     "atlantis-pw625": {
       "preis_eur": 3160,
@@ -428,12 +432,13 @@
       "hinweis": "Original: USD 3.400 · Kein Händlerpreis gefunden"
     },
     "atlantis-e449": {
-      "preis_eur": 5920,
-      "quelle": "True Iron Fitness (E449, Liste 6.750 / Sale 6.050)",
-      "quelle_url": "https://trueironfitness.com/collections/atlantis-strength",
+      "preis_eur": 5500,
+      "quelle": "Mittelwert True Iron USD 6.750 / Show Me Weights USD 5.790",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: USD 6.750 · Listenpreis"
+      "hinweis": "Original: Händlerspanne USD 5.790–6.750",
+      "preis_original": "USD 6.270 (Mittelwert)"
     },
     "atlantis-pw549": {
       "preis_eur": 3710,
@@ -524,12 +529,13 @@
       "hinweis": "Original: USD 4.830 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b856": {
-      "preis_eur": 2630,
-      "quelle": "Ableitung: B-155 Standing Preacher (2.820) / B-256 Seated Preacher (2.710) + Pro-Aufschlag",
-      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
+      "preis_eur": 3010,
+      "quelle": "Show Me Weights (B-856 Poliquin Seated Preacher Curl)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Original: USD 3.000 · Kein Händlerpreis gefunden"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.430 · Händler-Listenpreis (USA), netto ohne Fracht",
+      "preis_original": "USD 3.430"
     },
     "atlantis-pw702": {
       "preis_eur": 6450,
@@ -564,12 +570,13 @@
       "hinweis": "Original: USD 10.580 · True Iron Liste 12.500 / Sale 10.250; Hersteller-UVP lt. True Iron 10.500"
     },
     "atlantis-pw412": {
-      "preis_eur": 9110,
-      "quelle": "Show Me Weights (PW412)",
+      "preis_eur": 10590,
+      "quelle": "Show Me Weights (PW-412 regulär)",
       "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: USD 10.390 · True Iron Liste 13.700 / Sale 10.850"
+      "hinweis": "Original: USD 12.080 regulär (Aktion 10.390; True Iron Liste 13.700)",
+      "preis_original": "USD 12.080"
     },
     "atlantis-pw611": {
       "preis_eur": 9250,
@@ -1628,12 +1635,12 @@
       "hinweis": "Original: 620,00 € brutto (5–30 kg, 11 Paar) · Hex-Gummihanteln; 2,5-kg-Paar ergänzt. Urethan-Studiohanteln (Technogym/Eleiko) 2–3× teurer."
     },
     "gen-freihantel-kurzhantelsatz-schwer": {
-      "preis_eur": 2000,
-      "quelle": "Ableitung ~3,0 €/kg netto aus my-sports24 Hex-Sätzen (660 kg Gesamtgewicht)",
-      "quelle_url": "https://www.my-sports24.de/kraftgeraete/kompakt-hanteln/gummi/2087/hex-kurzhantelsaetze-gummiert-in-2-5kg-abstufung-5-20/5-30/5-40/5-50kg",
+      "preis_eur": 1900,
+      "quelle": "ATLETICA Hexagon-Hantelpaare 32,5–50 kg (Summe 2.232 € brutto = 1.876 € netto; PRO-Serie 2.420 € netto)",
+      "quelle_url": "https://atletica.de/collections/kurzhanteln",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "8 Paar 32,5–50 kg = 660 kg; Urethan deutlich teurer."
+      "konfidenz": "haendler",
+      "hinweis": "8 Paar 32,5–50 kg"
     },
     "gen-freihantel-langhantelstange": {
       "preis_eur": 250,
@@ -1668,20 +1675,20 @@
       "hinweis": "Hex Bar 25 kg."
     },
     "gen-freihantel-hantelscheiben-satz": {
-      "preis_eur": 550,
-      "quelle": "Gorilla Sports Gummi-Gripper 25 kg 64,99 € brutto (≈2,2 €/kg netto); Studio-Urethan 5–7 €/kg",
-      "quelle_url": "https://www.gorillasports.de/products/olympia-langhantel-50-51-mm",
+      "preis_eur": 450,
+      "quelle": "Gorilla Sports Gummi-Gripper-Scheiben (≈ 2,5–2,7 €/kg netto), Studio-Urethan 5–7 €/kg",
+      "quelle_url": "https://www.gorillasports.de/collections/hantelscheiben",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Original: 64,99 € brutto / 25 kg · 150 kg × ~3,5 €/kg netto (Gummi/Bumper)."
+      "hinweis": "150 kg Gummi-Scheiben ≈ 380–400 € netto; Mischwert 450 €, Studio-Urethan bis 900 €"
     },
     "gen-freihantel-hantelscheiben-satz-gross": {
-      "preis_eur": 1100,
-      "quelle": "wie Hantelscheiben-Satz 150 kg",
-      "quelle_url": "https://www.gorillasports.de/products/olympia-langhantel-50-51-mm",
+      "preis_eur": 1000,
+      "quelle": "Gorilla Sports Gummi-Gripper-Scheiben (≈ 2,5–2,7 €/kg netto), Studio-Urethan 5–7 €/kg",
+      "quelle_url": "https://www.gorillasports.de/collections/hantelscheiben",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "300 kg × ~3,5 €/kg netto."
+      "hinweis": "Mischwert; Studio-Urethan bis 2.000 €"
     },
     "gen-freihantel-scheibenstaender": {
       "preis_eur": 250,
@@ -1728,12 +1735,12 @@
       "hinweis": "Original: 4.499,00 € brutto · Technogym Skillmill ca. 8.000–10.000 € netto."
     },
     "gen-cardio-crosstrainer": {
-      "preis_eur": 6500,
+      "preis_eur": 7000,
       "quelle": "Matrix/Life Fitness kommerzielle Crosstrainer; professionell-fitness-shop.de Preisspanne 1.904–10.299 €",
       "quelle_url": "https://www.professionell-fitness-shop.de/matrix/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Spanne 5.000–9.000 € netto."
+      "hinweis": "Spanne 6.000–10.000 € netto (Life Fitness Club Series+ ≈ 8.100 € netto, Integrity+ ≈ 9.800 € netto; Matrix E50 Light-Commercial 3.900–5.800 € brutto)"
     },
     "gen-cardio-ergometer": {
       "preis_eur": 3300,
@@ -1768,12 +1775,12 @@
       "hinweis": "Original: 1.299,00 € brutto"
     },
     "gen-cardio-rudergeraet": {
-      "preis_eur": 1005,
+      "preis_eur": 1000,
       "quelle": "concept2.de RowErg 1.195 € brutto",
       "quelle_url": "https://www.concept2.de/ergs/rowerg",
       "stand": "2026-09",
       "konfidenz": "liste",
-      "hinweis": "Original: 1.195,00 € brutto"
+      "hinweis": "Concept2 RowErg 990 USD (Standardbeine) / 1.155 USD (Tall); DE-Preis beim Concept2-Vertrieb ≈ 1.000 € netto"
     },
     "gen-cardio-stairmaster": {
       "preis_eur": 6500,
@@ -1781,7 +1788,7 @@
       "quelle_url": "https://www.fitnessclub-24.de/produkte/cardiogeraete-10-de/stepper-und-treppen-23-de/stairmaster-8-series-gauntlet-led-sporttreppen/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Original: 21.496 zł netto · Umrechnung PLN→EUR ca. 4,3; Preise DE tendenziell höher."
+      "hinweis": "Spanne 5.000–8.500 € netto; DE-Preis auf Anfrage (einzige Preisquelle: polnischer Händler ≈ 5.000 € netto)"
     },
     "gen-cardio-skierg": {
       "preis_eur": 1040,
@@ -1934,7 +1941,7 @@
       "quelle_url": "https://schultz.de/empfangstheke",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Maßanfertigung mit Beleuchtung teurer (siehe Kostenblock Innenarchitektur)."
+      "hinweis": "Objekt-Empfangstheke 300 cm: Angebotsanfrage/Herstellerkatalog nötig; Maßanfertigung mit Beleuchtung teurer (siehe Kostenblock Innenarchitektur)"
     },
     "gen-empfang-theke-klein": {
       "preis_eur": 2200,
@@ -1972,8 +1979,8 @@
       "quelle": "gastro-michel.de KBS Glastürkühlschrank CD 350 635 € brutto",
       "quelle_url": "https://www.gastro-michel.de/KBS-Glastuerkuehlschrank-schwarz-LED-Beleuchtung-CD-350",
       "stand": "2026-09",
-      "konfidenz": "haendler",
-      "hinweis": "Original: 635,00 € brutto"
+      "konfidenz": "schaetzung",
+      "hinweis": "Größenordnung plausibel (Glastürkühlschrank 350 l ≈ 635 € brutto); Händlerseite nicht abrufbar"
     },
     "gen-empfang-getraenkeautomat": {
       "preis_eur": 3500,
@@ -2358,12 +2365,12 @@
       "hinweis": "gemauert individuell teurer."
     },
     "gen-wellness-cold-plunge": {
-      "preis_eur": 6500,
+      "preis_eur": 5500,
       "quelle": "eisbad-ratgeber.de: Chill Tubs Original Komplettsystem ab ~5.900 €; Profi-Chiller (DeinPhysio DP3 ab 2.999 €, Ice Wave ab 3.499 €); arctic-tub.de gewerbliche Systeme",
       "quelle_url": "https://eisbad-ratgeber.de/eisbad-test/cold-plunge-kuehlaggregat-test",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: ab ~5.900 € (Chill Tubs) · Kommerzielles Becken 350 l mit Dauerbetriebs-Kühlaggregat; Spanne 5.000–10.000 € netto."
+      "hinweis": "Spanne 4.500–8.000 € netto; gewerbliches Kühlaggregat für Dauerbetrieb einplanen (Chill Tubs Original ≈ 4.960 € netto, derwellnessshop.de 4.185–6.000 € brutto)"
     },
     "gen-wellness-tauchbecken": {
       "preis_eur": 4000,
@@ -2744,7 +2751,7 @@
       "quelle_url": "https://www.klarna.com/de/shopping/pl/cl254/3393605859/Erste-Hilfe/Philips-HeartStart-HS1-AED-Defibrillator/",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: 1.046,99 € brutto · inkl. Wandkasten."
+      "hinweis": "Philips HeartStart HS1 ≈ 1.000–1.300 € brutto marktüblich; Fachhändlerpreis einholen"
     },
     "gen-ausstattung-notausgang-schild": {
       "preis_eur": 90,
@@ -2897,12 +2904,12 @@
       "hinweis": "inkl. 5 Sandbags"
     },
     "gen-hyrox-wall-ball-ziel": {
-      "preis_eur": 100,
-      "quelle": "Centr × HYROX Competition Rig Target 109 USD (fitshop.de)",
-      "quelle_url": "https://www.fitshop.de/",
+      "preis_eur": 110,
+      "quelle": "fitshop.de Centr × HYROX Competition Zielscheibe 129,95 € brutto",
+      "quelle_url": "https://www.fitshop.de/centr-x-hyrox-competition-zielscheibe-hyrox-hbt",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "je Ziel; Wandmontage"
+      "hinweis": "je Ziel; Wandmontage; Strike-Zone Unterkante 2,70 m (Frauen) / 3,00 m (Männer)"
     },
     "gen-hyrox-wall-ball-regal": {
       "preis_eur": 850,

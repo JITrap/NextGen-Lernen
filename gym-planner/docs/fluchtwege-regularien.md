@@ -74,8 +74,9 @@ Alle Grenzwerte stehen in `REGULATION_RULES` (exportiert, zentral anpassbar).
 | Fluchtwege | Korridor frei | Rechteck `settings.minEscapeRouteCm` breit je Segment ohne Objekt-Grundflächen (Objekte `ohne_stellflaeche`, Wandmontage und Rampen ausgenommen) | fail/ok | ASR A2.3 Abs. 5 / ASR A1.8 |
 | Fluchtwege | Wände nur durch Türen | Segment kreuzt Wandachsen nur innerhalb einer Türöffnung (± 2 cm) | fail/ok | ASR A2.3 Abs. 4 |
 | Fluchtwege | Anzahl Notausgänge | ≥ 2 je Stockwerk ab 200 m² Nettofläche oder > 20 Personen; 0 = fail; Notausgangstür an Innenwand = warn | fail/warn/ok | MBO § 33, ASR A2.3 Abs. 4 |
-| Fluchtwege | Ausgangsbreite gesamt | Summe lichte Breiten ≥ Soll nach Personen (≤ 5: 87,5 cm; ≤ 20: 100; ≤ 200: 120; ≤ 300: 180; ≤ 400: 240; je weitere 100 + 60 cm) | fail/ok | ASR A2.3 Tabelle 1 |
-| Fluchtwege | Türbreite | jede Notausgangstür ≥ 87,5 cm | fail/ok | ASR A2.3 Tabelle 1 |
+| Fluchtwege | Ausgangsbreite gesamt | Summe lichte Breiten ≥ Soll nach Personen (ASR A2.3 2022, Spalte Weg: ≤ 5: 90 cm; ≤ 20: 100; ≤ 200: 120; ≤ 300: 180; ≤ 400: 240; je weitere 100 + 60 cm) | fail/ok | ASR A2.3 Tabelle 1 |
+| Fluchtwege | Türbreite Hauptausgang | breiteste Notausgangstür ≥ Spalte Tür für die Personenzahl (≤ 5: 80 cm; ≤ 20: 90; ≤ 50: 90; ≤ 100: 100; ≤ 200: 105; ≤ 300: 165; ≤ 400: 225) | warn/ok | ASR A2.3 Tabelle 1 |
+| Fluchtwege | Türbreite | jede Notausgangstür ≥ 80 cm | fail/ok | ASR A2.3 Tabelle 1 |
 | Fluchtwege | Aufschlagrichtung | Hallenwand: Schwenkfläche außerhalb des Innenpolygons (sonst warn); Innenwand: info; Schiebe-/Rolltor als Notausgang: fail | fail/warn/info/ok | ASR A2.3 Abs. 6 |
 | Verkehrswege | Laufwegbreite | Zusammenfassung der „escape-route“-Warnungen je Stockwerk (Anzahl Engpässe, schmalster); Soll = `minEscapeRouteCm`, Hinweis ≥ 120 cm bis 200 Personen; Einstellung < Soll = warn | warn/ok | ASR A1.8, ASR A2.3 Tabelle 1 |
 | Brandschutz | Löschmitteleinheiten | Soll nach Grundfläche (≤ 50 m²: 6 LE … 1000 m²: 36 LE, je weitere 250 m² + 6 LE); Ist = Feuerlöscher × LE (`params.le`, Standard 6); reicht es nur mit 10 LE je Gerät → warn | fail/warn/ok | ASR A2.2 Abs. 5.2, Tabelle 3 |

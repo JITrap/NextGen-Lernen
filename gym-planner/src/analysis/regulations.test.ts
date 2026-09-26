@@ -5,7 +5,7 @@ import { getDef } from '@/data/equipment';
 import { getTemplate } from '@/data/templates';
 import { allWalls, openingPlacement, findWall } from '@/geometry/walls';
 import {
-  regulations, regulationChecksFor, countRegulationChecks, sortRegulationChecks, requiredExitWidthCm, requiredExtinguisherLe,
+  regulations, regulationChecksFor, countRegulationChecks, sortRegulationChecks, requiredExitWidthCm, requiredDoorWidthCm, requiredExtinguisherLe,
   requiredStaffToilets, requiredFirstAiders, requiredFireWardens, gridPointsInRoom, worstDistanceInRoom, worstStatus, escapeRouteStatus,
   REGULATION_RULES, STAFF_DEFAULT, THEMA, DEF_EXIT_LIGHT, DEF_ESCAPE_PLAN, type RegulationCheck,
 } from './regulations';
@@ -77,12 +77,18 @@ function equippedProject(): { project: Project; top: Door; bottom: Door } {
 
 describe('Regeltabellen (ASR A2.3 Tabelle 1, ASR A2.2 Tabelle 3, ASR A4.1, DGUV V1)', () => {
   it('Sollbreite der Ausgänge nach Personenzahl', () => {
-    expect(requiredExitWidthCm(0)).toBe(87.5);
-    expect(requiredExitWidthCm(5)).toBe(87.5);
+    expect(requiredExitWidthCm(0)).toBe(90);
+    expect(requiredExitWidthCm(5)).toBe(90);
     expect(requiredExitWidthCm(6)).toBe(100);
     expect(requiredExitWidthCm(20)).toBe(100);
     expect(requiredExitWidthCm(66)).toBe(120);
     expect(requiredExitWidthCm(200)).toBe(120);
+    expect(requiredDoorWidthCm(5)).toBe(80);
+    expect(requiredDoorWidthCm(20)).toBe(90);
+    expect(requiredDoorWidthCm(66)).toBe(100);
+    expect(requiredDoorWidthCm(150)).toBe(105);
+    expect(requiredDoorWidthCm(400)).toBe(225);
+    expect(requiredDoorWidthCm(500)).toBe(285);
     expect(requiredExitWidthCm(250)).toBe(180);
     expect(requiredExitWidthCm(400)).toBe(240);
     expect(requiredExitWidthCm(500)).toBe(300);
@@ -282,9 +288,12 @@ describe('Regularien-Prüfung: ausgestattete Halle', () => {
   });
   it('zu schmale Notausgangstür → nicht erfüllt', () => {
     const q = equippedProject().project;
-    const narrow = door('hall_1', 400, 80);
+    const narrow = door('hall_1', 400, 70);
     q.floors[0].openings.push(narrow);
     expect(one(q, `exit:${narrow.id}:width`).status).toBe('fail');
+    const minimal = door('hall_1', 700, 80);
+    q.floors[0].openings.push(minimal);
+    expect(one(q, `exit:${minimal.id}:width`).status).toBe('ok');
   });
   it('Löschmitteleinheiten: mit 10-LE-Geräten erreichbar → prüfen, sonst nicht erfüllt; params.le zählt', () => {
     const q = hallProject();
@@ -428,7 +437,8 @@ describe('PDF-Zeilen', () => {
   it('REGULATION_RULES ist vollständig', () => {
     expect(REGULATION_RULES.fluchtweglaengeM).toBe(35);
     expect(REGULATION_RULES.lauflaengeFaktor).toBe(1.5);
-    expect(REGULATION_RULES.ausgangsbreite.length).toBe(5);
+    expect(REGULATION_RULES.ausgangsbreite.length).toBe(7);
+    expect(REGULATION_RULES.ausgangsbreite.map((r) => r.tuerCm)).toEqual([80, 90, 90, 100, 105, 165, 225]);
     expect(REGULATION_RULES.loeschmittel.length).toBe(11);
   });
 });

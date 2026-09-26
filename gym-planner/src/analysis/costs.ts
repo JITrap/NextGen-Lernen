@@ -27,10 +27,10 @@ import { bom } from './bom';
 
 export const DEFAULT_COST_ASSUMPTIONS: CostAssumptions = {
   // Richtwerte 2025/2026 aus Branchen-/Handwerksquellen (docs/kosten.md, Abschnitt „Kostenblöcke“), typische Werte
-  ausbauEurM2: 230, // Trockenbau (anteilig), Elektro + LED, Heizung/Warmwasser, Maler, Umkleiden-/Empfangsausbau je m² Netto
+  ausbauEurM2: 250, // Trockenbau (anteilig), Elektro + LED 110, Heizung/Warmwasser 35, Maler, Umkleiden-/Empfangsausbau je m² Netto
   bodenTrainingEurM2: 55, // Gummi-/Kautschukboden 8–10 mm verlegt
   bodenNassEurM2: 90, // Fliesen/Vinyl Sanitär und Umkleiden verlegt
-  lueftungEurM2: 100, // RLT-Anlage komplett mit Wärmerückgewinnung
+  lueftungEurM2: 110, // gewerbliche RLT-Anlage mit Kanalnetz und Wärmerückgewinnung (80–160 €/m²)
   spiegelEurM: 660, // Spiegelwand 300 €/m² × 2,2 m Höhe
   brandschutzEurM2: 30, // Brandmeldeanlage + Sicherheits-/Rettungszeichenbeleuchtung
   sanitaerDuscheEur: 1500,
