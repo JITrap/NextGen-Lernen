@@ -8,17 +8,17 @@ Alle Maße in cm, Ursprung oben links, Hallen-Außenwand 24 cm (Innenkante bei 2
 
 | Bereich | Lage (Innenmaße) | Fläche | Inhalt |
 |---|---|---|---|
-| Empfang / Lounge | x 24–895, y 24–545 | 45,4 m² | Haupteingang (200 cm, zweiflügelig) oben, Theke mit Front zum Eingang, Drehkreuz (Eintritt) und Zugangsschranke mit Paniköffnung (Ausgang/Fluchtweg) vor der Glastür zur Halle, Sofa/Sessel/Loungetisch als Wartebereich, Shakebar mit 3 Barhockern, Getränkekühlschrank und -automat, Garderobe, Info-Stele, Info-Bildschirm, 3 Pflanzen, Wasserspender, Desinfektionsstation, AED, Erste-Hilfe-Kasten, Feuerlöscher, Rettungszeichen + Sicherheitsleuchte am Eingang, Kamera |
+| Empfang / Lounge | x 24–895, y 24–545 | 45,4 m² | Haupteingang (200 cm, zweiflügelig) oben, Theke mit Front zum Eingang, Drehkreuz (Eintritt) und Zugangsschranke mit Paniköffnung (Ausgang/Fluchtweg) vor der Glastür zur Halle, Sofa/Sessel/Loungetisch als Wartebereich an der Westwand, daneben links unten Getränkeautomat und Shakebar mit 3 Barhockern (x ≤ 320) und Getränkekühlschrank, Garderobe, Info-Stele, Info-Bildschirm, Flucht- und Rettungsplan (Aushang) an der Wand zur Halle, 3 Pflanzen, Wasserspender, Desinfektionsstation, AED, Erste-Hilfe-Kasten, Feuerlöscher, Rettungszeichen + Sicherheitsleuchte am Eingang, Kamera; der Korridor des Fluchtwegs 5 (y 350–470 von der Glastür, x 270–390 zum Haupteingang) bleibt frei |
 | Büro | x 24–345, y 555–895 | 10,9 m² | Schreibtisch, Bürostuhl, Rollcontainer, Aktenschrank, Heizkörper unter dem Fenster |
 | Personalraum | x 355–645 | 9,9 m² | Pausentisch mit 2 Stühlen, Personalschrank, Teeküche, Feuerlöscher, Erste-Hilfe-Kasten |
 | WC barrierefrei | x 655–895 | 8,2 m² | Barrierefreies WC quer an der Nordwand, Bewegungsfläche 150 × 150 cm (x 730–880, y 715–865) frei, Waschtisch, Handtuchspender; Tür (100 cm) schlägt nach außen in die Halle |
 | Umkleide Damen / Herren | x 405–895, y 905–1495 bzw. 1505–2095 | je 28,9 m² | Spindreihe A (16 Abteile, 32 Fächer, 2-stöckig) an der Südwand, Spindreihe B (9 Abteile, 18 Fächer) an der Sanitärwand, Einzelkabine, Mittelbank mit Garderobe, Bank mit Schuhrost, Spiegel, Föhnplatz, Wertfächer, Mülleimer, Lüftungsauslass, Feuerlöscher |
 | Duschen / WC Damen / Herren | x 24–395 | je 21,9 m² | 4 Einzelduschen, barrierefreie Dusche, 2 WC-Kabinen, Doppelwaschtisch, Handtuchspender, Wäschesammler; Damen: Wickeltisch, Herren: 2 Urinale |
-| Lager | x 405–895, y 2105–2476 | 18,2 m² | Rolltor (250 cm) an der Südwand, Tür von der Halle, 2 Schwerlastregale, Regal, Waschmaschine + Trockner, Hantelscheiben-Sätze, Feuerlöscher; Türen zu Technik und Putzraum schlagen ins Lager |
+| Lager | x 405–895, y 2105–2476 | 18,2 m² | Rolltor (250 cm) an der Südwand, Tür von der Halle, 2 Schwerlastregale, Regal (Ostwand ab y 2290, unterhalb des Fluchtweg-Korridors), Waschmaschine + Trockner, Hantelscheiben-Sätze, Feuerlöscher; Türen zu Technik und Putzraum schlagen ins Lager |
 | Technik / Lüftung | x 24–395, y 2105–2355 | 9,3 m² | RLT-Gerät mit 60 cm Wartungsraum, Warmwasserspeicher, Serverschrank, Schaltschrank |
 | Putzraum | x 24–395, y 2365–2476 | 4,1 m² | Putzwagen, Regal, Ausgussbecken |
-| Wellness | x 3105–3976, y 575–1295 | 62,7 m² | Sauna 300 × 300, Infrarotkabine, Erlebnisdusche, Eisbrunnen, Cold Plunge, Red-Light-Panel, 4 Ruheliegen, Wasserbett, Massagestuhl, Teestation, Wasserspender, Wäschesammler, Handtuchspender, Feuerlöscher; Glastür von der Halle bei y 900 |
-| Kursraum | x 3105–3976, y 1305–2476 | 102 m² | Spiegelwand (840 cm) an der Westwand, Trainerpodest mit Musikanlage davor, Mattenraster 3 × 4 = 12 Kursmatten (≈ 3 m² je Platz), 6 Indoor-Cycling-Räder in 2 Reihen (≥ 100 cm Abstand), Mattenregal, Step-Wagen, Kurshantel-Regal, Gymnastikball-Regal an der Südwand, Wasserspender, Desinfektionsstation, 2 Lüftungsauslässe, 2 Lautsprecher, 2 Fenster, Erste-Hilfe-Kasten, Feuerlöscher, eigener Notausgang (Ostwand, y 2300) mit Rettungszeichen und Sicherheitsleuchte, zweiflügelige Tür (150 cm) von der Halle |
+| Wellness | x 3105–3976, y 575–1295 | 62,7 m² | Sauna 300 × 300, Infrarotkabine, Erlebnisdusche, Eisbrunnen, Cold Plunge, Red-Light-Panel, 4 Ruheliegen, Wasserbett und Massagestuhl (Grundflächen bis y 1075, davor 120 cm Gang zu den Ruheliegen), Teestation, Wasserspender, Wäschesammler, Handtuchspender, Feuerlöscher; Glastür von der Halle bei y 900 |
+| Kursraum | x 3105–3976, y 1305–2476 | 102 m² | Spiegelwand (840 cm) an der Westwand, Trainerpodest mit Musikanlage davor, Mattenraster 3 × 4 = 12 Kursmatten ab x 3400 (≈ 3 m² je Platz; 135 cm Gang zwischen Trainerpodest und Matten), 6 Indoor-Cycling-Räder in 2 Reihen (≥ 100 cm Abstand), Mattenregal, Step-Wagen, Kurshantel-Regal, Gymnastikball-Regal an der Südwand, Wasserspender, Desinfektionsstation, 2 Lüftungsauslässe, 2 Lautsprecher, 2 Fenster, Erste-Hilfe-Kasten, Feuerlöscher, eigener Notausgang (Ostwand, y 2300) mit Rettungszeichen und Sicherheitsleuchte, zweiflügelige Tür (150 cm) von der Halle |
 | Trainingshalle | x 905–3095 (oben rechts bis 3976 × 565) | 584,7 m² | L-förmig; Raum-Label ausgeblendet, die Zonen tragen die Beschriftung |
 
 Die rechte Servicezeile beginnt erst bei y 570, dadurch gehört die Ecke oben rechts (8,7 × 5,4 m) zur Halle und
@@ -42,7 +42,7 @@ Rücken an Rücken berühren sich mit ihren Sicherheitszonen. Alle Mittelpunkte 
 | Cardio (unten, L-förmig) | Cardio | 71,2 m² | Fensterband Süd (5 Fenster 200 cm) mit 3 TVs 65″ zwischen den Fenstern: 4 Laufbänder, Curved Treadmill, Crosstrainer, Stairmaster, Ergometer (links) und 4 Crosstrainer (rechts vor dem Beine-Block); Front zum Fenster, 200 cm Sturzraum nach innen |
 
 Ausstattung in der Halle: 7 Wasserspender, 5 Desinfektionsstationen, Mülleimer, Handtuch-/Sprühflaschenhalter,
-5 Lautsprecher, 3 Kameras. Gesamt 253 Objekte (30 Kraftgeräte, 16 Cardio-Geräte, 11 Functional-Objekte,
+5 Lautsprecher, 3 Kameras. Gesamt 254 Objekte (30 Kraftgeräte, 16 Cardio-Geräte, 11 Functional-Objekte,
 12 Atlantis-, 18 Prime-Geräte).
 
 ## HYROX-Bereich (8 Stationen)
@@ -71,28 +71,46 @@ Neuer Raumtyp `HYROX` (Farbe `#eab308`, Flächenklasse Trainingsfläche) in `src
 | Feuerlöscher (15) | Empfang, Personalraum, beide Umkleiden, Lager, Wellness, Kursraum, Halle: 3 × Westwand (y 800/1400/2050), 2 × Ostwand (y 1150/1950), Nordwand (x 2400/3200), Südwand (x 2250); kein Punkt der Halle ist mehr als 20 m vom nächsten Gerät entfernt (Test: 100-cm-Raster), ≈ 1,5 Geräte je 100 m² |
 | Erste Hilfe (5) | Empfang, Personalraum, Halle (Westwand y 1440), HYROX (Nordwand), Kursraum |
 | AED (2) | Empfang (Nordwand) und Halle (Westwand y 1490) |
+| Flucht- und Rettungsplan | Aushang (`gen-ausstattung-fluchtplan`, Wandobjekt) an der Empfangswand zur Halle (y 60), damit die Prüfung „Flucht- und Rettungsplan aushängen“ erfüllt ist |
 | Desinfektion / Wasser | 5 Desinfektionsstationen, 7 Wasserspender |
 | Barrierefreiheit | WC mit 150 × 150 cm Bewegungsfläche, Tür nach außen; barrierefreie Duschen in beiden Sanitärräumen |
 
 ### Fluchtwege (`floor.annotations`, `kind: 'escape-route'`)
 
-Alle Wege verlaufen durch die Gänge (keine Grundflächen gekreuzt, Wände nur an Türen; die Zugangsschranke im
+Alle Wege verlaufen auf den Mittellinien der Gänge (keine Grundflächen gekreuzt, Wände nur an Türen; die Zugangsschranke im
 Empfang hat Paniköffnung und ist Teil des Fluchtwegs) und enden ≤ 100 cm vor einem Notausgang.
 
-| Nr. | Von | Nach | Weglänge | Luftlinie |
-|---|---|---|---|---|
-| 1 | Kursraum (Mattenraster) | Notausgang Kursraum | 14,6 m | 5,7 m |
-| 2 | Wellness (Ruhebereich Ost) | Notausgang Halle Ost | 23,9 m | 6,6 m |
-| 3 | Duschen/WC Herren | Notausgang Halle Süd | 33,7 m | 20,7 m |
-| 4 | Cardio, Ecke Südwest | Notausgang Halle Süd | 13,2 m | 10,8 m |
-| 5 | Freihantel (Rack-Gang) | Haupteingang | 11,4 m | 8,9 m |
-| 6 | Technik / Lager | Notausgang Halle Süd | 35,3 m | 19,2 m |
+| Nr. | Von | Nach | Weglänge | Luftlinie | Wegführung |
+|---|---|---|---|---|---|
+| 1 | Kursraum (Gang neben dem Trainerpodest, x 3330) | Notausgang Kursraum | 15,2 m | 10,9 m | Gang zwischen Podest und Mattenraster, dann bei y 2290 zwischen Matten und Regalen |
+| 2 | Wellness (Ruhebereich Ost, y 1160) | Notausgang Halle Ost | 24,0 m | 6,6 m | Gang zwischen Wasserbett/Massagestuhl und Ruheliegen, Glastür, Hallen-Gang vor der Wellness-Wand |
+| 3 | Umkleide Herren (Raumtür, y 1565) | Notausgang Halle Süd | 21,1 m | 15,0 m | Gang zwischen Reihe B (Rücken) und Reihe C (Beine), Gang zwischen Beine-Block und Arme-Block |
+| 4 | Cardio, Ecke Südwest | Notausgang Halle Süd | 13,2 m | 10,8 m | Gang zwischen Beine-Reihe und Cardio |
+| 5 | Freihantel (Rack-Gang) | Haupteingang | 11,4 m | 8,5 m | Glastür, Zugangsschranke, an Theke und Shakebar vorbei zum Haupteingang |
+| 6 | Technik / Lager (Techniktür, y 2280) | Notausgang Halle Süd | 33,3 m | 17,2 m | durch das Lager (Korridor 100 cm) zur Lagertür, Gang entlang der Servicezeile, weiter wie Weg 3 |
+
+### Fluchtwege und Regularien-Prüfung
+
+Die Regularien-Prüfung (`regulations(project)`, Übersicht → „Regularien & Brandschutz“) meldet für die Vorlage **keine Prüfung
+„nicht erfüllt“ und keine „prüfen“** (78 erfüllt, 6 Hinweise, 1 nicht anwendbar). Dafür gelten beim Aufbau der Fluchtwege diese
+Regeln: Der Korridor jedes Segments (120 cm in der Halle, im Empfang, in Wellness und Kursraum; 100 cm in Nebenräumen wie
+Lager, Technik oder Umkleiden) ist frei von Objekt-Grundflächen – Wege laufen deshalb auf der Mittellinie der Gänge mit
+≥ 60 cm (Nebenräume ≥ 50 cm) Abstand zu Grundflächen; Drehkreuz und Zugangsschranke (Paniköffnung) zählen nicht, Kursmatten
+würden als „prüfen“ gemeldet und werden deshalb ebenfalls umgangen. Wege aus Nebenräumen unter 40 m² (Umkleide Herren
+28,9 m², Technik 9,3 m², Lager 18,2 m²) beginnen an der Raumtür. Dazu wurden das Mattenraster im Kursraum nach rechts
+(x ≥ 3400) gerückt, Wasserbett und Massagestuhl in der Wellness nach oben (Grundflächen bis y 1075), das Lager-Regal unter den
+Korridor der Techniktür (y ≥ 2290) und im Empfang Shakebar, Barhocker und Getränkeautomat links unten neben die Lounge
+gesetzt, sodass der Korridor von der Glastür (y 350–470) und zum Haupteingang (x 270–390) frei bleibt. Der Aushang „Flucht-
+und Rettungsplan“ an der Empfangswand erfüllt die organisatorische Prüfung; übrig bleiben nur Hinweise (Beschäftigten-WC,
+Brandschutzhelfer/Ersthelfer, Feuerlöscherprüfung, Legionellen, Bewegungsfläche des barrierefreien WCs). Der Test
+„Regularien: keine Prüfung „nicht erfüllt“ oder „prüfen““ in `src/data/templates.test.ts` sichert diesen Stand ab.
 
 ## Kennzahlen
 
 - Brutto 1.000 m², netto 969 m², Trainingsfläche 583 m² (Zonen + Kursraum), 14 automatisch erkannte Räume + 8 Zonen.
 - Kapazität (9 m² je Person): 64 Personen; Spinde 100 (Bedarf 64), Duschen 10 (Bedarf 5), WCs 7 inkl. Urinale (Bedarf 3).
 - Warnungen ab Werk: nur die Info „Maße ungeprüft“ (generische Bibliothek); keine Kollisionen, Tür-, Notausgang- oder Laufweg-Warnungen.
+- Regularien-Prüfung: 78 erfüllt, 0 nicht erfüllt, 0 prüfen, 6 Hinweise (Bemessung 70 Personen, 4 Notausgänge, 90 LE, 5 Verbandkästen, 2 AED).
 - Türen 18 (inkl. Rolltor), Fenster 14, Spiegelwände 2, Anmerkungen 16 (6 Fluchtwege, 10 Textnotizen).
 
 ## Tests
@@ -102,4 +120,5 @@ Muskelgruppen-Zone und Reihenausrichtung, Gänge ≥ 120/125 cm, Scheibenstände
 Cardio am Fensterband, HYROX-Stationen und -Bahnen, Kursraum (Matten, Räder-Abstand, Regale, Notausgang), Ausstattung
 aller Räume, Sicherheitsausstattung (Rettungszeichen/Sicherheitsleuchte je Notausgang, Feuerlöscher-Abdeckung ≤ 20 m,
 Erste Hilfe, AED), Fluchtwege (Ende am Notausgang, Länge ≤ 52,5 m, Luftlinie ≤ 35 m, keine Grundflächen, Wände nur an
-Türen), Kapazität und Warnungsfreiheit.
+Türen), Kapazität, Warnungsfreiheit und die Regularien-Prüfung ohne „nicht erfüllt“/„prüfen“ (inkl. Korridor-Prüfung je
+Fluchtweg und Flucht- und Rettungsplan im Empfang).

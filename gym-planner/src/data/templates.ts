@@ -860,23 +860,27 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
   ]);
   for (const meta of Object.values(floor.roomMeta)) if (meta.name === 'Trainingshalle') meta.labelMode = 'none';
 
-  /* ---- Empfang / Lounge (x 24–895, y 24–545) – Haupteingang oben x 200–400, Glastür zur Halle bei y 420 ---- */
-  b.put(S('gen-empfang-theke', 180), { cx: 610, cy: 300 }); // Front zum Eingang
+  /* ---- Empfang / Lounge (x 24–895, y 24–545) – Haupteingang oben x 200–400, Glastür zur Halle bei y 420.
+     Fluchtweg 5 läuft von der Glastür bei y 410 nach Westen (Korridor y 350–470, durch die Zugangsschranke mit Paniköffnung) und
+     bei x 330 nach Norden zum Haupteingang (Korridor x 270–390): Theke endet bei y 340, Shakebar mit Barhockern und Getränkeautomat
+     links unten neben der Lounge (x ≤ 320), Kühlschrank/Pflanzen unter dem Korridor (y ≥ 475). ---- */
+  b.put(S('gen-empfang-theke', 180), { cx: 610, cy: 300 }); // Front zum Eingang, Grundfläche y 260–340
   b.put(S('gen-empfang-drehkreuz', 270, { note: 'Eintritt' }), { right: ROOM_X1, cy: 320 });
   b.put(S('gen-empfang-zugangsschranke', 270, { note: 'Ausgang / Fluchtweg (Paniköffnung)' }), { right: ROOM_X1, top: 380 });
-  b.put(S('gen-empfang-sofa-3', 90), { left: IX0, top: 200 });
-  b.put(S('gen-empfang-loungetisch'), { cx: 190, cy: 310 });
-  b.put(S('gen-empfang-sessel'), { cx: 200, cy: 220 });
-  b.put(S('gen-empfang-sessel'), { cx: 200, cy: 400 });
-  b.put(S('gen-empfang-shakebar', 180), { cx: 560, bottom: 545 });
-  for (const cx of [490, 560, 630]) b.put(S('gen-empfang-barhocker'), { cx, cy: 445 });
-  b.put(S('gen-empfang-kuehlschrank'), { left: 670, bottom: 545 });
-  b.put(S('gen-empfang-getraenkeautomat'), { left: 740, bottom: 545 });
+  b.put(S('gen-empfang-sofa-3', 90), { left: IX0, top: 180 });
+  b.put(S('gen-empfang-loungetisch'), { cx: 190, cy: 300 });
+  b.put(S('gen-empfang-sessel'), { cx: 200, cy: 220 }); // außerhalb der 150-cm-Freihaltefläche des Haupteingangs (y ≥ 175)
+  b.put(S('gen-empfang-sessel'), { cx: 200, cy: 380 });
+  b.put(S('gen-empfang-getraenkeautomat'), { left: IX0, bottom: 545 });
+  b.put(S('gen-empfang-shakebar', 180), { left: 130, bottom: 545 }); // Grundfläche x 130–330
+  for (const cx of [160, 230, 300]) b.put(S('gen-empfang-barhocker'), { cx, cy: 450 }); // vor der Bar (bis x 320, y 430–470)
+  b.put(S('gen-empfang-kuehlschrank'), { left: 340, bottom: 545 });
   b.put(S('gen-empfang-garderobe'), { cx: 550, top: IY0 });
   b.put(S('gen-empfang-info-stele'), { cx: 650, top: IY0 });
   b.put(S('gen-empfang-info-bildschirm', 90, { wallId: wCol.id }), { right: ROOM_X1, cy: 150 });
-  b.put(S('gen-ausstattung-pflanze-gross'), { left: IX0, bottom: 545 });
-  b.put(S('gen-ausstattung-pflanze'), { cx: 250, cy: 500 });
+  b.put(S('gen-ausstattung-fluchtplan', 90, { wallId: wCol.id, note: 'Aushang am Empfang (DIN ISO 23601)' }), { right: ROOM_X1, cy: 60 });
+  b.put(S('gen-ausstattung-pflanze-gross'), { right: 845, bottom: 545 });
+  b.put(S('gen-ausstattung-pflanze'), { cx: 620, cy: 510 });
   b.put(S('gen-ausstattung-pflanze'), { cx: 60, top: IY0 });
   b.put(S('gen-ausstattung-wasserspender'), { cx: 810, top: IY0 });
   b.put(S('gen-ausstattung-desinfektionsstation'), { cx: 860, top: IY0 });
@@ -943,7 +947,7 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
 
   /* ---- Lager (x 405–895, y 2105–2476) – Tür von der Halle bei y 2180, Rolltor unten x 475–725, Türen zu Technik/Putzraum schlagen ins Lager ---- */
   b.rowX([S('gen-lager-schwerlastregal'), S('gen-lager-schwerlastregal')], { left: 410, top: 2105 }, { limit: 800 });
-  b.put(S('gen-lager-regal', 90), { right: ROOM_X1, top: 2235 });
+  b.put(S('gen-lager-regal', 90), { right: ROOM_X1, top: 2290 }); // unterhalb des Fluchtweg-Korridors von der Techniktür (y ≤ 2330)
   b.rowX([S('gen-lager-waschmaschine'), S('gen-lager-trockner')], { left: 740, bottom: IY1 }, { limit: ROOM_X1 });
   b.put(S('gen-freihantel-hantelscheiben-satz'), { cx: 450, cy: 2350 });
   b.put(S('gen-freihantel-hantelscheiben-satz-gross'), { cx: 500, cy: 2350 });
@@ -970,18 +974,19 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
   b.put(S('gen-wellness-ruheliege', 90), { right: IX1, top: 1010 });
   b.put(S('gen-wellness-teestation'), { left: 3110, cy: 730 });
   b.put(S('gen-ausstattung-wasserspender'), { cx: 3270, cy: 720 });
-  b.put(S('gen-wellness-wasserbett'), { cx: 3400, cy: 1045 });
-  b.put(S('gen-wellness-massagestuhl'), { cx: 3600, cy: 1025 });
+  b.put(S('gen-wellness-wasserbett'), { cx: 3400, cy: 1030 }); // Grundfläche bis y 1075 – Fluchtweg-Korridor y 1100–1220 bleibt frei
+  b.put(S('gen-wellness-massagestuhl'), { cx: 3600, cy: 1000 });
   b.put(S('gen-ausstattung-pflanze'), { cx: 3720, cy: 1050 });
   b.put(S('gen-umkleide-waeschesammler'), { cx: 3840, bottom: WELL_Y1 });
   b.put(S('gen-umkleide-handtuchspender', 270, { wallId: wRC.id }), { left: RX0, cy: 1050 });
 
-  /* ---- Kursraum (x 3105–3976, y 1305–2476) – Tür bei y 1430 (Schwenk x 3105–3255, y 1355–1505), Spiegelwand x 3100 y 1560–2400, Notausgang rechts y 2300 ---- */
+  /* ---- Kursraum (x 3105–3976, y 1305–2476) – Tür bei y 1430 (Schwenk x 3105–3255, y 1355–1505), Spiegelwand x 3100 y 1560–2400, Notausgang rechts y 2300.
+     Mattenraster ab x 3400: zwischen Trainerpodest (bis x 3265) und Matten bleibt ein Gang von 135 cm (Fluchtweg 1 bei x 3330). ---- */
   b.put(S('gen-kursraum-trainer-podest', 90, { label: 'Trainer' }), { left: 3110, cy: 2000 });
   b.put(S('gen-kursraum-musikanlage'), { left: 3110, top: 2110 });
   const kursRacks = b.rowX([S('gen-kursraum-mattenregal', 180), S('gen-kursraum-step-wagen', 180), S('gen-kursraum-kurshantel-regal', 180), S('gen-kursraum-gymnastikball-regal', 180)], { left: 3110, bottom: IY1 }, { limit: 3700 });
   const mats: PlacedItem[] = [];
-  for (const col of [3350, 3560, 3770]) mats.push(...b.rowY([S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte')], { top: 1740, left: col }, { gap: 80, limit: 2250 }));
+  for (const col of [3400, 3590, 3780]) mats.push(...b.rowY([S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte'), S('gen-kursraum-kursmatte')], { top: 1740, left: col }, { gap: 80, limit: 2250 }));
   assert(b.boxOf(mats).maxY <= 2250 && b.boxOf(mats).maxY < b.boxOf(kursRacks).minY, 'Kursmatten ragen in die Freihaltefläche des Notausgangs oder in die Regale');
   const bikes1 = b.rowX([S('gen-kursraum-spinning-rad'), S('gen-kursraum-spinning-rad'), S('gen-kursraum-spinning-rad')], { left: 3520, top: KURS_Y0 }, { gap: 40, limit: IX1 });
   const bikes2 = b.rowX([S('gen-kursraum-spinning-rad'), S('gen-kursraum-spinning-rad'), S('gen-kursraum-spinning-rad')], { left: 3520, top: b.boxOf(bikes1).maxY + 40 }, { gap: 40, limit: IX1 });
@@ -1161,19 +1166,20 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
   b.put(S('gen-ausstattung-kamera', 0, { wallId: top.id }), { cx: 3900, top: IY0 });
   b.put(S('gen-ausstattung-muelleimer'), { cx: 2300, cy: 340 });
 
-  /* Fluchtwege: von den entferntesten Punkten durch die Gänge zum nächsten Notausgang (Wände nur an Türen) */
-  b.escapeRoute([{ x: 3650, y: 1840 }, { x: 3300, y: 1840 }, { x: 3300, y: 2290 }, { x: 3960, y: 2290 }], 'Fluchtweg 1 – Kursraum → Notausgang Kursraum');
-  b.escapeRoute([{ x: 3880, y: 1150 }, { x: 3160, y: 1150 }, { x: 3160, y: 905 }, { x: 3050, y: 905 }, { x: 3050, y: 505 }, { x: 3960, y: 505 }], 'Fluchtweg 2 – Wellness → Notausgang Halle Ost');
+  /* Fluchtwege: von den entferntesten Punkten durch die Mittellinien der Gänge zum nächsten Notausgang (Wände nur an Türen).
+     Der Korridor (120 cm in der Halle, 100 cm in Nebenräumen) bleibt frei von Objekt-Grundflächen; Wege aus Nebenräumen < 40 m²
+     (Umkleide, Technik/Lager) beginnen an der Raumtür. */
+  b.escapeRoute([{ x: 3330, y: 1400 }, { x: 3330, y: 2290 }, { x: 3960, y: 2290 }], 'Fluchtweg 1 – Kursraum → Notausgang Kursraum'); // Gang zwischen Podest und Mattenraster, dann zwischen Matten und Regalen
+  b.escapeRoute([{ x: 3880, y: 1160 }, { x: 3160, y: 1160 }, { x: 3160, y: 905 }, { x: 3050, y: 905 }, { x: 3050, y: 505 }, { x: 3960, y: 505 }], 'Fluchtweg 2 – Wellness → Notausgang Halle Ost'); // Gang zwischen Wasserbett/Massagestuhl und Ruheliegen
   b.escapeRoute([
-    { x: 120, y: 1900 }, { x: 300, y: 1900 }, { x: 300, y: 1845 }, { x: 480, y: 1845 }, { x: 480, y: 1905 }, { x: 775, y: 1905 }, { x: 775, y: 1565 }, { x: 960, y: 1565 },
-    { x: 960, y: 1550 }, { x: 2020, y: 1550 }, { x: 2020, y: 2190 }, { x: 2100, y: 2190 }, { x: 2100, y: 2470 },
-  ], 'Fluchtweg 3 – Umkleide Herren → Notausgang Halle Süd');
+    { x: 900, y: 1565 }, { x: 2020, y: 1565 }, { x: 2020, y: 2190 }, { x: 2100, y: 2190 }, { x: 2100, y: 2470 },
+  ], 'Fluchtweg 3 – Umkleide Herren → Notausgang Halle Süd'); // ab Umkleidetür durch den Gang zwischen Reihe B und C
   b.escapeRoute([{ x: 1060, y: 2190 }, { x: 2100, y: 2190 }, { x: 2100, y: 2470 }], 'Fluchtweg 4 – Cardio (Ecke Südwest) → Notausgang Halle Süd');
-  b.escapeRoute([{ x: 1100, y: 410 }, { x: 700, y: 410 }, { x: 330, y: 410 }, { x: 330, y: 40 }], 'Fluchtweg 5 – Freihantel → Haupteingang');
+  b.escapeRoute([{ x: 1100, y: 410 }, { x: 700, y: 410 }, { x: 330, y: 410 }, { x: 330, y: 40 }], 'Fluchtweg 5 – Freihantel → Haupteingang'); // Glastür, Zugangsschranke, an Theke und Shakebar vorbei
   b.escapeRoute([
-    { x: 340, y: 2160 }, { x: 340, y: 2280 }, { x: 450, y: 2280 }, { x: 840, y: 2280 }, { x: 840, y: 2180 }, { x: 960, y: 2180 },
-    { x: 960, y: 1550 }, { x: 2020, y: 1550 }, { x: 2020, y: 2190 }, { x: 2100, y: 2190 }, { x: 2100, y: 2470 },
-  ], 'Fluchtweg 6 – Technik/Lager → Notausgang Halle Süd');
+    { x: 390, y: 2280 }, { x: 790, y: 2280 }, { x: 790, y: 2180 }, { x: 960, y: 2180 },
+    { x: 960, y: 1565 }, { x: 2020, y: 1565 }, { x: 2020, y: 2190 }, { x: 2100, y: 2190 }, { x: 2100, y: 2470 },
+  ], 'Fluchtweg 6 – Technik/Lager → Notausgang Halle Süd'); // ab Techniktür durch das Lager (Korridor 100 cm) zur Lagertür
 
   return project;
 }
