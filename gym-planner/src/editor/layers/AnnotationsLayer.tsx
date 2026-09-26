@@ -5,13 +5,14 @@
  * rot, wenn die Regularien-Prüfung für den Fluchtweg „nicht erfüllt“ meldet).
  * Versteckte Anmerkungen werden nicht gezeichnet, gewählte hervorgehoben. Nicht klickbar (hitTest übernimmt).
  */
-import { memo, useMemo, type ReactNode } from 'react';
+import { memo, useMemo, useRef, type ReactNode } from 'react';
 import { Arrow, Circle, Group, Line, Rect, Text } from 'react-konva';
 import type { EscapeRoute, MeasureLine, TextNote } from '@/types';
 import type { LayerProps } from './LayerProps';
 import { distance } from '@/geometry/polygon';
 import { formatLength } from '@/geometry/units';
-import { polylineLength } from '@/geometry/escapeRoutes';
+import { polylineLength, escapeRouteName as routeName } from '@/geometry/escapeRoutes';
+import { useUiStore } from '@/store/uiStore';
 import { regulations, type RegulationStatus } from '@/analysis/regulations';
 import { readableAngle } from './OpeningsLayer';
 
@@ -80,10 +81,6 @@ const MeasureNode = memo(function MeasureNode({ a, pal, s, selected }: { a: Meas
   );
 });
 
-/** Name eines Fluchtwegs für Label/Panel („Fluchtweg n“ als Ersatz, n = Position unter den Fluchtwegen). */
-export function escapeRouteName(a: EscapeRoute, index: number): string {
-  return a.label?.trim() || `Fluchtweg ${index + 1}`;
-}
 
 /**
  * Fluchtweg: Polylinie mit Pfeilspitze je Segment in Laufrichtung, Startpunkt-Marker und Label „Name · Länge“ am
@@ -136,15 +133,21 @@ export const AnnotationsLayer = memo(function AnnotationsLayer(props: LayerProps
     return set;
   }, [selection]);
   const hasRoutes = floor.annotations.some((a) => a.kind === 'escape-route' && !a.hidden);
-  const routeStatus = useMemo(() => (hasRoutes ? regulations(props.project).routes : {}), [props.project, hasRoutes]);
+  // Während eines Drags (jede Mausbewegung = neue Projektinstanz) den letzten Prüfstand zeigen; Prüfung erst beim Loslassen
+  const dragging = useUiStore((st) => st.dragging);
+  const lastStatus = useRef<Record<string, RegulationStatus>>({});
+  const routeStatus = useMemo(() => {
+    if (!hasRoutes) return {};
+    if (dragging) return lastStatus.current;
+    lastStatus.current = regulations(props.project).routes;
+    return lastStatus.current;
+  }, [props.project, hasRoutes, dragging]);
   const nodes: ReactNode[] = [];
-  let routeIndex = 0;
   for (const a of floor.annotations) {
-    if (a.kind === 'escape-route') routeIndex += 1;
     if (a.hidden) continue;
     if (a.kind === 'text') nodes.push(<TextNoteNode key={a.id} a={a} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
     else if (a.kind === 'measure') nodes.push(<MeasureNode key={a.id} a={a} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
-    else nodes.push(<EscapeRouteNode key={a.id} a={a} name={escapeRouteName(a, routeIndex - 1)} status={routeStatus[a.id] ?? 'na'} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
+    else nodes.push(<EscapeRouteNode key={a.id} a={a} name={routeName(floor, a)} status={routeStatus[a.id] ?? 'na'} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
   }
   return <Group listening={false}>{nodes}</Group>;
 });

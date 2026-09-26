@@ -3,7 +3,7 @@
  * Fangen an Notausgangstüren), Korridor-Rechtecke je Segment und Wanddurchdringungen außerhalb von Türöffnungen.
  * Wird vom Werkzeug „Fluchtweg“, dem Auswahl-Werkzeug und der Regularien-Prüfung gemeinsam genutzt.
  */
-import type { Door, Floor, Opening, Vec2, Wall } from '@/types';
+import type { Door, Floor, Opening, Vec2, Wall, EscapeRoute } from '@/types';
 import { DOOR_TYPE_MAP } from '@/data/wallTypes';
 import { allWalls, findWall, isHallWallId, openingPlacement, wallLength } from './walls';
 import { closestPointOnSegment, distance, segmentIntersection } from './polygon';
@@ -140,21 +140,56 @@ export function wallCrossings(points: Vec2[], floor: Pick<Floor, 'walls' | 'hall
   const out: WallCrossing[] = [];
   const walls = allWalls(floor).filter((w) => !w.hidden && wallLength(w) >= 1);
   const spans = new Map<string, [number, number][]>();
-  for (let i = 0; i + 1 < points.length; i++) {
-    const a = points[i];
-    const b = points[i + 1];
-    for (const w of walls) {
-      const hit = segmentIntersection(a, b, w.start, w.end);
-      if (!hit) continue;
-      let sp = spans.get(w.id);
-      if (!sp) {
-        sp = doorSpansOf(w.id, floor.openings);
-        spans.set(w.id, sp);
+  const EPS = 0.5;
+  const inDoor = (w: Wall, off: number) => {
+    let sp = spans.get(w.id);
+    if (!sp) {
+      sp = doorSpansOf(w.id, floor.openings);
+      spans.set(w.id, sp);
+    }
+    return sp.some(([lo, hi]) => off >= lo - tolerance && off <= hi + tolerance);
+  };
+  for (const w of walls) {
+    const len = wallLength(w);
+    const dx = (w.end.x - w.start.x) / len;
+    const dy = (w.end.y - w.start.y) / len;
+    // Seite eines Punkts zur Wandachse (Vorzeichen) und Offset entlang der Achse
+    const side = (p: Vec2) => (p.x - w.start.x) * dy - (p.y - w.start.y) * dx;
+    const offset = (p: Vec2) => (p.x - w.start.x) * dx + (p.y - w.start.y) * dy;
+    const sides = points.map(side);
+    for (let i = 0; i + 1 < points.length; i++) {
+      const sa = sides[i];
+      const sb = sides[i + 1];
+      if (Math.abs(sa) <= EPS) continue; // Segmentanfang auf der Achse: bereits am Vorsegment behandelt, Startpunkt zählt nie
+      if (Math.abs(sb) <= EPS) {
+        // Segmentende liegt auf der Wandachse (Knoten-Snap): nur ein Seitenwechsel zum nächsten Punkt abseits der Achse zählt
+        let k = i + 2;
+        while (k < points.length && Math.abs(sides[k]) <= EPS) k++;
+        if (k >= points.length || sa * sides[k] > 0) continue;
+        const off = offset(points[i + 1]);
+        if (off < -tolerance || off > len + tolerance || inDoor(w, off)) continue;
+        out.push({ wallId: w.id, point: points[i + 1], segment: i });
+        continue;
       }
-      const off = hit.u * wallLength(w);
-      if (sp.some(([lo, hi]) => off >= lo - tolerance && off <= hi + tolerance)) continue;
+      if (sa * sb > 0) continue; // beide Punkte auf derselben Seite
+      const hit = segmentIntersection(points[i], points[i + 1], w.start, w.end);
+      if (!hit) continue;
+      if (inDoor(w, hit.u * len)) continue;
       out.push({ wallId: w.id, point: hit.point, segment: i });
     }
   }
   return out;
+}
+
+/** Name eines Fluchtwegs: Label oder „Fluchtweg n“ (n = Position unter allen Fluchtwegen des Stockwerks, auch ausgeblendeten). */
+export function escapeRouteName(floor: Pick<Floor, 'annotations'>, route: Pick<EscapeRoute, 'id' | 'label'>): string {
+  const label = route.label?.trim();
+  if (label) return label;
+  let n = 0;
+  for (const a of floor.annotations) {
+    if (a.kind !== 'escape-route') continue;
+    n += 1;
+    if (a.id === route.id) break;
+  }
+  return `Fluchtweg ${n}`;
 }

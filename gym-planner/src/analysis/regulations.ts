@@ -13,7 +13,7 @@ import type { Project, Id, PlanningWarning, Vec2, Floor, PlacedItem, Room, Door,
 import { analysisContext, memoByProject, itemName, hasFootprint, symbolOf, numParam, pointInRoom, visibleItems, type FloorContext, type AnalysisContext } from './common';
 import { capacity } from './capacity';
 import { warnings, ESCAPE_ROUTE_EXCLUDED_ROOM_TYPES } from './warnings';
-import { emergencyExitsOf, nearestExit, polylineLength, corridorPolygon, wallCrossings, doorSwings, type EmergencyExit } from '@/geometry/escapeRoutes';
+import { emergencyExitsOf, nearestExit, polylineLength, corridorPolygon, wallCrossings, doorSwings, escapeRouteName, type EmergencyExit } from '@/geometry/escapeRoutes';
 import { itemFootprint } from '@/geometry/transform';
 import { convexPolygonsOverlap, doorSwingPolygon } from '@/geometry/collision';
 import { findWall, openingPlacement } from '@/geometry/walls';
@@ -42,6 +42,8 @@ export interface RegulationCheck {
   quelleUrl?: string;
   floorId?: Id;
   target?: PlanningWarning['target'];
+  /** Projektweite Prüfung: erscheint in jedem Stockwerks-Umfang; floorId ist nur Sprungziel. */
+  projektweit?: boolean;
 }
 
 export interface RegulationReport {
@@ -312,7 +314,11 @@ function floorSafety(fc: FloorContext, project: Project, ctx: AnalysisContext): 
     return hasFootprint(def) && !def?.wandmontage && it.kind !== 'ramp';
   });
   const pick = (defId: string, symbol?: string) => all.filter((it) => isDef(it, ctx, defId, symbol));
-  const rooms = fc.rooms.length ? fc.rooms : (() => { const h = hallRoom(fc); return h ? [h] : []; })();
+  // Lufträume (Deckenöffnungen) sind kein begehbarer Boden: als zusätzliche Löcher an die Räume der Rasterprüfungen hängen
+  const voids = fc.floor.voids.filter((v) => v.polygon.length >= 3).map((v) => v.polygon);
+  const withVoids = (r: Room): Room => (voids.length ? { ...r, holes: [...(r.holes ?? []), ...voids] } : r);
+  const base = fc.rooms.length ? fc.rooms : (() => { const h = hallRoom(fc); return h ? [h] : []; })();
+  const rooms = base.map(withVoids);
   return {
     fc,
     exits: emergencyExitsOf(fc.floor),
@@ -320,7 +326,7 @@ function floorSafety(fc: FloorContext, project: Project, ctx: AnalysisContext): 
     extinguishers: pick(DEF_EXTINGUISHER, 'extinguisher'),
     firstAid: pick(DEF_FIRST_AID, 'first-aid'),
     aeds: pick(DEF_AED, 'aed'),
-    exitSigns: pick(DEF_EXIT_SIGN, 'exit-sign').filter((it) => it.defId !== DEF_EXIT_LIGHT),
+    exitSigns: pick(DEF_EXIT_SIGN, 'exit-sign'),
     exitLights: pick(DEF_EXIT_LIGHT),
     escapePlans: pick(DEF_ESCAPE_PLAN),
     accessibleWcs: pick(DEF_WC_ACCESSIBLE),
@@ -420,8 +426,8 @@ function drawnRouteChecks(fs: FloorSafety, project: Project, ctx: AnalysisContex
   const width = project.settings.minEscapeRouteCm;
   const footprints = fs.obstacles.map((it) => ({ it, fp: itemFootprint(it) }));
   const routeList = floor.annotations.filter((a): a is EscapeRoute => a.kind === 'escape-route' && !a.hidden && a.points.length >= 2);
-  routeList.forEach((a, idx) => {
-    const name = a.label?.trim() || `Fluchtweg ${idx + 1}`;
+  routeList.forEach((a) => {
+    const name = escapeRouteName(floor, a);
     const target = { kind: 'annotation' as const, id: a.id };
     const statuses: RegulationStatus[] = [];
     const push = (c: RegulationCheck) => { statuses.push(c.status); out.push(c); };
@@ -508,7 +514,7 @@ function exitCountChecks(fs: FloorSafety, floorPersons: number, out: RegulationC
   const fc = fs.fc;
   const floorId = fc.floor.id;
   const area = fc.nettoM2;
-  const needsTwo = area > R.zweiterNotausgangAbM2 || floorPersons > R.zweiterNotausgangAbPersonen;
+  const needsTwo = area >= R.zweiterNotausgangAbM2 || floorPersons > R.zweiterNotausgangAbPersonen;
   const n = fs.exits.length;
   const status: RegulationStatus = n === 0 ? 'fail' : needsTwo && n < 2 ? 'fail' : 'ok';
   out.push({
@@ -716,7 +722,7 @@ function signageChecks(fs: FloorSafety, out: RegulationCheck[]) {
     const hasSign = sign <= R.rettungszeichenAbstandCm;
     out.push({
       id: `sign:${e.door.id}`, thema: THEMA.kennzeichnung, titel: `Rettungszeichen ${doorLabel(e)}`, status: hasSign ? 'ok' : 'warn',
-      ist: hasSign ? `Schild in ${formatLength(sign)}` : Number.isFinite(sign) ? `nächstes Schild ${formatLength(sign)} entfernt` : 'kein Schild', soll: `Rettungszeichen E001/E002 ≤ ${formatCm(R.rettungszeichenAbstandCm)} an der Tür`, floorId, target,
+      ist: hasSign ? `Rettungszeichen in ${formatLength(sign)}` : Number.isFinite(sign) ? `nächstes Rettungszeichen ${formatLength(sign)} entfernt` : 'kein Rettungszeichen', soll: `Rettungszeichen E001/E002 ≤ ${formatCm(R.rettungszeichenAbstandCm)} an der Tür`, floorId, target,
       erlaeuterung: `Notausgänge sind mit dem Rettungszeichen „Notausgang“ (DIN EN ISO 7010 E001/E002) zu kennzeichnen; Erkennungsweite eines 15 cm hohen Schilds ca. ${R.rettungszeichenErkennungsweiteM} m – im Verlauf längerer Fluchtwege zusätzliche Richtungszeichen setzen.`,
       quelle: `${SRC.a13.quelle}, Abs. 5 / DIN EN ISO 7010`, quelleUrl: SRC.a13.url,
     });
@@ -757,17 +763,20 @@ function accessibilityChecks(fs: FloorSafety, out: RegulationCheck[]) {
     if (room) {
       const doors = doorsOfRoom(room, floor);
       if (doors.length) {
-        const bad = doors.filter(({ door, wallId }) => {
+        const rated = doors.map(({ door, wallId }) => {
           const w = findWall(floor, wallId);
-          if (!w) return false;
-          const poly = doorSwingPolygon(door, w);
-          const inward = poly.length ? pointInPolygon(centroid(poly), room.polygon) : false;
-          return door.width < R.barrierefreiTuerbreiteCm || (doorSwings(door) && inward);
+          const poly = w ? doorSwingPolygon(door, w) : [];
+          const inward = doorSwings(door) && poly.length > 0 && pointInPolygon(centroid(poly), room.polygon);
+          const narrow = door.width < R.barrierefreiTuerbreiteCm;
+          return { door, inward, narrow, bad: narrow || inward };
         });
-        const d0 = bad[0]?.door ?? doors[0].door;
+        const bad = rated.filter((r) => r.bad);
+        const r0 = bad[0] ?? rated[0];
+        const d0 = r0.door;
+        const swingText = doorSwings(d0) ? (r0.inward ? 'schlägt nach innen auf' : 'schlägt nach außen auf') : d0.doorType;
         out.push({
           id: `access:door:${wc.id}`, thema: THEMA.barrierefrei, titel: `Tür zum barrierefreien WC ${q(room.name)}`, status: bad.length ? 'info' : 'ok',
-          ist: bad.length ? `${formatCm(d0.width)}, ${doorSwings(d0) ? 'schlägt nach innen auf' : d0.doorType}` : `${formatCm(d0.width)}, schlägt nach außen auf`, soll: `≥ ${formatCm(R.barrierefreiTuerbreiteCm)} lichte Breite, nach außen aufschlagend`, floorId,
+          ist: `${formatCm(d0.width)}, ${swingText}`, soll: `≥ ${formatCm(R.barrierefreiTuerbreiteCm)} lichte Breite, nach außen aufschlagend`, floorId,
           target: { kind: 'opening', id: d0.id },
           erlaeuterung: 'Die Tür eines barrierefreien Sanitärraums muss mindestens 90 cm lichte Breite haben, nach außen aufschlagen und von außen entriegelbar sein (DIN 18040-1 Abs. 5.3.3).',
           quelle: `${SRC.v3a2.quelle}, Abs. 5.3.3`, quelleUrl: SRC.v3a2.url,
@@ -838,7 +847,7 @@ export const regulations = memoByProject((project: Project): RegulationReport =>
   /* AED (projektweit) */
   const aedFloor = safeties.find((fs) => fs.aeds.length);
   out.push({
-    id: 'firstaid:aed', thema: THEMA.ersteHilfe, titel: 'AED / Defibrillator', status: anyAed ? 'ok' : 'warn',
+    id: 'firstaid:aed', projektweit: true, thema: THEMA.ersteHilfe, titel: 'AED / Defibrillator', status: anyAed ? 'ok' : 'warn',
     ist: anyAed ? `${safeties.reduce((s, fs) => s + fs.aeds.length, 0)} AED` : 'kein AED', soll: '≥ 1 AED, zentral und gekennzeichnet (E010)',
     floorId: aedFloor?.fc.floor.id, target: aedFloor ? { kind: 'item', id: aedFloor.aeds[0].id } : undefined,
     erlaeuterung: 'Ein AED ist gesetzlich nicht zwingend, wird für Sportstätten mit hoher körperlicher Belastung aber von den Unfallversicherungsträgern dringend empfohlen (DGUV Information 204-010); Standort mit Rettungszeichen E010 kennzeichnen und Ersthelfer einweisen.',
@@ -848,7 +857,7 @@ export const regulations = memoByProject((project: Project): RegulationReport =>
   /* Barrierefreies WC (projektweit) */
   const wcFloor = safeties.find((fs) => fs.accessibleWcs.length);
   out.push({
-    id: 'access:wc', thema: THEMA.barrierefrei, titel: 'Barrierefreies WC vorhanden', status: anyAccessible ? 'ok' : 'warn',
+    id: 'access:wc', projektweit: true, thema: THEMA.barrierefrei, titel: 'Barrierefreies WC vorhanden', status: anyAccessible ? 'ok' : 'warn',
     ist: anyAccessible ? `${safeties.reduce((s, fs) => s + fs.accessibleWcs.length, 0)} barrierefreies WC` : 'kein barrierefreies WC',
     soll: '≥ 1 barrierefreies WC (DIN 18040-1)', floorId: wcFloor?.fc.floor.id, target: wcFloor ? { kind: 'item', id: wcFloor.accessibleWcs[0].id } : undefined,
     erlaeuterung: 'Öffentlich zugängliche Gebäude brauchen nach den Landesbauordnungen mindestens eine barrierefreie Toilette (Objekt „Barrierefreies WC“ aus der Bibliothek Sanitär, Maße inkl. Bewegungsfläche).',
@@ -875,7 +884,7 @@ export const regulations = memoByProject((project: Project): RegulationReport =>
   /* j) Gerätefreiräume */
   const collisions = warnings(project).filter((w) => w.kind === 'collision');
   out.push({
-    id: 'equipment:clearance', thema: THEMA.geraete, titel: 'Freiräume und Sicherheitszonen der Trainingsgeräte', status: collisions.length ? 'warn' : 'ok',
+    id: 'equipment:clearance', projektweit: true, thema: THEMA.geraete, titel: 'Freiräume und Sicherheitszonen der Trainingsgeräte', status: collisions.length ? 'warn' : 'ok',
     ist: collisions.length ? `${collisions.length} Kollisions-/Sicherheitszonen-Warnung${collisions.length === 1 ? '' : 'en'}` : 'keine Kollisionen',
     soll: 'Freiraum nach Herstellerangabe (DIN EN ISO 20957-1: mind. 60 cm Trainingsfreiraum)', floorId: collisions[0]?.floorId, target: collisions[0]?.target,
     erlaeuterung: 'Um Trainingsgeräte muss ein Freiraum entsprechend der Herstellerangaben eingehalten werden (Sicherheitszone je Objekt). Überlappungen sind unter „Planungs-Warnungen“ einzeln aufgeführt.',
@@ -897,7 +906,7 @@ export const regulations = memoByProject((project: Project): RegulationReport =>
   /* l) Organisatorisches */
   const planFloor = safeties.find((fs) => fs.escapePlans.length);
   out.push({
-    id: 'orga:escape-plan', thema: THEMA.orga, titel: 'Flucht- und Rettungsplan aushängen', status: anyPlan ? 'ok' : 'info',
+    id: 'orga:escape-plan', projektweit: true, thema: THEMA.orga, titel: 'Flucht- und Rettungsplan aushängen', status: anyPlan ? 'ok' : 'info',
     ist: anyPlan ? `${safeties.reduce((s, fs) => s + fs.escapePlans.length, 0)} Aushang platziert` : 'kein Aushang platziert', soll: 'Aushang je Stockwerk an zentraler Stelle (DIN ISO 23601)',
     floorId: planFloor?.fc.floor.id, target: planFloor ? { kind: 'item', id: planFloor.escapePlans[0].id } : undefined,
     erlaeuterung: 'Bei unübersichtlicher Fluchtwegführung oder Publikumsverkehr ist ein Flucht- und Rettungsplan nach DIN ISO 23601 auszuhängen (Objekt „Flucht- und Rettungsplan (Aushang)“ aus der Bibliothek). Die gezeichneten Fluchtwege dienen als Grundlage.',
@@ -942,5 +951,5 @@ export function escapeRouteStatus(project: Project, id: Id): RegulationStatus {
 /** Prüfungen eines Stockwerks (inkl. projektweiter Prüfungen ohne floorId). */
 export function regulationChecksFor(report: RegulationReport, scope: 'active' | 'all', activeFloorId: Id | null): RegulationCheck[] {
   if (scope === 'all' || !activeFloorId) return report.checks;
-  return report.checks.filter((c) => !c.floorId || c.floorId === activeFloorId);
+  return report.checks.filter((c) => c.projektweit || !c.floorId || c.floorId === activeFloorId);
 }

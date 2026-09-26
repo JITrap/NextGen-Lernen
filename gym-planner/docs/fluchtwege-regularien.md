@@ -83,7 +83,7 @@ Alle Grenzwerte stehen in `REGULATION_RULES` (exportiert, zentral anpassbar).
 | Brandschutz | Entfernung | jeder Rasterpunkt ≤ 20 m Luftlinie zum nächsten Feuerlöscher | fail/ok | ASR A2.2 Abs. 6.2 |
 | Erste Hilfe | Verbandkasten | ≥ 1 je Stockwerk (fail); > 50 Personen ≥ 2 bzw. großer Kasten (info) | fail/info/ok | ASR A4.3, DGUV V1 § 25 |
 | Erste Hilfe | AED | vorhanden (`gen-ausstattung-aed`) sonst warn | warn/ok | DGUV Information 204-010 |
-| Kennzeichnung | Rettungszeichen | Schild `gen-ausstattung-notausgang-schild` ≤ 150 cm je Notausgang; Erkennungsweite-Hinweis | warn/ok | ASR A1.3, DIN EN ISO 7010 E001/E002 |
+| Kennzeichnung | Rettungszeichen | Schild `gen-ausstattung-notausgang-schild` oder Rettungszeichenleuchte (Symbol `exit-sign`) ≤ 150 cm je Notausgang; Erkennungsweite-Hinweis | warn/ok | ASR A1.3, DIN EN ISO 7010 E001/E002 |
 | Kennzeichnung | Sicherheitsbeleuchtung | Rettungszeichenleuchte ≤ 150 cm je Notausgang | warn/ok | ASR A3.4/7 |
 | Barrierefreiheit | Barrierefreies WC | ≥ 1 `gen-sanitaer-wc-barrierefrei` (warn); Raumtür ≥ 90 cm, nach außen (info); Bewegungsfläche 150 × 150 cm (info, nicht prüfbar) | warn/info/ok | ASR V3a.2 / DIN 18040-1 |
 | Barrierefreiheit | Ein-/Ausgänge | Notausgänge/Haupteingang ≥ 90 cm lichte Breite | info/ok | DIN 18040-1 Abs. 4.3.3 |

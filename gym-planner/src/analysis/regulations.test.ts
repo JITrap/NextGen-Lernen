@@ -349,8 +349,11 @@ describe('Regularien-Prüfung: ausgestattete Halle', () => {
     const all = regulationChecksFor(r, 'all', p.activeFloorId);
     expect(all).toBe(r.checks);
     const active = regulationChecksFor(r, 'active', 'unbekannt');
-    expect(active.every((c) => !c.floorId)).toBe(true);
+    // stockwerksbezogene Prüfungen fallen weg, projektweite (AED, barrierefreies WC, Fluchtplan, Gerätefreiräume) bleiben
+    expect(active.every((c) => !c.floorId || c.projektweit)).toBe(true);
     expect(active.some((c) => c.id === 'assembly')).toBe(true);
+    for (const id of ['firstaid:aed', 'access:wc', 'orga:escape-plan', 'equipment:clearance']) expect(active.some((c) => c.id === id), id).toBe(true);
+    expect(active.some((c) => c.id.startsWith('exits:width'))).toBe(false);
   });
 });
 

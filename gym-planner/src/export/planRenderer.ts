@@ -16,7 +16,7 @@ import { roomColor } from '@/data/roomTypes';
 import { WALL_TYPE_MAP, DOOR_TYPE_MAP } from '@/data/wallTypes';
 import { getDef } from '@/data/equipment';
 import { formatM2, formatM, formatLength } from '@/geometry/units';
-import { polylineLength } from '@/geometry/escapeRoutes';
+import { polylineLength, escapeRouteName } from '@/geometry/escapeRoutes';
 import { regulations } from '@/analysis/regulations';
 
 /* ------------------------------------------------------------------ */
@@ -411,7 +411,6 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
   }
 
   // Anmerkungen
-  let routeIndex = 0;
   for (const a of floor.annotations) {
     if (a.hidden) continue;
     if (a.kind === 'text') {
@@ -421,9 +420,8 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
     } else if (a.kind === 'measure') {
       drawMeasure(layer, a.start, a.end, '#e11d48', px, minLabelPx);
     } else if (a.points.length >= 2) {
-      routeIndex += 1;
       const status = regulations(project).routes[a.id] ?? 'na';
-      drawEscapeRoute(layer, a.points, a.label?.trim() || `Fluchtweg ${routeIndex}`, status === 'fail' ? '#dc2626' : '#15803d', px, minLabelPx);
+      drawEscapeRoute(layer, a.points, escapeRouteName(floor, a), status === 'fail' ? '#dc2626' : '#15803d', px, minLabelPx);
     }
   }
 

@@ -176,11 +176,11 @@ registerTool({
   onDoubleClick: (_e, ctx) => {
     if (!clicks.isDoubleClick()) return;
     const st = useEscapeRoute.getState();
-    if (st.points.length < 2) return;
-    // Der zweite Klick des Doppelklicks hat ggf. einen fast identischen Punkt angehängt → entfernen.
+    if (!st.points.length) return;
+    // Der zweite Klick des Doppelklicks hat ggf. einen fast identischen Punkt angehängt → entfernen (auch bei nur zwei Punkten).
     const n = st.points.length;
-    if (n >= 3 && distance(st.points[n - 1], st.points[n - 2]) <= ctx.pxToWorld(6)) st.patch({ points: st.points.slice(0, -1) });
-    finish(ctx);
+    if (n >= 2 && distance(st.points[n - 1], st.points[n - 2]) <= ctx.pxToWorld(6)) st.patch({ points: st.points.slice(0, -1) });
+    finish(ctx); // meldet bei < 2 Punkten „Mindestens 2 Punkte nötig“
   },
   onKeyDown: (e, ctx) => {
     const st = useEscapeRoute.getState();

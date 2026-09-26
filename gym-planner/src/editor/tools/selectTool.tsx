@@ -347,6 +347,9 @@ let drag: DragState | null = null;
 export const SELECT_DBLCLICK_MAX_PX = 5;
 /** Letzte Klickpositionen: Konva meldet dblclick rein zeitbasiert, auch für schnelle Klicks an verschiedenen Stellen. */
 const clicks = createClickTracker(SELECT_DBLCLICK_MAX_PX);
+/** Auswahl vor dem vorletzten bzw. letzten Pointer-Down – „Doppelklick auf bereits gewählten Fluchtweg“ meint den Stand vor dem ersten Klick. */
+let selBeforePrevClick: Selection[] = [];
+let selBeforeLastClick: Selection[] = [];
 
 /** Nur für Tests: aktueller Zieh-Zustand (Modus/aktiv). */
 export function debugDragState(): { mode: DragMode; active: boolean } | null {
@@ -752,6 +755,8 @@ function prepareMoveDrag(e: ToolEvent, ctx: ToolContext, hit: Selection) {
 function onPointerDown(e: ToolEvent, ctx: ToolContext) {
   if (e.pointerType === 'mouse' && e.button !== 0) return;
   clicks.down(e.screen);
+  selBeforePrevClick = selBeforeLastClick;
+  selBeforeLastClick = ctx.ui.selection;
   const st = useSelectTool.getState();
   if (st.lengthInput || st.textEdit) st.patch({ lengthInput: null, textEdit: null });
   if (drag) finishDrag(true);
@@ -1199,7 +1204,7 @@ function onDoubleClick(e: ToolEvent, ctx: ToolContext) {
     case 'annotation': {
       const a = floor.annotations.find((x) => x.id === hit.id);
       if (!a) return;
-      if (a.kind === 'escape-route' && !a.locked && isSelected(ui.selection, hit)) {
+      if (a.kind === 'escape-route' && !a.locked && isSelected(selBeforePrevClick, hit)) {
         // Doppelklick auf ein Segment des bereits gewählten Fluchtwegs: Punkt einfügen (kein Griff getroffen)
         const onHandle = handleAt(e.world, handlesFor(ctx, ui.selection), toleranceFor(e, ctx));
         if (!onHandle && selectedRouteAt(e, ctx)) {
@@ -1259,6 +1264,8 @@ function onCancel(ctx: ToolContext) {
   if (drag) finishDrag(false);
   lastPointer = null;
   clicks.reset();
+  selBeforePrevClick = [];
+  selBeforeLastClick = [];
   useSelectTool.getState().reset();
   useSnapGuides.getState().set(null);
   if (ctx.ui.hoverId) ctx.ui.setHover(null);

@@ -12,7 +12,8 @@ import { useUiStore } from '@/store/uiStore';
 import { openingPlacement, findWall, allWalls } from '@/geometry/walls';
 import { floorRooms } from '@/geometry/rooms';
 import { selectionHandles } from '../layers/SelectionLayer';
-import { AnnotationsLayer, EscapeRouteNode, escapeRouteName } from '../layers/AnnotationsLayer';
+import { AnnotationsLayer, EscapeRouteNode } from '../layers/AnnotationsLayer';
+import { escapeRouteName } from '@/geometry/escapeRoutes';
 import { hitTest } from '../hitTest';
 import { floorContentBounds } from '@/export/planRenderer';
 import { resolveFocus } from '@/components/focusTarget';
@@ -163,15 +164,25 @@ describe('Werkzeug „Fluchtweg“', () => {
   });
   it('Doppelklick beendet und entfernt den doppelten Endpunkt', () => {
     const p = project();
-    const ctx = makeCtx(p);
+    const ctx = { ...makeCtx(p), snap: (q: Vec2) => ({ point: q, kind: 'grid' as const, guides: [] }) };
     const t = getTool('escape-route')!;
     t.onPointerDown!(ev({ x: 100, y: 100 }), ctx);
     t.onPointerDown!(ev({ x: 500, y: 100 }), ctx);
-    t.onPointerDown!(ev({ x: 500, y: 103 }), ctx); // zweiter Klick des Doppelklicks (Raster → gleicher Punkt, wird ignoriert)
+    t.onPointerDown!(ev({ x: 500, y: 103 }), ctx); // zweiter Klick des Doppelklicks: 3 cm daneben → wird angehängt
+    expect(useEscapeRoute.getState().points).toHaveLength(3);
     t.onDoubleClick!(ev({ x: 500, y: 103 }), ctx);
     const list = routes();
     expect(list).toHaveLength(1);
     expect(list[0].points).toHaveLength(2);
+  });
+  it('Doppelklick mit nur einem Punkt und Mini-Segment erzeugt keinen Fluchtweg', () => {
+    const p = project();
+    const ctx = { ...makeCtx(p), snap: (q: Vec2) => ({ point: q, kind: 'grid' as const, guides: [] }) };
+    const t = getTool('escape-route')!;
+    t.onPointerDown!(ev({ x: 100, y: 100 }), ctx);
+    t.onPointerDown!(ev({ x: 102, y: 100 }), ctx);
+    t.onDoubleClick!(ev({ x: 102, y: 100 }), ctx);
+    expect(routes()).toHaveLength(0);
   });
   it('Toast, wenn die Ebene „Anmerkungen“ ausgeblendet ist', () => {
     const p = project();
@@ -263,8 +274,14 @@ describe('Darstellung, Export, Fokus (Smoke)', () => {
   it('Ebene und Knoten sind Komponenten; Name-Ersatz', () => {
     expect(AnnotationsLayer).toBeTruthy();
     expect(EscapeRouteNode).toBeTruthy();
-    expect(escapeRouteName({ id: 'x', kind: 'escape-route', points: [] }, 2)).toBe('Fluchtweg 3');
-    expect(escapeRouteName({ id: 'x', kind: 'escape-route', points: [], label: ' Haupt ' }, 2)).toBe('Haupt');
+    const floor = { annotations: [
+      { id: 'h', kind: 'escape-route' as const, points: [], hidden: true },
+      { id: 'y', kind: 'text' as const, x: 0, y: 0, text: 't', fontSize: 20, rotation: 0 },
+      { id: 'x', kind: 'escape-route' as const, points: [] },
+    ] };
+    // ausgeblendete Fluchtwege zählen mit (gleiche Nummer in Prüfung, Ebene, Panel und Export)
+    expect(escapeRouteName(floor, { id: 'x' })).toBe('Fluchtweg 2');
+    expect(escapeRouteName(floor, { id: 'x', label: ' Haupt ' })).toBe('Haupt');
   });
   it('Export-Bounds enthalten die Fluchtweg-Punkte', () => {
     const p = project();

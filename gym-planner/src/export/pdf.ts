@@ -149,25 +149,39 @@ export function drawTableHeader(ctx: TableCtx, cols: Col[], x0: number, rowH: nu
 }
 
 /** Zeichnet eine Tabelle mit Seitenumbruch; Zeilen als Zeichenketten je Spalte. */
-export function drawTable(ctx: TableCtx, cols: Col[], rows: string[][], opts: { x0?: number; rowH?: number; fontSize?: number; boldLast?: boolean; zebra?: boolean } = {}) {
+/**
+ * Tabelle mit fester Zeilenhöhe (Zellen werden mit „…“ gekürzt) oder, mit `wrap`, mit Zeilenumbruch in den Zellen
+ * (Zeilenhöhe wächst mit der längsten Zelle; die Kopfzeile wird auf jeder neuen Seite wiederholt).
+ */
+export function drawTable(ctx: TableCtx, cols: Col[], rows: string[][], opts: { x0?: number; rowH?: number; fontSize?: number; boldLast?: boolean; zebra?: boolean; wrap?: boolean } = {}) {
   const { doc } = ctx;
   const x0 = opts.x0 ?? PAGE_MARGIN_MM;
-  const rowH = opts.rowH ?? 5.4;
+  const baseRowH = opts.rowH ?? 5.4;
   const fontSize = opts.fontSize ?? 7.5;
+  const lineH = fontSize * 0.3528 * 1.25; // pt → mm, 125 % Zeilenabstand
   const totalW = cols.reduce((s, c) => s + c.width, 0);
   doc.setFontSize(fontSize);
-  drawTableHeader(ctx, cols, x0, rowH);
+  drawTableHeader(ctx, cols, x0, baseRowH);
   rows.forEach((r, i) => {
+    const last = opts.boldLast && i === rows.length - 1;
+    if (last) doc.setFont('helvetica', 'bold');
+    const cells = cols.map((c, ci) => {
+      const cell = r[ci] ?? '';
+      if (!opts.wrap) return [fitText(doc, cell, c.width - 3)];
+      const lines = doc.splitTextToSize(cell, c.width - 3) as string[];
+      return lines.length ? lines : [''];
+    });
+    const rowH = opts.wrap ? Math.max(baseRowH, Math.max(...cells.map((l) => l.length)) * lineH + 2.2) : baseRowH;
     if (ctx.y + rowH > ctx.pageH - PAGE_MARGIN_MM) {
+      if (last) doc.setFont('helvetica', 'normal');
       ctx.newPage();
       doc.setFontSize(fontSize);
-      drawTableHeader(ctx, cols, x0, rowH);
+      drawTableHeader(ctx, cols, x0, baseRowH);
+      if (last) doc.setFont('helvetica', 'bold');
     }
-    const last = opts.boldLast && i === rows.length - 1;
     if (last) {
       doc.setFillColor(241, 245, 249);
       doc.rect(x0, ctx.y, totalW, rowH, 'F');
-      doc.setFont('helvetica', 'bold');
     } else if (opts.zebra && i % 2 === 1) {
       doc.setFillColor(248, 250, 252);
       doc.rect(x0, ctx.y, totalW, rowH, 'F');
@@ -176,9 +190,10 @@ export function drawTable(ctx: TableCtx, cols: Col[], rows: string[][], opts: { 
     doc.line(x0, ctx.y + rowH, x0 + totalW, ctx.y + rowH);
     let x = x0;
     cols.forEach((c, ci) => {
-      const cell = r[ci] ?? '';
       const tx = c.align === 'right' ? x + c.width - 1.5 : x + 1.5;
-      doc.text(fitText(doc, cell, c.width - 3), tx, ctx.y + rowH - 1.6, { align: c.align === 'right' ? 'right' : 'left' });
+      const align = c.align === 'right' ? 'right' : 'left';
+      if (opts.wrap) cells[ci].forEach((line, li) => doc.text(line, tx, ctx.y + 1.2 + (li + 1) * lineH - 0.4, { align }));
+      else doc.text(cells[ci][0], tx, ctx.y + rowH - 1.6, { align });
       x += c.width;
     });
     if (last) doc.setFont('helvetica', 'normal');

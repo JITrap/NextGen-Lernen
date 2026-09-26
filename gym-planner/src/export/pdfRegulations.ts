@@ -9,17 +9,22 @@ import { regulations, REGULATION_STATUS_LABELS, STAFF_DEFAULT, type RegulationCh
 import { drawPageHeader, drawFooter, drawTable, dateDe, PAGE_MARGIN_MM, TITLE_BLOCK_MM, type TableCtx, type Col } from './pdf';
 
 /** Tabellenzeilen der Prüfungen (reine Funktion, testbar). */
+/** jsPDF setzt die Standardschriften in WinAnsi; ≤/≥/→ liegen außerhalb und würden den ganzen String verstümmeln. */
+export function pdfSafe(s: string): string {
+  return s.replace(/≤ ?/g, 'max. ').replace(/≥ ?/g, 'mind. ').replace(/→/g, '->').replace(/·/g, '-').replace(/[^\u0000-\u00ff\u2013\u2014\u2018\u2019\u201a\u201c\u201d\u201e\u2020\u2021\u2022\u2026\u2030\u2039\u203a\u20ac\u2122]/g, '?');
+}
+
 export function regulationRows(project: Project, checks: RegulationCheck[] = regulations(project).checks): string[][] {
   const multi = project.floors.length > 1;
   const names = new Map(project.floors.map((f) => [f.id, f.name]));
   return checks.map((c) => [
     c.thema,
-    multi && c.floorId ? `${c.titel} · ${names.get(c.floorId) ?? ''}` : c.titel,
+    multi && c.floorId ? `${c.titel} - ${names.get(c.floorId) ?? ''}` : c.titel,
     REGULATION_STATUS_LABELS[c.status],
     c.ist,
     c.soll,
     c.quelle,
-  ]);
+  ].map(pdfSafe));
 }
 
 export function drawRegulationsPages(doc: jsPDF, project: Project): void {
@@ -45,7 +50,7 @@ export function drawRegulationsPages(doc: jsPDF, project: Project): void {
     { title: 'Soll', width: 52 },
     { title: 'Quelle', width: 51 },
   ];
-  drawTable(ctx, cols, rows.length ? rows : [['–', 'Keine Prüfungen', '', '', '', '']], { zebra: true, rowH: 5.2, fontSize: 7 });
+  drawTable(ctx, cols, rows.length ? rows : [['–', 'Keine Prüfungen', '', '', '', '']], { zebra: true, rowH: 5.2, fontSize: 7, wrap: true });
   ctx.y += 5;
   const lines = [
     `Status: ${REGULATION_STATUS_LABELS.fail} = Anforderung im Plan verletzt · ${REGULATION_STATUS_LABELS.warn} = manuell prüfen bzw. Ausstattung ergänzen · ${REGULATION_STATUS_LABELS.ok} = erfüllt · ${REGULATION_STATUS_LABELS.info} = organisatorischer Hinweis · ${REGULATION_STATUS_LABELS.na} = nicht anwendbar.`,

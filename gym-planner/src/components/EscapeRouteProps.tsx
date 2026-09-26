@@ -3,12 +3,12 @@
  * Lauflänge, Luftlinie Start→Ende, Ergebnis der Regularien-Prüfung für diesen Fluchtweg sowie Sperren/Ausblenden/Löschen.
  * Alle Änderungen laufen über den Store als je ein Undo-Schritt (transaction).
  */
-import { useMemo } from 'react';
+import { useDeferredValue, useMemo } from 'react';
 import { Route, Lock, Plus, X, ListOrdered, ShieldCheck, Crosshair } from 'lucide-react';
 import type { EscapeRoute, Floor, Vec2 } from '@/types';
 import { useProjectStore, transaction } from '@/store/projectStore';
 import { distance } from '@/geometry/polygon';
-import { polylineLength, removePolylinePoint } from '@/geometry/escapeRoutes';
+import { polylineLength, removePolylinePoint, escapeRouteName } from '@/geometry/escapeRoutes';
 import { formatLength, formatNumber } from '@/geometry/units';
 import { regulations, REGULATION_STATUS_LABELS, type RegulationCheck } from '@/analysis/regulations';
 import { Button } from './ui/Button';
@@ -17,14 +17,12 @@ import { PanelHeader, Pill, LockHideDelete } from './PropertiesPanel';
 import { StatusIcon } from './RegulationsSection';
 import { focusTarget } from './focusTarget';
 
-function routeIndex(floor: Floor, id: string): number {
-  return floor.annotations.filter((a) => a.kind === 'escape-route').findIndex((a) => a.id === id);
-}
-
 export function EscapeRouteProps({ ann, floor }: { ann: EscapeRoute; floor: Floor }) {
-  const project = useProjectStore((s) => s.project);
+  const liveProject = useProjectStore((s) => s.project);
+  // Prüfung nachrangig rechnen, damit das Ziehen von Punkten flüssig bleibt
+  const project = useDeferredValue(liveProject);
   const locked = !!ann.locked;
-  const name = ann.label?.trim() || `Fluchtweg ${routeIndex(floor, ann.id) + 1}`;
+  const name = escapeRouteName(floor, ann);
   const patch = (p: Partial<EscapeRoute>) => transaction(() => useProjectStore.getState().updateAnnotation(floor.id, ann.id, p));
   const setPoint = (i: number, q: Partial<Vec2>) => patch({ points: ann.points.map((p, k) => (k === i ? { ...p, ...q } : p)) });
   const removePoint = (i: number) => {
@@ -78,7 +76,7 @@ export function EscapeRouteProps({ ann, floor }: { ann: EscapeRoute; floor: Floo
               <li key={c.id} className="flex items-start gap-2 rounded-md border px-2 py-1.5 text-xs gp-border">
                 <StatusIcon status={c.status} />
                 <span className="min-w-0 flex-1">
-                  <span className="block leading-snug">{c.titel.replace(`${name}: `, '')}</span>
+                  <span className="block leading-snug">{c.titel.startsWith(`${name}: `) ? c.titel.slice(name.length + 2) : c.titel}</span>
                   <span className="block text-[11px] leading-snug gp-muted">{c.ist} → {c.soll}</span>
                 </span>
                 {c.target && !('kind' in c.target && c.target.kind === 'annotation') && (
