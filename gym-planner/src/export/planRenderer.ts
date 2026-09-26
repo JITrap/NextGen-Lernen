@@ -16,6 +16,8 @@ import { roomColor } from '@/data/roomTypes';
 import { WALL_TYPE_MAP, DOOR_TYPE_MAP } from '@/data/wallTypes';
 import { getDef } from '@/data/equipment';
 import { formatM2, formatM, formatLength } from '@/geometry/units';
+import { polylineLength } from '@/geometry/escapeRoutes';
+import { regulations } from '@/analysis/regulations';
 
 /* ------------------------------------------------------------------ */
 /* Reine Helfer (ohne Canvas)                                          */
@@ -409,6 +411,7 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
   }
 
   // Anmerkungen
+  let routeIndex = 0;
   for (const a of floor.annotations) {
     if (a.hidden) continue;
     if (a.kind === 'text') {
@@ -418,10 +421,9 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
     } else if (a.kind === 'measure') {
       drawMeasure(layer, a.start, a.end, '#e11d48', px, minLabelPx);
     } else if (a.points.length >= 2) {
-      const flat: number[] = [];
-      for (const q of a.points) flat.push(q.x, q.y);
-      layer.add(new Konva.Line({ points: flat, stroke: '#ffffff', strokeWidth: 10, lineCap: 'round', lineJoin: 'round', opacity: 0.7 }));
-      layer.add(new Konva.Arrow({ points: flat, stroke: '#15803d', fill: '#15803d', strokeWidth: 4, dash: [18, 10], pointerLength: 18, pointerWidth: 16, lineCap: 'round', lineJoin: 'round' }));
+      routeIndex += 1;
+      const status = regulations(project).routes[a.id] ?? 'na';
+      drawEscapeRoute(layer, a.points, a.label?.trim() || `Fluchtweg ${routeIndex}`, status === 'fail' ? '#dc2626' : '#15803d', px, minLabelPx);
     }
   }
 
@@ -640,6 +642,36 @@ function drawItem(layer: Konva.Layer, it: PlacedItem, project: Project, showLabe
     }
   }
   layer.add(g);
+}
+
+/** Fluchtweg: Polylinie mit Pfeilspitze je Segment in Laufrichtung, Startpunkt-Marker und Label „Name · Länge“ am Ziel. */
+function drawEscapeRoute(layer: Konva.Layer, points: Vec2[], name: string, color: string, px: number, minLabelPx: number) {
+  const flat: number[] = [];
+  for (const q of points) flat.push(q.x, q.y);
+  layer.add(new Konva.Line({ points: flat, stroke: '#ffffff', strokeWidth: 12, lineCap: 'round', lineJoin: 'round', opacity: 0.75 }));
+  for (let i = 0; i + 1 < points.length; i++) {
+    const p = points[i];
+    const q = points[i + 1];
+    if (Math.hypot(q.x - p.x, q.y - p.y) < 0.5) continue;
+    layer.add(new Konva.Arrow({ points: [p.x, p.y, q.x, q.y], stroke: color, fill: color, strokeWidth: 4, pointerLength: 20, pointerWidth: 18, lineCap: 'round', lineJoin: 'round' }));
+  }
+  const start = points[0];
+  layer.add(new Konva.Circle({ x: start.x, y: start.y, radius: 8, fill: color, stroke: '#ffffff', strokeWidth: 2.5 }));
+  const fontSize = 18 * textScale;
+  if (fontSize * px >= minLabelPx) {
+    const end = points[points.length - 1];
+    const prev = points[points.length - 2];
+    const ang = (Math.atan2(end.y - prev.y, end.x - prev.x) * 180) / Math.PI;
+    const norm = ((ang % 360) + 360) % 360;
+    const flip = norm > 90 && norm <= 270;
+    const text = `${name} · ${formatLength(polylineLength(points))}`;
+    const w = text.length * fontSize * 0.6 + 16;
+    const h = fontSize * 1.3 + 8;
+    const g = new Konva.Group({ x: end.x, y: end.y, rotation: flip ? ang + 180 : ang });
+    g.add(new Konva.Rect({ x: -w / 2, y: -h - 14, width: w, height: h, fill: 'rgba(255,255,255,0.85)', stroke: color, strokeWidth: 1.5, cornerRadius: 4 }));
+    g.add(new Konva.Text({ x: -w / 2, y: -h - 14 + 4, width: w, align: 'center', text, fontSize, fontFamily: FONT, fontStyle: '600', fill: color }));
+    layer.add(g);
+  }
 }
 
 function drawMeasure(layer: Konva.Layer, a: Vec2, b: Vec2, color: string, px: number, minLabelPx: number) {

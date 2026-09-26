@@ -4978,6 +4978,74 @@
         "Bühne",
         "Stufe"
       ]
+    },
+    {
+      "id": "gen-ausstattung-rettungszeichenleuchte",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Sicherheitsleuchte / Rettungszeichenleuchte",
+      "breite_cm": 35,
+      "tiefe_cm": 8,
+      "hoehe_cm": 20,
+      "gewicht_kg": 2,
+      "extra": "LED, Einzelbatterie 3 h, Piktogramm E001/E002 hinterleuchtet",
+      "hinweis": "Über jeder Notausgangstür und an Richtungswechseln des Fluchtwegs (ASR A3.4/7)",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "exit-sign",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Sicherheitsbeleuchtung",
+        "Notbeleuchtung",
+        "Fluchtweg",
+        "Rettungszeichen"
+      ]
+    },
+    {
+      "id": "gen-ausstattung-fluchtplan",
+      "kategorie": "Ausstattung",
+      "unterkategorie": "Sicherheit",
+      "hersteller": "Generisch",
+      "name": "Flucht- und Rettungsplan (Aushang)",
+      "breite_cm": 42,
+      "tiefe_cm": 3,
+      "hoehe_cm": 30,
+      "gewicht_kg": 1,
+      "extra": "DIN A3 im Rahmen, nach DIN ISO 23601",
+      "hinweis": "An zentraler Stelle (Empfang, Flur, Umkleide) gut sichtbar aushängen",
+      "sicherheitszone_cm": {
+        "vorne": 0,
+        "hinten": 0,
+        "links": 0,
+        "rechts": 0
+      },
+      "form": "rechteck",
+      "skalierbar": false,
+      "verifiziert": false,
+      "bereich": "Ausstattung",
+      "symbol": "screen",
+      "wandmontage": true,
+      "tags": [
+        "Generisch",
+        "Ausstattung",
+        "Sicherheit",
+        "Fluchtplan",
+        "Rettungsplan",
+        "Brandschutz",
+        "Aushang"
+      ]
     }
   ]
 }

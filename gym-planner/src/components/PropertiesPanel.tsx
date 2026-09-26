@@ -80,7 +80,7 @@ function iconColorOn(bg?: string): string {
   return lum > 0.6 ? '#0f172a' : 'white';
 }
 
-function PanelHeader({ icon, title, subtitle, badges, color }: { icon: ReactNode; title: ReactNode; subtitle?: ReactNode; badges?: ReactNode; color?: string }) {
+export function PanelHeader({ icon, title, subtitle, badges, color }: { icon: ReactNode; title: ReactNode; subtitle?: ReactNode; badges?: ReactNode; color?: string }) {
   return (
     <header className="flex items-start gap-2.5 border-b px-3 py-2.5 gp-border">
       <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={{ background: color ?? 'var(--gp-accent)', color: iconColorOn(color) }} aria-hidden="true">
@@ -98,7 +98,7 @@ function PanelHeader({ icon, title, subtitle, badges, color }: { icon: ReactNode
   );
 }
 
-function Pill({ children, tone = 'muted', title }: { children: ReactNode; tone?: 'muted' | 'warn' | 'danger' | 'ok' | 'accent'; title?: string }) {
+export function Pill({ children, tone = 'muted', title }: { children: ReactNode; tone?: 'muted' | 'warn' | 'danger' | 'ok' | 'accent'; title?: string }) {
   const color = tone === 'warn' ? 'var(--gp-warn)' : tone === 'danger' ? 'var(--gp-danger)' : tone === 'ok' ? 'var(--gp-ok)' : tone === 'accent' ? 'var(--gp-accent)' : 'var(--gp-muted)';
   return (
     <span title={title} className="inline-flex items-center gap-1 rounded px-1.5 text-[10px] font-semibold uppercase leading-4" style={{ color, background: `color-mix(in srgb, ${color} 14%, transparent)` }}>
@@ -228,7 +228,7 @@ function toggleHideFallback(floor: Floor, sel: Selection[]) {
   ui().clearSelection();
 }
 
-function LockHideDelete({ floor, sel, locked, deleteLabel = 'Löschen', extra }: { floor: Floor; sel: Selection[]; locked: boolean; deleteLabel?: string; extra?: ReactNode }) {
+export function LockHideDelete({ floor, sel, locked, deleteLabel = 'Löschen', extra }: { floor: Floor; sel: Selection[]; locked: boolean; deleteLabel?: string; extra?: ReactNode }) {
   return (
     <ActionBar>
       {extra}

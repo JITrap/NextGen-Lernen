@@ -3,7 +3,8 @@
  * - Klick/Shift+Klick/Marquee (Rahmen), Gruppen-Auswahl, Doppelklick
  * - Ziehen von Objekten (Snapping, Rack-Andocken, Wandmontage, Abstandsanzeige), Drehen (Griff, 15°),
  *   Skalieren (nur skalierbare Objekte), Hallen-Ecken/-Kanten, Wände (parallel + Nachbarn, Endknoten),
- *   Öffnungen entlang der Wand (inkl. Umhängen), Zonen-/Luftraum-Ecken, Anmerkungen, Messlinien-Enden
+ *   Öffnungen entlang der Wand (inkl. Umhängen), Zonen-/Luftraum-Ecken, Anmerkungen, Messlinien-Enden,
+ *   Fluchtweg-Punkte (Griff ziehen; Alt+Klick/Doppelklick auf ein Segment fügt einen Punkt ein, Entf auf einem Griff entfernt ihn)
  * - Numerische Längeneingabe (Hallenkante/Wand) und Inline-Textbearbeitung als HTML-Overlay
  *
  * Griffe werden nicht über Konva-Events erkannt, sondern per Abstand zum Weltpunkt (`handleAt`), die
@@ -18,7 +19,7 @@
  */
 import { useEffect, useRef, useState } from 'react';
 import { Group, Line, Rect } from 'react-konva';
-import type { Vec2, PlacedItem, Wall, Selection, Floor, Annotation, Opening, Project, MeasureLine } from '@/types';
+import type { Vec2, PlacedItem, Wall, Selection, Floor, Annotation, Opening, Project, MeasureLine, EscapeRoute } from '@/types';
 import { registerTool } from './registry';
 import { createToolStore } from './toolState';
 import { createClickTracker, roundCoord, roundVec, roundPolygon, type ToolContext, type ToolEvent } from './types';
@@ -28,7 +29,7 @@ import { DimensionLine, DimText, dimPalette } from '../layers/DimensionsLayer';
 import { worldToScreen } from '../viewport';
 import { useSnapGuides } from '../overlays/SnapGuides';
 import { useDragPreview, previewedItems } from '../dragPreview';
-import { useProjectStore, beginTransaction, endTransaction } from '@/store/projectStore';
+import { useProjectStore, beginTransaction, endTransaction, transaction } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { useIsDark } from '@/hooks/useTheme';
 import { getDef } from '@/data/equipment';
@@ -44,6 +45,7 @@ import {
 } from '@/geometry/walls';
 import { formatDegrees, formatLength, parseLength, normalizeAngle } from '@/geometry/units';
 import { setWallLength, setHallEdgeLength, clampOpeningsOnWalls, setTextAnnotation } from '../actions';
+import { insertPolylinePoint, removePolylinePoint, nearestPolylineSegment } from '@/geometry/escapeRoutes';
 
 /* ------------------------------------------------------------------ */
 /* Konstanten                                                          */
@@ -291,7 +293,7 @@ export const useSelectTool = createToolStore<SelectToolState>({
 
 type DragMode =
   | 'none' | 'marquee' | 'move' | 'rotate' | 'scale' | 'hallVertex' | 'hallEdge' | 'wallMove' | 'wallNode'
-  | 'opening' | 'zoneVertex' | 'voidVertex' | 'measureEnd';
+  | 'opening' | 'zoneVertex' | 'voidVertex' | 'measureEnd' | 'escapeVertex';
 
 interface DragState {
   mode: DragMode;
@@ -332,10 +334,11 @@ interface DragState {
   floorAtStart?: Floor;
   /* Öffnung */
   openingOrig?: Opening;
-  /* Polygon-Ecke / Messlinie */
+  /* Polygon-Ecke / Messlinie / Fluchtweg-Punkt */
   polyId?: string;
   vertexOrig?: Vec2[];
   measureOrig?: MeasureLine;
+  routeOrig?: EscapeRoute;
 }
 
 let drag: DragState | null = null;
@@ -509,6 +512,9 @@ function roundDragResult(d: DragState) {
     case 'measureEnd':
       if (d.measureOrig) roundAnnotation(d.measureOrig.id);
       break;
+    case 'escapeVertex':
+      if (d.routeOrig) roundAnnotation(d.routeOrig.id);
+      break;
     default:
       break;
   }
@@ -637,9 +643,52 @@ function startHandleDrag(h: Handle, e: ToolEvent, ctx: ToolContext) {
       drag = d;
       return;
     }
+    case 'escapeVertex': {
+      const a = floor.annotations.find((x) => x.id === h.id);
+      if (!a || a.kind !== 'escape-route' || a.locked) return;
+      const d = baseDrag(e, ctx, 'escapeVertex');
+      d.routeOrig = a;
+      d.index = h.index;
+      drag = d;
+      return;
+    }
     default:
       return;
   }
+}
+
+/** Bis zu diesem Bildschirmabstand (px) gilt ein Klick als „auf dem Segment“ eines gewählten Fluchtwegs. */
+const ROUTE_SEGMENT_PX = 8;
+
+/** Gewählter, nicht gesperrter Fluchtweg, dessen Segment unter dem Zeiger liegt (für Punkt einfügen). */
+function selectedRouteAt(e: ToolEvent, ctx: ToolContext): EscapeRoute | null {
+  const sel = ctx.ui.selection;
+  if (sel.length !== 1 || sel[0].kind !== 'annotation') return null;
+  const a = ctx.floor.annotations.find((x) => x.id === sel[0].id);
+  if (!a || a.kind !== 'escape-route' || a.locked || a.hidden) return null;
+  const seg = nearestPolylineSegment(a.points, e.world);
+  return seg && seg.distance <= ctx.pxToWorld(ROUTE_SEGMENT_PX) ? a : null;
+}
+
+/**
+ * Fügt auf dem Segment unter dem Zeiger einen Punkt ein (ein Undo-Schritt, außer als Teil eines laufenden Zieh-Vorgangs).
+ * Liefert den Index des neuen Punkts.
+ */
+export function insertRoutePoint(route: EscapeRoute, world: Vec2, floorId: string, inTransaction = false): number {
+  const { points, index } = insertPolylinePoint(route.points, world);
+  const s = useProjectStore.getState();
+  const apply = () => s.updateAnnotation(floorId, route.id, { points: points.map(roundVec) });
+  if (inTransaction) apply();
+  else transaction(apply);
+  return index;
+}
+
+/** Entfernt einen Fluchtweg-Punkt (mindestens 2 bleiben); false, wenn nichts entfernt wurde. */
+export function removeRoutePoint(route: EscapeRoute, index: number, floorId: string): boolean {
+  const next = removePolylinePoint(route.points, index, 2);
+  if (next === route.points) return false;
+  transaction(() => useProjectStore.getState().updateAnnotation(floorId, route.id, { points: next }));
+  return true;
 }
 
 /** Bereitet das Verschieben der (frischen) Auswahl vor: Objekte, Zonen, Lufträume, Anmerkungen. */
@@ -715,6 +764,19 @@ function onPointerDown(e: ToolEvent, ctx: ToolContext) {
   if (h) {
     startHandleDrag(h, e, ctx);
     if (drag) return;
+  }
+  // 1b) Alt+Klick auf ein Segment des gewählten Fluchtwegs: Punkt einfügen und sofort ziehen (ein Undo-Schritt)
+  if (e.alt) {
+    const route = selectedRouteAt(e, ctx);
+    if (route) {
+      const d = baseDrag(e, ctx, 'escapeVertex');
+      drag = d;
+      beginDragTx();
+      d.index = insertRoutePoint(route, e.world, floor.id, true);
+      d.routeOrig = floor.annotations.find((x) => x.id === route.id) as EscapeRoute | undefined;
+      d.startWorld = e.world;
+      return;
+    }
   }
 
   // 2) Treffer unter dem Zeiger
@@ -1004,6 +1066,18 @@ function vertexDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
   else s.updateVoid(d.floorId, id, { polygon: next });
 }
 
+function escapeVertexDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
+  if (!d.routeOrig || d.index == null) return;
+  const cur = currentFloor().annotations.find((x) => x.id === d.routeOrig!.id);
+  if (!cur || cur.kind !== 'escape-route') return;
+  const idx = d.index;
+  const neighbor = cur.points[idx - 1] ?? cur.points[idx + 1] ?? null;
+  const res = ctx.snap(e.world, { angleFrom: neighbor });
+  useSnapGuides.getState().set(res);
+  const next = cur.points.map((p, i) => (i === idx ? res.point : p));
+  useProjectStore.getState().updateAnnotation(d.floorId, cur.id, { points: next });
+}
+
 function measureEndDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
   const m = d.measureOrig;
   if (!m || d.index == null) return;
@@ -1013,6 +1087,7 @@ function measureEndDrag(e: ToolEvent, ctx: ToolContext, d: DragState) {
 }
 
 function onPointerMove(e: ToolEvent, ctx: ToolContext) {
+  lastPointer = e.world;
   const d = drag;
   if (!d) {
     updateHover(e, ctx);
@@ -1056,6 +1131,7 @@ function onPointerMove(e: ToolEvent, ctx: ToolContext) {
     case 'zoneVertex':
     case 'voidVertex': vertexDrag(e, ctx, d); break;
     case 'measureEnd': measureEndDrag(e, ctx, d); break;
+    case 'escapeVertex': escapeVertexDrag(e, ctx, d); break;
     default: break;
   }
 }
@@ -1123,6 +1199,14 @@ function onDoubleClick(e: ToolEvent, ctx: ToolContext) {
     case 'annotation': {
       const a = floor.annotations.find((x) => x.id === hit.id);
       if (!a) return;
+      if (a.kind === 'escape-route' && !a.locked && isSelected(ui.selection, hit)) {
+        // Doppelklick auf ein Segment des bereits gewählten Fluchtwegs: Punkt einfügen (kein Griff getroffen)
+        const onHandle = handleAt(e.world, handlesFor(ctx, ui.selection), toleranceFor(e, ctx));
+        if (!onHandle && selectedRouteAt(e, ctx)) {
+          insertRoutePoint(a, e.world, floor.id);
+          return;
+        }
+      }
       ui.setSelection([hit]);
       if (a.kind === 'text' && !a.locked) st.patch({ textEdit: { id: a.id, world: { x: a.x, y: a.y }, initial: a.text, fontSize: a.fontSize } });
       else ui.setRightPanel('properties');
@@ -1140,7 +1224,23 @@ function formatCmValue(cm: number): string {
   return String(v).replace('.', ',');
 }
 
-function onKeyDown(e: KeyboardEvent): boolean {
+/** Zuletzt gemeldete Zeigerposition (Welt) – für „Entf auf einem Griff“. */
+let lastPointer: Vec2 | null = null;
+
+function onKeyDown(e: KeyboardEvent, ctx?: ToolContext): boolean {
+  if ((e.key === 'Delete' || e.key === 'Backspace') && ctx && lastPointer && !drag) {
+    const sel = ctx.ui.selection;
+    if (sel.length === 1 && sel[0].kind === 'annotation') {
+      const a = ctx.floor.annotations.find((x) => x.id === sel[0].id);
+      if (a && a.kind === 'escape-route' && !a.locked) {
+        const h = handleAt(lastPointer, handlesFor(ctx, sel), ctx.pxToWorld(8));
+        if (h && h.kind === 'escapeVertex') {
+          if (!removeRoutePoint(a, h.index, ctx.floor.id)) ctx.ui.toast('Ein Fluchtweg braucht mindestens 2 Punkte', 'info');
+          return true;
+        }
+      }
+    }
+  }
   if (e.key === 'Escape') {
     const st = useSelectTool.getState();
     if (st.lengthInput || st.textEdit) {
@@ -1157,6 +1257,7 @@ function onKeyDown(e: KeyboardEvent): boolean {
 
 function onCancel(ctx: ToolContext) {
   if (drag) finishDrag(false);
+  lastPointer = null;
   clicks.reset();
   useSelectTool.getState().reset();
   useSnapGuides.getState().set(null);
@@ -1338,7 +1439,7 @@ registerTool({
   onPointerMove,
   onPointerUp,
   onDoubleClick,
-  onKeyDown: (e) => onKeyDown(e),
+  onKeyDown: (e, ctx) => onKeyDown(e, ctx),
   onCancel,
   onActivate: () => useSelectTool.getState().patch({ cursor: 'default' }),
   Overlay: SelectOverlay,
