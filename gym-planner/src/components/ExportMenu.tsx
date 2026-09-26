@@ -33,8 +33,8 @@ export async function runExport(kind: ExportKind, opts: { pdfScale?: PdfScale } 
         ui.toast(`PDF (1:${opts.pdfScale ?? 100}) exportiert`, 'success');
         break;
       case 'csv':
+        // exportCsv meldet Erfolg/Fehler selbst per Toast
         exportCsv();
-        ui.toast('Stückliste als CSV exportiert', 'success');
         break;
       case 'costs-csv':
         // exportCostsCsv meldet Erfolg/Fehler selbst per Toast

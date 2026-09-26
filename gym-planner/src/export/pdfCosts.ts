@@ -7,7 +7,7 @@ import type { jsPDF } from 'jspdf';
 import type { Project } from '@/types';
 import { costs, COST_GROUP_LABELS, COST_ASSUMPTION_FIELDS, COST_ASSUMPTION_GROUP_LABELS, type CostLine } from '@/analysis';
 import { formatNumber } from '@/geometry/units';
-import { drawPageHeader, drawFooter, drawTable, dateDe, PAGE_MARGIN_MM, TITLE_BLOCK_MM, type TableCtx, type Col } from './pdf';
+import { drawPageHeader, drawFooter, drawTable, dateDe, PAGE_MARGIN_MM, TITLE_BLOCK_MM, type TableCtx, type Col, fitText } from './pdf';
 
 const PAGE_W = 297;
 const PAGE_H = 210;
@@ -58,7 +58,10 @@ export function drawCostPages(doc: jsPDF, project: Project): void {
   doc.setFontSize(9);
   const colW = (PAGE_W - PAGE_MARGIN_MM * 2) / 2;
   const rowH = 5;
-  kpis.forEach(([label, value], i) => {
+  // acht kurze Kennzahlen zweispaltig, die langen Zeilen „Flächen“ und „Sanitär“ je in voller Breite
+  const grid = kpis.slice(0, 8);
+  const wide = kpis.slice(8);
+  grid.forEach(([label, value], i) => {
     const col = i % 2;
     const row = Math.floor(i / 2);
     const x = PAGE_MARGIN_MM + col * colW;
@@ -66,9 +69,17 @@ export function drawCostPages(doc: jsPDF, project: Project): void {
     doc.setFont('helvetica', 'bold');
     doc.text(`${label}:`, x, y);
     doc.setFont('helvetica', 'normal');
-    doc.text(value, x + 48, y);
+    doc.text(fitText(doc, value, colW - 50), x + 48, y);
   });
-  ctx.y += Math.ceil(kpis.length / 2) * rowH + 6;
+  let wy = ctx.y + Math.ceil(grid.length / 2) * rowH + 4;
+  for (const [label, value] of wide) {
+    doc.setFont('helvetica', 'bold');
+    doc.text(`${label}:`, PAGE_MARGIN_MM, wy);
+    doc.setFont('helvetica', 'normal');
+    doc.text(fitText(doc, value, PAGE_W - PAGE_MARGIN_MM * 2 - 50), PAGE_MARGIN_MM + 48, wy);
+    wy += rowH;
+  }
+  ctx.y += (Math.ceil(grid.length / 2) + wide.length) * rowH + 6;
   if (c.itemsWithoutPrice > 0) {
     doc.setFontSize(8);
     doc.setTextColor(180, 83, 9);
