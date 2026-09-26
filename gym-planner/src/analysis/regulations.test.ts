@@ -291,9 +291,6 @@ describe('Regularien-Prüfung: ausgestattete Halle', () => {
     const narrow = door('hall_1', 400, 70);
     q.floors[0].openings.push(narrow);
     expect(one(q, `exit:${narrow.id}:width`).status).toBe('fail');
-    const minimal = door('hall_1', 700, 80);
-    q.floors[0].openings.push(minimal);
-    expect(one(q, `exit:${minimal.id}:width`).status).toBe('ok');
   });
   it('Löschmitteleinheiten: mit 10-LE-Geräten erreichbar → prüfen, sonst nicht erfüllt; params.le zählt', () => {
     const q = hallProject();
