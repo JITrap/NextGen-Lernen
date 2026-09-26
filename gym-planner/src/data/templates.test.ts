@@ -115,6 +115,23 @@ describe('Projekt-Vorlagen', () => {
         expect(new Set(ids).size).toBe(ids.length);
       });
 
+      it('wandmontierte Objekte hängen nicht in Fenster- oder Türöffnungen derselben Wand', () => {
+        for (const it of floor.items) {
+          if (!it.wallId) continue;
+          const w = findWall(floor, it.wallId);
+          if (!w) continue;
+          const offsets = itemFootprint(it).map((c) => projectOntoWall(w, c).offset);
+          const [i0, i1] = [Math.min(...offsets), Math.max(...offsets)];
+          const itemHeight = it.height ?? getDef(it.defId, p)?.hoehe_cm ?? Infinity;
+          for (const o of floor.openings) {
+            if (o.wallId !== it.wallId || (o.kind !== 'window' && o.kind !== 'door')) continue;
+            if (o.kind === 'window' && itemHeight <= o.sillHeight) continue; // z. B. Heizkörper unter der Fensterbank
+            const [o0, o1] = [o.offset - o.width / 2, o.offset + o.width / 2];
+            expect(i1 <= o0 + 1e-6 || i0 >= o1 - 1e-6, `${label(it, p)} überlappt ${o.kind} ${o.id} (${o0}–${o1}) auf Wand ${o.wallId}`).toBe(true);
+          }
+        }
+      });
+
       it('kein Objekt steht in einer Tür-Schwenkfläche oder vor einem Notausgang', () => {
         const doors = floor.openings.filter((o): o is Door => o.kind === 'door');
         const byId = new Map(floor.items.map((it) => [it.id, it]));
@@ -534,6 +551,18 @@ describe('Projekt-Vorlagen', () => {
         expect(empf, id).toContain(id);
       }
       expect(empf.filter((id) => id.startsWith('gen-ausstattung-pflanze')).length).toBeGreaterThanOrEqual(3);
+      // Drehkreuz und Zugangsschranke münden beide in die Öffnung der zweiflügeligen Glastür zur Halle (kein Weg gegen die Wand)
+      const hallDoor = doors.find((d) => /Zugang Halle/.test(d.note ?? ''))!;
+      expect(hallDoor.doorType).toBe('zweiflügelig');
+      expect(hallDoor.width).toBeGreaterThanOrEqual(200);
+      const dw = findWall(f, hallDoor.wallId)!;
+      const [d0, d1] = [hallDoor.offset - hallDoor.width / 2, hallDoor.offset + hallDoor.width / 2];
+      for (const id of ['gen-empfang-drehkreuz', 'gen-empfang-zugangsschranke']) {
+        const it = f.items.find((x) => x.defId === id)!;
+        const offs = itemFootprint(it).map((c) => projectOntoWall(dw, c).offset);
+        expect(Math.min(...offs), id).toBeGreaterThanOrEqual(d0 - 1e-6);
+        expect(Math.max(...offs), id).toBeLessThanOrEqual(d1 + 1e-6);
+      }
       const wc = idsIn(roomOf('WC barrierefrei').polygon);
       expect(wc).toContain('gen-sanitaer-wc-barrierefrei');
       expect(wc).toContain('gen-umkleide-waschtisch');

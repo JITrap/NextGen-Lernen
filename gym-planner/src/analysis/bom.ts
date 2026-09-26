@@ -15,6 +15,10 @@ export interface BomFloorCount {
   floorId: Id;
   floorName: string;
   count: number;
+  /** Summe der Objektpreise auf diesem Stockwerk (Objekte ohne Preis zählen nicht); null, wenn keines einen Preis hat. */
+  totalEur: number | null;
+  /** Objekte dieses Stockwerks ohne Preis. */
+  itemsWithoutPrice: number;
 }
 export interface BomLine {
   /**
@@ -107,8 +111,10 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
       g.itemIds.push(it.id);
       const price = itemPrice(it, def, project);
       if (price != null) g.prices.push(price);
-      const fcnt = g.floorCounts.get(fc.floor.id) ?? { floorId: fc.floor.id, floorName: fc.floor.name, count: 0 };
+      const fcnt = g.floorCounts.get(fc.floor.id) ?? { floorId: fc.floor.id, floorName: fc.floor.name, count: 0, totalEur: null, itemsWithoutPrice: 0 };
       fcnt.count += 1;
+      if (price != null) fcnt.totalEur = (fcnt.totalEur ?? 0) + price;
+      else fcnt.itemsWithoutPrice += 1;
       g.floorCounts.set(fc.floor.id, fcnt);
     }
   }

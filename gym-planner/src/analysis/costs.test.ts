@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { costs, costAssumptions, annuityMonthly, DEFAULT_COST_ASSUMPTIONS, COST_ASSUMPTION_FIELDS, IMPORT_MANUFACTURERS } from './costs';
 import { areaBalance } from './areaBalance';
 import { bom } from './bom';
-import { priceQuantity, libraryItemPrice, priceUnitOf } from './priceUnits';
+import { priceQuantity, libraryItemPrice, priceUnitOf, placementPrice } from './priceUnits';
 import { projectWithHall, firstFloor, addCustomDef, makeDef, place, addZone, fresh } from './testFixtures';
 import { getDef } from '@/data/equipment';
 import { getTemplate } from '@/data/templates';
@@ -158,6 +158,46 @@ describe('Kostenkalkulation', () => {
     expect(c.einmalSummeEur).toBe(DEFAULT_COST_ASSUMPTIONS.sonstigeEinmalEur + Math.round((DEFAULT_COST_ASSUMPTIONS.sonstigeEinmalEur * DEFAULT_COST_ASSUMPTIONS.unvorhergesehenProzent) / 100));
   });
 
+  it('Gerätesumme: Bereiche kumulativ gerundet, Summe = gerundete Stücklistensumme; Stückpreis je Bereich = Mittel der bepreisten Objekte', () => {
+    const p = projectWithHall(2000, 1000);
+    const f = firstFloor(p);
+    const a = addCustomDef(p, makeDef({ id: 't-a', bereich: 'Kraftgeräte', preis_eur: 100.5 }));
+    const b = addCustomDef(p, makeDef({ id: 't-b', bereich: 'Cardio', preis_eur: 200.5 }));
+    const c = addCustomDef(p, makeDef({ id: 't-c', bereich: 'Cardio' }));
+    place(f, a, 300, 300);
+    place(f, b, 600, 300);
+    place(f, c, 900, 300);
+    const r = costs(p);
+    expect(bom(p).totalEur).toBe(301);
+    expect(r.geraeteSummeEur).toBe(301);
+    expect(r.geraeteJeBereich.map((g) => g.summeEur)).toEqual([101, 200]); // 100,5 → 101; 301 − 101 = 200 (nicht 201)
+    expect(r.geraeteJeBereich.reduce((s, g) => s + g.summeEur, 0)).toBe(r.geraeteSummeEur);
+    const cardio = r.einmal.find((l) => l.id === 'geraete:Cardio')!;
+    expect(cardio.menge).toBe(2);
+    expect(cardio.einzelpreisEur).toBe(200); // Mittel nur der bepreisten Objekte (wie BomLine.unitPriceEur)
+    expect(cardio.hinweis).toBe('1 Objekt ohne Preis');
+  });
+
+  it('Finanzierung: Laufzeit unter einem halben Monat gilt als Barkauf; Rate als Pauschale mit Basis, Zins (Komma) und Monaten im Hinweis', () => {
+    const p = synthetic();
+    const fin = costs(p);
+    const rate = fin.monatlich.find((l) => l.id === 'finanzierung')!;
+    expect(rate.einheit).toBe('pauschal');
+    expect(rate.menge).toBe(1);
+    expect(rate.einzelpreisEur).toBe(rate.summeEur);
+    expect(rate.hinweis).toContain('über 60 Monate');
+    expect(rate.hinweis).toContain('5,5 % p. a.');
+    expect(rate.hinweis).toContain(`${(fin.geraeteSummeEur + fin.importSummeEur).toLocaleString('de-DE')}`);
+    const bar = costs({ ...p, costs: { finanzierungJahre: 0.02 } }); // 0,24 Monate → 0 Monate
+    expect(bar.finanziert).toBe(false);
+    expect(bar.monatlich.some((l) => l.id === 'finanzierung')).toBe(false);
+    expect(bar.einmal.some((l) => l.finanziert)).toBe(false);
+    expect(bar.investitionSummeEur).toBe(bar.einmalSummeEur);
+    const short = costs({ ...p, costs: { finanzierungJahre: 0.5 } }); // 6 Monate
+    expect(short.finanziert).toBe(true);
+    expect(short.monatlich.find((l) => l.id === 'finanzierung')!.hinweis).toContain('über 6 Monate');
+  });
+
   it('Vorlage „Beispielstudio 1.000 m²“: plausible Größenordnung', () => {
     const p = getTemplate('beispiel-1000')!.create();
     const c = costs(p);
@@ -187,6 +227,9 @@ describe('Preiseinheiten skalierbarer Objekte', () => {
     expect(priceQuantity({ width: 400, depth: 50 }, row)).toEqual({ einheit: 'Abteil', menge: 10 });
     expect(priceQuantity({ width: 400, depth: 50, params: { faecher: 20, stoeckig: 2 } }, row)).toEqual({ einheit: 'Abteil', menge: 10 });
     expect(priceQuantity({ width: 600, depth: 50, params: { faecher: '' } }, row).menge).toBe(15); // Breite ÷ 40 cm
+    // wie lockerColumns() im Symbol: Fächer ÷ Stöcke aufgerundet (17 Fächer 4-stöckig = 5 Abteile), Breite ÷ Abteilbreite gerundet
+    expect(priceQuantity({ width: 200, depth: 50, params: { faecher: 17, stoeckig: 4 } }, row)).toEqual({ einheit: 'Abteil', menge: 5 });
+    expect(priceQuantity({ width: 190, depth: 50, params: { faecher: '', abteilbreite: 40 } }, row).menge).toBe(5);
     expect(libraryItemPrice({ width: 400, depth: 50 }, row)).toBe(row.preis_eur! * 10);
     const turf = getDef('gen-functional-kunstrasen')!;
     expect(priceUnitOf(turf)).toBe('m²');
@@ -196,6 +239,13 @@ describe('Preiseinheiten skalierbarer Objekte', () => {
     expect(priceUnitOf(rack)).toBe('Stück');
     expect(libraryItemPrice({ width: 1, depth: 1 }, rack)).toBe(rack.preis_eur);
     expect(libraryItemPrice({ width: 1, depth: 1 }, undefined)).toBeNull();
+    // Beim Platzieren: Stück-Preise werden Objektpreis, je-Abteil/m²-Preise nicht (Bibliothekspreis × Menge skaliert weiter mit der Größe)
+    expect(placementPrice(rack, {})).toBe(rack.preis_eur);
+    expect(placementPrice(rack, { [rack.id]: 1234 })).toBe(1234);
+    expect(placementPrice(row, {})).toBeUndefined();
+    expect(placementPrice(turf, {})).toBeUndefined();
+    expect(placementPrice(row, { [row.id]: 999 })).toBe(999);
+    expect(placementPrice(makeDef({ id: 't-nopreis' }), {})).toBeUndefined();
     expect(priceUnitOf(undefined)).toBe('Stück');
   });
 

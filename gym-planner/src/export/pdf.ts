@@ -412,7 +412,7 @@ function drawBomPages(doc: JsPdf, project: Project) {
   const pageW = 297;
   const pageH = 210;
   const footer = () => drawFooter(doc, pageW, pageH, `GymPlanner · ${project.name} · Stückliste · ${dateDe()}`);
-  drawPageHeader(doc, pageW, `${project.name} – Stückliste`, `${rows.length} Positionen · ${totals.anzahl} Objekte · Gewicht gesamt ${formatNumber(totals.gewicht, 0)} kg · Kosten ${formatNumber(totals.summe, 2)} EUR${totals.ohnePreis ? ` (${totals.ohnePreis} Position(en) ohne Preis)` : ''}`, [dateDe()]);
+  drawPageHeader(doc, pageW, `${project.name} – Stückliste`, `${rows.length} Positionen · ${totals.anzahl} Objekte · Gewicht gesamt ${formatNumber(totals.gewicht, 0)} kg · Kosten ${formatNumber(totals.summe, 2)} EUR${totals.ohnePreis ? ` (${totals.ohnePreis} Objekt(e) ohne Preis)` : ''}`, [dateDe()]);
   footer();
   const ctx: TableCtx = {
     doc, pageW, pageH, y: PAGE_MARGIN_MM + TITLE_BLOCK_MM,

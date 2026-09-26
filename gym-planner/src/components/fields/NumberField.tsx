@@ -84,7 +84,8 @@ export function NumberField({
   const cancelling = useRef(false);
   /** Enter hat bereits übernommen: das durch blur() synchron ausgelöste onBlur (veraltete Closure) darf nicht erneut committen. */
   const committedByEnter = useRef(false);
-  const fmt = (v: number) => (format ? format(v) : formatPlain(v, integer ? 0 : Math.max(decimals, 2)));
+  // Anzeige unabhängig von `integer`: ein importierter Dezimalwert (250,5) wird sichtbar; Übernahme rundet über normalize()
+  const fmt = (v: number) => (format ? format(v) : formatPlain(v, Math.max(decimals, 2)));
   const shown = value == null ? '' : fmt(value);
 
   const normalize = (v: number): number => {

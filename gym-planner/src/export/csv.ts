@@ -33,6 +33,8 @@ export interface BomRow {
   preisGemischt: boolean;
   /** Summe in EUR (null, wenn kein Preis). */
   summe: number | null;
+  /** Objekte dieser Position ohne Preis (bei teilweise bepreisten Positionen: Anzahl × Stückpreis ≠ Summe). */
+  ohnePreis: number;
   /** Namen der Stockwerke, auf denen das Gerät steht. */
   stockwerke: string[];
   verifiziert: boolean;
@@ -45,7 +47,7 @@ export interface BomTotals {
   anzahl: number;
   gewicht: number;
   summe: number;
-  /** Zeilen ohne Preis (Kosten unvollständig). */
+  /** Objekte ohne Preis (Kosten unvollständig) – auch in Positionen, die teilweise bepreist sind. */
   ohnePreis: number;
 }
 
@@ -63,6 +65,7 @@ function rowHint(line: BomLine, def: EquipmentDef | undefined): string {
   if (line.unknownDef) parts.push('Nicht in der Bibliothek – gespeicherte Maße');
   else if (def) parts.push(...[def.hinweis, def.extra].filter((s): s is string => !!s));
   if (line.priceMixed) parts.push('Unterschiedliche Objektpreise – Stückpreis ist der Mittelwert');
+  if (line.itemsWithoutPrice > 0 && line.totalEur != null) parts.push(`${line.itemsWithoutPrice} Objekt(e) ohne Preis – nicht in der Summe`);
   return parts.join(' · ');
 }
 
@@ -84,6 +87,7 @@ function rowFromLine(line: BomLine, project: Project): BomRow {
     stueckpreis: line.unitPriceEur,
     preisGemischt: line.priceMixed,
     summe: line.totalEur,
+    ohnePreis: line.itemsWithoutPrice,
     stockwerke: line.floorCounts.map((f) => f.floorName),
     verifiziert: line.verifiziert,
     hinweis: rowHint(line, def),
@@ -96,7 +100,7 @@ export function bomRows(project: Project): BomRow[] {
   return bom(project).lines.map((line) => rowFromLine(line, project));
 }
 
-/** Summen über die Zeilen (entsprechen `totalCount`, `totalWeightKg`, `totalEur`, `linesWithoutPrice` aus `bom(project)`). */
+/** Summen über die Zeilen (entsprechen `totalCount`, `totalWeightKg`, `totalEur`, `itemsWithoutPrice` aus `bom(project)`). */
 export function bomTotals(rows: BomRow[]): BomTotals {
   let anzahl = 0;
   let gewicht = 0;
@@ -105,7 +109,8 @@ export function bomTotals(rows: BomRow[]): BomTotals {
   for (const r of rows) {
     anzahl += r.anzahl;
     if (r.gewicht != null) gewicht += r.gewicht * r.anzahl;
-    if (r.summe != null) summe += r.summe; else ohnePreis += 1;
+    if (r.summe != null) summe += r.summe;
+    ohnePreis += r.ohnePreis;
   }
   return { anzahl, gewicht, summe, ohnePreis };
 }
@@ -150,7 +155,7 @@ export function bomCsvText(project: Project): string {
   lines.push([
     'Summe', '', '', `${rows.length} Positionen`, '', '', '', csvNumber(totals.gewicht),
     String(totals.anzahl), '', csvNumber(totals.summe), '', '',
-    totals.ohnePreis ? csvCell(`${totals.ohnePreis} Position(en) ohne Preis`) : '',
+    totals.ohnePreis ? csvCell(`${totals.ohnePreis} Objekt(e) ohne Preis`) : '',
   ].join(';'));
   return `\uFEFF${lines.join('\r\n')}\r\n`;
 }

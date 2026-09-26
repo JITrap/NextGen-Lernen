@@ -380,7 +380,7 @@ function createSmallStudio(name = 'Kleines Studio 400 m²'): Project {
   b.door(wSanD, { x: SAN, y: 870 }, { x: 150, y: 870 }, { width: 80 });
   b.door(wSanH, { x: SAN, y: 1290 }, { x: 150, y: 1290 }, { width: 80 });
   b.door(right, { x: IX1, y: 1300 }, { x: 2700, y: 1300 }, { type: 'Notausgang', width: 100 });
-  b.window(top, { x: 450, y: IY0 }, 150);
+  b.window(top, { x: 500, y: IY0 }, 150); // x 425–575, rechts des Info-Bildschirms
   b.window(left, { x: IX0, y: 550 }, 120);
   b.window(top, { x: 1300, y: IY0 }, 200, { sillHeight: 180, height: 100 });
   b.window(top, { x: 1900, y: IY0 }, 200, { sillHeight: 180, height: 100 });
@@ -410,8 +410,8 @@ function createSmallStudio(name = 'Kleines Studio 400 m²'): Project {
   b.put(S('gen-empfang-drehkreuz', 270), { right: ROOM_X1 - 20, cy: 150 });
   b.put(S('gen-empfang-kuehlschrank'), { right: ROOM_X1, cy: 340 });
   b.put(S('gen-empfang-getraenkeautomat'), { left: IX0, cy: 340 });
-  b.put(S('gen-empfang-info-bildschirm', 0, { wallId: top.id }), { cx: 330, top: IY0 });
-  b.put(S('gen-bau-heizkoerper', 0, { wallId: top.id }), { cx: 450, top: IY0 });
+  b.put(S('gen-empfang-info-bildschirm', 0, { wallId: top.id }), { cx: 330, top: IY0 }); // x 267,5–392,5, zwischen Haupteingang (bis x 250) und Fenster (ab x 425)
+  b.put(S('gen-bau-heizkoerper', 0, { wallId: top.id }), { cx: 500, top: IY0 }); // unter dem Fenster (Höhe 60 < Brüstung 90)
   b.put(S('gen-ausstattung-notausgang-schild', 0, { wallId: top.id }), { cx: 120, top: IY0 });
   b.put(S('gen-ausstattung-wasserspender'), { right: ROOM_X1, top: IY0 });
   b.put(S('gen-ausstattung-muelleimer'), { cx: 620, cy: 240 });
@@ -742,7 +742,7 @@ function createMediumStudio(name = 'Mittleres Studio 800 m²'): Project {
   b.put(S('gen-ausstattung-muelleimer'), { cx: 880, cy: 540 });
   b.put(S('gen-ausstattung-feuerloescher', 180, { wallId: bottom.id }), { cx: 2600, bottom: IY1 });
   b.put(S('gen-ausstattung-feuerloescher', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1100 });
-  b.put(S('gen-ausstattung-aed', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1000 });
+  b.put(S('gen-ausstattung-aed', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1150 }); // unterhalb der Tür bei y 960 (915–1005)
   b.put(S('gen-ausstattung-erste-hilfe', 270, { wallId: wCol.id }), { left: HALL_X, cy: 1050 });
   b.put(S('gen-ausstattung-tv-65', 0, { wallId: top.id }), { cx: 880, top: IY0 });
   b.put(S('gen-ausstattung-notausgang-schild', 90, { wallId: wKursX.id }), { right: WING_X1, cy: 1900 });
@@ -813,7 +813,7 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
   const bottom = b.hallWall(2);
   const left = b.hallWall(3);
   b.door(top, { x: 300, y: IY0 }, { x: 300, y: -100 }, { type: 'Notausgang', width: 200, note: 'Haupteingang, zweiflügelig (lichte Breite 200 cm)' });
-  b.door(wCol, { x: COL, y: 420 }, { x: 1000, y: 420 }, { type: 'Glastür', width: 100, note: 'Zugang Halle (hinter Zugangsschranke)' });
+  b.door(wCol, { x: COL, y: 400 }, { x: 1000, y: 400 }, { type: 'zweiflügelig', width: 220, note: 'Zugang Halle, Glastür zweiflügelig (Drehkreuz und Zugangsschranke münden in die Öffnung y 290–510)' });
   b.door(wEmpf, { x: 180, y: 550 }, { x: 180, y: 700 }, { width: 90 }); // Büro
   b.door(wEmpf, { x: 500, y: 550 }, { x: 500, y: 700 }, { width: 90 }); // Personalraum
   b.door(wCol, { x: COL, y: 730 }, { x: 1000, y: 730 }, { width: 100, note: 'WC barrierefrei (schlägt nach außen auf)' });
@@ -830,11 +830,11 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
   b.door(right, { x: IX1, y: 2300 }, { x: 4200, y: 2300 }, { type: 'Notausgang', width: 100, note: 'Notausgang Kursraum' });
   b.door(right, { x: IX1, y: 500 }, { x: 4200, y: 500 }, { type: 'Notausgang', width: 100, note: 'Notausgang Halle Ost (HYROX)' });
   b.door(bottom, { x: 2100, y: IY1 }, { x: 2100, y: 2700 }, { type: 'Notausgang', width: 100, note: 'Notausgang Halle Süd' });
-  b.window(top, { x: 120, y: IY0 }, 120);
+  b.window(top, { x: 90, y: IY0 }, 100); // x 40–140, endet vor der Rettungszeichenleuchte (x 152,5–187,5) links der Tür
   b.window(left, { x: IX0, y: 300 }, 150);
   b.window(left, { x: IX0, y: 720 }, 120);
   for (const x of [1150, 1500, 1850, 2350, 2750]) b.window(bottom, { x, y: IY1 }, 200, { sillHeight: 90, height: 220 });
-  for (const x of [2600, 3000, 3550]) b.window(top, { x, y: IY0 }, 200, { sillHeight: 180, height: 100 });
+  for (const x of [2600, 3000]) b.window(top, { x, y: IY0 }, 200, { sillHeight: 180, height: 100 }); // kein Oberlicht zwischen den Wall-Ball-Zielen (x 3370–3730, Aufprallzone)
   b.window(right, { x: IX1, y: 1000 }, 150);
   b.window(right, { x: IX1, y: 1800 }, 200);
   b.window(right, { x: IX1, y: 2050 }, 200);
@@ -860,13 +860,14 @@ function createExampleStudio(name = 'Beispielstudio 1.000 m²'): Project {
   ]);
   for (const meta of Object.values(floor.roomMeta)) if (meta.name === 'Trainingshalle') meta.labelMode = 'none';
 
-  /* ---- Empfang / Lounge (x 24–895, y 24–545) – Haupteingang oben x 200–400, Glastür zur Halle bei y 420.
+  /* ---- Empfang / Lounge (x 24–895, y 24–545) – Haupteingang oben x 200–400, zweiflügelige Glastür zur Halle bei y 400
+     (Öffnung y 290–510): Drehkreuz (y 295–385) und Zugangsschranke (y 390–510) münden beide in die Öffnung.
      Fluchtweg 5 läuft von der Glastür bei y 410 nach Westen (Korridor y 350–470, durch die Zugangsschranke mit Paniköffnung) und
      bei x 330 nach Norden zum Haupteingang (Korridor x 270–390): Theke endet bei y 340, Shakebar mit Barhockern und Getränkeautomat
      links unten neben der Lounge (x ≤ 320), Kühlschrank/Pflanzen unter dem Korridor (y ≥ 475). ---- */
   b.put(S('gen-empfang-theke', 180), { cx: 610, cy: 300 }); // Front zum Eingang, Grundfläche y 260–340
-  b.put(S('gen-empfang-drehkreuz', 270, { note: 'Eintritt' }), { right: ROOM_X1, cy: 320 });
-  b.put(S('gen-empfang-zugangsschranke', 270, { note: 'Ausgang / Fluchtweg (Paniköffnung)' }), { right: ROOM_X1, top: 380 });
+  b.put(S('gen-empfang-drehkreuz', 270, { note: 'Eintritt' }), { right: ROOM_X1, cy: 340 }); // y 295–385, in der Türöffnung (cy 345 würde auf 350 gerastert und die Schranke überlappen)
+  b.put(S('gen-empfang-zugangsschranke', 270, { note: 'Ausgang / Fluchtweg (Paniköffnung)' }), { right: ROOM_X1, top: 390 }); // y 390–510, Fluchtweg 5 (y 410) läuft hindurch
   b.put(S('gen-empfang-sofa-3', 90), { left: IX0, top: 180 });
   b.put(S('gen-empfang-loungetisch'), { cx: 190, cy: 300 });
   b.put(S('gen-empfang-sessel'), { cx: 200, cy: 220 }); // außerhalb der 150-cm-Freihaltefläche des Haupteingangs (y ≥ 175)

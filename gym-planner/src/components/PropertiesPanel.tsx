@@ -22,7 +22,7 @@ import { newId } from '@/utils/id';
 import { useUiStore } from '@/store/uiStore';
 import { useFloorRooms, useSortedFloors, useProjectFrozenWhileDragging, activeFloorOf } from '@/store/selectors';
 import { getDef, PRICE_CONFIDENCE_LABELS } from '@/data/equipment';
-import { priceQuantity } from '@/analysis/priceUnits';
+import { priceQuantity, libraryItemPrice } from '@/analysis/priceUnits';
 import { ROOM_TYPES, roomColor, FLOOR_COVERINGS } from '@/data/roomTypes';
 import { WALL_THICKNESSES, WALL_TYPES, DOOR_TYPES, DOOR_TYPE_MAP, DOOR_WIDTHS } from '@/data/wallTypes';
 import * as actions from '@/editor/actions';
@@ -428,7 +428,9 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
   const lockerRow = isLockerRow(item, def?.symbol);
   const evolution = def?.serie === 'Evolution' || (def?.hinweis?.includes('Händler') ?? false);
   const sameDefCount = useMemo(() => project.floors.reduce((n, f) => n + f.items.filter((it) => it.defId === item.defId).length, 0), [project.floors, item.defId]);
-  const price = item.priceEur ?? project.priceOverrides[item.defId] ?? def?.preis_eur ?? null;
+  // Bibliothekspreis als Objektpreis (je Abteil/m² × Menge, wie in der Stückliste); eigene Preise und Überschreibungen gelten je Objekt
+  const libPrice = def ? libraryItemPrice(item, def) : null;
+  const price = item.priceEur ?? project.priceOverrides[item.defId] ?? libPrice ?? null;
   const priceSource = item.priceEur != null ? 'eigener Preis dieses Objekts' : project.priceOverrides[item.defId] != null ? 'projektweit überschrieben' : def?.preis_eur != null ? 'Bibliothekspreis' : 'kein Preis hinterlegt';
   // Bibliothekspreis: Quelle, Konfidenz, Stand und ggf. Preiseinheit (Spindreihe je Abteil, Kunstrasen je m²)
   const libraryPriceInfo = def?.preis_eur != null && item.priceEur == null && project.priceOverrides[item.defId] == null
@@ -441,7 +443,7 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
     : null;
   const priceQty = def ? priceQuantity(item, def) : null;
   const priceUnitHint = priceQty && priceQty.einheit !== 'Stück' && def?.preis_eur != null && item.priceEur == null && project.priceOverrides[item.defId] == null
-    ? `${formatEur(def.preis_eur)} je ${priceQty.einheit} × ${formatNumber(priceQty.menge, priceQty.einheit === 'm²' ? 2 : 0)} ${priceQty.einheit} = ${formatEur(Math.round(def.preis_eur * priceQty.menge))} (Stückliste)`
+    ? `${formatEur(def.preis_eur)} je ${priceQty.einheit} × ${formatNumber(priceQty.menge, priceQty.einheit === 'm²' ? 2 : 0)} ${priceQty.einheit} = ${formatEur(libPrice ?? 0)} – ein eigener Preis gilt je Objekt`
     : null;
   const group = item.groupId ? floor.groups.find((g) => g.id === item.groupId) : undefined;
   const docked = item.dockedTo ? floor.items.find((it) => it.id === item.dockedTo) : undefined;

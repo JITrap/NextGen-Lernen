@@ -25,9 +25,9 @@ Räume typisiert, Rack-Module angedockt).
 | Fluchtwege (Anmerkungen) | 0 | 12, alle Prüfungen erfüllt (14,7–35,2 m Lauflänge) |
 | Kapazität (9 m² je Person) | 120 Personen, Spinde 59 (zu wenig), Duschen 16, WCs 10 | 126 Personen, Spinde 178, Duschen 18, WCs 11 (7 WC + 4 Urinale) |
 | Trainingsfläche | 1.083 m² (Zonen überlappen, Flächenbilanz doppelt) | 1.139 m² (8 Zonen ohne Überlappung + Kursraum) |
-| Geräte-Summe (Bibliothekspreise) | 423.350 € | 625.008 € |
-| Einmalkosten (Standardannahmen, Geräte finanziert) | 1.150.289 € | 1.243.141 € (Gesamtinvestition 1.900.377 €) |
-| Laufende Kosten je Monat | 58.017 € | 62.789 € |
+| Geräte-Summe (Bibliothekspreise) | 423.350 € | 590.968 € |
+| Einmalkosten (Standardannahmen, Geräte finanziert) | 1.150.289 € | 1.243.141 € (Gesamtinvestition 1.866.337 €) |
+| Laufende Kosten je Monat | 58.017 € | 61.997 € |
 
 ## Was geändert wurde
 

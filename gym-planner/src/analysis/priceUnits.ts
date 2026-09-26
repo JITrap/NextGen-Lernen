@@ -34,11 +34,24 @@ export function priceQuantity(item: Pick<PlacedItem, 'width' | 'depth' | 'params
     const faecher = num(item.params?.faecher ?? def?.params?.faecher);
     const stoeckig = Math.min(4, Math.max(1, Math.round(num(item.params?.stoeckig ?? def?.params?.stoeckig) ?? 1)));
     const ab = num(item.params?.abteilbreite ?? def?.params?.abteilbreite);
-    const abteile = faecher != null ? faecher / stoeckig : item.width / (ab != null && ab >= 5 ? ab : 40);
-    return { einheit, menge: Math.max(1, Math.round(abteile)) };
+    // wie lockerColumns() im Symbol: Fächer ÷ Stöcke aufgerundet, sonst Breite ÷ Abteilbreite gerundet
+    const abteile = faecher != null ? Math.ceil(faecher / stoeckig) : Math.round(item.width / (ab != null && ab >= 5 ? ab : 40));
+    return { einheit, menge: Math.max(1, abteile) };
   }
   if (einheit === 'm²') return { einheit, menge: Math.max(0, (item.width * item.depth) / 10000) };
   return { einheit, menge: 1 };
+}
+
+/**
+ * Objektpreis, den ein neu platziertes Objekt mitbekommt: Projekt-Überschreibung, sonst Bibliothekspreis je Stück.
+ * Bei Preisen je Abteil/m² bleibt das Objekt ohne eigenen Preis, damit der Bibliothekspreis × Menge über itemPrice()
+ * weiter mit der Objektgröße skaliert.
+ */
+export function placementPrice(def: EquipmentDef, priceOverrides: Record<string, number>): number | undefined {
+  const override = priceOverrides[def.id];
+  if (typeof override === 'number' && Number.isFinite(override)) return override;
+  if (def.preis_eur == null || priceUnitOf(def) !== 'Stück') return undefined;
+  return def.preis_eur;
 }
 
 /** Bibliothekspreis eines Objekts (Preis je Einheit × Menge); null ohne Bibliothekspreis. */

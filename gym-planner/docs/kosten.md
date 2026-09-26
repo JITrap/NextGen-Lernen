@@ -35,9 +35,11 @@ Regeln:
 - Sonst werden `preis_eur`, `preisQuelle`, `preisQuelleUrl`, `preisStand`, `preisKonfidenz`, `preisHinweis` gesetzt.
 - IDs in `prices.json`, die es in der Bibliothek nicht gibt, werden ignoriert (`priceEntry` prüft zusätzlich auf
   endliche Zahl ≥ 0 und sichere Schlüssel).
-- Bauelemente (Säulen, Heizkörper, Treppen, Aufzug …) tragen 0 € mit Hinweis „Bestand/Bauleistung“; ebenso
-  Lüftungsanlage (in „Lüftung je m²“ enthalten) und Schaltschrank (Elektro im Grundausbau).
-- Tests: `src/data/equipment/library.test.ts` (alle 366 IDs bepreist, jede prices.json-ID existiert, Richtwerte).
+- Bauelemente (Säulen, Heizkörper, Treppen, Aufzug, Lüftungsauslass …) tragen 0 € mit Hinweis „Bestand/Bauleistung“.
+  Ebenfalls 0 € mit Hinweis „im Kostenblock … enthalten“ (sonst doppelt gezählt): Lüftungsanlage (Zentralgerät steckt
+  in „Lüftung (RLT)“ je m²), Schaltschrank (Elektro im „Grundausbau“ je m²) und Rettungszeichenleuchte
+  („Brandschutz / Sicherheitsbeleuchtung“ je m²). `library.test.ts` erlaubt höchstens 3 solcher generischen 0-€-Einträge.
+- Tests: `src/data/equipment/library.test.ts` (alle 373 IDs bepreist, jede prices.json-ID existiert, Richtwerte).
 
 Derzeit sind **alle** Einträge Schätzungen nach Kategorie (`konfidenz: "schaetzung"`), erzeugt aus Richtwerten je
 Serie/Unterkategorie (Prime Hybrid 9.900–11.900 €, Prime Plate Loaded 5.900–8.900 €, Atlantis Precision 6.900–8.500 €,
@@ -100,11 +102,11 @@ Eingaben aus der Analyse:
 | Miete / Nebenkosten | `mieteEurM2Monat` bzw. `nebenkostenEurM2Monat` × Brutto-m² |
 | Personal / Sonstiges | `personalEurMonat`, `sonstigesEurMonat` |
 | Wartung | `wartungProzentJahr` % × Gerätesumme ÷ 12 |
-| Finanzierungsrate | Annuität auf (Geräte + Import) mit `zinsProzent` p. a. über `finanzierungJahre` (monatlich: `P·r / (1 − (1+r)^−n)`, `r = Zins/12`, `n = Jahre·12`; Zins 0 → `P/n`) – nur bei `finanzierungJahre > 0` |
+| Finanzierungsrate | Annuität auf (Geräte + Import) mit `zinsProzent` p. a. über `finanzierungJahre` (monatlich: `P·r / (1 − (1+r)^−n)`, `r = Zins/12`, `n = Jahre·12` gerundet; Zins 0 → `P/n`) – nur bei `n ≥ 1` Monat; Zeile als Pauschale (Menge 1), Basis und Laufzeit im Hinweis |
 
 ### Finanzierung vs. Barkauf
 
-Bei `finanzierungJahre > 0` (Standard 5) zählen Geräte und Import **nicht** zur Einmalsumme – sie werden über die
+Bei `finanzierungJahre` ≥ 1/12 Jahr (Standard 5; entscheidend ist die gerundete Laufzeit in Monaten) zählen Geräte und Import **nicht** zur Einmalsumme – sie werden über die
 Rate bezahlt. Die Gerätezeilen bleiben zur Information (`CostLine.finanziert`, Panel zeigt sie in Klammern), die
 Gesamtinvestition (`investitionSummeEur` = Einmalsumme + Geräte + Import) wird zusätzlich ausgewiesen. Bei
 `finanzierungJahre = 0` (Barkauf) zählen Geräte und Import zur Einmalsumme, und es gibt keine Rate.
@@ -121,23 +123,26 @@ Gesamtinvestition (`investitionSummeEur` = Einmalsumme + Geräte + Import) wird 
 
 | Feld | Standard | Einheit | Bezug |
 |---|---|---|---|
-| ausbauEurM2 | 350 | €/m² | Netto |
-| bodenTrainingEurM2 | 70 | €/m² | Trainingsfläche |
-| bodenNassEurM2 | 120 | €/m² | Umkleide/Sanitär |
-| lueftungEurM2 | 90 | €/m² | Netto |
-| spiegelEurM | 450 | €/m | Spiegelbreite |
-| brandschutzEurM2 | 25 | €/m² | Netto |
-| sanitaerDuscheEur / sanitaerWcEur / sanitaerWaschtischEur | 2 500 / 1 800 / 900 | €/Stk. | Symbole |
+| ausbauEurM2 | 250 | €/m² | Netto |
+| bodenTrainingEurM2 | 55 | €/m² | Trainingsfläche |
+| bodenNassEurM2 | 90 | €/m² | Umkleide/Sanitär |
+| lueftungEurM2 | 110 | €/m² | Netto |
+| spiegelEurM | 660 | €/m | Spiegelbreite |
+| brandschutzEurM2 | 30 | €/m² | Netto |
+| sanitaerDuscheEur / sanitaerWcEur / sanitaerWaschtischEur | 1 500 / 800 / 500 | €/Stk. | Symbole |
 | planungProzent | 12 | % | Ausbau + Sanitär |
-| importNebenkostenProzent | 18 | % | Geräte Atlantis/Prime |
-| unvorhergesehenProzent | 10 | % | vorherige Einmalposten |
+| importNebenkostenProzent | 12 | % | Geräte Atlantis/Prime |
+| unvorhergesehenProzent | 12 | % | vorherige Einmalposten |
 | kautionMonate | 3 | Monate | Miete + NK × Brutto |
-| sonstigeEinmalEur | 25 000 | € | pauschal |
-| mieteEurM2Monat / nebenkostenEurM2Monat | 9 / 3 | €/m²/Monat | Brutto |
-| personalEurMonat / sonstigesEurMonat | 18 000 / 4 000 | €/Monat | pauschal |
-| wartungProzentJahr | 3 | %/Jahr | Gerätewert |
-| finanzierungJahre / zinsProzent | 5 / 6 | Jahre / % p. a. | Geräte + Import |
+| sonstigeEinmalEur | 32 000 | € | pauschal |
+| mieteEurM2Monat / nebenkostenEurM2Monat | 9 / 6 | €/m²/Monat | Brutto |
+| personalEurMonat / sonstigesEurMonat | 16 000 / 2 000 | €/Monat | pauschal |
+| wartungProzentJahr | 5 | %/Jahr | Gerätewert |
+| finanzierungJahre / zinsProzent | 5 / 5,5 | Jahre / % p. a. | Geräte + Import |
 | mitgliedsbeitragEurMonat | 39 | €/Monat | Break-even |
+
+Die Werte sind die Quelle der Wahrheit in `DEFAULT_COST_ASSUMPTIONS` (`src/analysis/costs.ts`); die Tests lesen sie von
+dort, statt Zahlen zu wiederholen.
 
 Die Feldbeschreibungen (Label, Einheit, Erklärung, Gruppe, Schritt) stehen zentral in `COST_ASSUMPTION_FIELDS`
 und speisen Panel, PDF und CSV.
@@ -159,6 +164,7 @@ und speisen Panel, PDF und CSV.
 
 ## Größenordnung (Vorlage „Beispielstudio 1.000 m²“, Standardannahmen)
 
-Geräte ≈ 500 000 € (finanziert), Einmalkosten ≈ 750 000 € (Barkauf ≈ 1,34 Mio. €), laufend ≈ 45 600 €/Monat,
-Break-even ≈ 1 170 Mitglieder bei 39 €/Monat. Tests: `src/analysis/costs.test.ts`, `src/store/costs.store.test.ts`,
+Geräte ≈ 387 000 € (+ Import ≈ 16 000 €, finanziert), Einmalkosten ≈ 653 000 € (Gesamtinvestition ≈ 1,06 Mio. €;
+Barkauf: Einmalkosten ≈ 1,10 Mio. €), laufend ≈ 42 300 €/Monat (Barkauf ≈ 34 600 €/Monat), Break-even ≈ 1 085 Mitglieder
+bei 39 €/Monat (Barkauf ≈ 888). Die Zahlen folgen `prices.json` und `DEFAULT_COST_ASSUMPTIONS` und ändern sich mit ihnen. Tests: `src/analysis/costs.test.ts`, `src/store/costs.store.test.ts`,
 `src/export/costs.export.test.ts`, `src/components/CostSection.test.tsx`.

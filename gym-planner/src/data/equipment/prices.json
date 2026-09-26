@@ -2613,12 +2613,12 @@
       "konfidenz": "schaetzung"
     },
     "gen-lager-lueftungsanlage": {
-      "preis_eur": 30000,
+      "preis_eur": 0,
       "quelle": "RLT-Zentralgerät mit WRG 5.000–8.000 m³/h (Klimor/Wolf/Kampmann) 20.000–45.000 € netto; Komplettanlage 60–90 €/m² (luftbude.de)",
       "quelle_url": "https://www.luftbude.de/wissen/zentrale-lueftungsanlage/zentrale-lueftungsanlage-kosten",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Original: 60–90 €/m² · nur Gerät; Kanalnetz/Montage siehe Kostenblock Lüftung."
+      "hinweis": "Im Kostenblock „Lüftung (RLT)“ je m² Nettofläche enthalten (Zentralgerät 20.000–45.000 € netto plus Kanalnetz/Montage) – keine Objektkosten."
     },
     "gen-lager-waschmaschine": {
       "preis_eur": 3500,
@@ -2642,12 +2642,12 @@
       "konfidenz": "schaetzung"
     },
     "gen-lager-schaltschrank": {
-      "preis_eur": 3500,
+      "preis_eur": 0,
       "quelle": "Elektro-Hauptverteilung Gewerbe bestückt (Schrank 500–1.500 € + Bestückung) 2.500–6.000 € netto",
       "quelle_url": "https://www.elektroland24.de/elektroinstallation/verteilerschraenke/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Hauptverteiler; Installation im Kostenblock Elektro."
+      "hinweis": "Im Kostenblock „Grundausbau“ (Elektro + LED je m²) enthalten – keine Objektkosten."
     },
     "gen-lager-warmwasserspeicher": {
       "preis_eur": 800,
@@ -2872,12 +2872,12 @@
       "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-ausstattung-rettungszeichenleuchte": {
-      "preis_eur": 90,
+      "preis_eur": 0,
       "quelle": "Richtwert LED-Rettungszeichenleuchte mit Einzelbatterie (z. B. Zumtobel/Eaton-Klasse 70–140 € netto)",
       "quelle_url": "https://www.zumtobel.com/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "je Stück, ohne Montage/Verkabelung (in Kostenblock Brandschutz je m² enthalten)"
+      "hinweis": "Im Kostenblock „Brandschutz / Sicherheitsbeleuchtung“ je m² enthalten (Leuchte 70–140 € plus Montage/Verkabelung) – keine Objektkosten."
     },
     "gen-ausstattung-fluchtplan": {
       "preis_eur": 120,

@@ -11,6 +11,7 @@ import { drawPageHeader, drawFooter, drawTable, dateDe, PAGE_MARGIN_MM, TITLE_BL
 /** Tabellenzeilen der Prüfungen (reine Funktion, testbar). */
 /** jsPDF setzt die Standardschriften in WinAnsi; ≤/≥/→ liegen außerhalb und würden den ganzen String verstümmeln. */
 export function pdfSafe(s: string): string {
+  // eslint-disable-next-line no-control-regex -- Steuerzeichen (Zeilenumbruch, Tab) bleiben absichtlich erhalten
   return s.replace(/≤ ?/g, 'max. ').replace(/≥ ?/g, 'mind. ').replace(/→/g, '->').replace(/·/g, '-').replace(/[^\u0000-\u00ff\u2013\u2014\u2018\u2019\u201a\u201c\u201d\u201e\u2020\u2021\u2022\u2026\u2030\u2039\u203a\u20ac\u2122]/g, '?');
 }
 

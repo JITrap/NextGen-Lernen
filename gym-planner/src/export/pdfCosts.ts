@@ -121,7 +121,7 @@ export function drawCostPages(doc: jsPDF, project: Project): void {
     { title: 'Einheit', width: 20 },
     { title: 'Erläuterung', width: 139 },
   ];
-  const aRows = COST_ASSUMPTION_FIELDS.map((f) => [COST_ASSUMPTION_GROUP_LABELS[f.gruppe], f.label, formatNumber(a[f.key], f.decimals ?? 0), f.einheit, f.erklaerung]);
+  const aRows = COST_ASSUMPTION_FIELDS.map((f) => [COST_ASSUMPTION_GROUP_LABELS[f.gruppe], f.label, formatNumber(a[f.key], Math.max(f.decimals ?? 0, 2)), f.einheit, f.erklaerung]);
   if (ctx.y + 30 > PAGE_H - PAGE_MARGIN_MM) ctx.newPage();
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(10);

@@ -152,14 +152,34 @@ describe('CSV-Stückliste', () => {
     expect(t.anzahl).toBe(list.totalCount);
     expect(t.summe).toBe(list.totalEur);
     expect(t.gewicht).toBe(list.totalWeightKg);
-    expect(t.ohnePreis).toBe(list.linesWithoutPrice);
+    expect(t.ohnePreis).toBe(list.itemsWithoutPrice);
     // Auch im größeren Beispielprojekt: Positionen, Reihenfolge und Summen 1:1
     const sp = sampleProject();
     const srows = bomRows(sp);
     const sl = bom(sp);
     expect(srows.map((r) => [r.key, r.defId, r.anzahl, r.stueckpreis, r.summe])).toEqual(sl.lines.map((l) => [l.key, l.defId, l.count, l.unitPriceEur, l.totalEur]));
     expect(new Set(srows.map((r) => r.key)).size).toBe(srows.length);
-    expect(bomTotals(srows)).toEqual({ anzahl: sl.totalCount, gewicht: sl.totalWeightKg, summe: sl.totalEur, ohnePreis: sl.linesWithoutPrice });
+    expect(bomTotals(srows)).toEqual({ anzahl: sl.totalCount, gewicht: sl.totalWeightKg, summe: sl.totalEur, ohnePreis: sl.itemsWithoutPrice });
+  });
+
+  it('teilweise bepreiste Position: Hinweis, Objekte ohne Preis in Zeile und Summenzeile gezählt', () => {
+    const p = createEmptyProject('Teilweise');
+    const custom = { ...getDef('atlantis-c513')!, id: 't-custom-noprice', preis_eur: undefined, benutzerdefiniert: true };
+    p.customEquipment.push(custom);
+    p.floors[0].items.push(createItemFromDef(custom, 300, 300, { priceEur: 500 }));
+    p.floors[0].items.push(createItemFromDef(custom, 700, 300));
+    p.floors[0].items.push(createItemFromDef(custom, 1100, 300));
+    const rows = bomRows(p);
+    expect(rows).toHaveLength(1);
+    expect(rows[0].anzahl).toBe(3);
+    expect(rows[0].summe).toBe(500);
+    expect(rows[0].stueckpreis).toBe(500);
+    expect(rows[0].ohnePreis).toBe(2);
+    expect(rows[0].hinweis).toContain('2 Objekt(e) ohne Preis – nicht in der Summe');
+    const t = bomTotals(rows);
+    expect(t.summe).toBe(500);
+    expect(t.ohnePreis).toBe(2);
+    expect(bomCsvText(p)).toContain('2 Objekt(e) ohne Preis');
   });
 
   it('unterschiedliche Objektpreise → eine Position mit Mittelwert und Hinweis', () => {

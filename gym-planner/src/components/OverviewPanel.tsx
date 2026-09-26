@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import type { PlanningWarning, WarningKind, Id } from '@/types';
 import { useProjectStore, transaction } from '@/store/projectStore';
+import { getDef } from '@/data/equipment';
 import { useUiStore } from '@/store/uiStore';
 import { useProjectFrozenWhileDragging } from '@/store/selectors';
 import {
@@ -233,14 +234,20 @@ export function OverviewPanel() {
   };
   const jumpToItem = (itemId: Id, floorId: Id) => jump({ id: `jump:${itemId}`, kind: 'collision', severity: 'info', message: '', floorId, target: { kind: 'item', id: itemId } });
 
+  // Stückpreis einer Position: gilt für die Objekte dieser Zeile (line.itemIds). Nicht skalierbare Objekte haben genau
+  // eine Zeile je Bibliotheks-ID → zusätzlich projektweite Überschreibung (auch für künftig platzierte Objekte).
+  // Skalierbare Objekte (Spindreihe je Abteil, Kunstrasen je m²) haben je Größe eine eigene Zeile mit eigenem
+  // Bibliothekspreis; eine Überschreibung je Bibliotheks-ID würde alle Größen gleich bepreisen – daher keine.
   const setPrice = (line: BomLine, price: number | null) => {
     transaction(() => {
       const store = useProjectStore.getState();
-      store.setPriceOverride(line.defId, price);
+      const scalable = !!getDef(line.defId, store.project)?.skalierbar;
+      if (!scalable) store.setPriceOverride(line.defId, price);
+      const ids = new Set(line.itemIds);
       for (const f of store.project.floors) {
-        const ids = f.items.filter((it) => it.defId === line.defId).map((it) => it.id);
-        if (!ids.length) continue;
-        store.updateItems(f.id, ids, (it) => { if (price == null) delete it.priceEur; else it.priceEur = price; });
+        const fids = f.items.filter((it) => ids.has(it.id)).map((it) => it.id);
+        if (!fids.length) continue;
+        store.updateItems(f.id, fids, (it) => { if (price == null) delete it.priceEur; else it.priceEur = price; });
       }
     });
   };
@@ -254,9 +261,21 @@ export function OverviewPanel() {
     if (scope === 'all') return list.lines;
     return list.lines
       .map((l) => {
+        // Preise je Stockwerk aus den Objekten selbst (bom.floorCounts): unitPriceEur der Gesamtzeile ist der Mittelwert
+        // nur der bepreisten Objekte über alle Stockwerke, count zählt auch Objekte ohne Preis.
         const fc = l.floorCounts.find((f) => f.floorId === activeId);
         const count = fc?.count ?? 0;
-        return { ...l, count, totalEur: l.unitPriceEur != null ? l.unitPriceEur * count : null, totalWeightKg: l.weightKg != null ? l.weightKg * count : null };
+        const itemsWithoutPrice = fc?.itemsWithoutPrice ?? 0;
+        const priced = count - itemsWithoutPrice;
+        const totalEur = fc?.totalEur ?? null;
+        return {
+          ...l,
+          count,
+          totalEur,
+          unitPriceEur: totalEur != null && priced > 0 ? totalEur / priced : null,
+          itemsWithoutPrice,
+          totalWeightKg: l.weightKg != null ? l.weightKg * count : null,
+        };
       })
       .filter((l) => l.count > 0);
   }, [list, scope, activeId]);
@@ -265,7 +284,8 @@ export function OverviewPanel() {
     for (const l of bomLines) {
       count += l.count;
       weight += l.totalWeightKg ?? 0;
-      if (l.totalEur != null) eur += l.totalEur; else noPrice += 1;
+      if (l.totalEur != null) eur += l.totalEur;
+      noPrice += l.itemsWithoutPrice;
     }
     return { count, weight, eur, noPrice };
   }, [bomLines]);
@@ -597,7 +617,7 @@ export function OverviewPanel() {
                 </tfoot>
               </table>
             </div>
-            {bomTotals.noPrice > 0 && <Hint tone="warn">{bomTotals.noPrice} {bomTotals.noPrice === 1 ? 'Position' : 'Positionen'} ohne Preis – nicht in den Gesamtkosten enthalten.</Hint>}
+            {bomTotals.noPrice > 0 && <Hint tone="warn">{bomTotals.noPrice} {bomTotals.noPrice === 1 ? 'Objekt' : 'Objekte'} ohne Preis – nicht in den Gesamtkosten enthalten.</Hint>}
             {(scope === 'all' ? list.itemsWithoutWeight : 0) > 0 && <Hint>{list.itemsWithoutWeight} Objekte ohne Gewichtsangabe.</Hint>}
           </>
         )}

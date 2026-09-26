@@ -4,6 +4,7 @@ import type { Viewport } from '@/store/uiStore';
 import { useUiStore } from '@/store/uiStore';
 import { useProjectStore, transaction } from '@/store/projectStore';
 import { getDef } from '@/data/equipment';
+import { placementPrice } from '@/analysis/priceUnits';
 import { createItemFromDef } from '@/store/factories';
 import { screenToWorld } from './viewport';
 import type { ToolContext } from './tools/types';
@@ -69,7 +70,8 @@ export function useDropFromLibrary(containerRef: RefObject<HTMLDivElement | null
         items: ctx.items,
       });
       const item = createItemFromDef(def, snapped.point.x, snapped.point.y);
-      if (def.preis_eur != null) item.priceEur = ctx.project.priceOverrides[def.id] ?? def.preis_eur;
+      const placed = placementPrice(def, ctx.project.priceOverrides);
+      if (placed != null) item.priceEur = placed;
       transaction(() => useProjectStore.getState().addItem(ctx.floor.id, item));
       useUiStore.getState().setSelection([{ kind: 'item', id: item.id }]);
       useUiStore.getState().setTool('select');

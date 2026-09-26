@@ -102,6 +102,31 @@ describe('Stückliste', () => {
     expect(b.totalEur).toBe(800);
   });
 
+  it('floorCounts führt Summe und Objekte ohne Preis je Stockwerk (Stückliste „aktives Stockwerk“)', () => {
+    const p = projectWithHall(2500, 2000);
+    const d = addCustomDef(p, makeDef({ id: 't-floor' }));
+    const eg = firstFloor(p);
+    const og = addFloor(p, { name: 'OG' });
+    place(eg, d, 300, 300, { priceEur: 100 });
+    place(eg, d, 600, 300, { priceEur: 100 });
+    place(eg, d, 900, 300);
+    place(og, d, 300, 300, { priceEur: 1000 });
+    const line = bom(p).lines[0];
+    expect(line.count).toBe(4);
+    expect(line.unitPriceEur).toBe(400); // Mittel der 3 bepreisten Objekte über alle Stockwerke
+    expect(line.totalEur).toBe(1200);
+    expect(line.itemsWithoutPrice).toBe(1);
+    const fe = line.floorCounts.find((f) => f.floorId === eg.id)!;
+    const fo = line.floorCounts.find((f) => f.floorId === og.id)!;
+    expect([fe.count, fe.totalEur, fe.itemsWithoutPrice]).toEqual([3, 200, 1]);
+    expect([fo.count, fo.totalEur, fo.itemsWithoutPrice]).toEqual([1, 1000, 0]);
+    // Stockwerk ohne bepreistes Objekt: Summe null
+    const p2 = projectWithHall(2500, 2000);
+    const d2 = addCustomDef(p2, makeDef({ id: 't-floor2' }));
+    place(firstFloor(p2), d2, 300, 300);
+    expect(bom(p2).lines[0].floorCounts[0]).toMatchObject({ count: 1, totalEur: null, itemsWithoutPrice: 1 });
+  });
+
   it('skalierbare Objekte: eine Position je Größe mit Objektmaßen (N9)', () => {
     const p = projectWithHall(2500, 2000);
     const mat = addCustomDef(p, makeDef({ id: 't-mat', name: 'Matte', skalierbar: true, breite_cm: 200, tiefe_cm: 100, hoehe_cm: 2 }));

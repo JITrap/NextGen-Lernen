@@ -24,6 +24,7 @@ import { analysisContext, memoByProject, numParam, symbolOf } from './common';
 import { areaBalance } from './areaBalance';
 import { capacity, countFacilities } from './capacity';
 import { bom } from './bom';
+import { formatEur, formatNumber } from '@/geometry/units';
 
 export const DEFAULT_COST_ASSUMPTIONS: CostAssumptions = {
   // Richtwerte 2025/2026 aus Branchen-/Handwerksquellen (docs/kosten.md, Abschnitt „Kostenblöcke“), typische Werte
@@ -248,13 +249,22 @@ export const costs = memoByProject((project: Project): CostReport => {
     byArea.set(bereich, acc);
     if (IMPORT_MANUFACTURERS.has(line.hersteller)) importBase += line.totalEur ?? 0;
   }
+  // Kumulativ runden: Σ Bereiche = eur(Σ Objektpreise) = eur(list.totalEur), jeder Bereich weicht < 1 € vom exakten Wert ab –
+  // Stückliste „Gesamt“, Kachel „davon Geräte“, Gerätezeilen, Wartung und Finanzierungsbasis stimmen so überein.
+  let cum = 0;
+  let cumRounded = 0;
   const geraeteJeBereich: CostAreaSum[] = LIBRARY_AREA_ORDER.filter((b) => byArea.has(b)).map((b) => {
     const s = byArea.get(b)!;
-    return { ...s, summeEur: eur(s.summeEur) };
+    cum += s.summeEur;
+    const r = eur(cum);
+    const summeEur = r - cumRounded;
+    cumRounded = r;
+    return { ...s, summeEur };
   });
-  const geraeteSummeEur = geraeteJeBereich.reduce((s, g) => s + g.summeEur, 0);
+  const geraeteSummeEur = cumRounded;
   const importSummeEur = eur((importBase * a.importNebenkostenProzent) / 100);
-  const finanziert = a.finanzierungJahre > 0 && geraeteSummeEur + importSummeEur > 0;
+  const finanzierungMonate = Math.round(a.finanzierungJahre * 12);
+  const finanziert = finanzierungMonate > 0 && geraeteSummeEur + importSummeEur > 0;
 
   /* ---- Einmalkosten ---- */
   const einmal: CostLine[] = [];
@@ -265,7 +275,7 @@ export const costs = memoByProject((project: Project): CostReport => {
       bezeichnung: g.bereich,
       menge: g.count,
       einheit: 'Stk.',
-      einzelpreisEur: g.count > 0 ? g.summeEur / g.count : 0,
+      einzelpreisEur: g.count - g.itemsWithoutPrice > 0 ? g.summeEur / (g.count - g.itemsWithoutPrice) : 0, // Mittel der bepreisten Objekte (wie BomLine.unitPriceEur)
       summeEur: g.summeEur,
       hinweis: g.itemsWithoutPrice > 0 ? `${g.itemsWithoutPrice} ${g.itemsWithoutPrice === 1 ? 'Objekt' : 'Objekte'} ohne Preis` : g.bereich === 'Bauelemente' ? 'Bestand/Bauleistung (0 €)' : undefined,
       finanziert: finanziert || undefined,
@@ -332,10 +342,12 @@ export const costs = memoByProject((project: Project): CostReport => {
     },
   ];
   if (finanziert) {
+    // Pauschale mit Einzelpreis = Monatsrate (kein „Monate × Kreditsumme“-Rechenweg); Basis und Laufzeit im Hinweis
+    const rate = eur(annuityMonthly(finanzierungBasis, a.zinsProzent, a.finanzierungJahre));
     monatlich.push({
-      id: 'finanzierung', gruppe: 'laufend', bezeichnung: 'Finanzierungsrate', menge: Math.round(a.finanzierungJahre * 12), einheit: 'Monate', einzelpreisEur: finanzierungBasis,
-      summeEur: eur(annuityMonthly(finanzierungBasis, a.zinsProzent, a.finanzierungJahre)),
-      hinweis: `Annuität auf Geräte + Import bei ${a.zinsProzent} % p. a. über ${a.finanzierungJahre} Jahre`,
+      id: 'finanzierung', gruppe: 'laufend', bezeichnung: 'Finanzierungsrate', menge: 1, einheit: 'pauschal', einzelpreisEur: rate,
+      summeEur: rate,
+      hinweis: `Annuität auf ${formatEur(finanzierungBasis)} (Geräte + Import) bei ${formatNumber(a.zinsProzent, 2)} % p. a. über ${finanzierungMonate} Monate`,
     });
   }
   const monatlichSummeEur = monatlich.reduce((s, l) => s + l.summeEur, 0);

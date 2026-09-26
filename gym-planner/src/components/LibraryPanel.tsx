@@ -18,6 +18,7 @@ import { useProjectStore, transaction } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { createItemFromDef } from '@/store/factories';
 import { fullLibrary, LIBRARY_AREAS, MUSCLE_GROUPS, manufacturers, seriesOf } from '@/data/equipment';
+import { placementPrice } from '@/analysis/priceUnits';
 import { DRAG_MIME } from '@/editor/useDropFromLibrary';
 import { getStage } from '@/editor/stageRegistry';
 import { screenToWorld } from '@/editor/viewport';
@@ -270,7 +271,8 @@ export function placeDefAtViewCenter(def: EquipmentDef): string | null {
   const x = snap ? Math.round(c.x / grid) * grid : Math.round(c.x);
   const y = snap ? Math.round(c.y / grid) * grid : Math.round(c.y);
   const item = createItemFromDef(def, x, y);
-  if (def.preis_eur != null) item.priceEur = project.priceOverrides[def.id] ?? def.preis_eur;
+  const placed = placementPrice(def, project.priceOverrides);
+  if (placed != null) item.priceEur = placed;
   transaction(() => store.addItem(floor.id, item));
   ui.setSelection([{ kind: 'item', id: item.id }]);
   ui.setTool('select');

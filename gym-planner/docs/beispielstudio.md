@@ -8,7 +8,7 @@ Alle Maße in cm, Ursprung oben links, Hallen-Außenwand 24 cm (Innenkante bei 2
 
 | Bereich | Lage (Innenmaße) | Fläche | Inhalt |
 |---|---|---|---|
-| Empfang / Lounge | x 24–895, y 24–545 | 45,4 m² | Haupteingang (200 cm, zweiflügelig) oben, Theke mit Front zum Eingang, Drehkreuz (Eintritt) und Zugangsschranke mit Paniköffnung (Ausgang/Fluchtweg) vor der Glastür zur Halle, Sofa/Sessel/Loungetisch als Wartebereich an der Westwand, daneben links unten Getränkeautomat und Shakebar mit 3 Barhockern (x ≤ 320) und Getränkekühlschrank, Garderobe, Info-Stele, Info-Bildschirm, Flucht- und Rettungsplan (Aushang) an der Wand zur Halle, 3 Pflanzen, Wasserspender, Desinfektionsstation, AED, Erste-Hilfe-Kasten, Feuerlöscher, Rettungszeichen + Sicherheitsleuchte am Eingang, Kamera; der Korridor des Fluchtwegs 5 (y 350–470 von der Glastür, x 270–390 zum Haupteingang) bleibt frei |
+| Empfang / Lounge | x 24–895, y 24–545 | 45,4 m² | Haupteingang (200 cm, zweiflügelig) oben, Theke mit Front zum Eingang, Drehkreuz (Eintritt) und Zugangsschranke mit Paniköffnung (Ausgang/Fluchtweg) münden in die zweiflügelige Glastür zur Halle (220 cm, y 290–510), Sofa/Sessel/Loungetisch als Wartebereich an der Westwand, daneben links unten Getränkeautomat und Shakebar mit 3 Barhockern (x ≤ 320) und Getränkekühlschrank, Garderobe, Info-Stele, Info-Bildschirm, Flucht- und Rettungsplan (Aushang) an der Wand zur Halle, 3 Pflanzen, Wasserspender, Desinfektionsstation, AED, Erste-Hilfe-Kasten, Feuerlöscher, Rettungszeichen + Sicherheitsleuchte am Eingang, Kamera; der Korridor des Fluchtwegs 5 (y 350–470 von der Glastür, x 270–390 zum Haupteingang) bleibt frei |
 | Büro | x 24–345, y 555–895 | 10,9 m² | Schreibtisch, Bürostuhl, Rollcontainer, Aktenschrank, Heizkörper unter dem Fenster |
 | Personalraum | x 355–645 | 9,9 m² | Pausentisch mit 2 Stühlen, Personalschrank, Teeküche, Feuerlöscher, Erste-Hilfe-Kasten |
 | WC barrierefrei | x 655–895 | 8,2 m² | Barrierefreies WC quer an der Nordwand, Bewegungsfläche 150 × 150 cm (x 730–880, y 715–865) frei, Waschtisch, Handtuchspender; Tür (100 cm) schlägt nach außen in die Halle |
@@ -32,7 +32,7 @@ Rücken an Rücken berühren sich mit ihren Sicherheitszonen. Alle Mittelpunkte 
 
 | Zone | Typ | Fläche | Geräte (Front → Gang) |
 |---|---|---|---|
-| Freihantel (oben links, L-förmig) | Trainingsfläche Freihantel | 65,2 m² | An der Spiegelwand (Nordwand, 1.100 cm Spiegel): Kurzhantel-Rack 15 Paar (S189), Kurzhantel-Rack 10 Paar (S187), Power Rack C513, Half Rack RS611, Heel-Raise-Plattform; ≥ 150 cm Freiraum vor den Kurzhantel-Racks. Zweite Reihe: Kreuzheben-Plattform B4800, Scheibenständer, Langhantelständer. Sichtachse vom Empfang (Glastür y 420) durch den Gang zwischen Rack-Reihe und zweiter Reihe |
+| Freihantel (oben links, L-förmig) | Trainingsfläche Freihantel | 65,2 m² | An der Spiegelwand (Nordwand, 1.100 cm Spiegel): Kurzhantel-Rack 15 Paar (S189), Kurzhantel-Rack 10 Paar (S187), Power Rack C513, Half Rack RS611, Heel-Raise-Plattform; ≥ 150 cm Freiraum vor den Kurzhantel-Racks. Zweite Reihe: Kreuzheben-Plattform B4800, Scheibenständer, Langhantelständer. Sichtachse vom Empfang (Glastür y 400) durch den Gang zwischen Rack-Reihe und zweiter Reihe |
 | Core | Maschinen | 13,7 m² | Abdominal Crunch, Low Back Extension (Prime Hybrid), rechts in der zweiten Freihantel-Reihe |
 | HYROX (oben rechts, L-förmig) | HYROX (neuer Raumtyp, gelb) | 110,1 m² | siehe unten |
 | Brust | Maschinen | 56,7 m² | Reihe A (Front nach oben): Chest Press, Incline Press, Pec/Rear Delt, Functional Trainer (Cable Crossover), Olympic Flachbank P337, Olympic Schrägbank P338 |
@@ -111,7 +111,7 @@ Brandschutzhelfer/Ersthelfer, Feuerlöscherprüfung, Legionellen, Bewegungsfläc
 - Kapazität (9 m² je Person): 64 Personen; Spinde 100 (Bedarf 64), Duschen 10 (Bedarf 5), WCs 7 inkl. Urinale (Bedarf 3).
 - Warnungen ab Werk: nur die Info „Maße ungeprüft“ (generische Bibliothek); keine Kollisionen, Tür-, Notausgang- oder Laufweg-Warnungen.
 - Regularien-Prüfung: 78 erfüllt, 0 nicht erfüllt, 0 prüfen, 6 Hinweise (Bemessung 70 Personen, 4 Notausgänge, 90 LE, 5 Verbandkästen, 2 AED).
-- Türen 18 (inkl. Rolltor), Fenster 14, Spiegelwände 2, Anmerkungen 16 (6 Fluchtwege, 10 Textnotizen).
+- Türen 18 (inkl. Rolltor), Fenster 13, Spiegelwände 2, Anmerkungen 16 (6 Fluchtwege, 10 Textnotizen).
 
 ## Tests
 
