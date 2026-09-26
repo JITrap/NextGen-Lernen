@@ -1,0 +1,3 @@
+# Lokale Arbeitskopien und Sitzungsdaten von Claude Code
+.claude/worktrees/
+.claude/*.local.json
