@@ -12,7 +12,7 @@
  */
 export { exportPng, exportAllFloorsPng, renderFloorPng, pngPxPerCm, PNG_BASE_PX_PER_CM, type PngOptions } from './png';
 export { exportPdf, buildPdf, floorAreaBalance, projectAreaBalance, paperFormatForPlan, PAPER_FORMATS, type PdfOptions, type PdfScale, type FloorAreaBalance, type ProjectAreaBalance, type AreaByType, type AreaByClass } from './pdf';
-export { exportCsv, bomRows, bomTotals, bomCsvText, unitPrice, CSV_HEADER, type BomRow, type BomTotals } from './csv';
+export { exportCsv, bomRows, bomTotals, bomCsvText, unitPrice, CSV_HEADER, exportCostsCsv, costsCsvText, COSTS_CSV_HEADER, type BomRow, type BomTotals } from './csv';
 export {
   exportJson, importJsonFile, importProjectFromText, serializeProject, parseProject, parseProjectDetailed, stableStringify,
   downloadBlob, safeFileName, pickJsonFile, JSON_FORMAT, JSON_FILE_SUFFIX, type ParsedProject,

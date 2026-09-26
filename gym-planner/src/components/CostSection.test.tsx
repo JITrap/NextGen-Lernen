@@ -5,7 +5,8 @@ import { useProjectStore } from '@/store/projectStore';
 import { useSectionStore } from './fields';
 import { getTemplate } from '@/data/templates';
 import { costs } from '@/analysis';
-import { formatEur } from '@/geometry/units';
+import { formatEur, formatNumber } from '@/geometry/units';
+import { DEFAULT_COST_ASSUMPTIONS } from '@/analysis/costs';
 
 function Harness() {
   const project = useProjectStore((s) => s.project);
@@ -27,7 +28,7 @@ describe('CostSection', () => {
     expect(screen.getByText('Einmalkosten', { selector: 'span' })).toBeInTheDocument();
     expect(screen.getByText('Break-even')).toBeInTheDocument();
     expect(screen.getByText('Kosten als CSV')).toBeInTheDocument();
-    expect(screen.getByText(/über 5 Jahre zu 6 % finanziert/)).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`über ${DEFAULT_COST_ASSUMPTIONS.finanzierungJahre} Jahre zu ${formatNumber(DEFAULT_COST_ASSUMPTIONS.zinsProzent, 2)} % finanziert`))).toBeInTheDocument();
   });
 
   it('Annahme ändern aktualisiert die Summe; Standardwerte setzt zurück', () => {

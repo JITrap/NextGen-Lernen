@@ -26,27 +26,28 @@ import { capacity, countFacilities } from './capacity';
 import { bom } from './bom';
 
 export const DEFAULT_COST_ASSUMPTIONS: CostAssumptions = {
-  ausbauEurM2: 350,
-  bodenTrainingEurM2: 70,
-  bodenNassEurM2: 120,
-  lueftungEurM2: 90,
-  spiegelEurM: 450,
-  brandschutzEurM2: 25,
-  sanitaerDuscheEur: 2500,
-  sanitaerWcEur: 1800,
-  sanitaerWaschtischEur: 900,
-  planungProzent: 12,
-  importNebenkostenProzent: 18,
-  unvorhergesehenProzent: 10,
+  // Richtwerte 2025/2026 aus Branchen-/Handwerksquellen (docs/kosten.md, Abschnitt „Kostenblöcke“), typische Werte
+  ausbauEurM2: 230, // Trockenbau (anteilig), Elektro + LED, Heizung/Warmwasser, Maler, Umkleiden-/Empfangsausbau je m² Netto
+  bodenTrainingEurM2: 55, // Gummi-/Kautschukboden 8–10 mm verlegt
+  bodenNassEurM2: 90, // Fliesen/Vinyl Sanitär und Umkleiden verlegt
+  lueftungEurM2: 100, // RLT-Anlage komplett mit Wärmerückgewinnung
+  spiegelEurM: 660, // Spiegelwand 300 €/m² × 2,2 m Höhe
+  brandschutzEurM2: 30, // Brandmeldeanlage + Sicherheits-/Rettungszeichenbeleuchtung
+  sanitaerDuscheEur: 1500,
+  sanitaerWcEur: 800,
+  sanitaerWaschtischEur: 500,
+  planungProzent: 12, // Architekt/Fachplaner (HOAI-Anteil inkl. Umbauzuschlag)
+  importNebenkostenProzent: 12, // Seefracht, Verpackung, Versicherung, Zoll 2,7 % (Atlantis/Prime); EUSt ist Vorsteuer
+  unvorhergesehenProzent: 12,
   kautionMonate: 3,
-  sonstigeEinmalEur: 25000,
-  mieteEurM2Monat: 9,
-  nebenkostenEurM2Monat: 3,
-  personalEurMonat: 18000,
-  sonstigesEurMonat: 4000,
-  wartungProzentJahr: 3,
+  sonstigeEinmalEur: 32000, // Zutrittssystem/Software 15.000, Marketing 6.000, Brandschutzkonzept 5.000, Nutzungsänderung 2.500, Sauna-Anschluss 3.500
+  mieteEurM2Monat: 9, // Gewerbehalle/Fitnessfläche kalt (Spanne 4–18 €, Bodensee/Region Stuttgart Hallen 5–8 €)
+  nebenkostenEurM2Monat: 6, // Nebenkosten 2 € + Strom/Heizung 4 €
+  personalEurMonat: 16000, // 5 Vollzeitäquivalente à 38.000 €/Jahr Arbeitgeberbrutto
+  sonstigesEurMonat: 2000, // Versicherungen 500, GEMA 150, Studiosoftware 250, Marketing/Verbrauch
+  wartungProzentJahr: 5,
   finanzierungJahre: 5,
-  zinsProzent: 6,
+  zinsProzent: 5.5, // entspricht ca. 190 €/Monat je 10.000 € über 60 Monate
   mitgliedsbeitragEurMonat: 39,
 };
 

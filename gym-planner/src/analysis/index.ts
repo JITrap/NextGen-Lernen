@@ -18,3 +18,4 @@ export * from './bom';
 export * from './warnings';
 export * from './regulations';
 export * from './costs';
+export * from './priceUnits';

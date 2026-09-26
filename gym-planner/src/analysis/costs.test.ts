@@ -87,7 +87,7 @@ describe('Kostenkalkulation', () => {
     expect(fin.einmalSummeEur).toBe(unfinancedSum);
     expect(fin.investitionSummeEur).toBe(fin.einmalSummeEur + fin.geraeteSummeEur + fin.importSummeEur);
     const rate = fin.monatlich.find((l) => l.id === 'finanzierung')!;
-    expect(rate.summeEur).toBe(Math.round(annuityMonthly(fin.geraeteSummeEur + fin.importSummeEur, 6, 5)));
+    expect(rate.summeEur).toBe(Math.round(annuityMonthly(fin.geraeteSummeEur + fin.importSummeEur, fin.assumptions.zinsProzent, fin.assumptions.finanzierungJahre)));
     // Unvorhergesehenes bezieht sich auf die gezählten (nicht finanzierten) Posten vor ihm, Kaution kommt danach
     const before = fin.einmal.slice(0, fin.einmal.findIndex((l) => l.id === 'unvorhergesehen')).filter((l) => !l.finanziert).reduce((s, l) => s + l.summeEur, 0);
     expect(fin.einmal.find((l) => l.id === 'unvorhergesehen')!.summeEur).toBe(Math.round((before * fin.assumptions.unvorhergesehenProzent) / 100));
@@ -108,13 +108,13 @@ describe('Kostenkalkulation', () => {
     expect(c.jahr1SummeEur).toBe(c.einmalSummeEur + 12 * c.monatlichSummeEur);
     expect(c.kostenJeM2).toBe(Math.round(c.einmalSummeEur / 200));
     expect(c.breakEvenMitglieder).toBe(Math.ceil(c.monatlichSummeEur / 39));
-    expect(c.monatlich.find((l) => l.id === 'wartung')!.summeEur).toBe(Math.round((c.geraeteSummeEur * 3) / 100 / 12));
-    expect(c.monatlich.find((l) => l.id === 'miete')!.summeEur).toBe(Math.round(9 * 200));
+    expect(c.monatlich.find((l) => l.id === 'wartung')!.summeEur).toBe(Math.round((c.geraeteSummeEur * c.assumptions.wartungProzentJahr) / 100 / 12));
+    expect(c.monatlich.find((l) => l.id === 'miete')!.summeEur).toBe(Math.round(c.assumptions.mieteEurM2Monat * 200));
     const beitrag = costs({ ...p, costs: { mitgliedsbeitragEurMonat: 0 } });
     expect(beitrag.breakEvenMitglieder).toBe(0);
     const c2 = costs({ ...p, costs: { mitgliedsbeitragEurMonat: 50, personalEurMonat: 0 } });
     expect(c2.breakEvenMitglieder).toBe(Math.ceil(c2.monatlichSummeEur / 50));
-    expect(c2.monatlichSummeEur).toBe(c.monatlichSummeEur - 18000);
+    expect(c2.monatlichSummeEur).toBe(c.monatlichSummeEur - c.assumptions.personalEurMonat);
   });
 
   it('Annahmen: Standardwerte, ungültige Werte werden ersetzt, Felder vollständig beschrieben', () => {
@@ -155,7 +155,7 @@ describe('Kostenkalkulation', () => {
     expect(c.monatlich.find((l) => l.id === 'miete')!.summeEur).toBe(0);
     expect(c.kostenJeM2).toBe(0);
     expect(c.finanziert).toBe(false);
-    expect(c.einmalSummeEur).toBe(DEFAULT_COST_ASSUMPTIONS.sonstigeEinmalEur + Math.round(DEFAULT_COST_ASSUMPTIONS.sonstigeEinmalEur * 0.1));
+    expect(c.einmalSummeEur).toBe(DEFAULT_COST_ASSUMPTIONS.sonstigeEinmalEur + Math.round((DEFAULT_COST_ASSUMPTIONS.sonstigeEinmalEur * DEFAULT_COST_ASSUMPTIONS.unvorhergesehenProzent) / 100));
   });
 
   it('Vorlage „Beispielstudio 1.000 m²“: plausible Größenordnung', () => {

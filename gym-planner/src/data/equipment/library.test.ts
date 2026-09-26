@@ -63,7 +63,7 @@ describe('Bibliothek vs. Herstellerdaten (gym-planner/data/*.json)', () => {
 
 describe('Bibliothekspreise (prices.json)', () => {
   it('jede Bibliotheks-ID hat einen Preis mit Quelle, Stand und Konfidenz; Bauelemente 0 € mit Hinweis', () => {
-    expect(BUILTIN_LIBRARY.length).toBe(366);
+    expect(BUILTIN_LIBRARY.length).toBe(373);
     for (const def of BUILTIN_LIBRARY) {
       expect(typeof def.preis_eur, def.id).toBe('number');
       expect(def.preisQuelle, def.id).toBeTruthy();
@@ -82,7 +82,7 @@ describe('Bibliothekspreise (prices.json)', () => {
   });
   it('jede ID in prices.json existiert in der Bibliothek, Datei hat Stand und Hinweis', () => {
     const ids = Object.keys(PRICE_DATA.preise);
-    expect(ids.length).toBe(366);
+    expect(ids.length).toBe(373);
     for (const id of ids) expect(getDef(id), id).toBeDefined();
     expect(PRICE_DATA.stand).toMatch(/^\d{4}-\d{2}$/);
     expect(PRICE_DATA.hinweis).toContain('MwSt');
@@ -93,11 +93,12 @@ describe('Bibliothekspreise (prices.json)', () => {
     }
   });
   it('Merge: Rohdaten-Preis hat Vorrang (Listenpreis), unbekannte IDs bleiben ohne Preis, Größenordnungen stimmen', () => {
-    const base = { ...getDef('atlantis-c513')!, preis_eur: undefined, preisQuelle: undefined, preisStand: undefined, preisKonfidenz: undefined, preisHinweis: undefined };
+    const base = { ...getDef('atlantis-c513')!, preis_eur: undefined, preisQuelle: undefined, preisQuelleUrl: undefined, preisStand: undefined, preisKonfidenz: undefined, preisHinweis: undefined };
     const merged = withPrice(base);
     expect(merged.preis_eur).toBe(priceEntry('atlantis-c513')!.preis_eur);
-    expect(merged.preisKonfidenz).toBe('schaetzung');
-    expect(merged.preisQuelle).toBe('Schätzung nach Kategorie');
+    expect(merged.preisKonfidenz).toBe(priceEntry('atlantis-c513')!.konfidenz);
+    expect(merged.preisQuelle).toBe(priceEntry('atlantis-c513')!.quelle);
+    expect(merged.preisQuelleUrl).toBe(priceEntry('atlantis-c513')!.quelle_url);
     const own = withPrice({ ...base, preis_eur: 4321, quelle_url: 'https://example.org/x' });
     expect(own.preis_eur).toBe(4321);
     expect(own.preisKonfidenz).toBe('liste');

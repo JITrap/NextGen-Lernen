@@ -12,12 +12,12 @@
 import type { Project, Id, PlanningWarning, Vec2, Floor, PlacedItem, Room, Door, EscapeRoute } from '@/types';
 import { analysisContext, memoByProject, itemName, hasFootprint, symbolOf, numParam, pointInRoom, visibleItems, type FloorContext, type AnalysisContext } from './common';
 import { capacity } from './capacity';
-import { warnings } from './warnings';
+import { warnings, ESCAPE_ROUTE_EXCLUDED_ROOM_TYPES } from './warnings';
 import { emergencyExitsOf, nearestExit, polylineLength, corridorPolygon, wallCrossings, doorSwings, type EmergencyExit } from '@/geometry/escapeRoutes';
 import { itemFootprint } from '@/geometry/transform';
 import { convexPolygonsOverlap, doorSwingPolygon } from '@/geometry/collision';
 import { findWall, openingPlacement } from '@/geometry/walls';
-import { bbox, centroid, distance, distanceToSegment, pointInPolygon } from '@/geometry/polygon';
+import { bbox, centroid, distance, distanceToSegment, pointInPolygon, segmentIntersection } from '@/geometry/polygon';
 import { formatCm, formatLength, formatM2, formatNumber } from '@/geometry/units';
 
 /* ------------------------------------------------------------------ */
@@ -75,6 +75,8 @@ export const REGULATION_RULES = {
   lauflaengeFaktor: 1.5,
   /** Endpunkt eines gezeichneten Fluchtwegs muss höchstens so weit (cm) von einer Notausgangstür entfernt sein. */
   endpunktToleranzCm: 100,
+  /** ASR A2.3 Tabelle 1: Fluchtwegbreite in Nebenräumen mit bis zu 20 Personen (Technik, Lager, Büro, Umkleiden, Sanitär …), cm. */
+  korridorNebenraumCm: 100,
   /** MBO § 33 / ASR A2.3: zweiter Rettungsweg ab dieser Nettofläche (m²) bzw. Personenzahl je Stockwerk. */
   zweiterNotausgangAbM2: 200,
   zweiterNotausgangAbPersonen: 20,
@@ -371,6 +373,29 @@ function escapeLengthChecks(fs: FloorSafety, out: RegulationCheck[]) {
   }
 }
 
+/** Kleinster Raum/Zone, der den Punkt enthält (Zonen und Auto-Räume gleichrangig, kleinste Fläche gewinnt). */
+function smallestRoomAt(p: Vec2, fs: FloorSafety): Room | null {
+  let best: Room | null = null;
+  for (const r of fs.fc.rooms) if (pointInRoom(p, r) && (!best || r.areaM2 < best.areaM2)) best = r;
+  return best;
+}
+
+/** Korridorbreite an einem Punkt: in Nebenräumen (bis 20 Personen) die Tabellenbreite, sonst die eingestellte Mindestbreite. */
+function corridorWidthAt(p: Vec2, fs: FloorSafety, settingCm: number): number {
+  const room = smallestRoomAt(p, fs);
+  if (room && ESCAPE_ROUTE_EXCLUDED_ROOM_TYPES.has(room.type)) return Math.min(settingCm, REGULATION_RULES.korridorNebenraumCm);
+  return settingCm;
+}
+
+/** Schneidet die Strecke a–b das Polygon (Kante geschnitten oder Endpunkt innen)? */
+function segmentHitsPolygon(a: Vec2, b: Vec2, poly: Vec2[]): boolean {
+  if (pointInPolygon(a, poly) || pointInPolygon(b, poly)) return true;
+  for (let i = 0; i < poly.length; i++) {
+    if (segmentIntersection(a, b, poly[i], poly[(i + 1) % poly.length])) return true;
+  }
+  return false;
+}
+
 /** a) Gezeichnete Fluchtwege: Lauflänge, Luftlinie, Endpunkt am Notausgang, freier Korridor, Wände nur durch Türen. */
 function drawnRouteChecks(fs: FloorSafety, project: Project, ctx: AnalysisContext, out: RegulationCheck[], routes: Record<Id, RegulationStatus>) {
   const R = REGULATION_RULES;
@@ -409,29 +434,45 @@ function drawnRouteChecks(fs: FloorSafety, project: Project, ctx: AnalysisContex
         : 'Der Fluchtweg endet nicht an einem Notausgang. Beim Zeichnen rastet der letzte Punkt in der Nähe einer Notausgangstür (≤ 60 cm) automatisch auf die Türmitte.',
       quelle: `${SRC.a23.quelle}, Abs. 4`, quelleUrl: SRC.a23.url,
     });
-    // Korridor frei
-    const blocking = new Map<string, PlacedItem>();
+    // Korridor frei: Breite je Segment nach Raumart (Nebenräume ≤ 20 Personen: 100 cm, sonst Einstellung);
+    // Objekte auf der Linie selbst → „nicht erfüllt“, Objekte nur im Korridor → „prüfen“; Drehkreuze/Schranken zählen
+    // nicht (Paniköffnung in Fluchtrichtung, ASR A2.3 Abs. 6), Bodenmatten nur als Hinweis.
+    const onLine = new Map<string, PlacedItem>();
+    const inCorridor = new Map<string, PlacedItem>();
+    let minWidth = width;
     for (let i = 0; i + 1 < a.points.length; i++) {
-      const rect = corridorPolygon(a.points[i], a.points[i + 1], width);
+      const p0 = a.points[i];
+      const p1 = a.points[i + 1];
+      const segWidth = corridorWidthAt({ x: (p0.x + p1.x) / 2, y: (p0.y + p1.y) / 2 }, fs, width);
+      minWidth = Math.min(minWidth, segWidth);
+      const rect = corridorPolygon(p0, p1, segWidth);
       if (rect.length < 4) continue;
       const rb = bbox(rect);
       for (const { it, fp } of footprints) {
-        if (blocking.has(it.id)) continue;
+        if (onLine.has(it.id)) continue;
+        if (symbolOf(ctx.def(it.defId)) === 'turnstile') continue;
         const ib = bbox(fp);
         if (ib.maxX < rb.minX || ib.minX > rb.maxX || ib.maxY < rb.minY || ib.minY > rb.maxY) continue;
-        if (convexPolygonsOverlap(fp, rect, 1)) blocking.set(it.id, it);
+        if (segmentHitsPolygon(p0, p1, fp)) { onLine.set(it.id, it); inCorridor.delete(it.id); continue; }
+        if (!inCorridor.has(it.id) && convexPolygonsOverlap(fp, rect, 1)) inCorridor.set(it.id, it);
       }
     }
-    const blockers = [...blocking.values()];
+    const isMat = (it: PlacedItem) => symbolOf(ctx.def(it.defId)) === 'mat';
+    const hard = [...onLine.values()].filter((it) => !isMat(it));
+    const soft = [...inCorridor.values(), ...[...onLine.values()].filter(isMat)];
+    const blockers = [...hard, ...soft];
     const names = blockers.slice(0, 3).map((it) => q(itemName(it, ctx.def(it.defId)))).join(', ') + (blockers.length > 3 ? ` … (+${blockers.length - 3})` : '');
+    const widthText = minWidth === width ? formatCm(width) : `${formatCm(minWidth)}–${formatCm(width)}`;
     push({
-      id: `route:${a.id}:corridor`, thema: THEMA.flucht, titel: `${name}: Korridor frei (${formatCm(width)})`, status: blockers.length ? 'fail' : 'ok',
-      ist: blockers.length ? `${blockers.length} Objekt${blockers.length === 1 ? '' : 'e'} im Weg: ${names}` : 'frei', soll: `Breite ${formatCm(width)} ohne Objekte`, floorId,
+      id: `route:${a.id}:corridor`, thema: THEMA.flucht, titel: `${name}: Korridor frei (${widthText})`, status: hard.length ? 'fail' : soft.length ? 'warn' : 'ok',
+      ist: blockers.length ? `${blockers.length} Objekt${blockers.length === 1 ? '' : 'e'} im Weg: ${names}` : 'frei', soll: `Breite ${widthText} ohne Objekte`, floorId,
       target: blockers.length ? { kind: 'item', id: blockers[0].id } : target,
-      erlaeuterung: blockers.length
-        ? `Entlang des Fluchtwegs muss ein Korridor in der eingestellten Mindestbreite (${formatCm(width)}, Einstellungen) frei von Geräten und Möbeln bleiben.`
-        : `Der Korridor in der eingestellten Mindestbreite (${formatCm(width)}) ist frei von Geräten und Möbeln.`,
-      quelle: `${SRC.a23.quelle}, Abs. 5 (2) / ${SRC.a18.quelle}`, quelleUrl: SRC.a23.url,
+      erlaeuterung: hard.length
+        ? `Der Fluchtweg führt durch Geräte oder Möbel. Entlang des Fluchtwegs muss ein Korridor in der Mindestbreite (${formatCm(width)} in der Halle, ${formatCm(REGULATION_RULES.korridorNebenraumCm)} in Nebenräumen bis 20 Personen) frei bleiben – Weg verlegen oder Objekte umstellen.`
+        : soft.length
+          ? `Objekte ragen in den Korridor (${widthText}) hinein oder liegen als Matten auf dem Weg. Drehkreuze/Schranken zählen nicht, wenn sie sich in Fluchtrichtung ohne Hilfsmittel öffnen lassen (Paniköffnung).`
+          : `Der Korridor in der Mindestbreite (${widthText}) ist frei von Geräten und Möbeln.`,
+      quelle: `${SRC.a23.quelle}, Abs. 5 (2), Abs. 6 / ${SRC.a18.quelle}`, quelleUrl: SRC.a23.url,
     });
     const crossings = wallCrossings(a.points, floor);
     push({

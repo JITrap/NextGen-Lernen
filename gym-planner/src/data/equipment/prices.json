@@ -1,2494 +1,2923 @@
 {
   "stand": "2026-09",
-  "hinweis": "Netto-Listen-/Marktpreise EUR ohne Fracht/Zoll/MwSt. Vorläufige Schätzwerte nach Kategorie – durch recherchierte Preise zu ersetzen.",
+  "hinweis": "Netto-Listen-/Marktpreise in EUR ohne Fracht, Zoll und MwSt.; USD-Preise mit Kurs 0,877 EUR/USD (26.09.2026) umgerechnet; konfidenz: liste = Herstellerliste, haendler = Händlerpreis, schaetzung = Ableitung nach Kategorie/Serie.",
+  "wechselkurs_usd_eur": 0.877,
   "preise": {
     "atlantis-a301": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8700,
+      "quelle": "Show Me Weights (A-301)",
+      "quelle_url": "https://showmeweights.com/products/product-url-4303",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.920 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b157": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7020,
+      "quelle": "Show Me Weights (B-157)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.010 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b160": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 9400,
+      "quelle": "Show Me Weights (B-160)",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+B-160&type=product",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 10.720 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b260": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8140,
+      "quelle": "Show Me Weights (B-260)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.280 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b158": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6110,
+      "quelle": "Show Me Weights (B-158)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.970 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b257": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4870,
+      "quelle": "True Iron Fitness (B257, Listenpreis; Sale 4.995)",
+      "quelle_url": "https://trueironfitness.com/collections/atlantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.550 · Listenpreis lt. Händler, Aktionspreis USD 4.995"
     },
     "atlantis-p156": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7520,
+      "quelle": "Show Me Weights (P-156)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Kombigerät)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.570 · Zweite SMW-Listung USD 6.450, True Iron USD 7.650 – Spanne 6.450–8.570"
     },
     "atlantis-p356": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8330,
+      "quelle": "Show Me Weights (P-356)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.500 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c329": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 9250,
+      "quelle": "Show Me Weights (C-329 Adductor/Abductor Combo)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 10.550 · Händler listet C-329 als Ad-/Abduktor-Kombi; Preis übernommen"
     },
     "atlantis-p143": {
-      "preis_eur": 7900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8880,
+      "quelle": "Show Me Weights (P-143)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 10.130 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-p140": {
-      "preis_eur": 7900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8520,
+      "quelle": "Show Me Weights (P-140)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.710 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-a201": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7950,
+      "quelle": "Show Me Weights (A201)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.070 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c122": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 10000,
+      "quelle": "Show Me Weights (C-122)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 11.400 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-e352": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8140,
+      "quelle": "Show Me Weights (E-352)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.280 · True Iron: Liste 9.280 / Sale 8.250"
     },
     "atlantis-e252": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8140,
+      "quelle": "Show Me Weights (E-252)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.280 · True Iron: Liste 9.250 / Sale 7.845"
     },
     "atlantis-p144": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8520,
+      "quelle": "Show Me Weights (P-144)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.710 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d337": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8140,
+      "quelle": "Show Me Weights (D-337)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.280 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d132": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7370,
+      "quelle": "Ableitung aus MS-8 (D-132-Modul, USD 7.000) × Faktor Standalone/Modul 1,2 (D-124: 8.010 vs. MS-7 6.690)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+      "hinweis": "Original: USD 8.400 · Standalone-Version nicht gelistet; Faktor aus D124/MS7 abgeleitet"
     },
     "atlantis-d124": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7020,
+      "quelle": "Show Me Weights (D-124)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.010 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d433": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8140,
+      "quelle": "Show Me Weights (D-433)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.280 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-e149": {
-      "preis_eur": 7900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8330,
+      "quelle": "Ableitung: Mittel der Precision-Pressen P140 (9.710) / E352 (9.280); Händler \"Call to Order\"",
+      "quelle_url": "https://showmeweights.com/products/product-url-160370",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Presse)"
+      "hinweis": "Original: USD 9.500 · Kein Preis veröffentlicht (Call to Order)"
     },
     "atlantis-m318": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6730,
+      "quelle": "Show Me Weights (M-318)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.670 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-m118": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7020,
+      "quelle": "Show Me Weights (M-118)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.010 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d123": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6480,
+      "quelle": "Show Me Weights (D-123)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.390 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d438": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6940,
+      "quelle": "Show Me Weights (D438)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Kombigerät)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.915 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c118": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7410,
+      "quelle": "Show Me Weights (C-118)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.450 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c106": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7220,
+      "quelle": "Show Me Weights (C-106 neu; gebraucht 4.000)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.230 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c108": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7780,
+      "quelle": "Show Me Weights (C-108)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.870 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c107": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7410,
+      "quelle": "Show Me Weights (C-107)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.450 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c105": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7590,
+      "quelle": "Show Me Weights (C-105)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.650 · True Iron: Liste 8.650 / Sale 7.650"
     },
     "atlantis-c230": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7910,
+      "quelle": "Show Me Weights (C-230)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Kombigerät)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.020 · True Iron: Liste 9.050 / Sale 8.050"
     },
     "atlantis-c403": {
-      "preis_eur": 8500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 10610,
+      "quelle": "Show Me Weights (C-403)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Beinpresse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 12.100 · True Iron: Liste 12.050 / Sale 9.550"
     },
     "atlantis-d131": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7950,
+      "quelle": "Show Me Weights (D-131)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.070 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-t215": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5520,
+      "quelle": "Show Me Weights (T-215)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.290 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-t162": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8330,
+      "quelle": "Show Me Weights (T-162)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.500 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-t161": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5520,
+      "quelle": "Show Me Weights (T-161)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.290 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-t262": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5110,
+      "quelle": "Show Me Weights (T262, regulär 5.830 / Sale 5.020)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.830 · Regulärer Händlerpreis; Aktionspreis 5.020; True Iron Liste 6.196"
     },
     "atlantis-t164": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7780,
+      "quelle": "Show Me Weights (T-164)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.870 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-t163": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7950,
+      "quelle": "Show Me Weights (T-163)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.070 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-pw357": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3270,
+      "quelle": "Show Me Weights (PW357)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.730 · True Iron 3.650"
     },
     "atlantis-pw256": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4440,
+      "quelle": "Show Me Weights (PW256)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.060 · True Iron 3.490 (deutlich niedriger, evtl. Aktion)"
     },
     "atlantis-p443": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5080,
+      "quelle": "Show Me Weights (P443)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.790 · True Iron 6.450"
     },
     "atlantis-p439": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4960,
+      "quelle": "Show Me Weights (P439)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.660 · True Iron Liste 7.250 / Sale 6.250"
     },
     "atlantis-pw739": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5660,
+      "quelle": "Ableitung: PW737 (USD 6.150) + ~5 % für Decline-Variante",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "hinweis": "Original: USD 6.450 · Kein Händlerpreis gefunden"
     },
     "atlantis-p441": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4950,
+      "quelle": "Show Me Weights (P-441)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.640 · True Iron 4.090 – Spanne 4.090–5.640"
     },
     "atlantis-pw737": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5390,
+      "quelle": "Show Me Weights (PW737)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.150 · True Iron Liste 6.715 / Sale 6.150"
     },
     "atlantis-pw322": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5660,
+      "quelle": "Show Me Weights (PW-322)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.450 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-pw429": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6830,
+      "quelle": "Show Me Weights (PW429, regulär 8.850)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.790 · Aktionspreis; regulär USD 8.850"
     },
     "atlantis-pw120": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3510,
+      "quelle": "Ableitung: AU-Händler AUD 4.892 (≈ USD 3.200) und Hinweis \"neue Version ca. 5.400\"; Mittelwert",
+      "quelle_url": "https://rawfitnessequipment.com.au/products/atlantis-total-neck-machine",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "hinweis": "Original: USD 4.000 · Kein US-Händlerpreis gefunden"
     },
     "atlantis-pw625": {
-      "preis_eur": 5200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3160,
+      "quelle": "Ableitung: D125 Incline T-Bar Row (USD 3.230) + ~10 % (Power-Series-Nachfolger, 137 kg)",
+      "quelle_url": "https://showmeweights.com/products/product-url-159697",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+      "hinweis": "Original: USD 3.600 · Vorgängermodell-Preis als Basis"
     },
     "atlantis-pw637": {
-      "preis_eur": 5200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4420,
+      "quelle": "Show Me Weights (PW-637)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.040 · True Iron Liste 5.040 / Sale 4.250"
     },
     "atlantis-pw437": {
-      "preis_eur": 5200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4420,
+      "quelle": "Show Me Weights (PW-437)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.040 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d533": {
-      "preis_eur": 5200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2980,
+      "quelle": "Ableitung: D-126 Plate-Loaded T-Bar Row (USD 3.120) + ~10 % (94 kg, Seal Row)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+      "hinweis": "Original: USD 3.400 · Kein Händlerpreis gefunden"
     },
     "atlantis-e449": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5920,
+      "quelle": "True Iron Fitness (E449, Liste 6.750 / Sale 6.050)",
+      "quelle_url": "https://trueironfitness.com/collections/atlantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.750 · Listenpreis"
     },
     "atlantis-pw549": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3710,
+      "quelle": "Show Me Weights (PW-549)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.230 · True Iron 4.250"
     },
     "atlantis-pw335": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3140,
+      "quelle": "Show Me Weights (D-335 Shrug & Deadlift = Vorgänger-Nr.)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.580 · Händler führt Gerät unter D-335"
     },
     "atlantis-d215": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4060,
+      "quelle": "Show Me Weights (D-215)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.630 · Gebraucht in DE: 2.700 € (kleinanzeigen)"
     },
     "atlantis-pw423": {
-      "preis_eur": 5200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5950,
+      "quelle": "Show Me Weights (PW-423)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.780 · Zweite SMW-Listung 5.230 (Aktion); True Iron 6.780"
     },
     "atlantis-pw623": {
-      "preis_eur": 5200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6940,
+      "quelle": "True Iron Fitness (PW623, Liste 7.910 / Sale 7.050)",
+      "quelle_url": "https://trueironfitness.com/collections/atlantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.910 · Listenpreis"
     },
     "atlantis-c401": {
-      "preis_eur": 6500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8470,
+      "quelle": "Show Me Weights (C-401)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.660 · True Iron Sale 9.250"
     },
     "atlantis-pw511": {
-      "preis_eur": 6500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5300,
+      "quelle": "Show Me Weights (PW-511)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.040 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c412": {
-      "preis_eur": 6500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8310,
+      "quelle": "Show Me Weights (C-412)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.480 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c201": {
-      "preis_eur": 6500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7950,
+      "quelle": "Show Me Weights (C-201)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.070 · True Iron Sale 8.070"
     },
     "atlantis-m219": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2780,
+      "quelle": "Show Me Weights (M-219)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.170 · DASGYM (DE, gebraucht): 2.000 € brutto; kleinanzeigen 1.800 €"
     },
     "atlantis-pw319": {
-      "preis_eur": 4800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4240,
+      "quelle": "Show Me Weights (PW-319)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.830 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b856": {
-      "preis_eur": 4200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2630,
+      "quelle": "Ableitung: B-155 Standing Preacher (2.820) / B-256 Seated Preacher (2.710) + Pro-Aufschlag",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro"
+      "hinweis": "Original: USD 3.000 · Kein Händlerpreis gefunden"
     },
     "atlantis-pw702": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6450,
+      "quelle": "Show Me Weights (PW702)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.360 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d828": {
-      "preis_eur": 3900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3010,
+      "quelle": "Show Me Weights (D-828)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Bank)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.430 · True Iron Liste 4.450 / Sale 3.745"
     },
     "atlantis-d828f": {
-      "preis_eur": 3900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3010,
+      "quelle": "Show Me Weights (D828F)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Bank)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.430 · True Iron Liste 4.550 / Sale 3.995"
     },
     "atlantis-pw212": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 9280,
+      "quelle": "Show Me Weights (PW212)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 10.580 · True Iron Liste 12.500 / Sale 10.250; Hersteller-UVP lt. True Iron 10.500"
     },
     "atlantis-pw412": {
-      "preis_eur": 6800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 9110,
+      "quelle": "Show Me Weights (PW412)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 10.390 · True Iron Liste 13.700 / Sale 10.850"
     },
     "atlantis-pw611": {
-      "preis_eur": 7200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 9250,
+      "quelle": "True Iron Fitness (PW611, Liste 10.550 / Sale 9.550)",
+      "quelle_url": "https://trueironfitness.com/collections/atlantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 10.550 · Listenpreis"
     },
     "atlantis-pw419": {
-      "preis_eur": 6500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8000,
+      "quelle": "Show Me Weights (PW419)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 9.120 · True Iron Liste 12.500 / Sale 9.550"
     },
     "atlantis-b177": {
-      "preis_eur": 1900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1760,
+      "quelle": "Show Me Weights (B-177)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank (verstellbar)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.010 · REPS in Fitness 2.010; Strength Barbell 1.760"
     },
     "atlantis-b179": {
-      "preis_eur": 1900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2290,
+      "quelle": "Show Me Weights (B-179)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank (verstellbar)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.610 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b275": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 880,
+      "quelle": "Show Me Weights (B-275)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank (flach)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.000 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b176": {
-      "preis_eur": 1700,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1760,
+      "quelle": "Show Me Weights (B-176)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.010 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b178": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1500,
+      "quelle": "Show Me Weights (B-178)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank (flach)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.710 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b100": {
       "preis_eur": 700,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Ableitung: B-275 Flat Bench (1.000) abzgl. ~20 % (14 kg, einfache Utility Bench)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank"
+      "hinweis": "Original: USD 800 · Kein Händlerpreis gefunden"
     },
     "atlantis-b256": {
-      "preis_eur": 1900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2380,
+      "quelle": "Show Me Weights (B-256)",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+B-160&type=product",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Curlbank"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.710 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c220": {
-      "preis_eur": 1300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 660,
+      "quelle": "Show Me Weights (C220)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Ständer"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 750 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-a169": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1750,
+      "quelle": "Ableitung: A-264 Sit-up Bench (2.210) / D-128 Hyper (2.420), ähnliche Klasse (68 kg)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Station"
+      "hinweis": "Original: USD 2.000 · Kein Händlerpreis gefunden"
     },
     "atlantis-e348": {
-      "preis_eur": 4200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3710,
+      "quelle": "Show Me Weights (E-348)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plate-Loaded-Presse (Bench Series)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.230 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-a264": {
-      "preis_eur": 1400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1940,
+      "quelle": "Show Me Weights (A-264)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Bank"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.210 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s187": {
-      "preis_eur": 1900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2020,
+      "quelle": "Ableitung: S-287B Hex-Rack 10 Paar (2.210) / S-189 15 Paar (3.300); Händler-Platzhalter USD 1,00",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+      "hinweis": "Original: USD 2.300 · Händlerseite zeigt Platzhalterpreis"
     },
     "atlantis-s189": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2890,
+      "quelle": "Show Me Weights (S-189)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.300 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s287b": {
-      "preis_eur": 1900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1940,
+      "quelle": "Show Me Weights (S-287B)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.210 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s289": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2780,
+      "quelle": "Show Me Weights (S-289)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.170 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-d227": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3140,
+      "quelle": "Show Me Weights (D-227)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis GHD"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.580 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c117": {
-      "preis_eur": 1100,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1070,
+      "quelle": "Show Me Weights (C117)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Sissy Squat"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.220 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-p339": {
-      "preis_eur": 2900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3710,
+      "quelle": "Show Me Weights (P-339)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Olympiabank"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.230 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-p337": {
-      "preis_eur": 2900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2780,
+      "quelle": "Show Me Weights (P-337)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Olympiabank"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.170 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-p338": {
-      "preis_eur": 2900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3010,
+      "quelle": "Show Me Weights (P-338)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Olympiabank"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.430 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-m126": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1150,
+      "quelle": "Show Me Weights (M-126)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Kleingerät"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.310 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s185": {
-      "preis_eur": 600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1940,
+      "quelle": "Show Me Weights (S-185)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Ablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.210 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s190": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2210,
+      "quelle": "Show Me Weights (S-190)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Ablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.520 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s182": {
-      "preis_eur": 600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 880,
+      "quelle": "Show Me Weights (S-182)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Ablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.000 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-s181": {
-      "preis_eur": 1100,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 880,
+      "quelle": "Show Me Weights (S-181)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Ablage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.000 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-r400": {
-      "preis_eur": 400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 180,
+      "quelle": "Show Me Weights (R-400)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 200 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-e155": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7240,
+      "quelle": "Show Me Weights (E-155)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Smith Machine"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.260 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-m123": {
-      "preis_eur": 500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 320,
+      "quelle": "Show Me Weights (M-123)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 360 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c322": {
-      "preis_eur": 1600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1140,
+      "quelle": "Ableitung: C117 Sissy Squat (1.220), vergleichbare Bodyweight-Station (36 kg)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis GHD (einfach)"
+      "hinweis": "Original: USD 1.300 · Kein Händlerpreis gefunden"
     },
     "atlantis-p245": {
-      "preis_eur": 1400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1940,
+      "quelle": "Show Me Weights (P-245)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Dip-Station"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 2.210 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c511": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3100,
+      "quelle": "Show Me Weights (C-511-8)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Half Rack"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.540 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-rs611": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4100,
+      "quelle": "Show Me Weights (RS-611)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Half Rack"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.680 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c513": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4380,
+      "quelle": "Show Me Weights (C513-8)",
+      "quelle_url": "https://showmeweights.com/products/product-url-160570",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power Rack"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.995 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-rs613": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5080,
+      "quelle": "Show Me Weights (RS-613)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Power Rack"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 5.790 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-c706": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1750,
+      "quelle": "Ableitung: C-206 Leg Platform (1.870) + Aufschlag für Slide-Verstellung",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=7",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Zubehör"
+      "hinweis": "Original: USD 2.000 · Nachfolger/Variante von C-206"
     },
     "atlantis-r264": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 430,
+      "quelle": "Show Me Weights (R-264)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Strongman"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 495 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-r263": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1110,
+      "quelle": "Show Me Weights (R-263 neu; gebraucht 500)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Strongman"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 1.270 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b4800": {
-      "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2540,
+      "quelle": "Ableitung: B7200 (3.820) × Flächenverhältnis 4×8 ft / 6×8 ft ≈ 0,75",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+      "hinweis": "Original: USD 2.900 · Kleinere Plattform, nicht gelistet"
     },
     "atlantis-b7200": {
-      "preis_eur": 2900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3350,
+      "quelle": "Show Me Weights (B7200)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.820 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-b4854": {
-      "preis_eur": 3400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4380,
+      "quelle": "Ableitung: B7254 (6.040) abzgl. ~17 % für kleinere Fläche",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+platform+B4800&type=product",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+      "hinweis": "Original: USD 5.000 · Kein Händlerpreis gefunden"
     },
     "atlantis-b7254": {
-      "preis_eur": 3900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5300,
+      "quelle": "Show Me Weights (B7254 Insert Platform für RS-611)",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+platform+B4800&type=product",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.040 · Demo-Gerät 2.600"
     },
     "atlantis-b4872": {
-      "preis_eur": 3700,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4740,
+      "quelle": "Ableitung: B4854 (5.000) + ~8 % für Power-Rack-Aussparung",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+platform+B4800&type=product",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+      "hinweis": "Original: USD 5.400 · Kein Händlerpreis gefunden"
     },
     "atlantis-b7272": {
-      "preis_eur": 4100,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5700,
+      "quelle": "Ableitung: B7254 (6.040) + ~8 % für Power-Rack-Aussparung",
+      "quelle_url": "https://showmeweights.com/search?q=atlantis+platform+B4800&type=product",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+      "hinweis": "Original: USD 6.500 · Kein Händlerpreis gefunden"
     },
     "atlantis-nm205": {
-      "preis_eur": 8900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 9790,
+      "quelle": "Show Me Weights (NM-205)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Functional Trainer"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 11.160 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-nm200": {
-      "preis_eur": 7500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8330,
+      "quelle": "Ableitung: NM-205 (11.160) abzgl. ~15 % (ohne Dynamic-Arme, 416 vs. 558 kg)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=3",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Functional Trainer"
+      "hinweis": "Original: USD 9.500 · Kein Händlerpreis gefunden (Call for Price)"
     },
     "atlantis-ms8": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6140,
+      "quelle": "Show Me Weights (MS-8 Incline Row D-132)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.000 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-rd124": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5880,
+      "quelle": "Ableitung: MS-7 Low-Row-Modul (6.690) – Rack-Anbauversion",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "hinweis": "Original: USD 6.700 · RD-Module = Rack-Anbau, nicht einzeln gelistet"
     },
     "atlantis-ms7": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5870,
+      "quelle": "Show Me Weights (MS-7 Low Row D-124)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.690 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-ms13": {
-      "preis_eur": 2600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7220,
+      "quelle": "Show Me Weights (NM-510 Unilateral Low Row)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.230 · Preis des NM-510-Grundgeräts"
     },
     "atlantis-rx200-l": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3420,
+      "quelle": "Ableitung: MS-2 Adjustable Pulley (4.140) abzgl. ~6 % (Rack-Anbau, links)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "hinweis": "Original: USD 3.900 · Rack-Anbaumodul, nicht einzeln gelistet"
     },
     "atlantis-rx200-r": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3420,
+      "quelle": "Ableitung: MS-2 Adjustable Pulley (4.140) abzgl. ~6 % (Rack-Anbau, rechts)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "hinweis": "Original: USD 3.900 · Rack-Anbaumodul, nicht einzeln gelistet"
     },
     "atlantis-ms14": {
-      "preis_eur": 3900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6600,
+      "quelle": "Show Me Weights (MS-14 Dual Pulley NM-210)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=5",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 7.520 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-ms2": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3630,
+      "quelle": "Show Me Weights (MS-2)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 4.140 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-rd123": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Ableitung: MS-6 Lat-Pulldown-Modul (6.010) – Rack-Anbauversion",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "hinweis": "Original: USD 6.000 · Rack-Anbaumodul, nicht einzeln gelistet"
     },
     "atlantis-ms6": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5270,
+      "quelle": "Show Me Weights (MS-6 Lat Pulldown D-123)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 6.010 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "atlantis-rd438": {
-      "preis_eur": 2900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6580,
+      "quelle": "Ableitung: D438 Standalone (7.915) abzgl. ~5 % (Rack-Anbau)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=6",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "hinweis": "Original: USD 7.500 · Rack-Anbaumodul, nicht einzeln gelistet"
     },
     "atlantis-ms12": {
-      "preis_eur": 2600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7020,
+      "quelle": "Show Me Weights (NM-500 Unilateral Lat Pulldown)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=4",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 8.010 · Preis des NM-500-Grundgeräts"
     },
     "atlantis-ms10": {
-      "preis_eur": 700,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 530,
+      "quelle": "Ableitung: R266 Wall Mounted Pull Up Bar (560) + Anbau (21 kg)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "hinweis": "Original: USD 600 · Kein Händlerpreis gefunden"
     },
     "atlantis-ms3": {
-      "preis_eur": 1300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3110,
+      "quelle": "Show Me Weights (MS-3 Triceps Pulley)",
+      "quelle_url": "https://showmeweights.com/collections/atantis-strength?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: USD 3.550 · Händler-Listenpreis (USA), Auftrag nur per Anruf; netto ohne Fracht"
     },
     "prime-benches-adjustable-bench": {
-      "preis_eur": 2200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 640,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/benches",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Bank"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 725 · \"ab\"-Preis, Basiskonfiguration"
     },
     "prime-benches-prime-steel-xl-bench": {
-      "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4380,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/benches",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Bank"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.000 · Listenpreis"
     },
     "prime-benches-shorty-adjustable-bench": {
-      "preis_eur": 2000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 680,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/benches",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Bank"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 775 · \"ab\"-Preis, Basiskonfiguration"
     },
     "prime-evolution-abdominal-crunch": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5390,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.150 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-arm-curl": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4690,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.350 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-chest-press": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5790,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.600 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-lat-pulldown": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6310,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 7.200 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-leg-extension": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4780,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.450 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-leg-press": {
-      "preis_eur": 9200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7450,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 8.500 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-low-back-extension": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5090,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.800 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-prone-leg-curl": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4780,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.450 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-seated-leg-curl": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5130,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.850 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-seated-row": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6100,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.950 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-shoulder-press": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5310,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.050 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-evolution-tricep-extension": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5040,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/evolution",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.750 · Online-Listenpreis primefitnessusa.com (Collection Evolution)"
     },
     "prime-hybrid-abdominal-crunch": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4910,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.600 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-arm-curl": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4520,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.150 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-chest-press": {
-      "preis_eur": 10900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5480,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.250 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-incline-press": {
-      "preis_eur": 10900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5610,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.400 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-inner-thigh": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.000 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-inner-outer-thigh": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.000 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-lat-pulldown": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6010,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.850 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-lateral-raise": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5350,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.100 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-leg-extension": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5040,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.750 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-leg-extension-leg-curl-combo": {
-      "preis_eur": 10900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5700,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.500 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-leg-press": {
-      "preis_eur": 11900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7020,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid (Beinpresse)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 8.000 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-low-back-extension": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4910,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.600 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-multi-hip": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5170,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.900 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-outer-thigh": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.000 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-pec-fly": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5350,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.100 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-pec-rear-delt": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5170,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.900 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-prone-leg-curl": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4740,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.400 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-pullover": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5390,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.150 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-rotary-torso": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5350,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.100 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-seated-calf-press": {
-      "preis_eur": 10900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5170,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.900 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-seated-leg-curl": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.000 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-seated-pushdown": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.000 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-seated-row": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5220,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.950 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-shoulder-press": {
-      "preis_eur": 10900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5390,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.150 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-hybrid-tricep-extension": {
-      "preis_eur": 9900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4910,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/hybrid?page=3",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Hybrid"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.600 · Online-Listenpreis primefitnessusa.com (Collection Hybrid)"
     },
     "prime-plate-loaded-pendulum-squat": {
-      "preis_eur": 8900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5480,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.250 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-abdominal-crunch": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2630,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.000 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-arm-curl": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2940,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.350 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-chest-press": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3510,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded (Presse)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 4.000 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-extreme-row": {
-      "preis_eur": 6500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3640,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 4.150 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-hack-squat": {
-      "preis_eur": 8500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5830,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.650 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-incline-press": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3730,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded (Presse)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 4.250 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-lat-pulldown": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3330,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.800 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-leg-ext-leg-curl-combo": {
-      "preis_eur": 6400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4030,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded (Kombi)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 4.600 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-leg-extension": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3160,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.600 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-leg-press": {
-      "preis_eur": 8200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3950,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 4.500 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-low-back-extension": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2630,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.000 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-prone-leg-curl": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2850,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.250 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-pulldown": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4960,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.650 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-seated-row": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3240,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.700 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-shoulder-press": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3330,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded (Presse)"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.800 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-plate-loaded-tricep-extension": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3200,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/plate-loaded-equipment?page=2",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Plate Loaded"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.650 · Online-Listenpreis primefitnessusa.com (Collection Plate Loaded)"
     },
     "prime-prodigy-racks-hlp-selectorized-rack-2-1": {
-      "preis_eur": 7900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5150,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Prodigy Rack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.875 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-hlp-selectorized-rack-4-1": {
-      "preis_eur": 8400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5260,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Prodigy Rack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.000 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-hlp-plate-loaded-rack": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4470,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Prodigy Rack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 5.100 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-hlp-plate-loaded-single-stack": {
-      "preis_eur": 4900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2590,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Prodigy Single Stack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 2.950 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-hlp-selectorized-single-stack-2-1": {
-      "preis_eur": 5900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2980,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Prodigy Single Stack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.400 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-hlp-selectorized-single-stack-4-1": {
-      "preis_eur": 6300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3160,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Prodigy Single Stack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 3.600 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-half-rack": {
-      "preis_eur": 3900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1320,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Half Rack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 1.500 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-prodigy-racks-power-rack": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2020,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/prodigy-racks",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Power Rack"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 2.300 · \"ab\"-Preis (Basiskonfiguration, Aufpreise für Farben/Optionen); Online-Verkauf nur USA"
     },
     "prime-specialty-4-tier-dumbbell-rack": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2540,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/specialty-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Kurzhantelablage"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 2.900 · \"ab\"-Preis"
     },
     "prime-specialty-chin-dip-assist": {
-      "preis_eur": 6900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4210,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/products/chin-dip-assist",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Specialty"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 4.800 · Listenpreis Produktseite"
     },
     "prime-specialty-double-sided-preacher": {
-      "preis_eur": 2900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1180,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/specialty-equipment",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Specialty"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 1.350 · \"ab\"-Preis"
     },
     "prime-specialty-functional-trainer": {
-      "preis_eur": 8900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5480,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/products/functional-trainer",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Functional Trainer"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 6.250 · Aktionspreis (regulär USD 7.000)"
     },
     "prime-wall-mounts-wall-mount-smart-arm": {
-      "preis_eur": 4900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 110,
+      "quelle": "Prime Fitness USA Online-Shop",
+      "quelle_url": "https://www.primefitnessusa.com/collections/wall-mounts",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Richtwert Prime Wandmontage"
+      "konfidenz": "liste",
+      "hinweis": "Original: USD 125 · Listenpreis (Wandhalterung)"
     },
     "gen-freihantel-kurzhantelsatz": {
-      "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 700,
+      "quelle": "my-sports24.de Hex-Kurzhantelsatz 5–30 kg (620 € brutto) + Kübler Sport Hantelsatz ab 479 €",
+      "quelle_url": "https://www.my-sports24.de/kraftgeraete/kompakt-hanteln/gummi/2087/hex-kurzhantelsaetze-gummiert-in-2-5kg-abstufung-5-20/5-30/5-40/5-50kg",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Satz 2–30 kg, Paare"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 620,00 € brutto (5–30 kg, 11 Paar) · Hex-Gummihanteln; 2,5-kg-Paar ergänzt. Urethan-Studiohanteln (Technogym/Eleiko) 2–3× teurer."
     },
     "gen-freihantel-kurzhantelsatz-schwer": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2000,
+      "quelle": "Ableitung ~3,0 €/kg netto aus my-sports24 Hex-Sätzen (660 kg Gesamtgewicht)",
+      "quelle_url": "https://www.my-sports24.de/kraftgeraete/kompakt-hanteln/gummi/2087/hex-kurzhantelsaetze-gummiert-in-2-5kg-abstufung-5-20/5-30/5-40/5-50kg",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Satz 32–50 kg, Paare"
+      "hinweis": "8 Paar 32,5–50 kg = 660 kg; Urethan deutlich teurer."
     },
     "gen-freihantel-langhantelstange": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Gorilla Sports Olympia Langhantel 220 cm (199,99 € brutto); Studio-Stangen (ATX/Eleiko) 250–600 € netto",
+      "quelle_url": "https://www.gorillasports.de/products/olympia-langhantel-220-cm",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 199,99 € brutto · Typischer Wert für studiotaugliche Stange."
     },
     "gen-freihantel-langhantelstange-15": {
-      "preis_eur": 300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 220,
+      "quelle": "Analog Gorilla Sports Olympia-Stangen",
+      "quelle_url": "https://www.gorillasports.de/collections/olympia-hantelstange",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Damenstange 15 kg, 25-mm-Griff."
     },
     "gen-freihantel-ez-stange": {
-      "preis_eur": 180,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 90,
+      "quelle": "Gorilla Sports Hantelstangen-Sortiment",
+      "quelle_url": "https://www.gorillasports.de/collections/hantelstangen",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Olympia EZ-Curl 120 cm."
     },
     "gen-freihantel-trap-bar": {
-      "preis_eur": 320,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 180,
+      "quelle": "Gorilla Sports Hantelstangen-Sortiment",
+      "quelle_url": "https://www.gorillasports.de/collections/hantelstangen",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Hex Bar 25 kg."
     },
     "gen-freihantel-hantelscheiben-satz": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 550,
+      "quelle": "Gorilla Sports Gummi-Gripper 25 kg 64,99 € brutto (≈2,2 €/kg netto); Studio-Urethan 5–7 €/kg",
+      "quelle_url": "https://www.gorillasports.de/products/olympia-langhantel-50-51-mm",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Gummi-Bumper/Kalibriert, ca. 300 kg"
+      "hinweis": "Original: 64,99 € brutto / 25 kg · 150 kg × ~3,5 €/kg netto (Gummi/Bumper)."
     },
     "gen-freihantel-hantelscheiben-satz-gross": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1100,
+      "quelle": "wie Hantelscheiben-Satz 150 kg",
+      "quelle_url": "https://www.gorillasports.de/products/olympia-langhantel-50-51-mm",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "ca. 600 kg"
+      "hinweis": "300 kg × ~3,5 €/kg netto."
     },
     "gen-freihantel-scheibenstaender": {
-      "preis_eur": 450,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Marktspanne Scheibenständer 6 Aufnahmen (Gorilla/ATX) 150–400 € netto",
+      "quelle_url": "https://www.gorillasports.de/collections/hantelstangen",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-freihantel-langhantelstaender": {
-      "preis_eur": 500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 300,
+      "quelle": "Marktspanne vertikale Stangenhalter 10 Stangen 200–450 € netto",
+      "quelle_url": "https://www.my-sports24.de/functional-fitness/rigs/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-freihantel-kurzhantel-rack": {
-      "preis_eur": 1400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 450,
+      "quelle": "Marktspanne Kurzhantelablage 2-lagig 10 Paar 350–700 € netto",
+      "quelle_url": "https://www.kuebler-sport.de/fitnessgeraete/hanteln-gewichte/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "2-stöckig, 10 Paare"
+      "konfidenz": "schaetzung"
     },
     "gen-freihantel-kurzhantel-rack-3": {
-      "preis_eur": 1700,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 650,
+      "quelle": "Marktspanne Kurzhantelablage 3-lagig 15 Paar 500–1.000 € netto",
+      "quelle_url": "https://www.kuebler-sport.de/fitnessgeraete/hanteln-gewichte/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "3-stöckig, 15 Paare"
+      "konfidenz": "schaetzung"
     },
     "gen-cardio-laufband": {
-      "preis_eur": 9000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 8000,
+      "quelle": "professionell-fitness-shop.de: Matrix T1x Studio-Laufband 7.199 € brutto (≈6.050 € netto); Life Fitness Integrity/Technogym Excite neu 9.000–12.000 € netto",
+      "quelle_url": "https://www.professionell-fitness-shop.de/matrix/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "kommerzielles Laufband"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 7.199,00 € brutto (Matrix T1x) · Kommerzielles Laufband; Spanne 6.000–12.000 € netto."
     },
     "gen-cardio-curved-treadmill": {
-      "preis_eur": 5500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3780,
+      "quelle": "assaultfitness.de AssaultRunner Pro 4.499 € brutto",
+      "quelle_url": "https://assaultfitness.de/de/14-bikes",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 4.499,00 € brutto · Technogym Skillmill ca. 8.000–10.000 € netto."
     },
     "gen-cardio-crosstrainer": {
-      "preis_eur": 7000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6500,
+      "quelle": "Matrix/Life Fitness kommerzielle Crosstrainer; professionell-fitness-shop.de Preisspanne 1.904–10.299 €",
+      "quelle_url": "https://www.professionell-fitness-shop.de/matrix/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Spanne 5.000–9.000 € netto."
     },
     "gen-cardio-ergometer": {
-      "preis_eur": 3500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3300,
+      "quelle": "professionell-fitness-shop.de Matrix U1x Sitzergometer 3.899 € brutto",
+      "quelle_url": "https://www.professionell-fitness-shop.de/matrix/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 3.899,00 € brutto"
     },
     "gen-cardio-liegeergometer": {
-      "preis_eur": 3800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3000,
+      "quelle": "professionell-fitness-shop.de Matrix R1x Liegeergometer 3.599 € brutto",
+      "quelle_url": "https://www.professionell-fitness-shop.de/matrix/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 3.599,00 € brutto"
     },
     "gen-cardio-spinning-bike": {
-      "preis_eur": 1800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1850,
+      "quelle": "akw-fitness.de Life Fitness ICG IC5 2.200 € brutto",
+      "quelle_url": "https://www.akw-fitness.de/ausdauertraining/indoor-bikes.html",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 2.200,00 € brutto · Schwinn 800IC 1.049 € brutto als günstige Alternative."
     },
     "gen-cardio-air-bike": {
-      "preis_eur": 1100,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1090,
+      "quelle": "assaultfitness.de AssaultBike Pro X 1.299 € brutto",
+      "quelle_url": "https://assaultfitness.de/de/14-bikes",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 1.299,00 € brutto"
     },
     "gen-cardio-rudergeraet": {
-      "preis_eur": 1300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1005,
+      "quelle": "concept2.de RowErg 1.195 € brutto",
+      "quelle_url": "https://www.concept2.de/ergs/rowerg",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "liste",
+      "hinweis": "Original: 1.195,00 € brutto"
     },
     "gen-cardio-stairmaster": {
-      "preis_eur": 9500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6500,
+      "quelle": "fitnessclub-24.de StairMaster 8 Series Gauntlet 21.496 zł netto (≈5.000 € netto); DE-Händler 6.000–10.000 € netto",
+      "quelle_url": "https://www.fitnessclub-24.de/produkte/cardiogeraete-10-de/stepper-und-treppen-23-de/stairmaster-8-series-gauntlet-led-sporttreppen/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Original: 21.496 zł netto · Umrechnung PLN→EUR ca. 4,3; Preise DE tendenziell höher."
     },
     "gen-cardio-skierg": {
-      "preis_eur": 1000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1040,
+      "quelle": "concept2.de SkiErg 1.040 € brutto (≈874 € netto) + Bodenständer ≈165 € netto",
+      "quelle_url": "https://www.concept2.de/ergs/skierg",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "liste",
+      "hinweis": "Original: 1.040,00 € brutto · inkl. Bodenständer."
     },
     "gen-functional-sled-bahn": {
-      "preis_eur": 60,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 900,
+      "quelle": "kunstrasen-rasenteppich.de Fitness-Kunstrasen 29,95 €/m² brutto + Verlegung 25–45 €/m² (kunstrasen.de)",
+      "quelle_url": "https://kunstrasen-rasenteppich.de/produkt/kunstrasen-fitness-fitnessstudio-gym-crossfit-functional-sprint-speed-track/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je m² Kunstrasen, verlegt – Kalkulation rechnet Fläche des Objekts"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 29,95 €/m² brutto · 15 m² × ca. 60 €/m² netto verlegt; bedruckt (Sprint-Track) 165 €/m² netto."
     },
     "gen-functional-kunstrasen": {
-      "preis_eur": 60,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 480,
+      "quelle": "wie Sled-Bahn: ca. 60 €/m² netto verlegt",
+      "quelle_url": "https://kunstrasen-rasenteppich.de/produkt/kunstrasen-fitness-fitnessstudio-gym-crossfit-functional-sprint-speed-track/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je m² Kunstrasen, verlegt – Kalkulation rechnet Fläche des Objekts"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 29,95 €/m² brutto · 8 m² Fläche."
     },
     "gen-functional-sled": {
-      "preis_eur": 700,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 327,
+      "quelle": "my-sports24.de Big Prowler Sled 389 € brutto",
+      "quelle_url": "https://www.my-sports24.de/functional-fitness/gewichtsschlitten/1808/big-prowler-sled-gewichtsschlitten",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 389,00 € brutto · ohne Scheiben."
     },
     "gen-functional-kettlebell-regal": {
-      "preis_eur": 400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Marktspanne 3-Ebenen-Kettlebellregal 150–400 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Fitnessger%C3%A4te/Hanteln/Kettlebells",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-functional-kettlebell-satz": {
-      "preis_eur": 1100,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1080,
+      "quelle": "ATLETICA Kettlebell-Set 8–24 kg (80 kg) 356,40 € brutto ≈ 3,74 €/kg netto; Sport-Thieme Sets 4–32 kg",
+      "quelle_url": "https://www.ebay.de/itm/256713259640",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Satz 4–32 kg"
+      "hinweis": "Original: 356,40 € brutto / 80 kg · 16 Kettlebells (288 kg) × ~3,75 €/kg netto."
     },
     "gen-functional-plyo-box": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 90,
+      "quelle": "Gorilla Sports Plyo Box Holz ca. 105 € brutto",
+      "quelle_url": "https://www.gorillasports.de/products/plyo-box-aus-holz",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ca. 105 € brutto"
     },
     "gen-functional-plyo-box-soft-set": {
-      "preis_eur": 700,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "3er-Set"
-    },
-    "gen-functional-matte": {
-      "preis_eur": 60,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
-    },
-    "gen-functional-bodenmatte": {
-      "preis_eur": 120,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
-    },
-    "gen-functional-medizinball-regal": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 550,
+      "quelle": "Soft-Plyo-Box-Sets 3-teilig 450–800 € netto (Gorilla/ATX)",
+      "quelle_url": "https://www.gorillasports.de/products/plyo-box-aus-holz",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
-    "gen-functional-battle-rope-anker": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+    "gen-functional-matte": {
+      "preis_eur": 35,
+      "quelle": "Sport-Thieme/Kübler Fitnessmatten 180×60 cm 25–60 € netto",
+      "quelle_url": "https://www.kuebler-sport.de/fitnessgeraete/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-bodenmatte": {
+      "preis_eur": 60,
+      "quelle": "Stretching-/Gymnastikmatten 200×100×2 cm 40–90 € netto",
+      "quelle_url": "https://www.kuebler-sport.de/fitnessgeraete/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-medizinball-regal": {
+      "preis_eur": 200,
+      "quelle": "Medizinballregale 120–300 € netto",
+      "quelle_url": "https://www.my-sports24.de/functional-fitness/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Tau"
+      "hinweis": "ohne Bälle."
+    },
+    "gen-functional-battle-rope-anker": {
+      "preis_eur": 150,
+      "quelle": "Bodenanker 30–60 € + Battle Rope 15 m 80–150 € netto",
+      "quelle_url": "https://www.my-sports24.de/functional-fitness/rigs/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Seil 15 m."
     },
     "gen-functional-schlingentrainer": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 600,
+      "quelle": "Freistehende Schlingentrainer-Station 2 Plätze 400–900 € netto; TRX X-Mount (Wand) ca. 60 €",
+      "quelle_url": "https://www.sport-thieme.de/Fitnessger%C3%A4te/Schlingentrainer/art=1073342",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Wandhalterung"
+      "hinweis": "ohne Schlingentrainer (je ca. 150 €)."
     },
     "gen-functional-rig": {
-      "preis_eur": 6000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3500,
+      "quelle": "Rogue Monster Lite Rig 2.0 Base 10' 3.033,68 €; ATX Wall Rig ab 510–599 €/Feld (my-sports24.de)",
+      "quelle_url": "https://www.roguefitness.com/eu/monster-lite-rig-2-0-eu?locale=de&prod_id=4229",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "freistehend, inkl. Montage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 3.033,68 € (Base 10') · 2×3 Felder freistehend mit Klimmzugstangen/J-Hooks; Spanne 2.500–6.000 € netto."
     },
     "gen-functional-wand-rig": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1300,
+      "quelle": "my-sports24.de ATX Functional Wall Rig 4.0 ab 510 € (Basic) / 599 € (Sector) je Feld",
+      "quelle_url": "https://www.my-sports24.de/functional-fitness/rigs/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "wandmontiert, inkl. Montage"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ab 510,00 € brutto · 3 Felder Wandmontage."
     },
     "gen-functional-sprossenwand": {
-      "preis_eur": 450,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Sport-Thieme Sprossenwände 150–400 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Turnger%C3%A4te/Sprossenw%C3%A4nde",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-functional-boxsack": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 200,
+      "quelle": "Boxsack 120 cm 120–250 € + Deckenhalterung 30–80 € netto",
+      "quelle_url": "https://www.ebay.de/itm/156723302816",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Deckenhalterung"
+      "konfidenz": "schaetzung"
     },
     "gen-functional-boxsack-staender": {
-      "preis_eur": 550,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 450,
+      "quelle": "Boxsackständer inkl. Sack 300–700 € netto",
+      "quelle_url": "https://www.ebay.de/itm/156723302816",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-functional-glute-band-station": {
-      "preis_eur": 200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 120,
+      "quelle": "Bänderhalter/-baum 80–200 € netto",
+      "quelle_url": "https://www.my-sports24.de/functional-fitness/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne Bänder."
+    },
+    "gen-empfang-theke": {
+      "preis_eur": 3500,
+      "quelle": "Objekt-Empfangstheken 300 cm (officewelten.de/schultz.de) 2.500–6.000 € netto",
+      "quelle_url": "https://schultz.de/empfangstheke",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Maßanfertigung mit Beleuchtung teurer (siehe Kostenblock Innenarchitektur)."
+    },
+    "gen-empfang-theke-klein": {
+      "preis_eur": 2200,
+      "quelle": "Objekt-Empfangstheken 200 cm 1.500–3.500 € netto",
+      "quelle_url": "https://schultz.de/empfangstheke",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
-    "gen-empfang-theke": {
-      "preis_eur": 6000,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück (Tischlerarbeit, ca. 3 m)"
-    },
-    "gen-empfang-theke-klein": {
-      "preis_eur": 4000,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück (ca. 2 m)"
-    },
     "gen-empfang-drehkreuz": {
-      "preis_eur": 3500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3000,
+      "quelle": "gymaccess.de Basic Turnstile ab 1.900 €, Turnstile Pro ab 3.500 €; komplett mit RFID/Installation 3.000–5.000 € (gymaccess Blog)",
+      "quelle_url": "https://gymaccess.de/drehkreuz",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Zutrittsleser"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ab 1.900 € / ab 3.500 € · inkl. RFID-Leser, ohne Software."
     },
     "gen-empfang-zugangsschranke": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2000,
+      "quelle": "Schwenktür/barrierefreier Durchgang motorisiert 1.500–3.500 € netto (gymaccess.de)",
+      "quelle_url": "https://gymaccess.de/blog/zutrittskontrolle-drehkreuz-speed-gate",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Schwenktür/Sensorschleuse"
+      "hinweis": "Speed Gates 8.000–15.000 €."
     },
     "gen-empfang-shakebar": {
-      "preis_eur": 5000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3000,
+      "quelle": "Bartheke 200 cm Objektqualität 2.000–5.000 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "je Stück, ohne Geräte"
+      "hinweis": "ohne Kühl-/Mixtechnik."
     },
     "gen-empfang-kuehlschrank": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 534,
+      "quelle": "gastro-michel.de KBS Glastürkühlschrank CD 350 635 € brutto",
+      "quelle_url": "https://www.gastro-michel.de/KBS-Glastuerkuehlschrank-schwarz-LED-Beleuchtung-CD-350",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Getränkekühlschrank Glastür"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 635,00 € brutto"
     },
     "gen-empfang-getraenkeautomat": {
       "preis_eur": 3500,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "b2b.de: Neugerät ab 3.000–4.000 €; Miete 150–250 €/Monat (goklever.de)",
+      "quelle_url": "https://www.b2b.de/kosten/verkaufsautomaten-kosten/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Kauf; Miete alternativ ca. 100 €/Monat"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 3.000–4.000 € (Kauf) · Alternative Miete 150–250 €/Monat inkl. Service; Kauf lohnt ab ~15–20 Verkäufen/Tag."
     },
     "gen-empfang-snackautomat": {
-      "preis_eur": 3500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4000,
+      "quelle": "b2b.de/vendvibe.de: Snackautomaten 3.000–8.000 € Kauf; Miete 100–200 €/Monat",
+      "quelle_url": "https://vendvibe.de/snackautomaten-mieten-preise-und-kosten/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Kauf; Miete alternativ ca. 100 €/Monat"
+      "hinweis": "Alternative Miete 100–200 €/Monat."
     },
     "gen-empfang-sofa-2": {
       "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Objektmöbel-Sofas 2-Sitzer 600–1.500 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-sofa-3": {
-      "preis_eur": 1300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1200,
+      "quelle": "Objektmöbel-Sofas 3-Sitzer 900–2.000 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-sessel": {
       "preis_eur": 500,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Objektsessel 300–900 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-stehtisch": {
       "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Stehtisch Ø 70 cm Objekt 150–400 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-loungetisch": {
-      "preis_eur": 300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Loungetisch 120×60 cm 150–400 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-stuhl": {
       "preis_eur": 120,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Objektstuhl stapelbar 80–200 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-barhocker": {
-      "preis_eur": 90,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 150,
+      "quelle": "Objekt-Barhocker 100–250 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-wartebank": {
-      "preis_eur": 600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 400,
+      "quelle": "Wartebank 150 cm 250–600 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-empfang-garderobe": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 200,
+      "quelle": "Garderobenständer freistehend 100–350 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-empfang-garderobenleiste": {
-      "preis_eur": 80,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 60,
+      "quelle": "Wandgarderobe 100 cm 40–120 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück (ca. 1 m)"
+      "konfidenz": "schaetzung"
     },
     "gen-empfang-info-bildschirm": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 700,
+      "quelle": "55\"-Display (Business-TV 500–900 € netto) + Wandhalterung",
+      "quelle_url": "https://www.displayhersteller.de/de/digital-signage/werbesaulen-digital-signage/digitale-spannstoff-stele-mit-55-samsung-bildschirm",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "55″ Display inkl. Halterung"
+      "hinweis": "inkl. Halterung, ohne Player/Software."
     },
     "gen-empfang-info-stele": {
-      "preis_eur": 1800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3500,
+      "quelle": "Digital-Signage-Stelen 55\" (aldisplays.com, mydisplays.net) 2.500–6.000 € netto, Preis auf Anfrage",
+      "quelle_url": "https://www.aldisplays.com/digitale-info-stele-doppelseitig-bautiefe-192-mm-format-55-zoll-farbe-schwarz.html",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-spindreihe": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2200,
+      "quelle": "eurospind.de Z-Spind 1 Abteil/2 Fächer 200,92 € netto; Garderobenschränke 145–440 € netto je Abteil (Sport-Thieme)",
+      "quelle_url": "https://www.eurospind.de/betriebseinrichtung/sport-fitness/z-spinde/2555/z-spind-garderobenschrank-1-abteil-2-faecher",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Abteil (Fächer ÷ Stöcke) – Kalkulation rechnet Abteile × Preis"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 200,92 € netto (1 Abteil) · 10 Abteile à 40 cm, 1-stöckig, ca. 220 € netto je Abteil; Mengenrabatt bis 23 % ab 3 Stück."
     },
     "gen-umkleide-spindreihe-2": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2500,
+      "quelle": "eurospind.de Z-Spind (2 Fächer) 200,92 € netto; 2-stöckige Abteile 40 cm ca. 250 € netto",
+      "quelle_url": "https://www.eurospind.de/betriebseinrichtung/sport-fitness/z-spinde/2555/z-spind-garderobenschrank-1-abteil-2-faecher",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Abteil (2-stöckig, Fächer ÷ Stöcke) – Kalkulation rechnet Abteile × Preis"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 200,92 € netto · 10 Abteile × 2 Fächer = 20 Fächer."
     },
     "gen-umkleide-spind-1": {
-      "preis_eur": 260,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 220,
+      "quelle": "Sport-Thieme/eurospind Garderobenschrank 1 Abteil 145–440 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Metallschr%C3%A4nke",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 145–440 € netto"
     },
     "gen-umkleide-spind-2": {
-      "preis_eur": 320,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "eurospind.de Z-Spind 2 Fächer 200,92 € netto; 2-stöckig 40 cm",
+      "quelle_url": "https://www.eurospind.de/betriebseinrichtung/sport-fitness/z-spinde/2555/z-spind-garderobenschrank-1-abteil-2-faecher",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 200,92 € netto"
     },
     "gen-umkleide-spind-3": {
-      "preis_eur": 380,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 280,
+      "quelle": "Fächerschränke 3 Fächer 220–380 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Metallschr%C3%A4nke",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-spind-4": {
-      "preis_eur": 420,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 300,
+      "quelle": "Fächerschränke 4 Fächer 240–420 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Metallschr%C3%A4nke",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-spind-30-1": {
-      "preis_eur": 230,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 190,
+      "quelle": "Garderobenschrank 30 cm 1 Abteil 145–300 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Metallschr%C3%A4nke",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-spind-30-2": {
-      "preis_eur": 290,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 210,
+      "quelle": "eurospind.de Z-Spind 300 mm 2 Fächer 200,92 € netto",
+      "quelle_url": "https://www.eurospind.de/betriebseinrichtung/sport-fitness/z-spinde/2555/z-spind-garderobenschrank-1-abteil-2-faecher",
+      "stand": "2026-09",
+      "konfidenz": "haendler",
+      "hinweis": "Original: 200,92 € netto"
+    },
+    "gen-umkleide-bank": {
+      "preis_eur": 250,
+      "quelle": "Sport-Thieme Umkleidebänke 150 cm 180–400 € netto (Seite nicht abrufbar, 403)",
+      "quelle_url": "https://www.sport-thieme.de/Objektausstattung/Umkleider%C3%A4ume/Umkleideb%C3%A4nke",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
-    "gen-umkleide-bank": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
-    },
     "gen-umkleide-wandbank": {
-      "preis_eur": 300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 180,
+      "quelle": "Sport-Thieme Wandbänke 150 cm 120–300 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Objektausstattung/Umkleider%C3%A4ume/Umkleideb%C3%A4nke",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-umkleide-bank-schuhrost": {
-      "preis_eur": 420,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 300,
+      "quelle": "Sport-Thieme Umkleidebank mit Schuhrost 220–450 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Objektausstattung/Umkleider%C3%A4ume/Umkleideb%C3%A4nke/Mit-Schuhrost",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-umkleide-mittelbank": {
-      "preis_eur": 550,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 650,
+      "quelle": "Doppelseitige Garderobenbank mit Hakenleiste 200 cm 450–900 € netto",
+      "quelle_url": "https://www.sport-thieme.de/Objektausstattung/Umkleider%C3%A4ume/Umkleideb%C3%A4nke",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-umkleide-spiegel": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 450,
+      "quelle": "fitnessspiegel.de Spiegelwand 100×200 cm 715 € brutto inkl. Montage (≈300 €/m² netto)",
+      "quelle_url": "https://www.fitnessspiegel.de/spiegelwand-fitnessstudio.html",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Element (ca. 1 m)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 715 € brutto / 2 m² · 1,5 m² inkl. Montage."
     },
     "gen-umkleide-foehnplatz": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Wandhaartrockner 100–200 € + Ablage/Spiegel",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Wandföhn"
+      "konfidenz": "schaetzung"
     },
     "gen-umkleide-waschtisch": {
-      "preis_eur": 700,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 350,
+      "quelle": "Waschtisch Keramik + Armatur 200–1.500 € (trustlocal.de), Objektqualität",
+      "quelle_url": "https://trustlocal.de/kosten/sanitar-kosten/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Möbel + Becken; Installation in Sanitärposition"
+      "hinweis": "Original: 200–1.500 € · ohne Installation (siehe Kostenblock)."
     },
     "gen-umkleide-waschtisch-doppel": {
-      "preis_eur": 1300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 700,
+      "quelle": "2 × Waschtisch + Armatur",
+      "quelle_url": "https://trustlocal.de/kosten/sanitar-kosten/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Möbel + 2 Becken; Installation in Sanitärposition"
+      "hinweis": "ohne Installation."
     },
     "gen-umkleide-einzelkabine": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 800,
+      "quelle": "hplshop.de HPL-Eckkabine 100×120 cm 696,12 € brutto (≈585 € netto) + Sitzbank",
+      "quelle_url": "https://hplshop.de/de_DE/p/WC-Trennwande-aus-HPL-Platte/52",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Trennwandsystem"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 696,12 € brutto · HPL-Trennwandkabine mit Tür und Bank."
     },
     "gen-umkleide-einzelkabine-barrierefrei": {
-      "preis_eur": 1600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1500,
+      "quelle": "HPL-Kabine 150×200 cm + Klappsitz + Haltegriffe",
+      "quelle_url": "https://hplshop.de/de_DE/p/WC-Trennwande-aus-HPL-Platte/52",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Trennwandsystem"
+      "konfidenz": "schaetzung"
     },
     "gen-umkleide-wertfaecher": {
-      "preis_eur": 600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 900,
+      "quelle": "Wertfachschrank 20 Fächer mit Zahlenschloss 600–1.400 € netto (Sport-Thieme/eurospind)",
+      "quelle_url": "https://www.sport-thieme.de/Metallschr%C3%A4nke",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-handtuchspender": {
-      "preis_eur": 60,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 40,
+      "quelle": "Papierhandtuchspender Edelstahl/Kunststoff 25–80 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-waeschesammler": {
       "preis_eur": 150,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Wäschesammler fahrbar 100–250 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-sanitaer-einzeldusche": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1000,
+      "quelle": "Duschtrennwände HPL ca. 350 € netto je Element (trenncheck.com Kabine 350–1.200 €) + Duschgarnitur/Armatur 200–400 €",
+      "quelle_url": "https://www.trenncheck.com/wc-trennwaende-preise/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Duschtasse/Armatur/Trennwand; Anschluss in Sanitärposition"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 350–1.200 € je Kabine · Ausstattung ohne Rohinstallation (siehe Kostenblock Sanitär)."
     },
     "gen-sanitaer-reihendusche": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2600,
+      "quelle": "4 × (Trennwand 350 € + Armatur/Brause 300 €) netto",
+      "quelle_url": "https://www.trenncheck.com/wc-trennwaende-preise/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "je Stück (ca. 4 Plätze); Anschlüsse in Sanitärposition"
+      "hinweis": "4 Plätze; ohne Rohinstallation."
     },
     "gen-sanitaer-duschtrennwand": {
       "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "HPL-Duschtrennwand einzeln, abgeleitet aus trenncheck.com/hplshop.de",
+      "quelle_url": "https://www.1a-trennwandbau.de/duschtrennwaende.html",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Element"
+      "konfidenz": "haendler",
+      "hinweis": "Preis auf Anfrage bei 1a-trennwandbau; Spanne 250–500 €."
     },
     "gen-sanitaer-dusche-barrierefrei": {
-      "preis_eur": 2400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2500,
+      "quelle": "Bodengleiche Dusche (trustlocal.de 600–3.000 €) + Klappsitz + Haltegriffe DIN 18040",
+      "quelle_url": "https://trustlocal.de/kosten/sanitar-kosten/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Klappsitz/Haltegriffe"
+      "hinweis": "Original: 600–3.000 € · ohne Rohinstallation."
     },
     "gen-sanitaer-wc-kabine": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1150,
+      "quelle": "trenncheck.com WC-Kabine 700–1.100 € inkl. Tür/Montage + WC-Keramik/Spülkasten 150–800 € (trustlocal.de)",
+      "quelle_url": "https://www.trenncheck.com/wc-trennwaende-preise/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Trennwand + WC; Anschluss in Sanitärposition"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 700–1.100 € netto je Kabine · Trennwand ~850 € + WC ~300 €; ohne Rohinstallation."
     },
     "gen-sanitaer-wc-barrierefrei": {
-      "preis_eur": 2200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2000,
+      "quelle": "WC erhöht + Stützklappgriffe + Haltegriffe + Kabine 150×220",
+      "quelle_url": "https://trustlocal.de/kosten/sanitar-kosten/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Stützgriffe"
+      "hinweis": "ohne Rohinstallation."
     },
     "gen-sanitaer-urinal": {
-      "preis_eur": 600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 450,
+      "quelle": "Urinal Keramik mit Absaugung 200–500 € + HPL-Trennwand 100–200 € netto",
+      "quelle_url": "https://www.trenncheck.com/wc-trennwaende-preise/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-sanitaer-waschrinne": {
       "preis_eur": 1800,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "hygienemarkt24.de Edelstahl-Waschrinne ab 427,78 € (1–2 m, ohne Armatur), SLUN10 1250 mm ab 940,35 € netto; 3 Armaturen zusätzlich",
+      "quelle_url": "https://www.hygienemarkt24.de/edelstahl-waschrinnen/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück (ca. 3 Plätze)"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ab 940,35 € netto · 2.100 mm, 3 Plätze inkl. Armaturen; Sensor-Ausführung ab 2.550 €."
     },
     "gen-sanitaer-wickeltisch": {
-      "preis_eur": 500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 400,
+      "quelle": "Klappbarer Wandwickeltisch 250–600 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-sanitaer-putzraum-ausguss": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 150,
+      "quelle": "Ausgussbecken Kunststoff/Keramik 80–250 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne Installation."
     },
     "gen-wellness-sauna-200": {
-      "preis_eur": 8000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 7500,
+      "quelle": "Elementsauna 200×200 mit 6-kW-Ofen: Privat 3.000–6.000 € (weka/karibu), gewerbliche Ausführung 6.000–10.000 € netto; fechner-sauna.de: Anschaffung 'fünfstellig'",
+      "quelle_url": "https://fechner-sauna.de/sauna-fitnessstudio-kosten/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Elementsauna inkl. Ofen"
+      "hinweis": "4 Personen; gewerbliche Ausführung (Ofenschutz, Steuerung, Massivholzbänke)."
     },
     "gen-wellness-sauna-300": {
-      "preis_eur": 12000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 15000,
+      "quelle": "Gewerbliche Elementsauna 300×300 mit 9-kW-Ofen 10.000–25.000 € netto (Sauna Unikate/Klafs Projektpreise); privat: Karibu Saunahaus 300×300 9 kW 8.299 € brutto",
+      "quelle_url": "https://sauna-unikate.de/gewerbliche-sauna/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Elementsauna inkl. Ofen"
+      "hinweis": "Original: 8.299 € brutto (Privat-Referenz) · 8 Personen; ohne Elektro-/Lüftungsanschluss (siehe Kostenblock)."
     },
     "gen-wellness-sauna-400": {
-      "preis_eur": 16000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 22000,
+      "quelle": "Gewerbliche Sauna 400×300 mit 12-kW-Ofen 15.000–35.000 € netto",
+      "quelle_url": "https://sauna-unikate.de/gewerbliche-sauna/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Elementsauna inkl. Ofen"
+      "hinweis": "12 Personen."
     },
     "gen-wellness-bio-sauna": {
-      "preis_eur": 11000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 14000,
+      "quelle": "Bio-/Kombisauna 250×250 mit Verdampferofen 10.000–20.000 € netto",
+      "quelle_url": "https://sauna-unikate.de/gewerbliche-sauna/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Kombiofen"
+      "konfidenz": "schaetzung"
     },
     "gen-wellness-infrarotkabine": {
-      "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2520,
+      "quelle": "supersauna.de Infraplus 125 Valero Pro 2.999 € brutto (Spanne 1.699–3.999 €)",
+      "quelle_url": "https://www.supersauna.de/infrarotkabinen/2-personen",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 2.999,00 € brutto · 2 Personen; gewerbliche Vollspektrum-Kabinen bis 5.000 € netto."
     },
     "gen-wellness-dampfbad": {
-      "preis_eur": 15000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 20000,
+      "quelle": "Fertig-Dampfbadkabine 6 Personen (Acryl/GFK, schwimmbadbau24.de MODUL) + Dampfgenerator 12.000–30.000 € netto",
+      "quelle_url": "https://www.schwimmbadbau24.de/MODUL-Dampfbad-Kabine",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Dampfgenerator"
+      "hinweis": "gemauert individuell teurer."
     },
     "gen-wellness-cold-plunge": {
-      "preis_eur": 6000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6500,
+      "quelle": "eisbad-ratgeber.de: Chill Tubs Original Komplettsystem ab ~5.900 €; Profi-Chiller (DeinPhysio DP3 ab 2.999 €, Ice Wave ab 3.499 €); arctic-tub.de gewerbliche Systeme",
+      "quelle_url": "https://eisbad-ratgeber.de/eisbad-test/cold-plunge-kuehlaggregat-test",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Kühlaggregat"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ab ~5.900 € (Chill Tubs) · Kommerzielles Becken 350 l mit Dauerbetriebs-Kühlaggregat; Spanne 5.000–10.000 € netto."
     },
     "gen-wellness-tauchbecken": {
-      "preis_eur": 7500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 4000,
+      "quelle": "Tauchbecken rund Ø 130 cm Edelstahl/GFK 2.500–6.000 € netto (ohne Kühlung)",
+      "quelle_url": "https://derwellnessshop.de/produkt-kategorie/pools/eisbad/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Wasserfüllung; Kühlaggregat optional +3.000 €."
     },
     "gen-wellness-eisbrunnen": {
-      "preis_eur": 5000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 6000,
+      "quelle": "Eisbrunnen mit Eisbereiter (Sauna-Zubehör Gewerbe) 4.000–9.000 € netto",
+      "quelle_url": "https://www.schwimmbadbau24.de/Erlebnissduschen",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Preis auf Anfrage bei Fachhändlern."
     },
     "gen-wellness-kneipp-becken": {
-      "preis_eur": 4000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5000,
+      "quelle": "Wassertretbecken Edelstahl/gefliest 3.000–8.000 € netto inkl. Armatur",
+      "quelle_url": "https://www.schwimmbadbau24.de/Erlebnissduschen",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-wellness-erlebnisdusche": {
-      "preis_eur": 3500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 5000,
+      "quelle": "Erlebnisdusche (Regen/Nebel/Licht/Duft) Komplettsystem 3.500–8.000 € netto; Komponenten z. B. Nebeldüse 275 € (schwimmbadbau24.de)",
+      "quelle_url": "https://www.schwimmbadbau24.de/Erlebnissduschen",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "Original: Nebeldüse 275 € · ohne Rohinstallation."
     },
     "gen-wellness-schwallbrause": {
       "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Schwallbrause Edelstahl 800–2.000 € netto",
+      "quelle_url": "https://www.schwimmbadbau24.de/Erlebnissduschen",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-wellness-ruheliege": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 850,
+      "quelle": "massage-planet.de Earthlite Yosemite 30 979 € brutto; Recovery-Liegen 1.999–2.799 €",
+      "quelle_url": "https://massage-planet.de/wellness-spa-beauty/ruheliegen/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 979,00 € brutto"
     },
     "gen-wellness-wasserbett": {
-      "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1344,
+      "quelle": "aqua-comfort.net Wellness-Wasserbett-Liege ab 1.599 € brutto",
+      "quelle_url": "https://www.aqua-comfort.net/wasserbetten/wasserbett-spezial/wellness-wasserbett-liege-fuer-spa-und-wellness-6-358/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ab 1.599,00 € brutto · beheizt."
     },
     "gen-wellness-solarium": {
-      "preis_eur": 12000,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 18000,
+      "quelle": "derwellnessshop.de: Profisolarium 10.000–100.000 € Listenpreis (rabattierbar)",
+      "quelle_url": "https://derwellnessshop.de/produkt-kategorie/solarium/profisolarien/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 10.000–100.000 € · Ergoline/megaSun Liegesolarium mittlere Klasse; Montage extra."
     },
     "gen-wellness-red-light-panel": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 2500,
+      "quelle": "Ganzkörper-Rotlichtpanel 180 cm 1.500–4.000 € netto",
+      "quelle_url": "https://derwellnessshop.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-wellness-massagestuhl": {
       "preis_eur": 4500,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "welcon-shop.com: Massagesessel 700–7.000 €+; Münz-Massagesessel (Welcon 3D/4D Pro) gewerblich 3.000–7.000 €",
+      "quelle_url": "https://www.welcon-shop.com/blog/wie-teuer-ist-ein-guter-massagesessel",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 700–7.000 €+ · gewerbliche Ausführung mit Münz-/Kartenzahlung."
     },
     "gen-wellness-massageliege": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1500,
+      "quelle": "Elektrische Massageliege ca. 2.011 € brutto (eBay) / Earthlite Ellora 2.149 €",
+      "quelle_url": "https://www.ebay.de/itm/404507730773",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 2.011 € brutto · elektrisch höhenverstellbar."
     },
     "gen-wellness-whirlpool": {
       "preis_eur": 12000,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Whirlpool 5 Personen: privat 4.000–10.000 € (spa-vital.de); gewerbetauglich mit Filter-/Desinfektionstechnik 10.000–20.000 € netto",
+      "quelle_url": "https://spa-vital.de/whirlpool-4-bis-5-personen/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Technik"
+      "hinweis": "DIN 19643-konforme Wasseraufbereitung für öffentliche Nutzung erforderlich."
     },
     "gen-wellness-teestation": {
       "preis_eur": 800,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Möbel + Wasserspender/Heißwasser 500–1.500 € netto",
+      "quelle_url": "https://wasserspender-experten.de/wasserspender-fitnessstudio/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-kursraum-step": {
-      "preis_eur": 90,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 105,
+      "quelle": "Reebok Step RSP-10150 124,99 € brutto",
+      "quelle_url": "https://www.ebay.de/p/1577431465",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 124,99 € brutto"
     },
     "gen-kursraum-step-wagen": {
-      "preis_eur": 400,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 350,
+      "quelle": "Step-Transportwagen 20 Steps 250–500 € netto",
+      "quelle_url": "https://www.sport-tec.de/artikel/Steppbretter-Gymnastik-Fitness-01-aa.htm",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne Steps."
     },
     "gen-kursraum-mattenregal": {
-      "preis_eur": 300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Mattenregal/-wagen 20 Matten 150–400 € netto",
+      "quelle_url": "https://www.sport-tec.de/artikel/Steppbretter-Gymnastik-Fitness-01-aa.htm",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-kursraum-kurshantel-regal": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 350,
+      "quelle": "Pump-Set-Regal 250–500 € netto",
+      "quelle_url": "https://www.kuebler-sport.de/fitnessgeraete/hanteln-gewichte/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "inkl. Kurshantel-Satz"
+      "hinweis": "ohne Hantelsets (je ca. 80–120 €)."
     },
     "gen-kursraum-kursmatte": {
-      "preis_eur": 40,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 30,
+      "quelle": "Gymnastikmatte 180×60 cm 20–50 € netto",
+      "quelle_url": "https://www.kuebler-sport.de/fitnessgeraete/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-kursraum-spinning-rad": {
-      "preis_eur": 1800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1850,
+      "quelle": "akw-fitness.de Life Fitness ICG IC5 2.200 € brutto; Schwinn 800IC 1.049 € brutto",
+      "quelle_url": "https://www.akw-fitness.de/ausdauertraining/indoor-bikes.html",
       "stand": "2026-09",
-      "konfidenz": "schaetzung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 2.200,00 € brutto · Studio-Indoor-Cycle; Keiser M3i/ICG IC7 2.500–3.000 € netto."
     },
     "gen-kursraum-trainer-podest": {
-      "preis_eur": 1200,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
-    },
-    "gen-kursraum-musikanlage": {
-      "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Mikrofon/Lautsprecher"
-    },
-    "gen-kursraum-gymnastikball-regal": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 800,
+      "quelle": "Bühnenpodest 200×150×30 cm (Alu-Rahmen) 500–1.200 € netto",
+      "quelle_url": "https://www.sport-tec.de/artikel/Steppbretter-Gymnastik-Fitness-01-aa.htm",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
-    "gen-buero-schreibtisch": {
-      "preis_eur": 500,
-      "quelle": "Schätzung nach Kategorie",
+    "gen-kursraum-musikanlage": {
+      "preis_eur": 3000,
+      "quelle": "Kursraum-PA: Verstärker, Mischpult, Funkmikro/Headset, 2–4 Lautsprecher 2.000–5.000 € netto",
+      "quelle_url": "https://www.elektro4000.de/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-kursraum-gymnastikball-regal": {
+      "preis_eur": 200,
+      "quelle": "Gymnastikball-Regal 12 Bälle 120–300 € netto",
+      "quelle_url": "https://www.sport-tec.de/artikel/Steppbretter-Gymnastik-Fitness-01-aa.htm",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "hinweis": "ohne Bälle."
+    },
+    "gen-buero-schreibtisch": {
+      "preis_eur": 300,
+      "quelle": "Büroschreibtisch 160×80 200–500 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
     },
     "gen-buero-buerostuhl": {
-      "preis_eur": 300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Bürodrehstuhl 150–400 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-buero-aktenschrank": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 300,
+      "quelle": "Aktenschrank 200 cm 200–500 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-buero-rollcontainer": {
-      "preis_eur": 180,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 150,
+      "quelle": "Rollcontainer 100–250 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-buero-besprechungstisch": {
-      "preis_eur": 700,
-      "quelle": "Schätzung nach Kategorie",
-      "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
-    },
-    "gen-buero-personalschrank": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 500,
+      "quelle": "Besprechungstisch 200×100 300–800 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
+    "gen-buero-personalschrank": {
+      "preis_eur": 250,
+      "quelle": "Garderobenschrank 2 Abteile (Sport-Thieme 145–440 € netto)",
+      "quelle_url": "https://www.sport-thieme.de/Metallschr%C3%A4nke",
+      "stand": "2026-09",
+      "konfidenz": "haendler",
+      "hinweis": "Original: 145–440 € netto"
+    },
     "gen-buero-teekueche": {
       "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Küchenzeile 180 cm mit Spüle + Kühlschrank + Kaffeemaschine 1.800–4.000 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "je Stück (Küchenzeile inkl. Geräte)"
+      "hinweis": "ohne Installation."
     },
     "gen-buero-personaltisch": {
-      "preis_eur": 300,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 200,
+      "quelle": "Pausentisch 120×80 120–300 € netto",
+      "quelle_url": "https://www.buerostuhl24.com/bueromoebel/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-lager-schwerlastregal": {
-      "preis_eur": 350,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 150,
+      "quelle": "Schwerlastregal 180×60×200, 5 Böden 100–250 € netto",
+      "quelle_url": "https://www.jh-profishop.de/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-lager-regal": {
-      "preis_eur": 150,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 80,
+      "quelle": "Steckregal 90×40×180 50–120 € netto",
+      "quelle_url": "https://www.jh-profishop.de/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-lager-lueftungsanlage": {
-      "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 30000,
+      "quelle": "RLT-Zentralgerät mit WRG 5.000–8.000 m³/h (Klimor/Wolf/Kampmann) 20.000–45.000 € netto; Komplettanlage 60–90 €/m² (luftbude.de)",
+      "quelle_url": "https://www.luftbude.de/wissen/zentrale-lueftungsanlage/zentrale-lueftungsanlage-kosten",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "in Position Lüftung (je m²) enthalten"
+      "hinweis": "Original: 60–90 €/m² · nur Gerät; Kanalnetz/Montage siehe Kostenblock Lüftung."
     },
     "gen-lager-waschmaschine": {
-      "preis_eur": 1800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3500,
+      "quelle": "Miele Professional Gewerbewaschmaschine 6–8 kg (PWM 507/PW 5065) 2.500–4.500 € netto",
+      "quelle_url": "https://www.miele-professional.de/p/s/waeschereitechnik/gewerbliche-waschmaschinen/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "gewerblich"
+      "konfidenz": "schaetzung"
     },
     "gen-lager-trockner": {
-      "preis_eur": 1800,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3000,
+      "quelle": "Miele Professional Gewerbetrockner 6–8 kg 2.000–4.000 € netto",
+      "quelle_url": "https://www.miele.at/p/gewerbliche-trockner-3063.htm",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "gewerblich"
+      "konfidenz": "schaetzung"
     },
     "gen-lager-putzwagen": {
       "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Reinigungswagen mit Presse 150–400 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-lager-schaltschrank": {
-      "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 3500,
+      "quelle": "Elektro-Hauptverteilung Gewerbe bestückt (Schrank 500–1.500 € + Bestückung) 2.500–6.000 € netto",
+      "quelle_url": "https://www.elektroland24.de/elektroinstallation/verteilerschraenke/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Elektroinstallation im Grundausbau enthalten"
+      "hinweis": "Hauptverteiler; Installation im Kostenblock Elektro."
     },
     "gen-lager-warmwasserspeicher": {
-      "preis_eur": 2500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 800,
+      "quelle": "Kospel SW-300 Termo Max 859 € brutto; Stiebel Eltron HSTP 300 1.789 € brutto",
+      "quelle_url": "https://www.ebay.de/p/1856692379",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "ohne Installation"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 859,00 € brutto · 300 l; für 60 Duschen/h ggf. 500–1.000 l oder Frischwasserstation erforderlich."
     },
     "gen-lager-serverschrank": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 600,
+      "quelle": "19\"-Serverschränke ab 125 € netto (ico.de); Wandschrank 12 HE + Switch/Patchpanel",
+      "quelle_url": "https://www.ico.de/19-zoll-serverschraenke",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "ohne IT"
+      "konfidenz": "haendler",
+      "hinweis": "Original: ab 125 € netto · inkl. einfacher Netzwerktechnik, ohne Server."
     },
     "gen-ausstattung-pflanze": {
-      "preis_eur": 80,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 120,
+      "quelle": "Kübelpflanze/Kunstpflanze 150 cm mit Übertopf 80–200 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-ausstattung-pflanze-gross": {
-      "preis_eur": 200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 350,
+      "quelle": "Große Kübelpflanze 200 cm 250–500 € netto",
+      "quelle_url": "https://www.objektmoebel24.com/einsatzbereiche/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-ausstattung-lautsprecher": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 200,
+      "quelle": "Installationslautsprecher Wand (Stück) 120–350 € netto",
+      "quelle_url": "https://www.elektro4000.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "hinweis": "ohne Verstärker/Verkabelung."
     },
     "gen-ausstattung-tv-55": {
-      "preis_eur": 600,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 550,
+      "quelle": "55\"-TV/Business-Display 400–800 € netto + Halterung",
+      "quelle_url": "https://www.displayhersteller.de/de/digital-signage/werbesaulen-digital-signage/digitale-spannstoff-stele-mit-55-samsung-bildschirm",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-ausstattung-tv-65": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 800,
+      "quelle": "65\"-TV/Business-Display 600–1.200 € netto + Halterung",
+      "quelle_url": "https://www.displayhersteller.de/de/digital-signage/werbesaulen-digital-signage/digitale-spannstoff-stele-mit-55-samsung-bildschirm",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-ausstattung-whiteboard": {
-      "preis_eur": 200,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 100,
+      "quelle": "Whiteboard 120×90 60–150 € netto",
+      "quelle_url": "https://www.jh-profishop.de/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "je Stück"
+      "konfidenz": "schaetzung"
     },
     "gen-ausstattung-wasserspender": {
-      "preis_eur": 900,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1500,
+      "quelle": "wlw.de/tradingtwins: Festwasser-Wasserspender für Fitnessstudios 300–3.000 € Kauf; Leasing ab 69,90 €/Monat (wasserspender-experten.de)",
+      "quelle_url": "https://wasserspender-experten.de/wasserspender-fitnessstudio/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Festwasseranschluss; Miete alternativ ca. 40 €/Monat"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 300–3.000 € / ab 69,90 €/Monat · Alternativ Miete ~60–90 €/Monat."
     },
     "gen-ausstattung-desinfektionsstation": {
-      "preis_eur": 150,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 250,
+      "quelle": "Hygienestation mit Spender + Papierrolle 150–400 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-ausstattung-muelleimer": {
       "preis_eur": 80,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Abfallbehälter 60 l Edelstahl 50–150 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-ausstattung-feuerloescher": {
-      "preis_eur": 80,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 95,
+      "quelle": "Gloria SKA+ 6 Pro Schaumlöscher 109,99 € brutto; Protex SD 6 E 59,99 €",
+      "quelle_url": "https://www.feuerloescher-welt.de/feuerloescher/schaumloescher/gloria-6l-fluorfreier-schaum-dauerdruckloescher-sdb-6-21a-183b.html",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Halterung"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 109,99 € brutto · 6 l Schaum/6 kg Pulver inkl. Wandhalter; Prüfung alle 2 Jahre ~25 €."
     },
     "gen-ausstattung-erste-hilfe": {
-      "preis_eur": 60,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 40,
+      "quelle": "Verbandkasten DIN 13157 30–60 € netto (jh-profishop.de)",
+      "quelle_url": "https://www.jh-profishop.de/arbeitsschutz/erste-hilfe/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Verbandkasten DIN 13157"
+      "konfidenz": "schaetzung"
     },
     "gen-ausstattung-aed": {
-      "preis_eur": 1500,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 1050,
+      "quelle": "Philips HeartStart HS1 1.046,99 € brutto (≈880 € netto) + Wandkasten ~150 € netto",
+      "quelle_url": "https://www.klarna.com/de/shopping/pl/cl254/3393605859/Erste-Hilfe/Philips-HeartStart-HS1-AED-Defibrillator/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "inkl. Wandkasten"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 1.046,99 € brutto · inkl. Wandkasten."
     },
     "gen-ausstattung-notausgang-schild": {
-      "preis_eur": 45,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 90,
+      "quelle": "elektro4000.de: LED-Rettungszeichenleuchten überwiegend 70–115 €; DOTLUX ab 81,90 €",
+      "quelle_url": "https://www.elektro4000.de/Leuchten-Zubehoer/Leuchten/Sicherheitsleuchten:::85_7803_9205.html",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "Rettungszeichenleuchte"
+      "konfidenz": "haendler",
+      "hinweis": "Original: 70–115 € · Einzelbatterie-Leuchte, ohne Montage; nachleuchtende Schilder 10–20 €."
     },
     "gen-ausstattung-kamera": {
-      "preis_eur": 250,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 200,
+      "quelle": "IP-Kamera PoE 120–300 € netto (ohne Rekorder ~400–800 €)",
+      "quelle_url": "https://accsicherheitstechnik.de/alarmanlage-kostenuebersicht-2026-preise-und-kostenfaktoren/",
       "stand": "2026-09",
-      "konfidenz": "schaetzung",
-      "hinweis": "ohne Rekorder"
+      "konfidenz": "schaetzung"
     },
     "gen-ausstattung-handtuchhalter": {
-      "preis_eur": 40,
-      "quelle": "Schätzung nach Kategorie",
+      "preis_eur": 60,
+      "quelle": "Wandhalter für Sprühflasche + Papierrolle 40–100 € netto",
+      "quelle_url": "https://www.hygienemarkt24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung"
     },
     "gen-bau-saeule-rund": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand (Tragwerk der Halle)",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-saeule-eckig": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand (Tragwerk der Halle)",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-saeule-rund-50": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand (Tragwerk der Halle)",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-heizkoerper": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Flachheizkörper 100×60 inkl. Montage 250–500 € netto",
+      "quelle_url": "https://www.heima24.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-lueftungsauslass": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Deckenauslass 60×60 inkl. Anschluss 80–200 € netto (Kanalnetz im Kostenblock Lüftung)",
+      "quelle_url": "https://www.trox.de/",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-treppe-gerade": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand; Neubau Stahltreppe gerade ca. 8.000–15.000 € netto",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-treppe-l": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand; Neubau L-Treppe mit Podest ca. 12.000–20.000 € netto",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-treppe-u": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand; Neubau U-Treppe ca. 15.000–25.000 € netto",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-wendeltreppe": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand; Neubau Wendeltreppe Ø 200 ca. 5.000–10.000 € netto",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-aufzug": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand; Neubau barrierefreier Personenaufzug ca. 40.000–80.000 € netto",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-rampe": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Bestand; Neubau Rampe 6 % Stahl/Beton ca. 3.000–8.000 € netto",
+      "quelle_url": "https://bki.de/kd-a-modernisierungen-sporthallen",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
     },
     "gen-bau-podest": {
       "preis_eur": 0,
-      "quelle": "Schätzung nach Kategorie",
+      "quelle": "Holzpodest 200×100×20 cm 250–600 € netto",
+      "quelle_url": "https://www.sport-tec.de/artikel/Steppbretter-Gymnastik-Fitness-01-aa.htm",
       "stand": "2026-09",
       "konfidenz": "schaetzung",
-      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+      "hinweis": "Bestand bzw. Bauleistung (im Grundausbau je m² enthalten) – keine Objektkosten."
+    },
+    "gen-ausstattung-rettungszeichenleuchte": {
+      "preis_eur": 90,
+      "quelle": "Richtwert LED-Rettungszeichenleuchte mit Einzelbatterie (z. B. Zumtobel/Eaton-Klasse 70–140 € netto)",
+      "quelle_url": "https://www.zumtobel.com/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück, ohne Montage/Verkabelung (in Kostenblock Brandschutz je m² enthalten)"
+    },
+    "gen-ausstattung-fluchtplan": {
+      "preis_eur": 120,
+      "quelle": "Richtwert Flucht- und Rettungsplan DIN ISO 23601, A3 gerahmt, inkl. Erstellung anteilig",
+      "quelle_url": "https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A2-3.html",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Erstellung durch Fachbüro 300–800 € je Objekt zusätzlich"
+    },
+    "gen-hyrox-farmers-carry-griffe": {
+      "preis_eur": 250,
+      "quelle": "Richtwert Farmers-Walk-Griffe Paar (Rogue/ATX 200–350 € netto)",
+      "quelle_url": "https://www.rogueeurope.eu/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne Scheiben; HYROX nutzt Kettlebells 2 × 16/24/32 kg"
+    },
+    "gen-hyrox-sandbag-regal": {
+      "preis_eur": 900,
+      "quelle": "Regal 250 € + 5 Sandbags 10–30 kg (Centr × HYROX 130–180 USD je Stück)",
+      "quelle_url": "https://www.hyrox.com/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. 5 Sandbags"
+    },
+    "gen-hyrox-wall-ball-ziel": {
+      "preis_eur": 100,
+      "quelle": "Centr × HYROX Competition Rig Target 109 USD (fitshop.de)",
+      "quelle_url": "https://www.fitshop.de/",
+      "stand": "2026-09",
+      "konfidenz": "haendler",
+      "hinweis": "je Ziel; Wandmontage"
+    },
+    "gen-hyrox-wall-ball-regal": {
+      "preis_eur": 850,
+      "quelle": "Regal 250 € + 6 Wall Balls 4/6/9 kg (Centr × HYROX 99–121 USD je Stück)",
+      "quelle_url": "https://www.hyrox.com/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. 6 Bälle"
+    },
+    "gen-hyrox-intervall-timer": {
+      "preis_eur": 250,
+      "quelle": "Richtwert Gym-Intervall-Timer LED groß (150–350 € netto)",
+      "quelle_url": "https://www.gorillasports.de/",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
     }
   }
 }
