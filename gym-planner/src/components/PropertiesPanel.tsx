@@ -21,7 +21,8 @@ import { useProjectStore, transaction } from '@/store/projectStore';
 import { newId } from '@/utils/id';
 import { useUiStore } from '@/store/uiStore';
 import { useFloorRooms, useSortedFloors, useProjectFrozenWhileDragging, activeFloorOf } from '@/store/selectors';
-import { getDef } from '@/data/equipment';
+import { getDef, PRICE_CONFIDENCE_LABELS } from '@/data/equipment';
+import { priceQuantity } from '@/analysis/priceUnits';
 import { ROOM_TYPES, roomColor, FLOOR_COVERINGS } from '@/data/roomTypes';
 import { WALL_THICKNESSES, WALL_TYPES, DOOR_TYPES, DOOR_TYPE_MAP, DOOR_WIDTHS } from '@/data/wallTypes';
 import * as actions from '@/editor/actions';
@@ -429,6 +430,19 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
   const sameDefCount = useMemo(() => project.floors.reduce((n, f) => n + f.items.filter((it) => it.defId === item.defId).length, 0), [project.floors, item.defId]);
   const price = item.priceEur ?? project.priceOverrides[item.defId] ?? def?.preis_eur ?? null;
   const priceSource = item.priceEur != null ? 'eigener Preis dieses Objekts' : project.priceOverrides[item.defId] != null ? 'projektweit überschrieben' : def?.preis_eur != null ? 'Bibliothekspreis' : 'kein Preis hinterlegt';
+  // Bibliothekspreis: Quelle, Konfidenz, Stand und ggf. Preiseinheit (Spindreihe je Abteil, Kunstrasen je m²)
+  const libraryPriceInfo = def?.preis_eur != null && item.priceEur == null && project.priceOverrides[item.defId] == null
+    ? [
+        'Bibliothekspreis',
+        def.preisQuelle,
+        def.preisKonfidenz ? PRICE_CONFIDENCE_LABELS[def.preisKonfidenz] : undefined,
+        def.preisStand ? `Stand ${def.preisStand}` : undefined,
+      ].filter(Boolean).join(' · ')
+    : null;
+  const priceQty = def ? priceQuantity(item, def) : null;
+  const priceUnitHint = priceQty && priceQty.einheit !== 'Stück' && def?.preis_eur != null && item.priceEur == null && project.priceOverrides[item.defId] == null
+    ? `${formatEur(def.preis_eur)} je ${priceQty.einheit} × ${formatNumber(priceQty.menge, priceQty.einheit === 'm²' ? 2 : 0)} ${priceQty.einheit} = ${formatEur(Math.round(def.preis_eur * priceQty.menge))} (Stückliste)`
+    : null;
   const group = item.groupId ? floor.groups.find((g) => g.id === item.groupId) : undefined;
   const docked = item.dockedTo ? floor.items.find((it) => it.id === item.dockedTo) : undefined;
   const dockedName = docked ? docked.label || getDef(docked.defId, project)?.name || 'Rack' : undefined;
@@ -605,6 +619,18 @@ function ItemProps({ item, floor, project }: { item: PlacedItem; floor: Floor; p
 
       <Section title="Preis & Notiz" icon={<Euro size={15} />} storageKey="props.item.price" badge={price != null ? formatEur(price) : undefined}>
         <NumberField label="Preis (netto)" value={price} onChange={setPrice} unit="€" min={0} step={10} decimals={2} allowEmpty placeholder="–" hint={priceSource} />
+        {libraryPriceInfo && (
+          <div className="text-[11px] leading-snug gp-muted" data-testid="library-price-info">
+            <div>{libraryPriceInfo}</div>
+            {def?.preisHinweis && <div>{def.preisHinweis}</div>}
+            {priceUnitHint && <div>{priceUnitHint}</div>}
+            {def?.preisQuelleUrl && (
+              <a className="underline" href={def.preisQuelleUrl} target="_blank" rel="noreferrer noopener" title={def.preisQuelleUrl}>
+                Preisquelle öffnen
+              </a>
+            )}
+          </div>
+        )}
         {sameDefCount > 1 && <CheckboxField checked={priceForAll} onChange={setPriceForAll} label={`Für alle ${sameDefCount} gleichen Geräte übernehmen`} hint="Setzt auch den projektweiten Preis (Stückliste)" />}
         {def?.quelle_url && <KeyValue label="Herstellerseite" value={def.quelle_url.replace(/^https?:\/\//, '').slice(0, 40)} href={def.quelle_url} />}
         <TextField label="Notiz" value={item.note ?? ''} multiline rows={3} onChange={(v) => setItemProps(floor, item.id, { note: v || undefined })} placeholder="z. B. Lieferung KW 12, gebraucht kaufen …" hint="Strg+Enter übernimmt" />

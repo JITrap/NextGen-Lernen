@@ -3,9 +3,10 @@ import { temporal } from 'zundo';
 import { produce, type Draft } from 'immer';
 import type {
   Project, Floor, Wall, Zone, Opening, PlacedItem, VoidArea, Annotation, RoomMeta,
-  Id, Hall, ProjectSettings, LayerVisibility, EquipmentDef, Vec2, SafetyZone,
+  Id, Hall, ProjectSettings, LayerVisibility, EquipmentDef, Vec2, SafetyZone, CostAssumptions,
 } from '@/types';
 import { createEmptyProject, createFloor, duplicateFloor, cloneDeep } from './factories';
+import { sanitizeCosts } from './migrate';
 import { newId } from '@/utils/id';
 
 /** Sicherheitszonen wertgleich? */
@@ -63,6 +64,10 @@ export interface ProjectState {
   renameProject: (name: string) => void;
   updateSettings: (patch: Partial<ProjectSettings>) => void;
   updateLayers: (patch: Partial<LayerVisibility>) => void;
+  /** Kosten-Annahmen ändern (nur Zahlen ≥ 0 werden übernommen); identische Werte sind kein Undo-Schritt. */
+  updateCosts: (patch: Partial<CostAssumptions>) => void;
+  /** Alle Kosten-Annahmen auf die Standardwerte zurücksetzen (entfernt project.costs). */
+  resetCosts: () => void;
   /* ---- Stockwerke ---- */
   setActiveFloor: (id: Id) => void;
   addFloor: (partial?: Partial<Floor>) => Id;
@@ -164,6 +169,13 @@ export const useProjectStore = create<ProjectState>()(
         renameProject: (name) => mutate((p) => { p.name = name; }),
         updateSettings: (patch) => mutate((p) => { Object.assign(p.settings, patch); }),
         updateLayers: (patch) => mutate((p) => { Object.assign(p.layers, patch); }),
+        updateCosts: (patch) => mutate((p) => {
+          const clean = sanitizeCosts(patch);
+          if (!clean) return;
+          if (!p.costs) p.costs = {};
+          Object.assign(p.costs, clean);
+        }),
+        resetCosts: () => mutate((p) => { if (p.costs !== undefined) delete p.costs; }),
 
         setActiveFloor: (id) => set((s) => (s.project.floors.some((f) => f.id === id) ? { project: { ...s.project, activeFloorId: id } } : s)),
         addFloor: (partial) => {

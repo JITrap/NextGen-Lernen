@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ATLANTIS_LIBRARY, PRIME_LIBRARY, ATLANTIS_DATA, PRIME_DATA, BUILTIN_LIBRARY, getDef } from './index';
+import { ATLANTIS_LIBRARY, PRIME_LIBRARY, ATLANTIS_DATA, PRIME_DATA, BUILTIN_LIBRARY, GENERIC_LIBRARY, PRICE_DATA, getDef, withPrice, priceEntry, PRICE_CONFIDENCE_LABELS } from './index';
 
 describe('Bibliothek vs. Herstellerdaten (gym-planner/data/*.json)', () => {
   it('enthält alle 132 Atlantis- und 70 Prime-Einträge', () => {
@@ -58,5 +58,63 @@ describe('Bibliothek vs. Herstellerdaten (gym-planner/data/*.json)', () => {
   it('IDs sind eindeutig', () => {
     const ids = BUILTIN_LIBRARY.map((d) => d.id);
     expect(new Set(ids).size).toBe(ids.length);
+  });
+});
+
+describe('Bibliothekspreise (prices.json)', () => {
+  it('jede Bibliotheks-ID hat einen Preis mit Quelle, Stand und Konfidenz; Bauelemente 0 € mit Hinweis', () => {
+    expect(BUILTIN_LIBRARY.length).toBe(366);
+    for (const def of BUILTIN_LIBRARY) {
+      expect(typeof def.preis_eur, def.id).toBe('number');
+      expect(def.preisQuelle, def.id).toBeTruthy();
+      expect(def.preisStand, def.id).toMatch(/^\d{4}-\d{2}$/);
+      expect(['liste', 'haendler', 'schaetzung'], def.id).toContain(def.preisKonfidenz);
+      if (def.bereich === 'Bauelemente') {
+        expect(def.preis_eur, def.id).toBe(0);
+        expect(def.preisHinweis, def.id).toContain('Bestand');
+      } else if (def.preis_eur === 0) {
+        expect(def.preisHinweis, def.id).toBeTruthy();
+      } else {
+        expect(def.preis_eur!, def.id).toBeGreaterThan(0);
+      }
+    }
+    expect(GENERIC_LIBRARY.filter((d) => d.bereich !== 'Bauelemente' && d.preis_eur === 0).length).toBeLessThanOrEqual(3);
+  });
+  it('jede ID in prices.json existiert in der Bibliothek, Datei hat Stand und Hinweis', () => {
+    const ids = Object.keys(PRICE_DATA.preise);
+    expect(ids.length).toBe(366);
+    for (const id of ids) expect(getDef(id), id).toBeDefined();
+    expect(PRICE_DATA.stand).toMatch(/^\d{4}-\d{2}$/);
+    expect(PRICE_DATA.hinweis).toContain('MwSt');
+    for (const [id, e] of Object.entries(PRICE_DATA.preise)) {
+      expect(e.preis_eur, id).toBeGreaterThanOrEqual(0);
+      expect(e.quelle, id).toBeTruthy();
+      expect(['liste', 'haendler', 'schaetzung'], id).toContain(e.konfidenz);
+    }
+  });
+  it('Merge: Rohdaten-Preis hat Vorrang (Listenpreis), unbekannte IDs bleiben ohne Preis, Größenordnungen stimmen', () => {
+    const base = { ...getDef('atlantis-c513')!, preis_eur: undefined, preisQuelle: undefined, preisStand: undefined, preisKonfidenz: undefined, preisHinweis: undefined };
+    const merged = withPrice(base);
+    expect(merged.preis_eur).toBe(priceEntry('atlantis-c513')!.preis_eur);
+    expect(merged.preisKonfidenz).toBe('schaetzung');
+    expect(merged.preisQuelle).toBe('Schätzung nach Kategorie');
+    const own = withPrice({ ...base, preis_eur: 4321, quelle_url: 'https://example.org/x' });
+    expect(own.preis_eur).toBe(4321);
+    expect(own.preisKonfidenz).toBe('liste');
+    expect(own.preisQuelle).toBe('Herstellerdaten');
+    expect(own.preisQuelleUrl).toBe('https://example.org/x');
+    const unknown = withPrice({ ...base, id: 'gibt-es-nicht' });
+    expect(unknown.preis_eur).toBeUndefined();
+    expect(priceEntry('gibt-es-nicht')).toBeUndefined();
+    expect(priceEntry('__proto__')).toBeUndefined();
+    expect(PRICE_CONFIDENCE_LABELS.schaetzung).toBe('Schätzung');
+    // Richtwerte je Kategorie
+    const hybrid = PRIME_LIBRARY.filter((d) => d.serie === 'Hybrid');
+    expect(hybrid.every((d) => d.preis_eur! >= 9000 && d.preis_eur! <= 12000)).toBe(true);
+    const precision = ATLANTIS_LIBRARY.filter((d) => d.serie === 'Precision Series');
+    expect(precision.every((d) => d.preis_eur! >= 6000 && d.preis_eur! <= 9000)).toBe(true);
+    expect(getDef('gen-cardio-laufband')!.preis_eur).toBe(9000);
+    expect(getDef('gen-umkleide-spindreihe')!.preisHinweis).toContain('Abteil');
+    expect(getDef('gen-functional-kunstrasen')!.preisHinweis).toContain('m²');
   });
 });

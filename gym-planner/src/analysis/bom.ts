@@ -1,13 +1,15 @@
 /**
  * Stückliste (BOM) gruppiert nach Bibliotheks-ID über alle Stockwerke; skalierbare Objekte (def.skalierbar)
  * zusätzlich nach ihren Maßen (eine Position je Größe, Maße = Objektmaße).
- * Preis je Objekt: item.priceEur ?? project.priceOverrides[defId] ?? def.preis_eur. Gesamtpreis der Position =
+ * Preis je Objekt: item.priceEur ?? project.priceOverrides[defId] ?? Bibliothekspreis (bei skalierbaren Objekten je
+ * Abteil bzw. je m² × Menge, siehe priceUnits.ts). Gesamtpreis der Position =
  * Summe der Objektpreise, Stückpreis = Mittelwert; sind die Objektpreise verschieden → priceMixed. Objekte ohne
  * Preis werden gezählt (itemsWithoutPrice) und fließen nicht in die Summe ein.
  */
-import type { Project, Id, EquipmentDef } from '@/types';
+import type { Project, Id, EquipmentDef, PlacedItem } from '@/types';
 import { formatDims } from '@/geometry/units';
 import { analysisContext, memoByProject, itemWeightKg } from './common';
+import { libraryItemPrice } from './priceUnits';
 
 export interface BomFloorCount {
   floorId: Id;
@@ -63,13 +65,12 @@ export interface Bom {
   itemsWithoutPrice: number;
 }
 
-/** Effektiver Preis eines Objekts: Objektpreis, sonst Projekt-Überschreibung, sonst Bibliothekspreis. */
-function itemPrice(priceEur: number | undefined, defId: string, def: EquipmentDef | undefined, project: Project): number | null {
-  if (typeof priceEur === 'number' && Number.isFinite(priceEur)) return priceEur;
-  const override = project.priceOverrides[defId];
+/** Effektiver Preis eines Objekts: Objektpreis, sonst Projekt-Überschreibung, sonst Bibliothekspreis (× Menge je Einheit). */
+export function itemPrice(item: Pick<PlacedItem, 'priceEur' | 'defId' | 'width' | 'depth' | 'params'>, def: EquipmentDef | undefined, project: Pick<Project, 'priceOverrides'>): number | null {
+  if (typeof item.priceEur === 'number' && Number.isFinite(item.priceEur)) return item.priceEur;
+  const override = project.priceOverrides[item.defId];
   if (typeof override === 'number' && Number.isFinite(override)) return override;
-  const p = def?.preis_eur;
-  return typeof p === 'number' && Number.isFinite(p) ? p : null;
+  return libraryItemPrice(item, def);
 }
 const r1 = (v: number) => Math.round(v * 10) / 10;
 
@@ -104,7 +105,7 @@ export const bom: (project: Project) => Bom = memoByProject((project) => {
       }
       g.count += 1;
       g.itemIds.push(it.id);
-      const price = itemPrice(it.priceEur, it.defId, def, project);
+      const price = itemPrice(it, def, project);
       if (price != null) g.prices.push(price);
       const fcnt = g.floorCounts.get(fc.floor.id) ?? { floorId: fc.floor.id, floorName: fc.floor.name, count: 0 };
       fcnt.count += 1;

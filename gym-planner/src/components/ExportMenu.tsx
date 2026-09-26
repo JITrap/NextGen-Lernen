@@ -1,9 +1,10 @@
 import { useState, type ReactNode } from 'react';
-import { Download, FileImage, FileText, Table, FileJson, Upload, ChevronDown, LoaderCircle } from 'lucide-react';
+import { Download, FileImage, FileText, Table, FileJson, Upload, ChevronDown, LoaderCircle, Coins } from 'lucide-react';
 import { useUiStore } from '@/store/uiStore';
 import { useProjectStore } from '@/store/projectStore';
 import { createProject } from '@/store/persistence';
 import { exportPng, exportPdf, exportCsv, exportJson, importJsonFile } from '@/export';
+import { exportCostsCsv } from '@/export/csv';
 import { Dropdown } from './ui/Menu';
 import { Button, IconButton } from './ui/Button';
 import { Select } from './ui/Select';
@@ -16,7 +17,7 @@ const PDF_SCALES: { value: PdfScale; label: string }[] = [
   { value: 200, label: '1:200' },
 ];
 
-export type ExportKind = 'png' | 'pdf' | 'csv' | 'json' | 'import';
+export type ExportKind = 'png' | 'pdf' | 'csv' | 'costs-csv' | 'json' | 'import';
 
 /** Führt eine Export-/Import-Aktion mit Fehlerbehandlung und Toasts aus (auch außerhalb des Menüs nutzbar). */
 export async function runExport(kind: ExportKind, opts: { pdfScale?: PdfScale } = {}): Promise<void> {
@@ -34,6 +35,10 @@ export async function runExport(kind: ExportKind, opts: { pdfScale?: PdfScale } 
       case 'csv':
         exportCsv();
         ui.toast('Stückliste als CSV exportiert', 'success');
+        break;
+      case 'costs-csv':
+        // exportCostsCsv meldet Erfolg/Fehler selbst per Toast
+        exportCostsCsv();
         break;
       case 'json':
         exportJson(useProjectStore.getState().project);
@@ -122,12 +127,13 @@ export function ExportMenu({ compact = false }: { compact?: boolean }) {
           <div className="w-[310px] py-1">
             <div className="px-4 pb-1 pt-2 gp-label">Plan exportieren</div>
             <Row icon={<FileImage size={16} />} label="PNG-Bild" hint="Aktives Stockwerk als Bild" busy={state('png')} onClick={() => { close(); void run('png'); }} />
-            <Row icon={<FileText size={16} />} label="PDF-Plan" hint="maßstäblich, mit Legende, Flächenbilanz, Stückliste" busy={state('pdf')} onClick={() => { close(); void run('pdf'); }}>
+            <Row icon={<FileText size={16} />} label="PDF-Plan" hint="maßstäblich, mit Legende, Flächenbilanz, Stückliste, Kosten" busy={state('pdf')} onClick={() => { close(); void run('pdf'); }}>
               <Select compact value={pdfScale} options={PDF_SCALES} onChange={setPdfScale} title="Maßstab des PDF-Plans" aria-label="Maßstab" />
             </Row>
             <div className="my-1 border-t gp-border" />
             <div className="px-4 pb-1 pt-2 gp-label">Daten</div>
             <Row icon={<Table size={16} />} label="Stückliste (CSV)" hint="für Excel / Kalkulation" busy={state('csv')} onClick={() => { close(); void run('csv'); }} />
+            <Row icon={<Coins size={16} />} label="Kosten (CSV)" hint="Einmal- und laufende Kosten mit Annahmen" busy={state('costs-csv')} onClick={() => { close(); void run('costs-csv'); }} />
             <Row icon={<FileJson size={16} />} label="Projekt als JSON" hint="vollständige Sicherung" busy={state('json')} onClick={() => { close(); void run('json'); }} />
             <Row icon={<Upload size={16} />} label="JSON importieren" hint="wird als neues Projekt angelegt und geöffnet" busy={state('import')} onClick={() => { close(); setConfirmImport(true); }} />
           </div>

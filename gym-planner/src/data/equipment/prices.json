@@ -1,0 +1,2494 @@
+{
+  "stand": "2026-09",
+  "hinweis": "Netto-Listen-/Marktpreise EUR ohne Fracht/Zoll/MwSt. Vorläufige Schätzwerte nach Kategorie – durch recherchierte Preise zu ersetzen.",
+  "preise": {
+    "atlantis-a301": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-b157": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-b160": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-b260": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-b158": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-b257": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-p156": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Kombigerät)"
+    },
+    "atlantis-p356": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c329": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-p143": {
+      "preis_eur": 7900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Presse)"
+    },
+    "atlantis-p140": {
+      "preis_eur": 7900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Presse)"
+    },
+    "atlantis-a201": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c122": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-e352": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-e252": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-p144": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-d337": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+    },
+    "atlantis-d132": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+    },
+    "atlantis-d124": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+    },
+    "atlantis-d433": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+    },
+    "atlantis-e149": {
+      "preis_eur": 7900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Presse)"
+    },
+    "atlantis-m318": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-m118": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-d123": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+    },
+    "atlantis-d438": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Kombigerät)"
+    },
+    "atlantis-c118": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c106": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c108": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c107": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c105": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-c230": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Kombigerät)"
+    },
+    "atlantis-c403": {
+      "preis_eur": 8500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Beinpresse)"
+    },
+    "atlantis-d131": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized, Zug)"
+    },
+    "atlantis-t215": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-t162": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-t161": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-t262": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-t164": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-t163": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Precision (Selectorized)"
+    },
+    "atlantis-pw357": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-pw256": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-p443": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-p439": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-pw739": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-p441": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-pw737": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-pw322": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-pw429": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-pw120": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-pw625": {
+      "preis_eur": 5200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+    },
+    "atlantis-pw637": {
+      "preis_eur": 5200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+    },
+    "atlantis-pw437": {
+      "preis_eur": 5200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+    },
+    "atlantis-d533": {
+      "preis_eur": 5200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+    },
+    "atlantis-e449": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-pw549": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Presse)"
+    },
+    "atlantis-pw335": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-d215": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-pw423": {
+      "preis_eur": 5200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+    },
+    "atlantis-pw623": {
+      "preis_eur": 5200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Zug)"
+    },
+    "atlantis-c401": {
+      "preis_eur": 6500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+    },
+    "atlantis-pw511": {
+      "preis_eur": 6500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+    },
+    "atlantis-c412": {
+      "preis_eur": 6500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+    },
+    "atlantis-c201": {
+      "preis_eur": 6500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded, Beine)"
+    },
+    "atlantis-m219": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-pw319": {
+      "preis_eur": 4800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power (Plate Loaded)"
+    },
+    "atlantis-b856": {
+      "preis_eur": 4200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro"
+    },
+    "atlantis-pw702": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+    },
+    "atlantis-d828": {
+      "preis_eur": 3900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Bank)"
+    },
+    "atlantis-d828f": {
+      "preis_eur": 3900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Bank)"
+    },
+    "atlantis-pw212": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+    },
+    "atlantis-pw412": {
+      "preis_eur": 6800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+    },
+    "atlantis-pw611": {
+      "preis_eur": 7200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+    },
+    "atlantis-pw419": {
+      "preis_eur": 6500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Pro (Plate Loaded)"
+    },
+    "atlantis-b177": {
+      "preis_eur": 1900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank (verstellbar)"
+    },
+    "atlantis-b179": {
+      "preis_eur": 1900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank (verstellbar)"
+    },
+    "atlantis-b275": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank (flach)"
+    },
+    "atlantis-b176": {
+      "preis_eur": 1700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank"
+    },
+    "atlantis-b178": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank (flach)"
+    },
+    "atlantis-b100": {
+      "preis_eur": 700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank"
+    },
+    "atlantis-b256": {
+      "preis_eur": 1900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Curlbank"
+    },
+    "atlantis-c220": {
+      "preis_eur": 1300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Ständer"
+    },
+    "atlantis-a169": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Station"
+    },
+    "atlantis-e348": {
+      "preis_eur": 4200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plate-Loaded-Presse (Bench Series)"
+    },
+    "atlantis-a264": {
+      "preis_eur": 1400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Bank"
+    },
+    "atlantis-s187": {
+      "preis_eur": 1900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+    },
+    "atlantis-s189": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+    },
+    "atlantis-s287b": {
+      "preis_eur": 1900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+    },
+    "atlantis-s289": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Kurzhantelablage"
+    },
+    "atlantis-d227": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis GHD"
+    },
+    "atlantis-c117": {
+      "preis_eur": 1100,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Sissy Squat"
+    },
+    "atlantis-p339": {
+      "preis_eur": 2900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Olympiabank"
+    },
+    "atlantis-p337": {
+      "preis_eur": 2900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Olympiabank"
+    },
+    "atlantis-p338": {
+      "preis_eur": 2900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Olympiabank"
+    },
+    "atlantis-m126": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Kleingerät"
+    },
+    "atlantis-s185": {
+      "preis_eur": 600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Ablage"
+    },
+    "atlantis-s190": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Ablage"
+    },
+    "atlantis-s182": {
+      "preis_eur": 600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Ablage"
+    },
+    "atlantis-s181": {
+      "preis_eur": 1100,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Ablage"
+    },
+    "atlantis-r400": {
+      "preis_eur": 400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform"
+    },
+    "atlantis-e155": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Smith Machine"
+    },
+    "atlantis-m123": {
+      "preis_eur": 500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform"
+    },
+    "atlantis-c322": {
+      "preis_eur": 1600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis GHD (einfach)"
+    },
+    "atlantis-p245": {
+      "preis_eur": 1400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Dip-Station"
+    },
+    "atlantis-c511": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Half Rack"
+    },
+    "atlantis-rs611": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Half Rack"
+    },
+    "atlantis-c513": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power Rack"
+    },
+    "atlantis-rs613": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Power Rack"
+    },
+    "atlantis-c706": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Zubehör"
+    },
+    "atlantis-r264": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Strongman"
+    },
+    "atlantis-r263": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Strongman"
+    },
+    "atlantis-b4800": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+    },
+    "atlantis-b7200": {
+      "preis_eur": 2900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+    },
+    "atlantis-b4854": {
+      "preis_eur": 3400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+    },
+    "atlantis-b7254": {
+      "preis_eur": 3900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+    },
+    "atlantis-b4872": {
+      "preis_eur": 3700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+    },
+    "atlantis-b7272": {
+      "preis_eur": 4100,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Plattform (nach Fläche)"
+    },
+    "atlantis-nm205": {
+      "preis_eur": 8900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Functional Trainer"
+    },
+    "atlantis-nm200": {
+      "preis_eur": 7500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Functional Trainer"
+    },
+    "atlantis-ms8": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-rd124": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms7": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms13": {
+      "preis_eur": 2600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-rx200-l": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-rx200-r": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms14": {
+      "preis_eur": 3900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms2": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-rd123": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms6": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-rd438": {
+      "preis_eur": 2900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms12": {
+      "preis_eur": 2600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms10": {
+      "preis_eur": 700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "atlantis-ms3": {
+      "preis_eur": 1300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Atlantis Rack-Modul (nur an Rack)"
+    },
+    "prime-benches-adjustable-bench": {
+      "preis_eur": 2200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Bank"
+    },
+    "prime-benches-prime-steel-xl-bench": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Bank"
+    },
+    "prime-benches-shorty-adjustable-bench": {
+      "preis_eur": 2000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Bank"
+    },
+    "prime-evolution-abdominal-crunch": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-arm-curl": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-chest-press": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-lat-pulldown": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-leg-extension": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-leg-press": {
+      "preis_eur": 9200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-low-back-extension": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-prone-leg-curl": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-seated-leg-curl": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-seated-row": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-shoulder-press": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-evolution-tricep-extension": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Evolution (Selectorized, nur über Händler)"
+    },
+    "prime-hybrid-abdominal-crunch": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-arm-curl": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-chest-press": {
+      "preis_eur": 10900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+    },
+    "prime-hybrid-incline-press": {
+      "preis_eur": 10900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+    },
+    "prime-hybrid-inner-thigh": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-inner-outer-thigh": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-lat-pulldown": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-lateral-raise": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-leg-extension": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-leg-extension-leg-curl-combo": {
+      "preis_eur": 10900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+    },
+    "prime-hybrid-leg-press": {
+      "preis_eur": 11900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid (Beinpresse)"
+    },
+    "prime-hybrid-low-back-extension": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-multi-hip": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-outer-thigh": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-pec-fly": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-pec-rear-delt": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-prone-leg-curl": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-pullover": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-rotary-torso": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-seated-calf-press": {
+      "preis_eur": 10900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+    },
+    "prime-hybrid-seated-leg-curl": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-seated-pushdown": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-seated-row": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-hybrid-shoulder-press": {
+      "preis_eur": 10900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid (Presse/Kombi)"
+    },
+    "prime-hybrid-tricep-extension": {
+      "preis_eur": 9900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Hybrid"
+    },
+    "prime-plate-loaded-pendulum-squat": {
+      "preis_eur": 8900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-abdominal-crunch": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-arm-curl": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-chest-press": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded (Presse)"
+    },
+    "prime-plate-loaded-extreme-row": {
+      "preis_eur": 6500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-hack-squat": {
+      "preis_eur": 8500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-incline-press": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded (Presse)"
+    },
+    "prime-plate-loaded-lat-pulldown": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-leg-ext-leg-curl-combo": {
+      "preis_eur": 6400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded (Kombi)"
+    },
+    "prime-plate-loaded-leg-extension": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-leg-press": {
+      "preis_eur": 8200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-low-back-extension": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-prone-leg-curl": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-pulldown": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-seated-row": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-plate-loaded-shoulder-press": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded (Presse)"
+    },
+    "prime-plate-loaded-tricep-extension": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Plate Loaded"
+    },
+    "prime-prodigy-racks-hlp-selectorized-rack-2-1": {
+      "preis_eur": 7900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Prodigy Rack"
+    },
+    "prime-prodigy-racks-hlp-selectorized-rack-4-1": {
+      "preis_eur": 8400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Prodigy Rack"
+    },
+    "prime-prodigy-racks-hlp-plate-loaded-rack": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Prodigy Rack"
+    },
+    "prime-prodigy-racks-hlp-plate-loaded-single-stack": {
+      "preis_eur": 4900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Prodigy Single Stack"
+    },
+    "prime-prodigy-racks-hlp-selectorized-single-stack-2-1": {
+      "preis_eur": 5900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Prodigy Single Stack"
+    },
+    "prime-prodigy-racks-hlp-selectorized-single-stack-4-1": {
+      "preis_eur": 6300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Prodigy Single Stack"
+    },
+    "prime-prodigy-racks-half-rack": {
+      "preis_eur": 3900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Half Rack"
+    },
+    "prime-prodigy-racks-power-rack": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Power Rack"
+    },
+    "prime-specialty-4-tier-dumbbell-rack": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Kurzhantelablage"
+    },
+    "prime-specialty-chin-dip-assist": {
+      "preis_eur": 6900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Specialty"
+    },
+    "prime-specialty-double-sided-preacher": {
+      "preis_eur": 2900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Specialty"
+    },
+    "prime-specialty-functional-trainer": {
+      "preis_eur": 8900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Functional Trainer"
+    },
+    "prime-wall-mounts-wall-mount-smart-arm": {
+      "preis_eur": 4900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Richtwert Prime Wandmontage"
+    },
+    "gen-freihantel-kurzhantelsatz": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Satz 2–30 kg, Paare"
+    },
+    "gen-freihantel-kurzhantelsatz-schwer": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Satz 32–50 kg, Paare"
+    },
+    "gen-freihantel-langhantelstange": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-freihantel-langhantelstange-15": {
+      "preis_eur": 300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-freihantel-ez-stange": {
+      "preis_eur": 180,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-freihantel-trap-bar": {
+      "preis_eur": 320,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-freihantel-hantelscheiben-satz": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Gummi-Bumper/Kalibriert, ca. 300 kg"
+    },
+    "gen-freihantel-hantelscheiben-satz-gross": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "ca. 600 kg"
+    },
+    "gen-freihantel-scheibenstaender": {
+      "preis_eur": 450,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-freihantel-langhantelstaender": {
+      "preis_eur": 500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-freihantel-kurzhantel-rack": {
+      "preis_eur": 1400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "2-stöckig, 10 Paare"
+    },
+    "gen-freihantel-kurzhantel-rack-3": {
+      "preis_eur": 1700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "3-stöckig, 15 Paare"
+    },
+    "gen-cardio-laufband": {
+      "preis_eur": 9000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "kommerzielles Laufband"
+    },
+    "gen-cardio-curved-treadmill": {
+      "preis_eur": 5500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-crosstrainer": {
+      "preis_eur": 7000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-ergometer": {
+      "preis_eur": 3500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-liegeergometer": {
+      "preis_eur": 3800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-spinning-bike": {
+      "preis_eur": 1800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-air-bike": {
+      "preis_eur": 1100,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-rudergeraet": {
+      "preis_eur": 1300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-stairmaster": {
+      "preis_eur": 9500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-cardio-skierg": {
+      "preis_eur": 1000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-sled-bahn": {
+      "preis_eur": 60,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je m² Kunstrasen, verlegt – Kalkulation rechnet Fläche des Objekts"
+    },
+    "gen-functional-kunstrasen": {
+      "preis_eur": 60,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je m² Kunstrasen, verlegt – Kalkulation rechnet Fläche des Objekts"
+    },
+    "gen-functional-sled": {
+      "preis_eur": 700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-kettlebell-regal": {
+      "preis_eur": 400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-kettlebell-satz": {
+      "preis_eur": 1100,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Satz 4–32 kg"
+    },
+    "gen-functional-plyo-box": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-plyo-box-soft-set": {
+      "preis_eur": 700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "3er-Set"
+    },
+    "gen-functional-matte": {
+      "preis_eur": 60,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-functional-bodenmatte": {
+      "preis_eur": 120,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-functional-medizinball-regal": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-battle-rope-anker": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Tau"
+    },
+    "gen-functional-schlingentrainer": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Wandhalterung"
+    },
+    "gen-functional-rig": {
+      "preis_eur": 6000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "freistehend, inkl. Montage"
+    },
+    "gen-functional-wand-rig": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "wandmontiert, inkl. Montage"
+    },
+    "gen-functional-sprossenwand": {
+      "preis_eur": 450,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-boxsack": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Deckenhalterung"
+    },
+    "gen-functional-boxsack-staender": {
+      "preis_eur": 550,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-functional-glute-band-station": {
+      "preis_eur": 200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-theke": {
+      "preis_eur": 6000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück (Tischlerarbeit, ca. 3 m)"
+    },
+    "gen-empfang-theke-klein": {
+      "preis_eur": 4000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück (ca. 2 m)"
+    },
+    "gen-empfang-drehkreuz": {
+      "preis_eur": 3500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Zutrittsleser"
+    },
+    "gen-empfang-zugangsschranke": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Schwenktür/Sensorschleuse"
+    },
+    "gen-empfang-shakebar": {
+      "preis_eur": 5000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück, ohne Geräte"
+    },
+    "gen-empfang-kuehlschrank": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Getränkekühlschrank Glastür"
+    },
+    "gen-empfang-getraenkeautomat": {
+      "preis_eur": 3500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Kauf; Miete alternativ ca. 100 €/Monat"
+    },
+    "gen-empfang-snackautomat": {
+      "preis_eur": 3500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Kauf; Miete alternativ ca. 100 €/Monat"
+    },
+    "gen-empfang-sofa-2": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-sofa-3": {
+      "preis_eur": 1300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-sessel": {
+      "preis_eur": 500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-stehtisch": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-loungetisch": {
+      "preis_eur": 300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-stuhl": {
+      "preis_eur": 120,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-barhocker": {
+      "preis_eur": 90,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-wartebank": {
+      "preis_eur": 600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-empfang-garderobe": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-empfang-garderobenleiste": {
+      "preis_eur": 80,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück (ca. 1 m)"
+    },
+    "gen-empfang-info-bildschirm": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "55″ Display inkl. Halterung"
+    },
+    "gen-empfang-info-stele": {
+      "preis_eur": 1800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-spindreihe": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Abteil (Fächer ÷ Stöcke) – Kalkulation rechnet Abteile × Preis"
+    },
+    "gen-umkleide-spindreihe-2": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Abteil (2-stöckig, Fächer ÷ Stöcke) – Kalkulation rechnet Abteile × Preis"
+    },
+    "gen-umkleide-spind-1": {
+      "preis_eur": 260,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-spind-2": {
+      "preis_eur": 320,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-spind-3": {
+      "preis_eur": 380,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-spind-4": {
+      "preis_eur": 420,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-spind-30-1": {
+      "preis_eur": 230,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-spind-30-2": {
+      "preis_eur": 290,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-bank": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-umkleide-wandbank": {
+      "preis_eur": 300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-umkleide-bank-schuhrost": {
+      "preis_eur": 420,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-umkleide-mittelbank": {
+      "preis_eur": 550,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-umkleide-spiegel": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Element (ca. 1 m)"
+    },
+    "gen-umkleide-foehnplatz": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Wandföhn"
+    },
+    "gen-umkleide-waschtisch": {
+      "preis_eur": 700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Möbel + Becken; Installation in Sanitärposition"
+    },
+    "gen-umkleide-waschtisch-doppel": {
+      "preis_eur": 1300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Möbel + 2 Becken; Installation in Sanitärposition"
+    },
+    "gen-umkleide-einzelkabine": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Trennwandsystem"
+    },
+    "gen-umkleide-einzelkabine-barrierefrei": {
+      "preis_eur": 1600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Trennwandsystem"
+    },
+    "gen-umkleide-wertfaecher": {
+      "preis_eur": 600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-handtuchspender": {
+      "preis_eur": 60,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-umkleide-waeschesammler": {
+      "preis_eur": 150,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-sanitaer-einzeldusche": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Duschtasse/Armatur/Trennwand; Anschluss in Sanitärposition"
+    },
+    "gen-sanitaer-reihendusche": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück (ca. 4 Plätze); Anschlüsse in Sanitärposition"
+    },
+    "gen-sanitaer-duschtrennwand": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Element"
+    },
+    "gen-sanitaer-dusche-barrierefrei": {
+      "preis_eur": 2400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Klappsitz/Haltegriffe"
+    },
+    "gen-sanitaer-wc-kabine": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Trennwand + WC; Anschluss in Sanitärposition"
+    },
+    "gen-sanitaer-wc-barrierefrei": {
+      "preis_eur": 2200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Stützgriffe"
+    },
+    "gen-sanitaer-urinal": {
+      "preis_eur": 600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-sanitaer-waschrinne": {
+      "preis_eur": 1800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück (ca. 3 Plätze)"
+    },
+    "gen-sanitaer-wickeltisch": {
+      "preis_eur": 500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-sanitaer-putzraum-ausguss": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-sauna-200": {
+      "preis_eur": 8000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Elementsauna inkl. Ofen"
+    },
+    "gen-wellness-sauna-300": {
+      "preis_eur": 12000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Elementsauna inkl. Ofen"
+    },
+    "gen-wellness-sauna-400": {
+      "preis_eur": 16000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Elementsauna inkl. Ofen"
+    },
+    "gen-wellness-bio-sauna": {
+      "preis_eur": 11000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Kombiofen"
+    },
+    "gen-wellness-infrarotkabine": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-dampfbad": {
+      "preis_eur": 15000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Dampfgenerator"
+    },
+    "gen-wellness-cold-plunge": {
+      "preis_eur": 6000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Kühlaggregat"
+    },
+    "gen-wellness-tauchbecken": {
+      "preis_eur": 7500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-eisbrunnen": {
+      "preis_eur": 5000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-kneipp-becken": {
+      "preis_eur": 4000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-erlebnisdusche": {
+      "preis_eur": 3500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-schwallbrause": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-ruheliege": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-wasserbett": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-solarium": {
+      "preis_eur": 12000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-red-light-panel": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-massagestuhl": {
+      "preis_eur": 4500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-massageliege": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-wellness-whirlpool": {
+      "preis_eur": 12000,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Technik"
+    },
+    "gen-wellness-teestation": {
+      "preis_eur": 800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-kursraum-step": {
+      "preis_eur": 90,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-kursraum-step-wagen": {
+      "preis_eur": 400,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-kursraum-mattenregal": {
+      "preis_eur": 300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-kursraum-kurshantel-regal": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Kurshantel-Satz"
+    },
+    "gen-kursraum-kursmatte": {
+      "preis_eur": 40,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-kursraum-spinning-rad": {
+      "preis_eur": 1800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-kursraum-trainer-podest": {
+      "preis_eur": 1200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-kursraum-musikanlage": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Mikrofon/Lautsprecher"
+    },
+    "gen-kursraum-gymnastikball-regal": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-buero-schreibtisch": {
+      "preis_eur": 500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-buero-buerostuhl": {
+      "preis_eur": 300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-buero-aktenschrank": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-buero-rollcontainer": {
+      "preis_eur": 180,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-buero-besprechungstisch": {
+      "preis_eur": 700,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-buero-personalschrank": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-buero-teekueche": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück (Küchenzeile inkl. Geräte)"
+    },
+    "gen-buero-personaltisch": {
+      "preis_eur": 300,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-lager-schwerlastregal": {
+      "preis_eur": 350,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-lager-regal": {
+      "preis_eur": 150,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-lager-lueftungsanlage": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "in Position Lüftung (je m²) enthalten"
+    },
+    "gen-lager-waschmaschine": {
+      "preis_eur": 1800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "gewerblich"
+    },
+    "gen-lager-trockner": {
+      "preis_eur": 1800,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "gewerblich"
+    },
+    "gen-lager-putzwagen": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-lager-schaltschrank": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Elektroinstallation im Grundausbau enthalten"
+    },
+    "gen-lager-warmwasserspeicher": {
+      "preis_eur": 2500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne Installation"
+    },
+    "gen-lager-serverschrank": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne IT"
+    },
+    "gen-ausstattung-pflanze": {
+      "preis_eur": 80,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-ausstattung-pflanze-gross": {
+      "preis_eur": 200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-ausstattung-lautsprecher": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-ausstattung-tv-55": {
+      "preis_eur": 600,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-ausstattung-tv-65": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-ausstattung-whiteboard": {
+      "preis_eur": 200,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "je Stück"
+    },
+    "gen-ausstattung-wasserspender": {
+      "preis_eur": 900,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Festwasseranschluss; Miete alternativ ca. 40 €/Monat"
+    },
+    "gen-ausstattung-desinfektionsstation": {
+      "preis_eur": 150,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-ausstattung-muelleimer": {
+      "preis_eur": 80,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-ausstattung-feuerloescher": {
+      "preis_eur": 80,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Halterung"
+    },
+    "gen-ausstattung-erste-hilfe": {
+      "preis_eur": 60,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Verbandkasten DIN 13157"
+    },
+    "gen-ausstattung-aed": {
+      "preis_eur": 1500,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "inkl. Wandkasten"
+    },
+    "gen-ausstattung-notausgang-schild": {
+      "preis_eur": 45,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Rettungszeichenleuchte"
+    },
+    "gen-ausstattung-kamera": {
+      "preis_eur": 250,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "ohne Rekorder"
+    },
+    "gen-ausstattung-handtuchhalter": {
+      "preis_eur": 40,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung"
+    },
+    "gen-bau-saeule-rund": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-saeule-eckig": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-saeule-rund-50": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-heizkoerper": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-lueftungsauslass": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-treppe-gerade": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-treppe-l": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-treppe-u": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-wendeltreppe": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-aufzug": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-rampe": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    },
+    "gen-bau-podest": {
+      "preis_eur": 0,
+      "quelle": "Schätzung nach Kategorie",
+      "stand": "2026-09",
+      "konfidenz": "schaetzung",
+      "hinweis": "Bestand/Bauleistung – nicht Teil der Einrichtungskosten"
+    }
+  }
+}

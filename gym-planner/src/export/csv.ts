@@ -9,7 +9,8 @@ import type { Project, PlacedItem, EquipmentDef } from '@/types';
 import { useProjectStore } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { getDef } from '@/data/equipment';
-import { bom, type BomLine } from '@/analysis';
+import { bom, itemPrice, costs, COST_ASSUMPTION_FIELDS, COST_GROUP_LABELS, type BomLine, type CostLine } from '@/analysis';
+import { formatNumber } from '@/geometry/units';
 import { downloadBlob, safeFileName } from './json';
 
 export interface BomRow {
@@ -53,11 +54,7 @@ export interface BomTotals {
  * (Die Stückliste selbst bildet Positionen über `bom()`; dort werden unterschiedliche Objektpreise gemittelt.)
  */
 export function unitPrice(item: PlacedItem, def: EquipmentDef | undefined, project: Project): number | null {
-  if (typeof item.priceEur === 'number' && Number.isFinite(item.priceEur)) return item.priceEur;
-  const ov = project.priceOverrides[item.defId];
-  if (typeof ov === 'number' && Number.isFinite(ov)) return ov;
-  if (typeof def?.preis_eur === 'number' && Number.isFinite(def.preis_eur)) return def.preis_eur;
-  return null;
+  return itemPrice(item, def, project);
 }
 
 /** Hinweis-Spalte: Bibliothekshinweise plus Besonderheiten der Position. */
@@ -165,6 +162,60 @@ export function exportCsv(project?: Project): void {
     const text = bomCsvText(p);
     downloadBlob(new Blob([text], { type: 'text/csv;charset=utf-8' }), `${safeFileName(p.name)}-Stueckliste.csv`);
     useUiStore.getState().toast('Stückliste als CSV exportiert.', 'success');
+  } catch (e) {
+    useUiStore.getState().toast(`CSV-Export fehlgeschlagen: ${e instanceof Error ? e.message : String(e)}`, 'error');
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Kostenkalkulation                                                   */
+/* ------------------------------------------------------------------ */
+
+export const COSTS_CSV_HEADER = ['Gruppe', 'Bezeichnung', 'Menge', 'Einheit', 'Einzelpreis EUR', 'Summe EUR', 'Hinweis'] as const;
+
+function costLineRow(l: CostLine): string {
+  const hinweis = [l.hinweis, l.finanziert ? 'über Finanzierungsrate (nicht in Einmalsumme)' : ''].filter(Boolean).join(' · ');
+  return [csvCell(COST_GROUP_LABELS[l.gruppe]), csvCell(l.bezeichnung), csvNumber(l.menge), csvCell(l.einheit), csvNumber(l.einzelpreisEur), csvNumber(l.summeEur, 0), csvCell(hinweis)].join(';');
+}
+
+/**
+ * CSV-Text der Kostenkalkulation (`costs(project)` aus src/analysis): Einmalkosten mit Summe, laufende Kosten je
+ * Monat mit Summe, Kennzahlen und der Annahmen-Block (Annahme;Wert;Einheit;Erläuterung). Netto, ohne MwSt.
+ */
+export function costsCsvText(project: Project): string {
+  const c = costs(project);
+  const lines: string[] = [COSTS_CSV_HEADER.join(';')];
+  lines.push(...c.einmal.map(costLineRow));
+  lines.push(['Summe', 'Einmalkosten', '', '', '', csvNumber(c.einmalSummeEur, 0), csvCell(c.finanziert ? 'ohne finanzierte Geräte/Import' : '')].join(';'));
+  lines.push('');
+  lines.push(...c.monatlich.map(costLineRow));
+  lines.push(['Summe', 'Laufend je Monat', '', '', '', csvNumber(c.monatlichSummeEur, 0), ''].join(';'));
+  lines.push('');
+  const kpi = (bezeichnung: string, wert: number, einheit: string, hinweis = '') => lines.push(['Kennzahl', csvCell(bezeichnung), csvNumber(wert, 0), csvCell(einheit), '', '', csvCell(hinweis)].join(';'));
+  kpi('Einmalkosten', c.einmalSummeEur, 'EUR', c.finanziert ? 'Geräte + Import über Finanzierungsrate' : '');
+  kpi('davon Geräte', c.geraeteSummeEur, 'EUR', c.finanziert ? 'finanziert' : '');
+  kpi('Import-Nebenkosten', c.importSummeEur, 'EUR');
+  kpi('Gesamtinvestition', c.investitionSummeEur, 'EUR', 'Einmalkosten + finanzierte Geräte/Import');
+  kpi('Laufend je Monat', c.monatlichSummeEur, 'EUR');
+  kpi('Jahr 1', c.jahr1SummeEur, 'EUR', 'Einmalkosten + 12 Monate laufend');
+  kpi('Einmalkosten je m² Brutto', c.kostenJeM2, 'EUR/m²');
+  kpi('Break-even-Mitglieder', c.breakEvenMitglieder, 'Mitglieder', `bei ${formatNumber(c.assumptions.mitgliedsbeitragEurMonat, 2)} EUR/Monat`);
+  kpi('Objekte ohne Preis', c.itemsWithoutPrice, 'Stk.');
+  lines.push('');
+  lines.push(['Annahme', 'Wert', 'Einheit', 'Erläuterung'].join(';'));
+  for (const f of COST_ASSUMPTION_FIELDS) lines.push([csvCell(f.label), csvNumber(c.assumptions[f.key]), csvCell(f.einheit), csvCell(f.erklaerung)].join(';'));
+  lines.push('');
+  lines.push(csvCell('Alle Beträge netto in EUR ohne MwSt.; Gerätepreise laut Bibliothek (Schätzung/Liste), ohne Fracht/Zoll außer Position Import-Nebenkosten.'));
+  return `\uFEFF${lines.join('\r\n')}\r\n`;
+}
+
+/** Lädt die Kostenkalkulation als „<Projekt>-Kosten.csv“ herunter. */
+export function exportCostsCsv(project?: Project): void {
+  const p = project ?? useProjectStore.getState().project;
+  try {
+    const text = costsCsvText(p);
+    downloadBlob(new Blob([text], { type: 'text/csv;charset=utf-8' }), `${safeFileName(p.name)}-Kosten.csv`);
+    useUiStore.getState().toast('Kostenkalkulation als CSV exportiert.', 'success');
   } catch (e) {
     useUiStore.getState().toast(`CSV-Export fehlgeschlagen: ${e instanceof Error ? e.message : String(e)}`, 'error');
   }

@@ -37,6 +37,9 @@ export interface SafetyZone {
 
 export type ShapeKind = 'rechteck' | 'polygon' | 'kreis';
 
+/** Verlässlichkeit eines Bibliothekspreises. */
+export type PriceConfidence = 'liste' | 'haendler' | 'schaetzung';
+
 /**
  * Draufsicht-Symbol (vereinfachte Silhouette). Der Renderer zeichnet je Symbol eine eigene Form.
  * Neue Symbole werden in src/editor/symbols registriert.
@@ -84,6 +87,16 @@ export interface EquipmentDef {
   quelle_url?: string;
   verifiziert: boolean;
   /* --- App-Felder (nicht Teil der Herstellerdaten) --- */
+  /** Herkunft des Bibliothekspreises (aus prices.json gemergt), z. B. „Schätzung nach Kategorie“ oder Händlername. */
+  preisQuelle?: string;
+  /** Link zur Preisquelle (Händler-/Listenpreis). */
+  preisQuelleUrl?: string;
+  /** Stand des Preises, z. B. „2026-09“. */
+  preisStand?: string;
+  /** Verlässlichkeit: Listenpreis, Händlerangabe oder Schätzung nach Kategorie. */
+  preisKonfidenz?: PriceConfidence;
+  /** Hinweis zum Preis (z. B. „je Abteil“, „je m²“, „Bestand/Bauleistung“). */
+  preisHinweis?: string;
   /** Übergeordneter Bibliotheks-Bereich (Kraftgeräte, Cardio, Umkleide …). */
   bereich: LibraryArea;
   /** Muskelgruppe, nur bei Kraftgeräten gesetzt. */
@@ -420,6 +433,8 @@ export interface CostAssumptions {
   /** Gerätefinanzierung: Laufzeit in Jahren (0 = Barkauf) und Zins in % p. a. */
   finanzierungJahre: number;
   zinsProzent: number;
+  /** Durchschnittlicher Mitgliedsbeitrag je Monat (netto) – für die Break-even-Mitgliederzahl. */
+  mitgliedsbeitragEurMonat: number;
 }
 
 /** Eintrag in der Projektliste (localStorage), Daten liegen in IndexedDB. */

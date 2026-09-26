@@ -1,7 +1,8 @@
-import type { EquipmentDef, LibraryArea, MuscleGroup, SymbolKind, Project } from '@/types';
+import type { EquipmentDef, LibraryArea, MuscleGroup, SymbolKind, Project, PriceConfidence } from '@/types';
 import atlantisJson from '../../../data/atlantis.json';
 import primeJson from '../../../data/prime.json';
 import genericJson from './generic.json';
+import pricesJson from './prices.json';
 
 /** Rohformat der Herstellerdateien (Schema laut Auftrag 5.1). */
 export interface RawEquipment {
@@ -40,6 +41,66 @@ export interface RawDataFile {
 
 export const ATLANTIS_DATA = atlantisJson as RawDataFile;
 export const PRIME_DATA = primeJson as RawDataFile;
+
+/* ------------------------------------------------------------------ */
+/* Preise (prices.json)                                                */
+/* ------------------------------------------------------------------ */
+
+/** Ein Preiseintrag aus prices.json (netto EUR, ohne Fracht/Zoll/MwSt.). */
+export interface PriceEntry {
+  preis_eur: number;
+  quelle: string;
+  quelle_url?: string;
+  stand?: string;
+  konfidenz: PriceConfidence;
+  hinweis?: string;
+}
+export interface PriceFile {
+  stand: string;
+  hinweis?: string;
+  preise: Record<string, PriceEntry>;
+}
+
+export const PRICE_DATA = pricesJson as PriceFile;
+
+const PRICE_CONFIDENCES: ReadonlySet<string> = new Set<PriceConfidence>(['liste', 'haendler', 'schaetzung']);
+
+/** Preiseintrag zu einer Bibliotheks-ID (nur gültige Einträge: endliche Zahl ≥ 0). */
+export function priceEntry(id: string): PriceEntry | undefined {
+  const e = Object.prototype.hasOwnProperty.call(PRICE_DATA.preise, id) ? PRICE_DATA.preise[id] : undefined;
+  if (!e || typeof e.preis_eur !== 'number' || !Number.isFinite(e.preis_eur) || e.preis_eur < 0) return undefined;
+  return e;
+}
+
+/**
+ * Ergänzt eine Definition um den Bibliothekspreis aus prices.json samt Quelle/Stand/Konfidenz.
+ * Ein Preis im Rohdatensatz (Herstellerdaten) hat Vorrang und wird als Listenpreis ausgewiesen.
+ */
+export function withPrice(def: EquipmentDef): EquipmentDef {
+  const own = typeof def.preis_eur === 'number' && Number.isFinite(def.preis_eur);
+  const e = priceEntry(def.id);
+  if (own) {
+    return { ...def, preisQuelle: def.preisQuelle ?? 'Herstellerdaten', preisQuelleUrl: def.preisQuelleUrl ?? def.quelle_url, preisKonfidenz: def.preisKonfidenz ?? 'liste', preisStand: def.preisStand ?? (e?.stand ?? PRICE_DATA.stand) };
+  }
+  if (!e) return def;
+  const out: EquipmentDef = {
+    ...def,
+    preis_eur: e.preis_eur,
+    preisQuelle: e.quelle,
+    preisStand: e.stand ?? PRICE_DATA.stand,
+    preisKonfidenz: PRICE_CONFIDENCES.has(e.konfidenz) ? e.konfidenz : 'schaetzung',
+  };
+  if (e.quelle_url) out.preisQuelleUrl = e.quelle_url;
+  if (e.hinweis) out.preisHinweis = e.hinweis;
+  return out;
+}
+
+/** Lesbare Bezeichnung der Preis-Konfidenz. */
+export const PRICE_CONFIDENCE_LABELS: Record<PriceConfidence, string> = {
+  liste: 'Listenpreis',
+  haendler: 'Händlerangabe',
+  schaetzung: 'Schätzung',
+};
 
 /** Symbol für Kraftgeräte anhand Unterkategorie / Name. */
 export function strengthSymbol(raw: RawEquipment): SymbolKind {
@@ -80,10 +141,10 @@ export function fromRaw(raw: RawEquipment): EquipmentDef {
 }
 
 /** Generische Einträge liegen bereits im EquipmentDef-Format (mit bereich/symbol). */
-export const GENERIC_LIBRARY: EquipmentDef[] = (genericJson as { geraete: EquipmentDef[] }).geraete;
+export const GENERIC_LIBRARY: EquipmentDef[] = (genericJson as { geraete: EquipmentDef[] }).geraete.map(withPrice);
 
-export const ATLANTIS_LIBRARY: EquipmentDef[] = ATLANTIS_DATA.geraete.map(fromRaw);
-export const PRIME_LIBRARY: EquipmentDef[] = PRIME_DATA.geraete.map(fromRaw);
+export const ATLANTIS_LIBRARY: EquipmentDef[] = ATLANTIS_DATA.geraete.map((r) => withPrice(fromRaw(r)));
+export const PRIME_LIBRARY: EquipmentDef[] = PRIME_DATA.geraete.map((r) => withPrice(fromRaw(r)));
 
 /** Gesamte eingebaute Bibliothek. */
 export const BUILTIN_LIBRARY: EquipmentDef[] = [...ATLANTIS_LIBRARY, ...PRIME_LIBRARY, ...GENERIC_LIBRARY];
