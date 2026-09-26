@@ -1,6 +1,6 @@
 /**
  * Auswahl-Ebene: Umrisse der gewählten Elemente, Bounding-Box bei Mehrfachauswahl, Griffe
- * (Skalieren nur bei skalierbaren Objekten, Drehen, Wandknoten, Hallen-Ecken, Zonen-Ecken) und
+ * (Skalieren nur bei skalierbaren Objekten, Drehen, Wandknoten, Hallen-Ecken, Zonen-Ecken, Messlinien-Enden, Fluchtweg-Punkte) und
  * Schloss-Hinweis bei gesperrten Objekten.
  *
  * Die Griff-Positionen berechnet die reine Funktion `selectionHandles` – das Auswahl-Werkzeug nutzt
@@ -21,7 +21,7 @@ import { previewedItems, useDragPreview } from '../dragPreview';
 /* Griffe (rein)                                                       */
 /* ------------------------------------------------------------------ */
 
-export type HandleKind = 'rotate' | 'scale' | 'wallNode' | 'hallVertex' | 'zoneVertex' | 'voidVertex' | 'measureEnd';
+export type HandleKind = 'rotate' | 'scale' | 'wallNode' | 'hallVertex' | 'zoneVertex' | 'voidVertex' | 'measureEnd' | 'escapeVertex';
 
 export interface Handle {
   kind: HandleKind;
@@ -159,6 +159,9 @@ export function selectionHandles(selection: Selection[], data: HandleData, scale
       if (a && a.kind === 'measure' && !a.locked) {
         out.push({ kind: 'measureEnd', id: a.id, index: 0, x: a.start.x, y: a.start.y, r, cursor: 'move' });
         out.push({ kind: 'measureEnd', id: a.id, index: 1, x: a.end.x, y: a.end.y, r, cursor: 'move' });
+      } else if (a && a.kind === 'escape-route' && !a.locked) {
+        // Ein Griff je Eckpunkt (verschieben; Entf auf dem Griff entfernt den Punkt, Alt/Doppelklick auf ein Segment fügt einen ein)
+        a.points.forEach((p, i) => out.push({ kind: 'escapeVertex', id: a.id, index: i, x: p.x, y: p.y, r, cursor: 'move' }));
       }
     }
   }

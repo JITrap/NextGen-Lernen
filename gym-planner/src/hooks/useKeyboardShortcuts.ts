@@ -4,7 +4,7 @@ import { undo, redo } from '@/store/projectStore';
 import * as actions from '@/editor/actions';
 import type { Tool } from '@/types';
 
-const TOOL_KEYS: Record<string, Tool> = { v: 'select', w: 'wall', m: 'measure', h: 'hall-rect', z: 'zone-rect', t: 'text', d: 'door', f: 'window' };
+const TOOL_KEYS: Record<string, Tool> = { v: 'select', w: 'wall', m: 'measure', h: 'hall-rect', z: 'zone-rect', t: 'text', d: 'door', f: 'window', e: 'escape-route' };
 
 function isEditable(t: EventTarget | null): boolean {
   const el = t as HTMLElement | null;

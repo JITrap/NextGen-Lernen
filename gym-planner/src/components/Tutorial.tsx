@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { GraduationCap, ChevronLeft, ChevronRight, Check, X, Square, BrickWall, LayoutDashboard, Dumbbell, SlidersHorizontal, ChartPie, Download, Sparkles } from 'lucide-react';
+import { GraduationCap, ChevronLeft, ChevronRight, Check, X, Square, BrickWall, LayoutDashboard, Dumbbell, SlidersHorizontal, ChartPie, Download, Sparkles, Route } from 'lucide-react';
 import type { Floor, Tool } from '@/types';
 import { useUiStore, type RightPanel } from '@/store/uiStore';
 import { useActiveFloor } from '@/store/selectors';
@@ -34,7 +34,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
     icon: <Sparkles size={18} />,
     text: (
       <>
-        In acht kurzen Schritten planst du dein Studio maßstabsgetreu: Halle, Wände, Räume und Geräte mit echten Herstellermaßen. Alle Flächen werden live in m² berechnet.
+        In neun kurzen Schritten planst du dein Studio maßstabsgetreu: Halle, Wände, Räume und Geräte mit echten Herstellermaßen. Alle Flächen werden live in m² berechnet.
         Du kannst das Tutorial jederzeit überspringen und über <strong>Hilfe → Tutorial starten</strong> erneut öffnen.
       </>
     ),
@@ -129,6 +129,24 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
         Die <strong>Übersicht</strong> liefert Flächenbilanz, Gerätestatistik, Bodenlast, Kapazität und die Stückliste mit Kosten. Planungs-Warnungen (Überlappungen, Fluchtwege, Deckenhöhe …) springen per Klick zum Problem.
       </>
     ),
+  },
+  {
+    id: 'escape-route',
+    title: 'Fluchtwege & Regularien',
+    icon: <Route size={18} />,
+    target: ['[data-tutorial="toolbar-escape-route"]'],
+    tool: 'escape-route',
+    toolLabel: 'Fluchtweg-Werkzeug aktivieren',
+    text: (
+      <>
+        Mit dem Werkzeug <strong>Fluchtweg</strong> (<KbdCombo combo="E" />) klickst du den Weg vom entferntesten Punkt bis zur Notausgangstür – ein Klick nahe der Tür beendet ihn automatisch.
+        Die Übersicht prüft unter <strong>Regularien &amp; Brandschutz</strong> Fluchtweglängen, Notausgänge, Feuerlöscher, Erste Hilfe und Kennzeichnung nach ASR/DGUV und springt per Klick zum Ziel.
+      </>
+    ),
+    done: (f) => f.annotations.some((a) => a.kind === 'escape-route'),
+    waitingText: 'Zeichne einen Fluchtweg bis zu einer Notausgangstür …',
+    doneText: 'Fluchtweg angelegt – Status und Länge siehst du im Eigenschaften-Panel.',
+    optional: true,
   },
   {
     id: 'export',

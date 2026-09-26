@@ -74,7 +74,7 @@ export const TOOL_DEFS: ToolDef[] = [
   { id: 'elevator', label: 'Aufzug', icon: <ArrowUpFromLine size={20} />, tutorial: 'toolbar-elevator' },
   { id: 'column', label: 'Säule / Stütze', icon: <Cylinder size={20} />, flyout: true, tutorial: 'toolbar-column' },
   { id: 'measure', label: 'Messen', key: 'M', icon: <Ruler size={20} />, tutorial: 'toolbar-measure' },
-  { id: 'escape-route', label: 'Fluchtweg', icon: <Route size={20} />, tutorial: 'toolbar-escape-route' },
+  { id: 'escape-route', label: 'Fluchtweg', key: 'E', icon: <Route size={20} />, tutorial: 'toolbar-escape-route' },
   { id: 'text', label: 'Text / Notiz', key: 'T', icon: <Type size={20} />, tutorial: 'toolbar-text' },
   { id: 'pan', label: 'Hand (Ansicht verschieben)', key: 'Leertaste', icon: <Hand size={20} />, tutorial: 'toolbar-pan' },
 ];
