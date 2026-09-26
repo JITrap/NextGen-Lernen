@@ -19,7 +19,7 @@ Weitere Befehle:
 ```bash
 npm run build      # Produktions-Build nach dist/
 npm run preview    # Produktions-Build lokal ansehen
-npm test           # Vitest (Flächen, Snapping, Kollision, Einheiten, Bibliothek, Analyse, Export …)
+npm test           # Vitest (Flächen, Snapping, Kollision, Einheiten, Bibliothek, Analyse, Regularien, Kosten, Export …)
 npm run typecheck  # TypeScript-Prüfung
 npm run lint       # ESLint
 ```
@@ -40,6 +40,23 @@ Weitere Vorlagen unter **Projekte → Neues Projekt**: leere Halle 20 × 25 m, k
 
 Das Beispielstudio liegt zusätzlich als Projektdatei in `examples/Beispielstudio-1000.gymplanner.json` und lässt sich
 über **Projekte → JSON importieren** in jede Installation laden.
+
+## Fluchtwege, Regularien und Kosten
+
+- **Werkzeug „Fluchtweg“ (Kürzel E)**: Klicks setzen eine Polylinie, ein Klick neben einer Notausgangstür beendet sie.
+  Fluchtwege erscheinen grün mit Pfeilen und Länge, rot bei Verstoß, und werden in PNG/PDF exportiert.
+- **Regularien & Brandschutz** (Übersicht → Regularien): Prüfliste nach ASR A2.3 (Fluchtweglänge 35 m Luftlinie,
+  Ausgangs- und Türbreiten nach Personenzahl, Aufschlagrichtung), ASR A2.2 (Löschmitteleinheiten je Fläche, 20 m zum
+  nächsten Feuerlöscher), ASR A4.3/DGUV Vorschrift 1 (Erste Hilfe, AED), ASR A1.3 (Rettungszeichen,
+  Sicherheitsbeleuchtung), DIN 18040-1 (barrierefreies WC), ASR A4.1 (Sanitär), DIN EN ISO 20957 (Gerätefreiräume)
+  und MVStättVO. Jede Zeile nennt Ist, Soll, Erläuterung und Quelle und springt im Plan zur Stelle. Details in
+  `docs/fluchtwege-regularien.md`. Die Prüfung ist eine Planungshilfe, kein Brandschutzkonzept.
+- **Kosten** (Übersicht → Kosten): Geräte aus der Stückliste mit recherchierten Netto-Preisen für alle 373
+  Bibliotheksobjekte (`src/data/equipment/prices.json`, Quelle und Konfidenz je Objekt), Import-Nebenkosten,
+  Ausbau je m², Sanitärinstallation, Planung, Kaution, laufende Kosten und Finanzierungsrate; Annahmen sind im Panel
+  editierbar, Export als CSV und im PDF. Modell und Richtwerte in `docs/kosten.md`.
+- **Beispielstudio**: Kraftbereich nach Muskelgruppen, HYROX-Bereich mit acht Stationen, Kursraum, Wellness,
+  Fluchtwege und Sicherheitsausstattung – Layoutbeschreibung in `docs/beispielstudio.md`.
 
 ## Technik
 

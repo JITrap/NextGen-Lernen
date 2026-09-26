@@ -26,7 +26,10 @@ Oberflächensprache: **Deutsch** (alle Labels, Hinweise, Tooltips).
 | `src/editor/overlays/SnapGuides.tsx` | `useSnapGuides.getState().set(result)` – Werkzeuge melden ihr Snap-Ergebnis, Canvas zeichnet Hilfslinien. |
 | `src/editor/stageRegistry.ts` | `getStage()` für PNG/PDF-Export. |
 | `src/components/*` | UI-Panels (TopBar, Toolbar, RightPanel mit Bibliothek/Eigenschaften/Übersicht/Ebenen/Projekte, StatusBar, ContextMenu, ShortcutsOverlay, Tutorial, Toasts). |
-| `src/analysis/*` | Flächenbilanz, Gerätestatistik, Bodenlast, Kapazität, Stückliste, Warnungen. |
+| `src/analysis/*` | Flächenbilanz, Gerätestatistik, Bodenlast, Kapazität, Stückliste, Warnungen, Regularien-Prüfung (`regulations.ts`, Regeltabelle `REGULATION_RULES`), Kostenkalkulation (`costs.ts`, Annahmen `project.costs`), Preiseinheiten (`priceUnits.ts`). |
+| `src/geometry/escapeRoutes.ts` | Notausgänge eines Stockwerks, Polylinienlänge, Korridor-Rechtecke, Wanddurchdringungen (Fluchtweg-Prüfung). |
+| `src/data/equipment/prices.json` | Bibliothekspreise je ID (Preis, Quelle, Stand, Konfidenz); beim Laden in die `EquipmentDef` gemergt (`withPrice`). |
+| `docs/*.md` | Fachdokumentation: Fluchtwege/Regularien, Kostenmodell, Beispielstudio-Layout. |
 | `src/export/*` | PNG, PDF, CSV, JSON. |
 | `src/three/View3D.tsx` | 3D-Vorschau (react-three-fiber). |
 
@@ -34,7 +37,8 @@ Oberflächensprache: **Deutsch** (alle Labels, Hinweise, Tooltips).
 
 - Objekt-Koordinaten: `x/y` = Mittelpunkt, `width` entlang lokaler x-Achse, `depth` entlang lokaler y-Achse, `rotation` in Grad. **„Vorne“ = +y lokal** (bei rotation 0 unten). Footprint: `itemFootprint(item)`, Sicherheitszone: `itemSafetyPolygon(item, zone)`.
 - Wände: Achse `start→end`, `thickness`. Hallen-Außenwände sind virtuelle Wände mit IDs `hall_<i>` (`allWalls(floor)`, `findWall(floor, id)`), Öffnungen können daran hängen.
-- Räume: automatisch aus geschlossenen Wandzügen (`floorRooms(floor)`, Metadaten in `floor.roomMeta[loopKey]`) oder Zonen (`floor.zones`).
+- Räume: automatisch aus geschlossenen Wandzügen (`floorRooms(floor)`, Metadaten in `floor.roomMeta[loopKey]`) oder Zonen (`floor.zones`). Raumtyp `HYROX` zählt als Trainingsfläche.
+- Anmerkungen: Textnotiz, Messlinie und Fluchtweg (`kind: 'escape-route'`, `points`); Fluchtwege werden von `regulations()` geprüft und im Layer rot/grün eingefärbt.
 - Treppen/Aufzüge: `PlacedItem` mit `linkedFloorIds`; erscheinen auf allen verlinkten Stockwerken (`useFloorVisibleItems`).
 - Alle Mutationen im Store; während Drag `beginTransaction()` … `endTransaction()` (ein Undo-Schritt). Objekt-Drags nutzen die Vorschau (`useDragPreview`) und schreiben erst beim Loslassen. No-op-Mutationen erzeugen keinen Undo-Schritt.
 - Beim Pan werden die statischen Ebenen als Bitmap gecacht (`Group.cache`), beim Zoom nicht.
