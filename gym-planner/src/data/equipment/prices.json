@@ -1792,20 +1792,20 @@
       "hinweis": "Original: 1.040,00 € brutto · inkl. Bodenständer."
     },
     "gen-functional-sled-bahn": {
-      "preis_eur": 900,
+      "preis_eur": 60,
       "quelle": "kunstrasen-rasenteppich.de Fitness-Kunstrasen 29,95 €/m² brutto + Verlegung 25–45 €/m² (kunstrasen.de)",
       "quelle_url": "https://kunstrasen-rasenteppich.de/produkt/kunstrasen-fitness-fitnessstudio-gym-crossfit-functional-sprint-speed-track/",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: 29,95 €/m² brutto · 15 m² × ca. 60 €/m² netto verlegt; bedruckt (Sprint-Track) 165 €/m² netto."
+      "hinweis": "Preis je m² verlegt (Kunstrasen 29,95 €/m² brutto + Verlegung 25–45 €/m²); Bibliotheksobjekt 15 m² = 900 €; bedruckte Sprint-Tracks teurer."
     },
     "gen-functional-kunstrasen": {
-      "preis_eur": 480,
+      "preis_eur": 60,
       "quelle": "wie Sled-Bahn: ca. 60 €/m² netto verlegt",
       "quelle_url": "https://kunstrasen-rasenteppich.de/produkt/kunstrasen-fitness-fitnessstudio-gym-crossfit-functional-sprint-speed-track/",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: 29,95 €/m² brutto · 8 m² Fläche."
+      "hinweis": "Preis je m² verlegt (Kunstrasen 29,95 €/m² brutto + Verlegung); Bibliotheksobjekt 8 m² = 480 €."
     },
     "gen-functional-sled": {
       "preis_eur": 327,
@@ -2077,20 +2077,20 @@
       "konfidenz": "schaetzung"
     },
     "gen-umkleide-spindreihe": {
-      "preis_eur": 2200,
+      "preis_eur": 220,
       "quelle": "eurospind.de Z-Spind 1 Abteil/2 Fächer 200,92 € netto; Garderobenschränke 145–440 € netto je Abteil (Sport-Thieme)",
       "quelle_url": "https://www.eurospind.de/betriebseinrichtung/sport-fitness/z-spinde/2555/z-spind-garderobenschrank-1-abteil-2-faecher",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: 200,92 € netto (1 Abteil) · 10 Abteile à 40 cm, 1-stöckig, ca. 220 € netto je Abteil; Mengenrabatt bis 23 % ab 3 Stück."
+      "hinweis": "Preis je Abteil (40 cm, 1-stöckig, Stahl, Zylinderschloss); Bibliotheksobjekt 10 Abteile = 2.200 €. Original: 200,92 € netto je Abteil (eurospind.de)."
     },
     "gen-umkleide-spindreihe-2": {
-      "preis_eur": 2500,
+      "preis_eur": 250,
       "quelle": "eurospind.de Z-Spind (2 Fächer) 200,92 € netto; 2-stöckige Abteile 40 cm ca. 250 € netto",
       "quelle_url": "https://www.eurospind.de/betriebseinrichtung/sport-fitness/z-spinde/2555/z-spind-garderobenschrank-1-abteil-2-faecher",
       "stand": "2026-09",
       "konfidenz": "haendler",
-      "hinweis": "Original: 200,92 € netto · 10 Abteile × 2 Fächer = 20 Fächer."
+      "hinweis": "Preis je Abteil (40 cm, 2-stöckig = 2 Fächer); Bibliotheksobjekt 10 Abteile = 2.500 €. Original: 200,92 € netto je Z-Spind-Abteil (eurospind.de), 2-stöckig ca. 250 €."
     },
     "gen-umkleide-spind-1": {
       "preis_eur": 220,

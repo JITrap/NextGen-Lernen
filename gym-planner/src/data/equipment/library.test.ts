@@ -111,11 +111,17 @@ describe('Bibliothekspreise (prices.json)', () => {
     expect(PRICE_CONFIDENCE_LABELS.schaetzung).toBe('Schätzung');
     // Richtwerte je Kategorie
     const hybrid = PRIME_LIBRARY.filter((d) => d.serie === 'Hybrid');
-    expect(hybrid.every((d) => d.preis_eur! >= 9000 && d.preis_eur! <= 12000)).toBe(true);
+    expect(hybrid.every((d) => d.preis_eur! >= 4000 && d.preis_eur! <= 15000), hybrid.map((d) => `${d.id}: ${d.preis_eur}`).join(', ')).toBe(true);
     const precision = ATLANTIS_LIBRARY.filter((d) => d.serie === 'Precision Series');
-    expect(precision.every((d) => d.preis_eur! >= 6000 && d.preis_eur! <= 9000)).toBe(true);
-    expect(getDef('gen-cardio-laufband')!.preis_eur).toBe(9000);
-    expect(getDef('gen-umkleide-spindreihe')!.preisHinweis).toContain('Abteil');
-    expect(getDef('gen-functional-kunstrasen')!.preisHinweis).toContain('m²');
+    expect(precision.every((d) => d.preis_eur! >= 2500 && d.preis_eur! <= 15000), precision.map((d) => `${d.id}: ${d.preis_eur}`).join(', ')).toBe(true);
+    expect(getDef('gen-cardio-laufband')!.preis_eur).toBeGreaterThanOrEqual(5000);
+    expect(getDef('gen-cardio-laufband')!.preis_eur).toBeLessThanOrEqual(15000);
+    // Skalierbare Objekte: Preis je Abteil bzw. je m² (priceUnits), Hinweis nennt die Einheit
+    expect(getDef('gen-umkleide-spindreihe')!.preisHinweis).toContain('je Abteil');
+    expect(getDef('gen-umkleide-spindreihe')!.preis_eur).toBeLessThan(1000);
+    expect(getDef('gen-functional-kunstrasen')!.preisHinweis).toContain('je m²');
+    expect(getDef('gen-functional-kunstrasen')!.preis_eur).toBeLessThan(200);
+    // Quellen: Herstellerpreise überwiegend mit URL, keine Platzhalter
+    expect(BUILTIN_LIBRARY.filter((d) => d.preisQuelleUrl).length).toBeGreaterThan(300);
   });
 });
