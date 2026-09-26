@@ -77,6 +77,20 @@ function textBox(a: TextNote): BBox {
   return { minX: a.x, minY: a.y, maxX: a.x + w, maxY: a.y + a.fontSize * 1.4 };
 }
 
+/** Belegungsbox einer Anmerkung (Text, Messlinie, Fluchtweg). */
+function annotationBox(a: Annotation): BBox {
+  if (a.kind === 'text') return textBox(a);
+  if (a.kind === 'measure') return bbox([a.start, a.end]);
+  return bbox(a.points);
+}
+
+/** Verschobene Kopie einer Anmerkung. */
+function translateAnnotation<A extends Annotation>(a: A, dx: number, dy: number): A {
+  if (a.kind === 'text') return { ...a, x: a.x + dx, y: a.y + dy };
+  if (a.kind === 'measure') return { ...a, start: { x: a.start.x + dx, y: a.start.y + dy }, end: { x: a.end.x + dx, y: a.end.y + dy } };
+  return { ...a, points: translatePolygon(a.points, dx, dy) };
+}
+
 /** Alle beweglichen (nicht gesperrten) Elemente der Auswahl: Objekte, Zonen, Lufträume, Anmerkungen. */
 export function movablesOf(floor: Floor, sel: Selection[] = currentSelection()): Movable[] {
   const s = useProjectStore.getState();
@@ -97,12 +111,14 @@ export function movablesOf(floor: Floor, sel: Selection[] = currentSelection()):
     if (a.locked) continue;
     if (a.kind === 'text') {
       out.push({ key: `ann:${a.id}`, box: textBox(a), move: (dx, dy) => s.updateAnnotation(fid, a.id, { x: a.x + dx, y: a.y + dy }) });
-    } else {
+    } else if (a.kind === 'measure') {
       out.push({
         key: `ann:${a.id}`,
         box: bbox([a.start, a.end]),
         move: (dx, dy) => s.updateAnnotation(fid, a.id, { start: { x: a.start.x + dx, y: a.start.y + dy }, end: { x: a.end.x + dx, y: a.end.y + dy } }),
       });
+    } else {
+      out.push({ key: `ann:${a.id}`, box: bbox(a.points), move: (dx, dy) => s.updateAnnotation(fid, a.id, { points: translatePolygon(a.points, dx, dy) }) });
     }
   }
   return out;
@@ -132,7 +148,7 @@ export function selectionBounds(floor: Floor, sel: Selection[] = currentSelectio
   for (const it of selectedItems(floor, sel)) boxes.push(bbox(itemFootprint(it)));
   for (const z of selectedZones(floor, sel)) boxes.push(bbox(z.polygon));
   for (const v of selectedVoids(floor, sel)) boxes.push(bbox(v.polygon));
-  for (const a of selectedAnnotations(floor, sel)) boxes.push(a.kind === 'text' ? textBox(a) : bbox([a.start, a.end]));
+  for (const a of selectedAnnotations(floor, sel)) boxes.push(annotationBox(a));
   for (const w of selectedWalls(floor, sel)) boxes.push(bbox([w.start, w.end]));
   for (const o of selectedOpenings(floor, sel)) {
     const w = findWall(floor, o.wallId);
@@ -292,7 +308,7 @@ function entriesBounds(entries: ClipboardEntry[]): BBox | null {
   for (const e of entries) {
     if (e.kind === 'item') boxes.push(bbox(itemFootprint(e.data)));
     else if (e.kind === 'zone' || e.kind === 'void') boxes.push(bbox(e.data.polygon));
-    else if (e.kind === 'annotation') boxes.push(e.data.kind === 'text' ? textBox(e.data) : bbox([e.data.start, e.data.end]));
+    else if (e.kind === 'annotation') boxes.push(annotationBox(e.data));
     else if (e.kind === 'wall') boxes.push(bbox([e.data.start, e.data.end]));
   }
   return unionBox(boxes);
@@ -366,9 +382,7 @@ export function insertEntries(floor: Floor, entries: ClipboardEntry[], dx: numbe
       sel.push({ kind: 'void', id: v.id });
     } else if (e.kind === 'annotation') {
       const id = remap(e.data.id, 'a_');
-      const a: Annotation = e.data.kind === 'text'
-        ? { ...e.data, id, x: e.data.x + dx, y: e.data.y + dy, locked: false, hidden: false }
-        : { ...e.data, id, start: { x: e.data.start.x + dx, y: e.data.start.y + dy }, end: { x: e.data.end.x + dx, y: e.data.end.y + dy }, locked: false, hidden: false };
+      const a: Annotation = { ...translateAnnotation(e.data, dx, dy), id, locked: false, hidden: false };
       s.addAnnotation(fid, a);
       sel.push({ kind: 'annotation', id });
     } else if (e.kind === 'opening') {
@@ -471,7 +485,7 @@ export function rotateSelection(deltaDeg: number) {
     for (const it of items) boxes.push(bbox(itemFootprint(it)));
     for (const z of zones) boxes.push(bbox(z.polygon));
     for (const v of voids) boxes.push(bbox(v.polygon));
-    for (const a of anns) boxes.push(a.kind === 'text' ? textBox(a) : bbox([a.start, a.end]));
+    for (const a of anns) boxes.push(annotationBox(a));
     center = boxCenter(unionBox(boxes)!);
   }
   transaction(() => {
@@ -485,8 +499,10 @@ export function rotateSelection(deltaDeg: number) {
       if (a.kind === 'text') {
         const p = rotateAround({ x: a.x, y: a.y }, center, deltaDeg);
         s.updateAnnotation(fid, a.id, { x: p.x, y: p.y, rotation: normalizeAngle(a.rotation + deltaDeg) });
-      } else {
+      } else if (a.kind === 'measure') {
         s.updateAnnotation(fid, a.id, { start: rotateAround(a.start, center, deltaDeg), end: rotateAround(a.end, center, deltaDeg) });
+      } else {
+        s.updateAnnotation(fid, a.id, { points: a.points.map((p) => rotateAround(p, center, deltaDeg)) });
       }
     }
   });
@@ -513,7 +529,7 @@ export function flipSelection(axis: 'x' | 'y') {
   for (const it of items) boxes.push(bbox(itemFootprint(it)));
   for (const z of zones) boxes.push(bbox(z.polygon));
   for (const v of voids) boxes.push(bbox(v.polygon));
-  for (const a of anns) boxes.push(a.kind === 'text' ? textBox(a) : bbox([a.start, a.end]));
+  for (const a of anns) boxes.push(annotationBox(a));
   const box = unionBox(boxes);
   if (!box) return;
   const c = boxCenter(box);
@@ -532,7 +548,8 @@ export function flipSelection(axis: 'x' | 'y') {
       if (a.kind === 'text') {
         const p = mirror({ x: a.x, y: a.y });
         s.updateAnnotation(fid, a.id, { x: p.x, y: p.y });
-      } else s.updateAnnotation(fid, a.id, { start: mirror(a.start), end: mirror(a.end) });
+      } else if (a.kind === 'measure') s.updateAnnotation(fid, a.id, { start: mirror(a.start), end: mirror(a.end) });
+      else s.updateAnnotation(fid, a.id, { points: a.points.map(mirror) });
     }
   });
 }

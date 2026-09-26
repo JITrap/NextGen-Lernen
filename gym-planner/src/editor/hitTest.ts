@@ -26,7 +26,11 @@ export function hitTest(p: Vec2, inp: HitTestInput): Selection | null {
       if (a.kind === 'text') {
         const w = Math.max(60, a.text.length * a.fontSize * 0.6);
         if (p.x >= a.x - tolerance && p.x <= a.x + w + tolerance && p.y >= a.y - tolerance && p.y <= a.y + a.fontSize * 1.4 + tolerance) return { kind: 'annotation', id: a.id };
-      } else if (distanceToSegment(p, a.start, a.end) <= tolerance) return { kind: 'annotation', id: a.id };
+      } else if (a.kind === 'measure') {
+        if (distanceToSegment(p, a.start, a.end) <= tolerance) return { kind: 'annotation', id: a.id };
+      } else {
+        for (let k = 0; k + 1 < a.points.length; k++) if (distanceToSegment(p, a.points[k], a.points[k + 1]) <= tolerance) return { kind: 'annotation', id: a.id };
+      }
     }
   }
   if (inp.layers.openings) {

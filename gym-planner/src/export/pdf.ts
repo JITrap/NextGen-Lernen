@@ -10,6 +10,8 @@
  */
 import type { Project, Floor } from '@/types';
 import type { jsPDF as JsPdf } from 'jspdf';
+import { drawRegulationsPages } from './pdfRegulations';
+import { drawCostPages } from './pdfCosts';
 import { useProjectStore } from '@/store/projectStore';
 import { useUiStore } from '@/store/uiStore';
 import { createEmptyProject } from '@/store/factories';
@@ -34,6 +36,10 @@ export interface PdfOptions {
   areaBalance?: boolean;
   /** Stücklisten-Seiten anhängen (Standard: true). */
   bom?: boolean;
+  /** Regularien-Checkliste anhängen (Standard: true). */
+  regulations?: boolean;
+  /** Kostenkalkulation anhängen (Standard: true). */
+  costs?: boolean;
   /** Ohne Download – liefert nur das Dokument. */
   download?: boolean;
   /** Bildauflösung auf Papier (Standard 200 dpi). */
@@ -113,18 +119,18 @@ export function paperFormatForPlan(planWidthMm: number, planHeightMm: number): P
 /* Zeichenhelfer                                                       */
 /* ------------------------------------------------------------------ */
 
-interface Col { title: string; width: number; align?: 'left' | 'right' }
+export interface Col { title: string; width: number; align?: 'left' | 'right' }
 
-function fitText(doc: JsPdf, text: string, maxWidth: number): string {
+export function fitText(doc: JsPdf, text: string, maxWidth: number): string {
   if (doc.getTextWidth(text) <= maxWidth) return text;
   let s = text;
   while (s.length > 1 && doc.getTextWidth(`${s}…`) > maxWidth) s = s.slice(0, -1);
   return `${s}…`;
 }
 
-interface TableCtx { doc: JsPdf; pageW: number; pageH: number; y: number; newPage: () => void }
+export interface TableCtx { doc: JsPdf; pageW: number; pageH: number; y: number; newPage: () => void }
 
-function drawTableHeader(ctx: TableCtx, cols: Col[], x0: number, rowH: number) {
+export function drawTableHeader(ctx: TableCtx, cols: Col[], x0: number, rowH: number) {
   const { doc } = ctx;
   const totalW = cols.reduce((s, c) => s + c.width, 0);
   doc.setFillColor(226, 232, 240);
@@ -143,7 +149,7 @@ function drawTableHeader(ctx: TableCtx, cols: Col[], x0: number, rowH: number) {
 }
 
 /** Zeichnet eine Tabelle mit Seitenumbruch; Zeilen als Zeichenketten je Spalte. */
-function drawTable(ctx: TableCtx, cols: Col[], rows: string[][], opts: { x0?: number; rowH?: number; fontSize?: number; boldLast?: boolean; zebra?: boolean } = {}) {
+export function drawTable(ctx: TableCtx, cols: Col[], rows: string[][], opts: { x0?: number; rowH?: number; fontSize?: number; boldLast?: boolean; zebra?: boolean } = {}) {
   const { doc } = ctx;
   const x0 = opts.x0 ?? PAGE_MARGIN_MM;
   const rowH = opts.rowH ?? 5.4;
@@ -189,7 +195,7 @@ function hexToRgb(hex: string): [number, number, number] {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-function dateDe(d = new Date()): string {
+export function dateDe(d = new Date()): string {
   return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
 }
 
@@ -197,7 +203,7 @@ function dateDe(d = new Date()): string {
 /* Seiten                                                              */
 /* ------------------------------------------------------------------ */
 
-function drawPageHeader(doc: JsPdf, pageW: number, title: string, subtitle: string, right: string[]) {
+export function drawPageHeader(doc: JsPdf, pageW: number, title: string, subtitle: string, right: string[]) {
   doc.setTextColor(15, 23, 42);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(14);
@@ -214,7 +220,7 @@ function drawPageHeader(doc: JsPdf, pageW: number, title: string, subtitle: stri
   doc.setTextColor(15, 23, 42);
 }
 
-function drawFooter(doc: JsPdf, pageW: number, pageH: number, text: string) {
+export function drawFooter(doc: JsPdf, pageW: number, pageH: number, text: string) {
   doc.setFontSize(7);
   doc.setTextColor(100, 116, 139);
   doc.text(text, PAGE_MARGIN_MM, pageH - 5);
@@ -456,6 +462,8 @@ export async function buildPdf(project: Project, opts: PdfOptions = {}): Promise
   }
   if (opts.areaBalance ?? true) drawAreaBalancePages(doc, project, floors.length ? floors : sorted);
   if (opts.bom ?? true) drawBomPages(doc, project);
+  if (opts.regulations ?? true) drawRegulationsPages(doc, project);
+  if (opts.costs ?? true) drawCostPages(doc, project);
   doc.setProperties({ title: `${project.name} – GymPlanner`, subject: 'Grundriss- und Einrichtungsplan', creator: 'GymPlanner' });
   return { doc, warnings };
 }

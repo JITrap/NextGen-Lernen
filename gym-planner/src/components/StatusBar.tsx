@@ -76,7 +76,9 @@ export function describeSelection(sel: Selection, floor: Floor, customEquipment:
     case 'annotation': {
       const a = floor.annotations.find((x) => x.id === sel.id);
       if (!a) return KIND_LABEL.annotation;
-      return a.kind === 'text' ? `Text „${a.text.slice(0, 30)}${a.text.length > 30 ? '…' : ''}“` : `Messlinie · ${formatLength(Math.hypot(a.end.x - a.start.x, a.end.y - a.start.y))}`;
+      if (a.kind === 'text') return `Text „${a.text.slice(0, 30)}${a.text.length > 30 ? '…' : ''}“`;
+      if (a.kind === 'measure') return `Messlinie · ${formatLength(Math.hypot(a.end.x - a.start.x, a.end.y - a.start.y))}`;
+      return `${a.label || 'Fluchtweg'} · ${formatLength(a.points.reduce((sum, q, i) => (i ? sum + Math.hypot(q.x - a.points[i - 1].x, q.y - a.points[i - 1].y) : 0), 0))}`;
     }
     case 'void': {
       const v = floor.voids.find((x) => x.id === sel.id);

@@ -443,10 +443,13 @@ function roundDragResult(d: DragState) {
       const x = roundCoord(a.x);
       const y = roundCoord(a.y);
       if (x !== a.x || y !== a.y) s.updateAnnotation(fid, id, { x, y });
-    } else {
+    } else if (a.kind === 'measure') {
       const start = roundVec(a.start);
       const end = roundVec(a.end);
       if (start !== a.start || end !== a.end) s.updateAnnotation(fid, id, { start, end });
+    } else {
+      const points = a.points.map(roundVec);
+      if (points.some((q, i) => q !== a.points[i])) s.updateAnnotation(fid, id, { points });
     }
   };
   const roundZone = (id: string) => {
@@ -864,7 +867,8 @@ function moveSelection(e: ToolEvent, ctx: ToolContext, d: DragState) {
   if (d.annOrig) {
     for (const [id, a] of d.annOrig) {
       if (a.kind === 'text') s.updateAnnotation(fid, id, { x: a.x + dx, y: a.y + dy });
-      else s.updateAnnotation(fid, id, { start: { x: a.start.x + dx, y: a.start.y + dy }, end: { x: a.end.x + dx, y: a.end.y + dy } });
+      else if (a.kind === 'measure') s.updateAnnotation(fid, id, { start: { x: a.start.x + dx, y: a.start.y + dy }, end: { x: a.end.x + dx, y: a.end.y + dy } });
+      else s.updateAnnotation(fid, id, { points: translatePolygon(a.points, dx, dy) });
     }
   }
   // Abstände zum nächsten Hindernis (für das primäre Objekt)

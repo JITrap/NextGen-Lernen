@@ -4,8 +4,8 @@
  * Versteckte Anmerkungen werden nicht gezeichnet, gewählte hervorgehoben. Nicht klickbar (hitTest übernimmt).
  */
 import { memo, useMemo, type ReactNode } from 'react';
-import { Group, Line, Rect, Text } from 'react-konva';
-import type { MeasureLine, TextNote } from '@/types';
+import { Arrow, Group, Line, Rect, Text } from 'react-konva';
+import type { EscapeRoute, MeasureLine, TextNote } from '@/types';
 import type { LayerProps } from './LayerProps';
 import { distance } from '@/geometry/polygon';
 import { formatLength } from '@/geometry/units';
@@ -16,14 +16,15 @@ const FONT = 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto
 interface Palette {
   text: string;
   measure: string;
+  escape: string;
   accent: string;
   accentSoft: string;
   labelBg: string;
 }
 function palette(dark: boolean): Palette {
   return dark
-    ? { text: '#e2e8f0', measure: '#fb923c', accent: '#60a5fa', accentSoft: 'rgba(96,165,250,0.16)', labelBg: 'rgba(15,23,42,0.72)' }
-    : { text: '#0f172a', measure: '#ea580c', accent: '#2563eb', accentSoft: 'rgba(37,99,235,0.12)', labelBg: 'rgba(255,255,255,0.78)' };
+    ? { text: '#e2e8f0', measure: '#fb923c', escape: '#4ade80', accent: '#60a5fa', accentSoft: 'rgba(96,165,250,0.16)', labelBg: 'rgba(15,23,42,0.72)' }
+    : { text: '#0f172a', measure: '#ea580c', escape: '#16a34a', accent: '#2563eb', accentSoft: 'rgba(37,99,235,0.12)', labelBg: 'rgba(255,255,255,0.78)' };
 }
 
 /** Geschätzte Textbox wie in hitTest/actions (Breite ≈ Zeichen × Schriftgröße × 0,6). */
@@ -72,6 +73,20 @@ const MeasureNode = memo(function MeasureNode({ a, pal, s, selected }: { a: Meas
   );
 });
 
+/** Fluchtweg: grüne Polylinie mit Pfeilspitze am Ziel (Notausgang). Details (Segmentpfeile, Längenlabel) siehe Werkzeug „Fluchtweg“. */
+const EscapeRouteNode = memo(function EscapeRouteNode({ a, pal, s, selected }: { a: EscapeRoute; pal: Palette; s: number; selected: boolean }) {
+  if (a.points.length < 2) return null;
+  const color = selected ? pal.accent : pal.escape;
+  const pts: number[] = [];
+  for (const p of a.points) pts.push(p.x, p.y);
+  return (
+    <Group>
+      <Line points={pts} stroke={pal.labelBg} strokeWidth={8 * s} lineCap="round" lineJoin="round" />
+      <Arrow points={pts} stroke={color} fill={color} strokeWidth={3 * s} dash={[14 * s, 8 * s]} pointerLength={14 * s} pointerWidth={12 * s} lineCap="round" lineJoin="round" />
+    </Group>
+  );
+});
+
 export const AnnotationsLayer = memo(function AnnotationsLayer(props: LayerProps) {
   const { floor, viewport, selection, dark } = props;
   const s = 1 / viewport.scale;
@@ -85,7 +100,8 @@ export const AnnotationsLayer = memo(function AnnotationsLayer(props: LayerProps
   for (const a of floor.annotations) {
     if (a.hidden) continue;
     if (a.kind === 'text') nodes.push(<TextNoteNode key={a.id} a={a} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
-    else nodes.push(<MeasureNode key={a.id} a={a} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
+    else if (a.kind === 'measure') nodes.push(<MeasureNode key={a.id} a={a} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
+    else nodes.push(<EscapeRouteNode key={a.id} a={a} pal={pal} s={s} selected={selectedIds.has(a.id)} />);
   }
   return <Group listening={false}>{nodes}</Group>;
 });

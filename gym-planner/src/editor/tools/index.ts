@@ -8,6 +8,7 @@ import './zoneTools';
 import './openingTools';
 import './placeTools';
 import './measureTool';
+import './escapeRouteTool';
 import './textTool';
 import './voidTool';
 import './panTool';

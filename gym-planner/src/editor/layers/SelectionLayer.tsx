@@ -307,8 +307,10 @@ export const SelectionLayer = memo(function SelectionLayer(props: LayerProps) {
           if (a.kind === 'text') {
             const b = textBox(a);
             nodes.push(<Rect key={`a:${sel.id}`} x={b.minX - 2 * s} y={b.minY - 2 * s} width={b.maxX - b.minX + 4 * s} height={b.maxY - b.minY + 4 * s} rotation={a.rotation} stroke={a.locked ? pal.locked : pal.accent} strokeWidth={1.5 * s} dash={dash} listening={false} />);
-          } else {
+          } else if (a.kind === 'measure') {
             nodes.push(<Line key={`a:${sel.id}`} points={[a.start.x, a.start.y, a.end.x, a.end.y]} stroke={a.locked ? pal.locked : pal.accent} strokeWidth={4 * s} opacity={0.5} listening={false} />);
+          } else {
+            nodes.push(<Line key={`a:${sel.id}`} points={flatten(a.points)} stroke={a.locked ? pal.locked : pal.accent} strokeWidth={4 * s} opacity={0.5} listening={false} />);
           }
           break;
         }

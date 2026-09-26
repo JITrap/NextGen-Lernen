@@ -63,7 +63,8 @@ export function floorContentBounds(floor: Floor, project?: Project, includeSafet
   for (const a of floor.annotations) {
     if (a.hidden) continue;
     if (a.kind === 'text') pts.push({ x: a.x, y: a.y }, { x: a.x + Math.max(60, a.text.length * a.fontSize * 0.6), y: a.y + a.fontSize * 1.4 });
-    else pts.push(a.start, a.end);
+    else if (a.kind === 'measure') pts.push(a.start, a.end);
+    else pts.push(...a.points);
   }
   if (!pts.length) return { minX: 0, minY: 0, maxX: 1000, maxY: 800 };
   const b = bbox(pts);
@@ -414,8 +415,13 @@ function drawFloor(layer: Konva.Layer, project: Project, floor: Floor, opts: Ren
       if (a.fontSize * px >= minLabelPx) {
         layer.add(new Konva.Text({ x: a.x, y: a.y, text: a.text, fontSize: a.fontSize, fontFamily: FONT, fill: a.color ?? INK, rotation: a.rotation }));
       }
-    } else {
+    } else if (a.kind === 'measure') {
       drawMeasure(layer, a.start, a.end, '#e11d48', px, minLabelPx);
+    } else if (a.points.length >= 2) {
+      const flat: number[] = [];
+      for (const q of a.points) flat.push(q.x, q.y);
+      layer.add(new Konva.Line({ points: flat, stroke: '#ffffff', strokeWidth: 10, lineCap: 'round', lineJoin: 'round', opacity: 0.7 }));
+      layer.add(new Konva.Arrow({ points: flat, stroke: '#15803d', fill: '#15803d', strokeWidth: 4, dash: [18, 10], pointerLength: 18, pointerWidth: 16, lineCap: 'round', lineJoin: 'round' }));
     }
   }
 

@@ -4,6 +4,7 @@
  * Anmerkung, Luftraum, Hallen-Eckpunkt/-Kante. Alle Änderungen laufen über den Store bzw. src/editor/actions
  * als jeweils ein Undo-Schritt (transaction).
  */
+import { EscapeRouteProps } from './EscapeRouteProps';
 import { useMemo, useState, type ReactNode } from 'react';
 import {
   Building2, Dumbbell, BrickWall, LayoutDashboard, DoorOpen, AppWindow, MessageSquareText, Ruler, SquareDashed, Lock, LockOpen, Eye, EyeOff,
@@ -1101,6 +1102,11 @@ function OpeningProps({ opening, floor }: { opening: Opening; floor: Floor }) {
 /* ------------------------------------------------------------------ */
 
 function AnnotationProps({ ann, floor }: { ann: Annotation; floor: Floor }) {
+  if (ann.kind === 'escape-route') return <EscapeRouteProps ann={ann} floor={floor} />;
+  return <TextOrMeasureProps ann={ann} floor={floor} />;
+}
+
+function TextOrMeasureProps({ ann, floor }: { ann: Exclude<Annotation, { kind: 'escape-route' }>; floor: Floor }) {
   const locked = !!ann.locked;
   const patch = (p: Partial<Annotation>) => transaction(() => store().updateAnnotation(floor.id, ann.id, p));
   if (ann.kind === 'text') {

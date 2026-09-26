@@ -288,7 +288,18 @@ export interface MeasureLine {
   hidden?: boolean;
 }
 
-export type Annotation = TextNote | MeasureLine;
+/** Fluchtweg: Polylinie vom Startpunkt zum Notausgang (Pfeile in Laufrichtung); Länge geht in die Regularien-Prüfung ein. */
+export interface EscapeRoute {
+  id: Id;
+  kind: 'escape-route';
+  points: Vec2[];
+  /** Optionaler Name (z. B. „Fluchtweg 1 – Haupteingang“). */
+  label?: string;
+  locked?: boolean;
+  hidden?: boolean;
+}
+
+export type Annotation = TextNote | MeasureLine | EscapeRoute;
 
 export interface Floor {
   id: Id;
@@ -364,6 +375,51 @@ export interface Project {
   favorites: string[];
   /** Preisüberschreibungen je Bibliotheks-ID. */
   priceOverrides: Record<string, number>;
+  /** Annahmen der Kostenkalkulation (fehlt bei älteren Projekten → Standardwerte, siehe analysis/costs). */
+  costs?: Partial<CostAssumptions>;
+}
+
+/**
+ * Annahmen der Kostenkalkulation (netto, EUR). Einmalkosten je m² beziehen sich auf die Nettofläche bzw. die
+ * Flächenklasse (Trainingsfläche, Sanitär/Umkleide); Prozentwerte auf die jeweils genannte Basis.
+ */
+export interface CostAssumptions {
+  /** Grundausbau je m² Nettofläche (Trockenbau, Elektro, Beleuchtung, Maler). */
+  ausbauEurM2: number;
+  /** Sportboden (Gummi/Kautschuk) je m² Trainingsfläche, verlegt. */
+  bodenTrainingEurM2: number;
+  /** Fliesen/Vinyl je m² Sanitär-/Umkleidefläche, verlegt. */
+  bodenNassEurM2: number;
+  /** Lüftungsanlage (RLT) je m² Nettofläche. */
+  lueftungEurM2: number;
+  /** Spiegelwände je laufendem Meter (Höhe ca. 2,2 m). */
+  spiegelEurM: number;
+  /** Brandmelde-/Sicherheitsbeleuchtung/Rettungszeichen je m² Nettofläche. */
+  brandschutzEurM2: number;
+  /** Sanitärinstallation je Dusche / WC / Waschtisch (Anschluss, Armaturen). */
+  sanitaerDuscheEur: number;
+  sanitaerWcEur: number;
+  sanitaerWaschtischEur: number;
+  /** Planung/Genehmigung (Architekt, Brandschutzkonzept, Nutzungsänderung) in % der Ausbaukosten. */
+  planungProzent: number;
+  /** Import-Nebenkosten (Fracht, Zoll, EUSt) in % der Gerätekosten von Übersee-Herstellern (Atlantis, Prime). */
+  importNebenkostenProzent: number;
+  /** Unvorhergesehenes in % der Einmalkosten. */
+  unvorhergesehenProzent: number;
+  /** Kaution in Monatsmieten. */
+  kautionMonate: number;
+  /** Eröffnungsmarketing, Software/Zutrittssystem, Kleinmaterial pauschal. */
+  sonstigeEinmalEur: number;
+  /** Laufende Kosten je Monat. */
+  mieteEurM2Monat: number;
+  nebenkostenEurM2Monat: number;
+  personalEurMonat: number;
+  sonstigesEurMonat: number;
+  /** Wartung/Instandhaltung in % des Gerätewerts je Jahr. */
+  wartungProzentJahr: number;
+  /** Gerätefinanzierung: Laufzeit in Jahren (0 = Barkauf) und Zins in % p. a. */
+  finanzierungJahre: number;
+  zinsProzent: number;
 }
 
 /** Eintrag in der Projektliste (localStorage), Daten liegen in IndexedDB. */
@@ -393,7 +449,7 @@ export interface ProjectVersion {
 export type Tool =
   | 'select' | 'hall-rect' | 'hall-polygon' | 'wall' | 'zone-rect' | 'zone-polygon'
   | 'door' | 'window' | 'mirror' | 'stairs' | 'elevator' | 'column' | 'measure' | 'text'
-  | 'void' | 'pan';
+  | 'void' | 'escape-route' | 'pan';
 
 export type SelectableKind = 'item' | 'wall' | 'zone' | 'room' | 'opening' | 'annotation' | 'void' | 'hallVertex' | 'hallEdge';
 

@@ -8,7 +8,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import {
   ChevronDown, ChevronRight, LayoutGrid, Dumbbell, Weight, Users, ClipboardList, TriangleAlert, OctagonAlert, Info,
-  Download, CircleCheck, Crosshair, Layers,
+  Download, CircleCheck, Crosshair, Layers, ShieldCheck, Euro,
 } from 'lucide-react';
 import type { PlanningWarning, WarningKind, Id } from '@/types';
 import { useProjectStore, transaction } from '@/store/projectStore';
@@ -24,15 +24,17 @@ import { exportCsv } from '@/export';
 import { DonutChart } from './charts/DonutChart';
 import { BarChart } from './charts/BarChart';
 import { StatTile } from './charts/StatTile';
+import { RegulationsSection } from './RegulationsSection';
+import { CostSection } from './CostSection';
 
 /* ------------------------------------------------------------------ */
 /* Lokaler UI-Zustand (Abschnitte, Umfang, Filter) – bleibt erhalten   */
 /* ------------------------------------------------------------------ */
 
-type SectionId = 'area' | 'equipment' | 'load' | 'capacity' | 'bom' | 'warnings';
+type SectionId = 'area' | 'equipment' | 'load' | 'capacity' | 'regulations' | 'costs' | 'bom' | 'warnings';
 type Scope = 'active' | 'all';
 
-const DEFAULT_OPEN: Record<SectionId, boolean> = { area: true, equipment: false, load: false, capacity: true, bom: false, warnings: true };
+const DEFAULT_OPEN: Record<SectionId, boolean> = { area: true, equipment: false, load: false, capacity: true, regulations: true, costs: false, bom: false, warnings: true };
 
 interface OverviewUiState {
   scope: Scope;
@@ -520,6 +522,16 @@ export function OverviewPanel() {
             </li>
           ))}
         </ul>
+      </Section>
+
+      {/* Regularien & Brandschutz */}
+      <Section id="regulations" title="Regularien & Brandschutz" icon={<ShieldCheck size={16} />}>
+        <RegulationsSection project={project} scope={scope} activeFloorId={activeFloor?.id ?? null} />
+      </Section>
+
+      {/* Kosten */}
+      <Section id="costs" title="Kosten" icon={<Euro size={16} />}>
+        <CostSection project={project} scope={scope} activeFloorId={activeFloor?.id ?? null} />
       </Section>
 
       {/* Stückliste */}

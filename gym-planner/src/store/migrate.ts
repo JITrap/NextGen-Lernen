@@ -250,8 +250,11 @@ function checkAnnotation(c: Collector, a: unknown, path: string) {
   } else if (a.kind === 'measure') {
     if (!isVec2(a.start)) c.error(`${path}.start`, 'Punkt {x, y} erwartet');
     if (!isVec2(a.end)) c.error(`${path}.end`, 'Punkt {x, y} erwartet');
+  } else if (a.kind === 'escape-route') {
+    if (!Array.isArray(a.points) || a.points.length < 2 || !a.points.every(isVec2)) c.error(`${path}.points`, 'Polylinie mit mindestens 2 Punkten erwartet');
+    if (a.label !== undefined && !isStr(a.label)) c.error(`${path}.label`, 'Text erwartet');
   } else {
-    c.error(`${path}.kind`, 'Art muss „text“ oder „measure“ sein');
+    c.error(`${path}.kind`, 'Art muss „text“, „measure“ oder „escape-route“ sein');
   }
 }
 
