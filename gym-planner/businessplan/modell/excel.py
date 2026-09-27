@@ -791,6 +791,21 @@ def write_excel(a: dict, daten: dict, path: str, szenario_werte: dict[str, dict]
                 v = szenario_werte[s].get(key)
                 put(sz, f'{col}{5 + i}', v if v is not None else 'n. e.', BLACK, fmt)
 
+        # Sensitivitäten (Werte)
+        sens = szenario_werte.get('sensitivitaet') if isinstance(szenario_werte, dict) else None
+        if sens:
+            r0 = 5 + len(keys) + 2
+            put(sz, f'B{r0}', 'Sensitivitäten (Basis-Szenario, jeweils eine Annahme verändert; Werte)', H2)
+            heads = ['Fall', 'EBITDA Jahr 3', 'Ergebnis Jahr 3', 'DSCR Jahr 3', 'DSCR Jahr 4', 'Reservebedarf 24 Mon.', 'Mitglieder Ende Jahr 2']
+            for j, h in enumerate(heads):
+                put(sz, f'{L(2 + j)}{r0 + 1}', h, BOLD, fill=HEAD)
+                sz.column_dimensions[L(2 + j)].width = max(sz.column_dimensions[L(2 + j)].width or 0, 18)
+            for i, row in enumerate(sens):
+                vals = [row['fall'], row['ebitda_j3'], row['ergebnis_j3'], row['dscr_j3'], row['dscr_j4'], row['reserve_bedarf_24'], row['mitglieder_m24']]
+                fmts = ['@', EUR, EUR, '0.00', '0.00', EUR, NUM]
+                for j, (v, f) in enumerate(zip(vals, fmts)):
+                    put(sz, f'{L(2 + j)}{r0 + 2 + i}', v if v is not None else 'n. e.', BLACK, f)
+
     # Druckeinstellungen
     for w in wb.worksheets:
         w.page_setup.orientation = 'landscape'
@@ -804,5 +819,12 @@ def write_excel(a: dict, daten: dict, path: str, szenario_werte: dict[str, dict]
 if __name__ == '__main__':
     import sys
     a = M.load(sys.argv[1]); d = M.load(sys.argv[2])
-    write_excel(a, d, sys.argv[3])
+    sw = None
+    try:
+        z = M.load(sys.argv[4] if len(sys.argv) > 4 else 'zahlen.json')
+        sw = {k: {**z['szenarien'][k]['summary'], 'faktoren': f"{z['annahmen']['szenarien'][k]['neuzugaenge_faktor']:.2f} / {z['annahmen']['szenarien'][k]['kuendigungsquote_monat'] * 100:.1f} % / {z['annahmen']['szenarien'][k]['beitrag_faktor']:.2f}".replace('.', ','), 'min_kasse_txt': f"{z['szenarien'][k]['min_kasse'][1]:,.0f} € (Monat {z['szenarien'][k]['min_kasse'][0]})".replace(',', '.'), 'reserve_bedarf_24': z['szenarien'][k]['reserve_bedarf_24'], 'be_monat_ebitda': z['szenarien'][k]['be_monat_ebitda'], 'be_monat_cf': z['szenarien'][k]['be_monat_cf'], 'be_mitglieder': z['szenarien'][k]['be_mitglieder']} for k in ('pessimistisch', 'basis', 'optimistisch')}
+        sw['sensitivitaet'] = z['sensitivitaet']
+    except Exception as e:
+        print('keine Szenarienwerte:', e)
+    write_excel(a, d, sys.argv[3], szenario_werte=sw, stand='27.09.2026')
     print('geschrieben', sys.argv[3])

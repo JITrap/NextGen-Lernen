@@ -27,7 +27,7 @@ Räume typisiert, Rack-Module angedockt).
 | Trainingsfläche | 1.083 m² (Zonen überlappen, Flächenbilanz doppelt) | 1.139 m² (8 Zonen ohne Überlappung + Kursraum) |
 | Geräte-Summe (Bibliothekspreise) | 423.350 € | 590.968 € |
 | Einmalkosten (Standardannahmen, Geräte finanziert) | 1.150.289 € | 1.243.141 € (Gesamtinvestition 1.866.337 €) |
-| Laufende Kosten je Monat | 58.017 € | 61.997 € |
+| Laufende Kosten je Monat | 58.017 € (Miete 9,00 €/m²) | 61.009 € (Miete 8,50 €/m², als Projektannahme hinterlegt) |
 
 ## Was geändert wurde
 

@@ -183,40 +183,30 @@ for (const k of kapitel) {
   body.push(...renderBlocks(k.bloecke || [], CONTENT_W, 600));
 }
 
-// ---------------------------------------------------------------- Anhang (Hochformat: A, B, D, E, G, H; Querformat: C)
+// ---------------------------------------------------------------- Anhang in Reihenfolge A–I (C und F im Querformat)
 const anhangTitel = { A: 'Anhang A – Investitions- und Geräteliste', B: 'Anhang B – Tilgungspläne', C: 'Anhang C – Liquiditätsplan (monatlich)', D: 'Anhang D – Rentabilitätsvorschau (Plan-GuV)', E: 'Anhang E – Planungsannahmen', F: 'Anhang F – Grundriss', G: 'Anhang G – Immobilien-Shortlist', H: 'Anhang H – Regularien-Checkliste', I: 'Anhang I – Quellen' };
-const portraitAppendix = [];
-const landscapeAppendix = [];
-function appendixSection(letter, target, width) {
-  target.push(h1(anhangTitel[letter]));
+function appendixSection(letter, width, intro) {
+  const target = [h1(anhangTitel[letter])];
+  if (intro) target.push(p(intro));
   for (const t of anhang.filter((x) => x.anhang === letter)) {
     target.push(new Paragraph({ children: [run(t.titel, { bold: true, size: 20 })], spacing: { before: 200, after: 80 }, keepNext: true, alignment: AlignmentType.LEFT }));
     target.push(table(t, width));
     if (t.quelle) target.push(caption(t.quelle));
   }
+  return target;
 }
-appendixSection('A', portraitAppendix, CONTENT_W);
-appendixSection('B', portraitAppendix, CONTENT_W);
-appendixSection('D', portraitAppendix, CONTENT_W);
-appendixSection('E', portraitAppendix, CONTENT_W);
-// F Grundriss
-portraitAppendix.push(h1(anhangTitel.F));
-portraitAppendix.push(p('Der Grundriss stammt aus der Planungssoftware GymPlanner (Projekt „No.1 (überarbeitet)“, Maßstab nach Fläche 59,5 × 33,2 m). Er zeigt Räume mit Flächen, Trainingszonen, Geräteaufstellung, Notausgänge, Fluchtwege und Sicherheitsausstattung. Die Datei liegt zusätzlich als Projektdatei und PDF-Plan bei.'));
-appendixSection('G', portraitAppendix, CONTENT_W);
-appendixSection('H', portraitAppendix, CONTENT_W);
-// I Quellen
-portraitAppendix.push(h1(anhangTitel.I));
 const quellen = new Set();
 for (const k of kapitel) for (const q of k.quellen || []) quellen.add(q);
 for (const q of meta.quellen_zusatz || []) quellen.add(q);
-for (const q of [...quellen].sort()) portraitAppendix.push(bullet(q));
-// Grundriss-Section (Querformat) und C (Querformat)
-appendixSection('C', landscapeAppendix, CONTENT_W_LS);
-
-const grundriss = [
-  new Paragraph({ children: [run('Abbildung F.1: Grundriss No.1 (überarbeitet) – Erdgeschoss, 1.975 m² Bruttofläche', { bold: true, size: 20 })], spacing: { after: 80 }, alignment: AlignmentType.LEFT }),
-  ...image('grundriss-no1.png', 940, 'Quelle: GymPlanner, Export September 2026; Legende der Raumtypen am unteren Bildrand'),
+const quellenBlock = [h1(anhangTitel.I), p('Die folgenden Quellen wurden für Marktdaten, Förderkonditionen, Betriebskennzahlen und Standortdaten herangezogen (Stand September 2026). Die vollständigen Rechercheprotokolle mit Abrufdaten liegen dem Plan digital bei.'), ...[...quellen].sort((a, b) => a.localeCompare(b, 'de')).map((q) => bullet(q))];
+const grundrissBlock = [
+  h1(anhangTitel.F),
+  p('Der Grundriss stammt aus der Planungssoftware GymPlanner (Projekt „No.1 (überarbeitet)“, Halle 59,5 × 33,2 m, 1.975 m² Bruttofläche). Er zeigt Räume mit Flächen, Trainingszonen, die Geräteaufstellung mit Sicherheitsabständen, Notausgänge, Fluchtwege und die Sicherheitsausstattung. Die Planungsdatei liegt digital bei.'),
+  ...image('grundriss-no1.png', 930, 'Abbildung F.1: Grundriss No.1 (überarbeitet), Erdgeschoss – Quelle: GymPlanner, Export September 2026; Legende der Raumtypen am unteren Bildrand'),
 ];
+const pageP = { size: { width: PAGE_W, height: PAGE_H }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } };
+const pageL = { size: { width: PAGE_W, height: PAGE_H, orientation: PageOrientation.LANDSCAPE }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } };
+const sec = (children, landscape) => ({ properties: { page: landscape ? pageL : pageP }, headers: { default: header }, footers: { default: footer }, children });
 
 const doc = new Document({
   creator: meta.gruender,
@@ -233,9 +223,12 @@ const doc = new Document({
   numbering: { config: [{ reference: 'bullets', levels: [{ level: 0, format: LevelFormat.BULLET, text: '•', alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 480, hanging: 240 } } } }] }] },
   features: { updateFields: true },
   sections: [
-    { properties: { page: { size: { width: PAGE_W, height: PAGE_H }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } } }, children: cover },
-    { properties: { page: { size: { width: PAGE_W, height: PAGE_H }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } } }, headers: { default: header }, footers: { default: footer }, children: [...toc, ...body, ...portraitAppendix] },
-    { properties: { page: { size: { width: PAGE_W, height: PAGE_H, orientation: PageOrientation.LANDSCAPE }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } } }, headers: { default: header }, footers: { default: footer }, children: [...grundriss, ...landscapeAppendix] },
+    { properties: { page: pageP }, children: cover },
+    sec([...toc, ...body, ...appendixSection('A', CONTENT_W), ...appendixSection('B', CONTENT_W)], false),
+    sec(appendixSection('C', CONTENT_W_LS, 'Zahlungsströme brutto (inklusive Umsatzsteuer) je Monat; Monate −5 bis −1 = Ausbau- und Vorverkaufsphase, Monat 1 = Eröffnung (September 2027). Die Umsatzsteuer-Zahllast wird im Folgemonat gezahlt, Vorsteuerüberhänge werden im Folgemonat erstattet; Ertragsteuern werden im Folgejahr fällig. Der Plan enthält alle 60 Betriebsmonate in der Excel-Datei; hier sind die ersten 36 Monate abgebildet.'), true),
+    sec([...appendixSection('D', CONTENT_W), ...appendixSection('E', CONTENT_W)], false),
+    sec(grundrissBlock, true),
+    sec([...appendixSection('G', CONTENT_W), ...appendixSection('H', CONTENT_W), ...quellenBlock], false),
   ],
 });
 
