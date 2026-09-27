@@ -1,0 +1,4517 @@
+{
+ "tables": [
+  {
+   "anhang": "A",
+   "id": "A1",
+   "titel": "Tabelle A.1: Investitionsplan (netto, EUR)",
+   "spalten": [
+    "Position",
+    "Gruppe",
+    "Betrag netto",
+    "AfA Jahre",
+    "Zahlung ab Monat",
+    "Hinweis"
+   ],
+   "zeilen": [
+    [
+     "Geräte Kraftgeräte",
+     "Geraete",
+     "268.570",
+     "8",
+     "-1 (1 Mon.)",
+     "52 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Freihantel-Zubehör",
+     "Geraete",
+     "4.300",
+     "8",
+     "-1 (1 Mon.)",
+     "10 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Cardio",
+     "Geraete",
+     "104.760",
+     "8",
+     "-1 (1 Mon.)",
+     "20 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Functional",
+     "Geraete",
+     "6.709",
+     "8",
+     "-1 (1 Mon.)",
+     "22 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Kursraum",
+     "Geraete",
+     "20.610",
+     "8",
+     "-1 (1 Mon.)",
+     "28 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Empfang & Lounge",
+     "Geraete",
+     "25.274",
+     "8",
+     "-1 (1 Mon.)",
+     "28 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Umkleide",
+     "Geraete",
+     "32.310",
+     "8",
+     "-1 (1 Mon.)",
+     "39 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Sanitär",
+     "Geraete",
+     "26.250",
+     "8",
+     "-1 (1 Mon.)",
+     "18 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Wellness",
+     "Geraete",
+     "55.850",
+     "8",
+     "-1 (1 Mon.)",
+     "8 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Büro & Personal",
+     "Geraete",
+     "5.450",
+     "8",
+     "-1 (1 Mon.)",
+     "12 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Lager & Technik",
+     "Geraete",
+     "8.850",
+     "8",
+     "-1 (1 Mon.)",
+     "14 Objekte lt. Stückliste"
+    ],
+    [
+     "Geräte Ausstattung",
+     "Geraete",
+     "32.035",
+     "8",
+     "-1 (1 Mon.)",
+     "111 Objekte lt. Stückliste"
+    ],
+    [
+     "Import-Nebenkosten (Fracht, Zoll) Atlantis/Prime",
+     "Import",
+     "32.228",
+     "8",
+     "-1 (1 Mon.)",
+     "Fracht, Zoll, EUSt auf Atlantis/Prime-Geräte"
+    ],
+    [
+     "Grundausbau (Trockenbau, Elektro, LED, Heizung, Maler)",
+     "Ausbau",
+     "482.784",
+     "10",
+     "-4 (4 Mon.)",
+     "1931 m² × 250 €"
+    ],
+    [
+     "Sportboden Trainingsfläche",
+     "Ausbau",
+     "62.622",
+     "10",
+     "-4 (4 Mon.)",
+     "1139 m² × 55 €"
+    ],
+    [
+     "Nassbereich-Boden Umkleide/Sanitär",
+     "Ausbau",
+     "14.309",
+     "10",
+     "-4 (4 Mon.)",
+     "159 m² × 90 €"
+    ],
+    [
+     "Lüftung (RLT-Anlage)",
+     "Ausbau",
+     "212.425",
+     "10",
+     "-4 (4 Mon.)",
+     "1931 m² × 110 €"
+    ],
+    [
+     "Spiegelwände",
+     "Ausbau",
+     "21.714",
+     "10",
+     "-4 (4 Mon.)",
+     "33 m × 660 €"
+    ],
+    [
+     "Brandschutz / Sicherheitsbeleuchtung",
+     "Ausbau",
+     "57.934",
+     "10",
+     "-4 (4 Mon.)",
+     "1931 m² × 30 €"
+    ],
+    [
+     "Sanitärinstallation Duschen",
+     "Sanitaer",
+     "27.000",
+     "10",
+     "-4 (4 Mon.)",
+     "18 Stk. × 1500 €"
+    ],
+    [
+     "Sanitärinstallation WCs/Urinale",
+     "Sanitaer",
+     "8.800",
+     "10",
+     "-4 (4 Mon.)",
+     "11 Stk. × 800 €"
+    ],
+    [
+     "Sanitärinstallation Waschtische",
+     "Sanitaer",
+     "4.000",
+     "10",
+     "-4 (4 Mon.)",
+     "8 Stk. × 500 €"
+    ],
+    [
+     "Planung, Fachplaner, Genehmigung (Nutzungsänderung)",
+     "Planung",
+     "106.991",
+     "10",
+     "-5 (5 Mon.)",
+     "Prozent der Ausbau- und Sanitärsumme"
+    ],
+    [
+     "Zutrittssystem, Studiosoftware-Einrichtung, Kleinmaterial, Brandschutzkonzept",
+     "Sonstiges",
+     "32.000",
+     "5",
+     "-2 (1 Mon.)",
+     "Marketing, Software, Kleinmaterial"
+    ],
+    [
+     "Unvorhergesehenes (10 % der Investitionssumme)",
+     "Unvorhergesehen",
+     "165.378",
+     "10",
+     "-4 (4 Mon.)",
+     "Reserve für Mehrkosten im Ausbau"
+    ],
+    [
+     "Mietkaution (3 Monatsmieten inkl. Nebenkosten)",
+     "Kaution",
+     "85.930",
+     "–",
+     "-5 (1 Mon.)",
+     "Sicherheitsleistung, kein Aufwand"
+    ],
+    [
+     "Gründungskosten GmbH (Notar, Handelsregister, Gewerbeanmeldung)",
+     "Gruendung",
+     "2.500",
+     "–",
+     "-5 (1 Mon.)",
+     ""
+    ],
+    [
+     "Beratung (Businessplan, Steuerberatung Gründung)",
+     "Gruendung",
+     "5.000",
+     "–",
+     "-5 (1 Mon.)",
+     ""
+    ],
+    [
+     "Investitionssumme (ohne Anlaufreserve)",
+     "",
+     "1.912.583",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Anlaufreserve / Betriebsmittel (24 Monate)",
+     "Reserve",
+     "710.000",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Kapitalbedarf gesamt",
+     "",
+     "2.622.583",
+     "",
+     "",
+     ""
+    ]
+   ],
+   "breiten": [
+    34,
+    10,
+    12,
+    8,
+    12,
+    24
+   ],
+   "quelle": "Quelle: Kostenkalkulation GymPlanner (Projekt No.1 überarbeitet), Miete 8,50 €/m²; Stand 2026-09-27"
+  },
+  {
+   "anhang": "A",
+   "id": "A2",
+   "titel": "Tabelle A.2: Geräte und Ausstattung je Bibliotheksbereich (Stückliste, netto EUR)",
+   "spalten": [
+    "Bereich",
+    "Positionen",
+    "Objekte",
+    "Summe netto"
+   ],
+   "zeilen": [
+    [
+     "Kraftgeräte",
+     "41",
+     "52",
+     "268.570"
+    ],
+    [
+     "Cardio",
+     "7",
+     "20",
+     "104.760"
+    ],
+    [
+     "Wellness",
+     "6",
+     "8",
+     "55.850"
+    ],
+    [
+     "Umkleide",
+     "15",
+     "39",
+     "32.310"
+    ],
+    [
+     "Ausstattung",
+     "15",
+     "111",
+     "32.035"
+    ],
+    [
+     "Sanitär",
+     "6",
+     "18",
+     "26.250"
+    ],
+    [
+     "Empfang & Lounge",
+     "12",
+     "28",
+     "25.274"
+    ],
+    [
+     "Kursraum",
+     "8",
+     "28",
+     "20.610"
+    ],
+    [
+     "Lager & Technik",
+     "9",
+     "14",
+     "8.850"
+    ],
+    [
+     "Functional",
+     "13",
+     "22",
+     "6.709"
+    ],
+    [
+     "Büro & Personal",
+     "8",
+     "12",
+     "5.450"
+    ],
+    [
+     "Freihantel-Zubehör",
+     "5",
+     "10",
+     "4.300"
+    ],
+    [
+     "Bauelemente",
+     "2",
+     "7",
+     "0"
+    ],
+    [
+     "Summe",
+     "147",
+     "369",
+     "590.968"
+    ]
+   ],
+   "breiten": [
+    46,
+    18,
+    18,
+    18
+   ],
+   "quelle": "Quelle: Stückliste GymPlanner; Preise recherchiert (Preisbasis: liste 11, haendler 128, schaetzung 230, None 0); Import-Anteil Atlantis/Prime 268.570 €"
+  },
+  {
+   "anhang": "A",
+   "id": "A3",
+   "titel": "Tabelle A.3: Die 30 größten Gerätepositionen (netto EUR)",
+   "spalten": [
+    "Position",
+    "Hersteller",
+    "Bereich",
+    "Anzahl",
+    "Stückpreis",
+    "Summe",
+    "Preisbasis"
+   ],
+   "zeilen": [
+    [
+     "Laufband",
+     "Generisch",
+     "Cardio",
+     "5",
+     "8.000",
+     "40.000",
+     "haendler"
+    ],
+    [
+     "Stairmaster",
+     "Generisch",
+     "Cardio",
+     "4",
+     "6.500",
+     "26.000",
+     "schaetzung"
+    ],
+    [
+     "Finnische Sauna 400 × 300",
+     "Generisch",
+     "Wellness",
+     "1",
+     "22.000",
+     "22.000",
+     "schaetzung"
+    ],
+    [
+     "Crosstrainer",
+     "Generisch",
+     "Cardio",
+     "3",
+     "7.000",
+     "21.000",
+     "schaetzung"
+    ],
+    [
+     "Dampfbad",
+     "Generisch",
+     "Wellness",
+     "1",
+     "20.000",
+     "20.000",
+     "schaetzung"
+    ],
+    [
+     "Converging incline bench press",
+     "Atlantis",
+     "Kraftgeräte",
+     "3",
+     "5.080",
+     "15.240",
+     "haendler"
+    ],
+    [
+     "Wasserspender",
+     "Generisch",
+     "Ausstattung",
+     "10",
+     "1.500",
+     "15.000",
+     "haendler"
+    ],
+    [
+     "Indoor-Cycling-Rad (Kurs)",
+     "Generisch",
+     "Kursraum",
+     "8",
+     "1.850",
+     "14.800",
+     "haendler"
+    ],
+    [
+     "Smith machine",
+     "Atlantis",
+     "Kraftgeräte",
+     "2",
+     "7.240",
+     "14.480",
+     "haendler"
+    ],
+    [
+     "Unilateral lat pulldown (NM500 model)",
+     "Atlantis",
+     "Kraftgeräte",
+     "2",
+     "7.020",
+     "14.040",
+     "haendler"
+    ],
+    [
+     "Low Row (D124 model)",
+     "Atlantis",
+     "Kraftgeräte",
+     "2",
+     "5.870",
+     "11.740",
+     "haendler"
+    ],
+    [
+     "Horizontal leg press",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "10.610",
+     "10.610",
+     "haendler"
+    ],
+    [
+     "Lat Pulldown (D123 model)",
+     "Atlantis",
+     "Kraftgeräte",
+     "2",
+     "5.270",
+     "10.540",
+     "haendler"
+    ],
+    [
+     "Reihendusche (4 Plätze)",
+     "Generisch",
+     "Sanitär",
+     "4",
+     "2.600",
+     "10.400",
+     "schaetzung"
+    ],
+    [
+     "Ergometer",
+     "Generisch",
+     "Cardio",
+     "3",
+     "3.300",
+     "9.900",
+     "haendler"
+    ],
+    [
+     "Biceps isolator",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "9.400",
+     "9.400",
+     "haendler"
+    ],
+    [
+     "Half rack",
+     "Atlantis",
+     "Kraftgeräte",
+     "3",
+     "3.100",
+     "9.300",
+     "haendler"
+    ],
+    [
+     "Pendulum Squat Pro",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "9.280",
+     "9.280",
+     "haendler"
+    ],
+    [
+     "40 Degree leg press",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "8.470",
+     "8.470",
+     "haendler"
+    ],
+    [
+     "Hack squat",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "8.310",
+     "8.310",
+     "haendler"
+    ],
+    [
+     "Standing lateral raise",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "8.140",
+     "8.140",
+     "haendler"
+    ],
+    [
+     "Assisted chin/dip",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "7.950",
+     "7.950",
+     "haendler"
+    ],
+    [
+     "Triceps pushdown",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "7.950",
+     "7.950",
+     "haendler"
+    ],
+    [
+     "Leg extension",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "7.590",
+     "7.590",
+     "haendler"
+    ],
+    [
+     "Incline pec fly",
+     "Atlantis",
+     "Kraftgeräte",
+     "2",
+     "3.750",
+     "7.500",
+     "schaetzung"
+    ],
+    [
+     "Kneeling leg curl",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "7.410",
+     "7.410",
+     "haendler"
+    ],
+    [
+     "Lying leg curl",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "7.220",
+     "7.220",
+     "haendler"
+    ],
+    [
+     "WC-Kabine",
+     "Generisch",
+     "Sanitär",
+     "6",
+     "1.150",
+     "6.900",
+     "haendler"
+    ],
+    [
+     "Glute Abductor",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "6.830",
+     "6.830",
+     "haendler"
+    ],
+    [
+     "Lat pulldown",
+     "Atlantis",
+     "Kraftgeräte",
+     "1",
+     "6.480",
+     "6.480",
+     "haendler"
+    ]
+   ],
+   "breiten": [
+    30,
+    12,
+    14,
+    8,
+    12,
+    12,
+    12
+   ],
+   "quelle": "Preisbasis: liste = Herstellerliste, haendler = Händlerangebot, schaetzung = Richtwert; vor Bestellung durch Angebote zu ersetzen"
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Kraftgeräte",
+   "titel": "Tabelle A.4: Geräteliste Bereich Kraftgeräte (52 Objekte, 268.570 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Converging incline bench press",
+     "Atlantis P443",
+     "3",
+     "5.080",
+     "15.240"
+    ],
+    [
+     "Smith machine",
+     "Atlantis E155",
+     "2",
+     "7.240",
+     "14.480"
+    ],
+    [
+     "Unilateral lat pulldown (NM500 model)",
+     "Atlantis MS12",
+     "2",
+     "7.020",
+     "14.040"
+    ],
+    [
+     "Low Row (D124 model)",
+     "Atlantis MS7",
+     "2",
+     "5.870",
+     "11.740"
+    ],
+    [
+     "Horizontal leg press",
+     "Atlantis C403",
+     "1",
+     "10.610",
+     "10.610"
+    ],
+    [
+     "Lat Pulldown (D123 model)",
+     "Atlantis MS6",
+     "2",
+     "5.270",
+     "10.540"
+    ],
+    [
+     "Biceps isolator",
+     "Atlantis B160",
+     "1",
+     "9.400",
+     "9.400"
+    ],
+    [
+     "Half rack",
+     "Atlantis C511",
+     "3",
+     "3.100",
+     "9.300"
+    ],
+    [
+     "Pendulum Squat Pro",
+     "Atlantis PW212",
+     "1",
+     "9.280",
+     "9.280"
+    ],
+    [
+     "40 Degree leg press",
+     "Atlantis C401",
+     "1",
+     "8.470",
+     "8.470"
+    ],
+    [
+     "Hack squat",
+     "Atlantis C412",
+     "1",
+     "8.310",
+     "8.310"
+    ],
+    [
+     "Standing lateral raise",
+     "Atlantis E252",
+     "1",
+     "8.140",
+     "8.140"
+    ],
+    [
+     "Assisted chin/dip",
+     "Atlantis D131",
+     "1",
+     "7.950",
+     "7.950"
+    ],
+    [
+     "Triceps pushdown",
+     "Atlantis T163",
+     "1",
+     "7.950",
+     "7.950"
+    ],
+    [
+     "Leg extension",
+     "Atlantis C105",
+     "1",
+     "7.590",
+     "7.590"
+    ],
+    [
+     "Incline pec fly",
+     "Atlantis PW256",
+     "2",
+     "3.750",
+     "7.500"
+    ],
+    [
+     "Kneeling leg curl",
+     "Atlantis C118",
+     "1",
+     "7.410",
+     "7.410"
+    ],
+    [
+     "Lying leg curl",
+     "Atlantis C106",
+     "1",
+     "7.220",
+     "7.220"
+    ],
+    [
+     "Glute Abductor",
+     "Atlantis PW429",
+     "1",
+     "6.830",
+     "6.830"
+    ],
+    [
+     "Lat pulldown",
+     "Atlantis D123",
+     "1",
+     "6.480",
+     "6.480"
+    ],
+    [
+     "Hip Thruster Pro",
+     "Atlantis PW702",
+     "1",
+     "6.450",
+     "6.450"
+    ],
+    [
+     "Pec / Rear delt fly combo",
+     "Atlantis P156",
+     "1",
+     "6.430",
+     "6.430"
+    ],
+    [
+     "Decline vertical chest press",
+     "Atlantis PW739",
+     "1",
+     "5.660",
+     "5.660"
+    ],
+    [
+     "Incline triceps pushdown",
+     "Atlantis T215",
+     "1",
+     "5.520",
+     "5.520"
+    ],
+    [
+     "Converging shoulder press",
+     "Atlantis E449",
+     "1",
+     "5.500",
+     "5.500"
+    ],
+    [
+     "Inner Thigh",
+     "Prime Inner Thigh",
+     "1",
+     "5.260",
+     "5.260"
+    ],
+    [
+     "Abdominal Crunch",
+     "Prime Abdominal Crunch",
+     "1",
+     "4.910",
+     "4.910"
+    ],
+    [
+     "Arm Curl",
+     "Prime Arm Curl",
+     "1",
+     "4.690",
+     "4.690"
+    ],
+    [
+     "Low row",
+     "Atlantis PW637",
+     "1",
+     "4.420",
+     "4.420"
+    ],
+    [
+     "Row",
+     "Atlantis PW437",
+     "1",
+     "4.420",
+     "4.420"
+    ],
+    [
+     "Power rack",
+     "Atlantis C513",
+     "1",
+     "4.380",
+     "4.380"
+    ],
+    [
+     "Seated calf press",
+     "Atlantis PW319",
+     "1",
+     "4.240",
+     "4.240"
+    ],
+    [
+     "Incline T-Bar Row",
+     "Atlantis PW625",
+     "1",
+     "3.160",
+     "3.160"
+    ],
+    [
+     "Incline Hyper Extension Pro",
+     "Atlantis D828",
+     "1",
+     "3.010",
+     "3.010"
+    ],
+    [
+     "Platform with hardwood surface",
+     "Atlantis B4800",
+     "1",
+     "2.540",
+     "2.540"
+    ],
+    [
+     "Seated preacher curl",
+     "Atlantis B256",
+     "1",
+     "2.380",
+     "2.380"
+    ],
+    [
+     "DOUBLE-SIDED PREACHER",
+     "Prime DOUBLE-SIDED PREACHER",
+     "2",
+     "1.180",
+     "2.360"
+    ],
+    [
+     "Dip bars",
+     "Atlantis P245",
+     "1",
+     "1.940",
+     "1.940"
+    ],
+    [
+     "Adjustable Bench",
+     "Prime Adjustable Bench",
+     "2",
+     "640",
+     "1.280"
+    ],
+    [
+     "Flat bench",
+     "Atlantis B275",
+     "1",
+     "880",
+     "880"
+    ],
+    [
+     "Adjustable Single Leg Squat Stand",
+     "Atlantis C220",
+     "1",
+     "660",
+     "660"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Ausstattung",
+   "titel": "Tabelle A.4: Geräteliste Bereich Ausstattung (111 Objekte, 32.035 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Wasserspender",
+     "Generisch",
+     "10",
+     "1.500",
+     "15.000"
+    ],
+    [
+     "TV 65″ (Wand)",
+     "Generisch",
+     "5",
+     "800",
+     "4.000"
+    ],
+    [
+     "Desinfektionsstation",
+     "Generisch",
+     "9",
+     "250",
+     "2.250"
+    ],
+    [
+     "AED / Defibrillator",
+     "Generisch",
+     "2",
+     "1.050",
+     "2.100"
+    ],
+    [
+     "Feuerlöscher",
+     "Generisch",
+     "21",
+     "95",
+     "1.995"
+    ],
+    [
+     "Lautsprecher (Wand)",
+     "Generisch",
+     "6",
+     "200",
+     "1.200"
+    ],
+    [
+     "Pflanze groß (Kübel)",
+     "Generisch",
+     "3",
+     "350",
+     "1.050"
+    ],
+    [
+     "Kamera",
+     "Generisch",
+     "5",
+     "200",
+     "1.000"
+    ],
+    [
+     "Mülleimer",
+     "Generisch",
+     "12",
+     "80",
+     "960"
+    ],
+    [
+     "Handtuch-/Sprühflaschenhalter",
+     "Generisch",
+     "13",
+     "60",
+     "780"
+    ],
+    [
+     "Notausgang-Schild",
+     "Generisch",
+     "6",
+     "90",
+     "540"
+    ],
+    [
+     "Flucht- und Rettungsplan (Aushang)",
+     "Generisch",
+     "4",
+     "120",
+     "480"
+    ],
+    [
+     "Pflanze (Kübel)",
+     "Generisch",
+     "4",
+     "120",
+     "480"
+    ],
+    [
+     "Erste-Hilfe-Kasten",
+     "Generisch",
+     "5",
+     "40",
+     "200"
+    ],
+    [
+     "Sicherheitsleuchte / Rettungszeichenleuchte",
+     "Generisch",
+     "6",
+     "0",
+     "0"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Büro & Personal",
+   "titel": "Tabelle A.4: Geräteliste Bereich Büro & Personal (12 Objekte, 5.450 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Teeküche",
+     "Generisch",
+     "1",
+     "2.500",
+     "2.500"
+    ],
+    [
+     "Aktenschrank",
+     "Generisch",
+     "3",
+     "300",
+     "900"
+    ],
+    [
+     "Besprechungstisch",
+     "Generisch",
+     "1",
+     "500",
+     "500"
+    ],
+    [
+     "Personalschrank",
+     "Generisch",
+     "2",
+     "250",
+     "500"
+    ],
+    [
+     "Rollcontainer",
+     "Generisch",
+     "2",
+     "150",
+     "300"
+    ],
+    [
+     "Schreibtisch",
+     "Generisch",
+     "1",
+     "300",
+     "300"
+    ],
+    [
+     "Bürostuhl",
+     "Generisch",
+     "1",
+     "250",
+     "250"
+    ],
+    [
+     "Pausentisch",
+     "Generisch",
+     "1",
+     "200",
+     "200"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Sanitär",
+   "titel": "Tabelle A.4: Geräteliste Bereich Sanitär (18 Objekte, 26.250 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Reihendusche (4 Plätze)",
+     "Generisch",
+     "4",
+     "2.600",
+     "10.400"
+    ],
+    [
+     "WC-Kabine",
+     "Generisch",
+     "6",
+     "1.150",
+     "6.900"
+    ],
+    [
+     "Barrierefreie Dusche",
+     "Generisch",
+     "2",
+     "2.500",
+     "5.000"
+    ],
+    [
+     "Barrierefreies WC",
+     "Generisch",
+     "1",
+     "2.000",
+     "2.000"
+    ],
+    [
+     "Urinal (mit Trennwand)",
+     "Generisch",
+     "4",
+     "450",
+     "1.800"
+    ],
+    [
+     "Ausgussbecken",
+     "Generisch",
+     "1",
+     "150",
+     "150"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Empfang & Lounge",
+   "titel": "Tabelle A.4: Geräteliste Bereich Empfang & Lounge (28 Objekte, 25.274 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Drehkreuz",
+     "Generisch",
+     "2",
+     "3.000",
+     "6.000"
+    ],
+    [
+     "Getränkeautomat",
+     "Generisch",
+     "1",
+     "3.500",
+     "3.500"
+    ],
+    [
+     "Theke",
+     "Generisch",
+     "1",
+     "3.500",
+     "3.500"
+    ],
+    [
+     "Theke",
+     "Generisch",
+     "1",
+     "3.500",
+     "3.500"
+    ],
+    [
+     "Shakebar",
+     "Generisch",
+     "1",
+     "3.000",
+     "3.000"
+    ],
+    [
+     "Stuhl",
+     "Generisch",
+     "12",
+     "120",
+     "1.440"
+    ],
+    [
+     "Sofa 3-Sitzer",
+     "Generisch",
+     "1",
+     "1.200",
+     "1.200"
+    ],
+    [
+     "Sofa 2-Sitzer",
+     "Generisch",
+     "1",
+     "900",
+     "900"
+    ],
+    [
+     "Barhocker",
+     "Generisch",
+     "5",
+     "150",
+     "750"
+    ],
+    [
+     "Info-Bildschirm 55″ (Wand)",
+     "Generisch",
+     "1",
+     "700",
+     "700"
+    ],
+    [
+     "Getränkekühlschrank",
+     "Generisch",
+     "1",
+     "534",
+     "534"
+    ],
+    [
+     "Loungetisch",
+     "Generisch",
+     "1",
+     "250",
+     "250"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Functional",
+   "titel": "Tabelle A.4: Geräteliste Bereich Functional (22 Objekte, 6.709 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Sled-Bahn (Kunstrasen)",
+     "Generisch",
+     "1",
+     "1.920",
+     "1.920"
+    ],
+    [
+     "Sandbag-Regal (10–30 kg)",
+     "Generisch",
+     "1",
+     "900",
+     "900"
+    ],
+    [
+     "Wall-Ball-Regal",
+     "Generisch",
+     "1",
+     "850",
+     "850"
+    ],
+    [
+     "Schlitten (Prowler)",
+     "Generisch",
+     "2",
+     "327",
+     "654"
+    ],
+    [
+     "Plyo-Box Soft 3er-Set",
+     "Generisch",
+     "1",
+     "550",
+     "550"
+    ],
+    [
+     "Intervall-Timer (Wand)",
+     "Generisch",
+     "2",
+     "250",
+     "500"
+    ],
+    [
+     "Farmers-Carry-Griffe (Paar)",
+     "Generisch",
+     "1",
+     "250",
+     "250"
+    ],
+    [
+     "Kettlebell-Regal",
+     "Generisch",
+     "1",
+     "250",
+     "250"
+    ],
+    [
+     "Bodenmatte (Stretching)",
+     "Generisch",
+     "4",
+     "60",
+     "240"
+    ],
+    [
+     "Wall-Ball-Ziel (Wandmontage, 2,7/3 m)",
+     "Generisch",
+     "2",
+     "110",
+     "220"
+    ],
+    [
+     "Medizinball-Regal",
+     "Generisch",
+     "1",
+     "200",
+     "200"
+    ],
+    [
+     "Trainingsmatte",
+     "Generisch",
+     "4",
+     "35",
+     "140"
+    ],
+    [
+     "Trainingsmatte",
+     "Generisch",
+     "1",
+     "35",
+     "35"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Wellness",
+   "titel": "Tabelle A.4: Geräteliste Bereich Wellness (8 Objekte, 55.850 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Finnische Sauna 400 × 300",
+     "Generisch",
+     "1",
+     "22.000",
+     "22.000"
+    ],
+    [
+     "Dampfbad",
+     "Generisch",
+     "1",
+     "20.000",
+     "20.000"
+    ],
+    [
+     "Cold Plunge „ReGen OG Plunge / The Blast“",
+     "Generisch",
+     "1",
+     "5.500",
+     "5.500"
+    ],
+    [
+     "Erlebnisdusche",
+     "Generisch",
+     "1",
+     "5.000",
+     "5.000"
+    ],
+    [
+     "Ruheliege",
+     "Generisch",
+     "3",
+     "850",
+     "2.550"
+    ],
+    [
+     "Teestation",
+     "Generisch",
+     "1",
+     "800",
+     "800"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Cardio",
+   "titel": "Tabelle A.4: Geräteliste Bereich Cardio (20 Objekte, 104.760 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Laufband",
+     "Generisch",
+     "5",
+     "8.000",
+     "40.000"
+    ],
+    [
+     "Stairmaster",
+     "Generisch",
+     "4",
+     "6.500",
+     "26.000"
+    ],
+    [
+     "Crosstrainer",
+     "Generisch",
+     "3",
+     "7.000",
+     "21.000"
+    ],
+    [
+     "Ergometer",
+     "Generisch",
+     "3",
+     "3.300",
+     "9.900"
+    ],
+    [
+     "Curved Treadmill",
+     "Generisch",
+     "1",
+     "3.780",
+     "3.780"
+    ],
+    [
+     "SkiErg",
+     "Generisch",
+     "2",
+     "1.040",
+     "2.080"
+    ],
+    [
+     "Rudergerät",
+     "Generisch",
+     "2",
+     "1.000",
+     "2.000"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Umkleide",
+   "titel": "Tabelle A.4: Geräteliste Bereich Umkleide (39 Objekte, 32.310 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Spindreihe 2-stöckig",
+     "Generisch",
+     "2",
+     "3.000",
+     "6.000"
+    ],
+    [
+     "Spindreihe 2-stöckig",
+     "Generisch",
+     "1",
+     "4.750",
+     "4.750"
+    ],
+    [
+     "Spindreihe 2-stöckig",
+     "Generisch",
+     "1",
+     "4.500",
+     "4.500"
+    ],
+    [
+     "Spindreihe 2-stöckig",
+     "Generisch",
+     "2",
+     "1.250",
+     "2.500"
+    ],
+    [
+     "Spindreihe 2-stöckig",
+     "Generisch",
+     "1",
+     "2.500",
+     "2.500"
+    ],
+    [
+     "Doppelwaschtisch",
+     "Generisch",
+     "3",
+     "700",
+     "2.100"
+    ],
+    [
+     "Spindreihe 2-stöckig",
+     "Generisch",
+     "1",
+     "2.000",
+     "2.000"
+    ],
+    [
+     "Umkleidebank freistehend",
+     "Generisch",
+     "8",
+     "250",
+     "2.000"
+    ],
+    [
+     "Wertfächer (20 Fächer)",
+     "Generisch",
+     "2",
+     "900",
+     "1.800"
+    ],
+    [
+     "Einzel-Umkleidekabine",
+     "Generisch",
+     "2",
+     "800",
+     "1.600"
+    ],
+    [
+     "Wäschesammler",
+     "Generisch",
+     "7",
+     "150",
+     "1.050"
+    ],
+    [
+     "Föhnplatz",
+     "Generisch",
+     "2",
+     "250",
+     "500"
+    ],
+    [
+     "Umkleidebank freistehend",
+     "Generisch",
+     "2",
+     "250",
+     "500"
+    ],
+    [
+     "Waschtisch",
+     "Generisch",
+     "1",
+     "350",
+     "350"
+    ],
+    [
+     "Handtuchspender",
+     "Generisch",
+     "4",
+     "40",
+     "160"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Kursraum",
+   "titel": "Tabelle A.4: Geräteliste Bereich Kursraum (28 Objekte, 20.610 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Indoor-Cycling-Rad (Kurs)",
+     "Generisch",
+     "8",
+     "1.850",
+     "14.800"
+    ],
+    [
+     "Musikanlage (Rack)",
+     "Generisch",
+     "1",
+     "3.000",
+     "3.000"
+    ],
+    [
+     "Trainer-Podest",
+     "Generisch",
+     "1",
+     "800",
+     "800"
+    ],
+    [
+     "Mattenregal",
+     "Generisch",
+     "3",
+     "250",
+     "750"
+    ],
+    [
+     "Kursmatte",
+     "Generisch",
+     "12",
+     "30",
+     "360"
+    ],
+    [
+     "Kurshantel-Regal (Pump-Sets)",
+     "Generisch",
+     "1",
+     "350",
+     "350"
+    ],
+    [
+     "Step-Wagen (20 Steps)",
+     "Generisch",
+     "1",
+     "350",
+     "350"
+    ],
+    [
+     "Gymnastikball-Regal",
+     "Generisch",
+     "1",
+     "200",
+     "200"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Freihantel-Zubehör",
+   "titel": "Tabelle A.4: Geräteliste Bereich Freihantel-Zubehör (10 Objekte, 4.300 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Kurzhantel-Rack 3-lagig (15 Paar)",
+     "Generisch",
+     "2",
+     "650",
+     "1.300"
+    ],
+    [
+     "Scheibenständer",
+     "Generisch",
+     "5",
+     "250",
+     "1.250"
+    ],
+    [
+     "Hantelscheiben-Satz 300 kg",
+     "Generisch",
+     "1",
+     "1.000",
+     "1.000"
+    ],
+    [
+     "Hantelscheiben-Satz 150 kg",
+     "Generisch",
+     "1",
+     "450",
+     "450"
+    ],
+    [
+     "Langhantelständer (10 Stangen)",
+     "Generisch",
+     "1",
+     "300",
+     "300"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Bauelemente",
+   "titel": "Tabelle A.4: Geräteliste Bereich Bauelemente (7 Objekte, 0 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Heizkörper",
+     "Generisch",
+     "1",
+     "0",
+     "0"
+    ],
+    [
+     "Lüftungsauslass",
+     "Generisch",
+     "6",
+     "0",
+     "0"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "A",
+   "id": "A4-Lager & Technik",
+   "titel": "Tabelle A.4: Geräteliste Bereich Lager & Technik (14 Objekte, 8.850 €)",
+   "spalten": [
+    "Position",
+    "Hersteller / Modell",
+    "Anzahl",
+    "Stückpreis",
+    "Summe"
+   ],
+   "zeilen": [
+    [
+     "Waschmaschine (gewerblich)",
+     "Generisch",
+     "1",
+     "3.500",
+     "3.500"
+    ],
+    [
+     "Trockner (gewerblich)",
+     "Generisch",
+     "1",
+     "3.000",
+     "3.000"
+    ],
+    [
+     "Warmwasserspeicher",
+     "Generisch",
+     "1",
+     "800",
+     "800"
+    ],
+    [
+     "Serverschrank / Netzwerk",
+     "Generisch",
+     "1",
+     "600",
+     "600"
+    ],
+    [
+     "Regal",
+     "Generisch",
+     "5",
+     "80",
+     "400"
+    ],
+    [
+     "Schwerlastregal",
+     "Generisch",
+     "2",
+     "150",
+     "300"
+    ],
+    [
+     "Putzwagen",
+     "Generisch",
+     "1",
+     "250",
+     "250"
+    ],
+    [
+     "Lüftungsanlage (RLT-Gerät)",
+     "Generisch",
+     "1",
+     "0",
+     "0"
+    ],
+    [
+     "Schaltschrank",
+     "Generisch",
+     "1",
+     "0",
+     "0"
+    ]
+   ],
+   "breiten": [
+    38,
+    26,
+    10,
+    13,
+    13
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "B",
+   "id": "B-MBG Baden-Württember",
+   "titel": "Tabelle B: MBG Baden-Württemberg – stille Beteiligung Existenzgründung (wirtschaftliches Eigenkapital) – 250.000 €, 7,00 % p. a., 10 Jahre, 10 tilgungsfreie Jahre (endfällig, wirtschaftliches Eigenkapital)",
+   "spalten": [
+    "Jahr",
+    "Auszahlung",
+    "Zinsen/Vergütung",
+    "Tilgung",
+    "Kapitaldienst",
+    "Restschuld Ende"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1",
+     "250.000",
+     "24.792",
+     "0",
+     "24.792",
+     "250.000"
+    ],
+    [
+     "Jahr 2",
+     "0",
+     "17.500",
+     "0",
+     "17.500",
+     "250.000"
+    ],
+    [
+     "Jahr 3",
+     "0",
+     "17.500",
+     "0",
+     "17.500",
+     "250.000"
+    ],
+    [
+     "Jahr 4",
+     "0",
+     "17.500",
+     "0",
+     "17.500",
+     "250.000"
+    ],
+    [
+     "Jahr 5",
+     "0",
+     "17.500",
+     "0",
+     "17.500",
+     "250.000"
+    ]
+   ],
+   "breiten": [
+    12,
+    17,
+    18,
+    17,
+    18,
+    18
+   ],
+   "quelle": "Jahr 1 inkl. Vorlaufmonate; lineare Tilgung nach der tilgungsfreien Zeit (KfW-/L-Bank-üblich); Zinssätze Planannahmen"
+  },
+  {
+   "anhang": "B",
+   "id": "B-KfW ERP-Förderkredit",
+   "titel": "Tabelle B: KfW ERP-Förderkredit Gründung und Nachfolge (077), 100 % Garantie Bürgschaftsbank – 500.000 €, 6,50 % p. a., 15 Jahre, 5 tilgungsfreie Jahre",
+   "spalten": [
+    "Jahr",
+    "Auszahlung",
+    "Zinsen/Vergütung",
+    "Tilgung",
+    "Kapitaldienst",
+    "Restschuld Ende"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1",
+     "500.000",
+     "43.333",
+     "0",
+     "43.333",
+     "500.000"
+    ],
+    [
+     "Jahr 2",
+     "0",
+     "32.500",
+     "0",
+     "32.500",
+     "500.000"
+    ],
+    [
+     "Jahr 3",
+     "0",
+     "32.500",
+     "0",
+     "32.500",
+     "500.000"
+    ],
+    [
+     "Jahr 4",
+     "0",
+     "32.500",
+     "0",
+     "32.500",
+     "500.000"
+    ],
+    [
+     "Jahr 5",
+     "0",
+     "32.365",
+     "16.667",
+     "49.031",
+     "483.333"
+    ]
+   ],
+   "breiten": [
+    12,
+    17,
+    18,
+    17,
+    18,
+    18
+   ],
+   "quelle": "Jahr 1 inkl. Vorlaufmonate; lineare Tilgung nach der tilgungsfreien Zeit (KfW-/L-Bank-üblich); Zinssätze Planannahmen"
+  },
+  {
+   "anhang": "B",
+   "id": "B-KfW ERP-Gründerkredi",
+   "titel": "Tabelle B: KfW ERP-Gründerkredit StartGeld (067), 80 % Haftungsfreistellung – 200.000 €, 5,75 % p. a., 10 Jahre, 2 tilgungsfreie Jahre",
+   "spalten": [
+    "Jahr",
+    "Auszahlung",
+    "Zinsen/Vergütung",
+    "Tilgung",
+    "Kapitaldienst",
+    "Restschuld Ende"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1",
+     "200.000",
+     "15.333",
+     "0",
+     "15.333",
+     "200.000"
+    ],
+    [
+     "Jahr 2",
+     "0",
+     "11.440",
+     "8.333",
+     "19.773",
+     "191.667"
+    ],
+    [
+     "Jahr 3",
+     "0",
+     "10.362",
+     "25.000",
+     "35.362",
+     "166.667"
+    ],
+    [
+     "Jahr 4",
+     "0",
+     "8.924",
+     "25.000",
+     "33.924",
+     "141.667"
+    ],
+    [
+     "Jahr 5",
+     "0",
+     "7.487",
+     "25.000",
+     "32.487",
+     "116.667"
+    ]
+   ],
+   "breiten": [
+    12,
+    17,
+    18,
+    17,
+    18,
+    18
+   ],
+   "quelle": "Jahr 1 inkl. Vorlaufmonate; lineare Tilgung nach der tilgungsfreien Zeit (KfW-/L-Bank-üblich); Zinssätze Planannahmen"
+  },
+  {
+   "anhang": "B",
+   "id": "B-L-Bank Gründungsfina",
+   "titel": "Tabelle B: L-Bank Gründungsfinanzierung (GuW-BW) über Hausbank, 80 % Bürgschaft Bürgschaftsbank BW (Restfinanzierung) – 1.522.583 €, 6,40 % p. a., 20 Jahre, 3 tilgungsfreie Jahre",
+   "spalten": [
+    "Jahr",
+    "Auszahlung",
+    "Zinsen/Vergütung",
+    "Tilgung",
+    "Kapitaldienst",
+    "Restschuld Ende"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1",
+     "1.522.583",
+     "121.807",
+     "0",
+     "121.807",
+     "1.522.583"
+    ],
+    [
+     "Jahr 2",
+     "0",
+     "97.445",
+     "0",
+     "97.445",
+     "1.522.583"
+    ],
+    [
+     "Jahr 3",
+     "0",
+     "97.326",
+     "22.391",
+     "119.717",
+     "1.500.192"
+    ],
+    [
+     "Jahr 4",
+     "0",
+     "93.385",
+     "89.564",
+     "182.949",
+     "1.410.628"
+    ],
+    [
+     "Jahr 5",
+     "0",
+     "87.653",
+     "89.564",
+     "177.217",
+     "1.321.065"
+    ]
+   ],
+   "breiten": [
+    12,
+    17,
+    18,
+    17,
+    18,
+    18
+   ],
+   "quelle": "Jahr 1 inkl. Vorlaufmonate; lineare Tilgung nach der tilgungsfreien Zeit (KfW-/L-Bank-üblich); Zinssätze Planannahmen"
+  },
+  {
+   "anhang": "B",
+   "id": "B-gesamt",
+   "titel": "Tabelle B.5: Kapitaldienst gesamt über 20 Jahre (Jahreswerte, Näherung)",
+   "spalten": [
+    "Jahr",
+    "Zinsen",
+    "Tilgung",
+    "Kapitaldienst",
+    "Restschuld Ende"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1",
+     "158.945",
+     "0",
+     "158.945",
+     "2.472.583"
+    ],
+    [
+     "Jahr 2",
+     "158.945",
+     "0",
+     "158.945",
+     "2.472.583"
+    ],
+    [
+     "Jahr 3",
+     "158.945",
+     "25.000",
+     "183.945",
+     "2.447.583"
+    ],
+    [
+     "Jahr 4",
+     "157.508",
+     "114.564",
+     "272.072",
+     "2.333.019"
+    ],
+    [
+     "Jahr 5",
+     "150.338",
+     "114.564",
+     "264.902",
+     "2.218.456"
+    ],
+    [
+     "Jahr 6",
+     "143.169",
+     "164.564",
+     "307.732",
+     "2.053.892"
+    ],
+    [
+     "Jahr 7",
+     "132.749",
+     "164.564",
+     "297.313",
+     "1.889.328"
+    ],
+    [
+     "Jahr 8",
+     "122.330",
+     "164.564",
+     "286.893",
+     "1.724.764"
+    ],
+    [
+     "Jahr 9",
+     "111.910",
+     "164.564",
+     "276.474",
+     "1.560.201"
+    ],
+    [
+     "Jahr 10",
+     "101.490",
+     "414.564",
+     "516.054",
+     "1.145.637"
+    ],
+    [
+     "Jahr 11",
+     "73.571",
+     "139.564",
+     "213.134",
+     "1.006.073"
+    ],
+    [
+     "Jahr 12",
+     "64.589",
+     "139.564",
+     "204.152",
+     "866.510"
+    ],
+    [
+     "Jahr 13",
+     "55.607",
+     "139.564",
+     "195.170",
+     "726.946"
+    ],
+    [
+     "Jahr 14",
+     "46.625",
+     "139.564",
+     "186.188",
+     "587.382"
+    ],
+    [
+     "Jahr 15",
+     "37.642",
+     "139.564",
+     "177.206",
+     "447.819"
+    ],
+    [
+     "Jahr 16",
+     "28.660",
+     "89.564",
+     "118.224",
+     "358.255"
+    ],
+    [
+     "Jahr 17",
+     "22.928",
+     "89.564",
+     "112.492",
+     "268.691"
+    ],
+    [
+     "Jahr 18",
+     "17.196",
+     "89.564",
+     "106.760",
+     "179.127"
+    ],
+    [
+     "Jahr 19",
+     "11.464",
+     "89.564",
+     "101.028",
+     "89.564"
+    ],
+    [
+     "Jahr 20",
+     "5.732",
+     "89.564",
+     "95.296",
+     "0"
+    ]
+   ],
+   "breiten": [
+    16,
+    21,
+    21,
+    21,
+    21
+   ],
+   "quelle": "Vereinfachte Jahresrechnung (Auszahlung zu Beginn, Zins auf Jahresanfangssaldo)"
+  },
+  {
+   "anhang": "C",
+   "id": "C1",
+   "titel": "Tabelle C.1: Liquiditätsplan Monate -5 bis 6 (EUR, Zahlungsströme brutto)",
+   "spalten": [
+    "Position",
+    "M -5",
+    "M -4",
+    "M -3",
+    "M -2",
+    "M -1",
+    "M 1",
+    "M 2",
+    "M 3",
+    "M 4",
+    "M 5",
+    "M 6"
+   ],
+   "zeilen": [
+    [
+     "Umsatz brutto (inkl. USt)",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "29.979",
+     "37.895",
+     "45.637",
+     "50.627",
+     "55.638",
+     "60.540"
+    ],
+    [
+     "Eigenkapital",
+     "150.000",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Darlehen/Beteiligung",
+     "250.000",
+     "700.000",
+     "1.522.583",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Einzahlungen",
+     "400.000",
+     "700.000",
+     "1.522.583",
+     "0",
+     "0",
+     "29.979",
+     "37.895",
+     "45.637",
+     "50.627",
+     "55.638",
+     "60.540"
+    ],
+    [
+     "Betriebskosten brutto",
+     "0",
+     "1.190",
+     "19.319",
+     "48.368",
+     "55.646",
+     "86.258",
+     "86.472",
+     "86.681",
+     "79.702",
+     "79.837",
+     "79.970"
+    ],
+    [
+     "Investition brutto",
+     "120.319",
+     "339.911",
+     "339.911",
+     "377.991",
+     "1.075.391",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "USt-Zahllast (−) / Erstattung (+)",
+     "0",
+     "5.491",
+     "54.462",
+     "56.678",
+     "66.699",
+     "172.903",
+     "4.251",
+     "3.013",
+     "1.801",
+     "-116",
+     "-900"
+    ],
+    [
+     "Zinsen",
+     "1.458",
+     "5.125",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245"
+    ],
+    [
+     "Tilgung",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Ertragsteuern",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Auszahlungen",
+     "121.777",
+     "340.736",
+     "318.014",
+     "382.927",
+     "1.077.584",
+     "-73.399",
+     "95.466",
+     "96.914",
+     "91.147",
+     "93.199",
+     "94.115"
+    ],
+    [
+     "Kassenbestand Anfang",
+     "0",
+     "278.223",
+     "637.487",
+     "1.842.056",
+     "1.459.130",
+     "381.546",
+     "484.924",
+     "427.353",
+     "376.076",
+     "335.556",
+     "297.996"
+    ],
+    [
+     "Kassenbestand Ende",
+     "278.223",
+     "637.487",
+     "1.842.056",
+     "1.459.130",
+     "381.546",
+     "484.924",
+     "427.353",
+     "376.076",
+     "335.556",
+     "297.996",
+     "264.421"
+    ]
+   ],
+   "breiten": null,
+   "quelle": "Monat −5 bis −1 = Ausbau/Vorverkauf; USt-Erstattung im Folgemonat; Ertragsteuern im Folgejahr (Monat 18/30)",
+   "quer": true
+  },
+  {
+   "anhang": "C",
+   "id": "C2",
+   "titel": "Tabelle C.2: Liquiditätsplan Monate 7 bis 18 (EUR, Zahlungsströme brutto)",
+   "spalten": [
+    "Position",
+    "M 7",
+    "M 8",
+    "M 9",
+    "M 10",
+    "M 11",
+    "M 12",
+    "M 13",
+    "M 14",
+    "M 15",
+    "M 16",
+    "M 17",
+    "M 18"
+   ],
+   "zeilen": [
+    [
+     "Umsatz brutto (inkl. USt)",
+     "65.333",
+     "70.022",
+     "74.607",
+     "79.091",
+     "83.476",
+     "87.765",
+     "91.314",
+     "94.818",
+     "98.245",
+     "101.597",
+     "104.874",
+     "108.080"
+    ],
+    [
+     "Eigenkapital",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Darlehen/Beteiligung",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Einzahlungen",
+     "65.333",
+     "70.022",
+     "74.607",
+     "79.091",
+     "83.476",
+     "87.765",
+     "91.314",
+     "94.818",
+     "98.245",
+     "101.597",
+     "104.874",
+     "108.080"
+    ],
+    [
+     "Betriebskosten brutto",
+     "80.099",
+     "80.226",
+     "80.350",
+     "80.471",
+     "80.590",
+     "80.705",
+     "85.651",
+     "85.745",
+     "85.838",
+     "85.928",
+     "86.017",
+     "86.104"
+    ],
+    [
+     "Investition brutto",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "USt-Zahllast (−) / Erstattung (+)",
+     "-1.667",
+     "-2.417",
+     "-3.151",
+     "-3.868",
+     "-4.570",
+     "-5.256",
+     "-5.928",
+     "-6.418",
+     "-6.967",
+     "-7.503",
+     "-8.027",
+     "-8.540"
+    ],
+    [
+     "Zinsen",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.245"
+    ],
+    [
+     "Tilgung",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Ertragsteuern",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Auszahlungen",
+     "95.012",
+     "95.889",
+     "96.746",
+     "97.585",
+     "98.405",
+     "99.207",
+     "104.824",
+     "105.409",
+     "106.050",
+     "106.677",
+     "107.290",
+     "107.889"
+    ],
+    [
+     "Kassenbestand Anfang",
+     "264.421",
+     "234.743",
+     "208.875",
+     "186.736",
+     "168.242",
+     "153.313",
+     "141.871",
+     "128.361",
+     "117.770",
+     "109.965",
+     "104.885",
+     "102.470"
+    ],
+    [
+     "Kassenbestand Ende",
+     "234.743",
+     "208.875",
+     "186.736",
+     "168.242",
+     "153.313",
+     "141.871",
+     "128.361",
+     "117.770",
+     "109.965",
+     "104.885",
+     "102.470",
+     "102.661"
+    ]
+   ],
+   "breiten": null,
+   "quelle": "Monat −5 bis −1 = Ausbau/Vorverkauf; USt-Erstattung im Folgemonat; Ertragsteuern im Folgejahr (Monat 18/30)",
+   "quer": true
+  },
+  {
+   "anhang": "C",
+   "id": "C3",
+   "titel": "Tabelle C.3: Liquiditätsplan Monate 19 bis 30 (EUR, Zahlungsströme brutto)",
+   "spalten": [
+    "Position",
+    "M 19",
+    "M 20",
+    "M 21",
+    "M 22",
+    "M 23",
+    "M 24",
+    "M 25",
+    "M 26",
+    "M 27",
+    "M 28",
+    "M 29",
+    "M 30"
+   ],
+   "zeilen": [
+    [
+     "Umsatz brutto (inkl. USt)",
+     "111.215",
+     "114.281",
+     "117.280",
+     "120.213",
+     "123.081",
+     "125.886",
+     "130.061",
+     "132.180",
+     "134.252",
+     "136.279",
+     "137.666",
+     "138.051"
+    ],
+    [
+     "Eigenkapital",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Darlehen/Beteiligung",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Einzahlungen",
+     "111.215",
+     "114.281",
+     "117.280",
+     "120.213",
+     "123.081",
+     "125.886",
+     "130.061",
+     "132.180",
+     "134.252",
+     "136.279",
+     "137.666",
+     "138.051"
+    ],
+    [
+     "Betriebskosten brutto",
+     "86.188",
+     "86.271",
+     "86.352",
+     "86.431",
+     "86.509",
+     "86.585",
+     "87.896",
+     "87.953",
+     "88.008",
+     "88.063",
+     "88.100",
+     "88.110"
+    ],
+    [
+     "Investition brutto",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "USt-Zahllast (−) / Erstattung (+)",
+     "-9.042",
+     "-9.533",
+     "-10.012",
+     "-10.482",
+     "-10.941",
+     "-11.390",
+     "-11.829",
+     "-12.422",
+     "-12.754",
+     "-13.078",
+     "-13.396",
+     "-13.613"
+    ],
+    [
+     "Zinsen",
+     "13.245",
+     "13.245",
+     "13.245",
+     "13.235",
+     "13.225",
+     "13.215",
+     "13.206",
+     "13.196",
+     "13.186",
+     "13.176",
+     "13.166",
+     "13.156"
+    ],
+    [
+     "Tilgung",
+     "0",
+     "0",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083",
+     "2.083"
+    ],
+    [
+     "Ertragsteuern",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Auszahlungen",
+     "108.476",
+     "109.049",
+     "111.693",
+     "112.232",
+     "112.758",
+     "113.273",
+     "115.014",
+     "115.654",
+     "116.031",
+     "116.400",
+     "116.744",
+     "116.962"
+    ],
+    [
+     "Kassenbestand Anfang",
+     "102.661",
+     "105.400",
+     "110.632",
+     "116.219",
+     "124.200",
+     "134.523",
+     "147.136",
+     "162.183",
+     "178.708",
+     "196.929",
+     "216.809",
+     "237.731"
+    ],
+    [
+     "Kassenbestand Ende",
+     "105.400",
+     "110.632",
+     "116.219",
+     "124.200",
+     "134.523",
+     "147.136",
+     "162.183",
+     "178.708",
+     "196.929",
+     "216.809",
+     "237.731",
+     "258.820"
+    ]
+   ],
+   "breiten": null,
+   "quelle": "Monat −5 bis −1 = Ausbau/Vorverkauf; USt-Erstattung im Folgemonat; Ertragsteuern im Folgejahr (Monat 18/30)",
+   "quer": true
+  },
+  {
+   "anhang": "C",
+   "id": "C4",
+   "titel": "Tabelle C.4: Liquiditätsplan Monate 31 bis 36 (EUR, Zahlungsströme brutto)",
+   "spalten": [
+    "Position",
+    "M 31",
+    "M 32",
+    "M 33",
+    "M 34",
+    "M 35",
+    "M 36"
+   ],
+   "zeilen": [
+    [
+     "Umsatz brutto (inkl. USt)",
+     "138.051",
+     "138.051",
+     "138.051",
+     "138.051",
+     "138.051",
+     "138.051"
+    ],
+    [
+     "Eigenkapital",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Darlehen/Beteiligung",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Einzahlungen",
+     "138.051",
+     "138.051",
+     "138.051",
+     "138.051",
+     "138.051",
+     "138.051"
+    ],
+    [
+     "Betriebskosten brutto",
+     "88.110",
+     "88.110",
+     "88.110",
+     "88.110",
+     "88.110",
+     "88.110"
+    ],
+    [
+     "Investition brutto",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "USt-Zahllast (−) / Erstattung (+)",
+     "-13.673",
+     "-13.673",
+     "-13.673",
+     "-13.673",
+     "-13.673",
+     "-13.673"
+    ],
+    [
+     "Zinsen",
+     "13.146",
+     "13.136",
+     "13.126",
+     "13.116",
+     "13.066",
+     "13.016"
+    ],
+    [
+     "Tilgung",
+     "2.083",
+     "2.083",
+     "2.083",
+     "9.547",
+     "9.547",
+     "9.547"
+    ],
+    [
+     "Ertragsteuern",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Summe Auszahlungen",
+     "117.012",
+     "117.002",
+     "116.992",
+     "124.446",
+     "124.396",
+     "124.346"
+    ],
+    [
+     "Kassenbestand Anfang",
+     "258.820",
+     "279.858",
+     "300.907",
+     "321.966",
+     "335.571",
+     "349.225"
+    ],
+    [
+     "Kassenbestand Ende",
+     "279.858",
+     "300.907",
+     "321.966",
+     "335.571",
+     "349.225",
+     "362.930"
+    ]
+   ],
+   "breiten": null,
+   "quelle": "Monat −5 bis −1 = Ausbau/Vorverkauf; USt-Erstattung im Folgemonat; Ertragsteuern im Folgejahr (Monat 18/30)",
+   "quer": true
+  },
+  {
+   "anhang": "D",
+   "id": "D1",
+   "titel": "Tabelle D.1: Rentabilitätsvorschau Jahr 1–5, Basis-Szenario (netto EUR)",
+   "spalten": [
+    "Position",
+    "Jahr 1",
+    "Jahr 2",
+    "Jahr 3",
+    "Jahr 4",
+    "Jahr 5"
+   ],
+   "zeilen": [
+    [
+     "Umsatzerlöse",
+     "622.361",
+     "1.101.585",
+     "1.375.456",
+     "1.413.074",
+     "1.436.224"
+    ],
+    [
+     "Wareneinsatz",
+     "11.590",
+     "21.232",
+     "26.297",
+     "26.622",
+     "26.622"
+    ],
+    [
+     "Personalkosten",
+     "371.144",
+     "395.716",
+     "405.609",
+     "415.749",
+     "426.143"
+    ],
+    [
+     "Raumkosten",
+     "393.105",
+     "355.651",
+     "359.761",
+     "363.954",
+     "368.231"
+    ],
+    [
+     "Marketing",
+     "95.000",
+     "42.000",
+     "42.000",
+     "42.000",
+     "42.000"
+    ],
+    [
+     "Sonstige betriebliche Aufwendungen",
+     "127.815",
+     "120.403",
+     "122.761",
+     "123.103",
+     "123.323"
+    ],
+    [
+     "EBITDA",
+     "-376.292",
+     "166.583",
+     "419.028",
+     "441.646",
+     "449.906"
+    ],
+    [
+     "Abschreibungen",
+     "200.695",
+     "200.695",
+     "200.695",
+     "200.695",
+     "200.695"
+    ],
+    [
+     "EBIT",
+     "-576.987",
+     "-34.112",
+     "218.333",
+     "240.951",
+     "249.211"
+    ],
+    [
+     "Zinsaufwand",
+     "205.265",
+     "158.885",
+     "157.688",
+     "152.310",
+     "145.005"
+    ],
+    [
+     "Ergebnis vor Steuern",
+     "-782.252",
+     "-192.997",
+     "60.645",
+     "88.641",
+     "104.206"
+    ],
+    [
+     "Ertragsteuern",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Jahresergebnis",
+     "-782.252",
+     "-192.997",
+     "60.645",
+     "88.641",
+     "104.206"
+    ],
+    [
+     "Tilgung",
+     "0",
+     "8.333",
+     "47.391",
+     "114.564",
+     "131.230"
+    ],
+    [
+     "Kapitaldienst",
+     "205.265",
+     "167.219",
+     "205.079",
+     "266.873",
+     "276.235"
+    ],
+    [
+     "Cashflow nach Kapitaldienst",
+     "-581.557",
+     "-635",
+     "213.949",
+     "174.773",
+     "173.671"
+    ],
+    [
+     "Mitglieder am Jahresende",
+     "1.429",
+     "2.053",
+     "2.200",
+     "2.200",
+     "2.200"
+    ],
+    [
+     "Kapitaldienstfähigkeit (DSCR)",
+     "-1,83",
+     "1,00",
+     "2,04",
+     "1,65",
+     "1,63"
+    ]
+   ],
+   "breiten": [
+    30,
+    14,
+    14,
+    14,
+    14,
+    14
+   ],
+   "quelle": "Jahr 1 = Vorlauf + Betriebsmonate 1–12; DSCR = (EBITDA − Steuern) ÷ Kapitaldienst"
+  },
+  {
+   "anhang": "D",
+   "id": "D-pessimistisch",
+   "titel": "Tabelle D.2: Rentabilitätsvorschau Szenario pessimistisch (Kurzfassung, netto EUR)",
+   "spalten": [
+    "Position",
+    "Jahr 1",
+    "Jahr 2",
+    "Jahr 3",
+    "Jahr 4",
+    "Jahr 5"
+   ],
+   "zeilen": [
+    [
+     "Umsatzerlöse",
+     "408.704",
+     "698.004",
+     "871.770",
+     "971.851",
+     "1.040.237"
+    ],
+    [
+     "Personalkosten",
+     "371.144",
+     "395.716",
+     "405.609",
+     "415.749",
+     "426.143"
+    ],
+    [
+     "Raumkosten",
+     "393.105",
+     "355.651",
+     "359.761",
+     "363.954",
+     "368.231"
+    ],
+    [
+     "EBITDA",
+     "-584.413",
+     "-226.272",
+     "-71.358",
+     "11.775",
+     "63.855"
+    ],
+    [
+     "Jahresergebnis",
+     "-990.373",
+     "-585.853",
+     "-429.741",
+     "-341.230",
+     "-281.845"
+    ],
+    [
+     "Kapitaldienst",
+     "205.265",
+     "167.219",
+     "205.079",
+     "266.873",
+     "276.235"
+    ],
+    [
+     "Cashflow nach Kapitaldienst",
+     "-789.678",
+     "-393.491",
+     "-276.437",
+     "-255.098",
+     "-212.380"
+    ],
+    [
+     "Mitglieder am Jahresende",
+     "959",
+     "1.332",
+     "1.525",
+     "1.626",
+     "1.698"
+    ],
+    [
+     "DSCR",
+     "-2,85",
+     "-1,35",
+     "-0,35",
+     "0,04",
+     "0,23"
+    ]
+   ],
+   "breiten": [
+    30,
+    14,
+    14,
+    14,
+    14,
+    14
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "D",
+   "id": "D-optimistisch",
+   "titel": "Tabelle D.3: Rentabilitätsvorschau Szenario optimistisch (Kurzfassung, netto EUR)",
+   "spalten": [
+    "Position",
+    "Jahr 1",
+    "Jahr 2",
+    "Jahr 3",
+    "Jahr 4",
+    "Jahr 5"
+   ],
+   "zeilen": [
+    [
+     "Umsatzerlöse",
+     "776.846",
+     "1.346.015",
+     "1.431.686",
+     "1.452.988",
+     "1.476.833"
+    ],
+    [
+     "Personalkosten",
+     "371.144",
+     "395.716",
+     "405.609",
+     "415.749",
+     "426.143"
+    ],
+    [
+     "Raumkosten",
+     "393.105",
+     "355.651",
+     "359.761",
+     "363.954",
+     "368.231"
+    ],
+    [
+     "EBITDA",
+     "-225.713",
+     "404.793",
+     "474.414",
+     "481.180",
+     "490.128"
+    ],
+    [
+     "Jahresergebnis",
+     "-631.674",
+     "45.212",
+     "116.031",
+     "128.175",
+     "144.428"
+    ],
+    [
+     "Kapitaldienst",
+     "205.265",
+     "167.219",
+     "205.079",
+     "266.873",
+     "276.235"
+    ],
+    [
+     "Cashflow nach Kapitaldienst",
+     "-430.978",
+     "237.574",
+     "269.335",
+     "214.307",
+     "213.893"
+    ],
+    [
+     "Mitglieder am Jahresende",
+     "1.763",
+     "2.200",
+     "2.200",
+     "2.200",
+     "2.200"
+    ],
+    [
+     "DSCR",
+     "-1,10",
+     "2,42",
+     "2,31",
+     "1,80",
+     "1,77"
+    ]
+   ],
+   "breiten": [
+    30,
+    14,
+    14,
+    14,
+    14,
+    14
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "E",
+   "id": "E1",
+   "titel": "Tabelle E.1: Planungsannahmen (Auszug aus dem Blatt „Annahmen“ der Excel-Planrechnung)",
+   "spalten": [
+    "Annahme",
+    "Wert",
+    "Hinweis"
+   ],
+   "zeilen": [
+    [
+     "Bruttofläche",
+     "1.975,4 m²",
+     "Planung GymPlanner"
+    ],
+    [
+     "Nettofläche",
+     "1.931,1 m²",
+     ""
+    ],
+    [
+     "Trainingsfläche",
+     "1.138,6 m²",
+     "9 m² je Person → 126 Personen"
+    ],
+    [
+     "Eröffnung",
+     "01.09.2027",
+     "5 Vorlaufmonate"
+    ],
+    [
+     "Kaltmiete",
+     "8,50 €/m²/Monat",
+     "Vorgabe"
+    ],
+    [
+     "Betriebskosten",
+     "2,00 €/m²/Monat",
+     ""
+    ],
+    [
+     "Energie und Wasser",
+     "4,00 €/m²/Monat",
+     "DSSV-Richtwerte 3,00–3,50 + ab 2,50 €/m² (Sauna)"
+    ],
+    [
+     "Kaution",
+     "3 Monatsmieten inkl. NK",
+     ""
+    ],
+    [
+     "Mietfreie Ausbauzeit",
+     "3 Monate",
+     "Verhandlungsziel"
+    ],
+    [
+     "Mietindexierung",
+     "2,0 % p. a.",
+     "ab Jahr 2"
+    ],
+    [
+     "Tarif Basic",
+     "44,90 € brutto/Monat",
+     "Anteil 40 %"
+    ],
+    [
+     "Tarif Premium",
+     "59,90 € brutto/Monat",
+     "Anteil 45 %"
+    ],
+    [
+     "Tarif Student/Azubi/Senior",
+     "34,90 € brutto/Monat",
+     "Anteil 15 %"
+    ],
+    [
+     "Ø Beitrag (Mix)",
+     "50,15 € brutto = 42,14 € netto",
+     "DSSV Ø 48,55 €, Einzelanlagen 59,24 €"
+    ],
+    [
+     "Servicepauschale",
+     "24,90 € je Halbjahr",
+     ""
+    ],
+    [
+     "Aufnahmegebühr",
+     "49,00 €",
+     "70 % der Neuzugänge zahlen"
+    ],
+    [
+     "Beitragsanpassung",
+     "2,0 % p. a.",
+     "ab Jahr 3"
+    ],
+    [
+     "Nebenumsatz je Mitglied/Monat",
+     "6,20 € brutto",
+     "Getränke 3,00 / Wellness 1,20 / PT-Kurse 1,50 / Merch 0,50"
+    ],
+    [
+     "Wareneinsatz Getränke",
+     "40 %",
+     ""
+    ],
+    [
+     "Vorverkauf",
+     "350 Mitglieder zur Eröffnung",
+     ""
+    ],
+    [
+     "Neuzugänge je Monat",
+     "M1–3: 140 / M4–12: 100 / M13–24: 90 / M25–36: 80 / M37–60: 75",
+     "Basis-Szenario"
+    ],
+    [
+     "Kündigungsquote",
+     "2,2 % je Monat",
+     "≈ 23 % p. a. (Branche Ø 25 %)"
+    ],
+    [
+     "Obergrenze Mitglieder",
+     "2.200",
+     "1,11 je m²"
+    ],
+    [
+     "Spitzenlast gleichzeitig",
+     "5,5 %",
+     "gegen 126 Personen Kapazität"
+    ],
+    [
+     "Personal: Geschäftsführung / Studioleitung (Gründer)",
+     "1 × 3.500 € brutto/Monat",
+     "ab Monat -3"
+    ],
+    [
+     "Personal: Stellv. Studioleitung / Trainer (Vollzeit, Lizenz A)",
+     "1 × 3.600 € brutto/Monat",
+     "ab Monat -2"
+    ],
+    [
+     "Personal: Fitnesstrainer (Vollzeit)",
+     "2 × 3.000 € brutto/Monat",
+     "ab Monat -1"
+    ],
+    [
+     "Personal: Fitnesstrainer (Vollzeit, ab Jahr 2)",
+     "1 × 3.000 € brutto/Monat",
+     "ab Monat 13"
+    ],
+    [
+     "Personal: Trainer / Kursleiter (Teilzeit 50 %)",
+     "2 × 1.650 € brutto/Monat",
+     "ab Monat 1"
+    ],
+    [
+     "Personal: Empfang / Service (Teilzeit 50 %)",
+     "2 × 1.550 € brutto/Monat",
+     "ab Monat 1"
+    ],
+    [
+     "Personal: Empfang / Abend und Wochenende (Minijob)",
+     "4 × 620 € brutto/Monat",
+     "ab Monat 1, Minijob"
+    ],
+    [
+     "Personal: Reinigung Abend (Minijob)",
+     "2 × 620 € brutto/Monat",
+     "ab Monat 1, Minijob"
+    ],
+    [
+     "Arbeitgeberabgaben",
+     "21,3 % / Minijob 31,17 %",
+     "Gehaltssteigerung 2,5 % p. a."
+    ],
+    [
+     "Marketing laufend",
+     "3.500 €/Monat",
+     ""
+    ],
+    [
+     "Marketing Eröffnung (M 1–3 zusätzlich)",
+     "6.000 €/Monat",
+     ""
+    ],
+    [
+     "Versicherungen",
+     "900 €/Monat",
+     ""
+    ],
+    [
+     "GEMA/GVL",
+     "350 €/Monat",
+     ""
+    ],
+    [
+     "Studiosoftware/Zutritt",
+     "450 €/Monat",
+     ""
+    ],
+    [
+     "Steuerberatung/Buchhaltung",
+     "1.000 €/Monat",
+     ""
+    ],
+    [
+     "Reinigung/Hygiene/Verbrauch",
+     "2.200 €/Monat",
+     ""
+    ],
+    [
+     "Telekommunikation/IT",
+     "250 €/Monat",
+     ""
+    ],
+    [
+     "Sonstiges",
+     "1.500 €/Monat",
+     ""
+    ],
+    [
+     "Zahlungsverkehr",
+     "0,8 % vom Beitragsumsatz brutto",
+     ""
+    ],
+    [
+     "Wartung Geräte",
+     "5 % vom Gerätewert p. a.",
+     ""
+    ],
+    [
+     "Instandhaltung Gebäude",
+     "4,00 €/m²/Jahr",
+     ""
+    ],
+    [
+     "Marketing Vorverkauf",
+     "35.000 €",
+     "3 Monate"
+    ],
+    [
+     "Unvorhergesehenes",
+     "10 % der Investition",
+     ""
+    ],
+    [
+     "Abschreibung",
+     "Geräte 8 J., Ausbau 10 J., Sonstiges 5 J.",
+     ""
+    ],
+    [
+     "Eigenkapital Bareinlage",
+     "150.000 €",
+     "vom Gründer zu bestätigen"
+    ],
+    [
+     "MBG Baden-Württemberg – stille Beteiligung Existenzgründung ",
+     "250.000 €, 7,00 %, 10 J., 10 tilgungsfrei",
+     "wirtschaftliches EK"
+    ],
+    [
+     "KfW ERP-Förderkredit Gründung und Nachfolge (077), 100 % Gar",
+     "500.000 €, 6,50 %, 15 J., 5 tilgungsfrei",
+     ""
+    ],
+    [
+     "KfW ERP-Gründerkredit StartGeld (067), 80 % Haftungsfreistel",
+     "200.000 €, 5,75 %, 10 J., 2 tilgungsfrei",
+     ""
+    ],
+    [
+     "L-Bank Gründungsfinanzierung (GuW-BW) über Hausbank, 80 % Bü",
+     "1.522.583 €, 6,40 %, 20 J., 3 tilgungsfrei",
+     ""
+    ],
+    [
+     "Anlaufreserve",
+     "710.000 €",
+     "Bedarf 24 Monate 708.838 € inkl. 15 % Puffer"
+    ],
+    [
+     "Kontokorrent (USt-Vorfinanzierung)",
+     "200.000 €",
+     "nicht im Kapitalbedarf"
+    ],
+    [
+     "Gewerbesteuer-Hebesatz",
+     "390 %",
+     "Planannahme (Friedrichshafen 350, Ravensburg 390, Konstanz 410)"
+    ],
+    [
+     "Ertragsteuersatz gesamt",
+     "29,47 %",
+     "KSt 15 % + Soli + GewSt"
+    ]
+   ],
+   "breiten": [
+    34,
+    36,
+    30
+   ],
+   "quelle": "Alle Annahmen sind im Blatt „Annahmen“ der Datei Finanzplan_No1.xlsx änderbar; die Planung rechnet automatisch nach"
+  },
+  {
+   "anhang": "G",
+   "id": "G-bodensee",
+   "titel": "Tabelle G: Immobilien-Shortlist Bodenseeregion (Recherche ImmoScout24/Immowelt, Stand September 2026)",
+   "spalten": [
+    "Objekt",
+    "Ort",
+    "Fläche",
+    "Miete",
+    "Höhe",
+    "Portal"
+   ],
+   "zeilen": [
+    [
+     "Produktionshalle, mehrere Bauabschnitte auf ca. 2.597 m² Grundstück",
+     "Meersburg",
+     "1.885 m²",
+     "8,58 €/m²",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Produktionshalle Technologiepark (TRIWO bodensee business base), 3 Hal",
+     "Immenstaad am Bodensee, Graf-v",
+     "1.900 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle \"Altes Schmelzwerk\" – neuer Standort für Gesundheit, Sport ",
+     "Friedrichshafen, Colsmanstraße",
+     "13.000 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Büro-, Lagerfläche in Konstanz – Flexible Nutzungsmöglichkeiten (Opels",
+     "Konstanz",
+     "2.227 m²",
+     "–",
+     "–",
+     "ImmoScout24"
+    ],
+    [
+     "Großzügige Industriehalle mit vielen Nutzungsmöglichkeiten",
+     "Radolfzell am Bodensee",
+     "1.600 m²",
+     "7,56 €/m²",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle – drei flexibel nutzbare Einheiten, mehrere Zufahrten",
+     "Radolfzell am Bodensee",
+     "1.676 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle Gewerbeliegenschaft (auch zum Kauf)",
+     "Kressbronn am Bodensee",
+     "1.770 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Halle 2 mit Sheddach, sehr hell",
+     "Neukirch, Schulstraße 27",
+     "2.400 m²",
+     "4,50 €/m²",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Ihre neuen Flächen in THE PLANT Konstanz – 3.000 m² Spezialgewerbe, By",
+     "Konstanz",
+     "3.000 m²",
+     "–",
+     "–",
+     "ImmoScout24"
+    ],
+    [
+     "Hochwertige Produktions-/Büroimmobilie Gewerbegebiet Oberer Riedweg (a",
+     "Bad Waldsee",
+     "2.124 m²",
+     "6,21 €/m²",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle Gewerbegebiet Trauben, hervorragende Verkehrsanbindung (B30",
+     "Weingarten",
+     "1.579 m²",
+     "4,62 €/m²",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Industriepark Gottmadingen, Industriepark 200 – Halle 1.566 m², 4,50 €",
+     "Gottmadingen",
+     "1.566 m²",
+     "4,50 €/m²",
+     "–",
+     "ImmoScout24"
+    ]
+   ],
+   "breiten": [
+    36,
+    16,
+    12,
+    12,
+    8,
+    16
+   ],
+   "quelle": "Angaben aus den Suchseiten der Portale; Exposés und Verfügbarkeit sind zu prüfen"
+  },
+  {
+   "anhang": "G",
+   "id": "G-stuttgart",
+   "titel": "Tabelle G: Immobilien-Shortlist Region Stuttgart (Recherche ImmoScout24/Immowelt, Stand September 2026)",
+   "spalten": [
+    "Objekt",
+    "Ort",
+    "Fläche",
+    "Miete",
+    "Höhe",
+    "Portal"
+   ],
+   "zeilen": [
+    [
+     "Unternehmensimmobilie Neuhausen a. d. F. – Halle ca. 6 m UKB, Rampe + ",
+     "Neuhausen auf den Fildern",
+     "1.606 m²",
+     "–",
+     "6 m",
+     "Immowelt"
+    ],
+    [
+     "Gewerbehalle Stuttgart-Feuerbach, ca. 9 m Deckenhöhe, 2.000 m² (VBT Gm",
+     "Stuttgart-Feuerbach",
+     "2.000 m²",
+     "–",
+     "9 m",
+     "Immowelt"
+    ],
+    [
+     "Halle Esslingen-Zell, 7,50 m UKB, 1.816 m² Halle + 211 m² Büro (WFC Im",
+     "Esslingen am Neckar (Zell)",
+     "1.992 m²",
+     "–",
+     "7.5 m",
+     "Immowelt"
+    ],
+    [
+     "Moderne Lagerhalle Böblingen, 2.765 m² teilbar ab 1.296 m², 5 t/m²",
+     "Böblingen",
+     "2.765 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Halle Maybachstraße 5/1 – 2.315 m² (teilbar ab 860 m²), 6,50 €/m², pro",
+     "Leonberg",
+     "2.315 m²",
+     "6,50 €/m²",
+     "–",
+     "ImmoScout24"
+    ],
+    [
+     "Lagerhalle Herrenberg-Gültstein, 2.060 m²",
+     "Herrenberg-Gültstein",
+     "2.060 m²",
+     "6,50 €/m²",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle Holzgerlingen, 2.000 m²",
+     "Holzgerlingen",
+     "2.000 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle Renningen, 1.923 m²",
+     "Renningen",
+     "1.923 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Halle 2.520 m²",
+     "Renningen",
+     "2.520 m²",
+     "–",
+     "–",
+     "ImmoScout24"
+    ],
+    [
+     "Halle 2.675 m², provisionsfrei",
+     "Herrenberg",
+     "2.675 m²",
+     "–",
+     "–",
+     "ImmoScout24"
+    ],
+    [
+     "Produktions-/Lagerhalle Esslingen, 1.650 m² (Realogis)",
+     "Esslingen am Neckar",
+     "1.650 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ],
+    [
+     "Lagerhalle Sachsenheim, 1.600 m²",
+     "Sachsenheim",
+     "1.600 m²",
+     "–",
+     "–",
+     "Immowelt"
+    ]
+   ],
+   "breiten": [
+    36,
+    16,
+    12,
+    12,
+    8,
+    16
+   ],
+   "quelle": "Angaben aus den Suchseiten der Portale; Exposés und Verfügbarkeit sind zu prüfen"
+  },
+  {
+   "anhang": "H",
+   "id": "H1",
+   "titel": "Tabelle H.1: Ergebnis der Regularien-Prüfung der Planung je Themenfeld",
+   "spalten": [
+    "Themenfeld",
+    "erfüllt",
+    "prüfen",
+    "nicht erfüllt",
+    "Hinweis"
+   ],
+   "zeilen": [
+    [
+     "Fluchtwege & Notausgänge",
+     "89",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Verkehrswege",
+     "1",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Brandschutz",
+     "2",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Erste Hilfe",
+     "2",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Kennzeichnung & Sicherheitsbeleuchtung",
+     "12",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Barrierefreiheit",
+     "3",
+     "0",
+     "0",
+     "1"
+    ],
+    [
+     "Sanitär & Umkleiden",
+     "3",
+     "0",
+     "0",
+     "1"
+    ],
+    [
+     "Gerätefreiräume",
+     "1",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Versammlungsstätte",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Organisatorisches",
+     "1",
+     "0",
+     "0",
+     "4"
+    ],
+    [
+     "Summe",
+     "114",
+     "0",
+     "0",
+     "6"
+    ]
+   ],
+   "breiten": [
+    44,
+    14,
+    14,
+    14,
+    14
+   ],
+   "quelle": "Automatische Prüfung der Planungssoftware GymPlanner gegen ASR A2.3 (Fluchtwege), ASR A1.8, ASR A4.1/A4.2 (Sanitär), DIN EN 957/ISO 20957 (Geräteabstände), LBO BW; ersetzt keine Prüfung durch Behörden und Fachplaner"
+  },
+  {
+   "anhang": "H",
+   "id": "H2",
+   "titel": "Tabelle H.2: Offene Hinweise der Regularien-Prüfung (Status prüfen / Hinweis)",
+   "spalten": [
+    "Thema",
+    "Prüfung",
+    "Soll",
+    "Ist",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Barrierefreiheit",
+     "Bewegungsfläche vor dem barrierefreien WC",
+     "150 × 150 cm frei, seitlich 90 cm neben dem WC",
+     "Objektmaß 150 cm × 220 cm (Bewegungsfläche enthalten)",
+     "Hinweis"
+    ],
+    [
+     "Sanitär & Umkleiden",
+     "Toiletten für Beschäftigte",
+     "≥ 1 Toilette (bis 5 Beschäftigte je Geschlecht 1)",
+     "7 WC + 4 Urinale gesamt · 6 Beschäftigte angenommen",
+     "Hinweis"
+    ],
+    [
+     "Organisatorisches",
+     "Brandschutzhelfer",
+     "≥ 1 Brandschutzhelfer (5 %, mind. 1)",
+     "6 Beschäftigte angenommen",
+     "Hinweis"
+    ],
+    [
+     "Organisatorisches",
+     "Ersthelfer",
+     "≥ 1 Ersthelfer",
+     "6 Beschäftigte angenommen",
+     "Hinweis"
+    ],
+    [
+     "Organisatorisches",
+     "Legionellenprüfung (Duschen)",
+     "Untersuchung der Trinkwasser-Installation alle 3 Jahre (gewerblich), W",
+     "18 Duschen",
+     "Hinweis"
+    ],
+    [
+     "Organisatorisches",
+     "Prüfung der Feuerlöscher",
+     "Sachkundigenprüfung alle 2 Jahre",
+     "21 Feuerlöscher",
+     "Hinweis"
+    ]
+   ],
+   "breiten": [
+    14,
+    34,
+    20,
+    20,
+    12
+   ],
+   "quelle": ""
+  },
+  {
+   "anhang": "H",
+   "id": "H3",
+   "titel": "Tabelle H.3: Wichtige erfüllte Anforderungen (Auswahl)",
+   "spalten": [
+    "Thema",
+    "Prüfung",
+    "Soll",
+    "Ist"
+   ],
+   "zeilen": [
+    [
+     "Fluchtwege & Notausgänge",
+     "Anzahl Notausgänge „EG“",
+     "≥ 2 unabhängige Rettungswege",
+     "6 Notausgänge · 1.931,13 m² · 132 Personen"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Aufschlagrichtung Notausgang „Haupteingang, zweiflügelig (200 cm), Panikbeschlag, schlägt ",
+     "in Fluchtrichtung (nach außen) aufschlagend",
+     "schlägt nach außen auf"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Aufschlagrichtung Notausgang „Notausgang Kursraum“",
+     "in Fluchtrichtung (nach außen) aufschlagend",
+     "schlägt nach außen auf"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Aufschlagrichtung Notausgang „Notausgang Nord (Beine / HYROX)“",
+     "in Fluchtrichtung (nach außen) aufschlagend",
+     "schlägt nach außen auf"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Aufschlagrichtung Notausgang „Notausgang Nord-Ost (Cardio / HYROX)“",
+     "in Fluchtrichtung (nach außen) aufschlagend",
+     "schlägt nach außen auf"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Aufschlagrichtung Notausgang „Notausgang Süd (Flur Umkleiden)“",
+     "in Fluchtrichtung (nach außen) aufschlagend",
+     "schlägt nach außen auf"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Aufschlagrichtung Notausgang „Notausgang West (Freihantel)“",
+     "in Fluchtrichtung (nach außen) aufschlagend",
+     "schlägt nach außen auf"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Ausgangsbreite gesamt „EG“",
+     "≥ 120 cm für 132 Personen",
+     "690 cm (200 cm + 100 cm + 90 cm + 100 cm + 100 cm + 100 cm)"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 1 – Freihantel → Notausgang West: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang West (Freihantel)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 1 – Freihantel → Notausgang West: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 1 – Freihantel → Notausgang West: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 24,9 m · Luftlinie 17,6 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 1 – Freihantel → Notausgang West: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 10 – Technik/Lager → Haupteingang: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Haupteingang, zweiflügelig (200 cm), Panikbeschl"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 10 – Technik/Lager → Haupteingang: Korridor frei (100 cm–120 cm)",
+     "Breite 100 cm–120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 10 – Technik/Lager → Haupteingang: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 23,6 m · Luftlinie 13,5 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 10 – Technik/Lager → Haupteingang: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 11 – Wellness → Notausgang Süd: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang Süd (Flur Umkleiden)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 11 – Wellness → Notausgang Süd: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 11 – Wellness → Notausgang Süd: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 32,2 m · Luftlinie 15,8 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 11 – Wellness → Notausgang Süd: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 12 – Kursraum → Halle → Notausgang Süd: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang Süd (Flur Umkleiden)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 12 – Kursraum → Halle → Notausgang Süd: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 12 – Kursraum → Halle → Notausgang Süd: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 34,4 m · Luftlinie 24 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 12 – Kursraum → Halle → Notausgang Süd: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 2 – Beine → Notausgang Nord: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang Nord (Beine / HYROX)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 2 – Beine → Notausgang Nord: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 2 – Beine → Notausgang Nord: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 21,5 m · Luftlinie 17,4 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 2 – Beine → Notausgang Nord: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 3 – Cardio → Notausgang Nord-Ost: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang Nord-Ost (Cardio / HYROX)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 3 – Cardio → Notausgang Nord-Ost: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 3 – Cardio → Notausgang Nord-Ost: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 19,5 m · Luftlinie 16,8 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 3 – Cardio → Notausgang Nord-Ost: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 4 – Rücken/Rack-Straße → Notausgang Nord-Ost: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang Nord-Ost (Cardio / HYROX)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 4 – Rücken/Rack-Straße → Notausgang Nord-Ost: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 4 – Rücken/Rack-Straße → Notausgang Nord-Ost: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 35,2 m · Luftlinie 23,6 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 4 – Rücken/Rack-Straße → Notausgang Nord-Ost: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 5 – Schultern & Arme → Notausgang Süd: Endpunkt am Notausgang",
+     "≤ 100 cm zur Notausgangstür",
+     "18 cm bis Notausgang „Notausgang Süd (Flur Umkleiden)“"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 5 – Schultern & Arme → Notausgang Süd: Korridor frei (120 cm)",
+     "Breite 120 cm ohne Objekte",
+     "frei"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 5 – Schultern & Arme → Notausgang Süd: Länge",
+     "≤ 52,5 m Lauflänge, ≤ 35 m Luftlinie",
+     "Lauflänge 20,8 m · Luftlinie 14,8 m"
+    ],
+    [
+     "Fluchtwege & Notausgänge",
+     "Fluchtweg 5 – Schultern & Arme → Notausgang Süd: Wände nur durch Türen",
+     "Wände nur innerhalb einer Türöffnung kreuzen",
+     "keine Wanddurchdringung"
+    ]
+   ],
+   "breiten": [
+    16,
+    40,
+    22,
+    22
+   ],
+   "quelle": "Vollständige Liste (121 Prüfungen) in der Planungssoftware bzw. im PDF-Export des Projekts"
+  }
+ ]
+}

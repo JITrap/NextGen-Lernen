@@ -4,6 +4,9 @@
   "format": "gymplanner-project",
   "project": {
     "activeFloorId": "f_omzjlbwlJiKW",
+    "costs": {
+      "mieteEurM2Monat": 8.5
+    },
     "createdAt": "2026-09-25T20:59:22.347Z",
     "customEquipment": [],
     "favorites": [],

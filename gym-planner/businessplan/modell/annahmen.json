@@ -1,0 +1,296 @@
+{
+ "_hinweis": "Annahmen Stand 27.09.2026 nach Recherche (DSSV Eckdaten 2026, KfW/L-Bank/Bürgschaftsbank-Konditionen 09/2026, GEHALT.de 2026, GEG-Energiekennwerte). Alle Beträge netto EUR, Beiträge/Preise brutto inkl. 19 % USt wo angegeben.",
+ "projekt": {
+  "name": "No.1 Fitness & HYROX Studio (Arbeitstitel)",
+  "rechtsform": "GmbH",
+  "gruender": "[Name des Gründers]",
+  "region_primaer": "Bodenseeregion (Bodenseekreis / Landkreis Konstanz / Landkreis Ravensburg)",
+  "region_alternativ": "Region Stuttgart (Landkreise Böblingen, Esslingen, Ludwigsburg)",
+  "flaeche_brutto_m2": 1975.4,
+  "flaeche_netto_m2": 1931.13,
+  "trainingsflaeche_m2": 1138.58,
+  "personen_kapazitaet": 126,
+  "spindfaecher": 178,
+  "duschen": 18,
+  "wcs": 11,
+  "eroeffnung": "2027-09-01",
+  "vorlauf_monate": 5,
+  "planungsjahre": 5
+ },
+ "miete": {
+  "kalt_eur_m2": 8.5,
+  "betriebskosten_eur_m2": 2.0,
+  "energie_wasser_eur_m2": 4.0,
+  "kaution_monate": 3,
+  "mietfreie_monate_ausbau": 3,
+  "mietvertrag_jahre": 10,
+  "indexierung_prozent_pa": 2.0,
+  "ust_auf_miete": true
+ },
+ "tarife": {
+  "basic": {
+   "name": "Basic (Kraft, Cardio, Freihantel, Kurse)",
+   "beitrag_brutto": 44.9,
+   "anteil": 0.4
+  },
+  "premium": {
+   "name": "Premium (zusätzlich Wellness/Sauna/Dampfbad, HYROX-Zone, Getränke-Flat)",
+   "beitrag_brutto": 59.9,
+   "anteil": 0.45
+  },
+  "student": {
+   "name": "Student/Azubi/Senior (Basic-Leistungen)",
+   "beitrag_brutto": 34.9,
+   "anteil": 0.15
+  },
+  "servicepauschale_halbjahr_brutto": 24.9,
+  "aufnahmegebuehr_brutto": 49.0,
+  "aufnahmegebuehr_anteil_zahlend": 0.7,
+  "beitragserhoehung_prozent_pa": 2.0,
+  "ust_satz": 0.19
+ },
+ "nebenumsatz": {
+  "getraenke_shakes_brutto_je_mitglied_monat": 3.0,
+  "getraenke_wareneinsatz_prozent": 0.4,
+  "solarium_wellness_zusatz_brutto_je_mitglied_monat": 1.2,
+  "personal_training_kurse_brutto_je_mitglied_monat": 1.5,
+  "merchandise_sonstiges_brutto_je_mitglied_monat": 0.5
+ },
+ "mitglieder": {
+  "vorverkauf_bestand_eroeffnung": 350,
+  "neuzugaenge_je_monat": [
+   {
+    "von": 1,
+    "bis": 3,
+    "n": 140
+   },
+   {
+    "von": 4,
+    "bis": 12,
+    "n": 100
+   },
+   {
+    "von": 13,
+    "bis": 24,
+    "n": 90
+   },
+   {
+    "von": 25,
+    "bis": 36,
+    "n": 80
+   },
+   {
+    "von": 37,
+    "bis": 60,
+    "n": 75
+   }
+  ],
+  "kuendigungsquote_monat": 0.022,
+  "kapazitaet_max_mitglieder": 2200,
+  "mitglieder_je_m2_zielwert": 1.1,
+  "spitzenlast_anteil_gleichzeitig": 0.055
+ },
+ "personal": {
+  "ag_anteil_sozialversicherung": 0.213,
+  "minijob_pauschalabgaben": 0.3117,
+  "minijob_grenze_brutto": 620,
+  "gehaltssteigerung_prozent_pa": 2.5,
+  "stellen": [
+   {
+    "rolle": "Geschäftsführung / Studioleitung (Gründer)",
+    "anzahl": 1,
+    "brutto_monat": 3500,
+    "minijob": false,
+    "ab_monat": -3
+   },
+   {
+    "rolle": "Stellv. Studioleitung / Trainer (Vollzeit, Lizenz A)",
+    "anzahl": 1,
+    "brutto_monat": 3600,
+    "minijob": false,
+    "ab_monat": -2
+   },
+   {
+    "rolle": "Fitnesstrainer (Vollzeit)",
+    "anzahl": 2,
+    "brutto_monat": 3000,
+    "minijob": false,
+    "ab_monat": -1
+   },
+   {
+    "rolle": "Fitnesstrainer (Vollzeit, ab Jahr 2)",
+    "anzahl": 1,
+    "brutto_monat": 3000,
+    "minijob": false,
+    "ab_monat": 13
+   },
+   {
+    "rolle": "Trainer / Kursleiter (Teilzeit 50 %)",
+    "anzahl": 2,
+    "brutto_monat": 1650,
+    "minijob": false,
+    "ab_monat": 1
+   },
+   {
+    "rolle": "Empfang / Service (Teilzeit 50 %)",
+    "anzahl": 2,
+    "brutto_monat": 1550,
+    "minijob": false,
+    "ab_monat": 1
+   },
+   {
+    "rolle": "Empfang / Abend und Wochenende (Minijob)",
+    "anzahl": 4,
+    "brutto_monat": 620,
+    "minijob": true,
+    "ab_monat": 1
+   },
+   {
+    "rolle": "Reinigung Abend (Minijob)",
+    "anzahl": 2,
+    "brutto_monat": 620,
+    "minijob": true,
+    "ab_monat": 1
+   }
+  ]
+ },
+ "sachkosten_monat": {
+  "marketing_laufend": 3500,
+  "marketing_prozent_vom_umsatz": 0.0,
+  "marketing_eroeffnung_monate_1_3": 6000,
+  "versicherungen": 900,
+  "gema_gvl": 350,
+  "studiosoftware_zutritt": 450,
+  "payment_prozent_vom_beitrag_brutto": 0.008,
+  "steuerberater_buchhaltung": 1000,
+  "reinigung_material_hygiene": 2200,
+  "telekommunikation_it": 250,
+  "wartung_prozent_geraetewert_pa": 0.05,
+  "instandhaltung_gebaeude_eur_m2_pa": 4.0,
+  "sonstiges": 1500,
+  "vorsteuerfaehig": {
+   "marketing": true,
+   "versicherungen": false,
+   "gema_gvl": true,
+   "studiosoftware_zutritt": true,
+   "payment": false,
+   "steuerberater": true,
+   "reinigung": true,
+   "telekommunikation": true,
+   "wartung": true,
+   "instandhaltung": true,
+   "sonstiges": true,
+   "miete": true,
+   "betriebskosten": true,
+   "energie": true
+  }
+ },
+ "vorlauf": {
+  "marketing_vorverkauf_gesamt": 35000,
+  "marketing_vorverkauf_monate": 3,
+  "gruendungskosten_gmbh": 2500,
+  "beratung_businessplan_steuer": 5000
+ },
+ "investition_quelle": "daten.json → kosten_barkauf_850 (App-Kalkulation, Miete 8,50 €/m²)",
+ "investition": {
+  "unvorhergesehen_prozent": 0.1,
+  "afa_jahre": {
+   "geraete": 8,
+   "ausbau": 10,
+   "sanitaer": 10,
+   "sonstiges": 5
+  },
+  "zahlungsplan": {
+   "kaution_monat": -5,
+   "ausbau_monate": [
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "geraete_monat": -1,
+   "planung_monate": [
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sonstiges_monat": -2
+  }
+ },
+ "finanzierung": {
+  "eigenkapital": 150000,
+  "darlehen": [
+   {
+    "name": "MBG Baden-Württemberg – stille Beteiligung Existenzgründung (wirtschaftliches Eigenkapital)",
+    "betrag": 250000,
+    "zins_pa": 0.07,
+    "laufzeit_jahre": 10,
+    "tilgungsfreie_jahre": 10,
+    "auszahlung_monat": -5,
+    "haftungsfreistellung": 0.0,
+    "eigenkapitalaehnlich": true
+   },
+   {
+    "name": "KfW ERP-Förderkredit Gründung und Nachfolge (077), 100 % Garantie Bürgschaftsbank",
+    "betrag": 500000,
+    "zins_pa": 0.065,
+    "laufzeit_jahre": 15,
+    "tilgungsfreie_jahre": 5,
+    "auszahlung_monat": -4,
+    "haftungsfreistellung": 1.0,
+    "eigenkapitalaehnlich": false
+   },
+   {
+    "name": "KfW ERP-Gründerkredit StartGeld (067), 80 % Haftungsfreistellung",
+    "betrag": 200000,
+    "zins_pa": 0.0575,
+    "laufzeit_jahre": 10,
+    "tilgungsfreie_jahre": 2,
+    "auszahlung_monat": -4,
+    "haftungsfreistellung": 0.8,
+    "eigenkapitalaehnlich": false
+   },
+   {
+    "name": "L-Bank Gründungsfinanzierung (GuW-BW) über Hausbank, 80 % Bürgschaft Bürgschaftsbank BW (Restfinanzierung)",
+    "betrag": null,
+    "zins_pa": 0.064,
+    "laufzeit_jahre": 20,
+    "tilgungsfreie_jahre": 3,
+    "auszahlung_monat": -3,
+    "haftungsfreistellung": 0.8,
+    "eigenkapitalaehnlich": false,
+    "plug": true
+   }
+  ],
+  "betriebsmittelreserve": 710000,
+  "reserve_sicherheitspuffer_prozent": 0.15,
+  "kontokorrent_rahmen": 200000,
+  "kontokorrent_zins_pa": 0.09
+ },
+ "steuern": {
+  "gewerbesteuer_hebesatz": 3.9,
+  "gewerbesteuer_messzahl": 0.035,
+  "koerperschaftsteuer": 0.15,
+  "soli": 0.055,
+  "ust_erstattung_verzoegerung_monate": 1
+ },
+ "szenarien": {
+  "pessimistisch": {
+   "neuzugaenge_faktor": 0.7,
+   "kuendigungsquote_monat": 0.028,
+   "beitrag_faktor": 0.95
+  },
+  "basis": {
+   "neuzugaenge_faktor": 1.0,
+   "kuendigungsquote_monat": 0.022,
+   "beitrag_faktor": 1.0
+  },
+  "optimistisch": {
+   "neuzugaenge_faktor": 1.2,
+   "kuendigungsquote_monat": 0.018,
+   "beitrag_faktor": 1.03
+  }
+ }
+}

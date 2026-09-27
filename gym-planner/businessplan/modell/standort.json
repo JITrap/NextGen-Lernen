@@ -1,0 +1,1973 @@
+{
+ "key": "standort",
+ "stand": "27.09.2026",
+ "sprache": "de",
+ "zusammenfassung_kurz": [
+  "Bodenseekreis 220.895 Ew (31.12.2025; 220.804 am 31.12.2024), LK Konstanz 291.867, LK Ravensburg 291.600, LK Lindau 82.399 → Bodenseeregion (4 Kreise) ≈ 886.800 Ew.",
+  "Stadt Stuttgart 609.365, LK Böblingen 394.729, Esslingen 536.328, Ludwigsburg 534.454, Rems-Murr 438.873 → Region Stuttgart (5 Kreise) ≈ 2,51 Mio. Ew.",
+  "Anteil 18–64 Jahre: Bodenseekreis 58,2 %, Konstanz 60,7 %, Ravensburg 60,1 %, Lindau 59,1 %, Böblingen 60,3 %, Stuttgart 65,7 % (Schätzung 2025, StaLa via City Population).",
+  "Kaufkraft je Ew 2026 (MB Research): Bodenseekreis 36.069 € (Index 127,5, 2020=100), LK Ravensburg 33.168 €; BW 32.813 €/Index 105,2, D 31.193 € (NIQ). Einzelhandelsrelevant 2026: LK Böblingen 8.811 € (107,6), Stuttgart 8.738 € (106,7).",
+  "Verfügbares Einkommen je Ew 2022 (StaLa BW): Bodenseekreis 29.440 (Land=107,3), Stuttgart 29.202, Ludwigsburg 28.355, Böblingen 28.319, Esslingen 27.905, Rems-Murr 27.812, Konstanz 27.674, Ravensburg 27.585, BW 27.429; 2023: Bodenseekreis 32.455, Ravensburg 30.135 (IHK BO).",
+  "Pendler 2025: Friedrichshafen 23.056 Einpendler, Saldo +11.444, Tagbevölkerung 74.376; Böblingen 36.582 Einpendler (Saldo +19.739), Sindelfingen 45.595 (Saldo +27.896). Arbeitgeber: ZF ca. 10.000 (FN), RRPS 6.300 (FN, +500 geplant), Airbus ca. 2.150 (Immenstaad); HP Böblingen 4.000, Bosch Feuerbach 14.000, Mercedes Sindelfingen >31.500 (Snippet).",
+  "Wettbewerb: 20 Studios Bodensee, 10 Region Stuttgart erfasst. Discount/Kettenpreise 34,95–49,95 € (ai fitness, MC Shape, clever fit), regionale Premiumketten 49,90–70 € (Happy Fit KN/Singen/RZ 55–70 €, GYM-24 49,90–64,90 €, Sportwelt Leonberg 55–65 €). Sauna bei ca. 2/3 der Studios; HYROX-Angebot: ai fitness FN, Fitness Bunker KN, urban health Ludwigsburg, JONNY M. Böblingen (neu 2026).",
+  "Mietniveau: IHK BO Produktionshallen FN 4,90–6,70 €/m² (06/2025); Region Stuttgart Spitzenmiete 8,50, Ø 7,00 €/m² (Realogis 2025), Umland-Spitze 9,90 (E&G). Planannahme 8,50 €/m² ist am Bodensee konservativ, in Stuttgart = Spitzenmiete.",
+  "Baurecht: Fitnessstudio im GE allgemein zulässig (§ 8 Abs. 2 Nr. 4 BauNVO); Sondergebiet nur bei passender Zweckbestimmung; Stellplätze BW: 1 je 25 m² Sportfläche (VwV Stellplätze, Merkblatt AKBW 09/2022) → ca. 52 Kfz + 17 Fahrrad für No.1; Genehmigung § 54 LBO 2 Monate ab Vollständigkeit, Genehmigungsfiktion 3 Monate (LBO 2025), Praxis 3–6 Monate.",
+  "Einzugsgebiet 15 min (Näherung): Friedrichshafen 149.548 Ew → 22.133 Fitnessmitglieder (14.8 %. DSSV 2026); Böblingen 215.039 Ew → 31.826 Mitglieder.",
+  "Immobilien-Shortlist (nur immo-all.json): Bodensee 12 Objekte (Top: Meersburg 1.885 m²/8,58 €, Immenstaad Technologiepark 1.900 m², FN 'Altes Schmelzwerk' Sport-Umnutzung, Konstanz 2.227 m², Radolfzell 1.600 m²/7,56 €); Stuttgart 12 Objekte (Top: Neuhausen 1.606 m²/6 m UKB, Feuerbach 2.000 m²/9 m, Esslingen-Zell 1.992 m²/7,5 m, Böblingen 2.765 m² teilbar, Leonberg 2.315 m²/6,50 €)."
+ ],
+ "1_bevoelkerung_kaufkraft": {
+  "kreise": {
+   "bodensee": [
+    {
+     "name": "Bodenseekreis",
+     "einwohner_31_12_2025": 220895,
+     "einwohner_zensus_2022": 218476,
+     "altersgruppen_schaetzung_2025": {
+      "0-17": 37295,
+      "18-64": 128486,
+      "65+": 55114,
+      "anteil_18_64_prozent": 58.2
+     },
+     "quelle": {
+      "url": "https://www.citypopulation.de/de/germany/admin/baden_w%C3%BCrttemberg/08435__bodenseekreis/",
+      "titel": "City Population Kreisseite (Daten: Statistische Landesämter, Fortschreibung 31.12.2025; Zensus 2022)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "einwohner_31_12_2024": 220804,
+     "quelle_2024": {
+      "url": "https://www.wf-bodenseekreis.de/standort/standortdaten/",
+      "titel": "Wirtschaftsförderung Bodenseekreis: Standortdaten (BA, Statistisches Landesamt)",
+      "stand": "Einwohner 31.12.2024; Beschäftigte/Pendler 30.06.2025; Kaufkraft 2025",
+      "gelesen": true
+     },
+     "sv_beschaeftigte_30_06_2025": 95400,
+     "pendlersaldo_30_06_2025": 2729,
+     "arbeitslosenquote_2024": 3.5,
+     "kaufkraft_je_ew": {
+      "wert": 36069,
+      "index_2020_100": 127.5,
+      "jahr": "2026 Prognose",
+      "quelle": {
+       "url": "https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404",
+       "titel": "IHK Bodensee-Oberschwaben: Kaufkraft (MB Research, Prognose 2026)",
+       "stand": "2026 (Prognose)",
+       "gelesen": true
+      },
+      "alt_2025": {
+       "wert": 34728,
+       "quelle": {
+        "url": "https://www.wf-bodenseekreis.de/standort/standortdaten/",
+        "titel": "Wirtschaftsförderung Bodenseekreis: Standortdaten (BA, Statistisches Landesamt)",
+        "stand": "Einwohner 31.12.2024; Beschäftigte/Pendler 30.06.2025; Kaufkraft 2025",
+        "gelesen": true
+       }
+      }
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 29440,
+      "index_land_100_2022": 107.3,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      },
+      "2023": 32455,
+      "quelle_2023": {
+       "url": "https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/daten-statistiken-index/verfuegbare-eeinkommen-6955498",
+       "titel": "IHK Bodensee-Oberschwaben: Verfügbare Einkommen (Quelle Statistikportal)",
+       "stand": "Datenjahr 2023",
+       "gelesen": true
+      }
+     },
+     "altersverteilung_zensus_2022": {
+      "20-29": 22334,
+      "30-39": 27165,
+      "40-49": 26057,
+      "50-59": 34353
+     },
+     "staedte_2025": {
+      "Friedrichshafen": 62781,
+      "Überlingen": 22799,
+      "Tettnang": 20522,
+      "Markdorf": 14305,
+      "Meckenbeuren": 13717,
+      "Salem": 12252,
+      "Kressbronn": 8769,
+      "Uhldingen-Mühlhofen": 8099,
+      "Langenargen": 7708,
+      "Immenstaad": 6434,
+      "Meersburg": 6019,
+      "Oberteuringen": 5056,
+      "Eriskirch": 4752
+     }
+    },
+    {
+     "name": "Landkreis Konstanz",
+     "einwohner_31_12_2025": 291867,
+     "einwohner_zensus_2022": 287451,
+     "altersgruppen_schaetzung_2025": {
+      "0-17": 48454,
+      "18-64": 177254,
+      "65+": 66159,
+      "anteil_18_64_prozent": 60.7
+     },
+     "quelle": {
+      "url": "https://www.citypopulation.de/de/germany/admin/baden_w%C3%BCrttemberg/08335__konstanz/",
+      "titel": "City Population Kreisseite (Daten: Statistische Landesämter, Fortschreibung 31.12.2025; Zensus 2022)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "einwohner_2020": 286876,
+     "einwohner_2015": 280288,
+     "quelle_entwicklung": {
+      "url": "https://de.wikipedia.org/wiki/Landkreis_Konstanz",
+      "titel": "Wikipedia Landkreis Konstanz (Fortschreibung StaLa BW)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 27674,
+      "index_land_100_2022": 100.9,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      }
+     },
+     "kaufkraft_je_ew": null,
+     "kaufkraft_hinweis": "Keine belegbare Kreiszahl gefunden (IHK Hochrhein-Bodensee publiziert keine Kaufkraft je Einwohner online; MB-Research-Kreisliste BW nicht abrufbar).",
+     "vorausberechnung_2045_prozent": 3.3,
+     "quelle_vorausberechnung": {
+      "url": "https://www.statistik-bw.de/presse/pressemitteilungen/pressemitteilung/neue-regionalisierte-bevoelkerungsvorausberechnung-bis-zum-jahr-2045-erschienen/",
+      "titel": "Statistisches Landesamt BW: Regionalisierte Bevölkerungsvorausberechnung bis 2045",
+      "stand": "06.05.2025 (Basis 31.12.2023)",
+      "gelesen": true
+     },
+     "altersverteilung_zensus_2022": {
+      "20-29": 38332,
+      "30-39": 36114,
+      "40-49": 32533,
+      "50-59": 44175
+     },
+     "staedte_2025": {
+      "Konstanz": 86691,
+      "Singen": 48089,
+      "Radolfzell": 31689,
+      "Stockach": 17547,
+      "Rielasingen-Worblingen": 12353,
+      "Engen": 11351,
+      "Gottmadingen": 10772
+     }
+    },
+    {
+     "name": "Landkreis Ravensburg",
+     "einwohner_31_12_2025": 291600,
+     "einwohner_zensus_2022": 285421,
+     "altersgruppen_schaetzung_2025": {
+      "0-17": 52030,
+      "18-64": 175261,
+      "65+": 64309,
+      "anteil_18_64_prozent": 60.1
+     },
+     "quelle": {
+      "url": "https://www.citypopulation.de/de/germany/admin/baden_w%C3%BCrttemberg/08436__ravensburg/",
+      "titel": "City Population Kreisseite (Daten: Statistische Landesämter, Fortschreibung 31.12.2025; Zensus 2022)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "kaufkraft_je_ew": {
+      "wert": 33168,
+      "index_2020_100": 129.1,
+      "jahr": "2026 Prognose",
+      "quelle": {
+       "url": "https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404",
+       "titel": "IHK Bodensee-Oberschwaben: Kaufkraft (MB Research, Prognose 2026)",
+       "stand": "2026 (Prognose)",
+       "gelesen": true
+      }
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 27585,
+      "index_land_100_2022": 100.6,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      },
+      "2023": 30135,
+      "quelle_2023": {
+       "url": "https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/daten-statistiken-index/verfuegbare-eeinkommen-6955498",
+       "titel": "IHK Bodensee-Oberschwaben: Verfügbare Einkommen (Quelle Statistikportal)",
+       "stand": "Datenjahr 2023",
+       "gelesen": true
+      }
+     },
+     "altersverteilung_zensus_2022": {
+      "20-29": 34015,
+      "30-39": 36487,
+      "40-49": 34093,
+      "50-59": 44650
+     },
+     "staedte_2025": {
+      "Ravensburg": 50549,
+      "Weingarten": null,
+      "Leutkirch": 24325,
+      "Bad Waldsee": 20910,
+      "Wangen": null,
+      "Isny": 15015,
+      "Bad Wurzach": 14927
+     },
+     "hinweis": "Weingarten/Wangen auf der Kreisseite abgeschnitten (Textauszug); Ravensburg+Weingarten+Baienfurt+Baindt+Berg = Mittleres Schussental."
+    },
+    {
+     "name": "Landkreis Lindau (Bodensee), Bayern",
+     "einwohner_31_12_2025": 82399,
+     "einwohner_zensus_2022": 81771,
+     "altersgruppen_schaetzung_2025": {
+      "0-17": 13841,
+      "18-64": 48722,
+      "65+": 19836,
+      "anteil_18_64_prozent": 59.1
+     },
+     "quelle": {
+      "url": "https://www.citypopulation.de/de/germany/admin/bayern/09776__lindau__bodensee_/",
+      "titel": "City Population Kreisseite (Daten: Statistische Landesämter, Fortschreibung 31.12.2025; Zensus 2022)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "quelle_alt": {
+      "url": "https://de.wikipedia.org/wiki/Landkreis_Lindau_(Bodensee)",
+      "titel": "Wikipedia Landkreis Lindau (Bayerisches Landesamt für Statistik)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "sv_beschaeftigte": 32200,
+     "kaufkraft_gesamt_mio_2021": 2126,
+     "bip_je_ew_2021": 39043,
+     "quelle_wirtschaft": {
+      "url": "https://www.landkreis-lindau.de/Wirtschaft-Bildung/Wirtschaft/Der-Wirtschaftsstandort/",
+      "titel": "Landkreis Lindau: Der Wirtschaftsstandort",
+      "stand": "Datenjahr 2021",
+      "gelesen": true
+     },
+     "kaufkraft_je_ew": null,
+     "kaufkraft_hinweis": "Nur Gesamtkaufkraft 2021 (2.126 Mio. €) belegt; rechnerisch ~26.000 €/Ew bei ~82.000 Ew (eigene Ableitung, nicht Quelle).",
+     "altersverteilung_zensus_2022": {
+      "20-29": 8175,
+      "30-39": 10122,
+      "40-49": 9637,
+      "50-59": 13604
+     },
+     "staedte_2025": {
+      "Lindau": 25702,
+      "Lindenberg": 11572,
+      "Weiler-Simmerberg": 6327,
+      "Scheidegg": 4475,
+      "Wasserburg": 3890
+     }
+    }
+   ],
+   "stuttgart": [
+    {
+     "name": "Stadt Stuttgart",
+     "einwohner_31_12_2025": 609365,
+     "einwohner_zensus_2022": 610458,
+     "altersgruppen_schaetzung_2025": {
+      "0-17": 94948,
+      "18-64": 400260,
+      "65+": 114157,
+      "anteil_18_64_prozent": 65.7
+     },
+     "quelle": {
+      "url": "https://www.citypopulation.de/de/germany/admin/baden_w%C3%BCrttemberg/08111__stuttgart/",
+      "titel": "City Population Kreisseite (Daten: Statistische Landesämter, Fortschreibung 31.12.2025; Zensus 2022)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "kaufkraft_einzelhandel_je_ew_2026": {
+      "wert": 8738,
+      "index": 106.7,
+      "quelle": {
+       "url": "https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/kaufkraft-umsaetze-25-7106466",
+       "titel": "IHK Region Stuttgart: Kaufkraft und Umsätze im Einzelhandel (MB Research 2026)",
+       "stand": "03.07.2026",
+       "gelesen": true
+      }
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 29202,
+      "index_land_100_2022": 106.5,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      }
+     },
+     "vorausberechnung_2045_prozent": 5.5,
+     "quelle_vorausberechnung": {
+      "url": "https://www.statistik-bw.de/presse/pressemitteilungen/pressemitteilung/neue-regionalisierte-bevoelkerungsvorausberechnung-bis-zum-jahr-2045-erschienen/",
+      "titel": "Statistisches Landesamt BW: Regionalisierte Bevölkerungsvorausberechnung bis 2045",
+      "stand": "06.05.2025 (Basis 31.12.2023)",
+      "gelesen": true
+     },
+     "altersverteilung_zensus_2022": {
+      "20-29": 93184,
+      "30-39": 100162,
+      "40-49": 80077,
+      "50-59": 82529
+     }
+    },
+    {
+     "name": "Landkreis Böblingen",
+     "einwohner_31_12_2025": 394729,
+     "einwohner_zensus_2022": 389650,
+     "altersgruppen_schaetzung_2025": {
+      "0-17": 72614,
+      "18-64": 237829,
+      "65+": 84286,
+      "anteil_18_64_prozent": 60.3
+     },
+     "quelle": {
+      "url": "https://www.citypopulation.de/de/germany/admin/baden_w%C3%BCrttemberg/08115__b%C3%B6blingen/",
+      "titel": "City Population Kreisseite (Daten: Statistische Landesämter, Fortschreibung 31.12.2025; Zensus 2022)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "einwohner_31_12_2024": 395167,
+     "quelle_2024": {
+      "url": "https://de.wikipedia.org/wiki/Landkreis_B%C3%B6blingen",
+      "titel": "Wikipedia Landkreis Böblingen (StaLa BW) – 31.12.2024-Wert nur im Suchsnippet",
+      "stand": "31.12.2024",
+      "gelesen": false
+     },
+     "kaufkraft_einzelhandel_je_ew_2026": {
+      "wert": 8811,
+      "index": 107.6,
+      "quelle": {
+       "url": "https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/einzelhandelskennziffern-2025-landkreis-boeblingen-7117436",
+       "titel": "IHK Region Stuttgart: Kennziffern des Einzelhandels im Landkreis Böblingen 2026 (MB Research)",
+       "stand": "2026",
+       "gelesen": true
+      },
+      "staedte": {
+       "Böblingen": 8676,
+       "Sindelfingen": 8451,
+       "Leonberg": 9188,
+       "Herrenberg": 8842
+      }
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 28319,
+      "index_land_100_2022": 103.2,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      }
+     },
+     "altersverteilung_zensus_2022": {
+      "20-29": 41835,
+      "30-39": 53238,
+      "40-49": 50190,
+      "50-59": 59894
+     },
+     "staedte_2025": {
+      "Sindelfingen": 61428,
+      "Böblingen": 51204,
+      "Leonberg": 49514,
+      "Herrenberg": 34167,
+      "Weil der Stadt": 19311,
+      "Renningen": 18728,
+      "Holzgerlingen": 14153,
+      "Gärtringen": 12895,
+      "Rutesheim": 11047,
+      "Schönaich": 10483
+     }
+    },
+    {
+     "name": "Landkreis Esslingen",
+     "einwohner_31_12_2025": 536328,
+     "einwohner_zensus_2022": 529895,
+     "altersgruppen_schaetzung_2025": null,
+     "quelle": {
+      "url": "https://de.wikipedia.org/wiki/Landkreis_Esslingen",
+      "titel": "Wikipedia Landkreis Esslingen (StaLa BW Tab. 12411)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "kaufkraft_einzelhandel_je_ew_2026_staedte": {
+      "Esslingen": 8593,
+      "Filderstadt": 8634,
+      "Leinfelden-Echterdingen": 9033
+     },
+     "quelle_kk": {
+      "url": "https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/kaufkraft-umsaetze-25-7106466",
+      "titel": "IHK Region Stuttgart: Kaufkraft und Umsätze im Einzelhandel (MB Research 2026)",
+      "stand": "03.07.2026",
+      "gelesen": true
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 27905,
+      "index_land_100_2022": 101.7,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      }
+     },
+     "quelle_zahlen_2025": {
+      "url": "https://www.citypopulation.de/de/germany/badenwurttemberg/",
+      "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
+      "stand": "Schätzung 31.12.2025",
+      "gelesen": true
+     }
+    },
+    {
+     "name": "Landkreis Ludwigsburg",
+     "einwohner_31_12_2025": 534454,
+     "einwohner_zensus_2022": 528576,
+     "altersgruppen_schaetzung_2025": null,
+     "quelle": {
+      "url": "https://de.wikipedia.org/wiki/Landkreis_Ludwigsburg",
+      "titel": "Wikipedia Landkreis Ludwigsburg (StaLa BW)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "kaufkraft_einzelhandel_je_ew_2026_staedte": {
+      "Ludwigsburg": 8417,
+      "Ditzingen": 9118,
+      "Korntal-Münchingen": 9219
+     },
+     "quelle_kk": {
+      "url": "https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/kaufkraft-umsaetze-25-7106466",
+      "titel": "IHK Region Stuttgart: Kaufkraft und Umsätze im Einzelhandel (MB Research 2026)",
+      "stand": "03.07.2026",
+      "gelesen": true
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 28355,
+      "index_land_100_2022": 103.4,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      }
+     },
+     "quelle_zahlen_2025": {
+      "url": "https://www.citypopulation.de/de/germany/badenwurttemberg/",
+      "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
+      "stand": "Schätzung 31.12.2025",
+      "gelesen": true
+     }
+    },
+    {
+     "name": "Rems-Murr-Kreis",
+     "einwohner_31_12_2025": 438873,
+     "einwohner_zensus_2022": 435660,
+     "altersgruppen_schaetzung_2025": null,
+     "quelle": {
+      "url": "https://de.wikipedia.org/wiki/Rems-Murr-Kreis",
+      "titel": "Wikipedia Rems-Murr-Kreis (StaLa BW Tab. 12411)",
+      "stand": "31.12.2025",
+      "gelesen": true
+     },
+     "kaufkraft_einzelhandel_je_ew_2026_staedte": {
+      "Waiblingen": 8662,
+      "Weinstadt": 9031,
+      "Backnang": 8177
+     },
+     "quelle_kk": {
+      "url": "https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/kaufkraft-umsaetze-25-7106466",
+      "titel": "IHK Region Stuttgart: Kaufkraft und Umsätze im Einzelhandel (MB Research 2026)",
+      "stand": "03.07.2026",
+      "gelesen": true
+     },
+     "verfuegbares_einkommen_je_ew": {
+      "2022": 27812,
+      "index_land_100_2022": 101.4,
+      "quelle_2022": {
+       "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+       "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+       "stand": "Datenjahr 2022",
+       "gelesen": true
+      }
+     },
+     "quelle_zahlen_2025": {
+      "url": "https://www.citypopulation.de/de/germany/badenwurttemberg/",
+      "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
+      "stand": "Schätzung 31.12.2025",
+      "gelesen": true
+     }
+    }
+   ]
+  },
+  "land_bund": {
+   "baden_wuerttemberg": {
+    "einwohner_31_12_2025": 11238800,
+    "veraenderung_2025": -7100,
+    "quelle": {
+     "url": "https://www.statistik-bw.de/presse/pressemitteilungen/pressemitteilung/bevoelkerung-in-baden-wuerttemberg-2025-ruecklaeufig/",
+     "titel": "Statistisches Landesamt BW: Bevölkerung in BW 2025 rückläufig",
+     "stand": "20.05.2026",
+     "gelesen": true
+    },
+    "kaufkraft_je_ew_2026": {
+     "wert": 32813,
+     "index": 105.2,
+     "quelle": {
+      "url": "https://nielseniq.com/global/de/news-center/2026/kaufkraft-der-deutschen-steigt-2026-um-5-prozent-auf-31193-euro/",
+      "titel": "NIQ/GfK Kaufkraft Deutschland 2026",
+      "stand": "14.01.2026",
+      "gelesen": true
+     }
+    },
+    "verfuegbares_einkommen_je_ew_2022": 27429,
+    "quelle_eink": {
+     "url": "https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf",
+     "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
+     "stand": "Datenjahr 2022",
+     "gelesen": true
+    }
+   },
+   "deutschland": {
+    "kaufkraft_je_ew_2026": 31193,
+    "quelle": {
+     "url": "https://nielseniq.com/global/de/news-center/2026/kaufkraft-der-deutschen-steigt-2026-um-5-prozent-auf-31193-euro/",
+     "titel": "NIQ/GfK Kaufkraft Deutschland 2026",
+     "stand": "14.01.2026",
+     "gelesen": true
+    },
+    "verfuegbares_einkommen_je_ew_2023": 28452,
+    "quelle_eink": {
+     "url": "https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/daten-statistiken-index/verfuegbare-eeinkommen-6955498",
+     "titel": "IHK Bodensee-Oberschwaben: Verfügbare Einkommen (Quelle Statistikportal)",
+     "stand": "Datenjahr 2023",
+     "gelesen": true
+    }
+   }
+  },
+  "quelle_kreissummen": {
+   "url": "https://www.citypopulation.de/de/germany/badenwurttemberg/",
+   "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
+   "stand": "Schätzung 31.12.2025",
+   "gelesen": true
+  }
+ },
+ "1b_arbeitsplaetze_pendler": {
+  "bodensee": [
+   {
+    "ort": "Friedrichshafen",
+    "einpendler": 23056,
+    "auspendler": 11612,
+    "binnenpendler": 16411,
+    "pendlersaldo": 11444,
+    "tagbevoelkerung": 74376,
+    "einwohner_2023": 62932,
+    "quelle": {
+     "url": "https://pendleratlas.de/baden-wuerttemberg/bodenseekreis/friedrichshafen/",
+     "titel": "Pendleratlas Friedrichshafen (amtliche Pendlerstatistik)",
+     "stand": "Pendlerstatistik 2025, Einwohner 2023",
+     "gelesen": true
+    }
+   },
+   {
+    "arbeitgeber": "ZF Friedrichshafen AG (Stammsitz FN)",
+    "beschaeftigte": "ca. 10.000 am Standort Friedrichshafen (Betrieb Z: ca. 4.350)",
+    "quelle": {
+     "url": "https://auto.news/artikel/am-zf-standort-in-friedrichshafen-wird-ab-mitte-mai-kuerzer-gearbeitet",
+     "titel": "auto.news: Am ZF-Standort Friedrichshafen wird kürzer gearbeitet",
+     "stand": "09.05.2025",
+     "gelesen": true
+    },
+    "hinweis": "Kurzarbeit ab Mai 2025; Transformation/Stellenabbau-Risiko (Snippets: ca. 5.000 Nfz-Beschäftigte am Stammsitz, Zukunft ab 2028 offen)"
+   },
+   {
+    "arbeitgeber": "Rolls-Royce Power Systems / mtu (Friedrichshafen)",
+    "beschaeftigte": "6.300 am Standort FN (2025); +500 geplante Einstellungen 2026; drittes Werk in FN-Kluftern im Bau (Fertigstellung 2028)",
+    "quelle": {
+     "url": "https://www.stuttgarter-zeitung.de/wirtschaft/rolls-royce-power-systems-eine-milliarde-gewinn-motorenbauer-aus-friedrichshafen-vermeldet-rekordzahlen-78924192.html",
+     "titel": "Stuttgarter Zeitung: Rolls-Royce Power Systems meldet Rekordzahlen",
+     "stand": "01.03.2026",
+     "gelesen": true
+    }
+   },
+   {
+    "arbeitgeber": "Airbus Defence and Space (Immenstaad)",
+    "beschaeftigte": "ca. 2.150 + ca. 100 Auszubildende",
+    "quelle": {
+     "url": "https://www.schwaebische.de/regional/bodensee/friedrichshafen/airbus-aktie-im-check-es-gibt-einen-auftragsboom-aber-lohnt-sich-der-einstieg-4823395",
+     "titel": "Schwäbische Zeitung: Airbus am Bodensee (Suchsnippet)",
+     "stand": "2025",
+     "gelesen": false,
+     "hinweis": "Zahl nur aus Suchsnippet: ca. 2.150 Beschäftigte + ca. 100 Auszubildende in Immenstaad"
+    }
+   },
+   {
+    "kreis": "Bodenseekreis",
+    "sv_beschaeftigte_30_06_2025": 95400,
+    "erwerbstaetige_2024": 128700,
+    "pendlersaldo_30_06_2025": 2729,
+    "quelle": {
+     "url": "https://www.wf-bodenseekreis.de/standort/standortdaten/",
+     "titel": "Wirtschaftsförderung Bodenseekreis: Standortdaten (BA, Statistisches Landesamt)",
+     "stand": "Einwohner 31.12.2024; Beschäftigte/Pendler 30.06.2025; Kaufkraft 2025",
+     "gelesen": true
+    }
+   }
+  ],
+  "stuttgart": [
+   {
+    "ort": "Böblingen",
+    "einpendler": 36582,
+    "auspendler": 16843,
+    "binnenpendler": 6363,
+    "pendlersaldo": 19739,
+    "tagbevoelkerung": 71199,
+    "quelle": {
+     "url": "https://pendleratlas.de/baden-wuerttemberg/landkreis-boeblingen/boeblingen/",
+     "titel": "Pendleratlas Böblingen",
+     "stand": "Pendlerstatistik 2025",
+     "gelesen": true
+    }
+   },
+   {
+    "ort": "Sindelfingen",
+    "einpendler": 45595,
+    "auspendler": 17699,
+    "pendlersaldo": 27896,
+    "tagbevoelkerung": 92891,
+    "sv_beschaeftigte_arbeitsort_2025": 55900,
+    "quelle": [
+     {
+      "url": "https://pendleratlas.de/baden-wuerttemberg/landkreis-boeblingen/sindelfingen/",
+      "titel": "Pendleratlas Sindelfingen",
+      "stand": "Pendlerstatistik 2025",
+      "gelesen": true
+     },
+     {
+      "url": "https://sindelfingen.org/standort-sindelfingen/zahlen-daten-fakten/",
+      "titel": "Wirtschaftsförderung Sindelfingen: Zahlen, Daten, Fakten",
+      "stand": "2025",
+      "gelesen": true
+     }
+    ]
+   },
+   {
+    "ort": "Böblingen",
+    "sv_beschaeftigte": 42951,
+    "groesste_arbeitgeber": {
+     "HP Deutschland GmbH": 4000,
+     "Reisser AG": 1980,
+     "Wörwag Pharma": 1400,
+     "Keysight": 715
+    },
+    "quelle": {
+     "url": "https://die-deutsche-wirtschaft.de/standort/boeblingen/",
+     "titel": "Standortprofil Böblingen (DDW)",
+     "stand": "06.03.2026",
+     "gelesen": true
+    }
+   },
+   {
+    "arbeitgeber": "Mercedes-Benz Werk Sindelfingen",
+    "beschaeftigte": "> 31.500 (Dez. 2025, Snippet); ca. 20.000 bei Protestaktion 21.09.2026 (gelesen); 35.000 (2017, Wikipedia gelesen)",
+    "quelle": [
+     {
+      "url": "https://group.mercedes-benz.com/unternehmen/standorte/produktionsnetzwerk-sindelfingen.html",
+      "titel": "Mercedes-Benz Group: Werk Sindelfingen (Suchsnippet; Seite 403)",
+      "stand": "Dez. 2025",
+      "gelesen": false,
+      "hinweis": "Snippet: mehr als 31.500 Beschäftigte (Stand Dez. 2025); Seite nicht abrufbar. Wikipedia (gelesen): rund 35.000 (31.12.2017)."
+     },
+     {
+      "url": "https://www.szbz.de/nachrichten/artikel/sindelfingen-20000-beschaeftigte-fordern-perspektiven-fuer-die-mercedes-benz-standorte",
+      "titel": "SZ/BZ: 20.000 Beschäftigte fordern Perspektiven (Protest Werk Sindelfingen)",
+      "stand": "21.09.2026",
+      "gelesen": true
+     }
+    ]
+   },
+   {
+    "arbeitgeber": "Bosch Stuttgart-Feuerbach",
+    "beschaeftigte": "rund 14.000",
+    "quelle": {
+     "url": "https://www.bosch.de/unternehmen/bosch-in-deutschland/stuttgart-feuerbach/",
+     "titel": "Bosch: Standort Stuttgart-Feuerbach",
+     "stand": "o. D. (Website)",
+     "gelesen": true
+    }
+   }
+  ]
+ },
+ "2_wettbewerb": {
+  "bodensee": [
+   {
+    "name": "all inclusive Fitness Friedrichshafen Flughafen",
+    "ort": "Friedrichshafen",
+    "adresse": "Am Flugplatz 76/3, 88046 Friedrichshafen",
+    "kette_oder_einzel": "Kette (ai fitness)",
+    "flaeche_m2": 1700,
+    "monatsbeitrag_eur": "34,95 (23 Mon.) / 39,95 (12 Mon.) / 49,95 (flex); Starterpaket 45 €",
+    "wellness_sauna": true,
+    "hyrox": true,
+    "quelle": [
+     {
+      "url": "https://www.ai-fitness.de/studios/friedrichshafen",
+      "titel": "ai fitness Friedrichshafen Flughafen",
+      "stand": "09/2026",
+      "gelesen": true
+     },
+     {
+      "url": "https://www.ai-fitness.de/preise",
+      "titel": "ai fitness Preise (bundesweit)",
+      "stand": "09/2026",
+      "gelesen": true
+     }
+    ],
+    "hinweis": "Sauna + Massagelounge; HYROX-Setup mit Laufbändern/Stationen ausdrücklich beworben"
+   },
+   {
+    "name": "all inclusive Fitness Friedrichshafen Bodenseecenter",
+    "ort": "Friedrichshafen",
+    "adresse": "Meistershofener Str. 14, 88045 Friedrichshafen",
+    "kette_oder_einzel": "Kette (ai fitness)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "34,95–49,95 (Kettentarif)",
+    "wellness_sauna": false,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.ai-fitness.de/studios/friedrichshafen-bodenseecenter",
+     "titel": "ai fitness FN Bodenseecenter",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "150 m² Functional-Zone; Massagelounge, keine Sauna genannt"
+   },
+   {
+    "name": "Fitness Tempel Friedrichshafen",
+    "ort": "Friedrichshafen (Kluftern)",
+    "adresse": "Bahnhofstraße 6, 88048 Friedrichshafen",
+    "kette_oder_einzel": "Einzel (3 Standorte FN/Markdorf/Immenstaad)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "39,90 REGULAR / 49,90 ALL-IN (24 Mon.) – nur Suchsnippet",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": [
+     {
+      "url": "https://stadtleben.de/bodensee/guide/fitness/",
+      "titel": "stadtleben.de Fitness am Bodensee",
+      "stand": "2026",
+      "gelesen": true
+     },
+     {
+      "url": "https://www.fitness-tempel-fn.de/preise/",
+      "titel": "Fitness Tempel Preise",
+      "stand": "09/2026",
+      "gelesen": false,
+      "hinweis": "Preise auf Seite nicht extrahierbar; Snippet 39,90/49,90"
+     }
+    ],
+    "hinweis": "Sauna/Wellness, Thai-Boxen, BJJ, Physio"
+   },
+   {
+    "name": "clever fit Überlingen (VK Bodyfit)",
+    "ort": "Überlingen",
+    "adresse": "Zum Degenhardt 17, 88662 Überlingen",
+    "kette_oder_einzel": "Kette (clever fit)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": false,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.clever-fit.com/de/fitnessstudio/ueberlingen/",
+     "titel": "clever fit Überlingen",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "24/7; Solarium/Massage, keine Sauna"
+   },
+   {
+    "name": "MC Shape Überlingen",
+    "ort": "Überlingen",
+    "adresse": "Nußdorfer Str. 101, 88662 Überlingen",
+    "kette_oder_einzel": "Kette (MC Shape)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "39,90 Classic / 49,90 All-In (24 Mon., erste 3 Mon. 10/20 €), Startpaket 39,90",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.mcshape.com/fitnessstudio/ueberlingen/",
+     "titel": "MC Shape Überlingen",
+     "stand": "gültig bis 30.09.2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna im All-In-Tarif; 24/7"
+   },
+   {
+    "name": "ProSana Gesundheitszentrum Überlingen",
+    "ort": "Überlingen",
+    "adresse": "Obertorstraße 28, 88662 Überlingen",
+    "kette_oder_einzel": "Einzel (regional, Fitness+Physio)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.prosana.fitness/standorte/ueberlingen/",
+     "titel": "ProSana Überlingen",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna saisonal Okt–Apr, EGYM, Physio/Reha"
+   },
+   {
+    "name": "fitness4you Überlingen-Nussdorf",
+    "ort": "Überlingen",
+    "adresse": "Nussdorfer Straße 101, 88662 Überlingen",
+    "kette_oder_einzel": "Einzel",
+    "flaeche_m2": 1800,
+    "monatsbeitrag_eur": "ab 49 (12 Mon.) – Stand 2020",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.bodylife.com/body-life-club-des-monats-fitness4you-fitness-und-gesundheitszentrum-ueberlingen-nussdorf/",
+     "titel": "bodyLIFE Club des Monats fitness4you",
+     "stand": "27.11.2020",
+     "gelesen": true
+    },
+    "hinweis": "1.800 m² gesamt (800 Training, 300 Kurse, 250 Wellness), 1.900 Mitglieder (2020); finn. Sauna, Dampfbad, Infrarot, Kneipp. Adresse identisch mit MC Shape Überlingen – ggf. Nachfolger/Umfirmierung prüfen"
+   },
+   {
+    "name": "MC Shape Markdorf",
+    "ort": "Markdorf",
+    "adresse": "Hauptstraße 19, 88677 Markdorf",
+    "kette_oder_einzel": "Kette (MC Shape)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "39,90 Classic / 49,90 All-In (24 Mon.), Startpaket 39,90",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.mcshape.com/fitnessstudio/markdorf/",
+     "titel": "MC Shape Markdorf",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna, Solarium, 24/7"
+   },
+   {
+    "name": "BALANCE Fitness Club Markdorf",
+    "ort": "Markdorf",
+    "adresse": "Ravensburger Straße 32, 88677 Markdorf",
+    "kette_oder_einzel": "Einzel (regional)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.oeffnungszeitenbuch.de/filiale/Markdorf-Balance%2520Fitness%2520Club%2520Markdorf-571507O.html",
+     "titel": "Balance Fitness Markdorf (Verzeichnis, Suchsnippet)",
+     "stand": "2026",
+     "gelesen": false
+    },
+    "hinweis": "Sauna + Infrarotkabine laut Verzeichnis"
+   },
+   {
+    "name": "Happy Fit Konstanz",
+    "ort": "Konstanz",
+    "adresse": "Bruder-Klaus-Straße 8, 78467 Konstanz",
+    "kette_oder_einzel": "Regionale Kette (Konstanz/Singen/Radolfzell/Leipzig)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "55 (12 Mon.) / 60 (flex); Studenten 40/45; Startgebühr 65 €",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://happy-fit-studios.de/fitnessstudio-in-konstanz/",
+     "titel": "Happy Fit Konstanz",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna 85° + Dampf; Gym80/Hammer Strength; 6–24 Uhr"
+   },
+   {
+    "name": "Fitness Bunker Konstanz",
+    "ort": "Konstanz",
+    "adresse": "August-Borsig-Str. 11, 78467 Konstanz",
+    "kette_oder_einzel": "Einzel (Kampfsport/Functional)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": false,
+    "hyrox": true,
+    "quelle": {
+     "url": "https://fitnessbunker.de/hyrox/",
+     "titel": "Fitnessbunker HYROX",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Offizieller HYROX Training Club; eingeschränkte Öffnungszeiten (Mo–Fr 16–22, Sa 10–14)"
+   },
+   {
+    "name": "Happy Fit Singen",
+    "ort": "Singen",
+    "adresse": "Josef-Schüttler-Straße 19, 78224 Singen",
+    "kette_oder_einzel": "Regionale Kette",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "55 (24 Mon.) / 60 (12 Mon.) / 70 (flex); Startgebühr 65 €",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://happy-fit-studios.de/fitnessstudio-in-singen/",
+     "titel": "Happy Fit Singen",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Bio-Sauna + 95°-Sauna"
+   },
+   {
+    "name": "Happy Fit Radolfzell",
+    "ort": "Radolfzell",
+    "adresse": "Herrenlandstraße 58, 78315 Radolfzell",
+    "kette_oder_einzel": "Regionale Kette",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "55 (24 Mon.) / 60 (12 Mon.) / 70 (flex); Startgebühr 65 €",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://happy-fit-studios.de/fitnessstudio-in-radolfzell/",
+     "titel": "Happy Fit Radolfzell",
+     "stand": "09/2026",
+     "gelesen": true
+    }
+   },
+   {
+    "name": "Fitness First Ravensburg",
+    "ort": "Ravensburg",
+    "adresse": "Gebizostraße 6, 88214 Ravensburg",
+    "kette_oder_einzel": "Kette (Fitness First)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "nicht ausgewiesen (Aktion: 8 Wochen gratis bei 24 Mon.)",
+    "wellness_sauna": false,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.fitnessfirst.de/clubs/ravensburg",
+     "titel": "Fitness First Ravensburg",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "EGYM, Recovery Area, Solarium; keine Sauna genannt"
+   },
+   {
+    "name": "radius Ravensburg",
+    "ort": "Ravensburg",
+    "adresse": "Georgstraße 24, 88212 Ravensburg",
+    "kette_oder_einzel": "Einzel (Fitness/Therapie/Wellness)",
+    "flaeche_m2": 600,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.regio-bodensee.com/5-fitnessstudios-in-ravensburg/",
+     "titel": "regio-bodensee: 5 Fitnessstudios in Ravensburg",
+     "stand": "2026",
+     "gelesen": true
+    },
+    "hinweis": "Fläche ~600 m² nur aus Suchsnippet (Verzeichnis); Sauna-Einzeleintritt 10 € Mitglieder"
+   },
+   {
+    "name": "INJOY Gym & Swim Ravensburg",
+    "ort": "Ravensburg",
+    "adresse": "Ziegelstraße 33, 88214 Ravensburg",
+    "kette_oder_einzel": "Franchise (INJOY)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "39,90 (24 Mon.) – nur Suchsnippet",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.injoy.de/studio/gym-swim-ravensburg",
+     "titel": "INJOY Gym & Swim Ravensburg (Suchsnippet)",
+     "stand": "2026",
+     "gelesen": false
+    },
+    "hinweis": "Direkt am Hallenbad; Sauna + Schwimmbad"
+   },
+   {
+    "name": "all inclusive Fitness Ravensburg",
+    "ort": "Ravensburg",
+    "adresse": "Pfannenstiel 16, 88214 Ravensburg",
+    "kette_oder_einzel": "Kette (ai fitness)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "34,95–49,95 (Kettentarif)",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.regio-bodensee.com/5-fitnessstudios-in-ravensburg/",
+     "titel": "regio-bodensee Ravensburg",
+     "stand": "2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna laut Kettentarif enthalten"
+   },
+   {
+    "name": "Fit & Fun Factory / Card Studio Ravensburg + Weingarten",
+    "ort": "Ravensburg / Weingarten",
+    "adresse": "Goethestr. 36, 88214 Ravensburg; Heinrich-Hertz-Str. 8, 88250 Weingarten",
+    "kette_oder_einzel": "Regionale Kette",
+    "flaeche_m2": 1000,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": [
+     {
+      "url": "https://www.fit-fun-factory.de/",
+      "titel": "Fit & Fun Factory",
+      "stand": "09/2026",
+      "gelesen": true
+     },
+     {
+      "url": "https://www.regio-bodensee.com/5-fitnessstudios-in-ravensburg/",
+      "titel": "regio-bodensee",
+      "stand": "2026",
+      "gelesen": true
+     }
+    ],
+    "hinweis": "Card Studio RV: 1.000 m² (regio-bodensee); Sauna laut Suchsnippet"
+   },
+   {
+    "name": "Aktivsportpark Lindau",
+    "ort": "Lindau",
+    "adresse": "Motzacher Weg 24, 88131 Lindau",
+    "kette_oder_einzel": "Einzel",
+    "flaeche_m2": 1800,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.aktivsportpark.com/",
+     "titel": "Aktivsportpark Lindau",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "1.500 m² Training + 300 m² Wellness/Sauna; 134 Geräte; 30+ Kurse/Woche"
+   },
+   {
+    "name": "FIT in Lindau-Bodolz",
+    "ort": "Lindau-Bodolz",
+    "adresse": "Untere Steig 2, 88131 Lindau-Bodolz",
+    "kette_oder_einzel": "Einzel",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.fitin-lindau.de/",
+     "titel": "FIT in Lindau",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna 90°, Sanarium 60°, Kneipp"
+   }
+  ],
+  "stuttgart": [
+   {
+    "name": "Fitness Express Böblingen",
+    "ort": "Böblingen",
+    "adresse": "Wolf-Hirth-Str. 36, 71034 Böblingen",
+    "kette_oder_einzel": "Regionale Kette (6 Clubs)",
+    "flaeche_m2": 2500,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.fitnessexpress-clubs.de/boeblingen",
+     "titel": "Fitness Express Böblingen",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "> 2.500 m²; Hammer Strength/Technogym, Sauna- und Wellnessbereich, Milon, five; 5–24 Uhr"
+   },
+   {
+    "name": "Fitness Express Sindelfingen",
+    "ort": "Sindelfingen",
+    "adresse": "Nüßstr. 4, 71065 Sindelfingen",
+    "kette_oder_einzel": "Regionale Kette",
+    "flaeche_m2": 2000,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.fitnessexpress-clubs.de/sindelfingen",
+     "titel": "Fitness Express Sindelfingen",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "> 2.000 m²; Sauna/Wellness, Bistro"
+   },
+   {
+    "name": "XTRAFIT Sindelfingen-Goldbach",
+    "ort": "Sindelfingen",
+    "adresse": "Mahdentalstraße 98, Sindelfingen",
+    "kette_oder_einzel": "Kette (XTRAFIT)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "BASIC/PLUS monatlich kündbar (Preis nicht ausgewiesen; Preisvergleich 2019: 29 €)",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://xtrafit.de/studios/sindelfingen-goldbach",
+     "titel": "XTRAFIT Sindelfingen-Goldbach",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna, Solarien, 20+ Kurse"
+   },
+   {
+    "name": "GYM-24 Premium Böblingen-Hulb",
+    "ort": "Böblingen",
+    "adresse": "Schickardstr. 36, 71034 Böblingen",
+    "kette_oder_einzel": "Regionale Kette (14 Clubs)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "49,90 (24 Mon.) / 64,90 (1 Mon.); Aufnahme 39,90",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.gym-24.de/boeblingen-hulb.html",
+     "titel": "GYM-24 Böblingen Hulb",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna, Massage, integriertes Therapiezentrum, Rehasport"
+   },
+   {
+    "name": "JONNY M. Arena Böblingen (Padel & Fitness)",
+    "ort": "Böblingen",
+    "adresse": "Herrenberger Straße 120, 71034 Böblingen",
+    "kette_oder_einzel": "Regionale Kette (JONNY M.)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": false,
+    "hyrox": true,
+    "quelle": {
+     "url": "https://jonny-m.de/boeblingen",
+     "titel": "JONNY M. Arena Böblingen",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Eröffnung 06/2026; 7 Padel-Courts, 8 m Deckenhöhe, HYROX & Functional Area (ab ca. 08/2026), 40+ Parkplätze – direkter neuer Wettbewerber im HYROX-Segment"
+   },
+   {
+    "name": "clever fit Leonberg",
+    "ort": "Leonberg",
+    "adresse": "Römerstraße 74, 71229 Leonberg",
+    "kette_oder_einzel": "Kette (clever fit)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": null,
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.clever-fit.com/de/fitnessstudio/leonberg/",
+     "titel": "clever fit Leonberg",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "Sauna vorhanden; 24/7; renoviert"
+   },
+   {
+    "name": "SPORTWELT Leonberg (SV Leonberg/Eltingen)",
+    "ort": "Leonberg",
+    "adresse": "Bruckenbachstraße 37, 71229 Leonberg",
+    "kette_oder_einzel": "Vereinsstudio",
+    "flaeche_m2": 1600,
+    "monatsbeitrag_eur": "55 All-in-One (24 Mon.) / 65 (12 Mon.); Kurs-Tarif 45/55; ermäßigt 35/45; Chipband 15 €",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://www.sportwelt-leonberg.de/tarife.html",
+     "titel": "Sportwelt Leonberg Tarife",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "1.600 m², Sauna & Ruhebereich, Gerätezirkel, Bistro"
+   },
+   {
+    "name": "Studio Fitness Leonberg",
+    "ort": "Leonberg",
+    "adresse": "Riedwiesenstraße 1, 71229 Leonberg",
+    "kette_oder_einzel": "Regionale Kette (Gerlingen/Leonberg/Weilimdorf)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "ab 9,99 €/Woche (≈ 43 €/Monat)",
+    "wellness_sauna": true,
+    "hyrox": false,
+    "quelle": {
+     "url": "https://unternehmen.stuttgarter-zeitung.de/studio-fitness-leonberg-31948",
+     "titel": "Studio Fitness Leonberg (Unternehmensprofil StZ)",
+     "stand": "2026",
+     "gelesen": true
+    },
+    "hinweis": "neu eröffnet Frühjahr 2024; EGYM, five, Sauna"
+   },
+   {
+    "name": "urban health club Ludwigsburg",
+    "ort": "Ludwigsburg",
+    "adresse": "Rheinlandstr. 10, 71636 Ludwigsburg",
+    "kette_oder_einzel": "Einzel (Premium/Boutique)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "Flex-Pay (Preis nicht ausgewiesen)",
+    "wellness_sauna": true,
+    "hyrox": true,
+    "quelle": {
+     "url": "https://urbanhealth-club.com/hyrox-ludwigsburg/",
+     "titel": "urban health club HYROX Ludwigsburg",
+     "stand": "09/2026",
+     "gelesen": true
+    },
+    "hinweis": "HYROX-Trainingscenter mit 6 Coaches; Reformer/Yoga/Cycling/Crossfit; Spa/Recovery"
+   },
+   {
+    "name": "Fitness First Ludwigsburg",
+    "ort": "Ludwigsburg",
+    "adresse": "Marstallstraße 1, 71634 Ludwigsburg",
+    "kette_oder_einzel": "Kette (Fitness First)",
+    "flaeche_m2": null,
+    "monatsbeitrag_eur": "Effektivpreis ab 47,23 (24 Mon., BASIC 34,23 + Gebühren) laut FitRadar",
+    "wellness_sauna": false,
+    "hyrox": false,
+    "quelle": [
+     {
+      "url": "https://www.fitnessfirst.de/clubs/ludwigsburg",
+      "titel": "Fitness First Ludwigsburg",
+      "stand": "09/2026",
+      "gelesen": true
+     },
+     {
+      "url": "https://www.fitradar.de/ludwigsburg/gym/ludwigsburg-fitness-first-ludwigsburg",
+      "titel": "FitRadar Fitness First Ludwigsburg",
+      "stand": "15.08.2026",
+      "gelesen": true
+     }
+    ],
+    "hinweis": "keine Sauna, kein Pool; EGYM, Recovery Area"
+   }
+  ],
+  "preisbaender": {
+   "discount_ketten": "29–39,95 €",
+   "standard_ketten_mit_sauna": "39,90–49,95 €",
+   "regional_premium": "49,90–70 €",
+   "boutique_hyrox": "nicht ausgewiesen (Flex-Pay)"
+  },
+  "hinweis": "Flächen nur dort, wo Betreiber sie nennen; Preise Stand 09/2026 sofern nicht anders angegeben."
+ },
+ "3_mietniveau": {
+  "planannahme_eur_m2": 8.5,
+  "bodensee": {
+   "ihk_bo_hallen_06_2025": {
+    "Friedrichshafen": {
+     "Produktion": "4,90–6,70",
+     "Lager": "3,80–4,90"
+    },
+    "Mittleres Schussental (RV/Weingarten)": {
+     "Produktion": "4,70–6,50",
+     "Lager": "3,60–4,80"
+    },
+    "Westliches Allgäu": {
+     "Produktion": "4,50–6,00",
+     "Lager": "3,70–4,60"
+    },
+    "Landkreis Sigmaringen": {
+     "Produktion": "4,30–5,50",
+     "Lager": "3,50–4,10"
+    },
+    "definition": "Produktionsflächen 500–1.500 m², Raumhöhe mind. 4–6 m; befestigte Freiflächen 0,80–1,50 €/m²",
+    "quelle": {
+     "url": "https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/gewerbeflaechen-und-stadtentwicklung/mietpreisspannen-fuer-produktions-und-lagerhallen--4916024",
+     "titel": "IHK Bodensee-Oberschwaben: Mietpreisspannen Produktions- und Lagerhallen",
+     "stand": "06/2025",
+     "gelesen": true
+    }
+   },
+   "ihk_bo_einzelhandel_1a_06_2025": {
+    "Friedrichshafen": "13,00–20,00",
+    "Ravensburg": "16,00–30,00",
+    "Überlingen": "12,00–18,00",
+    "Weingarten": "8,50–13,00",
+    "Wangen": "8,00–16,00",
+    "hinweis": "Nur 1a-Lagen; Fachmarkt-/Gewerbegebietsmieten nicht publiziert",
+    "quelle": {
+     "url": "https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/gewerbeflaechen-und-stadtentwicklung/mietpreisspannen-fuer-einzelhandelsflaechen-4916034",
+     "titel": "IHK Bodensee-Oberschwaben: Mietpreisspannen Einzelhandelsflächen (1a-Lage)",
+     "stand": "06/2025",
+     "gelesen": true
+    }
+   },
+   "angebotsmieten_immo_all": {
+    "spanne_eur_m2": "4,33–9,68 (Hallen 1.300–3.100 m²)",
+    "median_beobachtet": "≈5,0–6,2",
+    "quelle": {
+     "url": "file:///tmp/claude-0/-home-user-NextGen-Lernen/1981c239-da0e-50dc-88ca-d8915f8ebdd2/scratchpad/immo-all.json",
+     "titel": "immo-all.json (Recherche Immowelt/ImmobilienScout24-Suchseiten, Exposés meist 401/403)",
+     "stand": "26.09.2026",
+     "gelesen": true
+    }
+   },
+   "landkreis_konstanz": "Kein IHK-Gewerbemietspiegel Hochrhein-Bodensee online auffindbar (IHK-Seite verweist nur auf Flächendatenbank); Angebotsmieten Konstanz-Kreis 4,50–8,50 €/m² (immo-all.json)."
+  },
+  "stuttgart": {
+   "realogis_2025": {
+    "spitzenmiete_eur_m2": 8.5,
+    "durchschnittsmiete_eur_m2": 7.0,
+    "flaechenumsatz_m2": 113700,
+    "teilmarkt_umsatz": {
+     "Esslingen": 44300,
+     "Böblingen": 23500,
+     "Ludwigsburg": 20600,
+     "Göppingen": 13000,
+     "Stuttgart": 8700,
+     "Rems-Murr": 3600
+    },
+    "quelle": {
+     "url": "https://www.realogis.com/market-report/logistics/leasing/stuttgart-full-year/2025",
+     "titel": "Realogis: Marktbericht Logistikimmobilienmarkt Stuttgart Gesamtjahr 2025",
+     "stand": "Gesamtjahr 2025",
+     "gelesen": true
+    }
+   },
+   "eug_2025": {
+    "spitzenmiete_stadtgebiet_eur_m2": 8.5,
+    "spitzenmiete_umland_eur_m2": 9.9,
+    "jahre": "2023–2025 unverändert",
+    "flaechenumsatz_m2": 106200,
+    "quelle": {
+     "url": "https://www.eug-immobilien.de/assets/main/Berichte/INDUSTRIE-UND-LOGISTIKMARKT-STUTTGART/eug-marktbericht-industrielogistik-2025.pdf",
+     "titel": "E&G Immobilien: Industrie- & Logistikmarkt 2025 Region Stuttgart (PDF)",
+     "stand": "2025",
+     "gelesen": true
+    }
+   },
+   "einzelhandel_1a_2024": {
+    "Esslingen": "bis 46,90",
+    "Kirchheim/Teck": "36,90",
+    "Stuttgart-Degerloch": "bis 39,20",
+    "hinweis": "Nur 1a-Lagen; Fachmarkt/Nebenlagen in Broschüre 'Mieten für Handelsflächen 2024' (PDF, nicht abgerufen)",
+    "quelle": {
+     "url": "https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/mietpreisumfrage-einzelhandel-2024-6201604",
+     "titel": "IHK Region Stuttgart: Mietpreise für Handelsflächen 2024 (1a-Lagen)",
+     "stand": "2024",
+     "gelesen": true
+    }
+   },
+   "stuttgart_q2_2026": {
+    "buero_neubau_eur_m2": 28.08,
+    "einzelhandel_neubau_eur_m2": 44.25,
+    "quelle": {
+     "url": "https://www.drehpunkt-immobilien.de/gewerbeimmobilien-markt-stuttgart",
+     "titel": "Drehpunkt Immobilien / Fahrländer: Gewerbemieten Stuttgart Q2 2026 (Büro/Einzelhandel)",
+     "stand": "Q2 2026",
+     "gelesen": true
+    }
+   },
+   "angebotsmieten_immo_all": {
+    "spanne_eur_m2": "4,00–12,00 (Hallen); Fitnessstudio-Bestandsfläche Bietigheim 9,23; Ludwigsburg-West 8,49",
+    "quelle": {
+     "url": "file:///tmp/claude-0/-home-user-NextGen-Lernen/1981c239-da0e-50dc-88ca-d8915f8ebdd2/scratchpad/immo-all.json",
+     "titel": "immo-all.json (Recherche Immowelt/ImmobilienScout24-Suchseiten, Exposés meist 401/403)",
+     "stand": "26.09.2026",
+     "gelesen": true
+    }
+   }
+  },
+  "einordnung": "8,50 €/m² liegt am Bodensee deutlich über den IHK-Spannen für Produktions-/Lagerhallen (max. 6,70 €/m² FN, Stand 06/2025) und über den meisten Angebotsmieten (4,3–8,6) – also konservativ/bankfähig; nur das passgenaue Meersburg-Objekt (8,58) und Mühlhausen-Ehingen (8,50) liegen auf Planniveau. In der Region Stuttgart entspricht 8,50 exakt der Spitzenmiete 2025 (Realogis/E&G Stadtgebiet); Umland-Spitzen erreichen 9,90 (E&G), Durchschnitt 7,00. Für modernisierte Hallen mit ≥6 m Höhe in Böblingen/Fildern ist 8,50 realistisch, für einfache Bestandshallen eher 6,00–7,50. Fitness-taugliche Flächen (Sanitär, Heizung, Stellplätze) kosten Aufschläge; bestehende Studio-Fläche in Bietigheim wird zu 9,23 angeboten."
+ },
+ "4_baurecht": {
+  "gebietstyp": {
+   "GE_gewerbegebiet": "§ 8 Abs. 2 Nr. 4 BauNVO: 'Anlagen für sportliche Zwecke' sind im Gewerbegebiet allgemein zulässig (seit BauNVO-Novelle 2013) – Fitnessstudio damit regelmäßig genehmigungsfähig; Ausnahmen (Abs. 3) betreffen u. a. Anlagen für gesundheitliche Zwecke (relevant bei Physio-/Reha-Anteil) und Vergnügungsstätten.",
+   "GI_industriegebiet": "§ 9 BauNVO: Anlagen für sportliche Zwecke nur ausnahmsweise (Abs. 3 Nr. 2) – Einzelfall.",
+   "MI_mischgebiet": "§ 6 BauNVO: Anlagen für sportliche Zwecke allgemein zulässig, aber strengere Lärm-/Öffnungszeitenauflagen (Planeco).",
+   "SO_sondergebiet": "§ 11 BauNVO: Zweckbestimmung wird im B-Plan festgesetzt; Fitness nur zulässig, wenn die Festsetzung (z. B. 'Sondergebiet Freizeit/Sport', 'Fachmarkt- und Freizeitzentrum') dies ausdrücklich umfasst – sonst Befreiung (§ 31 Abs. 2 BauGB) oder B-Plan-Änderung nötig.",
+   "quellen": [
+    {
+     "url": "https://www.juraforum.de/gesetze/baunvo/8-gewerbegebiete",
+     "titel": "§ 8 BauNVO Gewerbegebiete (juraforum, Normtext)",
+     "stand": "aktuell",
+     "gelesen": true
+    },
+    {
+     "url": "https://www.juraforum.de/gesetze/baunvo/11-sonstige-sondergebiete",
+     "titel": "§ 11 BauNVO Sonstige Sondergebiete (juraforum, Normtext)",
+     "stand": "aktuell",
+     "gelesen": true
+    },
+    {
+     "url": "https://www.planecobuilding.de/nutzungsaenderung/nutzungsaenderung-fitnessstudio",
+     "titel": "Planeco Building: Nutzungsänderung Fitnessstudio (Praxisartikel)",
+     "stand": "27.08.2024, akt. 21.10.2025",
+     "gelesen": true
+    }
+   ]
+  },
+  "nutzungsaenderung": "Umnutzung Lager-/Produktionshalle → Fitnessstudio ist eine genehmigungspflichtige Nutzungsänderung (§§ 49, 50 LBO BW). Ab ca. 1.000 m² Sportfläche/ >200 Besuchern greift zusätzlich das Sonderbau-/Versammlungsstättenrecht (VStättVO BW) mit Brandschutzkonzept, zwei baulichen Rettungswegen, Rauchabzug; erforderlich: Bauvorlagen, Brandschutznachweis, Stellplatznachweis, Schallschutz (Kursraum/Freihantel), Lüftungs-/Sanitärkonzept (Sauna/Dampfbad: Hygiene- und Brandschutzanforderungen).",
+  "stellplaetze": {
+   "vwv_stellplaetze_bw": {
+    "fitnesscenter": "1 Kfz-Stellplatz je 25 m² Sportfläche (Anhang 1 Nr. 5.3)",
+    "sporthallen": "1 je 50 m² Sportfläche + 1 je 10–15 Besucherplätze (Nr. 5.2)",
+    "gaststaette": "1 je 6–12 m² Gastraum (Nr. 6.1)",
+    "buero": "1 je 30–40 m² Büronutzfläche (Nr. 2.1)",
+    "sportflaeche_definition": "Nicht zur Sportfläche zählen: Sozial- und Sanitärräume, Umkleideräume, Geräteräume, Funktionsflächen für betriebstechnische Anlagen, Verkehrsflächen (Fußnote 3)",
+    "fahrrad": "Richtzahlen Anhang 2; nach Merkblatt 1 Fahrradstellplatz je 75 m² Sportfläche für Fitnesscenter; 1 Kfz-Stellplatz kann durch 4 Fahrradstellplätze ersetzt werden (§ 37 Abs. 1 LBO, begrenzt)",
+    "minderung": "Minderung nach ÖPNV-Anbindung (Punktesystem der VwV) und kommunale Stellplatzsatzungen möglich (z. B. Stuttgart eigene Richtwerte)",
+    "quelle": {
+     "url": "https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt593_VwV-Stellplaetze.pdf",
+     "titel": "Architektenkammer BW, Merkblatt Nr. 593: VwV Stellplätze (Volltext mit Anhang 1 Richtzahlen Kfz, Anhang 2 Fahrrad)",
+     "stand": "01.09.2022",
+     "gelesen": true
+    }
+   },
+   "beispielrechnung_no1": "Bei ca. 2.000 m² BGF und angenommen ca. 1.300 m² anrechenbarer Sportfläche (Kraft/Cardio/Freihantel/HYROX/Kursraum; ohne Umkleiden, Wellness, Technik, Verkehr): 1.300/25 = 52 Kfz-Stellplätze + ca. 17 Fahrradstellplätze. Annahme Sportfläche ist Planungsannahme, keine Quelle."
+  },
+  "genehmigungsdauer": {
+   "gesetzlich": "§ 54 Abs. 1 LBO: Vollständigkeitsprüfung innerhalb 10 Arbeitstagen; § 54 Abs. 5: Entscheidung innerhalb 2 Monaten (vereinfachtes Verfahren 1 Monat) ab Vollständigkeit und Vorliegen der Stellungnahmen (Anhörungsfrist Dritte max. 1 Monat, § 54 Abs. 3). LBO-Reform 2025 ('Gesetz für das schnellere Bauen', in Kraft 03/2025): Genehmigungsfiktion nach 3 Monaten ab vollständigen Unterlagen, Wegfall der Ermessens-Fristverlängerung.",
+   "praxis": "Praxisangabe Planeco: Antragsunterlagen 2–3 Wochen, Bauamt ca. 3 Monate bei vollständigen Unterlagen; realistisch inkl. Vorprüfung, Brandschutzkonzept und Sonderbau-Status 3–6 Monate; Bauantrag als Sonderbau (Versammlungsstätte) läuft im regulären, nicht im vereinfachten Verfahren.",
+   "quellen": [
+    {
+     "url": "https://lxgesetze.de/lbo/54",
+     "titel": "§ 54 LBO BW Fristen im Genehmigungsverfahren",
+     "stand": "Stand 16.03.2026",
+     "gelesen": true
+    },
+    {
+     "url": "https://arge-baurecht.com/baurecht-wissen/fachartikel/artikel/das-neue-gesetz-fuer-das-schnellere-bauen",
+     "titel": "ARGE Baurecht: Gesetz für das schnellere Bauen BW (LBO-Reform 2025, Genehmigungsfiktion 3 Monate)",
+     "stand": "29.07.2025",
+     "gelesen": true
+    },
+    {
+     "url": "https://www.planecobuilding.de/nutzungsaenderung/nutzungsaenderung-fitnessstudio",
+     "titel": "Planeco Building: Nutzungsänderung Fitnessstudio (Praxisartikel)",
+     "stand": "27.08.2024, akt. 21.10.2025",
+     "gelesen": true
+    }
+   ]
+  }
+ },
+ "5_immobilien_shortlist": {
+  "quelle": {
+   "url": "file:///tmp/claude-0/-home-user-NextGen-Lernen/1981c239-da0e-50dc-88ca-d8915f8ebdd2/scratchpad/immo-all.json",
+   "titel": "immo-all.json (Recherche Immowelt/ImmobilienScout24-Suchseiten, Exposés meist 401/403)",
+   "stand": "26.09.2026",
+   "gelesen": true
+  },
+  "kriterien": "1.600–3.000 m² (±5 % toleriert), Miete ≤ 10 €/m² falls angegeben, Deckenhöhe ≥ 4 m bevorzugt, Stellplätze; nur Objekte aus immo-all.json",
+  "bodensee": [
+   {
+    "rang": 1,
+    "titel": "Produktionshalle, mehrere Bauabschnitte auf ca. 2.597 m² Grundstück",
+    "ort": "Meersburg",
+    "plz": "88709",
+    "region": "Bodenseekreis",
+    "flaeche_m2": 1884.6,
+    "miete_eur_m2": 8.58,
+    "miete_eur_monat": 16170,
+    "deckenhoehe_m": null,
+    "art": "Produktionshalle",
+    "url": "https://www.immowelt.de/expose/414cec5b-5772-4124-814c-4bdec9bca6ea",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite (Snippet). Engel & Völkers. Größe passt exakt zum 59,5×33-m-Plan; Deckenhöhe/Parkplätze unbekannt; Umnutzung Produktion→Sport genehmigungspflichtig.",
+    "bewertung": "Größe (1.885 m²) passt exakt; 8,58 €/m² ≈ Planannahme 8,50; Meersburg/B31, 15 min zu FN und Überlingen. Deckenhöhe/Stellplätze klären."
+   },
+   {
+    "rang": 2,
+    "titel": "Produktionshalle Technologiepark (TRIWO bodensee business base), 3 Hallen 17.700 m²",
+    "ort": "Immenstaad am Bodensee, Graf-von-Soden-Straße",
+    "plz": "88090",
+    "region": "Bodenseekreis",
+    "flaeche_m2": 1900,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Produktionshalle im Technologiepark",
+    "url": "https://www.immowelt.de/expose/17607c74-5589-46f9-a22a-e06df8fb3ca7",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite. Miete auf Anfrage, provisionsfrei. Über 900 Stellplätze auf dem Areal, direkt an B31. Industriegebiet – Sportnutzung nur ausnahmsweise zulässig (§ 9 BauNVO), Bebauungsplan prüfen.",
+    "bewertung": "1.900 m² im Technologiepark Immenstaad zwischen FN und Markdorf (Airbus-Nachbarschaft); Miete auf Anfrage."
+   },
+   {
+    "rang": 3,
+    "titel": "Lagerhalle \"Altes Schmelzwerk\" – neuer Standort für Gesundheit, Sport und Freizeit",
+    "ort": "Friedrichshafen, Colsmanstraße 25",
+    "plz": "88045",
+    "region": "Bodenseekreis",
+    "flaeche_m2": 13000,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Ehem. Aluminiumgießerei / Umnutzung Sport & Gesundheit, Teilflächen",
+    "url": "https://www.immowelt.de/expose/0efa143b-a2eb-489c-a869-48f01c22ac69",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Immowelt-Suchseite (Exposé 403). Miete auf Anfrage. Vermieter (OhneMakler, M. Kunschert) sucht ausdrücklich Betreiber aus Sport/Fitness/Therapie – konzeptionell bester Treffer. Teilfläche, Deckenhöhe, Stellplätze und Fertigstellung klären.",
+    "bewertung": "Ehem. Gießerei FN-Colsmanstraße, Vermieter sucht ausdrücklich Sport/Fitness-Betreiber; Teilfläche 2.000 m² aus 13.000 m² – bester Standort (Stadt FN), Miete/Umbauzustand klären."
+   },
+   {
+    "rang": 4,
+    "titel": "Büro-, Lagerfläche in Konstanz – Flexible Nutzungsmöglichkeiten (Opelstraße 2, ehem. Dr.-Kade-Areal)",
+    "ort": "Konstanz",
+    "plz": "78467",
+    "region": "Konstanz Industriegebiet",
+    "flaeche_m2": 2227,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Lager-/Ausstellungs-/Produktionsfläche (Miete)",
+    "url": "https://www.immobilienscout24.de/expose/159180902",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Exposé-URL bestätigt (Scout-ID 159180902), Daten aus Snippet (Abruf 401). 2.227 m² Lager/Ausstellung, Gesamt 3.070 m² auf 2 Etagen, sofort verfügbar, provisionsfrei; Miete nicht im Snippet. Kompromiss: zwei Ebenen; Deckenhöhe unbekannt. 30 Min. zur Autobahn, 7 Min. zum Hbf. Umnutzung nötig.",
+    "bewertung": "Konstanz Industriegebiet 2.227 m², Ausstellungs-/Lagerfläche, Miete auf Anfrage; größter Einzelmarkt der Region (86.700 Ew)."
+   },
+   {
+    "rang": 5,
+    "titel": "Großzügige Industriehalle mit vielen Nutzungsmöglichkeiten",
+    "ort": "Radolfzell am Bodensee",
+    "plz": "78315",
+    "region": "Landkreis Konstanz",
+    "flaeche_m2": 1600,
+    "miete_eur_m2": 7.56,
+    "miete_eur_monat": 12100,
+    "deckenhoehe_m": null,
+    "art": "Produktionshalle",
+    "url": "https://www.immowelt.de/expose/c71c1c42-ca35-4253-b641-9bf1776e0e1a",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite. ReWa Immobilien; gute Verkehrslage (B33/B34). Deckenhöhe/Stellplätze unbekannt.",
+    "bewertung": "Radolfzell 1.600 m² zu 7,56 €/m² – unter Planannahme; Industriehalle, Deckenhöhe klären."
+   },
+   {
+    "rang": 6,
+    "titel": "Lagerhalle – drei flexibel nutzbare Einheiten, mehrere Zufahrten",
+    "ort": "Radolfzell am Bodensee",
+    "plz": "78315",
+    "region": "Landkreis Konstanz",
+    "flaeche_m2": 1676,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Lagerhalle, teilbar ab 427 m²",
+    "url": "https://www.immowelt.de/expose/262b1e24-62b4-45c4-9f7f-660233423c4f",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite. Miete auf Anfrage. Als Gesamtfläche passend; Höhe unbekannt.",
+    "bewertung": "Radolfzell 1.676 m², mehrere Zufahrten, teilbar; Miete auf Anfrage."
+   },
+   {
+    "rang": 7,
+    "titel": "Lagerhalle Gewerbeliegenschaft (auch zum Kauf)",
+    "ort": "Kressbronn am Bodensee",
+    "plz": "88079",
+    "region": "Bodenseekreis",
+    "flaeche_m2": 1770,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Lagerhalle, Miete oder Kauf",
+    "url": "https://www.immowelt.de/expose/180c66ea-a315-4ae2-94f7-3a96d7fdcf82",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite. Miete/Kaufpreis auf Anfrage, FRANK Immobilien. Kauf-Exposé: https://www.immowelt.de/expose/364994de-26be-452e-bef3-6912b1872532. B31 zwischen FN und Lindau.",
+    "bewertung": "Kressbronn 1.770 m² (Miete oder Kauf), Ostufer zwischen FN und Lindau."
+   },
+   {
+    "rang": 8,
+    "titel": "Halle 2 mit Sheddach, sehr hell",
+    "ort": "Neukirch, Schulstraße 27",
+    "plz": "88099",
+    "region": "Bodenseekreis",
+    "flaeche_m2": 2400,
+    "miete_eur_m2": 4.5,
+    "miete_eur_monat": 10800,
+    "deckenhoehe_m": null,
+    "art": "Lager-/Produktionshalle",
+    "url": "https://www.immowelt.de/expose/11ffa8d1-09ad-4be1-a5b6-5e600672f3af",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite. Gleiche Liegenschaft wie Halle 1; Sheddach spricht für Höhe ≥4 m (nicht belegt).",
+    "bewertung": "Neukirch 2.400 m² Sheddach-Halle sehr hell, nur 4,50 €/m² – aber Randlage (ca. 20 min zu FN), Einzugsgebiet schwach."
+   },
+   {
+    "rang": 9,
+    "titel": "Ihre neuen Flächen in THE PLANT Konstanz – 3.000 m² Spezialgewerbe, Byk-Gulden-Straße 2a",
+    "ort": "Konstanz",
+    "plz": "78467",
+    "region": "Konstanz Industriegebiet (Campus THE PLANT, Investa)",
+    "flaeche_m2": 3000,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Spezialgewerbe / Campusfläche (Miete)",
+    "url": "https://www.immobilienscout24.de/expose/157409377",
+    "passung_laut_datei": "bedingt",
+    "hinweis_datei": "Quelle: Exposé-URL bestätigt (Scout-ID 157409377), Daten aus Snippet. Miete auf Anfrage, provisionsfrei. Campus mit 45.000 m² (Labor/Büro/Lager); weitere Einheiten 800–4.000 m² an derselben Adresse. Publikumsverkehr auf gesichertem Campus mit Betreiber klären; Deckenhöhe unbekannt.",
+    "bewertung": "THE PLANT Konstanz 3.000 m² Campusfläche – Obergrenze der Fläche, Miete auf Anfrage, urbanes Umfeld."
+   },
+   {
+    "rang": 10,
+    "titel": "Hochwertige Produktions-/Büroimmobilie Gewerbegebiet Oberer Riedweg (auch Kauf 2,75 Mio €)",
+    "ort": "Bad Waldsee",
+    "plz": "88339",
+    "region": "Landkreis Ravensburg",
+    "flaeche_m2": 2124,
+    "miete_eur_m2": 6.21,
+    "miete_eur_monat": 13200,
+    "deckenhoehe_m": null,
+    "art": "Produktionshalle mit Büro, Miete oder Kauf",
+    "url": "https://www.immowelt.de/expose/c6627196-e0b0-4204-887f-2b2a694e1588",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite (Prokschi Immobilien). ~20 km nördlich Ravensburg (Randlage des Suchgebiets). Kauf-Exposé https://www.immowelt.de/expose/b0f06242-48b3-4677-9da5-63206e3ee036.",
+    "bewertung": "Bad Waldsee 2.124 m² zu 6,21 €/m², hochwertig, aber außerhalb Bodensee-Einzugsgebiet (Oberschwaben)."
+   },
+   {
+    "rang": 11,
+    "titel": "Lagerhalle Gewerbegebiet Trauben, hervorragende Verkehrsanbindung (B30)",
+    "ort": "Weingarten",
+    "plz": "88250",
+    "region": "Landkreis Ravensburg",
+    "flaeche_m2": 1579,
+    "miete_eur_m2": 4.62,
+    "miete_eur_monat": 7302,
+    "deckenhoehe_m": null,
+    "art": "Lagerhalle, multifunktional",
+    "url": "https://www.immowelt.de/expose/14247059-129d-4017-bc85-5467b6b01554",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Suchseite (Immobilien Sterk). Oberzentrum Ravensburg/Weingarten ~75.000 EW; Höhe/Stellplätze unbekannt.",
+    "bewertung": "Weingarten 1.579 m² zu 4,62 €/m² (B30) – knapp unter 1.600 m², Schussental-Einzugsgebiet (RV+Weingarten ~60 k Ew)."
+   },
+   {
+    "rang": 12,
+    "titel": "Industriepark Gottmadingen, Industriepark 200 – Halle 1.566 m², 4,50 €/m², provisionsfrei",
+    "ort": "Gottmadingen",
+    "plz": "78244",
+    "region": "Kreis Konstanz / Hegau (8 km westlich von Singen, B34/A81)",
+    "flaeche_m2": 1566,
+    "miete_eur_m2": 4.5,
+    "miete_eur_monat": 7047,
+    "deckenhoehe_m": null,
+    "art": "Halle/Lager/Produktion (Miete)",
+    "url": "https://www.immobilienscout24.de/gewerbe-flaechen/de/baden-wuerttemberg/konstanz-kreis/gottmadingen/hallenproduktion-mieten/",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Snippet der Kategorieseite; Exposé-ID nicht ermittelbar. Hallen des Industrieparks werden in Exposé 95471848 mit 6,00 m Hallenhöhe und ebenerdigen Rolltoren beschrieben. Lage im Industriepark (wenig Laufkundschaft). Umnutzung nötig.",
+    "bewertung": "Gottmadingen 1.566 m² zu 4,50 €/m² – knapp unter Zielgröße, Hegau/A81."
+   }
+  ],
+  "stuttgart": [
+   {
+    "rang": 1,
+    "titel": "Unternehmensimmobilie Neuhausen a. d. F. – Halle ca. 6 m UKB, Rampe + ebenerdiges Tor (Kümmerle Real Estate)",
+    "ort": "Neuhausen auf den Fildern",
+    "plz": "73765",
+    "region": "Landkreis Esslingen / Fildern",
+    "flaeche_m2": 1606,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": 6,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/fb60a13e-90e5-44b8-b590-8dd6f0d50cdf",
+    "passung_laut_datei": "sehr gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste + Snippet. Modernisiert, sofort verfügbar, teilbar ab 1.606,3 m², Nähe Flughafen/Messe/A8; Miete auf Anfrage; Parkplätze und B-Plan-Gebietsart prüfen; Umnutzung Halle→Sportstätte nötig.",
+    "bewertung": "Neuhausen a.d.F. 1.606 m², 6 m UKB, modernisiert, sofort verfügbar, Nähe Flughafen/Messe/A8 – Datei-Bewertung 'sehr gut'."
+   },
+   {
+    "rang": 2,
+    "titel": "Gewerbehalle Stuttgart-Feuerbach, ca. 9 m Deckenhöhe, 2.000 m² (VBT GmbH)",
+    "ort": "Stuttgart-Feuerbach",
+    "plz": "70469",
+    "region": "Stadt Stuttgart",
+    "flaeche_m2": 2000,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": 9,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/7bf5d96e-9300-4afc-ab57-a9e90def3018",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste. Provisionsfrei, Miete auf Anfrage; Ebenerdigkeit/Parkplätze im Listing nicht genannt (Exposé 403). Gleiche Liegenschaft auch als 1.000 m² und 3.000 m² gelistet.",
+    "bewertung": "Stuttgart-Feuerbach 2.000 m², 9 m Deckenhöhe (HYROX-tauglich), provisionsfrei; Bosch-Umfeld (14.000 MA)."
+   },
+   {
+    "rang": 3,
+    "titel": "Halle Esslingen-Zell, 7,50 m UKB, 1.816 m² Halle + 211 m² Büro (WFC Immobilien)",
+    "ort": "Esslingen am Neckar (Zell)",
+    "plz": "73730",
+    "region": "Landkreis Esslingen",
+    "flaeche_m2": 1992,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": 7.5,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/5b89d50c-4996-474d-a332-10b367629c36",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste. 10-t-Krananlagen, sofort verfügbar, Miete auf Anfrage; Ebenerdigkeit/Parkplätze nicht genannt.",
+    "bewertung": "Esslingen-Zell 1.992 m² (1.816 Halle + 211 Büro), 7,5 m UKB."
+   },
+   {
+    "rang": 4,
+    "titel": "Moderne Lagerhalle Böblingen, 2.765 m² teilbar ab 1.296 m², 5 t/m²",
+    "ort": "Böblingen",
+    "plz": "71034",
+    "region": "Landkreis Böblingen",
+    "flaeche_m2": 2765,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/6b24f518-57a8-423f-917f-6a4902166641",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste. Büro-/Sozialfläche, modern, Miete auf Anfrage; Teilfläche ab 1.296 m² möglich; Höhe unbekannt.",
+    "bewertung": "Böblingen 2.765 m² teilbar ab 1.296 m², moderne Lagerhalle, 5 t/m²; Böblingen/Sindelfingen-Einzugsgebiet (215 k Ew in 15 min)."
+   },
+   {
+    "rang": 5,
+    "titel": "Halle Maybachstraße 5/1 – 2.315 m² (teilbar ab 860 m²), 6,50 €/m², provisionsfrei",
+    "ort": "Leonberg",
+    "plz": "71229",
+    "region": "Kreis Böblingen",
+    "flaeche_m2": 2315,
+    "miete_eur_m2": 6.5,
+    "miete_eur_monat": 15048,
+    "deckenhoehe_m": null,
+    "art": "Halle (Miete)",
+    "url": "https://www.immobilienscout24.de/gewerbe-flaechen/de/baden-wuerttemberg/boeblingen-kreis/leonberg/hallenproduktion-mieten/",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Kategorieseiten-Snippet (Exposé-URL nicht ermittelbar; URL = Listenseite Leonberg Hallen). Monatsmiete rechnerisch 2.315 × 6,50. Leonberg-Süd, Verkehrsachse, Bus/S-Bahn. Deckenhöhe/Ebenerdigkeit unbekannt. Preislich sehr attraktiv.",
+    "bewertung": "Leonberg Maybachstraße 2.315 m² (teilbar ab 860), 6,50 €/m², provisionsfrei – unter Planannahme."
+   },
+   {
+    "rang": 6,
+    "titel": "Lagerhalle Herrenberg-Gültstein, 2.060 m²",
+    "ort": "Herrenberg-Gültstein",
+    "plz": "71083",
+    "region": "Landkreis Böblingen",
+    "flaeche_m2": 2060,
+    "miete_eur_m2": 6.5,
+    "miete_eur_monat": 13390,
+    "deckenhoehe_m": null,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/2c233de7-1ebd-46f0-b8f1-7bdf15e437e5",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste. 6,50 €/m² (Monatsmiete rechnerisch); Höhe/Ebenerdigkeit unbekannt.",
+    "bewertung": "Herrenberg-Gültstein 2.060 m², 6,50 €/m²."
+   },
+   {
+    "rang": 7,
+    "titel": "Lagerhalle Holzgerlingen, 2.000 m²",
+    "ort": "Holzgerlingen",
+    "plz": "71088",
+    "region": "Landkreis Böblingen",
+    "flaeche_m2": 2000,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/18be00b8-9faf-4cef-b66b-3d0cdc770e41",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste, keine Detailangaben; Miete auf Anfrage.",
+    "bewertung": "Holzgerlingen 2.000 m² Lagerhalle, Schönbuch/Böblingen-Süd."
+   },
+   {
+    "rang": 8,
+    "titel": "Lagerhalle Renningen, 1.923 m²",
+    "ort": "Renningen",
+    "plz": "71272",
+    "region": "Landkreis Böblingen",
+    "flaeche_m2": 1923.1,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/ab144dfe-bb85-4eed-a522-415c5191b4cf",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste, keine Detailangaben; Miete auf Anfrage.",
+    "bewertung": "Renningen 1.923 m² Lagerhalle."
+   },
+   {
+    "rang": 9,
+    "titel": "Halle 2.520 m²",
+    "ort": "Renningen",
+    "plz": "71272",
+    "region": "Kreis Böblingen",
+    "flaeche_m2": 2520,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle (Miete)",
+    "url": "https://www.immobilienscout24.de/gewerbe-flaechen/de/baden-wuerttemberg/boeblingen-kreis/renningen/hallenproduktion-mieten/",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Kategorieseiten-Snippet (URL = Listenseite Renningen). Miete auf Anfrage. Größe passt knapp; Details unbekannt. Renningen: S-Bahn S6, A8/A81-Nähe.",
+    "bewertung": "Renningen 2.520 m² Halle."
+   },
+   {
+    "rang": 10,
+    "titel": "Halle 2.675 m², provisionsfrei",
+    "ort": "Herrenberg",
+    "plz": "71083",
+    "region": "Kreis Böblingen",
+    "flaeche_m2": 2675,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle (Miete)",
+    "url": "https://www.immobilienscout24.de/Suche/de/baden-wuerttemberg/boeblingen-kreis/herrenberg/hallenproduktion-mieten",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: Kategorieseiten-Snippet (URL = Listenseite Herrenberg). Miete auf Anfrage. Etwas über Bedarf; Deckenhöhe, Parken, Teilbarkeit unbekannt. Herrenberg: S-Bahn S1, A81.",
+    "bewertung": "Herrenberg 2.675 m², provisionsfrei."
+   },
+   {
+    "rang": 11,
+    "titel": "Produktions-/Lagerhalle Esslingen, 1.650 m² (Realogis)",
+    "ort": "Esslingen am Neckar",
+    "plz": "73728",
+    "region": "Landkreis Esslingen",
+    "flaeche_m2": 1650,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle/Industriefläche – Miete",
+    "url": "https://www.immowelt.de/expose/046d8854-90fe-4d31-ab11-004d8552d4e8",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste. 'Funktional und vielseitig nutzbar'; Miete auf Anfrage; Höhe unbekannt.",
+    "bewertung": "Esslingen 1.650 m² Produktions-/Lagerhalle (Realogis)."
+   },
+   {
+    "rang": 12,
+    "titel": "Lagerhalle Sachsenheim, 1.600 m²",
+    "ort": "Sachsenheim",
+    "plz": "74343",
+    "region": "Landkreis Ludwigsburg",
+    "flaeche_m2": 1600,
+    "miete_eur_m2": null,
+    "miete_eur_monat": null,
+    "deckenhoehe_m": null,
+    "art": "Halle/Lager – Miete",
+    "url": "https://www.immowelt.de/expose/16257f7c-cb38-4c6b-8af2-28ed996e112a",
+    "passung_laut_datei": "gut",
+    "hinweis_datei": "Quelle: immowelt-Suchliste, keine Detailangaben; Miete auf Anfrage.",
+    "bewertung": "Sachsenheim 1.600 m² Lagerhalle (LK Ludwigsburg, Randlage)."
+   }
+  ],
+  "weitere_hinweise": [
+   "Bietigheim-Bissingen (Block 3, Nr. 5): bestehendes Fitnessstudio mit Sauna/Cafeteria, 1.146 m² zu 9,23 €/m² – zu klein, aber als Referenz für Fitness-Mietniveau (Immowelt).",
+   "Ludwigsburg-West Sirius Business Park (Block 3, Nr. 6): 1.476 m² zu 8,49 €/m² – knapp unter Zielgröße, Miete exakt auf Planniveau.",
+   "Wendlingen (Block 3, Nr. 25): 2.065 m² zu 4,00 €/m² – günstig, Datei-Bewertung 'bedingt'.",
+   "Kreis Reutlingen/Tübingen-Objekte (Pfullingen 2.000 m², Reutlingen 2×2.000 m² mit 7 m UKB) liegen außerhalb der definierten Region Stuttgart und wurden nicht gelistet.",
+   "Alle Angaben stammen aus Suchseiten-Snippets (Exposés 401/403); Deckenhöhe, Stellplätze, Verfügbarkeit und Nutzungsfreigabe sind vor Ort zu prüfen."
+  ]
+ },
+ "6_zielgruppe": {
+  "methodik": "Isochronen (15 Fahrminuten) wurden nicht per Routing berechnet; Näherung: Gemeinden im Umkreis von ca. 10–12 km Straßenentfernung um den Beispielstandort (Bodensee: B31/B30-Achse; Böblingen: Kernraum Böblingen/Sindelfingen ohne Stuttgarter Stadtbezirke Vaihingen/Möhringen, die real ebenfalls in 15 min erreichbar sind → konservativ). Einwohner: Fortschreibung 31.12.2025 (City Population/StaLa). Penetration: DSSV Eckdaten 2026 = 14,8 % der Gesamtbevölkerung (21,9 % der 15–65-Jährigen), Stichtag 31.12.2025.",
+  "dssv": {
+   "mitglieder_mio": 12.36,
+   "anlagen": 9647,
+   "umsatz_netto_mrd": 6.25,
+   "penetration_gesamt_prozent": 14.8,
+   "penetration_15_65_prozent": 21.9,
+   "penetration_inkl_aggregatoren_prozent": 16.5,
+   "quelle": {
+    "url": "https://www.dssv.de/eckdaten-2026/",
+    "titel": "DSSV: Eckdaten der deutschen Fitnesswirtschaft 2026 (Stichtag 31.12.2025)",
+    "stand": "2026",
+    "gelesen": true
+   }
+  },
+  "friedrichshafen": {
+   "gemeinden": {
+    "Friedrichshafen": 62781,
+    "Tettnang": 20522,
+    "Markdorf": 14305,
+    "Meckenbeuren": 13717,
+    "Kressbronn": 8769,
+    "Langenargen": 7708,
+    "Immenstaad": 6434,
+    "Oberteuringen": 5056,
+    "Eriskirch": 4752,
+    "Bermatingen": 4116,
+    "Hagnau": 1388
+   },
+   "einwohner_summe": 149548,
+   "fitnessmitglieder_14_8_prozent": 22133,
+   "zusatz": "Tagbevölkerung FN 74.376 (23.056 Einpendler) erhöht das Potenzial (Firmenfitness ZF/RRPS/Airbus); Ravensburg/Weingarten (~60 k Ew) liegen bei ~20–25 min und sind nicht enthalten.",
+   "quellen": [
+    {
+     "url": "https://www.citypopulation.de/de/germany/badenwurttemberg/",
+     "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
+     "stand": "Schätzung 31.12.2025",
+     "gelesen": true
+    },
+    {
+     "url": "https://www.dssv.de/eckdaten-2026/",
+     "titel": "DSSV: Eckdaten der deutschen Fitnesswirtschaft 2026 (Stichtag 31.12.2025)",
+     "stand": "2026",
+     "gelesen": true
+    },
+    {
+     "url": "https://pendleratlas.de/baden-wuerttemberg/bodenseekreis/friedrichshafen/",
+     "titel": "Pendleratlas Friedrichshafen (amtliche Pendlerstatistik)",
+     "stand": "Pendlerstatistik 2025, Einwohner 2023",
+     "gelesen": true
+    }
+   ]
+  },
+  "boeblingen": {
+   "gemeinden": {
+    "Sindelfingen": 61428,
+    "Böblingen": 51204,
+    "Holzgerlingen": 14153,
+    "Gärtringen": 12895,
+    "Schönaich": 10483,
+    "Weil im Schönbuch": 9987,
+    "Magstadt": 9427,
+    "Aidlingen": 9313,
+    "Ehningen": 9275,
+    "Grafenau": 6582,
+    "Steinenbronn": 6315,
+    "Nufringen": 5804,
+    "Altdorf": 4514,
+    "Hildrizhausen": 3659
+   },
+   "einwohner_summe": 215039,
+   "fitnessmitglieder_14_8_prozent": 31826,
+   "zusatz": "Ohne Stuttgart-Vaihingen/Möhringen und Leonberg/Herrenberg; Tagbevölkerung Böblingen 71.199 + Sindelfingen 92.891 (Einpendler 36.582 + 45.595) – Mercedes/HP-Firmenfitness-Potenzial.",
+   "quellen": [
+    {
+     "url": "https://www.citypopulation.de/de/germany/badenwurttemberg/",
+     "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
+     "stand": "Schätzung 31.12.2025",
+     "gelesen": true
+    },
+    {
+     "url": "https://www.dssv.de/eckdaten-2026/",
+     "titel": "DSSV: Eckdaten der deutschen Fitnesswirtschaft 2026 (Stichtag 31.12.2025)",
+     "stand": "2026",
+     "gelesen": true
+    },
+    {
+     "url": "https://pendleratlas.de/baden-wuerttemberg/landkreis-boeblingen/boeblingen/",
+     "titel": "Pendleratlas Böblingen",
+     "stand": "Pendlerstatistik 2025",
+     "gelesen": true
+    },
+    {
+     "url": "https://pendleratlas.de/baden-wuerttemberg/landkreis-boeblingen/sindelfingen/",
+     "titel": "Pendleratlas Sindelfingen",
+     "stand": "Pendlerstatistik 2025",
+     "gelesen": true
+    }
+   ]
+  }
+ },
+ "offene_punkte": [
+  "Kaufkraft je Einwohner (MB Research/GfK) für LK Konstanz, LK Lindau und die Stuttgarter Kreise (allgemein, nicht einzelhandelsrelevant) nicht online belegbar – IHK-Kreislisten (PDF) nicht abrufbar; ersatzweise verfügbares Einkommen 2022/2023 (StaLa/Statistikportal) verwendet.",
+  "Altersgruppe 18–59 exakt nicht verfügbar; belegt sind 18–64 (Fortschreibung 2025) und 10-Jahres-Gruppen des Zensus 2022 (20–29 … 50–59).",
+  "Amtliche Kreiszahlen 31.12.2024 nur für Bodenseekreis (220.804) und LK Böblingen (395.167, Snippet) gefunden; Genesis-Tabellen des StaLa waren per Abruf nicht lesbar – 31.12.2025-Werte über City Population/Wikipedia (jeweils StaLa-Quelle).",
+  "Gewerbemietspiegel IHK Hochrhein-Bodensee (Konstanz/Singen) und Fachmarkt-/Nebenlagenmieten (IHK Stuttgart PDF 'Mieten für Handelsflächen 2024') nicht abgerufen.",
+  "Mercedes-Benz Sindelfingen aktuelle Beschäftigtenzahl (>31.500, Dez. 2025) nur aus Suchsnippet (Seite 403); Airbus Immenstaad (ca. 2.150) nur Snippet.",
+  "Studio-Preise Fitness Tempel FN, INJOY Ravensburg, Balance Markdorf, radius-Fläche nur aus Suchsnippets; Fitness First RV/LB, Fitness Express, XTRAFIT, urban health nennen online keine Preise.",
+  "15-Minuten-Isochronen sind Gemeinde-Näherungen ohne Routing; Stuttgarter Stadtbezirke Vaihingen/Möhringen im Böblinger Einzugsgebiet nicht mitgezählt (konservativ).",
+  "Immobilien: alle Objektdaten aus Suchseiten-Snippets; Deckenhöhe, Stellplätze, B-Plan-Gebietstyp und Verfügbarkeit müssen je Objekt verifiziert werden.",
+  "Sportflächenanteil von No.1 (für Stellplatzberechnung) ist Annahme (≈1.300 m²); exakte Flächen aus Planungsdatei zu übernehmen."
+ ]
+}
