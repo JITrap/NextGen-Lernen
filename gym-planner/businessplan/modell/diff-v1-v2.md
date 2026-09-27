@@ -1,0 +1,138 @@
+# Geänderte Planzahlen (v1 → v2)
+
+Gründe: KfW StartGeld 067 entfällt (nicht förderfähig bei Gesamtfremdfinanzierungsbedarf > 200.000 €), Restfinanzierung L-Bank steigt entsprechend; Marketing laufend 4.600 €/Monat statt 3.500 € (DSSV-Richtwert 4–5 % vom Umsatz); Aufnahmegebühren nur auf wirksame Neuzugänge (nach Kapazitätsobergrenze); Anlaufreserve neu berechnet.
+
+- Reserve: alt 710.000 → neu 740.000
+- Kapitalbedarf: alt 2.622.583 → neu 2.652.583
+- Darlehen gesamt (inkl. MBG): alt 2.472.583 → neu 2.502.583
+- EK-Quote: alt 15.2 → neu 15.1
+- Darlehen L-Bank Gründungsfinanzierung (GuW-BW) üb Betrag: alt 1.522.583 → neu 1.752.583
+- Darlehen L-Bank Gründungsfinanzierung (GuW-BW) üb Rate nach tf: alt 7.464 → neu 8.591
+- Rate M1: alt 13.245 → neu 13.514
+- Rate M25: alt 15.289 → neu 13.514
+- Rate ab J6: alt 25.644 → neu 25.172
+- GuV J1 marketing: alt 95.000 → neu 108.200
+- GuV J1 ebitda: alt -376.292 → neu -389.492
+- GuV J1 zinsen: alt 205.265 → neu 208.332
+- GuV J1 ebt: alt -782.252 → neu -798.519
+- GuV J1 jahresergebnis: alt -782.252 → neu -798.519
+- GuV J1 kapitaldienst: alt 205.265 → neu 208.332
+- GuV J1 dscr: alt -1.83 → neu -1.87
+- GuV J1 cashflow_nach_kapitaldienst: alt -581.557 → neu -597.824
+- GuV J2 marketing: alt 42.000 → neu 55.200
+- GuV J2 ebitda: alt 166.583 → neu 153.383
+- GuV J2 zinsen: alt 158.885 → neu 162.165
+- GuV J2 ebt: alt -192.997 → neu -209.477
+- GuV J2 jahresergebnis: alt -192.997 → neu -209.477
+- GuV J2 tilgung: alt 8.333 → neu 0
+- GuV J2 kapitaldienst: alt 167.219 → neu 162.165
+- GuV J2 dscr: alt 1.0 → neu 0.95
+- GuV J2 cashflow_nach_kapitaldienst: alt -635 → neu -8.782
+- GuV J3 umsatz: alt 1.375.456 → neu 1.368.522
+- GuV J3 marketing: alt 42.000 → neu 55.200
+- GuV J3 sonstige: alt 122.761 → neu 122.695
+- GuV J3 ebitda: alt 419.028 → neu 398.960
+- GuV J3 zinsen: alt 157.688 → neu 162.028
+- GuV J3 ebt: alt 60.645 → neu 36.237
+- GuV J3 jahresergebnis: alt 60.645 → neu 36.237
+- GuV J3 tilgung: alt 47.391 → neu 25.773
+- GuV J3 kapitaldienst: alt 205.079 → neu 187.801
+- GuV J3 dscr: alt 2.04 → neu 2.12
+- GuV J3 cashflow_nach_kapitaldienst: alt 213.949 → neu 211.159
+- GuV J4 umsatz: alt 1.413.074 → neu 1.403.873
+- GuV J4 marketing: alt 42.000 → neu 55.200
+- GuV J4 sonstige: alt 123.103 → neu 123.015
+- GuV J4 ebitda: alt 441.646 → neu 419.333
+- GuV J4 zinsen: alt 152.310 → neu 157.492
+- GuV J4 ebt: alt 88.641 → neu 61.146
+- GuV J4 jahresergebnis: alt 88.641 → neu 61.146
+- GuV J4 tilgung: alt 114.564 → neu 103.093
+- GuV J4 kapitaldienst: alt 266.873 → neu 260.585
+- GuV J4 dscr: alt 1.65 → neu 1.61
+- GuV J4 cashflow_nach_kapitaldienst: alt 174.773 → neu 158.748
+- GuV J5 umsatz: alt 1.436.224 → neu 1.427.024
+- GuV J5 marketing: alt 42.000 → neu 55.200
+- GuV J5 sonstige: alt 123.323 → neu 123.236
+- GuV J5 ebitda: alt 449.906 → neu 427.593
+- GuV J5 zinsen: alt 145.005 → neu 150.758
+- GuV J5 ebt: alt 104.206 → neu 76.140
+- GuV J5 jahresergebnis: alt 104.206 → neu 76.140
+- GuV J5 tilgung: alt 131.230 → neu 119.760
+- GuV J5 kapitaldienst: alt 276.235 → neu 270.518
+- GuV J5 dscr: alt 1.63 → neu 1.58
+- GuV J5 cashflow_nach_kapitaldienst: alt 173.671 → neu 157.075
+- Kapitaldienst Jahr 1 (Zins/Tilg/KD/Rest): alt (1, 158945, 0, 158945, 2472583) → neu (1, 162165, 0, 162165, 2502583)
+- Kapitaldienst Jahr 2 (Zins/Tilg/KD/Rest): alt (2, 158945, 0, 158945, 2472583) → neu (2, 162165, 0, 162165, 2502583)
+- Kapitaldienst Jahr 3 (Zins/Tilg/KD/Rest): alt (3, 158945, 25000, 183945, 2447583) → neu (3, 162165, 0, 162165, 2502583)
+- Kapitaldienst Jahr 4 (Zins/Tilg/KD/Rest): alt (4, 157508, 114564, 272072, 2333019) → neu (4, 162165, 103093, 265258, 2399490)
+- Kapitaldienst Jahr 5 (Zins/Tilg/KD/Rest): alt (5, 150338, 114564, 264902, 2218456) → neu (5, 155567, 103093, 258660, 2296397)
+- Kapitaldienst Jahr 6 (Zins/Tilg/KD/Rest): alt (6, 143169, 164564, 307732, 2053892) → neu (6, 148969, 153093, 302063, 2143304)
+- Kapitaldienst Jahr 7 (Zins/Tilg/KD/Rest): alt (7, 132749, 164564, 297313, 1889328) → neu (7, 139121, 153093, 292215, 1990211)
+- Kapitaldienst Jahr 8 (Zins/Tilg/KD/Rest): alt (8, 122330, 164564, 286893, 1724764) → neu (8, 129273, 153093, 282367, 1837117)
+- Kapitaldienst Jahr 9 (Zins/Tilg/KD/Rest): alt (9, 111910, 164564, 276474, 1560201) → neu (9, 119426, 153093, 272519, 1684024)
+- Kapitaldienst Jahr 10 (Zins/Tilg/KD/Rest): alt (10, 101490, 414564, 516054, 1145637) → neu (10, 109578, 403093, 512671, 1280931)
+- Szenario pessimistisch ebitda_j1: alt -584.413 → neu -597.613
+- Szenario pessimistisch ebitda_j2: alt -226.272 → neu -239.472
+- Szenario pessimistisch ebitda_j3: alt -71.358 → neu -84.558
+- Szenario pessimistisch ergebnis_j1: alt -990.373 → neu -1.006.639
+- Szenario pessimistisch ergebnis_j2: alt -585.853 → neu -602.333
+- Szenario pessimistisch ergebnis_j3: alt -429.741 → neu -447.281
+- Szenario pessimistisch ergebnis_j5: alt -281.845 → neu -300.799
+- Szenario pessimistisch dscr_j3: alt -0.35 → neu -0.45
+- Szenario pessimistisch dscr_j4: alt 0.04 → neu -0.01
+- Szenario pessimistisch be_monat_ebitda: alt 41 → neu 43
+- Szenario pessimistisch be_mitglieder: alt 2.095 → neu 2.107
+- Szenario pessimistisch be_mitglieder_ohne_kd: alt 1.618 → neu 1.641
+- Szenario pessimistisch reserve_bedarf_24: alt 1.352.019 → neu 1.380.094
+- Szenario pessimistisch min_kasse: alt (60, -1201214) → neu (60, -1206153)
+- Szenario pessimistisch kosten_j3 marketing: alt 42.000 → neu 55.200
+- Szenario pessimistisch ust_zwischenfinanzierung_max: alt 379.276 → neu 381.157
+- Szenario basis umsatz_j3: alt 1.375.456 → neu 1.368.522
+- Szenario basis ebitda_j1: alt -376.292 → neu -389.492
+- Szenario basis ebitda_j2: alt 166.583 → neu 153.383
+- Szenario basis ebitda_j3: alt 419.028 → neu 398.960
+- Szenario basis ergebnis_j1: alt -782.252 → neu -798.519
+- Szenario basis ergebnis_j2: alt -192.997 → neu -209.477
+- Szenario basis ergebnis_j3: alt 60.645 → neu 36.237
+- Szenario basis ergebnis_j5: alt 104.206 → neu 76.140
+- Szenario basis dscr_j3: alt 2.04 → neu 2.12
+- Szenario basis dscr_j4: alt 1.65 → neu 1.61
+- Szenario basis be_mitglieder: alt 2.006 → neu 2.018
+- Szenario basis be_mitglieder_ohne_kd: alt 1.550 → neu 1.572
+- Szenario basis reserve_bedarf_24: alt 708.838 → neu 736.987
+- Szenario basis min_kasse: alt (17, 102470) → neu (18, 107975)
+- Szenario basis kosten_j3 marketing: alt 42.000 → neu 55.200
+- Szenario basis umsatz_j3_struktur: alt (1120974, 90944, 27671, 135868) → neu (1120974, 90944, 20736, 135868)
+- Szenario basis ust_zwischenfinanzierung_max: alt 365.297 → neu 366.018
+- Szenario optimistisch umsatz_j2: alt 1.346.015 → neu 1.334.159
+- Szenario optimistisch umsatz_j3: alt 1.431.686 → neu 1.412.178
+- Szenario optimistisch ebitda_j1: alt -225.713 → neu -238.913
+- Szenario optimistisch ebitda_j2: alt 404.793 → neu 379.849
+- Szenario optimistisch ebitda_j3: alt 474.414 → neu 441.892
+- Szenario optimistisch ergebnis_j1: alt -631.674 → neu -647.940
+- Szenario optimistisch ergebnis_j2: alt 45.212 → neu 16.989
+- Szenario optimistisch ergebnis_j3: alt 116.031 → neu 79.169
+- Szenario optimistisch ergebnis_j5: alt 144.428 → neu 108.208
+- Szenario optimistisch dscr_j3: alt 2.31 → neu 2.35
+- Szenario optimistisch dscr_j4: alt 1.8 → neu 1.73
+- Szenario optimistisch be_monat_ebitda: alt 8 → neu 9
+- Szenario optimistisch be_mitglieder: alt 1.957 → neu 1.968
+- Szenario optimistisch be_mitglieder_ohne_kd: alt 1.511 → neu 1.533
+- Szenario optimistisch reserve_bedarf_24: alt 496.997 → neu 512.557
+- Szenario optimistisch kosten_j3 marketing: alt 42.000 → neu 55.200
+- Szenario optimistisch umsatz_j3_struktur: alt (1168868, 92067, 33205, 137546) → neu (1168868, 92067, 13697, 137546)
+- Szenario optimistisch ust_zwischenfinanzierung_max: alt 361.175 → neu 361.802
+- Sensitivität Basis: alt (419028, 60645, 2.04, 1.65, 102470, 708838, 2053, 2006) → neu (398960, 36237, 2.12, 1.61, 107975, 736987, 2053, 2018)
+- Sensitivität Neuzugänge −20 %: alt (186865, -171518, 0.91, 1.26, -210941, 1046452, 1642, 2006) → neu (173665, -189058, 0.92, 1.24, -202288, 1074527, 1642, 2018)
+- Sensitivität Neuzugänge −30 %: alt (48716, -309667, 0.24, 0.66, -608916, 1239229, 1437, 2006) → neu (35516, -327207, 0.19, 0.63, -613657, 1267304, 1437, 2018)
+- Sensitivität Kündigungsquote 3,0 %/Monat (statt 2,2 %): alt (307409, -50974, 1.5, 1.58, 41609, 779379, 1856, 2006) → neu (294209, -68514, 1.57, 1.56, 45422, 809041, 1856, 2018)
+- Sensitivität Beitragsniveau −10 %: alt (307998, -50385, 1.5, 1.23, 3539, 823229, 2053, 2192) → neu (287930, -74793, 1.53, 1.17, 6971, 853059, 2053, 2204)
+- Sensitivität Kaltmiete 10,00 €/m² (statt 8,50 €): alt (382034, 23083, 1.86, 1.51, 41143, 779488, 2053, 2071) → neu (361966, -1325, 1.92, 1.46, 45089, 809209, 2053, 2082)
+- Sensitivität Zinsen +1,5 Prozentpunkte: alt (419028, 23881, 1.73, 1.46, 35904, 786173, 2053, 2068) → neu (398960, -1270, 1.77, 1.41, 39275, 816556, 2053, 2081)
+- Sensitivität Personalkosten +10 %: alt (378467, 20084, 1.85, 1.5, 45202, 775480, 2053, 2075) → neu (358399, -4324, 1.91, 1.45, 49148, 805202, 2053, 2086)
+- Sensitivität Energie/Wasser 5,50 €/m² (statt 4,00 €): alt (383471, 24520, 1.86, 1.52, 47495, 772195, 2053, 2068) → neu (363403, 111, 1.93, 1.47, 51441, 801917, 2053, 2079)
+- Pess.+Maßnahmen ergebnis_j3: alt -400.828 → neu -405.168
+- Pess.+Maßnahmen dscr_j3: alt -0.21 → neu -0.23
+- Pess.+Maßnahmen dscr_j4: alt 0.15 → neu 0.16
+- Pess.+Maßnahmen reserve_bedarf_24: alt 1.234.901 → neu 1.232.616
+- Marketing laufend/Monat: alt 3.500 → neu 4.600

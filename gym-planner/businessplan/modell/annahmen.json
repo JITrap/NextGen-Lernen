@@ -155,7 +155,7 @@
   ]
  },
  "sachkosten_monat": {
-  "marketing_laufend": 3500,
+  "marketing_laufend": 4600,
   "marketing_prozent_vom_umsatz": 0.0,
   "marketing_eroeffnung_monate_1_3": 6000,
   "versicherungen": 900,
@@ -243,16 +243,6 @@
     "eigenkapitalaehnlich": false
    },
    {
-    "name": "KfW ERP-Gründerkredit StartGeld (067), 80 % Haftungsfreistellung",
-    "betrag": 200000,
-    "zins_pa": 0.0575,
-    "laufzeit_jahre": 10,
-    "tilgungsfreie_jahre": 2,
-    "auszahlung_monat": -4,
-    "haftungsfreistellung": 0.8,
-    "eigenkapitalaehnlich": false
-   },
-   {
     "name": "L-Bank Gründungsfinanzierung (GuW-BW) über Hausbank, 80 % Bürgschaft Bürgschaftsbank BW (Restfinanzierung)",
     "betrag": null,
     "zins_pa": 0.064,
@@ -264,7 +254,7 @@
     "plug": true
    }
   ],
-  "betriebsmittelreserve": 710000,
+  "betriebsmittelreserve": 740000,
   "reserve_sicherheitspuffer_prozent": 0.15,
   "kontokorrent_rahmen": 200000,
   "kontokorrent_zins_pa": 0.09

@@ -132,12 +132,14 @@ def compute(a: dict, daten: dict, szenario: str = 'basis') -> dict[str, Any]:
     anfang: dict[int, float] = {}
     neu: dict[int, float] = {}
     kuend: dict[int, float] = {}
+    neu_wirksam: dict[int, float] = {}
     prev = a['mitglieder']['vorverkauf_bestand_eroeffnung'] * sz['neuzugaenge_faktor']
     for m in range(1, MONATE + 1):
         n = neuzugang(a, m, sz['neuzugaenge_faktor'])
         k = prev * churn
         b = min(cap, prev + n - k)
         anfang[m], neu[m], kuend[m], bestand[m] = prev, n, k, b
+        neu_wirksam[m] = max(0.0, b - prev + k)  # tatsächlich aufgenommene Mitglieder (Kapazitätsgrenze)
         prev = b
 
     # ---- Umsatz (netto) ----
@@ -160,7 +162,7 @@ def compute(a: dict, daten: dict, szenario: str = 'basis') -> dict[str, Any]:
         jahr = (m - 1) // 12 + 1
         beitrag[m] = avg * arpu_b * (1 + erh) ** max(0, jahr - 2) / (1 + ust)
         service[m] = avg * serv_b / 6 / (1 + ust)
-        aufnahme[m] = neu[m] * t['aufnahmegebuehr_anteil_zahlend'] * t['aufnahmegebuehr_brutto'] / (1 + ust)
+        aufnahme[m] = neu_wirksam[m] * t['aufnahmegebuehr_anteil_zahlend'] * t['aufnahmegebuehr_brutto'] / (1 + ust)
         neben[m] = avg * neben_b / (1 + ust)
         wareneinsatz[m] = avg * nu['getraenke_shakes_brutto_je_mitglied_monat'] / (1 + ust) * nu['getraenke_wareneinsatz_prozent']
         umsatz[m] = beitrag[m] + service[m] + aufnahme[m] + neben[m]
@@ -360,7 +362,7 @@ def compute(a: dict, daten: dict, szenario: str = 'basis') -> dict[str, Any]:
     return {
         'szenario': szenario, 'monate': monate, 'investition': inv, 'inv_summe': inv_summe, 'geraetewert': geraetewert,
         'reserve': reserve, 'kapitalbedarf': kapitalbedarf, 'eigenkapital': ek, 'ek_aehnlich': ek_aehnlich, 'ek_quote': (ek + ek_aehnlich) / kapitalbedarf if kapitalbedarf else 0.0, 'darlehen_summe': darlehen_summe, 'mittel': mittel, 'darlehen_liste': darlehen,
-        'bestand': bestand, 'anfang': anfang, 'avg': avgb, 'service': service, 'neu': neu, 'kuend': kuend, 'beitrag': beitrag, 'aufnahme': aufnahme, 'neben': neben, 'umsatz': umsatz,
+        'bestand': bestand, 'anfang': anfang, 'avg': avgb, 'service': service, 'neu': neu, 'neu_wirksam': neu_wirksam, 'kuend': kuend, 'beitrag': beitrag, 'aufnahme': aufnahme, 'neben': neben, 'umsatz': umsatz,
         'kosten': kosten, 'kosten_summe': kosten_summe, 'inv_zahl': inv_zahl, 'inv_vst': inv_vst, 'afa_jahr': afa_jahr,
         'zins': zins, 'tilg': tilg, 'ausz': ausz, 'saldo_ende': saldo_ende, 'darlehen': darl_detail, 'ust_zahlung': ust_zahlung, 'vst_kosten': vst_kosten,
         'guv': guv, 'liq': liq, 'min_kasse': min_kasse, 'min_kum_betrieb': min_kum_betrieb,

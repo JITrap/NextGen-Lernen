@@ -417,9 +417,10 @@ def write_excel(a: dict, daten: dict, path: str, szenario_werte: dict[str, dict]
     put(mg_ws, 'B2', 'Bestand Ende = MIN(Obergrenze; Anfang + Neuzugänge − Kündigungen). Kündigungen = Anfangsbestand × Kündigungsquote. Monat 1 startet mit dem Vorverkaufsbestand.', GREY)
     months_op = list(range(1, MONATE + 1))
     month_header(mg_ws, 4, months_op)
-    rows_mg = {'anfang': 7, 'neu': 8, 'kuend': 9, 'ende': 10, 'avg': 11, 'spitze': 12, 'auslastung': 13}
+    rows_mg = {'anfang': 7, 'neu': 8, 'kuend': 9, 'ende': 10, 'avg': 11, 'spitze': 12, 'auslastung': 13, 'neu_wirksam': 14}
     put(mg_ws, 'B7', 'Bestand Anfang', BLACK); put(mg_ws, 'B8', 'Neuzugänge', BLACK); put(mg_ws, 'B9', 'Kündigungen', BLACK); put(mg_ws, 'B10', 'Bestand Ende', BOLD)
     put(mg_ws, 'B11', 'Durchschnittsbestand (Abrechnungsbasis)', BLACK); put(mg_ws, 'B12', 'Gleichzeitig anwesend zur Spitzenzeit', BLACK); put(mg_ws, 'B13', 'Auslastung Spitzenzeit (gegen Kapazität)', BLACK)
+    put(mg_ws, 'B14', 'Wirksame Neuzugänge (nach Obergrenze; Basis Aufnahmegebühr)', BLACK)
     for j, m in enumerate(months_op):
         c = L(3 + j)
         prev = L(2 + j)
@@ -430,9 +431,11 @@ def write_excel(a: dict, daten: dict, path: str, szenario_werte: dict[str, dict]
         put(mg_ws, f'{c}11', f'=({c}7+{c}10)/2', BLACK, NUM)
         put(mg_ws, f'{c}12', f'={c}10*Spitzenlast', BLACK, NUM)
         put(mg_ws, f'{c}13', f'={c}12/Personen', BLACK, PCT)
+        put(mg_ws, f'{c}14', f'=MAX(0,{c}10-{c}7+{c}9)', BLACK, NUM)
     names.add_range('Mg_Monat', mg_ws, f'C4:{L(2 + MONATE)}4')
     names.add_range('Mg_Jahr', mg_ws, f'C5:{L(2 + MONATE)}5')
     names.add_range('Mg_Neu', mg_ws, f'C8:{L(2 + MONATE)}8')
+    names.add_range('Mg_NeuWirksam', mg_ws, f'C14:{L(2 + MONATE)}14')
     names.add_range('Mg_Ende', mg_ws, f'C10:{L(2 + MONATE)}10')
     names.add_range('Mg_Avg', mg_ws, f'C11:{L(2 + MONATE)}11')
     # Jahreswerte
@@ -462,7 +465,7 @@ def write_excel(a: dict, daten: dict, path: str, szenario_werte: dict[str, dict]
         put(um, f'{c}8', f'=ARPU_brutto*(1+Beitrag_Erhoehung)^MAX(0,{c}$5-2)', BLACK, EUR2)
         put(um, f'{c}9', f'={c}7*{c}8/(1+UST)', BLACK, EUR)
         put(um, f'{c}10', f'={c}7*Service_Halbjahr/6/(1+UST)', BLACK, EUR)
-        put(um, f'{c}11', f"=Mitglieder!{c}8*Aufnahme_Anteil*Aufnahme/(1+UST)", BLACK, EUR)
+        put(um, f'{c}11', f"=Mitglieder!{c}14*Aufnahme_Anteil*Aufnahme/(1+UST)", BLACK, EUR)
         put(um, f'{c}12', f'={c}7*Neben_Getraenke/(1+UST)', BLACK, EUR)
         put(um, f'{c}13', f'={c}7*Neben_Wellness/(1+UST)', BLACK, EUR)
         put(um, f'{c}14', f'={c}7*Neben_PT/(1+UST)', BLACK, EUR)

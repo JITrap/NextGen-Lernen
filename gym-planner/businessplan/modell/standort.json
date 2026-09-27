@@ -6,13 +6,13 @@
   "Bodenseekreis 220.895 Ew (31.12.2025; 220.804 am 31.12.2024), LK Konstanz 291.867, LK Ravensburg 291.600, LK Lindau 82.399 → Bodenseeregion (4 Kreise) ≈ 886.800 Ew.",
   "Stadt Stuttgart 609.365, LK Böblingen 394.729, Esslingen 536.328, Ludwigsburg 534.454, Rems-Murr 438.873 → Region Stuttgart (5 Kreise) ≈ 2,51 Mio. Ew.",
   "Anteil 18–64 Jahre: Bodenseekreis 58,2 %, Konstanz 60,7 %, Ravensburg 60,1 %, Lindau 59,1 %, Böblingen 60,3 %, Stuttgart 65,7 % (Schätzung 2025, StaLa via City Population).",
-  "Kaufkraft je Ew 2026 (MB Research): Bodenseekreis 36.069 € (Index 127,5, 2020=100), LK Ravensburg 33.168 €; BW 32.813 €/Index 105,2, D 31.193 € (NIQ). Einzelhandelsrelevant 2026: LK Böblingen 8.811 € (107,6), Stuttgart 8.738 € (106,7).",
-  "Verfügbares Einkommen je Ew 2022 (StaLa BW): Bodenseekreis 29.440 (Land=107,3), Stuttgart 29.202, Ludwigsburg 28.355, Böblingen 28.319, Esslingen 27.905, Rems-Murr 27.812, Konstanz 27.674, Ravensburg 27.585, BW 27.429; 2023: Bodenseekreis 32.455, Ravensburg 30.135 (IHK BO).",
-  "Pendler 2025: Friedrichshafen 23.056 Einpendler, Saldo +11.444, Tagbevölkerung 74.376; Böblingen 36.582 Einpendler (Saldo +19.739), Sindelfingen 45.595 (Saldo +27.896). Arbeitgeber: ZF ca. 10.000 (FN), RRPS 6.300 (FN, +500 geplant), Airbus ca. 2.150 (Immenstaad); HP Böblingen 4.000, Bosch Feuerbach 14.000, Mercedes Sindelfingen >31.500 (Snippet).",
+  "Kaufkraft je Ew 2026 (MB Research via IHK BO): Bodenseekreis 36.069 €, LK Ravensburg 33.168 €, BW 33.643 € (gleiche Quelle → Bodenseekreis ≈ 107 % des Landeswerts); die Indizes 127,5/129,1 sind Zeitindizes (2020=100), keine Bundesindizes. NIQ (andere Methodik, nicht mit MB Research mischen): D 31.193 €, BW 32.813 €/Index 105,2. Einzelhandelsrelevant 2026 (MB Research, IHK Stuttgart): LK Böblingen 8.811 € (107,6), Stuttgart 8.738 € (106,7), Region Stuttgart 8.649 € (105,6).",
+  "Verfügbares Einkommen je Ew 2022 (StaLa BW): Bodenseekreis 29.440 (Land=107,3), Stuttgart 29.202, Ludwigsburg 28.355, Böblingen 28.319, Esslingen 27.905, Rems-Murr 27.812, Konstanz 27.674, Ravensburg 27.585, BW 27.429; 2023: Bodenseekreis 32.455, Ravensburg 30.135 (IHK BO). Hinweis: Die 2022-Werte (StaLa-Bericht, Berechnungsstand 08/2023) und die 2023-Werte (Statistikportal, revidierte VGR) sind nicht direkt vergleichbar (Sprung ≈ +10 % ist überwiegend Revisionseffekt); im Businessplan eine Reihe verwenden (2023: Bodenseekreis 32.455, Ravensburg 30.135, BW 30.242, D 28.452).",
+  "Pendler 2025: Friedrichshafen 23.056 Einpendler, Saldo +11.444, Tagbevölkerung 74.376; Böblingen 36.582 Einpendler (Saldo +19.739), Sindelfingen 45.595 (Saldo +27.896). Arbeitgeber: ZF ca. 10.000 (FN), RRPS 6.300 (FN, +500 Einstellungen 2026 geplant; 3. Werk Kluftern im Bau, Fertigstellungstermin in Quelle nicht genannt), Airbus ca. 2.150 + ca. 100 Azubis (Immenstaad; Schwäbische 08.09.2026, gelesen); HP Böblingen 4.000, Bosch Feuerbach 14.000, Mercedes Sindelfingen >31.500 (Snippet).",
   "Wettbewerb: 20 Studios Bodensee, 10 Region Stuttgart erfasst. Discount/Kettenpreise 34,95–49,95 € (ai fitness, MC Shape, clever fit), regionale Premiumketten 49,90–70 € (Happy Fit KN/Singen/RZ 55–70 €, GYM-24 49,90–64,90 €, Sportwelt Leonberg 55–65 €). Sauna bei ca. 2/3 der Studios; HYROX-Angebot: ai fitness FN, Fitness Bunker KN, urban health Ludwigsburg, JONNY M. Böblingen (neu 2026).",
   "Mietniveau: IHK BO Produktionshallen FN 4,90–6,70 €/m² (06/2025); Region Stuttgart Spitzenmiete 8,50, Ø 7,00 €/m² (Realogis 2025), Umland-Spitze 9,90 (E&G). Planannahme 8,50 €/m² ist am Bodensee konservativ, in Stuttgart = Spitzenmiete.",
-  "Baurecht: Fitnessstudio im GE allgemein zulässig (§ 8 Abs. 2 Nr. 4 BauNVO); Sondergebiet nur bei passender Zweckbestimmung; Stellplätze BW: 1 je 25 m² Sportfläche (VwV Stellplätze, Merkblatt AKBW 09/2022) → ca. 52 Kfz + 17 Fahrrad für No.1; Genehmigung § 54 LBO 2 Monate ab Vollständigkeit, Genehmigungsfiktion 3 Monate (LBO 2025), Praxis 3–6 Monate.",
-  "Einzugsgebiet 15 min (Näherung): Friedrichshafen 149.548 Ew → 22.133 Fitnessmitglieder (14.8 %. DSSV 2026); Böblingen 215.039 Ew → 31.826 Mitglieder.",
+  "Baurecht: Fitnessstudio im GE allgemein zulässig (§ 8 Abs. 2 Nr. 4 BauNVO); Sondergebiet nur bei passender Zweckbestimmung; Stellplätze BW: 1 Kfz je 25 m² Sportfläche (VwV Stellplätze Anhang 1 Nr. 5.3, AKBW-Merkblatt 593, Stand 01.09.2022) → ca. 52 Kfz für No.1; Fahrradstellplätze: Anhang 2 enthält KEINE Fitnesscenter-Richtzahl, in Anlehnung an Nr. 5.2 (Sporthallen 1 je 50 m²) ca. 26 Fahrradstellplätze (Einzelfallermittlung, § 37 Abs. 2 LBO). Genehmigung § 54 Abs. 5 LBO: 2 Monate (vereinfachtes Verfahren 1 Monat) ab Vollständigkeit; Genehmigungsfiktion nach 3 Monaten (§ 58 Abs. 1a i. V. m. § 54 Abs. 5 S. 2 LBO, Reform 28.03.2025) gilt NUR im vereinfachten Verfahren (§ 52) – ein Fitnessstudio als Sonderbau/Versammlungsstätte läuft im regulären Verfahren ohne Fiktion; Praxis 3–6 Monate.",
+  "Einzugsgebiet 15 min (Näherung): Friedrichshafen 149.548 Ew → 22.133 Fitnessmitglieder (14,8 % Penetration, DSSV Eckdaten 2026, Stichtag 31.12.2025; Vorjahr 13,8 %); Böblingen 215.039 Ew → 31.826 Mitglieder.",
   "Immobilien-Shortlist (nur immo-all.json): Bodensee 12 Objekte (Top: Meersburg 1.885 m²/8,58 €, Immenstaad Technologiepark 1.900 m², FN 'Altes Schmelzwerk' Sport-Umnutzung, Konstanz 2.227 m², Radolfzell 1.600 m²/7,56 €); Stuttgart 12 Objekte (Top: Neuhausen 1.606 m²/6 m UKB, Feuerbach 2.000 m²/9 m, Esslingen-Zell 1.992 m²/7,5 m, Böblingen 2.765 m² teilbar, Leonberg 2.315 m²/6,50 €)."
  ],
  "1_bevoelkerung_kaufkraft": {
@@ -62,7 +62,8 @@
         "stand": "Einwohner 31.12.2024; Beschäftigte/Pendler 30.06.2025; Kaufkraft 2025",
         "gelesen": true
        }
-      }
+      },
+      "index_hinweis": "Index 127,5 = Zeitindex 2020=100 (Kaufkraftzuwachs seit 2020), KEIN Bundesindex (D=100). Relation zum Land (MB Research BW 33.643 €): ≈ 107,2."
      },
      "verfuegbares_einkommen_je_ew": {
       "2022": 29440,
@@ -79,7 +80,8 @@
        "titel": "IHK Bodensee-Oberschwaben: Verfügbare Einkommen (Quelle Statistikportal)",
        "stand": "Datenjahr 2023",
        "gelesen": true
-      }
+      },
+      "hinweis_vergleichbarkeit": "2022- und 2023-Wert stammen aus unterschiedlichen Berechnungsständen (Revision); nicht als Wachstum interpretieren."
      },
      "altersverteilung_zensus_2022": {
       "20-29": 22334,
@@ -338,12 +340,12 @@
       "stand": "31.12.2025",
       "gelesen": true
      },
-     "einwohner_31_12_2024": 395167,
+     "einwohner_31_12_2024": null,
      "quelle_2024": {
       "url": "https://de.wikipedia.org/wiki/Landkreis_B%C3%B6blingen",
-      "titel": "Wikipedia Landkreis Böblingen (StaLa BW) – 31.12.2024-Wert nur im Suchsnippet",
-      "stand": "31.12.2024",
-      "gelesen": false
+      "titel": "Wikipedia Landkreis Böblingen – Infobox nennt 394.729 (31.12.2025); ein 31.12.2024-Wert (395.167) ist auf der Seite nicht enthalten (Prüfung 27.09.2026)",
+      "stand": "geprüft 27.09.2026",
+      "gelesen": true
      },
      "kaufkraft_einzelhandel_je_ew_2026": {
       "wert": 8811,
@@ -359,6 +361,11 @@
        "Sindelfingen": 8451,
        "Leonberg": 9188,
        "Herrenberg": 8842
+      },
+      "region_stuttgart": {
+       "wert": 8649,
+       "index": 105.6,
+       "zentralitaet_region": 91.8
       }
      },
      "verfuegbares_einkommen_je_ew": {
@@ -388,7 +395,8 @@
       "Gärtringen": 12895,
       "Rutesheim": 11047,
       "Schönaich": 10483
-     }
+     },
+     "staedte_2025_hinweis": "Sindelfingen: 61.428 (StaLa-Fortschreibung 31.12.2025 auf Zensus-2022-Basis, City Population) vs. 64.740 (Stadt Sindelfingen 2025, Melderegister) vs. 64.995 (Pendleratlas 2023). Für Einzugsgebiet konservativ StaLa-Wert verwendet."
     },
     {
      "name": "Landkreis Esslingen",
@@ -535,7 +543,20 @@
      "titel": "Statistisches Landesamt BW: Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht, erschienen 29.01.2025)",
      "stand": "Datenjahr 2022",
      "gelesen": true
-    }
+    },
+    "kaufkraft_je_ew_2026_mb_research": {
+     "wert": 33643,
+     "index_2020_100": 127.9,
+     "hinweis": "Gleiche Quelle/Methodik wie Bodenseekreis 36.069 € und Ravensburg 33.168 € (MB Research, IHK BO). Deutschland-Zeitindex 129,6. Nicht mit NIQ-Werten mischen.",
+     "quelle": {
+      "url": "https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404",
+      "titel": "IHK Bodensee-Oberschwaben: Kaufkraft (MB Research, Prognose 2026)",
+      "stand": "2026 (Prognose)",
+      "gelesen": true
+     }
+    },
+    "verfuegbares_einkommen_je_ew_2023": 30242,
+    "hinweis_einkommen": "2022 (StaLa-Bericht 416322001, Berechnungsstand 08/2023) und 2023 (Statistikportal, revidierte VGR der Länder) sind nicht direkt vergleichbar."
    },
    "deutschland": {
     "kaufkraft_je_ew_2026": 31193,
@@ -559,6 +580,11 @@
    "titel": "City Population – Kreise Baden-Württemberg (Quelle: Statistisches Bundesamt / Statistische Landesämter, Fortschreibung 31.12.2025, Zensus 2022)",
    "stand": "Schätzung 31.12.2025",
    "gelesen": true
+  },
+  "region_stuttgart_verf_einkommen_2022": {
+   "wert": 28391,
+   "index_land_100": 103.5,
+   "quelle": "StaLa BW Bericht 416322001 (29.01.2025), Tabelle Region Stuttgart"
   }
  },
  "1b_arbeitsplaetze_pendler": {
@@ -591,7 +617,7 @@
    },
    {
     "arbeitgeber": "Rolls-Royce Power Systems / mtu (Friedrichshafen)",
-    "beschaeftigte": "6.300 am Standort FN (2025); +500 geplante Einstellungen 2026; drittes Werk in FN-Kluftern im Bau (Fertigstellung 2028)",
+    "beschaeftigte": "6.300 am Standort FN (Werk Friedrichshafen, StZ 01.03.2026); 2026 sollen konzernweit 1.000 hinzukommen, davon 500 am Stammwerk; drittes Montagewerk in FN-Kluftern im Bau – Fertigstellungstermin in der Quelle NICHT genannt (2028 gestrichen)",
     "quelle": {
      "url": "https://www.stuttgarter-zeitung.de/wirtschaft/rolls-royce-power-systems-eine-milliarde-gewinn-motorenbauer-aus-friedrichshafen-vermeldet-rekordzahlen-78924192.html",
      "titel": "Stuttgarter Zeitung: Rolls-Royce Power Systems meldet Rekordzahlen",
@@ -601,13 +627,12 @@
    },
    {
     "arbeitgeber": "Airbus Defence and Space (Immenstaad)",
-    "beschaeftigte": "ca. 2.150 + ca. 100 Auszubildende",
+    "beschaeftigte": "rund 2.150 + etwa 100 Auszubildende (Unternehmensangabe laut Schwäbische Zeitung)",
     "quelle": {
      "url": "https://www.schwaebische.de/regional/bodensee/friedrichshafen/airbus-aktie-im-check-es-gibt-einen-auftragsboom-aber-lohnt-sich-der-einstieg-4823395",
-     "titel": "Schwäbische Zeitung: Airbus am Bodensee (Suchsnippet)",
-     "stand": "2025",
-     "gelesen": false,
-     "hinweis": "Zahl nur aus Suchsnippet: ca. 2.150 Beschäftigte + ca. 100 Auszubildende in Immenstaad"
+     "titel": "Schwäbische Zeitung: Airbus am Bodensee",
+     "stand": "08.09.2026",
+     "gelesen": true
     }
    },
    {
@@ -885,7 +910,7 @@
     "adresse": "Bruder-Klaus-Straße 8, 78467 Konstanz",
     "kette_oder_einzel": "Regionale Kette (Konstanz/Singen/Radolfzell/Leipzig)",
     "flaeche_m2": null,
-    "monatsbeitrag_eur": "55 (12 Mon.) / 60 (flex); Studenten 40/45; Startgebühr 65 €",
+    "monatsbeitrag_eur": "55 (12 Mon.) / 60 (flex); Studenten/Azubis/Rentner 40/45; Startgebühr: Seite nennt 65 € und an anderer Stelle 'einmalige Gebühr 50 €' (uneinheitlich)",
     "wellness_sauna": true,
     "hyrox": false,
     "quelle": {
@@ -1288,7 +1313,8 @@
      "titel": "IHK Bodensee-Oberschwaben: Mietpreisspannen Produktions- und Lagerhallen",
      "stand": "06/2025",
      "gelesen": true
-    }
+    },
+    "hinweis_no1": "Spannen gelten für 500–1.500 m²; No.1 (~2.000 m²) liegt oberhalb des Definitionsbands – größere Hallen sind je m² eher günstiger."
    },
    "ihk_bo_einzelhandel_1a_06_2025": {
     "Friedrichshafen": "13,00–20,00",
@@ -1302,7 +1328,9 @@
      "titel": "IHK Bodensee-Oberschwaben: Mietpreisspannen Einzelhandelsflächen (1a-Lage)",
      "stand": "06/2025",
      "gelesen": true
-    }
+    },
+    "nahversorger_laendlich": "6,50–8,50 €/m² (Richtwert IHK BO 06/2025) – nächstliegende IHK-Referenz für Fachmarkt-/Freizeitnutzung: Planannahme 8,50 = oberes Ende",
+    "kleinflaechen_unter_100m2": "FN 23–30, RV 26–32 €/m²"
    },
    "angebotsmieten_immo_all": {
     "spanne_eur_m2": "4,33–9,68 (Hallen 1.300–3.100 m²)",
@@ -1346,7 +1374,8 @@
      "titel": "E&G Immobilien: Industrie- & Logistikmarkt 2025 Region Stuttgart (PDF)",
      "stand": "2025",
      "gelesen": true
-    }
+    },
+    "zeitreihe": "Spitzenmiete Stadtgebiet 2021 6,90 / 2022 7,00 / 2023–2025 8,50; Umland 2021 7,10 / 2022 8,20 / 2023–2025 9,90; Flächenumsatz 2021 378.000, 2022 387.000, 2023 159.000, 2024 125.300, 2025 106.200 m² (−15 %) – PDF gelesen 27.09.2026"
    },
    "einzelhandel_1a_2024": {
     "Esslingen": "bis 46,90",
@@ -1417,7 +1446,7 @@
     "gaststaette": "1 je 6–12 m² Gastraum (Nr. 6.1)",
     "buero": "1 je 30–40 m² Büronutzfläche (Nr. 2.1)",
     "sportflaeche_definition": "Nicht zur Sportfläche zählen: Sozial- und Sanitärräume, Umkleideräume, Geräteräume, Funktionsflächen für betriebstechnische Anlagen, Verkehrsflächen (Fußnote 3)",
-    "fahrrad": "Richtzahlen Anhang 2; nach Merkblatt 1 Fahrradstellplatz je 75 m² Sportfläche für Fitnesscenter; 1 Kfz-Stellplatz kann durch 4 Fahrradstellplätze ersetzt werden (§ 37 Abs. 1 LBO, begrenzt)",
+    "fahrrad": "Anhang 2 (Richtzahlen Fahrrad-Stellplätze) enthält KEINE Zeile 'Fitnesscenter' (Nr. 5.1 Sportplätze 1 je 250 m², 5.2 Spiel-/Sporthallen 1 je 50 m² Sportfläche, 5.3 Sportstadien 1 je 10 Besucherplätze). Für nicht erfasste Anlagen ist die Zahl nach den Umständen des Einzelfalls in Anlehnung an vergleichbare Anlagen zu ermitteln (VwV zu § 37 Abs. 2 LBO); Anlehnung an Nr. 5.2 → 1 je 50 m² Sportfläche. Bis zu 1/4 der notwendigen Kfz-Stellplätze kann durch Fahrradstellplätze ersetzt werden (4 Fahrrad je Kfz, § 37 Abs. 1 S. 4–5 LBO).",
     "minderung": "Minderung nach ÖPNV-Anbindung (Punktesystem der VwV) und kommunale Stellplatzsatzungen möglich (z. B. Stuttgart eigene Richtwerte)",
     "quelle": {
      "url": "https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt593_VwV-Stellplaetze.pdf",
@@ -1426,10 +1455,10 @@
      "gelesen": true
     }
    },
-   "beispielrechnung_no1": "Bei ca. 2.000 m² BGF und angenommen ca. 1.300 m² anrechenbarer Sportfläche (Kraft/Cardio/Freihantel/HYROX/Kursraum; ohne Umkleiden, Wellness, Technik, Verkehr): 1.300/25 = 52 Kfz-Stellplätze + ca. 17 Fahrradstellplätze. Annahme Sportfläche ist Planungsannahme, keine Quelle."
+   "beispielrechnung_no1": "Bei ca. 2.000 m² BGF und angenommen ca. 1.300 m² anrechenbarer Sportfläche (Kraft/Cardio/Freihantel/HYROX/Kursraum; ohne Umkleiden, Wellness, Technik, Verkehr): 1.300/25 = 52 Kfz-Stellplätze (Anhang 1 Nr. 5.3). Fahrrad: keine eigene Richtzahl; in Anlehnung an Nr. 5.2 (1 je 50 m²) ca. 26 Fahrradstellplätze (frühere Angabe '17 = 1 je 75 m²' war nicht belegbar). Sportflächenanteil ist Planungsannahme."
   },
   "genehmigungsdauer": {
-   "gesetzlich": "§ 54 Abs. 1 LBO: Vollständigkeitsprüfung innerhalb 10 Arbeitstagen; § 54 Abs. 5: Entscheidung innerhalb 2 Monaten (vereinfachtes Verfahren 1 Monat) ab Vollständigkeit und Vorliegen der Stellungnahmen (Anhörungsfrist Dritte max. 1 Monat, § 54 Abs. 3). LBO-Reform 2025 ('Gesetz für das schnellere Bauen', in Kraft 03/2025): Genehmigungsfiktion nach 3 Monaten ab vollständigen Unterlagen, Wegfall der Ermessens-Fristverlängerung.",
+   "gesetzlich": "§ 54 Abs. 1 LBO: Vollständigkeitsprüfung innerhalb 10 Arbeitstagen; § 54 Abs. 5: Entscheidung innerhalb 2 Monaten (vereinfachtes Verfahren und Fälle § 56 Abs. 6/§ 57 Abs. 1: 1 Monat) ab Vollständigkeit und Vorliegen der Stellungnahmen; Einvernehmen anderer Stellen gilt nach 1 Monat als erteilt (§ 54 Abs. 3 S. 3). Gesetz für das schnellere Bauen (GBl. 28.03.2025): Genehmigungsfiktion nach 3 Monaten ab vollständigen Bauvorlagen (§ 58 Abs. 1a i. V. m. § 54 Abs. 5 S. 2 LBO), Fristverlängerung ausgeschlossen – gilt aber NUR für Vorhaben im vereinfachten Verfahren (§ 52) und Antennenanlagen. Sonderbauten (Fitnessstudio als Versammlungsstätte) laufen im regulären Verfahren: keine Genehmigungsfiktion.",
    "praxis": "Praxisangabe Planeco: Antragsunterlagen 2–3 Wochen, Bauamt ca. 3 Monate bei vollständigen Unterlagen; realistisch inkl. Vorprüfung, Brandschutzkonzept und Sonderbau-Status 3–6 Monate; Bauantrag als Sonderbau (Versammlungsstätte) läuft im regulären, nicht im vereinfachten Verfahren.",
    "quellen": [
     {
@@ -1450,7 +1479,8 @@
      "stand": "27.08.2024, akt. 21.10.2025",
      "gelesen": true
     }
-   ]
+   ],
+   "fiktion_hinweis": "Frühere Fassung ('Genehmigungsfiktion nach 3 Monaten' ohne Einschränkung) korrigiert am 27.09.2026 (ARGE Baurecht 29.07.2025; § 54 LBO Text lxgesetze)."
   }
  },
  "5_immobilien_shortlist": {
@@ -1858,20 +1888,21 @@
   ]
  },
  "6_zielgruppe": {
-  "methodik": "Isochronen (15 Fahrminuten) wurden nicht per Routing berechnet; Näherung: Gemeinden im Umkreis von ca. 10–12 km Straßenentfernung um den Beispielstandort (Bodensee: B31/B30-Achse; Böblingen: Kernraum Böblingen/Sindelfingen ohne Stuttgarter Stadtbezirke Vaihingen/Möhringen, die real ebenfalls in 15 min erreichbar sind → konservativ). Einwohner: Fortschreibung 31.12.2025 (City Population/StaLa). Penetration: DSSV Eckdaten 2026 = 14,8 % der Gesamtbevölkerung (21,9 % der 15–65-Jährigen), Stichtag 31.12.2025.",
+  "methodik": "Isochronen (15 Fahrminuten) wurden nicht per Routing berechnet; Näherung: Gemeinden im Umkreis von ca. 10–12 km Straßenentfernung um den Beispielstandort (Bodensee: B31/B30-Achse; Böblingen: Kernraum Böblingen/Sindelfingen ohne Stuttgarter Stadtbezirke Vaihingen/Möhringen, die real ebenfalls in 15 min erreichbar sind → konservativ). Einwohner: Fortschreibung 31.12.2025 (City Population/StaLa). Penetration: DSSV Eckdaten 2026 = 14,8 % der Gesamtbevölkerung (21,9 % der 15–65-Jährigen; 17,1 % ab 15 J.), Stichtag 31.12.2025; Vorjahr 13,8 %.",
   "dssv": {
    "mitglieder_mio": 12.36,
    "anlagen": 9647,
    "umsatz_netto_mrd": 6.25,
    "penetration_gesamt_prozent": 14.8,
    "penetration_15_65_prozent": 21.9,
-   "penetration_inkl_aggregatoren_prozent": 16.5,
    "quelle": {
     "url": "https://www.dssv.de/eckdaten-2026/",
     "titel": "DSSV: Eckdaten der deutschen Fitnesswirtschaft 2026 (Stichtag 31.12.2025)",
     "stand": "2026",
     "gelesen": true
-   }
+   },
+   "penetration_ab_15_jahre_prozent": 17.1,
+   "hinweis": "Der Wert '16,5 % inkl. Aggregatoren' steht nicht auf der DSSV-Seite Eckdaten 2026 und wurde gestrichen; belegt sind 14,8 % (Gesamtbevölkerung, +1,0 Pp), 21,9 % (15–65 J.), 17,1 % (ab 15 J.). Wachstum: Mitglieder +0,65 Mio./+5,6 %, Anlagen +520/+5,7 %, Umsatz +7,4 %."
   },
   "friedrichshafen": {
    "gemeinden": {
@@ -1957,6 +1988,21 @@
      "gelesen": true
     }
    ]
+  },
+  "dssv_vorjahr_2025": {
+   "stichtag": "31.12.2024",
+   "mitglieder_mio": 11.71,
+   "anlagen": 9127,
+   "umsatz_netto_mrd": 5.82,
+   "penetration_gesamt_prozent": 13.8,
+   "penetration_15_65_prozent": 21.3,
+   "segmente": "Ketten 7,14 Mio. Mitglieder/2.666 Anlagen/2,90 Mrd. €; Einzelanlagen 4,13 Mio./4.104/2,52 Mrd. €; Special Interest 0,44 Mio./2.357/0,40 Mrd. €",
+   "quelle": {
+    "url": "https://www.dssv.de/eckdaten-2025/",
+    "titel": "DSSV Eckdaten 2025 (Stichtag 31.12.2024)",
+    "stand": "2025",
+    "gelesen": true
+   }
   }
  },
  "offene_punkte": [
@@ -1969,5 +2015,114 @@
   "15-Minuten-Isochronen sind Gemeinde-Näherungen ohne Routing; Stuttgarter Stadtbezirke Vaihingen/Möhringen im Böblinger Einzugsgebiet nicht mitgezählt (konservativ).",
   "Immobilien: alle Objektdaten aus Suchseiten-Snippets; Deckenhöhe, Stellplätze, B-Plan-Gebietstyp und Verfügbarkeit müssen je Objekt verifiziert werden.",
   "Sportflächenanteil von No.1 (für Stellplatzberechnung) ist Annahme (≈1.300 m²); exakte Flächen aus Planungsdatei zu übernehmen."
- ]
+ ],
+ "korrekturen": [
+  {
+   "zahl": "Fahrradstellplätze No.1: 17 (1 je 75 m² Sportfläche 'nach Merkblatt')",
+   "problem": "AKBW-Merkblatt 593/VwV Stellplätze Anhang 2 enthält keine Fitnesscenter-Richtzahl; '1 je 75 m²' steht dort nicht (Sporthallen 1 je 50 m²).",
+   "korrektur": "Keine eigene Richtzahl; Einzelfallermittlung in Anlehnung an Nr. 5.2 → ca. 26 Fahrradstellplätze bei 1.300 m² Sportfläche.",
+   "quelle": "https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt593_VwV-Stellplaetze.pdf (PDF gelesen, S. 13)",
+   "status": "korrigiert"
+  },
+  {
+   "zahl": "Genehmigungsfiktion 3 Monate (LBO 2025)",
+   "problem": "Falsch zugeordnet: Fiktion gilt nur im vereinfachten Verfahren (§ 52) und für Antennen (§ 58 Abs. 1a LBO); Sonderbau/Versammlungsstätte läuft im regulären Verfahren ohne Fiktion. § 54 Abs. 5 nennt 2 Monate (bzw. 1 Monat).",
+   "korrektur": "Für No.1 (Sonderbau) keine Genehmigungsfiktion; Regelfrist 2 Monate ab Vollständigkeit, Praxis 3–6 Monate.",
+   "quelle": "https://arge-baurecht.com/baurecht-wissen/fachartikel/artikel/das-neue-gesetz-fuer-das-schnellere-bauen (29.07.2025); https://lxgesetze.de/lbo/54",
+   "status": "korrigiert"
+  },
+  {
+   "zahl": "DSSV Penetration 16,5 % inkl. Aggregatoren",
+   "problem": "Steht nicht auf der zitierten DSSV-Seite Eckdaten 2026; dort 14,8 % / 21,9 % / 17,1 % (ab 15 J.).",
+   "korrektur": "16,5 % gestrichen; 17,1 % (ab 15 Jahren) ergänzt.",
+   "quelle": "https://www.dssv.de/eckdaten-2026/",
+   "status": "korrigiert"
+  },
+  {
+   "zahl": "Rolls-Royce Power Systems: 3. Werk Kluftern 'bis 2028'",
+   "problem": "Der zitierte StZ-Artikel (01.03.2026) nennt keinen Fertigstellungstermin; 6.300 Beschäftigte und +500 am Stammwerk sind bestätigt.",
+   "korrektur": "Termin gestrichen ('im Bau, Termin in Quelle nicht genannt').",
+   "quelle": "https://www.stuttgarter-zeitung.de/wirtschaft/rolls-royce-power-systems-eine-milliarde-gewinn-motorenbauer-aus-friedrichshafen-vermeldet-rekordzahlen-78924192.html",
+   "status": "korrigiert"
+  },
+  {
+   "zahl": "LK Böblingen 395.167 Ew (31.12.2024, 'Wikipedia-Snippet')",
+   "problem": "Auf der Wikipedia-Seite nicht vorhanden (Infobox 394.729 zum 31.12.2025; Tabelle endet 2020 mit 392.898).",
+   "korrektur": "Wert auf null gesetzt; nur 31.12.2025 = 394.729 (StaLa via Wikipedia/City Population) verwenden.",
+   "quelle": "https://de.wikipedia.org/wiki/Landkreis_B%C3%B6blingen",
+   "status": "korrigiert"
+  },
+  {
+   "zahl": "Airbus Immenstaad ca. 2.150 ('Snippet, 2025')",
+   "problem": "Datum falsch (Artikel vom 08.09.2026), Zahl nur als Snippet markiert.",
+   "korrektur": "Artikel gelesen: rund 2.150 + ca. 100 Azubis (Unternehmensangabe), Stand 08.09.2026.",
+   "quelle": "https://www.schwaebische.de/regional/bodensee/friedrichshafen/airbus-aktie-im-check-es-gibt-einen-auftragsboom-aber-lohnt-sich-der-einstieg-4823395",
+   "status": "korrigiert"
+  },
+  {
+   "zahl": "Kaufkraft-Vergleich Bodenseekreis 36.069 € (Index 127,5) vs. BW 32.813 €/D 31.193 € (NIQ)",
+   "problem": "Quellenmix: 36.069 € ist MB Research, 32.813/31.193 € ist NIQ (andere Methodik); Index 127,5 ist ein Zeitindex 2020=100, kein Bundesindex.",
+   "korrektur": "MB-Research-Landeswert BW 2026 = 33.643 € ergänzt (Bodenseekreis ≈ 107 % des Landes); NIQ-Werte nur getrennt ausweisen.",
+   "quelle": "https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404",
+   "status": "ergänzt/klargestellt"
+  },
+  {
+   "zahl": "Verfügbares Einkommen Bodenseekreis 2022 29.440 € → 2023 32.455 €",
+   "problem": "Beide Werte stimmen mit den Quellen überein, stammen aber aus verschiedenen Berechnungsständen (StaLa 08/2023 vs. revidierte VGR); der Sprung von +10 % ist kein reales Wachstum.",
+   "korrektur": "Hinweis ergänzt; im Businessplan die 2023-Reihe (Statistikportal) durchgängig verwenden.",
+   "quelle": "StaLa 416322001 (PDF gelesen, S. 27) und IHK BO Verfügbare Einkommen 2023",
+   "status": "klargestellt"
+  },
+  {
+   "zahl": "Happy Fit Konstanz Startgebühr 65 €",
+   "problem": "Seite nennt zugleich 'einmalige Gebühr 50 €'.",
+   "korrektur": "Als uneinheitlich markiert (50–65 €).",
+   "quelle": "https://happy-fit-studios.de/fitnessstudio-in-konstanz/",
+   "status": "klargestellt"
+  },
+  {
+   "zahl": "Sindelfingen 61.428 Ew (2025)",
+   "problem": "Nicht falsch, aber abweichend von städtischer Angabe 64.740 (2025) und Pendleratlas 64.995 (2023) – Zensus-2022-Effekt.",
+   "korrektur": "Hinweis ergänzt; konservativer StaLa-Wert bleibt.",
+   "quelle": "https://sindelfingen.org/standort-sindelfingen/zahlen-daten-fakten/",
+   "status": "klargestellt"
+  }
+ ],
+ "pruefung": {
+  "datum": "27.09.2026",
+  "pruefer": "Faktenprüfung (adversarial)",
+  "geprueft_zahlen": 48,
+  "bestaetigt": [
+   "Einwohner 31.12.2025 aller 9 Kreise + Zensus 2022 (City Population/StaLa, Stichtag 'Schätzung 2025-12-31')",
+   "Bodenseekreis 31.12.2024 220.804, SV-Beschäftigte 95.400, Pendlersaldo +2.729, ALQ 3,5 %, Kaufkraft 2025 34.728 € (WF Bodenseekreis)",
+   "BW 11.238.800 (−7.100), StaLa PM 20.05.2026",
+   "Altersgruppen 18–64 Bodenseekreis/Stuttgart/Böblingen/Lindau; Zensus-Altersgruppen Bodenseekreis (20–59 = 109.909)",
+   "Kaufkraft MB Research 2026: Bodenseekreis 36.069 (127,5), Ravensburg 33.168 (129,1), BW 33.643, D-Zeitindex 129,6",
+   "NIQ 2026: D 31.193 €, BW 32.813 € (105,2), 14.01.2026",
+   "EH-Kaufkraft 2026 IHK Stuttgart: LK Böblingen 8.811 (107,6), Stuttgart 8.738 (106,7), Böblingen 8.676, Sindelfingen 8.451, Leonberg 9.188, Herrenberg 8.842, Ludwigsburg 8.417, Esslingen 8.593, Waiblingen 8.662",
+   "Verfügbares Einkommen 2022 (StaLa PDF 29.01.2025): alle 8 Kreise + BW 27.429; 2023 (IHK BO): Bodenseekreis 32.455, Ravensburg 30.135, BW 30.242, D 28.452",
+   "Pendleratlas 2025: FN 23.056/11.612/+11.444/74.376; Böblingen 36.582/+19.739/71.199; Sindelfingen 45.595/+27.896/92.891; WiFö Sindelfingen 55.900 SV-Beschäftigte",
+   "ZF ca. 10.000 (Betrieb Z 4.350; auto.news 09.05.2025), RRPS 6.300/+500 (StZ 01.03.2026), Bosch Feuerbach rund 14.000, HP 4.000/Reisser 1.980/Wörwag 1.400 (DDW 06.03.2026), Mercedes-Protest 20.000 (SZ/BZ 21.09.2026)",
+   "DSSV Eckdaten 2026: 12,36 Mio. (+5,6 %), 9.647 Anlagen, 6,25 Mrd. €, 14,8 %/21,9 %",
+   "IHK BO Hallen 06/2025 (alle 4 Teilregionen) und Einzelhandel 1a; Realogis 2025 8,50/7,00/113.700 m² inkl. Teilmärkte; E&G 2025 8,50 Stadt/9,90 Umland/106.200 m² (PDF gelesen)",
+   "VwV Stellplätze Anhang 1 Nr. 5.3 Fitnesscenter 1 je 25 m² Sportfläche, Fußnote 3 (AKBW 593, Stand 01.09.2022)",
+   "§ 54 LBO: 10 Arbeitstage, 2 Monate/1 Monat; Vorausberechnung 2045 Stuttgart +5,5 %, Konstanz +3,3 % (PM 06.05.2025)",
+   "Preise: ai fitness 34,95/39,95/49,95 + 45 €; GYM-24 49,90/64,90 + 39,90; Sportwelt Leonberg 55/65 (45/55, 35/45) + 15 €; MC Shape Überlingen 39,90/49,90 (Aktion 10/20 € bis 30.09.2026); Happy Fit Konstanz 55/60; Lindau 32.200 SV-Besch., 2.126 Mio. € Kaufkraft 2021, BIP 39.043 €"
+  ],
+  "nicht_pruefbar": [
+   "Mercedes-Benz Sindelfingen >31.500 (Dez. 2025): Konzernseite 403 – weiterhin nur Snippet",
+   "Fitness Tempel FN 39,90/49,90 und INJOY RV 39,90: nur Snippets",
+   "dejure.org (§ 54 LBO Volltext) 402 – Fiktionsregel über ARGE Baurecht + lxgesetze belegt"
+  ],
+  "ergaenzt": [
+   "MB Research BW 2026 33.643 € (127,9)",
+   "EH-Kaufkraft Region Stuttgart 2026 8.649 € (105,6), Zentralität 91,8",
+   "Verfügbares Einkommen Region Stuttgart 2022 28.391 € (103,5)",
+   "DSSV Eckdaten 2025 (Stichtag 31.12.2024) als Vorjahr: 11,71 Mio., 9.127 Anlagen, 5,82 Mrd. €, 13,8 %/21,3 % inkl. Segmentaufteilung",
+   "IHK BO Nahversorger ländlich 6,50–8,50 €/m², Kleinflächen <100 m² FN 23–30/RV 26–32 €/m²",
+   "E&G Zeitreihe 2021–2025 Spitzenmieten/Flächenumsatz",
+   "§ 37 Abs. 1 LBO: bis 1/4 der Kfz-Stellplätze durch 4 Fahrradstellplätze je Kfz ersetzbar"
+  ],
+  "hinweis_websearch": "WebSearch-Kontingent der Sitzung war erschöpft; Prüfung erfolgte ausschließlich über direkte Quellenabrufe (WebFetch/PDF-Text)."
+ }
 }

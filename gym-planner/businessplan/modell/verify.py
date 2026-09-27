@@ -63,6 +63,7 @@ def verify(a: dict, daten: dict, path: str, szenario: str = 'basis') -> list[str
         c = col(mg, m)
         probs.append(cmp(f'Mitglieder Ende M{m}', mg.cell(10, c).value, r['bestand'][m], 0.5))
         probs.append(cmp(f'Mitglieder Anfang M{m}', mg.cell(7, c).value, r['anfang'][m], 0.5))
+        probs.append(cmp(f'Neu wirksam M{m}', mg.cell(14, c).value, r['neu_wirksam'][m], 0.5))
         c = col(um, m)
         probs.append(cmp(f'Umsatz M{m}', um.cell(16, c).value, r['umsatz'][m]))
         probs.append(cmp(f'Beitrag M{m}', um.cell(9, c).value, r['beitrag'][m]))
