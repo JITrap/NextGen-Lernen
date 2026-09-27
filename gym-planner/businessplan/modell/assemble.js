@@ -166,7 +166,7 @@ const cover = [
   new Paragraph({ children: [run('Stand: ', { size: 24 }), run(meta.stand, { size: 24 })], alignment: AlignmentType.LEFT, spacing: { after: 1200 } }),
   new Paragraph({ children: [run('Kontakt: ' + meta.kontakt, { size: 20, color: GREY })], alignment: AlignmentType.LEFT, spacing: { after: 80 } }),
   new Paragraph({ children: [run('Vertraulichkeitshinweis: Dieser Businessplan enthält vertrauliche Informationen und ist ausschließlich für die Prüfung einer Finanzierung durch die adressierten Kreditinstitute und Förderbanken bestimmt. Eine Weitergabe an Dritte bedarf der Zustimmung des Verfassers.', { size: 18, color: GREY })], alignment: AlignmentType.JUSTIFIED, spacing: { after: 80 } }),
-  new Paragraph({ children: [run('Grundlage: Planungsprojekt „No.1 (überarbeitet)“ aus der Planungssoftware GymPlanner (Grundriss, Stückliste, Kapazitäts- und Regularienprüfung) und die beiliegende Excel-Planrechnung Finanzplan_No1.xlsx.', { size: 18, color: GREY })], alignment: AlignmentType.JUSTIFIED }),
+  new Paragraph({ children: [run('Grundlage und Zahlenherkunft: Alle Planzahlen (Investition, Finanzierung, Mitglieder, Umsatz, Kosten, Liquidität, Rentabilität, Szenarien) stammen aus der beiliegenden Excel-Planrechnung Finanzplan_No1.xlsx (Blatt „Annahmen“ mit allen Eingaben); Flächen, Geräteliste, Kapazität und Regularienprüfung aus dem Planungsprojekt „No.1 (überarbeitet)“ der Planungssoftware GymPlanner; Markt-, Förder-, Betriebs- und Standortdaten aus den in Anhang I aufgeführten Quellen (Stand September 2026). Alle Beträge netto in Euro, Mitgliedsbeiträge brutto inklusive 19 % Umsatzsteuer.', { size: 18, color: GREY })], alignment: AlignmentType.JUSTIFIED }),
 ];
 
 // ---------------------------------------------------------------- Inhaltsverzeichnis
@@ -202,7 +202,7 @@ const quellenBlock = [h1(anhangTitel.I), p('Die folgenden Quellen wurden für Ma
 const grundrissBlock = [
   h1(anhangTitel.F),
   p('Der Grundriss stammt aus der Planungssoftware GymPlanner (Projekt „No.1 (überarbeitet)“, Halle 59,5 × 33,2 m, 1.975 m² Bruttofläche). Er zeigt Räume mit Flächen, Trainingszonen, die Geräteaufstellung mit Sicherheitsabständen, Notausgänge, Fluchtwege und die Sicherheitsausstattung. Die Planungsdatei liegt digital bei.'),
-  ...image('grundriss-no1.png', 930, 'Abbildung F.1: Grundriss No.1 (überarbeitet), Erdgeschoss – Quelle: GymPlanner, Export September 2026; Legende der Raumtypen am unteren Bildrand'),
+  ...image('grundriss-no1.png', 850, 'Abbildung F.1: Grundriss No.1 (überarbeitet), Erdgeschoss – Quelle: GymPlanner, Export September 2026; Legende der Raumtypen am unteren Bildrand'),
 ];
 const pageP = { size: { width: PAGE_W, height: PAGE_H }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } };
 const pageL = { size: { width: PAGE_W, height: PAGE_H, orientation: PageOrientation.LANDSCAPE }, margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN } };

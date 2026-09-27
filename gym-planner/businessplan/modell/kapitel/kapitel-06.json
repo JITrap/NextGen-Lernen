@@ -1,0 +1,623 @@
+{
+ "nummer": 6,
+ "titel": "Marketing und Vertrieb",
+ "bloecke": [
+  {
+   "typ": "absatz",
+   "text": "Marketing und Vertrieb entscheiden bei einem Fitnessstudio über den Erfolg der Anlaufphase, weil die Fixkosten vom ersten Tag an in voller Höhe anfallen, die Beitragsumsätze aber erst mit dem Mitgliederbestand wachsen. Dieses Kapitel leitet die im Finanzmodell hinterlegten Mitgliederziele her, beschreibt Preis- und Tarifstrategie, den Vorverkauf vor der Eröffnung, das laufende Marketing, die Vertriebskanäle und Kooperationen, die Maßnahmen zur Mitgliederbindung sowie das Kennzahlen-Controlling, mit dem Abweichungen vom Plan früh erkannt werden. Alle Mitglieder- und Budgetzahlen stammen aus dem Finanzmodell; Beiträge sind Bruttobeträge einschließlich 19 % Umsatzsteuer, Budgets sind Nettobeträge."
+  },
+  {
+   "typ": "h2",
+   "text": "6.1 Marketingziele in Zahlen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Basisszenario des Finanzmodells setzt voraus, dass zur Eröffnung am 1. September 2027 bereits 350 Mitglieder aus dem Vorverkauf unter Vertrag stehen. Danach werden in den ersten drei Betriebsmonaten je 140 Neuzugänge, in den Monaten 4 bis 12 je 100, im zweiten Betriebsjahr je 90, im dritten Jahr je 80 und ab dem vierten Jahr je 75 Neuzugänge je Monat geplant. Bei einer Kündigungsquote von 2,2 % des Bestands je Monat ergibt sich ein Bestand von 482 Mitgliedern am Ende des ersten Monats, 1.429 nach zwölf Monaten, 2.053 nach 24 Monaten und die Kapazitätsgrenze von 2.200 Mitgliedern ab Monat 29. Die Kapazitätsgrenze entspricht 1,1 Mitgliedern je m² Bruttofläche und liegt damit leicht über dem Branchenmittel von rund einem Mitglied je m² (1.166 m² Anlagenfläche bei 1.187 Mitgliedern je Anlage, DSSV-Eckdaten 2018 nach fitness MANAGEMENT 02/2019); neuere Flächenwerte sind öffentlich nicht verfügbar."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.1: Mitgliederziele des Basisszenarios",
+   "spalten": [
+    "Zeitraum",
+    "Neuzugänge je Monat",
+    "Neuzugänge im Zeitraum",
+    "Kündigungen im Zeitraum",
+    "Bestand am Ende"
+   ],
+   "zeilen": [
+    [
+     "Vorverkauf (Juni bis August 2027)",
+     "ca. 117 (Ziel 350 gesamt)",
+     "350",
+     "0",
+     "350 zur Eröffnung"
+    ],
+    [
+     "Monate 1 bis 3 (Sept. bis Nov. 2027)",
+     "140",
+     "420",
+     "32",
+     "738"
+    ],
+    [
+     "Monate 4 bis 12 (Dez. 2027 bis Aug. 2028)",
+     "100",
+     "900",
+     "209",
+     "1.429"
+    ],
+    [
+     "Monate 13 bis 24 (Jahr 2)",
+     "90",
+     "1.080",
+     "456",
+     "2.053"
+    ],
+    [
+     "Monate 25 bis 36 (Jahr 3)",
+     "80",
+     "bis Kapazität",
+     "45 bis 48 je Monat",
+     "2.200 (ab Monat 29)"
+    ],
+    [
+     "Ab Monat 37 (Jahre 4 und 5)",
+     "75",
+     "Ersatz der Kündigungen",
+     "48 je Monat",
+     "2.200"
+    ]
+   ],
+   "quelle": "Quelle: Finanzmodell Excel-Planrechnung; Bestand Monat 3: 738, Monat 12: 1.429, Monat 24: 2.053.",
+   "breiten": [
+    30,
+    16,
+    18,
+    18,
+    18
+   ]
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_mitglieder.png",
+   "titel": "Abbildung 6.1: Mitgliederentwicklung im Basisszenario (Monate 1 bis 60)"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Plausibilität dieser Ziele lässt sich an drei belegten Vorverkaufs- und Anlaufbeispielen prüfen. Das Happy Fit Premium in Konstanz (2.500 m², Sauna, Kurse inklusive) schloss allein am Tag der offenen Tür 145 Mitgliedschaften ab (BODYMEDIA Clubreport 2024). Die wellyou-Anlage in Velbert gewann vor der Eröffnung im November 2025 über 2.000 Mitglieder im Vorverkauf (fitness MANAGEMENT 12.11.2025). Ein Beraterplanbeispiel für ein durchschnittliches Studio nennt 600 Mitglieder nach zwölf Monaten und zeigt, dass früh gewonnene Mitglieder im ersten Jahr rund 400.000 € Umsatz erzeugen, spät gewonnene nur 280.000 € (IN-COME 2020). Das Vorverkaufsziel von 350 Mitgliedern in drei Monaten entspricht rund 117 Abschlüssen je Monat und liegt damit deutlich unter dem, was ein einzelner Aktionstag eines vergleichbaren Premiumstudios in der Region erreicht hat. Der Fachverlag BODYMEDIA empfiehlt, den Vorverkauf zwei bis drei Monate vor Eröffnung zu starten und drei bis sechs Monate davor vorzubereiten (BODYMEDIA 02.05.2024); der Plan sieht drei Monate Vorverkauf und die Vorbereitung ab Mietbeginn im April 2027 vor. Einschränkend gilt: Beide Vorverkaufsbeispiele stammen von etablierten Betreibern mit bestehender Marke und Bestandsstudios; No.1 startet ohne Referenzstudio, das Ziel von 350 Mitgliedern ist deshalb als anspruchsvoll einzuordnen und mit einer Interessentenliste zu unterlegen (Hinweis am Ende von Abschnitt 6.3)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Bestand von 1.429 Mitgliedern nach zwölf Monaten liegt über dem Beraterplanwert von 600, was der Größe der Anlage geschuldet ist: 1.975 m² Bruttofläche und 126 gleichzeitig Trainierende (Quellen: Anhang I) übersteigen die durchschnittliche deutsche Anlage mit 1.166 m² deutlich, und die Branche zählt im Mittel 1.281 Mitglieder je Anlage, Einzelanlagen 1.023 (DSSV Eckdaten 2026, rechnerisch). Bezogen auf das Einzugsgebiet sind 1.429 Mitglieder nach einem Jahr 6,5 % der rechnerisch 22.133 Fitnessmitglieder im 15-Minuten-Einzugsgebiet Friedrichshafen und 4,5 % der 31.826 im Raum Böblingen/Sindelfingen (Kapitel 4). Zusätzlich ist der Plan konservativ, weil er den Januar-Effekt nicht einrechnet: Nach der DSSV-Januar-Umfrage 2023 wächst der Mitgliederbestand allein im Januar um knapp 5 % (Einzelanlagen 4,4 %, Ketten 6,1 %; DSSV 02/2023); das Modell rechnet in allen Monaten mit gleichbleibenden Neuzugängen."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kehrseite ist die Empfindlichkeit des Plans gegenüber den Neuzugängen. Bleiben sie um 20 % hinter dem Plan zurück, sinkt der Bestand nach 24 Monaten auf 1.642 Mitglieder, die Kapitaldienstdeckung im dritten Jahr fällt auf 0,92 und der Reservebedarf für die ersten 24 Monate steigt auf 1.074.527 € gegenüber 736.987 € im Basisfall. Marketing und Vertrieb sind damit die wichtigste Steuerungsgröße des Vorhabens; das Kennzahlen-Controlling in Abschnitt 6.7 legt die Schwellen fest, ab denen Gegenmaßnahmen greifen."
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Vorverkauf bis Eröffnung",
+     "350 Mitglieder"
+    ],
+    [
+     "Neuzugänge Monate 1 bis 3",
+     "140 je Monat"
+    ],
+    [
+     "Bestand nach 12 Monaten",
+     "1.429"
+    ],
+    [
+     "Bestand nach 24 Monaten",
+     "2.053"
+    ],
+    [
+     "Kapazität erreicht",
+     "Monat 29 (2.200)"
+    ],
+    [
+     "Kündigungsquote",
+     "2,2 % je Monat"
+    ]
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "6.2 Preis- und Tarifstrategie"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Tarifstruktur (Basic 44,90 €, Premium 59,90 €, Student/Azubi/Senior 34,90 €, Servicepauschale 24,90 € je Halbjahr, Aufnahmegebühr 49,00 €, jeweils brutto) ist in Kapitel 3.5 beschrieben und mit den Wettbewerbspreisen abgeglichen. Dieser Abschnitt ergänzt die vertriebliche Logik: Laufzeiten, Flex-Variante, Aktionen und Preisdisziplin. Der Planbeitrag von 50,15 € brutto je Mitglied und Monat im Tarifmix liegt zwischen dem Branchendurchschnitt von 48,55 € und dem Durchschnitt der Einzelanlagen von 59,24 € (DSSV Eckdaten 2026) und positioniert No.1 preislich zwischen den Ketten und den regionalen Premiumanbietern (Kapitel 4.6)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Beiträge des Finanzmodells gelten für die Standardlaufzeit von zwölf Monaten. Zusätzlich werden eine 24-Monats-Variante mit Nachlass und eine monatlich kündbare Flex-Variante mit Aufschlag angeboten; die konkreten Beträge sind vom Gründer festzulegen [24-Monats-Beitrag, Flex-Beitrag]. Der Markt gibt den Rahmen vor: Das Happy Fit Premium Konstanz verlangt 80 € bei 24 Monaten, 90 € bei zwölf Monaten und 109 € monatlich kündbar; 8Black in Friedrichshafen und Ravensburg 34,99 / 39,99 / 49,99 €; GYM-24 Böblingen 49,90 € bei 24 Monaten und 64,90 € bei einem Monat (Quellen: Anhang I). Bei den großen Ketten liegt der Aufschlag für monatlich kündbare Verträge bei etwa 30 % (BODYMEDIA Preischeck 05.01.2024). Das Finanzmodell rechnet vereinfachend für alle Mitglieder mit dem Zwölf-Monats-Beitrag; Flex-Aufschläge und 24-Monats-Nachlässe sind nicht modelliert und sollen sich in der Summe ausgleichen [Tarifmix nach Laufzeit im ersten Betriebsjahr auswerten]."
+  },
+  {
+   "typ": "absatz",
+   "text": "Rechtlich sind Erstlaufzeiten von mehr als zwei Jahren unzulässig; nach Ablauf der Erstlaufzeit verlängern sich Verträge nur auf unbestimmte Zeit mit einer Kündigungsfrist von höchstens einem Monat (§ 309 Nr. 9 BGB in der seit 1. März 2022 geltenden Fassung). Online abgeschlossene Verträge müssen über einen Kündigungsbutton kündbar sein (§ 312k BGB). Die Studiosoftware bildet diese Vorgaben ab; die Vertragsmuster sind vor dem Vorverkauf anwaltlich prüfen zu lassen [Beauftragung, Kosten]."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.2: Tarif- und Laufzeitlogik (Beträge brutto inkl. 19 % USt)",
+   "spalten": [
+    "Element",
+    "Planansatz",
+    "Marktreferenz",
+    "Zweck"
+   ],
+   "zeilen": [
+    [
+     "12 Monate (Standard)",
+     "44,90 / 59,90 / 34,90 €",
+     "Happy Fit Premium 90 €, 8Black 39,99 €, GYM-24 k. A.",
+     "Planbeitrag des Finanzmodells"
+    ],
+    [
+     "24 Monate",
+     "[Nachlass festzulegen]",
+     "Happy Fit Premium 80 €, 8Black 34,99 €, GYM-24 49,90 €",
+     "Bindung, planbare Umsätze"
+    ],
+    [
+     "Flex (monatlich kündbar)",
+     "[Aufschlag festzulegen]",
+     "Happy Fit Premium 109 €, 8Black 49,99 €, GYM-24 64,90 €; Ketten ca. +30 %",
+     "Zielgruppe Pendler, Studierende, Saison"
+    ],
+    [
+     "Servicepauschale",
+     "24,90 € je Halbjahr",
+     "8Black 10 € je Quartal, clever fit 19,90 € je Halbjahr",
+     "Deckt Chip, Hygiene, Software"
+    ],
+    [
+     "Aufnahmegebühr",
+     "49,00 €, 70 % zahlend",
+     "Happy Fit Premium 129 €, 8Black 50 €, GYM-24 39,90 €",
+     "Aktionshebel statt Beitragsnachlass"
+    ],
+    [
+     "Firmenfitness / Aggregator",
+     "nicht im Modell (Zusatzpotenzial)",
+     "76,1 % der Anlagen mit Aggregator-Anbindung (DSSV 2026)",
+     "Reichweite bei Arbeitgebern"
+    ]
+   ],
+   "quelle": "Quellen: Excel-Planrechnung; Happy Fit Premium Konstanz Preise (27.09.2026); 8Black Fitness (27.09.2026); GYM-24 Böblingen-Hulb; Arbeiterkammer AT 14.01.2025 (clever fit Pauschalen); BODYMEDIA Preischeck 05.01.2024; DSSV Eckdaten 2026.",
+   "breiten": [
+    20,
+    22,
+    36,
+    22
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Aktionen werden konsequent über die Aufnahmegebühr und über Zusatzleistungen gesteuert, nicht über den Monatsbeitrag. Das Finanzmodell unterstellt, dass nur 70 % der Neumitglieder die Aufnahmegebühr zahlen, die übrigen 30 % kommen über Aktionen (Vorverkauf, Empfehlungen, Firmenangebote) ohne Aufnahmegebühr; Aufnahmegebühren werden dabei nur auf die wirksamen Neuzugänge berechnet, also nicht auf Zugänge, die nach Erreichen der Kapazitätsgrenze von 2.200 Mitgliedern rechnerisch entfallen (Excel-Blatt Mitglieder, Zeile „Wirksame Neuzugänge“). Wettbewerber arbeiten ähnlich: Das Happy Fit Premium erlässt an Aktionstagen im Januar die Startergebühr und gewährt 10 € Nachlass je Monat, MC Shape senkt die ersten drei Monate auf 10 bzw. 20 €, Fitness First Ravensburg wirbt mit acht Gratiswochen bei 24 Monaten (Quellen: Anhang I). Beitragsfreie Monate sind im Modell nicht vorgesehen, weil sie den Umsatz des ersten Jahres unmittelbar senken; die Sensitivität „Beitragsniveau minus 10 %“ zeigt, dass die Kapitaldienstdeckung im dritten Jahr dann von 2,12 auf 1,53 fällt und die Kasse im Minimum nur noch 6.971 € beträgt. Preisdisziplin ist deshalb eine verbindliche Vorgabe an das eigene Management: Nachlässe nur über Aufnahmegebühr, Chip und Zusatzleistungen, jährliche Beitragsanpassung von 2 % über eine Preisanpassungsklausel im Vertrag."
+  },
+  {
+   "typ": "h2",
+   "text": "6.3 Vorverkaufsplan (Juni bis August 2027)"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Vorverkauf beginnt drei Monate vor der Eröffnung und ist mit einem Budget von 35.000 € netto ausgestattet. Er hat drei Aufgaben: das Ziel von 350 Mitgliedern zur Eröffnung zu sichern, eine Interessentenliste für die ersten Betriebsmonate aufzubauen und den Standort in der Region bekannt zu machen. Die Vorbereitung (Marke, Landingpage, Vertragsmuster, Studiosoftware, Fotomaterial der Bauphase) läuft ab Mietbeginn im April 2027, damit ab Juni verkauft werden kann. Verkauft wird vor Ort in einem Infopoint am Standort (Container oder Bauteilbüro), online über die Landingpage mit Vertragsabschluss und bei Aktionstagen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.3: Maßnahmen und Budgetaufteilung Vorverkauf (35.000 € netto, indikativ)",
+   "spalten": [
+    "Maßnahme",
+    "Inhalt",
+    "Budget (indikativ)",
+    "Beitrag zum Ziel"
+   ],
+   "zeilen": [
+    [
+     "Infopoint am Standort",
+     "Container/Bauteilbüro mit Beratungsplatz, Beschilderung, Bauzaunbanner, Musterausstattung",
+     "8.000 €",
+     "Sichtbarkeit am Ort, Abschlüsse vor Ort"
+    ],
+    [
+     "Landingpage und Online-Abschluss",
+     "Website, Vorverkaufsformular, Online-Vertrag, Tracking; Anbindung Studiosoftware",
+     "4.000 €",
+     "24 % der Abschlüsse in der Branche erfolgen online (DSSV 2025)"
+    ],
+    [
+     "Social Ads und Suchmaschinen",
+     "Meta/Instagram, Google, lokal ausgesteuert auf 15-Minuten-Einzugsgebiet, 3 Monate",
+     "9.000 €",
+     "Leadgewinnung; Referenz 2,75 € je Lead, 3 Leads je Abschluss (2017)"
+    ],
+    [
+     "Print und Außenwerbung",
+     "Flyer, Plakate, Anzeigen Lokalpresse, Verteilung in Wohngebieten und Betrieben",
+     "5.000 €",
+     "Reichweite bei Zielgruppen ohne Social Media"
+    ],
+    [
+     "Events",
+     "Tag der offenen Baustelle, HYROX-Probetraining, Eröffnungswochenende",
+     "6.000 €",
+     "Happy Fit Premium: 145 Abschlüsse an einem Tag"
+    ],
+    [
+     "Empfehlungsprogramm",
+     "Gründungsmitglieder werben Mitglieder; Prämie Aufnahmegebühr-Erlass und Zusatzleistung",
+     "3.000 €",
+     "Niedrige Kosten je Neumitglied, hohe Bindung"
+    ],
+    [
+     "Summe",
+     "",
+     "35.000 €",
+     "350 Mitglieder zur Eröffnung"
+    ]
+   ],
+   "quelle": "Quelle: Budgetsumme Excel-Planrechnung. Die Aufteilung auf Maßnahmen ist eine Planungsannahme des Gründers ohne externe Quelle und vor dem Bankgespräch mit Angeboten zu unterlegen. Referenzen: DSSV Eckdaten 2025 (Online-Abschlüsse 24,0 %); Hidden Profits Marketing 2017; BODYMEDIA Clubreport Happy Fit Premium Konstanz 2024.",
+   "breiten": [
+    20,
+    38,
+    14,
+    28
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Vorverkauf arbeitet mit einem gestaffelten Anreiz: Gründungsmitglieder erhalten den Erlass der Aufnahmegebühr, einen festgeschriebenen Beitrag für die Erstlaufzeit und ein Startpaket [Inhalt festzulegen, z. B. Chip-Armband, Einführungstraining, Wellness-Tag]; die Staffel läuft zeitlich aus, damit ein Grund zum sofortigen Abschluss besteht. Wichtig für die Liquidität: Vorverkaufsverträge werden mit Vertragsbeginn zur Eröffnung geschlossen, Beitragszahlungen beginnen im September 2027; das Finanzmodell setzt keine Beitragseinnahmen vor der Eröffnung an. Parallel werden im Vorverkauf Firmenfitness-Gespräche geführt und die Aggregator-Anbindung beantragt (Abschnitt 6.5), damit diese Kanäle mit der Eröffnung aktiv sind."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu ergänzen: Angebote für Container/Infopoint, Landingpage und Mediabudget; Name der Agentur oder Freelancer; ein erster Entwurf der Vorverkaufsstaffel. Die Bank wird die 350 Vorverkaufsmitglieder als zentrale Annahme hinterfragen; eine Interessentenliste oder Warteliste aus der Zeit vor dem Vorverkauf ist der beste Beleg."
+  },
+  {
+   "typ": "h2",
+   "text": "6.4 Laufendes Marketing und Budget"
+  },
+  {
+   "typ": "absatz",
+   "text": "Nach der Eröffnung stehen 4.600 € netto je Monat für laufendes Marketing bereit; in den Monaten 1 bis 3 kommen 6.000 € je Monat für das Eröffnungsmarketing hinzu. Im ersten Betriebsjahr summiert sich das Marketing auf 108.200 € (35.000 € Vorverkauf, 18.000 € Eröffnungsmarketing, 55.200 € laufend), in den Folgejahren auf 55.200 €. Bezogen auf den Nettoumsatz sind das 17,4 % im ersten Jahr (11,8 % ohne Vorverkauf), 5,0 % im zweiten und 4,0 % im dritten Jahr. Der DSSV nennt als Richtwert 4 % vom Nettoumsatz optimal und 5 % maximal (DSSV Leitfaden Kostenmanagement 04/2022); Virtuagym nennt für mittelgroße Studios 500 bis 2.000 € je Monat (Virtuagym 21.05.2026). Das laufende Budget von 4.600 € je Monat ist am DSSV-Richtwert ausgerichtet: Es liegt in der Anlaufphase bewusst über dem Richtwert, im zweiten Jahr mit 5,0 % am oberen Rand und ab dem dritten Jahr mit 4,0 % (55.200 € bei 1.368.522 € Umsatz) auf dem als optimal genannten Wert; bleiben die Neuzugänge bereits in der Anlaufphase hinter dem Plan zurück, greift zuerst das Kostenpaket des pessimistischen Szenarios (Abschnitt 6.7), das bezahlte Werbung reduziert und den Vertrieb auf Kanäle mit geringen Auszahlungen verlagert."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.4: Marketingbudget je Jahr (netto)",
+   "spalten": [
+    "Jahr",
+    "Vorverkauf",
+    "Eröffnung (Monate 1 bis 3)",
+    "Laufend",
+    "Summe",
+    "Anteil am Nettoumsatz"
+   ],
+   "zeilen": [
+    [
+     "Vorlauf und Jahr 1 (2027/28)",
+     "35.000 €",
+     "18.000 €",
+     "55.200 €",
+     "108.200 €",
+     "17,4 % (11,8 % ohne Vorverkauf)"
+    ],
+    [
+     "Jahr 2 (2028/29)",
+     "",
+     "",
+     "55.200 €",
+     "55.200 €",
+     "5,0 %"
+    ],
+    [
+     "Jahr 3 (2029/30)",
+     "",
+     "",
+     "55.200 €",
+     "55.200 €",
+     "4,0 %"
+    ],
+    [
+     "DSSV-Richtwert",
+     "",
+     "",
+     "",
+     "",
+     "4 % optimal, 5 % maximal"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Umsatz Jahr 1 622.361 €, Jahr 2 1.101.585 €, Jahr 3 1.368.522 €); DSSV Leitfaden Kostenmanagement 04/2022.",
+   "breiten": [
+    24,
+    12,
+    16,
+    12,
+    12,
+    24
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Das laufende Budget wird nach Wirkung verteilt. Der größte Anteil fließt in lokal ausgesteuerte Online-Werbung (Suchmaschinen, Social Media) mit Landingpage und Online-Abschluss, weil dort Kosten je Lead und Abschluss messbar sind; eine Auswertung von 120 Studios im deutschsprachigen Raum ergab 2,75 € je Lead und rund drei Leads je Abschluss, also 8,25 € variable Werbekosten je gewonnenem Jahresmitglied (Hidden Profits Marketing 2017, Rechercheprotokoll (Anhang I); Wert aus 2017, heute eher höher). Rechnerisch benötigt No.1 in den Monaten 1 bis 3 rund 420 Leads je Monat für 140 Abschlüsse und danach rund 300 Leads für 100 Abschlüsse. Die übrigen Mittel gehen in Content (Trainingsvideos, HYROX-Vorbereitung, Kursplan), Print und Außenwerbung, Aktionen zum Januar und zum Herbst, Bewertungsmanagement und in Events im Studio. Die HYROX-Zone ist dabei der inhaltliche Kern der Kommunikation, weil sie das Studio von allen erfassten Wettbewerbern am Bodensee außer ai fitness Friedrichshafen und Fitness Bunker Konstanz unterscheidet (Quellen: Anhang I)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.5: Kanäle des laufenden Marketings",
+   "spalten": [
+    "Kanal",
+    "Maßnahmen",
+    "Messgröße",
+    "Anteil am laufenden Budget (indikativ)"
+   ],
+   "zeilen": [
+    [
+     "Online-Werbung",
+     "Google Ads lokal, Meta/Instagram, Retargeting, Landingpage-Tests",
+     "Kosten je Lead, Leads je Abschluss",
+     "40 %"
+    ],
+    [
+     "Organisch und Content",
+     "Instagram/TikTok, Google Unternehmensprofil, Bewertungen, Newsletter, Kursplan",
+     "Reichweite, Bewertungen, Klickrate",
+     "10 %"
+    ],
+    [
+     "Print und Außenwerbung",
+     "Anzeigen Lokalpresse, Flyer, Bauzaun/Fassade, Fahrzeugbeschriftung",
+     "Gutscheincodes, Nachfragen am Empfang",
+     "15 %"
+    ],
+    [
+     "Events und Community",
+     "HYROX-Trainingsabende, Probetrainings, Mitgliederevents, Vereinskooperationen",
+     "Teilnehmer, Abschlüsse je Event",
+     "20 %"
+    ],
+    [
+     "Empfehlung und Bindung",
+     "Mitglieder-werben-Mitglieder, Willkommenspaket, Jubiläumsaktionen",
+     "Empfehlungsquote, Kündigungsquote",
+     "15 %"
+    ]
+   ],
+   "quelle": "Quelle: Planung des Gründers (indikative Aufteilung ohne externe Quelle); Messgrößen nach Hidden Profits Marketing 2017 und DSSV Eckdaten 2022 (Check-ins).",
+   "breiten": [
+    18,
+    40,
+    24,
+    18
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "6.5 Vertriebskanäle und Kooperationen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Neben dem Direktvertrieb an Privatkunden (Empfang, Probetraining, Online-Abschluss) setzt No.1 auf fünf Kooperationskanäle, die im Finanzmodell nicht als eigene Umsätze angesetzt sind und daher Aufwärtspotenzial darstellen. Ihr Zweck ist es, die geplanten Neuzugänge abzusichern und den Mitgliederbestand breiter zu streuen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.6: Kooperationskanäle und Ansprechpartner (Ziel, nicht abgeschlossen)",
+   "spalten": [
+    "Kanal",
+    "Partner (Beispiele)",
+    "Potenzial laut Recherche",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Firmenfitness / BGM Bodensee",
+     "ZF Friedrichshafen, Rolls-Royce Power Systems, Airbus Immenstaad",
+     "ZF ca. 10.000 Beschäftigte am Stammsitz; RRPS 6.300 in Friedrichshafen, 500 Einstellungen 2026 geplant; Airbus ca. 2.150 (Snippet)",
+     "[Gespräche zu terminieren]"
+    ],
+    [
+     "Firmenfitness / BGM Region Stuttgart",
+     "Bosch Feuerbach, HP Böblingen, Mercedes-Benz Sindelfingen",
+     "Bosch rund 14.000; HP 4.000; Mercedes über 31.500 (Snippet)",
+     "[nur bei Standortwahl Stuttgart]"
+    ],
+    [
+     "Aggregatoren",
+     "EGYM Wellpass, Hansefit, Urban Sports Club",
+     "1,47 Mio. Aggregator-Mitgliederäquivalente, 76,1 % der Anlagen angebunden; 43,3 % der Anlagen mit BGM-Angebot (2024)",
+     "[Anbindung im Vorverkauf beantragen]"
+    ],
+    [
+     "Vereine und Hochschulen",
+     "Sportvereine im Einzugsgebiet, Hochschulen [Namen ergänzen]",
+     "Vereins- und Freizeitangebote Rang 3 der Fitnesstrends Deutschland 2026",
+     "[Ansprache Q2 2027]"
+    ],
+    [
+     "HYROX-Community und Events",
+     "HYROX-Trainingsgruppen, regionale Wettkämpfe, Laufgruppen",
+     "ca. 900.000 Athleten 2025, ca. 100 Races, 15.000 Partnerstudios weltweit, ca. 1.300 DACH",
+     "[Partnerstudio-Status prüfen]"
+    ],
+    [
+     "Physiotherapie und Ärzte",
+     "Praxen im Umfeld, Rehasport-Anbieter",
+     "Wettbewerber ProSana Überlingen verbindet Fitness und Physio",
+     "[Kooperationsmodell festlegen]"
+    ]
+   ],
+   "quelle": "Quellen: Rechercheprotokoll (Anhang I; Stuttgarter Zeitung 01.03.2026; DDW Standortprofil Böblingen 06.03.2026; bosch.de; Snippets Schwäbische/Mercedes); DSSV Eckdaten 2026 und 2025; BODYMEDIA HYROX-Zahlen 29.05.2026; BODYMEDIA ACSM-Trends 01.02.2026. Alle Partner sind Ziele; es liegen keine Vereinbarungen vor.",
+   "breiten": [
+    18,
+    26,
+    38,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Firmenfitness richtet sich an die großen Arbeitgeber des jeweiligen Einzugsgebiets; deren Beschäftigtenzahlen sind Zielgrößen, keine Zusagen, und bei ZF Friedrichshafen bestehen Kurzarbeit und Transformationsrisiken (auto.news 09.05.2025). Die Tagbevölkerung Friedrichshafens liegt mit 74.376 Personen und 23.056 Einpendlern deutlich über der Einwohnerzahl, in Böblingen und Sindelfingen pendeln 36.582 bzw. 45.595 Beschäftigte ein (Pendleratlas 2025); Firmenfitness erschließt damit Kunden, die im 15-Minuten-Einzugsgebiet arbeiten, aber nicht wohnen. Angeboten werden Firmentarife mit Arbeitgeberzuschuss, Gesundheitstage im Betrieb und Kurse für Belegschaften; die Verträge bleiben Einzelverträge der Beschäftigten, damit das Ausfallrisiko nicht an einem Firmenvertrag hängt. Aggregatoren wie EGYM Wellpass, Hansefit oder Urban Sports Club liefern Reichweite bei Arbeitgebern, die bereits ein Firmenfitnessprogramm nutzen; die Vergütung je Check-in liegt unter dem eigenen Beitrag, weshalb der Kanal ergänzend und mit Obergrenze eingesetzt wird [Konditionen anfragen]. Der Wettbewerber ProSana in Überlingen zeigt, dass die Kombination aus Fitness und Physiotherapie am Bodensee nachgefragt wird; No.1 kooperiert mit externen Praxen, betreibt aber keine eigene Therapie, weil Anlagen für gesundheitliche Zwecke im Gewerbegebiet nur ausnahmsweise zulässig sind (§ 8 Abs. 3 BauNVO)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die HYROX-Community ist der Kanal mit der höchsten Zahlungsbereitschaft. HYROX zählte 2025 rund 900.000 Athleten bei etwa 100 Rennen weltweit, in der Saison 2025/26 über 1,5 Millionen Teilnehmer, für 2026/27 werden über 2 Millionen erwartet; 15.000 Partnerstudios weltweit, davon rund 1.300 im deutschsprachigen Raum, bieten Training an (BODYMEDIA 29.05.2026; endurance.biz 20.07.2026). No.1 bewirbt sich um den Status als Partnerstudio, bietet kostenpflichtige Vorbereitungsprogramme als Spezialkurse an (Kapitel 3.6) und organisiert regelmäßige Trainingsabende und Simulationen, die zugleich als offene Probetrainings dienen."
+  },
+  {
+   "typ": "h2",
+   "text": "6.6 Mitgliederbindung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Jedes gehaltene Mitglied ersetzt ein zu werbendes: Bei 2.200 Mitgliedern und 2,2 % Kündigungen je Monat müssen im eingeschwungenen Zustand 48 Mitglieder je Monat neu gewonnen werden, nur um den Bestand zu halten. Die Branche verliert im Mittel 25 % ihrer Mitglieder je Jahr, Einzelanlagen 21 bis 25 % (DSSV 2019 zitiert in Kruse 2021; Bechler 2021); nur 52 % der Mitglieder bleiben länger als ein Jahr (Kruse 2021), und 84 % der Neumitglieder kündigen innerhalb von zwei Jahren (Pixformance 2018 zitiert in BODYMEDIA 14.10.2021). Die Verlängerungsbereitschaft liegt gleichwohl bei 82,1 %, nur 7,8 % kündigen aus Unzufriedenheit (DSSV Eckdaten Bezugsjahr 2014, CoGAP 2022). Das Ziel der Bindungsmaßnahmen ist, die Planquote von 2,2 % je Monat zu halten oder zu unterschreiten; die Sensitivität „Kündigungsquote 3,0 % je Monat“ senkt den Bestand nach 24 Monaten auf 1.856 und die Kapitaldienstdeckung im dritten Jahr auf 1,57."
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Trainerkontakt als Kernmaßnahme: Zwei Trainerkontakte je Monat halbieren nach einer IHRSA-Auswertung die Kündigungswahrscheinlichkeit (IHRSA 2017 zitiert in BODYMEDIA 14.10.2021). No.1 plant daher betreute Kernzeiten mit mindestens einem Trainer auf der Fläche (Kapitel 3.4), feste Trainingsplan-Termine in Woche 1, 4 und 12 sowie danach alle acht bis zwölf Wochen (Kapitel 7.7).",
+    "Check-in-Monitoring: Mitglieder mit weniger als zwei Check-ins in vier Wochen werden über die Studiosoftware markiert und persönlich angesprochen; Branchenreferenz sind 4,5 Check-ins je Mitglied und Monat in Einzelanlagen (DSSV Eckdaten 2022).",
+    "App und Kursplan: Kursbuchung, Trainingspläne, Zutritt und Kommunikation laufen über die Mitglieder-App (Kapitel 3.7); ein fester Kursplan mit Indoor Cycling, Mobility, Rücken, Functional und HYROX-Vorbereitung schafft wiederkehrende Termine.",
+    "Wellness und Community: Sauna, Dampfbad und Cold Plunge im Premiumtarif sowie HYROX-Trainingsgruppen binden über den Trainingszweck hinaus; ein dokumentiertes Wellness-Upgrade eines Hamburger Clubs erreichte 900 Verträge in 24 Monaten (BODYMEDIA 28.09.2020).",
+    "Ruhezeiten statt Kündigung: Mitglieder mit Verletzung, Auslandsaufenthalt oder Elternzeit erhalten Ruhezeiten; Berater nennen eine Ruhequote von 2 bis 8 % (IN-COME 2020), die im Modell nicht gesondert abgebildet ist [im Controlling ausweisen].",
+    "Kündigungsgespräch: Jede Kündigung wird mit Grund erfasst und mit einem Rückgewinnungsangebot (Tarifwechsel, Ruhezeit, Flex) beantwortet; die Gründe fließen in die Quartalsauswertung ein."
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "6.7 Kennzahlen-Controlling"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Marketing-Controlling wird monatlich aus der Studiosoftware und dem Werbekonto erstellt und mit dem Liquiditätsplan abgeglichen. Es umfasst die Vertriebskennzahlen (Leads, Probetrainings, Abschlüsse, Kosten je Abschluss), die Bestandskennzahlen (Neuzugänge, Kündigungen, Nettozuwachs, ruhende Verträge) und die Ertragskennzahlen (Beitrag je Mitglied, Nebenumsatz, Aufnahmegebühren, Rücklastschriften). Die Planwerte stammen aus dem Finanzmodell, die Schwellenwerte aus den Sensitivitäten: Ein Rückstand der Neuzugänge von 20 % gegenüber Plan über drei Monate löst das Maßnahmenpaket aus, das im pessimistischen Szenario hinterlegt ist (dritter Vollzeittrainer erst ab Jahr 3, drei statt vier Empfangs-Minijobs, laufendes Marketing 2.500 € statt 4.600 € je Monat, Reinigung und Sonstiges minus 15 %); die Vertriebsaktivität wird dabei nicht zurückgefahren, sondern von bezahlter Werbung auf Kanäle mit geringen Auszahlungen verlagert (Aktionswochen mit eigenem Personal, Firmenfitness-Ansprache, Empfehlungsprogramm, Events im Studio)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 6.7: Kennzahlen, Planwerte und Frühwarnschwellen",
+   "spalten": [
+    "Kennzahl",
+    "Planwert (Basis)",
+    "Frühwarnschwelle",
+    "Referenz / Quelle"
+   ],
+   "zeilen": [
+    [
+     "Neuzugänge je Monat",
+     "140 (M 1 bis 3), 100 (M 4 bis 12), 90 (Jahr 2), 80 (Jahr 3), 75 (ab Jahr 4)",
+     "unter 80 % des Plans in drei Folgemonaten",
+     "Sensitivität minus 20 %: DSCR Jahr 3 0,92; Reserve 1.074.527 €"
+    ],
+    [
+     "Kündigungsquote je Monat",
+     "2,2 % des Bestands",
+     "über 2,6 % im Quartalsmittel",
+     "Sensitivität 3,0 %: DSCR Jahr 3 1,57; Branche 25 % p. a."
+    ],
+    [
+     "Mitgliederbestand",
+     "482 (M 1), 1.429 (M 12), 2.053 (M 24), 2.200 (ab M 29)",
+     "unter 90 % des Planbestands",
+     "Excel-Planrechnung"
+    ],
+    [
+     "Leads und Abschlussquote",
+     "3 Leads je Abschluss; 420 Leads (M 1 bis 3), 300 (M 4 bis 12)",
+     "über 5 Leads je Abschluss",
+     "Hidden Profits Marketing 2017"
+    ],
+    [
+     "Kosten je Neumitglied (Werbung)",
+     "Referenz 8,25 € (2017); Plan Jahr 1: 73.200 € laufend / 1.320 Neuzugänge = 55 €",
+     "über 80 € je Neumitglied",
+     "Excel-Planrechnung, Hidden Profits 2017"
+    ],
+    [
+     "Beitrag je Mitglied (ARPU)",
+     "50,15 € brutto / 42,14 € netto je Monat",
+     "unter 47,64 € brutto (pessimistisches Szenario)",
+     "Excel-Planrechnung"
+    ],
+    [
+     "Nebenumsatz je Mitglied",
+     "6,20 € brutto je Monat",
+     "unter 5,00 €",
+     "Excel-Planrechnung"
+    ],
+    [
+     "Aufnahmegebühr-Quote",
+     "70 % der Neumitglieder zahlend",
+     "unter 55 %",
+     "Excel-Planrechnung"
+    ],
+    [
+     "Check-ins je Mitglied und Monat",
+     "Referenz 4,5 (Einzelanlagen 2021)",
+     "unter 3,0 im Bestand; Einzelmitglied unter 2 in 4 Wochen",
+     "DSSV Eckdaten 2022"
+    ],
+    [
+     "Ruhende Verträge",
+     "nicht modelliert; Referenz 2 bis 8 %",
+     "über 8 %",
+     "IN-COME 2020"
+    ],
+    [
+     "Marketingquote",
+     "17,4 % (Jahr 1), 5,0 % (Jahr 2), 4,0 % (Jahr 3)",
+     "über 5 % ab Jahr 3 ohne Bestandszuwachs",
+     "DSSV 4 / 5 %"
+    ]
+   ],
+   "quelle": "Quellen: Excel-Planrechnung; DSSV Leitfaden Kostenmanagement 04/2022; BODYMEDIA DSSV-Eckdaten 2022; Hidden Profits Marketing 2017; IN-COME 2020; Kruse 2021. Frühwarnschwellen sind Vorgaben des Gründers.",
+   "breiten": [
+    20,
+    32,
+    22,
+    26
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kennzahlen werden monatlich in einer Seite zusammengefasst und der Hausbank mit der betriebswirtschaftlichen Auswertung des Steuerberaters zur Verfügung gestellt (Kapitel 7.6). Damit ist für die Bank nachvollziehbar, ob die Mitgliederentwicklung dem Plan folgt, lange bevor sich Abweichungen in der Liquidität zeigen: Die Kasse erreicht im Basisszenario ihr Minimum von 107.975 € erst in Monat 18, Abweichungen beim Mitgliederbestand sind dagegen bereits ab dem ersten Betriebsmonat messbar."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vom Gründer vor dem Bankgespräch zu ergänzen: Beträge für 24-Monats- und Flex-Tarif; Inhalt des Startpakets im Vorverkauf; Angebote für Infopoint, Landingpage und Mediabudget; Liste der angesprochenen Arbeitgeber, Vereine und Aggregatoren mit Gesprächsstand; ggf. Ergebnisse einer Interessentenbefragung oder Warteliste. Die Aufteilungen in den Tabellen 6.3 und 6.5 sind indikativ und keine belegten Marktwerte."
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "GymPlanner – Datenauszug Projekt „No.1 (überarbeitet)“ (Rechercheprotokoll (Anhang I), Export 26.09.2026): Flächen, Kapazität 126 Personen",
+  "DSSV/Deloitte/DHfPG – Pressemitteilung „Eckdaten der deutschen Fitnesswirtschaft 2026“ (Daten per 31.12.2025) – https://www.dssv.de/wp-content/uploads/2026/03/03_18_pm_eckdaten.pdf (18.03.2026)",
+  "DSSV – Pressemitteilung „Eckdaten der deutschen Fitnesswirtschaft 2025“ (Online-Vertragsabschlüsse 24,0 %, BGM-Angebot 43,3 %) – https://www.dssv.de/wp-content/uploads/2025/03/pm_eckdaten_2025.pdf (26.03.2025)",
+  "DSSV e.V. / W.I.F.F. GmbH – Leitfaden Kostenmanagement (Werbung 4 / 5 % vom Nettoumsatz) – https://www.dssv.de/wp-content/uploads/2022/05/DSSV_Leitfaden_kostenmanagement_202204.pdf (04/2022)",
+  "fitness MANAGEMENT – 30 Jahre Eckdaten-Studie: Strukturwandel der Branche (Ø Anlage 1.166 m², 1.187 Mitglieder je Anlage, Daten 2018) – https://www.fitnessmanagement.de/strukturwandel-der-branche/ (19.03.2019)",
+  "DSSV – Erfolgreicher Start ins neue Jahr (Januar-Umfrage 2023) – https://www.dssv.de/dssv-umfrage-januar/ (02/2023)",
+  "BODYMEDIA – Planung und Organisation des Vorverkaufs im Fitnessstudio – https://www.bodymedia.de/themen/marketing/planung-und-organisation-des-vorverkaufs-im-fitnessstudio/ (02.05.2024)",
+  "BODYMEDIA Clubreport – Premium Fitness all inclusive: das Happy Fit Premium in Konstanz (145 Abschlüsse am Tag der offenen Tür) – https://www.bodymedia.de/themen/clubreport/premium-fitness-all-inclusive-das-happy-fit-premium-in-konstanz/ (2024)",
+  "fitness MANAGEMENT – wellyou Velbert: über 2.000 Mitglieder im Vorverkauf – https://www.fitnessmanagement.de/wellyou-velbert-eroeffnung-calvin-kleinen-markus-sigl/ (12.11.2025)",
+  "IN-COME Unternehmensberatung – Vorverkauf und Fluktuation (600 Mitglieder nach 12 Monaten, Ruhequote 2–8 %) – https://www.in-come.de/vorverkauf-und-fluktuation/ (05.05.2020)",
+  "Hidden Profits Marketing – Wie viel kostet es, einen Fitnesskunden zu werben? (120 Studios DACH: 2,75 € je Lead, 3 Leads je Abschluss) – https://www.hiddenprofitsmarketing.com/de/blog/wie-viel-kostet-es-einen-fitnesskunden-zu-werben/ (2017)",
+  "Virtuagym – Fitnessstudio eröffnen: Kosten im Überblick 2026 (Marketing 500–2.000 €/Monat) – https://business.virtuagym.com/de/blog/fitnessstudio-eroeffnen-kosten/ (21.05.2026)",
+  "BODYMEDIA – Warum Mitglieder wirklich kündigen (Pixformance 2018: 84 % kündigen binnen 2 Jahren; IHRSA 2017: 2 Trainerkontakte/Monat halbieren Kündigungswahrscheinlichkeit) – https://www.bodymedia.de/themen/best-practice/warum-mitglieder-wirklich-kuendigen/ (14.10.2021)",
+  "BODYMEDIA – DSSV-Eckdaten 2022 (Check-ins 4,6 Ketten / 4,5 Einzel je Monat; Fluktuation 28,6 %) – https://www.bodymedia.de/themen/trends-specials/dssv-eckdaten-2022/ (31.05.2022)",
+  "Kruse, T. – Ökonomische Analyse des Trainings- und Kündigungsverhaltens von Fitnessstudio-Mitgliedern, Dissertation Univ. Paderborn (DSSV 2019: Fluktuation 25 %, 52 % bleiben > 1 Jahr) – https://d-nb.info/124761851X/34 (07/2021)",
+  "A. Bechler (LinkedIn) – Fluktuationsquote Fitnessbranche auf Basis DSSV-Eckdaten (Einzel 21–25 %, Ketten 25–28 %) – https://de.linkedin.com/pulse/warum-die-fitnessbranche-sich-mit-dem-glauben-von-einer-bechler (02.05.2021)",
+  "CoGAP – Eckdaten der deutschen Fitness-Wirtschaft (Bezugsjahr 2014: Verlängerungsbereitschaft 82,1 %, Kündigung aus Unzufriedenheit 7,8 %) – https://www.cogap.de/de/wissen/177/eckdaten-der-deutschen-fitness-wirtschaft (27.02.2022)",
+  "BODYMEDIA – Die zehn größten deutschen Fitnessstudio-Ketten im Preischeck (monatlich kündbar ca. +30 %) – https://www.bodymedia.de/news/die-zehn-groessten-deutschen-fitnessstudio-ketten-im-preischeck/ (05.01.2024)",
+  "Happy Fit Premium Konstanz – Preise (80 / 90 / 109 €, Startergebühr 129 €, Aktionstage Januar) – https://happyfitpremium.de/preise/ (abgerufen 27.09.2026)",
+  "8Black Fitness Friedrichshafen/Ravensburg – Mitgliedschaften (34,99 / 39,99 / 49,99 €, 50 € Aufnahme, 10 €/Quartal) – https://www.8black.fitness/ (abgerufen 27.09.2026)",
+  "GYM-24 Premium Böblingen-Hulb – Tarife (49,90 € bei 24 Monaten, 64,90 € bei 1 Monat, Aufnahme 39,90 €) – https://www.gym-24.de/boeblingen-hulb.html (abgerufen 27.09.2026)",
+  "MC Shape Überlingen – Tarife (erste 3 Monate 10/20 €) – https://www.mcshape.com/fitnessstudio/ueberlingen/ (abgerufen 27.09.2026)",
+  "Fitness First Ravensburg – Club-Seite (Aktion 8 Wochen gratis bei 24 Monaten) – https://www.fitnessfirst.de/clubs/ravensburg (abgerufen 27.09.2026)",
+  "Arbeiterkammer (AT) – Unsportliche Klauseln bei Fitnesscentern (Pauschalen clever fit, McFit, Fit/One) – https://www.arbeiterkammer.at/fitness (14.01.2025)",
+  "BODYMEDIA – HYROX: Zahlen, Daten, Fakten (ca. 900.000 Athleten 2025, ca. 100 Races, 15.000 Partnerstudios, ca. 1.300 DACH) – https://www.bodymedia.de/themen/trends-specials/hyrox-zahlen-daten-fakten/ (29.05.2026)",
+  "endurance.biz – Targeting 2 million athletes: HYROX expands global calendar for 2026/27 season – https://endurance.biz/2026/industry-news/targeting-2-million-athletes-hyrox-expands-global-calendar-for-2026-27-season/ (20.07.2026)",
+  "BODYMEDIA – Die ACSM-Fitness-Trends für 2026 (Deutschland-Ranking: Vereins-/Freizeitangebote Rang 3) – https://www.bodymedia.de/themen/trends-specials/die-acsm-fitness-trends-fuer-2026/ (01.02.2026)",
+  "BODYMEDIA – Wie Fitnessclubs mit Wellness 324.000 € Zusatzumsatz pro Jahr generieren können (Elixia: 900 Verträge in 24 Monaten) – https://www.bodymedia.de/themen/management/wie-fitnessclubs-mit-wellness-324000-euro-zusatzumsatz-pro-jahr-generieren-koennen/ (28.09.2020)",
+  "Pendleratlas – Friedrichshafen, Böblingen, Sindelfingen (Pendlerstatistik 2025) – https://pendleratlas.de/baden-wuerttemberg/bodenseekreis/friedrichshafen/ (2025)",
+  "auto.news – Am ZF-Standort in Friedrichshafen wird ab Mitte Mai kürzer gearbeitet (ca. 10.000 Beschäftigte) – https://auto.news/artikel/am-zf-standort-in-friedrichshafen-wird-ab-mitte-mai-kuerzer-gearbeitet (09.05.2025)",
+  "Stuttgarter Zeitung – Rolls-Royce Power Systems vermeldet Rekordzahlen (6.300 Beschäftigte in Friedrichshafen, +500 Einstellungen 2026) – https://www.stuttgarter-zeitung.de/wirtschaft/rolls-royce-power-systems-eine-milliarde-gewinn-motorenbauer-aus-friedrichshafen-vermeldet-rekordzahlen-78924192.html (01.03.2026)",
+  "Standortrecherche (Rechercheprotokoll, Anhang I) – Arbeitgeber Region Stuttgart (DDW Standortprofil Böblingen 06.03.2026: HP 4.000; bosch.de: Bosch Feuerbach rund 14.000; Mercedes-Benz Sindelfingen > 31.500 nur Suchsnippet), Wettbewerbsliste Bodensee/Stuttgart (Stand 27.09.2026)",
+  "§ 8 BauNVO Gewerbegebiete (Normtext; Anlagen für gesundheitliche Zwecke nur ausnahmsweise) – https://www.juraforum.de/gesetze/baunvo/8-gewerbegebiete",
+  "§ 309 Nr. 9 BGB (Laufzeit bei Dauerschuldverhältnissen, Fassung seit 01.03.2022) und § 312k BGB (Kündigungsbutton) – https://www.gesetze-im-internet.de/bgb/__309.html"
+ ]
+}

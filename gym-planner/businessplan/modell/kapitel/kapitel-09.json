@@ -1,0 +1,602 @@
+{
+ "nummer": 9,
+ "titel": "Chancen und Risiken",
+ "bloecke": [
+  {
+   "typ": "absatz",
+   "text": "Dieses Kapitel bewertet das Vorhaben aus Sicht der Bank: Welche Stärken und Chancen tragen den Plan, welche Schwächen und Risiken können ihn gefährden, und wie robust ist die Kapitaldienstfähigkeit, wenn einzelne Annahmen nicht eintreten. Grundlage sind die SWOT-Analyse, eine Risikomatrix mit Gegenmaßnahmen und Frühindikatoren sowie die Sensitivitäts- und Szenariorechnungen des Finanzmodells. Alle Ergebniszahlen sind netto; Beiträge sind brutto inklusive 19 % Umsatzsteuer."
+  },
+  {
+   "typ": "h2",
+   "text": "9.1 SWOT-Analyse"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Stärken des Konzepts liegen in der Kombination aus betreutem Premiumangebot, HYROX-Zone und Wellness auf einer durchgeplanten Fläche von 1.975,40 m², für die die Regularienprüfung 114 von 121 Prüfpunkten als erfüllt ausweist und keine baulichen Mängel, sondern nur sechs organisatorische Hinweise offen lässt (Kapitel 8). Die Schwächen sind die fehlende Betriebserfahrung des Gründers, die hohe Fremdkapitalquote und die dünne Marge zwischen Break-even und Kapazität. Chancen ergeben sich aus dem wachsenden Markt, dem HYROX-Trend, Firmenfitness und Zusatzumsätzen; die Risiken konzentrieren sich auf den Mitgliederaufbau in den ersten 24 Monaten."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 9.1: Stärken und Schwächen (interne Faktoren)",
+   "spalten": [
+    "Stärken",
+    "Schwächen"
+   ],
+   "zeilen": [
+    [
+     "Vollständig geplantes Studio mit 1.138,58 m² Trainingsfläche, 126 Trainingsplätzen, 178 Spinden, 18 Duschen (Quellen: Anhang I); Regularienprüfung ohne offene Mängel",
+     "Gründer ohne Führungs- und Betriebserfahrung im Studiobetrieb; Alter ca. 20 Jahre (Kapitel 2)"
+    ],
+    [
+     "Differenzierung: HYROX-Zone (8 Stationen), Wellness mit Sauna, Dampfbad und Cold Plunge, betreutes Training; Premiumanteil 45 % im Tarifmix",
+     "Eigenkapitalquote 15,1 % einschließlich stiller Beteiligung; Fremdkapital 2.502.583 €"
+    ],
+    [
+     "Konservative Kostenannahmen: Miete 8,50 €/m² über den IHK-Hallenmieten am Bodensee, 10 % Unvorhergesehenes, 24-Monats-Reserve 740.000 €",
+     "Break-even bei 2.018 Mitgliedern entspricht 92 % der Kapazität von 2.200; kein Spielraum bei Beitragsniveau −10 % (Break-even 2.204, über der Kapazität)"
+    ],
+    [
+     "Kapazitätsreserve: Spitzenlast 5,5 % von 2.200 Mitgliedern = 121 Personen unter den 126 Trainingsplätzen",
+     "Hohe Fixkosten: Raumkosten 359.761 € und Personal 405.609 € im dritten Jahr"
+    ],
+    [
+     "Digitaler Vertrieb (Online-Abschluss, App, Zutrittssystem) und lange Öffnungszeiten (111 Wochenstunden) bei begrenztem Personal",
+     "Abhängigkeit vom Vorverkauf (350 Mitglieder bei Eröffnung) und vom Standort, der noch nicht gesichert ist"
+    ],
+    [
+     "Gesamtinvestition mit Stückliste, Geräteangeboten und Flächenkalkulation belegt (Kapitel 3, Anhang A)",
+     "Import-Kraftgeräte (268.570 €) mit Lieferzeit- und Konformitätsrisiko; 82 Positionen mit geschätzten Preisen (196.069 €)"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I), Excel-Planrechnung, Kapitel 2 bis 5.",
+   "breiten": [
+    50,
+    50
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 9.2: Chancen und Risiken (externe Faktoren)",
+   "spalten": [
+    "Chancen",
+    "Risiken"
+   ],
+   "zeilen": [
+    [
+     "Wachsender Markt: 12,36 Mio. Mitglieder (+5,6 %), 6,25 Mrd. € Umsatz (+7,4 %), Penetration 14,8 % (DSSV Eckdaten 2026)",
+     "Mitgliederaufbau langsamer als geplant: bei −20 % Neuzugängen sinkt der DSCR im dritten Jahr auf 0,92"
+    ],
+    [
+     "HYROX: ca. 900.000 Athleten 2025, über 1,5 Mio. Teilnehmer in der Saison 2025/26, 15.000 Partnerstudios (BODYMEDIA 05/2026, endurance.biz 07/2026)",
+     "Preisdruck durch Discounter mit 31 bis 36 € effektiv (fair-for-fitness 09/2026) und regionale Ketten mit Sauna ab 34,95 € (ai fitness Friedrichshafen)"
+    ],
+    [
+     "Firmenfitness: ZF ca. 10.000, Rolls-Royce Power Systems 6.300, Airbus ca. 2.150 Beschäftigte im Raum Friedrichshafen; 43,3 % der Anlagen bieten BGM (DSSV 2025)",
+     "Konjunktur und Kurzarbeit bei Großarbeitgebern (ZF Transformationsrisiko)"
+    ],
+    [
+     "Wellness-Upgrades: Beispiel Elixia mit 30 € Aufpreis und 900 Verträgen in 24 Monaten = 324.000 € brutto je Jahr (BODYMEDIA 2020)",
+     "Wettbewerbereintritt: Kettenanlagen +12,6 % im Jahr 2025 (DSSV 2026); HYROX-Angebote bereits bei ai fitness FN und JONNY M. Böblingen"
+    ],
+    [
+     "Aggregatoren (Wellpass, Urban Sports) mit 1,47 Mio. Mitgliederäquivalenten, 76,1 % der Anlagen angebunden (DSSV 2026)",
+     "Kostensteigerungen: Energie, Mindestlohn 14,60 € ab 2027, Gewerbesteuer-Hebesätze bis 430 %"
+    ],
+    [
+     "Kaufkraft Bodenseekreis 36.069 € je Einwohner, rund 107 % des Landeswerts von 33.643 € (MB Research 2026), Arbeitslosenquote 3,5 % (WF Bodenseekreis)",
+     "Bauverzug und Genehmigungsdauer 3 bis 6 Monate (Quellen: Anhang I); Zinsänderung bei Anschlussfinanzierung"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I), Excel-Planrechnung.",
+   "breiten": [
+    50,
+    50
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "9.2 Risikoanalyse"
+  },
+  {
+   "typ": "absatz",
+   "text": "Tabelle 9.3 bewertet die wesentlichen Risiken nach Eintrittswahrscheinlichkeit (gering, mittel, hoch) und Auswirkung auf EBITDA, Kapitaldienstfähigkeit (DSCR) und Liquidität. Wo das Finanzmodell eine Sensitivität enthält, ist die Auswirkung quantifiziert (Abschnitt 9.3). Jedem Risiko sind Gegenmaßnahmen und ein Frühindikator zugeordnet, der im monatlichen Controlling überwacht wird und bei Überschreiten die Maßnahme auslöst. Die Referenzwerte des Basisszenarios: 100 Neuzugänge je Monat in den Monaten 4 bis 12, Kündigungsquote 2,2 % je Monat, 1.429 Mitglieder nach 12 und 2.053 nach 24 Monaten, DSCR 2,12 im dritten Jahr, Kassenminimum 107.975 € im Monat 18."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 9.3: Risikomatrix mit Gegenmaßnahmen und Frühindikatoren",
+   "spalten": [
+    "Risiko",
+    "Wahrsch.",
+    "Auswirkung",
+    "Gegenmaßnahme",
+    "Frühindikator"
+   ],
+   "zeilen": [
+    [
+     "Mitgliederwachstum unter Plan",
+     "mittel",
+     "hoch: −20 % Neuzugänge → DSCR J3 0,92, Kasse −202.288 €; −30 % → DSCR 0,19, Kasse −613.657 €",
+     "Vorverkauf ≥ 350, Firmenfitness und Aggregatoren, Maßnahmenpaket Kosten, Kontokorrent 200.000 €, Tilgungsstreckung mit Bank",
+     "Vorverkauf unter 280 (80 % des Ziels) einen Monat vor Eröffnung; Neuzugänge unter 80 % des Plans in drei Folgemonaten; Bestand Monat 12 unter 1.286 (90 %)"
+    ],
+    [
+     "Höhere Kündigungsquote",
+     "mittel",
+     "mittel: 3,0 % statt 2,2 % → DSCR J3 1,57, Ergebnis J3 −68.514 €",
+     "Onboarding mit Trainingsplan, 2 Trainerkontakte je Monat, Kursbindung, Ruhezeit statt Kündigung, Exit-Gespräch",
+     "Kündigungen über 2,6 % im Quartalsmittel; Check-ins je Mitglied sinken"
+    ],
+    [
+     "Preisdruck durch Discounter",
+     "mittel",
+     "mittel: Beiträge −10 % → DSCR J3 1,53, Break-even 2.204 Mitglieder",
+     "Keine Preiskämpfe im Basic-Tarif, Wert über Wellness, HYROX und Betreuung, Tarifmix mit 45 % Premium halten",
+     "Konversion Probetraining sinkt; Neueröffnung Discounter im 15-Minuten-Radius; Premiumanteil < 40 %"
+    ],
+    [
+     "Investitionsmehrkosten",
+     "mittel",
+     "mittel: Puffer 165.378 € (10 %); Schätzpreise 196.069 €; Import-Nebenkosten 32.228 €",
+     "Festpreisangebote vor Kreditzusage, Generalunternehmer, Bauleitung, Alternativgeräte, Leasing als Reserve",
+     "Angebote > Budget je Gewerk; Nachträge > 5 % der Auftragssumme"
+    ],
+    [
+     "Bauverzug, Eröffnungsverschiebung",
+     "mittel",
+     "mittel: ca. 58.000 € je Monat (Miete/NK 28.643 €, Vorlaufpersonal ca. 15.900 €, Zinsen 13.514 €)",
+     "Baugenehmigung vor Ausbaubeginn, Bauzeitenplan mit Meilensteinen und Vertragsstrafe, mietfreie Zeit 3 Monate, Vorverkauf mit Eröffnungsgarantie-Bonus",
+     "Genehmigung nicht bis Monat −5; Gewerke > 2 Wochen hinter Plan"
+    ],
+    [
+     "Energiekosten",
+     "mittel",
+     "gering: 5,50 statt 4,00 €/m² → DSCR J3 1,93, Kasse 51.441 €",
+     "Festpreisvertrag Strom/Wärme, Wärmerückgewinnung RLT, Saunasteuerung nach Belegung, LED, Lastmanagement",
+     "Verbrauch je m² über Planwert in zwei Monaten; Strompreis > 25 ct/kWh netto"
+    ],
+    [
+     "Zinsänderung +1,5 Prozentpunkte",
+     "gering",
+     "gering: Ergebnis J3 −1.270 €, DSCR J3 1,77, J4 1,41",
+     "Zinsbindung 10 Jahre (KfW 077, L-Bank), Sondertilgungen ab Jahr 4, Anschlussfinanzierung ab Jahr 8 vorbereiten",
+     "Bundesbank-Zinsstatistik; Nutzung Kontokorrent (9 %) über 2 Monate"
+    ],
+    [
+     "Personalengpass, Lohnkosten",
+     "mittel",
+     "mittel: Personal +10 % → DSCR J3 1,91; Vakanzen mindern Betreuung",
+     "Gehälter am BW-Median (3.081 €), Ausbildung (Lizenz B/A), Studenten- und Minijob-Pool, Weiterbildungsbudget, Beteiligung am Erfolg",
+     "Vakanz > 8 Wochen; Überstunden > 10 %; Bewerbungen je Ausschreibung < 5"
+    ],
+    [
+     "Ausfall des Gründers",
+     "gering",
+     "hoch: Führungslücke, Bankvertrauen",
+     "Stellv. Studioleitung ab Monat −2 mit Handlungsvollmacht, Notfallordner, Beirat/Mentor, Risikolebens- und BU-Versicherung, Nachfolgeklausel im Gesellschaftsvertrag",
+     "Krankheitstage; Vertretungsplan jährlich getestet"
+    ],
+    [
+     "Konjunktur, Kurzarbeit (ZF)",
+     "mittel",
+     "mittel: Kündigungen aus finanziellen Gründen, Rückgang Premium",
+     "Einzugsgebiet 149.548 Einwohner statt Einzelbetrieb, Tarif Student/Azubi/Senior, Ruheoption, Firmenfitness mit mehreren Arbeitgebern",
+     "Kurzarbeitsanzeigen im Bodenseekreis; Kündigungsgrund „finanziell“ > 20 %"
+    ],
+    [
+     "Wettbewerbereintritt",
+     "mittel",
+     "mittel: langsamere Neuzugänge, Preisdruck",
+     "Standortentscheidung mit Wettbewerbsradius, 10-Jahres-Mietvertrag mit Konkurrenzschutz, Community (HYROX-Events, Kurse), Mitarbeiterbindung",
+     "Bauanträge und Presse zu Neueröffnungen; Abwerbeversuche"
+    ],
+    [
+     "Rechts- und Regulierungsrisiken",
+     "gering",
+     "gering: unwirksame AGB-Klauseln, Hebesatzerhöhung, Sonderbau-Auflagen",
+     "Anwaltlich geprüfte AGB, Bauvoranfrage, Brandschutzkonzept, Hebesatz 390 % im Plan (Spanne 350 bis 430 %)",
+     "Gemeinderatsbeschlüsse; Abmahnungen; Auflagen im Genehmigungsbescheid"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung, Rechercheprotokoll (Anhang I); Wahrscheinlichkeiten als Einschätzung des Gründers; Verzugskosten je Monat rechnerisch aus Excel-Planrechnung.",
+   "breiten": [
+    16,
+    9,
+    25,
+    30,
+    20
+   ]
+  },
+  {
+   "typ": "h3",
+   "text": "9.2.1 Mitgliederwachstum und Kündigungsquote"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das größte Risiko ist ein langsamerer Mitgliederaufbau. Der Basisplan unterstellt 350 Mitglieder aus dem Vorverkauf, 140 Neuzugänge je Monat in den ersten drei Monaten, danach 100 je Monat bis zum zwölften Monat und 90 je Monat im zweiten Jahr bei einer Kündigungsquote von 2,2 % je Monat. Bleiben die Neuzugänge um 20 % unter Plan, erreicht das Studio nach 24 Monaten 1.642 statt 2.053 Mitglieder; das EBITDA des dritten Jahres sinkt von 398.960 € auf 173.665 €, der DSCR fällt auf 0,92 und die Kasse wird im Tiefpunkt mit −202.288 € negativ, der Reservebedarf für 24 Monate steigt auf 1.074.527 €. Bei −30 % beträgt das Kassenminimum −613.657 € und der DSCR 0,19. Der Kontokorrentrahmen von 200.000 € deckt den Fall −20 % nahezu ab; zusätzlich greift das Maßnahmenpaket aus Abschnitt 9.3, das jährlich zwischen 41.619 € und 86.623 € einspart, und mit der Hausbank wäre eine Streckung der Tilgung zu vereinbaren, die im dritten Geschäftsjahr erst 25.773 € und im vierten 103.093 € beträgt (Kapitel 10, Tabelle 10.12). Der Fall −30 % ist aus eigener Kraft nicht mehr aufzufangen; er muss durch den Frühindikator so rechtzeitig erkannt werden, dass Vertriebsmaßnahmen (Firmenfitness, Aggregatoren, Aktionen) greifen, bevor die Reserve aufgebraucht ist."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kündigungsquote von 2,2 % je Monat entspricht kumuliert 23,4 % je Jahr (Kapitel 4, Tabelle 4.11) und liegt damit auf dem Niveau des Branchendurchschnitts von 25 % (DSSV 2019, 13 % inhabergeführt bis 40 % Ketten) und der 21 bis 25 % für Einzelstudios (Bechler/DSSV); im Eröffnungsjahr rechnen Berater sogar nur mit 5 bis 10 % (IN-COME 2020). Die Annahme ist also nicht optimistisch, sondern Branchenniveau. Steigt die Quote dennoch auf 3,0 % je Monat, sinken die Mitglieder nach 24 Monaten auf 1.856, das EBITDA im dritten Jahr auf 294.209 € und der DSCR auf 1,57; die Kasse bleibt mit 45.422 € positiv. Wirksamstes Gegenmittel ist die Betreuung: Zwei Trainerkontakte je Monat halbieren nach einer IHRSA-Auswertung die Kündigungswahrscheinlichkeit (BODYMEDIA 2021). Ab Erreichen der Kapazität von 2.200 Mitgliedern im Monat 29 ersetzt jeder Neuzugang eine Kündigung; im Basisplan sind das 48 Kündigungen je Monat."
+  },
+  {
+   "typ": "h3",
+   "text": "9.2.2 Preisdruck und Wettbewerb"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Discount-Ketten liegen effektiv bei 31 bis 36 € je Monat (FitX 31,42 €, McFIT 35,65 €; clever fit im Schnitt 39,23 €, fair-for-fitness 27.09.2026). Im Einzugsgebiet Friedrichshafen bietet ai fitness am Flughafen 1.700 m² mit Sauna und HYROX-Bereich für 34,95 bis 49,95 € an; MC Shape in Überlingen und Markdorf verlangt 39,90 bis 49,90 € (Quellen: Anhang I). No.1 positioniert sich mit 44,90 € (Basic) und 59,90 € (Premium) darüber und im Mittel mit 50,15 € zwischen dem Branchendurchschnitt von 48,55 € und dem Durchschnitt der Einzelanlagen von 59,24 € (DSSV 2026). Müsste das Beitragsniveau um 10 % gesenkt werden, sänke das EBITDA des dritten Jahres auf 287.930 €, der DSCR auf 1,53 und der Break-even stiege auf 2.204 Mitglieder, also über die Kapazität von 2.200. Preissenkungen sind deshalb keine Option; die Antwort auf Preisdruck ist die Leistungsdifferenzierung (Wellness, HYROX, Betreuung, Kurse), die Discounter nicht abbilden. Der Eintritt weiterer Wettbewerber ist wahrscheinlich, weil die Zahl der Kettenanlagen 2025 um 12,6 % gewachsen ist (DSSV 2026); ein Mietvertrag mit Konkurrenzschutz für das Gewerbegebiet und die Prüfung des Wettbewerbsradius vor der Standortentscheidung (Kapitel 5) begrenzen dieses Risiko."
+  },
+  {
+   "typ": "h3",
+   "text": "9.2.3 Investition, Bauzeit und Betriebskosten"
+  },
+  {
+   "typ": "absatz",
+   "text": "Investitionsmehrkosten sind mit 10 % Unvorhergesehenem, also 165.378 €, abgedeckt. Die Unsicherheit liegt vor allem im Ausbau, der mit pauschalen 250 €/m² Grundausbau und 110 €/m² Lüftung kalkuliert ist (Quellen: Anhang I), und in 82 Stücklistenpositionen mit geschätzten Preisen im Wert von 196.069 € (Quellen: Anhang I). Vor der Kreditzusage werden deshalb Festpreisangebote je Gewerk und verbindliche Geräteangebote eingeholt (Kapitel 3, Hinweis). Die Sensitivität für eine Kaltmiete von 10,00 statt 8,50 €/m² zeigt, dass auch ein teureres Objekt tragbar bleibt: EBITDA im dritten Jahr 361.966 €, DSCR 1,92, Kassenminimum 45.089 €."
+  },
+  {
+   "typ": "absatz",
+   "text": "Ein Bauverzug verschiebt die Eröffnung und damit den Umsatz, während Miete, Vorlaufpersonal und Zinsen weiterlaufen. Rechnerisch kostet jeder Monat Verzug rund 58.000 €: Miete und Nebenkosten 28.643 €, Personal des Vorlaufs etwa 15.900 € einschließlich Arbeitgeberabgaben und Zinsen 13.514 €. Drei mietfreie Monate während des Ausbaus sind Verhandlungsziel (Kapitel 5, Tabelle 5.8) und dämpfen das Risiko. Die Genehmigungsdauer von drei bis sechs Monaten (Quellen: Anhang I) ist im Zeitplan berücksichtigt; der Vorverkauf startet erst, wenn die Baugenehmigung vorliegt, damit kein Eröffnungstermin gegenüber Mitgliedern zugesagt wird, der nicht gehalten werden kann."
+  },
+  {
+   "typ": "absatz",
+   "text": "Energie und Wasser sind mit 4,00 €/m² je Monat, also 94.819 € je Jahr, angesetzt, zuzüglich 2,00 €/m² Betriebskosten. Der DSSV nennt als Richtwerte 3,00 bis 3,50 €/m² für Wasser und Heizung und Strom ab 2,50 €/m², abhängig von Saunen (DSSV 04/2022); die GEG-Vergleichswerte für Fitnessstudios ergeben ohne Sauna rund 53,5 kWh Strom und 123 kWh Wärme je m² und Jahr (Quellen: Anhang I). Steigen die Energiekosten auf 5,50 €/m², sinkt das EBITDA des dritten Jahres auf 363.403 € und der DSCR auf 1,93. Die RLT-Anlage mit Wärmerückgewinnung und eine belegungsabhängige Steuerung von Sauna und Dampfbad sind die wichtigsten technischen Gegenmaßnahmen; ein Festpreisvertrag für Strom sichert die Planbarkeit."
+  },
+  {
+   "typ": "h3",
+   "text": "9.2.4 Finanzierung, Personal und Gründer"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Darlehen sind mit Zinssätzen von 6,4 bis 7,0 % geplant, die am oberen Rand der für junge Unternehmen ohne Historie erwartbaren Preisklassen C bis E liegen (Rechercheprotokoll (Anhang I); Kapitel 10, Tabelle 10.4). Eine Zinserhöhung um 1,5 Prozentpunkte über alle Darlehen senkt das Ergebnis des dritten Jahres auf −1.270 € und den DSCR auf 1,77 (Jahr 4: 1,41); das Kassenminimum bleibt mit 39.275 € positiv. Da KfW und L-Bank eine Zinsbindung von zehn Jahren bieten (Quellen: Anhang I), trifft das Zinsrisiko vor allem die Anschlussfinanzierung ab dem elften Jahr und den Kontokorrent mit 9 %. Sondertilgungen ab dem vierten Jahr, wenn der Cashflow nach Kapitaldienst 158.748 € erreicht, reduzieren die Restschuld vor der Anschlussfinanzierung."
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Personalrisiko ist zweifach: Fachkräfte sind knapp, die Branche hat 2025 167.100 Beschäftigte (+6,0 %) und nennt qualifizierte Fachkräfte als Toptrend (DSSV 2026, DSSV Trends 2024); zugleich steigen die Löhne mit dem Mindestlohn von 14,60 € ab 2027. Steigen die Personalkosten um 10 %, sinkt der DSCR im dritten Jahr auf 1,91. Die Gehälter liegen mit 3.000 € für Trainer nahe dem Median in Baden-Württemberg (3.081 €, GEHALT.de 2026); das Modell rechnet mit 2,5 % Steigerung je Jahr. Der Ausfall des Gründers ist unwahrscheinlich, hätte aber hohe Wirkung. Die stellvertretende Studioleitung mit A-Lizenz und Branchenerfahrung wird zwei Monate vor Eröffnung eingestellt und erhält Handlungsvollmacht; ein Notfallordner mit Zugängen, Verträgen und Ansprechpartnern, ein Beirat oder Mentor (Kapitel 2) sowie eine Risikolebens- und Berufsunfähigkeitsversicherung des Gründers, deren Leistungen an die Bank abgetreten werden können, sichern die Finanzierung ab [vom Gründer zu ergänzen: Angebote]."
+  },
+  {
+   "typ": "absatz",
+   "text": "Konjunkturrisiko: Der Bodenseekreis ist industriell geprägt; ZF beschäftigt am Stammsitz Friedrichshafen rund 10.000 Personen und steht unter Transformationsdruck mit Kurzarbeit, während Rolls-Royce Power Systems 6.300 Beschäftigte hat und 2026 rund 500 Einstellungen plant (Quellen: Anhang I). Kaufkraft (36.069 € je Einwohner) und Arbeitslosenquote (3,5 %) sind überdurchschnittlich gut. Das Einzugsgebiet mit 149.548 Einwohnern und rechnerisch 22.133 Fitnessmitgliedern (14,8 % Penetration) ist breit genug, dass der Plan nicht von einem Arbeitgeber abhängt (Quellen: Anhang I). Die Corona-Jahre haben allerdings gezeigt, wie schockanfällig die Branche ist: 2021 lag die Mitgliederzahl bei 9,26 Mio. gegenüber 11,66 Mio. im Jahr 2019 (Quellen: Anhang I). Ein Tarif für Studenten, Azubis und Senioren sowie die Ruheoption halten Mitglieder in wirtschaftlich schwierigen Phasen im Studio."
+  },
+  {
+   "typ": "h2",
+   "text": "9.3 Sensitivitäten und Szenarien"
+  },
+  {
+   "typ": "absatz",
+   "text": "Tabelle 9.4 zeigt die Einzelsensitivitäten des Finanzmodells gegenüber dem Basisszenario. Jede Zeile verändert genau eine Annahme; alle anderen Werte bleiben gleich. Maßgeblich für die Bank sind der DSCR im dritten und vierten Jahr sowie das Kassenminimum, das angibt, ob die eingeplante Reserve von 740.000 € und der Kontokorrent von 200.000 € ausreichen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 9.4: Sensitivitäten gegenüber dem Basisszenario (netto)",
+   "spalten": [
+    "Fall",
+    "Mitglieder M24",
+    "EBITDA Jahr 3",
+    "Ergebnis Jahr 3",
+    "DSCR Jahr 3 / 4",
+    "Kassenminimum"
+   ],
+   "zeilen": [
+    [
+     "Basis",
+     "2.053",
+     "398.960 €",
+     "36.237 €",
+     "2,12 / 1,61",
+     "107.975 €"
+    ],
+    [
+     "Neuzugänge −20 %",
+     "1.642",
+     "173.665 €",
+     "−189.058 €",
+     "0,92 / 1,24",
+     "−202.288 €"
+    ],
+    [
+     "Neuzugänge −30 %",
+     "1.437",
+     "35.516 €",
+     "−327.207 €",
+     "0,19 / 0,63",
+     "−613.657 €"
+    ],
+    [
+     "Kündigungsquote 3,0 % statt 2,2 % je Monat",
+     "1.856",
+     "294.209 €",
+     "−68.514 €",
+     "1,57 / 1,56",
+     "45.422 €"
+    ],
+    [
+     "Beitragsniveau −10 %",
+     "2.053",
+     "287.930 €",
+     "−74.793 €",
+     "1,53 / 1,17",
+     "6.971 €"
+    ],
+    [
+     "Kaltmiete 10,00 statt 8,50 €/m²",
+     "2.053",
+     "361.966 €",
+     "−1.325 €",
+     "1,92 / 1,46",
+     "45.089 €"
+    ],
+    [
+     "Zinsen +1,5 Prozentpunkte",
+     "2.053",
+     "398.960 €",
+     "−1.270 €",
+     "1,77 / 1,41",
+     "39.275 €"
+    ],
+    [
+     "Personalkosten +10 %",
+     "2.053",
+     "358.399 €",
+     "−4.324 €",
+     "1,91 / 1,45",
+     "49.148 €"
+    ],
+    [
+     "Energie/Wasser 5,50 statt 4,00 €/m²",
+     "2.053",
+     "363.403 €",
+     "111 €",
+     "1,93 / 1,47",
+     "51.441 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Stand 27.09.2026); Kassenminimum nach Einsatz der Anlaufreserve von 740.000 €, vor Kontokorrent.",
+   "breiten": [
+    30,
+    12,
+    14,
+    14,
+    15,
+    15
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Alle Kosten- und Preissensitivitäten bleiben mit einem DSCR von mindestens 1,53 im dritten Jahr und positiver Kasse tragfähig; kritisch sind allein die Mengenrisiken beim Mitgliederaufbau. Einschränkend gilt für das Beitragsniveau −10 %: Der DSCR sinkt im vierten Jahr auf 1,17 und das Kassenminimum auf 6.971 €, sodass der Kontokorrentrahmen faktisch beansprucht würde; Nachlässe auf die Monatsbeiträge sind deshalb ausgeschlossen (Abschnitt 6.2). Deshalb wurden zusätzlich drei vollständige Szenarien gerechnet (Tabelle 9.5). Das pessimistische Szenario kombiniert 30 % weniger Neuzugänge, eine Kündigungsquote von 2,8 % je Monat und ein um 5 % niedrigeres Beitragsniveau; das optimistische Szenario unterstellt 20 % mehr Neuzugänge, 1,8 % Kündigungen und 3 % höhere Beiträge. Für das pessimistische Szenario wurde ein Maßnahmenpaket hinterlegt: der dritte Vollzeittrainer wird erst ab dem dritten statt dem zweiten Jahr eingestellt, am Empfang werden drei statt vier Minijobs besetzt, das laufende Marketing sinkt von 4.600 € auf 2.500 € je Monat und Reinigung sowie Sonstiges werden um 15 % gekürzt."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 9.5: Szenarienvergleich (netto)",
+   "spalten": [
+    "Kennzahl",
+    "Basis",
+    "Optimistisch",
+    "Pessimistisch",
+    "Pessimistisch mit Maßnahmen"
+   ],
+   "zeilen": [
+    [
+     "Mitglieder nach 12 / 24 / 36 Monaten",
+     "1.429 / 2.053 / 2.200",
+     "1.763 / 2.200 / 2.200",
+     "959 / 1.332 / 1.525",
+     "959 / 1.332 / 1.525"
+    ],
+    [
+     "Umsatz Jahr 1 / Jahr 3",
+     "622.361 € / 1.368.522 €",
+     "776.846 € / 1.412.178 €",
+     "408.704 € / 871.770 €",
+     "408.704 € / 871.770 €"
+    ],
+    [
+     "EBITDA Jahr 1 / 2 / 3",
+     "−389.492 / 153.383 / 398.960 €",
+     "−238.913 / 379.849 / 441.892 €",
+     "−597.613 / −239.472 / −84.558 €",
+     "−555.994 / −152.849 / −42.445 €"
+    ],
+    [
+     "Jahresergebnis Jahr 3",
+     "36.237 €",
+     "79.169 €",
+     "−447.281 €",
+     "−405.168 €"
+    ],
+    [
+     "DSCR Jahr 3 / Jahr 4",
+     "2,12 / 1,61",
+     "2,35 / 1,73",
+     "−0,45 / −0,01",
+     "−0,23 / 0,16"
+    ],
+    [
+     "EBITDA-Break-even (Monat)",
+     "12",
+     "9",
+     "43",
+     "36"
+    ],
+    [
+     "Cashflow-Break-even (Monat)",
+     "19",
+     "11",
+     "nicht innerhalb 60 Monaten",
+     "nicht innerhalb 60 Monaten"
+    ],
+    [
+     "Break-even-Mitglieder inkl. Kapitaldienst",
+     "2.018",
+     "1.968",
+     "2.107",
+     "2.032"
+    ],
+    [
+     "Reservebedarf 24 Monate",
+     "736.987 €",
+     "512.557 €",
+     "1.380.094 €",
+     "1.232.616 €"
+    ],
+    [
+     "Kassenminimum (Monat)",
+     "107.975 € (M18)",
+     "278.223 € (M−5)",
+     "−1.206.153 € (M60)",
+     "−950.293 € (M60)"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Stand 27.09.2026).",
+   "breiten": [
+    28,
+    18,
+    18,
+    18,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Das pessimistische Szenario ist auch mit dem Maßnahmenpaket nicht tragfähig: Die Kasse fällt bis zum Monat 60 auf −950.293 €, der Reservebedarf für 24 Monate liegt mit 1.232.616 € um 492.616 € über der eingeplanten Reserve, und ein Cashflow-Break-even wird innerhalb von fünf Jahren nicht erreicht. Das Maßnahmenpaket verbessert das EBITDA um 41.619 € im ersten, 86.623 € im zweiten und 42.113 € im dritten Jahr und verschiebt den EBITDA-Break-even von Monat 43 auf Monat 36; es kann die Mengenlücke aber nicht schließen, weil die Betriebskosten mit Ausnahme von Wareneinsatz und Zahlungsgebühren (zusammen 38.032 € im dritten Jahr des Basisszenarios) fix sind. Die Konsequenz für die Steuerung: Das Studio darf nicht in dieses Szenario hineinlaufen. Der Vorverkauf ist der erste Test; liegt er einen Monat vor Eröffnung unter 280 Mitgliedern (80 % des Ziels) oder bleiben die Neuzugänge in drei aufeinanderfolgenden Monaten unter 80 % des Plans, werden Vertriebsmaßnahmen (Firmenfitness, Aggregatoren, Aktionen, zusätzliches Marketing) und das Kostenpaket sofort ausgelöst und die Hausbank informiert. Gelingt die Korrektur nicht bis zum zwölften Monat, sind mit den Finanzierungspartnern Tilgungsstreckung und ein Kapitalnachschuss zu verhandeln; das optimistische Szenario zeigt umgekehrt, dass bei gutem Start bereits im zweiten Jahr ein positives Jahresergebnis von 16.989 € möglich ist."
+  },
+  {
+   "typ": "h2",
+   "text": "9.4 Chancen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Basisplan enthält keine Umsätze aus Firmenfitness, Aggregatoren, Veranstaltungen oder zusätzlichen Wellness-Upgrades; die Nebenumsätze sind mit 6,20 € brutto je Mitglied und Monat konservativ angesetzt. Die folgenden Chancen sind deshalb Aufwärtspotenzial gegenüber dem Plan und zugleich die wichtigsten Instrumente, um dem Mengenrisiko aus Abschnitt 9.2 zu begegnen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 9.6: Chancen und Wirkung auf den Plan",
+   "spalten": [
+    "Chance",
+    "Beleg",
+    "Wirkung auf den Plan"
+   ],
+   "zeilen": [
+    [
+     "Firmenfitness und Aggregatoren",
+     "ZF ca. 10.000, RRPS 6.300, Airbus ca. 2.150 Beschäftigte (FN); 23.056 Einpendler nach Friedrichshafen; 43,3 % der Anlagen mit BGM; 76,1 % mit Aggregatoranbindung, 1,47 Mio. Äquivalente (DSSV 2025/2026)",
+     "Nicht im Basisplan; jeder Firmenvertrag beschleunigt den Mitgliederaufbau, Aggregator-Nutzer erhöhen die Auslastung in Nebenzeiten"
+    ],
+    [
+     "HYROX-Trend",
+     "ca. 900.000 Athleten 2025, > 1,5 Mio. Teilnehmer Saison 2025/26, Ziel > 2 Mio. 2026/27; 15.000 Partnerstudios, ca. 1.300 in DACH (BODYMEDIA, endurance.biz 2026)",
+     "HYROX-Zone (169,88 m²) ist Bestandteil des Premiumtarifs; Trainingsgruppen, Simulationen und Events als Kurs- und Veranstaltungsumsatz, offizielle Partnerschaft als Marketinghebel"
+    ],
+    [
+     "Wellness-Upgrades",
+     "Elixia Hamburg: Upgrade 30 € je Monat, 900 Verträge in 24 Monaten = 324.000 € brutto je Jahr (BODYMEDIA 2020); Wellness bis 10 % vom Gesamtumsatz in Premiumclubs (Quellen: Anhang I)",
+     "Premiumaufpreis 15 € bei 45 % Anteil im Plan; Zusatzumsatz Wellness nur 1,20 € je Mitglied und Monat angesetzt, Upgrade-Kampagnen für Basic-Mitglieder als Potenzial"
+    ],
+    [
+     "Beitragsanpassung 2 % je Jahr",
+     "Im Plan ab Jahr 3 enthalten; Branchendurchschnitt 2025 +3,4 % (Deloitte 2026)",
+     "Jeder zusätzliche Prozentpunkt bei 2.200 Mitgliedern und 50,15 € brutto entspricht rechnerisch rund 11.100 € Nettoumsatz je Jahr; Voraussetzung wirksame Klausel (Kapitel 8.6)"
+    ],
+    [
+     "Kapazitätsreserve",
+     "126 Trainingsplätze, Spitzenlast 121 bei 2.200 Mitgliedern; 178 Spinde; 1,1 Mitglieder je m² Ziel gegenüber 1,59 bei Ketten (Quellen: Anhang I)",
+     "Der Plan deckelt bei 2.200 Mitgliedern ab Monat 29; Nutzung der Reserve über Aggregator- und Firmenmitglieder mit geringerer Trainingsfrequenz ohne Zusatzinvestition"
+    ],
+    [
+     "Zusatzleistungen",
+     "Personal Training 60 bis 120 € je Stunde, BPT-Empfehlung 95 € (Quellen: Anhang I); Getränke, Shakes, Merchandise",
+     "Im Plan 1,50 € PT/Kurse und 3,00 € Getränke je Mitglied und Monat; Ausbau über Trainerprovisionen"
+    ],
+    [
+     "Steuer- und Förderchancen",
+     "Körperschaftsteuer sinkt ab 2028 auf 10 % bis 2032; degressive AfA 30 % bis 2027; L-Bank Digitalisierungsfinanzierung mit 5 % Tilgungszuschuss (Quellen: Anhang I)",
+     "Plan rechnet mit 15 % KSt und linearer AfA; Wirkung erst nach Verbrauch des Verlustvortrags"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I), Excel-Planrechnung; Umsatzwirkung der Beitragsanpassung rechnerisch (2.200 × 50,15 € × 12 / 1,19 × 1 %).",
+   "breiten": [
+    18,
+    44,
+    38
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Firmenfitness ist die Chance mit dem größten Hebel auf das Mengenrisiko. Friedrichshafen hat mit 23.056 Einpendlern und einer Tagbevölkerung von 74.376 Personen ein Potenzial, das über die Wohnbevölkerung hinausgeht (Quellen: Anhang I). Betriebliches Gesundheitsmanagement bieten bereits 43,3 % der Anlagen an (DSSV 2025), und Aggregatoren wie Wellpass oder Urban Sports Club erreichten 2025 1,47 Mio. Mitgliederäquivalente an 52.300 Partnerstandorten (DSSV 2026, Deloitte 2026). Für No.1 sind Rahmenverträge mit den drei Großarbeitgebern und die Anbindung an mindestens einen Aggregator ab Eröffnung geplant; die Konditionen sind mit den Anbietern zu verhandeln [vom Gründer zu ergänzen]. Weil Firmen- und Aggregator-Mitglieder erfahrungsgemäß seltener trainieren, nutzen sie die Kapazitätsreserve, ohne die Spitzenlast zu erhöhen."
+  },
+  {
+   "typ": "absatz",
+   "text": "Der HYROX-Trend wächst zweistellig: Die Saison 2025/26 zählte über 1,5 Mio. Teilnehmer, für 2026/27 werden über 2 Mio. erwartet (endurance.biz 07/2026). In der Bodenseeregion gibt es mit ai fitness Friedrichshafen und Fitness Bunker Konstanz erst zwei Anbieter (Quellen: Anhang I). Die HYROX-Zone ist im Premiumtarif enthalten und trägt so unmittelbar zum Premiumanteil bei; Trainingsgruppen, Simulationswettkämpfe und Vorbereitungskurse für die HYROX-Rennen können als Kursumsatz und über Kooperationen mit Firmen vermarktet werden. Wellness-Upgrades zeigen im Elixia-Beispiel, dass ein Aufpreis von 30 € je Monat bei 900 Verträgen 324.000 € Bruttozusatzumsatz je Jahr bringt (BODYMEDIA 2020); der Plan setzt den Premiumaufpreis mit 15 € vorsichtiger an. Die im Plan enthaltene Beitragsanpassung von 2 % je Jahr liegt unter der Branchenentwicklung von 3,4 % im Jahr 2025 (Deloitte 2026); jeder zusätzliche Prozentpunkt entspricht bei Vollauslastung rund 11.100 € Nettoumsatz je Jahr."
+  },
+  {
+   "typ": "h2",
+   "text": "9.5 Fazit zur Tragfähigkeit"
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "EBITDA-Break-even",
+     "Monat 12"
+    ],
+    [
+     "Cashflow-Break-even",
+     "Monat 19"
+    ],
+    [
+     "DSCR Jahr 3 / Jahr 4 / Jahr 5",
+     "2,12 / 1,61 / 1,58"
+    ],
+    [
+     "Jahresergebnis Jahr 3 / Jahr 5",
+     "36.237 € / 76.140 €"
+    ],
+    [
+     "Kassenminimum",
+     "107.975 € im Monat 18"
+    ],
+    [
+     "Anlaufreserve (24 Monate)",
+     "740.000 € bei Bedarf 736.987 €"
+    ],
+    [
+     "Break-even-Mitglieder",
+     "2.018 von 2.200 Kapazität"
+    ]
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Im Basisszenario ist das Vorhaben tragfähig: Das Studio erreicht den EBITDA-Break-even im zwölften und den Cashflow-Break-even im neunzehnten Monat nach Eröffnung, das dritte Geschäftsjahr schließt mit einem EBITDA von 398.960 € und einem Jahresergebnis von 36.237 € ab, und der Kapitaldienst von 187.801 € wird mit einem DSCR von 2,12 gedeckt; im vierten Jahr, wenn die Tilgung auf 103.093 € steigt, beträgt der DSCR 1,61 und im fünften 1,58. Die 24-Monats-Anlaufreserve von 740.000 € deckt den errechneten Bedarf von 736.987 € und lässt im Tiefpunkt des Monats 18 noch 107.975 € Kasse; der Kontokorrentrahmen von 200.000 € wird im Basisszenario nicht benötigt. Der Tilgungsbeginn nach drei bis fünf tilgungsfreien Jahren passt zum Anlaufverlauf."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Tragfähigkeit hängt an einer Größe: dem Mitgliederaufbau. Kosten-, Preis- und Zinssensitivitäten halten den DSCR im dritten Jahr über 1,50 und die Kasse positiv; ein Rückgang der Neuzugänge um 20 % senkt ihn dagegen auf 0,92, ein Rückgang um 30 % oder das kombinierte pessimistische Szenario machen das Vorhaben ohne Nachfinanzierung nicht mehr tragfähig. Der Break-even von 2.018 Mitgliedern liegt bei 92 % der Kapazität; das ist die zentrale Schwäche des Plans, die durch die konservativen Kostenannahmen (Miete 8,50 €/m² über dem regionalen Hallenniveau, Kündigungsquote 2,2 % je Monat bzw. 23,4 % je Jahr, 19 % Umsatzsteuer auf alle Umsätze, keine Firmenfitness- und Aggregatorumsätze) teilweise ausgeglichen wird. Die Bank erhält mit dem Vorverkaufsergebnis einen Monat vor Eröffnung und der monatlichen Mitgliederentwicklung zwei überprüfbare Indikatoren, an die das Maßnahmenpaket und die Berichterstattung gebunden sind. Unter diesen Voraussetzungen und mit den in Kapitel 8 beschriebenen rechtlichen Absicherungen ist das Vorhaben nach Einschätzung des Gründers finanzierbar; die Entscheidung über Standort und Mietvertrag sowie die Festpreisangebote für Ausbau und Geräte sind die nächsten Schritte, um die verbleibenden Unsicherheiten vor der Kreditzusage zu schließen."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu ergänzen: Ergebnis der Wettbewerbsanalyse für das konkrete Wunschobjekt (Radius 15 Minuten), Absichtserklärungen von Arbeitgebern für Firmenfitness, Angebot eines Aggregators, Angebote für Risikolebens- und Berufsunfähigkeitsversicherung des Gründers sowie eine schriftliche Vereinbarung mit der stellvertretenden Studioleitung. Diese Nachweise mindern die in Tabelle 9.3 bewerteten Risiken Mitgliederwachstum, Wettbewerb und Gründerausfall."
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "DSSV/Deloitte/DHfPG – Eckdaten der deutschen Fitnesswirtschaft 2026, PM 18.03.2026 – https://www.dssv.de/wp-content/uploads/2026/03/03_18_pm_eckdaten.pdf; DSSV – Eckdaten 2026 Segmentzahlen – https://www.dssv.de/eckdaten-2026/",
+  "DSSV – Eckdaten 2025 (BGM-Anteil 43,3 %), PM 26.03.2025 – https://www.dssv.de/wp-content/uploads/2025/03/pm_eckdaten_2025.pdf; DSSV – Fitnesstrends 2024 (Betreiberbefragung, 17.01.2024)",
+  "Deloitte – Der deutsche Fitnessmarkt 2026 (Beitragsentwicklung +3,4 %, Aggregatoren) – https://www.deloitte.com/de/de/Industries/consumer/research/deutscher-fitnessmarkt-studie.html (04/2026)",
+  "BODYMEDIA – HYROX: Zahlen, Daten, Fakten – https://www.bodymedia.de/themen/trends-specials/hyrox-zahlen-daten-fakten/ (29.05.2026); endurance.biz – HYROX expands global calendar for 2026/27 (20.07.2026)",
+  "BODYMEDIA – Wie Fitnessclubs mit Wellness 324.000 € Zusatzumsatz generieren (Elixia) – https://www.bodymedia.de/themen/management/wie-fitnessclubs-mit-wellness-324000-euro-zusatzumsatz-pro-jahr-generieren-koennen/ (28.09.2020)",
+  "BODYMEDIA – Warum Mitglieder wirklich kündigen (IHRSA: Trainerkontakt halbiert Kündigungswahrscheinlichkeit) – https://www.bodymedia.de/themen/best-practice/warum-mitglieder-wirklich-kuendigen/ (14.10.2021)",
+  "Kruse, T. (2021) – Ökonomische Analyse des Kündigungsverhaltens von Fitnessstudio-Mitgliedern, Dissertation Univ. Paderborn (DSSV 2019: 25 %, 13–40 %) – https://d-nb.info/124761851X/34; Bechler (LinkedIn, 02.05.2021) – Fluktuation Einzelstudios 21–25 %, Ketten 25–28 %",
+  "IN-COME Unternehmensberatung – Vorverkauf und Fluktuation (Gründungsjahr 5–10 %) – https://www.in-come.de/vorverkauf-und-fluktuation/ (05.05.2020)",
+  "fair-for-fitness.de – Preise 2026 McFIT, FitX, clever fit – https://fair-for-fitness.de/kette/mcfit (27.09.2026)",
+  "ai fitness Friedrichshafen – Studio und Preise – https://www.ai-fitness.de/studios/friedrichshafen; MC Shape Überlingen/Markdorf – Preise (abgerufen 27.09.2026)",
+  "Standortanalyse (Rechercheprotokoll, Anhang I; 27.09.2026): Pendleratlas 2025 (Friedrichshafen), auto.news 09.05.2025 (ZF), Stuttgarter Zeitung 01.03.2026 (Rolls-Royce Power Systems), IHK Bodensee-Oberschwaben Kaufkraft (MB Research 2026), WF Bodenseekreis Standortdaten",
+  "DSSV e. V. / W.I.F.F. – Leitfaden Kostenmanagement (Richtwerte Betriebskosten, Strom) – https://www.dssv.de/wp-content/uploads/2022/05/DSSV_Leitfaden_kostenmanagement_202204.pdf (04/2022)",
+  "BMWi/BMI – Bekanntmachung Energieverbrauchskennwerte Nichtwohngebäude, Kategorie 31 Fitnessstudios – https://geg-info.de/geg/210503_bmwi_bmi_regeln_energieverbrauchskennwerte_nichtwohnbestand.pdf (15.04.2021)",
+  "GEHALT.de – Fitnesstrainer/-in Gehalt 2026 (BW 3.081 €) – https://www.gehalt.de/beruf/fitnesstrainer-fitnesstrainerin",
+  "Bundesregierung – Mindestlohn 2026/2027 – https://www.bundesregierung.de/breg-de/aktuelles/mindestlohn-steigt-2391010 (21.09.2026)",
+  "Finanzierungsrecherche (Rechercheprotokoll, Anhang I; 27.09.2026): KfW Merkblatt 077 (StartGeld 067 geprüft, wegen der 200.000-€-Grenze nicht angesetzt), L-Bank Konditionenübersicht 24.09.2026 (Zinsbindung), Bürgschaftsbank BW, Bundesbank Zinsstatistik 02.09.2026",
+  "Bundesverband Personal Training (BPT) – Mindestempfehlung Stundensatz 95 € (06/2026); Virtuagym – Fitnessstudio eröffnen Kosten 2026 (Break-even 12–18 Monate)",
+  "IHK zu Essen – Körperschaftsteuer (Absenkung ab 2028) (01/2026); BMF – Wachstumsbooster, degressive AfA (2025); L-Bank – Digitalisierungsfinanzierung (Tilgungszuschuss 5 %)"
+ ]
+}

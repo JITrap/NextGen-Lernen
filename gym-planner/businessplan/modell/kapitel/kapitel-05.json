@@ -1,0 +1,832 @@
+{
+ "nummer": 5,
+ "titel": "Standort",
+ "bloecke": [
+  {
+   "typ": "h2",
+   "text": "5.1 Standortanforderungen aus der Planung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Standortsuche folgt dem mit der Planungssoftware GymPlanner erstellten Entwurf „No.1 (überarbeitet)“. Er sieht eine ebenerdige Halle von 59,50 × 33,20 m mit 1.975,40 m² Bruttofläche (1.931,13 m² netto) und 4,00 m Deckenhöhe vor, die in 26 Räume und Zonen gegliedert ist: 1.138,58 m² Trainingsfläche (59,0 %), 340,26 m² Verkehrsfläche, 207,01 m² Nebenfläche (Lager, Technik, Büro, Personal), 158,99 m² Umkleide und Sanitär sowie 58,35 m² Wellness (Quellen: Anhang I). Die Kapazität beträgt 126 gleichzeitig Trainierende (9 m² je Person), die Bemessung für Sicherheitsanforderungen 132 Personen einschließlich sechs Beschäftigter (Quellen: Anhang I). Da der Entwurf bereits regularienkonform geprüft ist (114 Prüfpunkte erfüllt, keiner nicht erfüllt, 6 Hinweise zu organisatorischen Pflichten, 1 Punkt nicht anwendbar), lassen sich die Anforderungen an ein Mietobjekt präzise ableiten. Gesucht wird eine Bestandshalle (Produktion, Lager, Fachmarkt) mit Umnutzung, keine Neubauentwicklung."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.1: Anforderungskatalog an das Mietobjekt",
+   "spalten": [
+    "Kriterium",
+    "Anforderung",
+    "Herleitung / Quelle"
+   ],
+   "zeilen": [
+    [
+     "Fläche",
+     "ca. 1.900–2.100 m² auf einer Ebene (Plan: 1.975,40 m² BGF); Shortlist-Toleranz 1.600–3.000 m²",
+     "Grundriss 59,50 × 33,20 m (Quellen: Anhang I); Suchkriterien Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Gebäudeform",
+     "Rechteckige, stützenarme Halle, Seitenverhältnis ca. 1,8:1; Umkleiden/Wellness an einer Längsseite",
+     "Raumprogramm GymPlanner (Quellen: Anhang I)"
+    ],
+    [
+     "Lichte Höhe",
+     "mindestens 4,00 m durchgehend; höher vorteilhaft für HYROX-Zone (Wandball, Sled) und Lüftungstrassen",
+     "Deckenhöhe 400 cm im Plan (Quellen: Anhang I)"
+    ],
+    [
+     "Ebenerdigkeit / Anlieferung",
+     "Ebenerdiger Zugang ohne Stufen, barrierefreies WC; Tor oder Rampe für Geräteanlieferung (23.484 kg Geräte, 369 Objekte)",
+     "Rechercheprotokoll (Anhang I; Stückliste, barrierefreies WC)"
+    ],
+    [
+     "Notausgänge",
+     "mindestens vier Notausgänge in verschiedenen Außenwänden möglich; Plan: sechs Notausgänge mit 690 cm Gesamtbreite (Soll ≥ 120 cm), Fluchtweg-Lauflängen 14,7–35,2 m (Soll ≤ 52,5 m), größte Luftlinie je Raum 21,8 m (Soll ≤ 35 m)",
+     "Regularienprüfung Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Technik",
+     "Lüftungsanlage (RLT) für 1.931 m², Wärme- und Warmwasserbedarf für 18 Duschen, Sauna, Dampfbad; Technikraum 24 m²",
+     "Rechercheprotokoll (Anhang I); GEG-Kennwerte Fitnessstudios (Quellen: Anhang I)"
+    ],
+    [
+     "Stellplätze",
+     "ca. 52 Kfz- und 26 Fahrradstellplätze (konservativer Ansatz mit 1.300 m² Sportfläche), rechnerisch 46 Kfz und 23 Fahrrad aus der Trainingsfläche des Plans",
+     "VwV Stellplätze BW Anhang 1 Nr. 5.3, AKBW-Merkblatt 593 (Quellen: Anhang I); Fahrrad ohne eigene Richtzahl, Anlehnung an Sporthallen"
+    ],
+    [
+     "Bauplanungsrecht",
+     "Gewerbegebiet (GE) bevorzugt, Mischgebiet möglich; Industriegebiet (GI) und Sondergebiet (SO) nur nach Einzelfallprüfung",
+     "§§ 6, 8, 9, 11 BauNVO (Quellen: Anhang I)"
+    ],
+    [
+     "Sichtbarkeit / Anbindung",
+     "Lage an Bundesstraße oder Hauptverkehrsachse (B31/B30 bzw. A81/B464), ÖPNV-Haltestelle, gute Erreichbarkeit aus dem 15-Minuten-Einzugsgebiet",
+     "Einzugsgebietsanalyse Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Vertrag",
+     "10 Jahre plus Verlängerungsoption, 3 mietfreie Ausbaumonate, Kaltmiete ≤ 8,50 €/m²",
+     "Excel-Planrechnung"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; GymPlanner-Export 26.09.2026), Excel-Planrechnung.",
+   "breiten": [
+    18,
+    48,
+    34
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Stellplätze: Die Verwaltungsvorschrift Stellplätze Baden-Württemberg verlangt für Fitnesscenter einen Kfz-Stellplatz je 25 m² Sportfläche (Anhang 1 Nr. 5.3); Sozial- und Sanitärräume, Umkleiden, Geräte- und Technikräume sowie Verkehrsflächen zählen nicht zur Sportfläche (AKBW-Merkblatt 593, Stand 01.09.2022). Für Fahrradstellplätze enthält Anhang 2 der Verwaltungsvorschrift keine eigene Richtzahl für Fitnesscenter; der Bedarf ist im Einzelfall in Anlehnung an vergleichbare Anlagen zu ermitteln, hier an Sporthallen mit einem Stellplatz je 50 m² Sportfläche (Quellen: Anhang I). Bis zu einem Viertel der Kfz-Stellplätze kann durch je vier Fahrradstellplätze ersetzt werden (§ 37 Abs. 1 LBO), und bei guter ÖPNV-Anbindung ist eine Minderung nach dem Punktesystem der Verwaltungsvorschrift möglich; kommunale Stellplatzsatzungen (etwa in Stuttgart) können abweichen. Die Standortanalyse rechnet konservativ mit rund 1.300 m² anrechenbarer Sportfläche und damit 52 Kfz- und 26 Fahrradstellplätzen (Quellen: Anhang I). Nach dem Planungsexport beträgt die Trainingsfläche einschließlich HYROX-Zone und Kursraum 1.138,58 m² (Quellen: Anhang I), woraus sich rechnerisch 46 Kfz- und 23 Fahrradstellplätze ergeben. Für die Objektsuche wird der höhere Wert von 52 Kfz-Stellplätzen angesetzt, da die Baurechtsbehörde die Sportfläche im Einzelfall abweichend abgrenzen kann."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.2: Stellplatzbedarf nach VwV Stellplätze BW",
+   "spalten": [
+    "Ansatz",
+    "Anrechenbare Sportfläche",
+    "Kfz (1 je 25 m²)",
+    "Fahrrad (1 je 50 m², Anlehnung Sporthallen)",
+    "Bemerkung"
+   ],
+   "zeilen": [
+    [
+     "Konservativ (Standortanalyse)",
+     "ca. 1.300 m²",
+     "52",
+     "26",
+     "Planungsannahme Sicherheitsaufschlag"
+    ],
+    [
+     "Nach Planungsexport",
+     "1.138,58 m² (Maschinen 476,17; Freihantel 184,25; HYROX 169,88; Kursraum 149,01; Functional 88,11; Cardio 71,16)",
+     "46",
+     "23",
+     "Trainingsfläche Rechercheprotokoll (Anhang I); eigene Berechnung"
+    ],
+    [
+     "Minderung möglich",
+     "–",
+     "je nach ÖPNV-Punktesystem",
+     "1 Kfz = 4 Fahrrad (bis zu 1/4 der Kfz-Plätze)",
+     "VwV Stellplätze, § 37 LBO; kommunale Satzungen prüfen"
+    ]
+   ],
+   "quelle": "Quelle: AKBW-Merkblatt 593 VwV Stellplätze (01.09.2022; Anhang 2 ohne Fitnesscenter-Richtzahl), Rechercheprotokoll (Anhang I); Flächen Rechercheprotokoll (Anhang I); Berechnung eigene.",
+   "breiten": [
+    22,
+    32,
+    14,
+    14,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Bauplanungsrecht und Genehmigung: Anlagen für sportliche Zwecke sind in Gewerbegebieten seit der BauNVO-Novelle 2013 allgemein zulässig (§ 8 Abs. 2 Nr. 4 BauNVO); ein Fitnessstudio ist dort regelmäßig genehmigungsfähig, sofern kein überwiegender Physio- oder Reha-Anteil eine Einstufung als Anlage für gesundheitliche Zwecke auslöst (§ 8 Abs. 3 BauNVO). In Mischgebieten (§ 6 BauNVO) ist die Nutzung ebenfalls allgemein zulässig, jedoch mit strengeren Lärm- und Öffnungszeitenauflagen; in Industriegebieten (§ 9 Abs. 3 Nr. 2 BauNVO) nur ausnahmsweise; in Sondergebieten (§ 11 BauNVO) nur, wenn die Zweckbestimmung des Bebauungsplans Sport oder Freizeit ausdrücklich umfasst, andernfalls ist eine Befreiung nach § 31 Abs. 2 BauGB oder eine Planänderung erforderlich (Quellen: Anhang I). Die Umnutzung einer Lager- oder Produktionshalle zum Fitnessstudio ist eine genehmigungspflichtige Nutzungsänderung nach §§ 49, 50 LBO BW. Erforderlich sind Bauvorlagen, Brandschutznachweis, Stellplatznachweis, Schallschutznachweis (Kursraum, Freihantelbereich) sowie ein Lüftungs- und Sanitärkonzept einschließlich Hygiene- und Brandschutzanforderungen an Sauna und Dampfbad (Planeco 2025). Die Bemessung von 132 Personen liegt unter der Schwelle von 200 Personen, ab der die Versammlungsstättenverordnung anzuwenden wäre (Regularienprüfung Rechercheprotokoll (Anhang I)); die Baurechtsbehörde kann bei mehr als 1.000 m² Sportfläche gleichwohl eine Einstufung als Sonderbau mit Brandschutzkonzept und zwei baulichen Rettungswegen vornehmen (Quellen: Anhang I), was der Entwurf mit sechs Notausgängen bereits erfüllt. Für die Planung wird von dieser Einstufung ausgegangen: Der Antrag läuft dann im regulären Verfahren; die mit der LBO-Reform 2025 eingeführte Genehmigungsfiktion nach drei Monaten gilt nur im vereinfachten Verfahren nach § 52 LBO und für Antennenanlagen und ist für das Vorhaben nicht anwendbar (ARGE Baurecht 29.07.2025)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.3: Genehmigungsverfahren und Fristen (LBO Baden-Württemberg)",
+   "spalten": [
+    "Schritt",
+    "Frist / Dauer",
+    "Rechtsgrundlage / Quelle"
+   ],
+   "zeilen": [
+    [
+     "Vollständigkeitsprüfung der Bauvorlagen",
+     "10 Arbeitstage",
+     "§ 54 Abs. 1 LBO"
+    ],
+    [
+     "Anhörung Dritter und Fachbehörden",
+     "max. 1 Monat",
+     "§ 54 Abs. 3 LBO"
+    ],
+    [
+     "Entscheidung ab Vollständigkeit",
+     "2 Monate (vereinfachtes Verfahren 1 Monat)",
+     "§ 54 Abs. 5 LBO"
+    ],
+    [
+     "Genehmigungsfiktion",
+     "3 Monate ab vollständigen Unterlagen, nur im vereinfachten Verfahren (§ 52 LBO); für No.1 als Sonderbau nicht anwendbar",
+     "§ 58 Abs. 1a LBO, LBO-Reform 2025 (in Kraft 28.03.2025), ARGE Baurecht"
+    ],
+    [
+     "Erstellung Antragsunterlagen (Architekt, Brandschutz)",
+     "2–3 Wochen (Praxiswert)",
+     "Planeco 2025"
+    ],
+    [
+     "Realistische Gesamtdauer inkl. Vorprüfung, Brandschutzkonzept",
+     "3–6 Monate",
+     "Planeco 2025, Rechercheprotokoll (Anhang I)"
+    ]
+   ],
+   "quelle": "Quelle: § 54 LBO BW (Stand 16.03.2026), ARGE Baurecht (29.07.2025), Planeco Nutzungsänderung Fitnessstudio (21.10.2025), Rechercheprotokoll (Anhang I).",
+   "breiten": [
+    38,
+    30,
+    32
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "5.2 Regionenvergleich Bodensee und Region Stuttgart"
+  },
+  {
+   "typ": "absatz",
+   "text": "Beide Regionen erfüllen die Nachfragevoraussetzungen des Konzepts, unterscheiden sich aber in Marktgröße, Wettbewerb, Mietniveau und persönlicher Bindung des Gründers. Die Bodenseeregion (Bodenseekreis, Landkreise Konstanz und Ravensburg sowie der bayerische Landkreis Lindau) zählt rund 886.800 Einwohner, die Region Stuttgart (Stadt Stuttgart, Landkreise Böblingen, Esslingen, Ludwigsburg, Rems-Murr) rund 2,51 Mio. (Fortschreibung 31.12.2025, StaLa via City Population). Der Bodenseekreis weist mit 36.069 € je Einwohner die höchste Kaufkraft im Vergleich auf, rund 107 % des Landeswerts von 33.643 € (MB Research 2026 via IHK Bodensee-Oberschwaben; für die Stuttgarter Kreise liegt nur die einzelhandelsrelevante Kaufkraft vor) und mit 29.440 € das höchste verfügbare Einkommen je Einwohner (2022, Landesindex 107,3), knapp vor Stuttgart (29.202 €) und dem Landkreis Böblingen (28.319 €; StaLa BW). Die Arbeitslosenquote im Bodenseekreis beträgt 3,5 % bei 95.400 sozialversicherungspflichtig Beschäftigten (WFB Bodenseekreis, 30.06.2025). Große Arbeitgeber sind in Friedrichshafen ZF (ca. 10.000 Beschäftigte, Kurzarbeit und Transformationsrisiko), Rolls-Royce Power Systems (6.300 Beschäftigte, 500 Neueinstellungen 2026, drittes Montagewerk in Kluftern im Bau, Fertigstellungstermin in der Quelle nicht genannt) und Airbus in Immenstaad (rund 2.150 Beschäftigte zuzüglich etwa 100 Auszubildende; Schwäbische Zeitung 08.09.2026); in Böblingen/Sindelfingen HP (4.000), Mercedes-Benz Sindelfingen (über 31.500, Snippet) sowie Bosch Feuerbach (rund 14.000) (Quellen: Anhang I)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.4: Regionenvergleich für den Standort No.1",
+   "spalten": [
+    "Kriterium",
+    "Bodensee (Raum Friedrichshafen)",
+    "Region Stuttgart (Raum Böblingen/Sindelfingen)",
+    "Quelle"
+   ],
+   "zeilen": [
+    [
+     "Einwohner Landkreis (31.12.2025)",
+     "Bodenseekreis 220.895",
+     "LK Böblingen 394.729",
+     "StaLa via City Population"
+    ],
+    [
+     "Einwohner 15-Minuten-Einzugsgebiet",
+     "149.548",
+     "215.039",
+     "Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Fitnessmitglieder-Potenzial (14,8 %)",
+     "22.133",
+     "31.826",
+     "DSSV 2026, berechnet"
+    ],
+    [
+     "Anteil 18–64 Jahre",
+     "58,2 %",
+     "60,3 %",
+     "City Population 2025"
+    ],
+    [
+     "Verfügbares Einkommen je Ew. 2022",
+     "29.440 € (Index 107,3)",
+     "28.319 € (Index 103,2)",
+     "StaLa BW"
+    ],
+    [
+     "Kaufkraft",
+     "36.069 € je Ew. (2026; BW 33.643 €)",
+     "EH-relevant 8.811 € je Ew. (Index 107,6)",
+     "MB Research / IHK"
+    ],
+    [
+     "Einpendler Kernstadt",
+     "23.056 (FN), Saldo +11.444",
+     "36.582 (BB) + 45.595 (SIFI), Saldo +47.635",
+     "Pendleratlas 2025"
+    ],
+    [
+     "Großarbeitgeber",
+     "ZF ca. 10.000, RRPS 6.300, Airbus ca. 2.150",
+     "Mercedes >31.500, HP 4.000, Bosch Feuerbach 14.000",
+     "Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Hallenmieten (Bestand)",
+     "IHK: Produktion 4,90–6,70 €/m² (FN); Angebote 4,33–9,68 €/m²",
+     "Ø 7,00 €/m², Spitze 8,50 (Stadt) bis 9,90 (Umland)",
+     "IHK BO 06/2025; Realogis, E&G 2025"
+    ],
+    [
+     "Erfasste Wettbewerber / davon HYROX",
+     "20 / 2",
+     "10 / 2",
+     "Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Gewerbesteuer-Hebesatz",
+     "Friedrichshafen 350 %",
+     "Böblingen 380 %, Stuttgart 430 %",
+     "Rechercheprotokoll (Anhang I; IHK-Listen 2026)"
+    ],
+    [
+     "Persönliche Bindung des Gründers",
+     "[vom Gründer zu ergänzen: Wohnort, Netzwerk]",
+     "[vom Gründer zu ergänzen]",
+     "–"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I); Einzelnachweise siehe Quellenliste.",
+   "breiten": [
+    26,
+    27,
+    27,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Bewertung: Der Raum Friedrichshafen bietet die höhere Kaufkraft, das niedrigere Mietniveau, den niedrigeren Gewerbesteuerhebesatz und eine Angebotslücke im Premium-Vollsortiment; die Nachfragebasis ist mit 22.133 rechnerischen Fitnessmitgliedern ausreichend, da No.1 bei Zielgröße 9,9 % davon benötigt (Kapitel 4). Der Raum Böblingen/Sindelfingen bietet mit 31.826 potenziellen Mitgliedern die größere Nachfrage und ein hohes Firmenfitness-Potenzial, jedoch ein Mietniveau auf Höhe der Planannahme, stärkeren Wettbewerb um Premiumkunden und einen um 30 bis 80 Prozentpunkte höheren Gewerbesteuerhebesatz. Beide Regionen sind mit dem Finanzmodell darstellbar; die Bodenseeregion ist die bevorzugte Wahl, die Region Stuttgart die gleichwertig geprüfte Alternative für den Fall, dass am Bodensee kein geeignetes Objekt zu den Vertragszielen verfügbar ist."
+  },
+  {
+   "typ": "absatz",
+   "text": "Mietniveau und Einordnung der Planannahme: Die Kaltmiete von 8,50 €/m² ist im Finanzmodell für beide Regionen angesetzt. Am Bodensee liegt sie deutlich über den IHK-Mietpreisspannen für Produktionshallen in Friedrichshafen (4,90–6,70 €/m², Stand 06/2025) und im Mittleren Schussental (4,70–6,50 €/m²) sowie über den meisten aktuellen Angebotsmieten für Hallen von 1.300 bis 3.100 m² (4,33–9,68 €/m²; Mittelwert der sechs Objekte mit Preisangabe rund 6,00 €/m², eigene Berechnung); lediglich das passgenaue Objekt in Meersburg (8,58 €/m²) und eine Halle in Mühlhausen-Ehingen (8,50 €/m²) liegen auf Planniveau (IHK Bodensee-Oberschwaben). Zu beachten ist, dass die IHK-Spannen für Hallen von 500 bis 1.500 m² erhoben werden; für die hier gesuchte Größe von rund 2.000 m² liegen keine amtlichen Spannen vor (Quellen: Anhang I). In der Region Stuttgart entspricht 8,50 €/m² exakt der Spitzenmiete 2025 für Industrie- und Logistikflächen im Stadtgebiet (Realogis, E&G) bei einem Durchschnitt von 7,00 €/m² und Umlandspitzen bis 9,90 €/m² (E&G 2025). Für modernisierte Hallen mit mindestens 6 m Höhe in Böblingen oder auf den Fildern ist die Annahme realistisch, für einfache Bestandshallen liegt der Markt bei 6,00–7,50 €/m². Fitnessgeeignete Flächen mit Sanitär, Heizung und Stellplätzen werden mit Aufschlag gehandelt; ein bestehendes Studio in Bietigheim-Bissingen wird mit 9,23 €/m² angeboten (Quellen: Anhang I). Die Planannahme ist somit am Bodensee konservativ und in der Region Stuttgart marktgerecht; die Sensitivitätsrechnung mit 10,00 €/m² ergibt in Jahr 3 weiterhin einen DSCR von 1,92."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.5: Mietniveau Hallenflächen im Vergleich zur Planannahme 8,50 €/m²",
+   "spalten": [
+    "Region / Segment",
+    "Kaltmiete €/m² und Monat",
+    "Stand",
+    "Quelle"
+   ],
+   "zeilen": [
+    [
+     "Friedrichshafen – Produktionshallen / Lager (IHK-Spanne für 500–1.500 m²)",
+     "4,90–6,70 / 3,80–4,90",
+     "06/2025",
+     "IHK Bodensee-Oberschwaben"
+    ],
+    [
+     "Mittleres Schussental (RV/Weingarten) – Produktion / Lager",
+     "4,70–6,50 / 3,60–4,80",
+     "06/2025",
+     "IHK Bodensee-Oberschwaben"
+    ],
+    [
+     "Bodensee – Angebotsmieten Hallen 1.300–3.100 m²",
+     "4,33–9,68 (Meersburg 8,58; Mühlhausen-Ehingen 8,50; Radolfzell 7,56)",
+     "09/2026",
+     "Immowelt/IS24 (Quellen: Anhang I)"
+    ],
+    [
+     "Bodensee – Einzelhandel 1a-Lage (Referenz)",
+     "FN 13–20; Überlingen 12–18; Weingarten 8,50–13",
+     "06/2025",
+     "IHK Bodensee-Oberschwaben"
+    ],
+    [
+     "Region Stuttgart – Industrie/Logistik",
+     "Ø 7,00; Spitze 8,50 (Stadt), 9,90 (Umland)",
+     "2025",
+     "Realogis, E&G Marktbericht 2025"
+    ],
+    [
+     "Region Stuttgart – Angebotsmieten Hallen",
+     "4,00–12,00 (Leonberg 6,50; Ludwigsburg-West 8,49; Bestandsstudio Bietigheim 9,23)",
+     "09/2026",
+     "Immowelt/IS24 (Quellen: Anhang I)"
+    ],
+    [
+     "Planannahme No.1",
+     "8,50 (Sensitivität 10,00: DSCR Jahr 3 1,92)",
+     "2027",
+     "Excel-Planrechnung"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; IHK BO Mietpreisspannen 06/2025; Realogis Gesamtjahr 2025; E&G Industrie- und Logistikmarkt 2025; Portalrecherche 26.09.2026).",
+   "breiten": [
+    34,
+    32,
+    12,
+    22
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "5.3 Bevorzugte Mikrolagen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Bodensee: Bevorzugt wird die Achse Friedrichshafen – Immenstaad – Markdorf – Meersburg – Überlingen entlang der B31 mit Anschluss an die B30 (Ravensburg). Friedrichshafen selbst ist mit 62.781 Einwohnern, 23.056 Einpendlern und den Arbeitgebern ZF, Rolls-Royce Power Systems und Airbus der Schwerpunkt der Nachfrage; dort fehlt ein Premium-Vollsortiment-Studio über 1.900 m², und der Gewerbesteuerhebesatz ist mit 350 % der niedrigste im Vergleich (Quellen: Anhang I). Meersburg liegt rund 15 Fahrminuten von Friedrichshafen und Überlingen entfernt und erschließt beide Nachfragepole, Immenstaad liegt an der B31 zwischen Friedrichshafen und Markdorf in Nachbarschaft von Airbus; Markdorf (14.305 Einwohner) und Überlingen (22.799) sind mit MC Shape, clever fit, Fitness Tempel, ProSana, fitness4you und BALANCE bereits dicht besetzt und daher nur als Einzugsgebiet, nicht als Standort interessant. Konstanz (86.691 Einwohner) und Radolfzell (31.689) bilden einen zweiten Suchraum mit dem größten Einzelmarkt der Region, aber mit Happy Fit als etabliertem Premiumanbieter (Quellen: Anhang I)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Region Stuttgart: Bevorzugt wird der Kernraum Böblingen/Sindelfingen (Gewerbegebiete Hulb und Goldbach, Achse A81/B464) mit 215.039 Einwohnern im 15-Minuten-Einzugsgebiet, 82.177 Einpendlern in beide Städte und den Arbeitgebern Mercedes-Benz und HP. Ergänzend werden die Fildern (Neuhausen, Flughafen/Messe, A8) und Leonberg (S-Bahn, A8/A81) geprüft, weil dort modernisierte Hallen mit hoher Deckenhöhe beziehungsweise Mieten unter Planniveau angeboten werden (Quellen: Anhang I). Stuttgart-Feuerbach ist wegen des Bosch-Umfelds und einer verfügbaren 2.000-m²-Halle mit 9 m Deckenhöhe als Option gelistet, unterliegt jedoch dem höchsten Hebesatz (430 %) und dem Stuttgarter Stellplatzrecht."
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Lage an einer Hauptverkehrsachse mit Sichtbarkeit von der Straße und eigener Zufahrt",
+    "Stellplätze auf dem Grundstück oder vertraglich gesicherte Nachbarflächen (Ziel 52 Kfz)",
+    "ÖPNV-Haltestelle in Gehweite (Minderung Stellplatzpflicht, Zielgruppe Studierende/Pendler)",
+    "Gewerbegebiet oder Mischgebiet nach Bebauungsplan; keine Lärmkonflikte mit Wohnnutzung bei Öffnungszeiten ab 6 Uhr",
+    "Umfeld mit Tagesbevölkerung (Gewerbe, Bürostandorte) für Mittags- und Feierabendfrequenz",
+    "Abstand von mindestens 3 km zu bestehenden Premium-Vollsortiment-Studios mit Sauna"
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "5.4 Immobilien-Shortlist"
+  },
+  {
+   "typ": "absatz",
+   "text": "Aus den im September 2026 auf Immowelt und ImmobilienScout24 gelisteten Hallenflächen wurden je Region zwölf Objekte mit rund 1.600 bis 3.000 m² (zwei Objekte knapp darunter), Miete bis 10 €/m² (soweit angegeben) und bevorzugt mindestens 4 m Deckenhöhe ausgewählt (Quellen: Anhang I). Sämtliche Angaben stammen aus Suchseiten-Snippets, da die Exposés nicht abrufbar waren; Deckenhöhe, Stellplätze, Gebietstyp und Verfügbarkeit sind daher je Objekt vor Ort und beim Bauamt zu verifizieren. Am Bodensee stechen drei Objekte hervor: die Produktionshalle in Meersburg mit exakt passender Fläche (1.885 m²) und Planmiete (8,58 €/m²), das „Alte Schmelzwerk“ in Friedrichshafen, dessen Eigentümer ausdrücklich Betreiber aus Sport und Fitness sucht, sowie die Halle im Technologiepark Immenstaad mit über 900 Stellplätzen an der B31 (Industriegebiet, Nutzung nur ausnahmsweise). In der Region Stuttgart bieten Neuhausen (6 m lichte Höhe, modernisiert), Feuerbach (9 m) und Esslingen-Zell (7,5 m) die besten Höhen, Böblingen (2.765 m² teilbar) und Leonberg (6,50 €/m²) die beste Lage beziehungsweise Miete."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.6: Immobilien-Shortlist Bodenseeregion (Angebote 09/2026)",
+   "spalten": [
+    "Objekt",
+    "Ort",
+    "Fläche m²",
+    "Miete €/m²",
+    "Deckenhöhe",
+    "Bemerkung (Portal)"
+   ],
+   "zeilen": [
+    [
+     "Produktionshalle, mehrere Bauabschnitte",
+     "Meersburg",
+     "1.885",
+     "8,58",
+     "k. A.",
+     "Fläche passt exakt, Miete auf Planniveau, B31, 15 min zu FN und Überlingen; Umnutzung nötig (Immowelt)"
+    ],
+    [
+     "Produktionshalle Technologiepark TRIWO",
+     "Immenstaad, Graf-von-Soden-Str.",
+     "1.900",
+     "auf Anfrage",
+     "k. A.",
+     "Über 900 Stellplätze, direkt B31, Airbus-Nachbarschaft; Industriegebiet § 9 BauNVO prüfen (Immowelt)"
+    ],
+    [
+     "„Altes Schmelzwerk“, Teilfläche",
+     "Friedrichshafen, Colsmanstr. 25",
+     "2.000 von 13.000",
+     "auf Anfrage",
+     "k. A.",
+     "Vermieter sucht Sport-/Fitnessbetreiber; Stadtlage FN; Umbauzustand und Fertigstellung klären (Immowelt)"
+    ],
+    [
+     "Büro-/Lagerfläche ehem. Dr.-Kade-Areal",
+     "Konstanz, Opelstr. 2",
+     "2.227",
+     "auf Anfrage",
+     "k. A.",
+     "Industriegebiet, zwei Ebenen (Kompromiss), sofort verfügbar, provisionsfrei (ImmobilienScout24)"
+    ],
+    [
+     "Industriehalle",
+     "Radolfzell",
+     "1.600",
+     "7,56",
+     "k. A.",
+     "Unter Planmiete, B33/B34; Deckenhöhe klären (Immowelt)"
+    ],
+    [
+     "Lagerhalle, drei Einheiten",
+     "Radolfzell",
+     "1.676",
+     "auf Anfrage",
+     "k. A.",
+     "Mehrere Zufahrten, teilbar (Immowelt)"
+    ],
+    [
+     "Lagerhalle Gewerbeliegenschaft",
+     "Kressbronn",
+     "1.770",
+     "auf Anfrage",
+     "k. A.",
+     "Miete oder Kauf, B31 zwischen FN und Lindau (Immowelt)"
+    ],
+    [
+     "Halle 2 mit Sheddach",
+     "Neukirch, Schulstr. 27",
+     "2.400",
+     "4,50",
+     "k. A. (Sheddach)",
+     "Sehr günstig, aber Randlage ca. 20 min zu FN, schwaches Einzugsgebiet (Immowelt)"
+    ],
+    [
+     "THE PLANT Campus, Spezialgewerbe",
+     "Konstanz, Byk-Gulden-Str. 2a",
+     "3.000",
+     "auf Anfrage",
+     "k. A.",
+     "Obergrenze Fläche, gesicherter Campus, Publikumsverkehr klären (ImmobilienScout24)"
+    ],
+    [
+     "Produktions-/Büroimmobilie Oberer Riedweg",
+     "Bad Waldsee",
+     "2.124",
+     "6,21",
+     "k. A.",
+     "Hochwertig, auch Kauf; außerhalb Bodensee-Einzugsgebiet (Immowelt)"
+    ],
+    [
+     "Lagerhalle Gewerbegebiet Trauben",
+     "Weingarten",
+     "1.579",
+     "4,62",
+     "k. A.",
+     "B30, Schussental (RV/Weingarten ca. 60.000 Ew.); knapp unter Zielgröße (Immowelt)"
+    ],
+    [
+     "Industriepark 200, Halle",
+     "Gottmadingen",
+     "1.566",
+     "4,50",
+     "6,00 (lt. Parallel-Exposé)",
+     "Hegau/A81, Industriepark ohne Laufkundschaft; knapp unter Zielgröße (ImmobilienScout24)"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; Immowelt/ImmobilienScout24-Suchseiten, Stand 26.09.2026); alle Werte aus Snippets, vor Ort zu verifizieren.",
+   "breiten": [
+    22,
+    16,
+    10,
+    10,
+    10,
+    32
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.7: Immobilien-Shortlist Region Stuttgart (Angebote 09/2026)",
+   "spalten": [
+    "Objekt",
+    "Ort",
+    "Fläche m²",
+    "Miete €/m²",
+    "Deckenhöhe",
+    "Bemerkung (Portal)"
+   ],
+   "zeilen": [
+    [
+     "Unternehmensimmobilie, Rampe + ebenerdiges Tor",
+     "Neuhausen auf den Fildern",
+     "1.606",
+     "auf Anfrage",
+     "6,00 m",
+     "Modernisiert, sofort verfügbar, Nähe Flughafen/Messe/A8; Bewertung „sehr gut“; Parkplätze und Gebietstyp prüfen (Immowelt)"
+    ],
+    [
+     "Gewerbehalle",
+     "Stuttgart-Feuerbach",
+     "2.000",
+     "auf Anfrage",
+     "9,00 m",
+     "HYROX-taugliche Höhe, provisionsfrei, Bosch-Umfeld; Hebesatz 430 % (Immowelt)"
+    ],
+    [
+     "Halle + Büro",
+     "Esslingen-Zell",
+     "1.992 (1.816 + 211)",
+     "auf Anfrage",
+     "7,50 m",
+     "Krananlagen, sofort verfügbar (Immowelt)"
+    ],
+    [
+     "Moderne Lagerhalle, teilbar ab 1.296 m²",
+     "Böblingen",
+     "2.765",
+     "auf Anfrage",
+     "k. A.",
+     "Kern-Einzugsgebiet BB/SIFI, Büro-/Sozialflächen vorhanden (Immowelt)"
+    ],
+    [
+     "Halle Maybachstraße 5/1, teilbar ab 860 m²",
+     "Leonberg",
+     "2.315",
+     "6,50",
+     "k. A.",
+     "Unter Planmiete, provisionsfrei, Bus/S-Bahn (ImmobilienScout24)"
+    ],
+    [
+     "Lagerhalle",
+     "Herrenberg-Gültstein",
+     "2.060",
+     "6,50",
+     "k. A.",
+     "Unter Planmiete; Höhe/Ebenerdigkeit unbekannt (Immowelt)"
+    ],
+    [
+     "Lagerhalle",
+     "Holzgerlingen",
+     "2.000",
+     "auf Anfrage",
+     "k. A.",
+     "Schönbuch/Böblingen-Süd, keine Detailangaben (Immowelt)"
+    ],
+    [
+     "Lagerhalle",
+     "Renningen",
+     "1.923",
+     "auf Anfrage",
+     "k. A.",
+     "S-Bahn S6, A8/A81-Nähe (Immowelt)"
+    ],
+    [
+     "Halle",
+     "Renningen",
+     "2.520",
+     "auf Anfrage",
+     "k. A.",
+     "Größe passt knapp, Details unbekannt (ImmobilienScout24)"
+    ],
+    [
+     "Halle, provisionsfrei",
+     "Herrenberg",
+     "2.675",
+     "auf Anfrage",
+     "k. A.",
+     "Etwas über Bedarf, Teilbarkeit prüfen; S-Bahn S1, A81 (ImmobilienScout24)"
+    ],
+    [
+     "Produktions-/Lagerhalle (Realogis)",
+     "Esslingen am Neckar",
+     "1.650",
+     "auf Anfrage",
+     "k. A.",
+     "Funktional, vielseitig nutzbar (Immowelt)"
+    ],
+    [
+     "Lagerhalle",
+     "Sachsenheim",
+     "1.600",
+     "auf Anfrage",
+     "k. A.",
+     "LK Ludwigsburg, Randlage (Immowelt)"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; Immowelt/ImmobilienScout24-Suchseiten, Stand 26.09.2026); Referenzen: Ludwigsburg-West 1.476 m² zu 8,49 €/m², Bietigheim-Bissingen Bestandsstudio 1.146 m² zu 9,23 €/m².",
+   "breiten": [
+    22,
+    16,
+    10,
+    10,
+    10,
+    32
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch ist für die zwei bis drei favorisierten Objekte je ein Exposé mit Grundriss, Deckenhöhe, Stellplatzzahl, Bebauungsplan-Auszug (Gebietstyp) und Mietangebot des Eigentümers einzuholen und dem Anhang beizufügen. Ein unterzeichneter Letter of Intent oder ein Mietvertragsentwurf mit aufschiebender Bedingung (Baugenehmigung, Finanzierungszusage) wird von Banken und Bürgschaftsbank regelmäßig als Voraussetzung für die Kreditentscheidung verlangt."
+  },
+  {
+   "typ": "h2",
+   "text": "5.5 Mietvertragsziele"
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Kaltmiete",
+     "8,50 €/m² = 16.791 €/Monat netto"
+    ],
+    [
+     "Betriebskosten + Energie/Wasser",
+     "6,00 €/m² = 11.852 €/Monat netto"
+    ],
+    [
+     "Laufzeit",
+     "10 Jahre + Verlängerungsoption"
+    ],
+    [
+     "Mietfreie Zeit",
+     "3 Monate während des Ausbaus"
+    ],
+    [
+     "Indexierung",
+     "2,0 % p. a."
+    ],
+    [
+     "Kaution",
+     "3 Monatsmieten = 85.930 €"
+    ]
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Finanzmodell unterstellt für 1.975,40 m² Bruttofläche eine Kaltmiete von 8,50 €/m² (16.791 € netto je Monat, 201.491 € im ersten Jahr) zuzüglich 2,00 €/m² Betriebskosten und 4,00 €/m² Energie und Wasser (zusammen 11.852 € je Monat), jeweils zuzüglich Umsatzsteuer bei Option des Vermieters. Die Kaution von drei Monatsmieten einschließlich Nebenkosten (85.930 €) ist im Investitionsplan enthalten und wird im Monat −5 (April 2027) fällig; die drei mietfreien Monate sind im Modell die Monate −5 bis −3 (April bis Juni 2027), Kaltmiete und Betriebskosten fallen ab Juli 2027 an, Energie und Wasser ab Eröffnung. Die Energieannahme von 4,00 €/m² liegt am oberen Rand der DSSV-Richtwerte (Betriebskosten 3,00–3,50 €/m², Strom ab 2,50 €/m² je Monat, abhängig von Saunen; dssv.de/kostenrichtwerte) und berücksichtigt Sauna, Dampfbad und 18 Duschen. Die Kaltmiete entspricht in Jahr 3 15,3 % des Planumsatzes von 1.368.522 € netto (Miete Jahr 3 indexiert 209.631 €); einschließlich Betriebskosten (47.410 €), Energie und Wasser (94.819 €) und Gebäudeinstandhaltung (7.902 €) betragen die Raumkosten in Jahr 3 359.761 € oder 26,3 % des Nettoumsatzes und liegen damit über dem DSSV-Richtwert von maximal 22 %, was auf den bewusst hohen Energieansatz und die großzügige Fläche je Mitglied zurückzuführen ist; die Einordnung in die gesamte Kostenstruktur erfolgt in Kapitel 10. Im ersten Planjahr betragen die Raumkosten 393.105 € und liegen damit über dem zweiten Jahr (355.651 €), weil das erste Planjahr die zwei Vorlaufmonate Juli und August 2027 mit Kaltmiete und Betriebskosten enthält, die nach den drei mietfreien Ausbaumonaten anfallen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.8: Verhandlungsziele Mietvertrag",
+   "spalten": [
+    "Regelung",
+    "Ziel",
+    "Begründung / Wirkung im Finanzmodell"
+   ],
+   "zeilen": [
+    [
+     "Laufzeit",
+     "10 Jahre fest, Option 2 × 5 Jahre",
+     "Ausbauinvestition 851.788 € netto wird über 10 Jahre abgeschrieben; Planungssicherheit für Bank"
+    ],
+    [
+     "Kaltmiete",
+     "max. 8,50 €/m², Bodensee Ziel darunter",
+     "Planannahme; jede 0,50 €/m² weniger spart 11.852 € je Jahr (berechnet 1.975,4 m² × 0,50 × 12)"
+    ],
+    [
+     "Mietfreie Zeit",
+     "3 Monate ab Übergabe (im Modell April–Juni 2027, Monate −5 bis −3)",
+     "Entlastung von 50.373 € Kaltmiete und 11.852 € Betriebskosten in der Vorlaufphase (3 × 16.791 € bzw. 3 × 3.951 €); Miete ab Juli 2027"
+    ],
+    [
+     "Indexierung",
+     "2,0 % p. a. fest oder Verbraucherpreisindex mit Schwelle",
+     "Beitragsanpassung No.1 ebenfalls 2,0 % p. a., im Modell ab Jahr 3 (Miete ab Jahr 2) – Miete und Erlöse laufen ab dem dritten Jahr parallel"
+    ],
+    [
+     "Kaution",
+     "3 Monatsmieten (85.930 €), alternativ Bankbürgschaft",
+     "Im Kapitalbedarf enthalten; Bürgschaft schont Liquidität"
+    ],
+    [
+     "Aufschiebende Bedingung",
+     "Wirksamkeit erst mit Baugenehmigung für die Nutzungsänderung und Finanzierungszusage",
+     "Kein Mietrisiko ohne Genehmigung; Bankanforderung"
+    ],
+    [
+     "Vermieterleistungen",
+     "Dach und Fach, Statik, Zufahrten, Stellplätze; Mitwirkung beim Bauantrag",
+     "Ausbaukosten Mieter beschränken sich auf Innenausbau, RLT, Sanitär"
+    ],
+    [
+     "Nutzungszweck",
+     "Fitness-, Gesundheits- und Wellnessstudio inkl. Gastronomie-Nebenleistungen, Öffnungszeiten 6–23 Uhr und Wochenende",
+     "Absicherung Premium-Konzept und Randzeiten"
+    ],
+    [
+     "Konkurrenzschutz",
+     "Kein weiteres Fitnessstudio auf dem Grundstück/Areal",
+     "Schutz der Investition bei Gewerbeparks (z. B. Immenstaad, Konstanz)"
+    ],
+    [
+     "Untervermietung",
+     "Erlaubnis für Physiotherapie/Personal-Training-Partner",
+     "Zusatzerlöse, Gesundheitsangebot"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Berechnungen eigene.",
+   "breiten": [
+    18,
+    34,
+    48
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "5.6 Nächste Schritte zur Standortsicherung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Eröffnung ist für den 1. September 2027 geplant; der Vorlauf im Finanzmodell beginnt fünf Monate zuvor im April 2027 mit Übergabe, Kaution und Planung, der Ausbau läuft von Mai bis August 2027. Rückwärts gerechnet muss die Baugenehmigung für die Nutzungsänderung spätestens im April 2027 vorliegen. Da für das Vorhaben als Sonderbau keine Genehmigungsfiktion gilt und die Verfahrensdauer in der Praxis drei bis sechs Monate beträgt (Planeco), ist der Bauantrag spätestens im Dezember 2026, besser im November 2026 einzureichen; der Mietvertrag mit aufschiebender Bedingung ist entsprechend im November 2026 zu unterzeichnen. Eine Bauvoranfrage im Oktober 2026 verkürzt die Vorprüfung. Verzögert sich die Genehmigung um mehr als zwei Monate, verschiebt sich die Eröffnung entsprechend; das Finanzmodell hält dafür die Anlaufreserve und den Kontokorrentrahmen vor (Kapitel 9 und 10). Die Objektbesichtigungen der Shortlist beginnen daher unmittelbar im Oktober 2026."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 5.9: Zeitplan Standortsicherung bis Eröffnung",
+   "spalten": [
+    "Zeitraum",
+    "Schritt",
+    "Ergebnis / Beteiligte"
+   ],
+   "zeilen": [
+    [
+     "Oktober 2026",
+     "Besichtigung der 5–6 bestplatzierten Objekte beider Regionen; Abfrage Bebauungsplan, Deckenhöhe, Stellplätze, Mietforderung; Bauvoranfrage beim Baurechtsamt",
+     "Bewertungsmatrix, 2–3 Favoriten; Gründer, Architekt"
+    ],
+    [
+     "Oktober–November 2026",
+     "Vorgespräch mit Baurechtsamt zu Nutzungsänderung, Stellplätzen, Brandschutz (Sonderbau-Status); Letter of Intent mit dem Eigentümer des Favoriten",
+     "Schriftliche Auskunft zur Genehmigungsfähigkeit; unterzeichneter LOI für Bank und Bürgschaftsbank"
+    ],
+    [
+     "November 2026",
+     "Mietvertrag mit aufschiebender Bedingung (Baugenehmigung, Finanzierung); Beauftragung Bauantrag; Bankgespräch mit Businessplan, LOI, Exposé",
+     "Vertragsunterzeichnung; Antrag KfW/L-Bank/Bürgschaftsbank über Hausbank; GmbH-Gründung ab Januar 2027 (Kapitel 7.8, Tabelle 8.1)"
+    ],
+    [
+     "Dezember 2026",
+     "Einreichung Bauantrag Nutzungsänderung inkl. Brandschutz-, Stellplatz-, Schallschutznachweis",
+     "Vollständigkeitsprüfung 10 Arbeitstage (§ 54 Abs. 1 LBO); reguläres Verfahren, keine Genehmigungsfiktion"
+    ],
+    [
+     "Januar–März 2027",
+     "Genehmigungsverfahren (Regelfrist 2 Monate ab Vollständigkeit, Praxis 3–6 Monate); Finanzierungszusage unter Vorbehalt",
+     "Baugenehmigung, Darlehensverträge"
+    ],
+    [
+     "April 2027",
+     "Übergabe der Halle, Kaution, Einzahlung Eigenkapital und MBG-Beteiligung (KfW Mai, L-Bank Juni 2027), Vorbereitung des Vorverkaufs (Start Juni 2027, Kapitel 6.3)",
+     "Monat −5 im Finanzmodell; Beginn der mietfreien Zeit"
+    ],
+    [
+     "Mai–August 2027",
+     "Ausbau, Geräteanlieferung Monat −1, Personalaufbau; Kaltmiete und Betriebskosten ab Juli 2027",
+     "Monate −4 bis −1"
+    ],
+    [
+     "1. September 2027",
+     "Eröffnung mit 350 Vorverkaufsmitgliedern",
+     "Monat 1"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung, Rechercheprotokoll (Anhang I; Genehmigungsdauer, keine Fiktion für Sonderbauten), § 54 LBO BW.",
+   "breiten": [
+    18,
+    50,
+    32
+   ]
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Bei jeder Besichtigung prüfen: lichte Höhe unter Bindern und Trassen (≥ 4,00 m), Bodenbelastbarkeit für Kraftgeräte, Anschlussleistung Strom, Gas-/Wärmeversorgung für Sauna und Duschen, Abwasseranschluss, Rolltor für Anlieferung, Stellplätze, Lärmumfeld",
+    "Bebauungsplan-Auszug beim Bauamt anfordern; bei GI- oder SO-Gebiet frühzeitig Ausnahme oder Befreiung klären",
+    "Kostenschätzung des Ausbaus durch Architekt auf Basis des GymPlanner-Grundrisses gegen den Investitionsplan (Ausbau 851.788 €, Sanitär 39.800 €, Planung 106.991 €) verproben",
+    "Alternative Objekte bis zur Vertragsunterzeichnung parallel halten, um Verhandlungsspielraum bei Miete und mietfreier Zeit zu sichern"
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vom Gründer zu ergänzen: [Wohnort und Region der persönlichen Verankerung], [bereits geführte Gespräche mit Eigentümern oder Wirtschaftsförderung], [Ergebnis der Bauvoranfrage], [Exposés und LOI als Anlagen]. Alle Objektangaben in diesem Kapitel beruhen auf Portal-Snippets vom 26.09.2026 und sind vor dem Bankgespräch zu aktualisieren."
+  }
+ ],
+ "quellen": [
+  "GymPlanner – Datenauszug Projekt „No.1 (überarbeitet)“ (Rechercheprotokoll (Anhang I), Export 26.09.2026): Flächen, Kapazität, Regularienprüfung, Notausgänge, Stückliste",
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "Architektenkammer BW – Merkblatt Nr. 593: VwV Stellplätze (Anhang 1 Richtzahlen Kfz, Nr. 5.3 Fitnesscenter; Anhang 2 Fahrrad ohne Fitnesscenter-Richtzahl) – https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt593_VwV-Stellplaetze.pdf (01.09.2022)",
+  "§ 8 BauNVO Gewerbegebiete (Normtext) – https://www.juraforum.de/gesetze/baunvo/8-gewerbegebiete",
+  "§ 11 BauNVO Sonstige Sondergebiete (Normtext) – https://www.juraforum.de/gesetze/baunvo/11-sonstige-sondergebiete",
+  "§ 54 LBO BW Fristen im Genehmigungsverfahren – https://lxgesetze.de/lbo/54 (Stand 16.03.2026)",
+  "ARGE Baurecht – Das neue Gesetz für das schnellere Bauen (LBO-Reform 2025; Genehmigungsfiktion nur im vereinfachten Verfahren § 52 LBO) – https://arge-baurecht.com/baurecht-wissen/fachartikel/artikel/das-neue-gesetz-fuer-das-schnellere-bauen (29.07.2025)",
+  "Planeco Building – Nutzungsänderung Fitnessstudio (Praxisartikel) – https://www.planecobuilding.de/nutzungsaenderung/nutzungsaenderung-fitnessstudio (akt. 21.10.2025)",
+  "IHK Bodensee-Oberschwaben – Mietpreisspannen für Produktions- und Lagerhallen – https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/gewerbeflaechen-und-stadtentwicklung/mietpreisspannen-fuer-produktions-und-lagerhallen--4916024 (06/2025)",
+  "IHK Bodensee-Oberschwaben – Mietpreisspannen für Einzelhandelsflächen (1a-Lage) – https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/gewerbeflaechen-und-stadtentwicklung/mietpreisspannen-fuer-einzelhandelsflaechen-4916034 (06/2025)",
+  "Realogis – Marktbericht Logistikimmobilienmarkt Stuttgart Gesamtjahr 2025 – https://www.realogis.com/market-report/logistics/leasing/stuttgart-full-year/2025 (2025)",
+  "E&G Immobilien – Industrie- und Logistikmarkt 2025 Region Stuttgart (PDF) – https://www.eug-immobilien.de/assets/main/Berichte/INDUSTRIE-UND-LOGISTIKMARKT-STUTTGART/eug-marktbericht-industrielogistik-2025.pdf (2025)",
+  "Immowelt / ImmobilienScout24 – Suchseiten Hallen Bodensee und Region Stuttgart (Rechercheprotokoll (Anhang I), Recherche 26.09.2026, mit Exposé-URLs)",
+  "citypopulation.de – Kreise und Gemeinden Baden-Württemberg (StaLa, Fortschreibung 31.12.2025, Zensus 2022) – https://www.citypopulation.de/de/germany/badenwurttemberg/ (2026)",
+  "Statistisches Landesamt BW – Verfügbares Einkommen der privaten Haushalte 2015–2022 (Statistischer Bericht 416322001) – https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf (29.01.2025)",
+  "IHK Bodensee-Oberschwaben – Kaufkraft (MB Research, Prognose 2026) – https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404 (2026)",
+  "IHK Region Stuttgart – Einzelhandelskennziffern Landkreis Böblingen 2026 – https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/einzelhandelskennziffern-2025-landkreis-boeblingen-7117436 (2026)",
+  "WFB Bodenseekreis – Standortdaten (Einwohner, Beschäftigte, Pendler, Arbeitslosenquote) – https://www.wf-bodenseekreis.de/standort/standortdaten/ (2025/2026)",
+  "Pendleratlas – Friedrichshafen, Böblingen, Sindelfingen (Pendlerstatistik 2025) – https://pendleratlas.de/ (2025)",
+  "Wirtschaftsförderung Sindelfingen – Zahlen, Daten, Fakten – https://sindelfingen.org/standort-sindelfingen/zahlen-daten-fakten/ (2025)",
+  "DDW – Standortprofil Böblingen (HP, Reisser, Wörwag) – https://die-deutsche-wirtschaft.de/standort/boeblingen/ (06.03.2026)",
+  "auto.news – Am ZF-Standort Friedrichshafen wird kürzer gearbeitet – https://auto.news/artikel/am-zf-standort-in-friedrichshafen-wird-ab-mitte-mai-kuerzer-gearbeitet (09.05.2025)",
+  "Stuttgarter Zeitung – Rolls-Royce Power Systems meldet Rekordzahlen (6.300 Beschäftigte FN, drittes Werk Kluftern im Bau) – https://www.stuttgarter-zeitung.de/wirtschaft/rolls-royce-power-systems-eine-milliarde-gewinn-motorenbauer-aus-friedrichshafen-vermeldet-rekordzahlen-78924192.html (01.03.2026)",
+  "Schwäbische Zeitung – Airbus am Bodensee (rund 2.150 Beschäftigte und ca. 100 Auszubildende in Immenstaad) (08.09.2026)",
+  "Bosch – Standort Feuerbach (rund 14.000 Beschäftigte) – bosch.de",
+  "DSSV – Überblick der Kostenrichtwerte (Betriebskosten, Energie, Raumkosten) – https://www.dssv.de/kostenrichtwerte/ (2026)",
+  "DSSV – Eckdaten 2026 (Penetration 14,8 %) – https://www.dssv.de/eckdaten-2026/ (18.03.2026)",
+  "Gewerbesteuer-Hebesätze Friedrichshafen 350 %, Böblingen 380 %, Stuttgart 430 % – IHK-Hebesatzlisten 2026, stuttgart.de (Rechercheprotokoll (Anhang I))",
+  "Wettbewerber-Websites Bodensee und Region Stuttgart (Rechercheprotokoll (Anhang I), Stand 09/2026)"
+ ]
+}

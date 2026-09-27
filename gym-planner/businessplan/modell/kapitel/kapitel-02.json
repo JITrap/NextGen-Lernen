@@ -1,0 +1,470 @@
+{
+ "nummer": 2,
+ "titel": "Gründerperson und Team",
+ "bloecke": [
+  {
+   "typ": "h2",
+   "text": "2.1 Gründerprofil"
+  },
+  {
+   "typ": "absatz",
+   "text": "Gründer und alleiniger Gesellschafter-Geschäftsführer der zu gründenden No.1 Fitness GmbH (Arbeitstitel) ist [Name], geboren am [Geburtsdatum], wohnhaft in [Wohnort], Baden-Württemberg. Der Gründer ist zum Zeitpunkt der Antragstellung etwa 20 Jahre alt. Die persönlichen Angaben in diesem Abschnitt sind vor der Einreichung bei der Hausbank vollständig auszufüllen und durch die in Abschnitt 2.2 genannten Unterlagen zu belegen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 2.1: Gründerprofil (vom Gründer zu vervollständigen)",
+   "spalten": [
+    "Merkmal",
+    "Angabe"
+   ],
+   "zeilen": [
+    [
+     "Name, Geburtsdatum",
+     "[Name], [Geburtsdatum]"
+    ],
+    [
+     "Wohnort",
+     "[Wohnort, Landkreis]"
+    ],
+    [
+     "Familienstand, Unterhaltspflichten",
+     "[Familienstand]"
+    ],
+    [
+     "Schulabschluss",
+     "[Schulabschluss, Jahr]"
+    ],
+    [
+     "Berufsausbildung / Studium",
+     "[Ausbildung bzw. Studiengang, Abschluss, Jahr, ggf. laufend]"
+    ],
+    [
+     "Trainerlizenzen",
+     "[z. B. Fitnesstrainer B-Lizenz / A-Lizenz, Anbieter, Jahr; HYROX-Trainerzertifikat; Erste-Hilfe-Schein]"
+    ],
+    [
+     "Berufs- und Branchenerfahrung",
+     "[Tätigkeiten in Fitnessstudios, Vereinen, Nebenjobs; Zeitraum, Aufgaben, Verantwortung]"
+    ],
+    [
+     "Kaufmännische Kenntnisse",
+     "[Schulische/berufliche Nachweise, absolvierte Kurse, z. B. IHK-Gründerseminar]"
+    ],
+    [
+     "Eigener sportlicher Hintergrund",
+     "[Wettkampferfahrung, z. B. HYROX-Teilnahmen, Vereinssport]"
+    ],
+    [
+     "Eigenmittel",
+     "[Eigenmittel] (Planansatz: 150.000 € Bareinlage, siehe Kapitel 10)"
+    ]
+   ],
+   "quelle": "Quelle: Angaben des Gründers; Planansatz Eigenkapital laut Finanzmodell (Excel-Planrechnung).",
+   "breiten": [
+    35,
+    65
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "2.2 Motivation und Zielsetzung"
+  },
+  {
+   "typ": "absatz",
+   "text": "[Motivation des Gründers in eigenen Worten: Warum ein eigenes Studio, warum die Kombination aus betreutem Kraft- und Cardiotraining, HYROX-Zone und Wellness, warum die Bodenseeregion bzw. die Region Stuttgart, welche persönliche Beziehung zum Sport besteht und welche langfristigen Ziele verfolgt werden.]"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die unternehmerische Zielsetzung ist in diesem Plan eindeutig festgelegt: Aufbau eines inhabergeführten Studios mit rund 1.975 m² Bruttofläche, Erreichen von 2.200 Mitgliedern bis zum 29. Betriebsmonat und dauerhafter Betrieb mit einer Kapitaldienstdeckung von 2,12 im dritten und 1,61 im vierten Geschäftsjahr, nach einer Anlaufphase mit einer Kapitaldienstdeckung von 0,95 im zweiten Jahr (Basisszenario). Der Gründer trägt die Gesamtverantwortung als Geschäftsführer, wird die operative Leitung jedoch von Beginn an mit einer erfahrenen stellvertretenden Studioleitung teilen (Abschnitt 2.4)."
+  },
+  {
+   "typ": "h2",
+   "text": "2.3 Nachweise, die dem Plan beizulegen sind"
+  },
+  {
+   "typ": "absatz",
+   "text": "Kreditinstitute prüfen bei Gründungsfinanzierungen neben dem Zahlenteil die persönliche Eignung und die wirtschaftlichen Verhältnisse des Gründers. Die Sparkassen-Finanzgruppe nennt als Standardunterlagen den Businessplan, den Investitionsplan mit Angeboten, eine Vermögensaufstellung bzw. Selbstauskunft, eine Schufa-Auskunft, die Einkommensteuerbescheide der letzten zwei Jahre sowie Vertragsentwürfe (Miet- und Gesellschaftsvertrag) (Sparkasse Gründungsfinanzierung). Die IHK Stuttgart bezeichnet die Kapitaldienstfähigkeit als Kernstück jeder Kreditbeurteilung; die Gründerplattform weist darauf hin, dass ein Break-even nach mehr als einem Jahr eine belastbare Erklärung braucht (Quellen: Anhang I). Beides wird im Finanzplan (Kapitel 10) und in der Risikoanalyse (Kapitel 9) behandelt. Folgende Anlagen werden dem Plan beigefügt:"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 2.2: Checkliste persönliche Unterlagen für das Bankgespräch",
+   "spalten": [
+    "Unterlage",
+    "Zweck für die Bank",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Tabellarischer Lebenslauf mit Lichtbild",
+     "Werdegang, Lücken, Kontinuität",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Schul- und Ausbildungszeugnisse, ggf. Studiennachweise",
+     "Qualifikation",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Trainerlizenzen und Zertifikate (Kopien)",
+     "Fachliche Eignung",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Arbeitszeugnisse / Praktikumsbescheinigungen aus der Fitnessbranche",
+     "Branchenerfahrung",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Schufa-Auskunft (nicht älter als 3 Monate)",
+     "Bonität",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Vermögensaufstellung / Selbstauskunft der Hausbank",
+     "Eigenmittel, Sicherheiten, Verbindlichkeiten",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Einkommensteuerbescheide der letzten 2 Jahre",
+     "Einkommensverhältnisse",
+     "[liegt bei / fehlt; bei fehlender Veranlagung: Erklärung]"
+    ],
+    [
+     "Nachweis der Eigenmittel (Kontoauszüge, Sparverträge, Schenkungs-/Darlehenszusagen der Familie)",
+     "Herkunft und Verfügbarkeit des Eigenkapitals",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Entwurf Gesellschaftsvertrag GmbH",
+     "Rechtsform, Vertretung",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Entwurf Mietvertrag / Letter of Intent des Vermieters",
+     "Standort, Mietkonditionen 8,50 €/m²",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Stellungnahme IHK-Gründungsberatung (fachkundige Stellungnahme)",
+     "Plausibilität des Vorhabens",
+     "[liegt bei / fehlt]"
+    ],
+    [
+     "Absichtserklärung der stellvertretenden Studioleitung",
+     "Führungskompetenz im Team",
+     "[liegt bei / fehlt]"
+    ]
+   ],
+   "quelle": "Quelle: Sparkasse Gründungsfinanzierung; IHK Stuttgart Bankgespräch; Gründerplattform (Rechercheprotokoll (Anhang I)).",
+   "breiten": [
+    45,
+    35,
+    20
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu klären: Liegen für den Gründer bereits zwei Einkommensteuerbescheide vor? Falls nicht (z. B. wegen Ausbildung), ist dies offen zu benennen und durch eine Aufstellung der bisherigen Einkünfte zu ersetzen. Die Herkunft der Eigenmittel (eigene Ersparnisse, Familiendarlehen, Schenkung) muss belegbar sein; Familiendarlehen sollten mit Rangrücktritt versehen werden, damit sie als eigenkapitalähnlich gewertet werden können."
+  },
+  {
+   "typ": "h2",
+   "text": "2.4 Das junge Alter des Gründers als Risiko und die Antwort darauf"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Gründer ist rund 20 Jahre alt und verfügt naturgemäß nicht über mehrjährige Führungs- und Budgetverantwortung in einem Betrieb dieser Größe. Aus Sicht eines Kreditgebers ist das ein Bewertungsfaktor: Der geplante Kapitalbedarf von 2.652.583 € liegt deutlich über den Grenzen der klassischen Gründerprogramme (KfW ERP-Gründerkredit StartGeld mit 200.000 € Gesamtfremdfinanzierungsbedarf, L-Bank Startfinanzierung 80 mit maximal 250.000 € Gesamtkapitalbedarf je Unternehmer); das StartGeld wurde geprüft und wegen dieser Grenze nicht angesetzt (Kapitel 10). Zudem ein Unternehmen ohne Historie wird von den Förderbanken erfahrungsgemäß eher in die Preisklassen C bis E eingestuft; der Finanzplan rechnet mit Zinssätzen zwischen 6,4 % und 7,0 % und prüft in der Sensitivität einen Zinsanstieg um 1,5 Prozentpunkte (Quellen: Anhang I). Der Plan verschweigt dieses Risiko nicht, sondern beantwortet es mit konkreten, bereits im Finanzmodell hinterlegten Maßnahmen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 2.3: Risiko fehlender Erfahrung und Gegenmaßnahmen",
+   "spalten": [
+    "Risiko aus Sicht der Bank",
+    "Maßnahme",
+    "Verankerung im Plan"
+   ],
+   "zeilen": [
+    [
+     "Keine Führungserfahrung im Studiobetrieb",
+     "Erfahrene stellvertretende Studioleitung (Vollzeit, Trainer-A-Lizenz) mit mehrjähriger Branchenpraxis, Einstellung 2 Monate vor Eröffnung",
+     "Stellenplan: 3.600 € brutto/Monat ab Monat −2"
+    ],
+    [
+     "Kaufmännische Lücken (Buchhaltung, Steuern, Liquiditätssteuerung)",
+     "Steuerberater von der Gründung an, monatliche BWA und Liquiditätsplan, Lohnbuchhaltung extern",
+     "Beratung Gründung 5.000 €; laufend 1.000 €/Monat"
+    ],
+    [
+     "Fehlende Plausibilitätsprüfung durch Dritte",
+     "IHK-Gründungsberatung mit fachkundiger Stellungnahme; Prüfung des Finanzplans",
+     "Anlage zum Plan [zu beauftragen]"
+    ],
+    [
+     "Fehlendes Branchennetzwerk",
+     "Beirat/Mentor aus der Fitnessbranche (erfahrener Studiobetreiber oder Berater), quartalsweise Beiratssitzung",
+     "[Name, Funktion des Mentors zu ergänzen]"
+    ],
+    [
+     "Fachliche Weiterqualifikation",
+     "Weiterbildung bei DSSV/DHfPG (z. B. Studioleitung, Fitnessökonomie) vor und parallel zur Eröffnung",
+     "[Lehrgang, Beginn, Kosten zu ergänzen]"
+    ],
+    [
+     "Anlaufphase länger als geplant",
+     "Betriebsmittelreserve für 24 Monate statt der branchenüblich empfohlenen 6 bis 12 Monate Fixkosten",
+     "Reserve 740.000 € im Kapitalbedarf (Empfehlung GymAccess 6 bis 12 Monate)"
+    ],
+    [
+     "Ausfall des Gründers",
+     "Vertretungsregelung durch stellvertretende Studioleitung; Prokura oder Handlungsvollmacht; Risikolebens- und Berufsunfähigkeitsversicherung [zu prüfen]",
+     "Organisation (Kapitel 7)"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Annahmen Personal, Vorlauf, Finanzierung); Rechercheprotokoll (Anhang I).",
+   "breiten": [
+    30,
+    42,
+    28
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Gründer bringt umgekehrt Eigenschaften mit, die für das Konzept relevant sind: Er gehört selbst zur Kernzielgruppe des HYROX- und Krafttrainingsangebots, ist mit digitalen Vertriebs- und Trainingswerkzeugen (App, Online-Abschluss, Social Media) vertraut und plant einen langen unternehmerischen Zeithorizont, der zur 20-jährigen Laufzeit der Restfinanzierung passt. Die Planung des Studios wurde vollständig mit einer Planungssoftware (GymPlanner) durchgeführt, einschließlich Flächenbilanz, Kapazitätsprüfung, Fluchtwegen und einer Regularienprüfung mit 114 erfüllten und keinem nicht erfüllten Prüfpunkt (Quellen: Anhang I). Diese Vorarbeit ist Teil des Nachweises, dass der Gründer das Vorhaben strukturiert angeht."
+  },
+  {
+   "typ": "h2",
+   "text": "2.5 Team und externe Partner"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Studio wird nicht allein vom Gründer getragen. Der Stellenplan sieht ab Eröffnung 14 Beschäftigte vor, darunter vier Vollzeitkräfte; ab dem zweiten Jahr kommt ein weiterer Vollzeittrainer hinzu. Die Personalkosten belaufen sich im ersten Betriebsjahr auf durchschnittlich 28.533 € je Monat und im dritten Jahr auf 33.801 € je Monat (Arbeitgeberbrutto einschließlich Sozialabgaben von 21,3 % bzw. 31,17 % bei Minijobs). Die Gehaltsansätze orientieren sich an den Marktdaten 2026: Fitnesstrainer in Baden-Württemberg verdienen im Median 3.081 € brutto/Monat (GEHALT.de 2026); der gesetzliche Mindestlohn beträgt 13,90 € (2027: 14,60 €), die Minijob-Grenze 603 € (2027: 633 €) (Quellen: Anhang I). Der Minijob-Ansatz von 620 € liegt unter der ab 2027 geltenden Grenze von 633 €."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 2.4: Stellenplan (Bruttogehalt je Monat, ohne Arbeitgeberabgaben)",
+   "spalten": [
+    "Funktion",
+    "Anzahl",
+    "Umfang",
+    "Brutto/Monat",
+    "Beginn"
+   ],
+   "zeilen": [
+    [
+     "Geschäftsführung / Studioleitung (Gründer)",
+     "1",
+     "Vollzeit",
+     "3.500 €",
+     "3 Monate vor Eröffnung"
+    ],
+    [
+     "Stellv. Studioleitung / Trainer (Lizenz A)",
+     "1",
+     "Vollzeit",
+     "3.600 €",
+     "2 Monate vor Eröffnung"
+    ],
+    [
+     "Fitnesstrainer",
+     "2",
+     "Vollzeit",
+     "je 3.000 €",
+     "1 Monat vor Eröffnung"
+    ],
+    [
+     "Fitnesstrainer (zusätzlich)",
+     "1",
+     "Vollzeit",
+     "3.000 €",
+     "ab Monat 13"
+    ],
+    [
+     "Trainer / Kursleiter",
+     "2",
+     "Teilzeit 50 %",
+     "je 1.650 €",
+     "ab Eröffnung"
+    ],
+    [
+     "Empfang / Service",
+     "2",
+     "Teilzeit 50 %",
+     "je 1.550 €",
+     "ab Eröffnung"
+    ],
+    [
+     "Empfang Abend und Wochenende",
+     "4",
+     "Minijob",
+     "je 620 €",
+     "ab Eröffnung"
+    ],
+    [
+     "Reinigung Abend",
+     "2",
+     "Minijob",
+     "je 620 €",
+     "ab Eröffnung"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Gehaltssteigerung 2,5 % p. a. eingeplant).",
+   "breiten": [
+    38,
+    10,
+    16,
+    16,
+    20
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Der Planansatz von 3.600 € brutto für die stellvertretende Studioleitung liegt unter dem branchenübergreifenden Median für Studioleiter (5.379 € bundesweit, unteres Quartil 4.685 €, GEHALT.de 2026) und knapp über dem Median für Fitnesstrainer in Baden-Württemberg (3.081 €). Der Ansatz entspricht damit einer erfahrenen Trainerkraft mit Leitungsaufgaben, nicht einer klassischen Studioleitung. Die Bank wird dies hinterfragen; die Sensitivität „Personalkosten +10 %“ im Finanzmodell (EBITDA Jahr 3: 358.399 €, Kapitaldienstdeckung Jahr 3: 1,91) zeigt, dass ein höheres Gehalt tragbar wäre. Vor dem Bankgespräch sollte die Position idealerweise bereits mit einer konkreten Person besetzt sein, deren Lebenslauf beigelegt wird."
+  },
+  {
+   "typ": "absatz",
+   "text": "Externe Partner ergänzen das Team. Der Steuerberater übernimmt Finanzbuchhaltung, Lohnabrechnung, Umsatzsteuervoranmeldungen und Jahresabschluss; die Planung setzt hierfür 1.000 € je Monat an, was innerhalb der Marktspanne für die laufende GmbH-Buchhaltung von 600 bis 1.200 € je Monat liegt, zuzüglich Jahresabschluss (Steuerberater Beck 2026). Die Umsatzsteuer ist für das Vorhaben besonders relevant, weil aus der Investition 340.941 € Vorsteuer zwischenzufinanzieren sind und der Liquiditätsplan eine Spitze der Umsatzsteuer-Zwischenfinanzierung von 366.018 € ausweist; die Abstimmung mit dem Finanzamt über monatliche Voranmeldungen ist Aufgabe des Steuerberaters. Die IHK-Gründungsberatung begleitet den Plan bis zur fachkundigen Stellungnahme. Ein Beirat oder Mentor aus der Fitnessbranche [Name, Hintergrund] steht dem Gründer in der Anlaufphase beratend zur Seite; die Rolle ist unvergütet oder mit einer geringen Aufwandsentschädigung vorgesehen [zu vereinbaren]. Für die Studiosoftware, das Zutrittssystem, die Lüftungs- und Sanitärplanung sowie den Brandschutznachweis werden Fachplaner beauftragt; hierfür sind 106.991 € Planungskosten im Investitionsplan enthalten."
+  },
+  {
+   "typ": "h2",
+   "text": "2.6 Weiterbildung des Gründers"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Gründer wird seine Qualifikation vor und während der Anlaufphase gezielt ergänzen. Vorgesehen sind [Lehrgang bei DSSV bzw. DHfPG, z. B. Fachwirt/Studioleitung oder Fitnessökonomie, Beginn, Dauer, Kosten], das IHK-Gründerseminar sowie eine HYROX-Trainerzertifizierung [Anbieter, Termin]. Die Trainerlizenzen des Gründers sind [vorhanden: Lizenzstufe, Anbieter, Jahr / geplant bis: Datum]. Die Kosten der Weiterbildung werden aus dem Ansatz für Sonstiges (1.500 € je Monat) bzw. privat getragen [Zuordnung zu ergänzen]. Der DSSV-Kostenrichtwert für Beratung, Fortbildung und Sonstiges liegt bei 5 bis 6 % des Nettoumsatzes (DSSV Leitfaden Kostenmanagement 2022)."
+  },
+  {
+   "typ": "h2",
+   "text": "2.7 Private Lebenshaltung des Gründers"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Gründer bezieht als Geschäftsführer ein Gehalt von 3.500 € brutto je Monat, beginnend drei Monate vor Eröffnung. Als Gesellschafter-Geschäftsführer mit beherrschender Stellung ist er in der Regel nicht sozialversicherungspflichtig; Kranken-, Pflege- und Altersvorsorge sind privat bzw. freiwillig zu organisieren und im privaten Haushaltsplan zu berücksichtigen [vom Gründer zu prüfen, Statusfeststellung]. Im Finanzmodell sind auf das Geschäftsführergehalt gleichwohl 21,3 % Arbeitgeberabgaben angesetzt, die Personalkosten sind insoweit konservativ geplant. Das Gehalt ist bewusst unterhalb marktüblicher Studioleitergehälter angesetzt, damit die Anlaufphase nicht durch Privatentnahmen belastet wird; Gewinnausschüttungen sind in den fünf Planjahren nicht vorgesehen. Die Bank erwartet eine Gegenüberstellung von privatem Einkommen und Ausgaben:"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 2.5: Privater Finanzbedarf je Monat (vom Gründer auszufüllen)",
+   "spalten": [
+    "Position",
+    "Betrag je Monat"
+   ],
+   "zeilen": [
+    [
+     "Geschäftsführergehalt brutto (Plan)",
+     "3.500 €"
+    ],
+    [
+     "abzüglich Lohnsteuer, Solidaritätszuschlag, ggf. Kirchensteuer",
+     "[Betrag]"
+    ],
+    [
+     "abzüglich Kranken- und Pflegeversicherung (privat/freiwillig gesetzlich)",
+     "[Betrag]"
+    ],
+    [
+     "abzüglich Altersvorsorge",
+     "[Betrag]"
+    ],
+    [
+     "Verfügbares Nettoeinkommen",
+     "[Betrag]"
+    ],
+    [
+     "Miete/Wohnen inkl. Nebenkosten",
+     "[Betrag]"
+    ],
+    [
+     "Lebenshaltung (Ernährung, Kleidung, Mobilität, Kommunikation)",
+     "[Betrag]"
+    ],
+    [
+     "Versicherungen privat (Haftpflicht, ggf. Berufsunfähigkeit)",
+     "[Betrag]"
+    ],
+    [
+     "Bestehende private Kredite/Raten",
+     "[Betrag oder: keine]"
+    ],
+    [
+     "Rücklage",
+     "[Betrag]"
+    ],
+    [
+     "Überschuss / Unterdeckung",
+     "[Betrag]"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Gehaltsansatz); private Angaben des Gründers.",
+   "breiten": [
+    65,
+    35
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Der Gründungszuschuss der Bundesagentur für Arbeit setzt einen Restanspruch auf Arbeitslosengeld I von mindestens 150 Tagen voraus und steht einem etwa 20-jährigen Gründer ohne ALG-I-Anspruch in der Regel nicht zur Verfügung (Quellen: Anhang I). Er ist daher nicht eingeplant."
+  },
+  {
+   "typ": "h2",
+   "text": "2.8 Persönliche Haftung, Bürgschaft und Rechtsform"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Unternehmen wird als GmbH mit einem voll eingezahlten Stammkapital von 25.000 € gegründet (§ 7 Abs. 2 GmbHG; mindestens 12.500 € vor Anmeldung). Die Haftung der Gesellschaft ist damit auf das Gesellschaftsvermögen begrenzt. Für die Gründungsfinanzierung bedeutet das jedoch keine Haftungsfreiheit des Gründers: Die Bürgschaftsbank Baden-Württemberg verlangt in der Regel die persönliche Mitverpflichtung der Gesellschafter, die KfW verlangt beim ERP-Förderkredit Gründung und Nachfolge (077) die persönliche Haftung des Antragstellers als einzige Sicherheit (Quellen: Anhang I). Das KfW ERP-Gründerkredit StartGeld (067) wurde geprüft und nicht angesetzt, weil es nur bei einem Gesamtfremdfinanzierungsbedarf bis 200.000 € förderfähig ist; die Restfinanzierung erfolgt über die L-Bank Gründungsfinanzierung (GuW-BW) über die Hausbank mit 80 % Bürgschaft der Bürgschaftsbank Baden-Württemberg (Kapitel 10). Der Gründer erklärt sich bereit, für die Darlehen der GmbH eine selbstschuldnerische Bürgschaft in banküblicher Höhe zu übernehmen [Umfang mit der Hausbank abzustimmen]."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Eigenmittel bestehen aus 150.000 € Bareinlage des Gründers [Herkunft: eigene Ersparnisse / Familiendarlehen mit Rangrücktritt / Schenkung, zu belegen] sowie einer geplanten stillen Beteiligung der MBG Baden-Württemberg über 250.000 €, die als wirtschaftliches Eigenkapital gilt (Quellen: Anhang I). Zusammen ergibt das eine Eigenkapitalquote von 15,1 % des Kapitalbedarfs von 2.652.583 €. Die Sparkasse nennt 15 bis 20 % als Erwartung, das BMWK-Existenzgründungsportal empfiehlt möglichst nicht unter 20 % (Quellen: Anhang I). Die Quote liegt damit am unteren Rand des Bankrahmens; jede zusätzliche Eigenleistung (z. B. Familiendarlehen mit Rangrücktritt) verbessert die Verhandlungsposition und wird in Kapitel 10 als Handlungsoption dargestellt."
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Alter des Gründers",
+     "ca. 20 Jahre"
+    ],
+    [
+     "Rechtsform",
+     "GmbH, Stammkapital 25.000 €"
+    ],
+    [
+     "Eigenmittel Gründer",
+     "150.000 €"
+    ],
+    [
+     "Eigenkapitalähnlich (MBG)",
+     "250.000 €"
+    ],
+    [
+     "Eigenkapitalquote",
+     "15,1 %"
+    ],
+    [
+     "Beschäftigte ab Eröffnung",
+     "14 (ab Jahr 2: 15)"
+    ]
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu ergänzen: alle Platzhalter in den Tabellen 2.1, 2.2 und 2.5; Lebenslauf der stellvertretenden Studioleitung; Name und Hintergrund des Mentors/Beirats; Nachweis der Eigenmittelherkunft; Angebot des Steuerberaters; Bestätigung des Termins für die IHK-Gründungsberatung."
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "Sparkasse – Gründungsfinanzierung und Unterlagen für das Bankgespräch – https://www.sparkasse.de/fk/produkte/finanzierung/gruendungsfinanzierung.html (Stand 09/2026)",
+  "BMWK-Existenzgründungsportal – Finanzierung, Sicherheiten, Bürgschaften, Rating – https://www.existenzgruendungsportal.de/ (Stand 09/2026)",
+  "IHK Stuttgart – Bankgespräch erfolgreich führen (Kapitaldienstfähigkeit) – https://www.ihk.de/stuttgart/gruendung/finanzierung/finanzierungsquellen/kredite/bankgespraech-erfolgreich-fuehren-index-685364",
+  "Gründerplattform – Businessplan – https://gruenderplattform.de/businessplan",
+  "KfW – Merkblatt ERP-Gründerkredit StartGeld (067), Stand 18.06.2026 (geprüft, nicht angesetzt); Merkblatt ERP-Förderkredit Gründung und Nachfolge (077), Stand 10.12.2025",
+  "Bürgschaftsbank Baden-Württemberg – Standardprogramm, Preis- und Konditionenverzeichnis 05/2026 – https://bw.ermoeglicher.de/",
+  "MBG Baden-Württemberg – Stille Beteiligung Existenzgründung – https://mbg-bw.ermoeglicher.de/",
+  "L-Bank – Startfinanzierung 80 (Kapitalbedarfsgrenzen ab 01.12.2025) – https://www.l-bank.de/produkte/wirtschaftsfoerderung/startfinanzierung-80.html",
+  "Bundesagentur für Arbeit – Gründungszuschuss – https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld/gruendungszuschuss-beantragen",
+  "§ 7 GmbHG – https://www.gesetze-im-internet.de/gmbhg/__7.html",
+  "GEHALT.de 2026 – Fitnesstrainer/-in; Studioleiter/-in – https://www.gehalt.de/",
+  "Bundesregierung – Mindestlohn 2026/2027 (21.09.2026); Minijob-Zentrale – Minijob 2026 (09.12.2025)",
+  "Steuerberater Beck – GmbH Steuerberater Kosten 2026 – https://www.steuerberater-beck.de/gmbh-steuerberater-kosten/",
+  "DSSV / W.I.F.F. – Leitfaden Kostenmanagement (04/2022) – https://www.dssv.de/wp-content/uploads/2022/05/DSSV_Leitfaden_kostenmanagement_202204.pdf",
+  "GymAccess – Fitnessstudio eröffnen: Kosten, Businessplan und Guide (Liquiditätsreserve 6 bis 12 Monate) – https://gymaccess.de/blog/fitnessstudio-eroeffnen-kosten-guide (2026)"
+ ]
+}

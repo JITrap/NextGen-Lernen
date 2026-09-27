@@ -1,0 +1,1063 @@
+{
+ "nummer": 4,
+ "titel": "Markt und Wettbewerb",
+ "bloecke": [
+  {
+   "typ": "h2",
+   "text": "4.1 Fitnessmarkt Deutschland"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die deutsche Fitnesswirtschaft hat 2025 den höchsten Stand ihrer Geschichte erreicht. Zum Stichtag 31.12.2025 trainierten 12,36 Mio. Menschen als Mitglied in 9.647 Anlagen; der Nettoumsatz der Branche stieg um 7,4 % auf 6,25 Mrd. € (DSSV Eckdaten 2026). Die Penetrationsrate liegt bei 14,8 % der Gesamtbevölkerung und bei 21,9 % der 15- bis 65-Jährigen; unter Einrechnung von Firmenfitness-Aggregatoren (1,47 Mio. Mitgliederäquivalente, insgesamt 13,83 Mio. Trainierende) erreicht die Branche 16,5 % der Bevölkerung (DSSV Pressemitteilung Eckdaten 2026, PDF). Der durchschnittliche Monatsbeitrag beträgt 48,55 € brutto; die Spanne reicht von 40,54 € in Kettenanlagen über 59,24 € in Einzelanlagen bis 80,02 € in Special-Interest-Studios (DSSV Eckdaten 2026). Damit ist Fitness gemessen an der Mitgliederzahl die größte Sportart in Deutschland, mit 167.100 Beschäftigten und einem Investitionsvolumen von 798 Mio. € netto im Jahr 2025 (DSSV Eckdaten 2026)."
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Mitglieder 2025",
+     "12,36 Mio. (+5,6 %)"
+    ],
+    [
+     "Anlagen 2025",
+     "9.647"
+    ],
+    [
+     "Nettoumsatz 2025",
+     "6,25 Mrd. € (+7,4 %)"
+    ],
+    [
+     "Penetration gesamt / 15–65 J.",
+     "14,8 % / 21,9 %"
+    ],
+    [
+     "Ø Monatsbeitrag brutto",
+     "48,55 €"
+    ],
+    [
+     "Ø Mitglieder je Anlage (berechnet)",
+     "1.281"
+    ]
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Entwicklung seit 2018 zeigt ein strukturell wachsendes Geschäft mit einem einmaligen Einbruch durch die Corona-Schließungen 2020/2021. Erst 2024 lag die Mitgliederzahl mit 11,71 Mio. wieder über dem Vorkrisenniveau von 2019 (11,66 Mio.), 2025 wurde der Umsatz von 2019 um 13,4 % übertroffen (DSSV Eckdaten 2026, eigene Berechnung). Die Zahl der Anlagen ist seit 2019 praktisch unverändert (9.669 gegenüber 9.647, −0,2 %), das Wachstum findet also innerhalb bestehender Kapazitäten und über größere Anlagen statt. Für das Vorhaben bedeutet dies: Die Nachfrage wächst schneller als das Angebot an Anlagen, und die Beitragsentwicklung (43,35 € im Jahr 2018, 46,95 € im Jahr 2024, 48,55 € im Jahr 2025) belegt die Bereitschaft, für Qualität mehr zu zahlen (DSSV Eckdaten 2019/2025/2026)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.1: Entwicklung der deutschen Fitnesswirtschaft 2018–2025 (Stichtag jeweils 31.12.)",
+   "spalten": [
+    "Jahr",
+    "Mitglieder (Mio.)",
+    "Anlagen",
+    "Nettoumsatz (Mrd. €)",
+    "Penetration gesamt",
+    "Ø Beitrag brutto"
+   ],
+   "zeilen": [
+    [
+     "2018",
+     "11,09",
+     "9.343",
+     "5,33",
+     "13,4 %",
+     "43,35 €"
+    ],
+    [
+     "2019",
+     "11,66",
+     "9.669",
+     "5,51",
+     "14,0 %",
+     "k. A."
+    ],
+    [
+     "2020",
+     "10,31 *",
+     "9.538 *",
+     "4,16 *",
+     "12,4 %",
+     "k. A."
+    ],
+    [
+     "2021",
+     "9,26",
+     "9.492",
+     "2,20",
+     "11,1 %",
+     "k. A."
+    ],
+    [
+     "2022",
+     "10,30",
+     "9.149",
+     "4,90",
+     "12,4 %",
+     "k. A."
+    ],
+    [
+     "2023",
+     "11,30",
+     "9.111",
+     "5,44",
+     "k. A.",
+     "k. A."
+    ],
+    [
+     "2024",
+     "11,71",
+     "9.127",
+     "5,82",
+     "13,8 %",
+     "46,95 €"
+    ],
+    [
+     "2025",
+     "12,36",
+     "9.647",
+     "6,25",
+     "14,8 %",
+     "48,55 €"
+    ]
+   ],
+   "quelle": "Quelle: DSSV/Deloitte/DHfPG Eckdaten 2019–2026 (Pressemitteilungen, dssv.de; 2021/2022 via BODYMEDIA und fitness MANAGEMENT); * Werte 2020 nur aus Sekundärnennung, nicht verifiziert.",
+   "breiten": [
+    10,
+    17,
+    15,
+    20,
+    19,
+    19
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Markt gliedert sich in drei Betriebstypen. Ketten stellen mit 3.002 Anlagen 61,4 % aller Mitglieder und 50,7 % des Umsatzes; ihre Anlagenzahl wuchs 2025 um 12,6 % (DSSV Eckdaten 2026). Einzelanlagen bilden mit 4.202 Standorten weiterhin das zahlenmäßig größte Segment, erwirtschaften mit durchschnittlich 59,24 € einen um 46 % höheren Beitrag als Ketten und erzielen mit 616 € Nettoumsatz je Mitglied und Jahr deutlich mehr als Kettenanlagen mit 418 € (DSSV Eckdaten 2026, eigene Berechnung). No.1 ist als Einzelanlage mit Kettengröße konzipiert: Mit einer Zielgröße von 2.200 Mitgliedern liegt das Studio zwischen dem Durchschnitt einer Einzelanlage (1.023 Mitglieder) und dem einer Kettenanlage (2.528 Mitglieder), preislich mit einem Durchschnittsbeitrag von 50,15 € brutto zwischen Ketten- und Einzelanlagenniveau."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.2: Betriebstypen 2025 im Vergleich (Stichtag 31.12.2025)",
+   "spalten": [
+    "Betriebstyp",
+    "Mitglieder (Mio.)",
+    "Anlagen",
+    "Umsatz netto (Mrd. €)",
+    "Ø Beitrag brutto",
+    "Ø Mitglieder je Anlage"
+   ],
+   "zeilen": [
+    [
+     "Kettenanlagen",
+     "7,59 (61,4 %)",
+     "3.002",
+     "3,17 (50,7 %)",
+     "40,54 €",
+     "2.528"
+    ],
+    [
+     "Einzelanlagen",
+     "4,30 (34,8 %)",
+     "4.202",
+     "2,65 (42,4 %)",
+     "59,24 €",
+     "1.023"
+    ],
+    [
+     "Special Interest (EMS, Mikro, Boutique)",
+     "0,47 (3,8 %)",
+     "2.443",
+     "0,43 (6,9 %)",
+     "80,02 €",
+     "192"
+    ],
+    [
+     "Gesamt",
+     "12,36",
+     "9.647",
+     "6,25",
+     "48,55 €",
+     "1.281"
+    ],
+    [
+     "No.1 (Plan, Jahr 3)",
+     "2.200 Mitglieder",
+     "1",
+     "1,37 Mio. €",
+     "50,15 €",
+     "2.200"
+    ]
+   ],
+   "quelle": "Quelle: DSSV Eckdaten 2026 (dssv.de/eckdaten-2026); Mitglieder je Anlage eigene Berechnung; No.1: Excel-Planrechnung Basisszenario.",
+   "breiten": [
+    26,
+    16,
+    12,
+    18,
+    14,
+    14
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "4.2 Trends"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Angebotskonzeption von No.1 folgt den fünf Entwicklungen, die Branchenverbände und Trendstudien für 2026 übereinstimmend als prägend beschreiben. Krafttraining mit freien Gewichten steht in der deutschen Auswertung der ACSM-Fitnesstrends 2026 auf Platz 1, gefolgt von datengestützter Trainingstechnologie, Vereins- und Freizeitangeboten und Functional Training (BODYMEDIA, ACSM-Trends 2026). Die Betreiberbefragung des DSSV nennt Programme für Ältere, Krafttraining mit freien Gewichten, qualifizierte Fachkräfte, Functional Fitness und betriebliches Gesundheitsmanagement als Top 5 (DSSV Fitnesstrends 2024)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.3: Trend-Rankings 2026 und Umsetzung im Konzept No.1",
+   "spalten": [
+    "Rang",
+    "ACSM 2026 weltweit",
+    "ACSM 2026 Deutschland",
+    "DSSV-Betreiber 2024",
+    "Umsetzung No.1"
+   ],
+   "zeilen": [
+    [
+     "1",
+     "Wearables",
+     "Klassisches Krafttraining",
+     "Programme für Ältere",
+     "Kraftbereich 476 m² Maschinen + 184 m² Freihantel"
+    ],
+    [
+     "2",
+     "Programme für Ältere",
+     "Datengestützte Trainingstechnologie",
+     "Krafttraining freie Gewichte",
+     "5 Racks, 52 Kraftmaschinen (Quellen: Anhang I)"
+    ],
+    [
+     "3",
+     "Gewichtsreduktion",
+     "Freizeit-/Vereinsangebote",
+     "Qualifizierte Fachkräfte",
+     "Trainer mit Lizenz, Kursraum 149 m²"
+    ],
+    [
+     "4",
+     "Trainings-Apps",
+     "Functional Training",
+     "Functional Fitness",
+     "HYROX-Zone 170 m² + Functional 88 m²"
+    ],
+    [
+     "5",
+     "Balance/Flow/Core",
+     "–",
+     "BGM/BGF",
+     "Firmenfitness, Aggregator-Anbindung"
+    ]
+   ],
+   "quelle": "Quelle: DHfPG (ACSM-Trends 2026 weltweit, 27.10.2025); BODYMEDIA (ACSM Deutschland-Ranking, 01.02.2026); DSSV Fitnesstrends 2024; Flächen aus Rechercheprotokoll (Anhang I).",
+   "breiten": [
+    8,
+    22,
+    24,
+    22,
+    24
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "HYROX und Functional Training: Das 2017 in Hamburg gegründete Wettkampfformat HYROX zählte 2025 rund 900.000 Athleten (2024: über 650.000) bei etwa 100 Rennen und über 400 Eventtagen weltweit; rund 15.000 Partnerstudios, davon etwa 1.300 im deutschsprachigen Raum, nutzen das Format zur Erschließung neuer Zielgruppen und zur Mitgliederbindung (BODYMEDIA 29.05.2026, fitness MANAGEMENT 01/2026). In der Saison 2025/26 wurden über 1,5 Mio. Teilnahmen gezählt, für 2026/27 strebt der Veranstalter mehr als 2 Mio. an (endurance.biz 20.07.2026). Eine belastbare Zahl der Starter in Deutschland liegt nicht vor. Im Einzugsgebiet Bodensee bewirbt bislang nur ai fitness Friedrichshafen ein HYROX-Setup, in Konstanz ist der Fitness Bunker offizieller HYROX Training Club; in der Region Stuttgart bieten urban health club Ludwigsburg und die 2026 eröffnete JONNY M. Arena Böblingen HYROX-Training an (Quellen: Anhang I). Eine dedizierte HYROX-Zone von 169,88 m² in einem Vollsortiment-Studio ist in beiden Regionen ein Alleinstellungsmerkmal."
+  },
+  {
+   "typ": "absatz",
+   "text": "Wellness: Ein belastbarer Branchenanteil von Anlagen mit Sauna ist öffentlich nicht verfügbar (nur DSSV-Vollstudie). Die Wettbewerbserhebung zeigt jedoch, dass rund zwei Drittel der erfassten Studios in beiden Regionen eine Sauna anbieten und die Premiumstufe regionaler Anbieter (Happy Fit, GYM-24, INJOY Komfort) regelmäßig über Wellness definiert wird (INJOY Mitgliedschaft). Premium-Clubs erzielen mit Wellness- und Beauty-Anwendungen bis zu 10 % ihres Gesamtumsatzes; ein Wellness-Upgrade von 30 €/Monat brachte im Beispiel Elixia Hamburg 900 Verträge in 24 Monaten (fitness MANAGEMENT 05/2020, BODYMEDIA 2020). No.1 nutzt Sauna, Dampfbad und Cold Plunge als Kern des Premium-Tarifs (59,90 €)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Digitalisierung und Aggregatoren: 24,0 % aller Vertragsabschlüsse erfolgten 2024 online, nach 14,0 % im Vorjahr (DSSV Eckdaten 2025). Firmenfitness-Aggregatoren wie Wellpass oder Urban Sports Club vermittelten 2025 1,47 Mio. Mitgliederäquivalente (+21,5 %) an 52.300 Partnerstandorte; 76,1 % aller Anlagen sind angebunden (DSSV Eckdaten 2026, Deloitte 2026). Eine Studiosoftware mit Online-Abschluss, App und Zutrittssystem sowie die Anbindung an mindestens einen Aggregator sind daher Standard und im Investitions- und Kostenplan berücksichtigt."
+  },
+  {
+   "typ": "absatz",
+   "text": "Gesundheit und Demografie: 41,1 % der Anlagen positionieren sich als Gesundheitsanbieter, 43,3 % bieten betriebliches Gesundheitsmanagement an (DSSV Eckdaten 2025). Nur 8,4 % der über 60-Jährigen sind Mitglied, gegenüber über 22 % bei den 40- bis 50-Jährigen (DSSV Fitnesstrends 2024); bereits 2019 waren 1,43 Mio. Mitglieder älter als 60 Jahre, mit steigender Tendenz (DHfPG 2020). Das Durchschnittsalter der Mitglieder liegt bei 40,5 Jahren, der Frauenanteil bei 53,3 % (DSSV Eckdaten 2022). Im Bodenseekreis liegt das Durchschnittsalter der Bevölkerung mit 45,7 Jahren über dem Bundesschnitt (WFB Bodenseekreis) – ein Argument für gerätegestütztes Krafttraining, Kurse und Wellness statt eines reinen Discount-Konzepts."
+  },
+  {
+   "typ": "h2",
+   "text": "4.3 Zielgruppen"
+  },
+  {
+   "typ": "absatz",
+   "text": "No.1 spricht mit drei Tarifen vier Kernzielgruppen an. Der Tarifmix des Finanzmodells (40 % Basic 44,90 €, 45 % Premium 59,90 €, 15 % Student/Azubi/Senior 34,90 €, jeweils brutto) ergibt einen Durchschnittsbeitrag von 50,15 € brutto je Mitglied und Monat. Die Sportbeteiligung ist hoch: 88 % der Erwachsenen interagieren aktiv oder passiv mit Sport (EY Sports Engagement Index 2025); EU-weit treiben 38 % mehrmals pro Woche Sport, der Anteil der Nicht-Sportler sank von 45 % (2022) auf 39 % (Eurobarometer 2026). Als wichtigste Hemmnisse nennen die Befragten Zeitmangel (37 %), fehlende Motivation (26 %) und Kosten (12 %) (Eurobarometer 2026) – lange Öffnungszeiten, betreutes Training und ein Studententarif adressieren genau diese Punkte."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.4: Zielgruppen, Belege und Tarifzuordnung",
+   "spalten": [
+    "Zielgruppe",
+    "Kennzahl / Beleg",
+    "Bedürfnis",
+    "Angebot / Tarif No.1"
+   ],
+   "zeilen": [
+    [
+     "Berufstätige 30–49 J.",
+     "Ø Alter Mitglieder 40,5 J.; 40–49 J. 23,6 %, 30–39 J. 21,7 % der Mitglieder (DSSV 2022 / CoGAP 2014)",
+     "Effizientes Training, Wellness, Randzeiten",
+     "Premium 59,90 € (Wellness, HYROX); Öffnung früh/spät"
+    ],
+    [
+     "Pendler / Beschäftigte großer Arbeitgeber",
+     "FN 23.056 Einpendler, Tagbevölkerung 74.376; Böblingen 36.582 und Sindelfingen 45.595 Einpendler (Pendleratlas 2025)",
+     "Training am Arbeitsort, Firmenfitness",
+     "Firmenfitness-Kooperationen, Aggregator-Anbindung (76,1 % der Anlagen)"
+    ],
+    [
+     "Junge Erwachsene / Studierende 18–29 J.",
+     "Bodenseekreis 22.334, LK Böblingen 41.835 Personen 20–29 J. (Zensus 2022); ca. 1.300 HYROX-Partnerstudios im deutschsprachigen Raum (BODYMEDIA 2026)",
+     "Kraft, Freihantel, HYROX, Preis",
+     "Student/Azubi 34,90 €; Basic 44,90 €"
+    ],
+    [
+     "Generation 50+ / Gesundheit",
+     "Nur 8,4 % der 60+ Mitglied vs. >22 % bei 40–50 J. (DSSV 2024); Ø Alter Bodenseekreis 45,7 J.",
+     "Betreuung, Gerätetraining, Kurse, Sauna",
+     "Senior 34,90 €; Premium mit Wellness; Kurse"
+    ],
+    [
+     "Frauen",
+     "Frauenanteil Mitglieder 53,3 % (DSSV 2022)",
+     "Kurse, Cardio, Wellness, Sicherheit",
+     "Kursraum 149 m², Cardio, Damen-Umkleide 44,9 m²"
+    ],
+    [
+     "Firmenkunden (BGM)",
+     "43,3 % der Anlagen mit BGM-Angebot (DSSV 2025); ZF ca. 10.000, RRPS 6.300, Airbus ca. 2.150 Beschäftigte in FN/Immenstaad; Mercedes >31.500 (Snippet), HP 4.000 in SIFI/BB",
+     "Gesundheitsangebote für Belegschaften",
+     "Firmenverträge, Präventionskurse, Wellpass/Hansefit"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; DSSV, CoGAP, Zensus 2022 via City Population, Pendleratlas 2025, WFB Bodenseekreis, DDW Standortprofil Böblingen); Tarife aus Excel-Planrechnung.",
+   "breiten": [
+    20,
+    34,
+    20,
+    26
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.5: Altersstruktur der Kernzielgruppen in den Vergleichskreisen (Zensus 2022, Personen)",
+   "spalten": [
+    "Altersgruppe",
+    "Bodenseekreis",
+    "LK Konstanz",
+    "LK Ravensburg",
+    "LK Böblingen",
+    "Stadt Stuttgart"
+   ],
+   "zeilen": [
+    [
+     "20–29 Jahre",
+     "22.334",
+     "38.332",
+     "34.015",
+     "41.835",
+     "93.184"
+    ],
+    [
+     "30–39 Jahre",
+     "27.165",
+     "36.114",
+     "36.487",
+     "53.238",
+     "100.162"
+    ],
+    [
+     "40–49 Jahre",
+     "26.057",
+     "32.533",
+     "34.093",
+     "50.190",
+     "80.077"
+    ],
+    [
+     "50–59 Jahre",
+     "34.353",
+     "44.175",
+     "44.650",
+     "59.894",
+     "82.529"
+    ],
+    [
+     "Anteil 18–64 J. (2025)",
+     "58,2 %",
+     "60,7 %",
+     "60,1 %",
+     "60,3 %",
+     "65,7 %"
+    ]
+   ],
+   "quelle": "Quelle: Zensus 2022 und Fortschreibung 31.12.2025, Statistische Landesämter via citypopulation.de (Rechercheprotokoll (Anhang I)).",
+   "breiten": [
+    22,
+    15,
+    15,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vom Gründer zu ergänzen: [Studierendenzahlen der Hochschulen im Einzugsgebiet], [Liste angesprochener Firmenkunden mit Beschäftigtenzahl und Gesprächsstand], [Ergebnisse einer eigenen Interessentenbefragung oder Vorverkaufs-Warteliste]. Diese Angaben sind in den Rechercheunterlagen nicht enthalten und stärken den Nachfragenachweis gegenüber der Bank erheblich."
+  },
+  {
+   "typ": "h2",
+   "text": "4.4 Nachfrage im Einzugsgebiet"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das relevante Einzugsgebiet eines Fitnessstudios dieser Größe wird mit 15 Fahrminuten angesetzt. Für den bevorzugten Standortraum Friedrichshafen umfasst es elf Gemeinden mit 149.548 Einwohnern (Friedrichshafen 62.781, Tettnang 20.522, Markdorf 14.305, Meckenbeuren 13.717, Kressbronn 8.769, Langenargen 7.708, Immenstaad 6.434, Oberteuringen 5.056, Eriskirch 4.752, Bermatingen 4.116, Hagnau 1.388; Fortschreibung 31.12.2025, StaLa via City Population). Bei der bundesweiten Penetrationsrate von 14,8 % entspricht dies 22.133 Fitnessmitgliedern; auf Basis der 15- bis 65-Jährigen (21,9 % von rund 60 % der Bevölkerung) ergeben sich 19.651 Mitglieder (Quellen: Anhang I). Nicht enthalten sind Ravensburg und Weingarten (rund 60.000 Einwohner, 20–25 Fahrminuten) sowie die Tagbevölkerung von 74.376 Personen in Friedrichshafen, die das Potenzial über Firmenfitness erhöht (Pendleratlas 2025)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Für den Alternativraum Böblingen/Sindelfingen umfasst das Einzugsgebiet 14 Gemeinden mit 215.039 Einwohnern und damit 31.826 Fitnessmitglieder bei 14,8 % Penetration (28.256 auf Basis der 15- bis 65-Jährigen). Die Stuttgarter Stadtbezirke Vaihingen und Möhringen sowie Leonberg und Herrenberg sind bewusst nicht mitgezählt, obwohl sie real in 15 Minuten erreichbar sind; die Abgrenzung ist damit konservativ (Quellen: Anhang I). Beide Räume liegen bei der Kaufkraft deutlich über dem Bundesdurchschnitt: Der Bodenseekreis erreicht 2026 eine Kaufkraft von 36.069 € je Einwohner gegenüber 33.643 € in Baden-Württemberg und 32.009 € bundesweit (MB Research via IHK Bodensee-Oberschwaben); das verfügbare Einkommen je Einwohner lag 2022 im Bodenseekreis bei 29.440 € (Landesindex 107,3), in Stuttgart bei 29.202 € und im Landkreis Böblingen bei 28.319 € (StaLa BW 2025). Die einzelhandelsrelevante Kaufkraft im Landkreis Böblingen beträgt 2026 8.811 € je Einwohner (Index 107,6) (IHK Region Stuttgart 2026)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.6: Nachfragepotenzial im 15-Minuten-Einzugsgebiet",
+   "spalten": [
+    "Kennzahl",
+    "Raum Friedrichshafen",
+    "Raum Böblingen/Sindelfingen",
+    "Quelle"
+   ],
+   "zeilen": [
+    [
+     "Einwohner Einzugsgebiet (31.12.2025)",
+     "149.548",
+     "215.039",
+     "StaLa via City Population"
+    ],
+    [
+     "Fitnessmitglieder bei 14,8 % Penetration",
+     "22.133",
+     "31.826",
+     "DSSV 2026, eigene Berechnung"
+    ],
+    [
+     "Fitnessmitglieder bei 21,9 % der 15–65-J.",
+     "19.651",
+     "28.256",
+     "DSSV 2026, eigene Berechnung"
+    ],
+    [
+     "Einpendler Kernstadt (2025)",
+     "23.056 (FN)",
+     "36.582 (BB) + 45.595 (SIFI)",
+     "Pendleratlas 2025"
+    ],
+    [
+     "Tagbevölkerung Kernstadt",
+     "74.376 (FN)",
+     "71.199 (BB) + 92.891 (SIFI)",
+     "Pendleratlas 2025"
+    ],
+    [
+     "Kaufkraft je Einwohner",
+     "36.069 € (Bodenseekreis 2026)",
+     "EH-relevant 8.811 € (LK BB 2026, Index 107,6)",
+     "MB Research / IHK"
+    ],
+    [
+     "Verfügbares Einkommen je Ew. 2022",
+     "29.440 € (Index 107,3)",
+     "28.319 € (Index 103,2)",
+     "StaLa BW"
+    ],
+    [
+     "Erfasste Wettbewerber im Umkreis",
+     "20 (Bodenseeregion)",
+     "10 (Region Stuttgart)",
+     "Rechercheprotokoll (Anhang I)"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I); DSSV Eckdaten 2026; IHK Bodensee-Oberschwaben (MB Research 2026); IHK Region Stuttgart 2026; StaLa BW Statistischer Bericht 416322001.",
+   "breiten": [
+    32,
+    22,
+    26,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Marktanteilsrechnung: Die Zielgröße von 2.200 Mitgliedern (Kapazitätsgrenze laut Excel-Planrechnung, erreicht im Basisszenario in Monat 29) entspricht im Raum Friedrichshafen 9,9 % der rechnerisch vorhandenen Fitnessmitglieder (2.200 / 22.133) beziehungsweise 1,5 % der Einwohner des Einzugsgebiets (2.200 / 149.548). Im Raum Böblingen/Sindelfingen sind es 6,9 % der Fitnessmitglieder (2.200 / 31.826) beziehungsweise 1,0 % der Einwohner. Zum Vergleich: Eine durchschnittliche deutsche Anlage hat 1.281 Mitglieder, eine Kettenanlage 2.528 (DSSV 2026, berechnet). Mit 2.200 Mitgliedern auf 1.975 m² Bruttofläche erreicht No.1 1,11 Mitglieder je m² und liegt damit zwischen dem Wert einer typischen Einzelanlage (0,82) und dem einer Kettenanlage (1,59; beides Näherungen aus DSSV/CoGAP) und nahe dem Branchendurchschnitt von rund 1,0 Mitglied je m² (fitness MANAGEMENT 02/2019). Auch die Mitgliederzahl zum Ende des ersten Jahres (1.429, entspricht 6,5 %) und zum Ende des zweiten Jahres (2.053, entspricht 9,3 %) bleibt unter 10 % des Marktpotenzials im kleineren Einzugsgebiet."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.7: Marktanteil von No.1 bei Zielgröße 2.200 Mitgliedern",
+   "spalten": [
+    "Bezugsgröße",
+    "Raum Friedrichshafen",
+    "Raum Böblingen/Sindelfingen"
+   ],
+   "zeilen": [
+    [
+     "Fitnessmitglieder im Einzugsgebiet (14,8 %)",
+     "22.133",
+     "31.826"
+    ],
+    [
+     "Anteil No.1 bei 2.200 Mitgliedern",
+     "9,9 %",
+     "6,9 %"
+    ],
+    [
+     "Anteil an Einwohnern des Einzugsgebiets",
+     "1,5 %",
+     "1,0 %"
+    ],
+    [
+     "Anteil bei 1.429 Mitgliedern (Ende Jahr 1, Basis)",
+     "6,5 %",
+     "4,5 %"
+    ],
+    [
+     "Anteil bei 2.053 Mitgliedern (Ende Jahr 2, Basis)",
+     "9,3 %",
+     "6,5 %"
+    ],
+    [
+     "Anteil bei 1.332 Mitgliedern (Ende Jahr 2, pessimistisch)",
+     "6,0 %",
+     "4,2 %"
+    ]
+   ],
+   "quelle": "Quelle: eigene Berechnung aus Rechercheprotokoll (Anhang I; Einwohner, DSSV-Penetration 14,8 %) und Excel-Planrechnung (Mitgliederverlauf Szenarien).",
+   "breiten": [
+    44,
+    28,
+    28
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "4.5 Wettbewerb"
+  },
+  {
+   "typ": "absatz",
+   "text": "In der Bodenseeregion wurden 20 Studios in Friedrichshafen, Überlingen, Markdorf, Konstanz, Singen, Radolfzell, Ravensburg und Lindau erfasst, in der Region Stuttgart zehn Studios in Böblingen, Sindelfingen, Leonberg und Ludwigsburg (Stand 09/2026); Tabelle 4.8 ergänzt am Bodensee 8Black Fitness und Happy Fit Premium Konstanz aus der Preisrecherche (Quellen: Anhang I), sodass dort 22 Anbieter aufgeführt sind. Das Angebot ist dreigeteilt: Discount- und Kettenstudios (ai fitness, clever fit, MC Shape, XTRAFIT) mit 34,95 bis 49,95 €, regionale Standardstudios mit Sauna zwischen 39,90 und 49,95 € sowie regionale Premiumanbieter (Happy Fit, GYM-24, Sportwelt Leonberg) mit 49,90 bis 70 € (Quellen: Anhang I). Rund zwei Drittel der Studios bieten eine Sauna; ein ausgewiesenes HYROX-Angebot haben am Bodensee nur ai fitness Friedrichshafen und Fitness Bunker Konstanz, in der Region Stuttgart urban health club Ludwigsburg und JONNY M. Arena Böblingen (eröffnet 06/2026). Kein erfasstes Studio kombiniert HYROX-Zone, Vollsortiment-Kraftbereich und Wellness mit Dampfbad und Cold Plunge."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.8: Wettbewerber Bodenseeregion (Stand 09/2026)",
+   "spalten": [
+    "Studio",
+    "Ort",
+    "Kette / Einzel",
+    "Monatsbeitrag brutto",
+    "Sauna",
+    "HYROX"
+   ],
+   "zeilen": [
+    [
+     "all inclusive Fitness Flughafen",
+     "Friedrichshafen",
+     "Kette (ai fitness)",
+     "34,95 (23 Mon.) / 39,95 / 49,95 flex",
+     "ja",
+     "ja"
+    ],
+    [
+     "all inclusive Fitness Bodenseecenter",
+     "Friedrichshafen",
+     "Kette (ai fitness)",
+     "34,95–49,95",
+     "k. A.",
+     "nein"
+    ],
+    [
+     "Fitness Tempel",
+     "Friedrichshafen (+ Markdorf, Immenstaad)",
+     "Einzel, 3 Standorte",
+     "39,90 / 49,90 (24 Mon.) *",
+     "ja",
+     "nein"
+    ],
+    [
+     "8Black Fitness",
+     "Friedrichshafen / Ravensburg",
+     "Regionale Kette, 24/7",
+     "34,99 / 39,99 / 49,99 + 50 € Aufnahme",
+     "k. A.",
+     "nein"
+    ],
+    [
+     "clever fit",
+     "Überlingen",
+     "Kette (clever fit)",
+     "Kettentarif Ø 39,23 effektiv",
+     "k. A.",
+     "nein"
+    ],
+    [
+     "MC Shape",
+     "Überlingen",
+     "Kette (MC Shape)",
+     "39,90 / 49,90 (24 Mon.)",
+     "ja",
+     "nein"
+    ],
+    [
+     "ProSana Gesundheitszentrum",
+     "Überlingen",
+     "Einzel (Fitness + Physio)",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "fitness4you",
+     "Überlingen-Nussdorf",
+     "Einzel, 1.800 m²",
+     "ab 49 (12 Mon., Stand 2020)",
+     "ja",
+     "nein"
+    ],
+    [
+     "MC Shape",
+     "Markdorf",
+     "Kette (MC Shape)",
+     "39,90 / 49,90 (24 Mon.)",
+     "ja",
+     "nein"
+    ],
+    [
+     "BALANCE Fitness Club",
+     "Markdorf",
+     "Einzel",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "Happy Fit",
+     "Konstanz",
+     "Regionale Kette",
+     "55 (12 Mon.) / 60 flex; Studenten 40/45",
+     "ja",
+     "nein"
+    ],
+    [
+     "Happy Fit Premium",
+     "Konstanz",
+     "Regionale Kette, 2.500 m²",
+     "80 (24 Mon.) / 90 / 109 flex",
+     "ja",
+     "nein"
+    ],
+    [
+     "Fitness Bunker",
+     "Konstanz",
+     "Einzel (Functional)",
+     "k. A.",
+     "k. A.",
+     "ja"
+    ],
+    [
+     "Happy Fit",
+     "Singen",
+     "Regionale Kette",
+     "55 / 60 / 70 flex",
+     "ja",
+     "nein"
+    ],
+    [
+     "Happy Fit",
+     "Radolfzell",
+     "Regionale Kette",
+     "55 / 60 / 70 flex",
+     "ja",
+     "nein"
+    ],
+    [
+     "Fitness First",
+     "Ravensburg",
+     "Kette (Fitness First)",
+     "nicht ausgewiesen (Ø Kette 70,04 effektiv)",
+     "k. A.",
+     "nein"
+    ],
+    [
+     "radius",
+     "Ravensburg",
+     "Einzel, 600 m²",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "INJOY Gym & Swim",
+     "Ravensburg",
+     "Franchise (INJOY)",
+     "39,90 (24 Mon.) *",
+     "ja",
+     "nein"
+    ],
+    [
+     "all inclusive Fitness",
+     "Ravensburg",
+     "Kette (ai fitness)",
+     "34,95–49,95",
+     "ja",
+     "nein"
+    ],
+    [
+     "Fit & Fun Factory",
+     "Ravensburg / Weingarten",
+     "Regionale Kette, 1.000 m²",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "Aktivsportpark",
+     "Lindau",
+     "Einzel, 1.800 m²",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "FIT in Lindau-Bodolz",
+     "Lindau",
+     "Einzel",
+     "k. A.",
+     "ja",
+     "nein"
+    ]
+   ],
+   "quelle": "Quelle: Betreiber-Websites Stand 09/2026 (Rechercheprotokoll (Anhang I): 8Black, Happy Fit Premium); * nur Suchsnippet; Beiträge in € brutto je Monat.",
+   "breiten": [
+    22,
+    16,
+    18,
+    26,
+    8,
+    10
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.9: Wettbewerber Region Stuttgart (Stand 09/2026)",
+   "spalten": [
+    "Studio",
+    "Ort",
+    "Kette / Einzel",
+    "Monatsbeitrag brutto",
+    "Sauna",
+    "HYROX"
+   ],
+   "zeilen": [
+    [
+     "Fitness Express",
+     "Böblingen",
+     "Regionale Kette (6 Clubs), 2.500 m²",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "Fitness Express",
+     "Sindelfingen",
+     "Regionale Kette, 2.000 m²",
+     "k. A.",
+     "ja",
+     "nein"
+    ],
+    [
+     "XTRAFIT",
+     "Sindelfingen-Goldbach",
+     "Kette (XTRAFIT)",
+     "nicht ausgewiesen (2019: 29 €)",
+     "ja",
+     "nein"
+    ],
+    [
+     "GYM-24 Premium",
+     "Böblingen-Hulb",
+     "Regionale Kette (14 Clubs)",
+     "49,90 (24 Mon.) / 64,90 (1 Mon.) + 39,90 Aufnahme",
+     "ja",
+     "nein"
+    ],
+    [
+     "JONNY M. Arena (Padel & Fitness)",
+     "Böblingen",
+     "Regionale Kette, eröffnet 06/2026",
+     "k. A.",
+     "k. A.",
+     "ja"
+    ],
+    [
+     "clever fit",
+     "Leonberg",
+     "Kette (clever fit)",
+     "Kettentarif Ø 39,23 effektiv",
+     "ja",
+     "nein"
+    ],
+    [
+     "SPORTWELT Leonberg",
+     "Leonberg",
+     "Vereinsstudio, 1.600 m²",
+     "55 (24 Mon.) / 65 (12 Mon.); ermäßigt 35/45",
+     "ja",
+     "nein"
+    ],
+    [
+     "Studio Fitness",
+     "Leonberg",
+     "Regionale Kette (3 Standorte)",
+     "ab 9,99 €/Woche (ca. 43 €/Monat)",
+     "ja",
+     "nein"
+    ],
+    [
+     "urban health club",
+     "Ludwigsburg",
+     "Einzel (Premium/Boutique)",
+     "Flex-Pay, nicht ausgewiesen",
+     "ja",
+     "ja"
+    ],
+    [
+     "Fitness First",
+     "Ludwigsburg",
+     "Kette (Fitness First)",
+     "ab 47,23 effektiv (24 Mon.)",
+     "k. A.",
+     "nein"
+    ]
+   ],
+   "quelle": "Quelle: Betreiber-Websites Stand 09/2026, fair-for-fitness.de, FitRadar (Rechercheprotokoll (Anhang I)); Beiträge in € brutto je Monat.",
+   "breiten": [
+    22,
+    16,
+    20,
+    26,
+    8,
+    8
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Wettbewerbsdichte ist im Raum Überlingen/Markdorf mit sechs Studios auf rund 37.000 Einwohner hoch, in Friedrichshafen selbst (62.781 Einwohner, Tagbevölkerung 74.376) mit vier Anbietern dagegen vergleichsweise gering; ein Vollsortiment-Studio mit Premium-Wellness und über 1.900 m² Fläche fehlt dort (Quellen: Anhang I). Im Raum Böblingen/Sindelfingen treffen zwei große Regionalstudios (Fitness Express mit 2.000 bis 2.500 m²), ein Premium-Regionalanbieter (GYM-24) und ein neuer Padel-HYROX-Anbieter (JONNY M.) auf 215.039 Einwohner im Einzugsgebiet; die Nachfrage ist größer, der Wettbewerb um Premiumkunden jedoch ebenfalls. Auf Bundesebene ist mit einem weiteren Ausbau der Discountketten zu rechnen (Kettenanlagen +12,6 % im Jahr 2025, die zehn größten Ketten halten rund drei Viertel der Kettenmitglieder; DSSV 2026, Deloitte 2026). Das Konzept von No.1 vermeidet den direkten Preiswettbewerb mit diesen Anbietern."
+  },
+  {
+   "typ": "h2",
+   "text": "4.6 Positionierung"
+  },
+  {
+   "typ": "absatz",
+   "text": "No.1 positioniert sich als Premium-Vollsortiment-Studio im mittleren Preissegment: oberhalb der Discount- und Kettenanbieter (effektiv 31,42 € bei FitX, 35,65 € bei McFIT, 34,77 € bei EasyFitness, 39,23 € bei clever fit; fair-for-fitness 09/2026) und unterhalb der Premium- und Resortanbieter (Fitness First Ø 70,04 € effektiv, Kieser 69–89 € UVP, Happy Fit Premium Konstanz 80–109 €, Pfitzenmeier ca. 82–130 €, EMS-Studios Ø 107,41 €; fair-for-fitness, kieser.com, ems-training.de). Der Basic-Tarif (44,90 €) liegt auf dem Niveau der regionalen Standardstudios mit Sauna (39,90–49,95 €), der Premium-Tarif (59,90 €) entspricht dem Durchschnittsbeitrag deutscher Einzelanlagen (59,24 €) und liegt unter den regionalen Premiumanbietern Happy Fit (55–70 €) und GYM-24 (49,90–64,90 €) – bei deutlich größerem Leistungsumfang (DSSV 2026)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.10: Preissegmente und Einordnung der Tarife von No.1 (€ brutto je Monat)",
+   "spalten": [
+    "Segment",
+    "Beispiele (effektiv bzw. Listenpreis)",
+    "Spanne",
+    "No.1"
+   ],
+   "zeilen": [
+    [
+     "Discount-Ketten",
+     "FitX 31,42; EasyFitness 34,77; McFIT 35,65; clever fit 39,23; 8Black FN 34,99–49,99",
+     "31–40 €",
+     "–"
+    ],
+    [
+     "Standard mit Sauna (regional)",
+     "MC Shape 39,90–49,90; Fitness Tempel 39,90–49,90; ai fitness 34,95–49,95; Studio Fitness Leonberg ca. 43",
+     "39,90–49,95 €",
+     "Student/Azubi/Senior 34,90 €; Basic 44,90 €"
+    ],
+    [
+     "Regionale Premiumstudios",
+     "Happy Fit 55–70; GYM-24 49,90–64,90; Sportwelt Leonberg 55–65; Fitness First Ø 70,04; DSSV Einzelanlage Ø 59,24",
+     "49,90–70 €",
+     "Premium 59,90 € (Wellness, HYROX, Getränke-Flat)"
+    ],
+    [
+     "Premium-Resort / Special Interest",
+     "Happy Fit Premium KN 80–109; Pfitzenmeier 82–130; Kieser 69–89; EMS Ø 107,41",
+     "69–130 €",
+     "–"
+    ],
+    [
+     "Durchschnitt No.1 (Tarifmix)",
+     "40 % Basic, 45 % Premium, 15 % ermäßigt",
+     "–",
+     "50,15 € (Branche 48,55 €)"
+    ]
+   ],
+   "quelle": "Quelle: fair-for-fitness.de (27.09.2026), kieser.com, ems-training.de, Betreiber-Websites (Rechercheprotokoll (Anhang I)), DSSV Eckdaten 2026; Tarife No.1 aus Excel-Planrechnung.",
+   "breiten": [
+    22,
+    44,
+    14,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Differenzierung gegenüber dem Wettbewerb beruht auf vier Leistungsmerkmalen, die in dieser Kombination in keiner der beiden Regionen angeboten werden: erstens eine Trainingsfläche von 1.138,58 m² mit 52 Kraftmaschinen in vier Muskelgruppen-Zonen, 184 m² Freihantelbereich mit fünf Racks und 20 Cardiogeräten; zweitens eine feste HYROX-Zone von 169,88 m² mit SkiErg, Rudergeräten und Curved-Laufband für Wettkampfvorbereitung und Functional-Kurse; drittens ein Wellnessbereich mit finnischer Sauna, Dampfbad, Cold Plunge und Ruheraum; viertens ein Kursraum von 149 m² mit acht Indoor-Cycling-Rädern (Quellen: Anhang I). Die Kapazität von 126 gleichzeitig Trainierenden bei 9 m² je Person (Quellen: Anhang I) entspricht bei 2.200 Mitgliedern und einem Spitzenlastanteil von 5,5 % (121 Personen) einer ausreichenden Reserve zur Hauptzeit. Zusätzliche Erlöse aus Getränken, Wellness-Zusatzleistungen, Personal Training und Merchandise sind mit 6,20 € brutto je Mitglied und Monat angesetzt, im Rahmen des Branchenwerts von 9,2 % Nebenumsatzanteil (fitness MANAGEMENT 02/2019)."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Preisliche Einordnung für das Bankgespräch: Der Planbeitrag von 50,15 € brutto liegt 3,3 % über dem Branchendurchschnitt (48,55 €), aber 15,3 % unter dem Durchschnitt der Einzelanlagen (59,24 €), obwohl No.1 den Leistungsumfang einer Premium-Einzelanlage bietet. Die Sensitivitätsrechnung in Kapitel 10 zeigt, dass auch ein um 10 % niedrigeres Beitragsniveau den Kapitaldienst ab Jahr 3 noch deckt (DSCR Jahr 3: 1,53; Jahr 4: 1,17), das Jahresergebnis in Jahr 3 dann aber mit −74.793 € negativ ausfällt und der Liquiditätstiefpunkt auf 6.971 € sinkt."
+  },
+  {
+   "typ": "h2",
+   "text": "4.7 Fluktuation (Churn) und Einordnung der Planannahme"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die durchschnittliche Fluktuationsrate der Branche liegt bei 25 % pro Jahr, mit einer Spanne von 13 % in kleinen inhabergeführten Studios bis 40 % in Ketten (DSSV 2019, zitiert in Dissertation Kruse 2021). Vor Corona lagen Einzelstudios bei 21–25 % und Ketten bei 25–28 %; die besten 10 % der Studios erreichten 14,2 % oder besser (Bechler/DSSV-Eckdaten 2021). Im Corona-Jahr 2021 stieg die Quote auf 28,6 % (DSSV Eckdaten 2022). Im Eröffnungsjahr ist die Fluktuation mit 5–10 % erfahrungsgemäß niedrig, weil Erstverträge mit 12- oder 24-monatiger Laufzeit noch nicht kündbar sind (IN-COME 2020). Langfristig kündigen 84 % der Neumitglieder innerhalb von zwei Jahren; zwei Trainerkontakte pro Monat halbieren die Kündigungswahrscheinlichkeit (BODYMEDIA 2021, Pixformance 2018, IHRSA 2017)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Finanzmodell rechnet im Basisszenario mit einer Kündigungsquote von 2,2 % des Bestands je Monat. Bei monatlicher Verzinsung entspricht dies einem Verlust von 23,4 % des Jahresanfangsbestands pro Jahr (1 − 0,978 hoch 12), in einfacher Addition 26,4 %. Die Annahme liegt damit nahe dem Branchendurchschnitt von 25 % und innerhalb der Spanne für Einzelstudios (21–25 %), obwohl No.1 mit Vertragslaufzeiten, betreutem Training, Wellness und HYROX-Community auf Bindung ausgelegt ist. Die Planannahme ist also konservativ. Im pessimistischen Szenario werden 2,8 % je Monat (28,9 % p. a., Niveau des Corona-Jahres 2021) unterstellt, im optimistischen 1,8 % (19,6 % p. a.); die Sensitivität mit 3,0 % je Monat (30,6 % p. a.) ergibt in Jahr 3 noch einen DSCR von 1,57, jedoch ein Jahresergebnis von −68.514 € und 1.856 statt 2.053 Mitglieder zum Ende des zweiten Jahres. Bei Vollauslastung mit 2.200 Mitgliedern verlassen rechnerisch 48 Mitglieder je Monat das Studio, denen ab Jahr 4 geplante 75 Neuzugänge je Monat gegenüberstehen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 4.11: Churn-Benchmarks und Planannahmen",
+   "spalten": [
+    "Bezug",
+    "Fluktuation p. a.",
+    "Entspricht je Monat",
+    "Quelle / Einordnung"
+   ],
+   "zeilen": [
+    [
+     "Branche Ø (DSSV 2019)",
+     "25 %",
+     "ca. 2,4 %",
+     "Dissertation Kruse 2021 (DNB)"
+    ],
+    [
+     "Kleine Inhaberstudios bis Ketten",
+     "13 % bis 40 %",
+     "1,2 % bis 4,2 %",
+     "DSSV 2019"
+    ],
+    [
+     "Einzelstudios vor Corona",
+     "21–25 %",
+     "2,0–2,4 %",
+     "Bechler / DSSV-Eckdaten"
+    ],
+    [
+     "Ketten vor Corona",
+     "25–28 %",
+     "2,4–2,7 %",
+     "Bechler / DSSV-Eckdaten"
+    ],
+    [
+     "Branche 2021 (Corona)",
+     "28,6 %",
+     "2,8 %",
+     "DSSV Eckdaten 2022"
+    ],
+    [
+     "Eröffnungsjahr (Erfahrungswert)",
+     "5–10 %",
+     "0,4–0,9 %",
+     "IN-COME 2020"
+    ],
+    [
+     "No.1 Basis",
+     "23,4 % (kumuliert)",
+     "2,2 %",
+     "Excel-Planrechnung – Branchenniveau, konservativ"
+    ],
+    [
+     "No.1 pessimistisch",
+     "28,9 %",
+     "2,8 %",
+     "Excel-Planrechnung – Corona-Niveau"
+    ],
+    [
+     "No.1 optimistisch",
+     "19,6 %",
+     "1,8 %",
+     "Excel-Planrechnung"
+    ],
+    [
+     "Sensitivität",
+     "30,6 %",
+     "3,0 %",
+     "Excel-Planrechnung – DSCR Jahr 3 1,57, Jahresergebnis −68.514 €"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; DSSV, DNB-Dissertation 2021, Bechler 2021, BODYMEDIA 2022, IN-COME 2020); Umrechnung Monat/Jahr eigene Berechnung (Zinseszinsformel).",
+   "breiten": [
+    30,
+    20,
+    20,
+    30
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Zusammenfassend ist der Markt für ein Studio der geplanten Größe in beiden Regionen vorhanden: Das Ziel von 2.200 Mitgliedern entspricht 9,9 % (Friedrichshafen) beziehungsweise 6,9 % (Böblingen/Sindelfingen) der rechnerisch vorhandenen Fitnessmitglieder im 15-Minuten-Einzugsgebiet, die Kaufkraft liegt in beiden Räumen über dem Bundes- und Landesdurchschnitt, und der Leistungsmix aus Vollsortiment, HYROX-Zone und Wellness wird von keinem erfassten Wettbewerber in dieser Form angeboten. Die Preis- und Fluktuationsannahmen des Finanzmodells sind am Branchendurchschnitt ausgerichtet und enthalten keine über den Markt hinausgehenden Erwartungen."
+  }
+ ],
+ "quellen": [
+  "DSSV/Deloitte/DHfPG – Pressemitteilung „Eckdaten der deutschen Fitnesswirtschaft 2026“ (PDF) – https://www.dssv.de/wp-content/uploads/2026/03/03_18_pm_eckdaten.pdf (18.03.2026)",
+  "DSSV – Eckdaten 2026 (Webseite, Segmentzahlen) – https://www.dssv.de/eckdaten-2026/ (18.03.2026)",
+  "DSSV – Pressemitteilung „Eckdaten der deutschen Fitnesswirtschaft 2025“ (PDF) – https://www.dssv.de/wp-content/uploads/2025/03/pm_eckdaten_2025.pdf (26.03.2025)",
+  "DSSV – Eckdaten 2025 (Webseite) – https://www.dssv.de/eckdaten-2025/ (26.03.2025)",
+  "DSSV – Eckdaten der deutschen Fitnesswirtschaft 2024 – https://www.dssv.de/eckdatenstudie-2024/ (22.03.2024)",
+  "fitness MANAGEMENT – Eckdaten 2023: wieder über 10 Mio. Mitglieder – https://www.fitnessmanagement.de/eckdaten-deutsche-fitnesswirtschaft-2023-wachstum-dssv-deloitte-dhfpg/ (22.03.2023)",
+  "BODYMEDIA – DSSV-Eckdaten 2022 – https://www.bodymedia.de/themen/trends-specials/dssv-eckdaten-2022/ (31.05.2022)",
+  "DSSV – Pressemitteilung „Eckdaten der deutschen Fitness-Wirtschaft 2020“ (PDF) – https://www.dssv.de/wp-content/uploads/2021/08/Pressemitteilung_Eckdaten2020.pdf (11.03.2020)",
+  "fitnessmarkt.de – DSSV-Eckdatenstudie 2019 – https://www.fitnessmarkt.de/magazin/artikel/dssv-eckdatenstudie-2019-die-fitnessbranche-waechst-und-waechst- (2019)",
+  "fitness MANAGEMENT – 30 Jahre Eckdaten-Studie (Strukturwandel), fMi 02/2019 – https://www.fitnessmanagement.de/strukturwandel-der-branche/ (19.03.2019)",
+  "CoGAP – Eckdaten der deutschen Fitness-Wirtschaft (Bezugsjahr 2014) – https://www.cogap.de/de/wissen/177/eckdaten-der-deutschen-fitness-wirtschaft (27.02.2022)",
+  "Deloitte – Deutscher Fitnessmarkt wächst trotz schwächelnder Wirtschaft – https://www.deloitte.com/de/de/about/press-room/deutscher-fitnessmarkt-waechst-trotz-schwaechelnder-wirtschaft.html (16.04.2026)",
+  "fitness MANAGEMENT – Challenge accepted: HYROX treibt Wachstum im Studiomarkt (fMi 01/2026) – https://www.fitnessmanagement.de/challenge-accepted-hyrox-fitnessstudio/ (01/2026)",
+  "BODYMEDIA – HYROX: Zahlen, Daten, Fakten (ca. 900.000 Athleten 2025, ca. 100 Races, 15.000 Partnerstudios, ca. 1.300 DACH) – https://www.bodymedia.de/themen/trends-specials/hyrox-zahlen-daten-fakten/ (29.05.2026)",
+  "endurance.biz – Targeting 2 million athletes: HYROX expands global calendar for 2026/27 season – https://endurance.biz/2026/industry-news/targeting-2-million-athletes-hyrox-expands-global-calendar-for-2026-27-season/ (20.07.2026)",
+  "BODYMEDIA – Die ACSM-Fitness-Trends für 2026 (Deutschland-Ranking) – https://www.bodymedia.de/themen/trends-specials/die-acsm-fitness-trends-fuer-2026/ (01.02.2026)",
+  "DHfPG – Fitnesstrends 2026: Wearables an der Spitze – https://www.dhfpg.de/newsroom/news/fitnesstrends-2026-wearables-an-der-spitze-top-10-weltweit (27.10.2025)",
+  "DSSV – Fitnesstrends 2024 (Betreiberbefragung) – https://www.dssv.de/fitnesstrends-2024/ (17.01.2024)",
+  "DHfPG – Immer mehr Menschen wollen im Alter fit bleiben (Eckdaten 2020) – https://www.dhfpg.de/newsroom/aktuelles/details/immer-mehr-menschen-wollen-im-alter-fit-bleiben (31.07.2020)",
+  "EY – Sports Engagement Index Germany 2025 – https://www.ey.com/de_de/newsroom/2025/09/ey-parthenon-sports-engagement-index-2025 (15.09.2025)",
+  "ad-hoc-news – Eurobarometer 2026: 38 % treiben mehrmals pro Woche Sport (EU-Werte) – https://www.ad-hoc-news.de/wissenschaft/eurobarometer-38-prozent-treiben-mehrmals-pro-woche-sport/70167187 (23.09.2026)",
+  "NIQ/GfK – Kaufkraft der Deutschen steigt 2026 um 5 % auf 31.193 Euro – https://nielseniq.com/global/de/news-center/2026/kaufkraft-der-deutschen-steigt-2026-um-5-prozent-auf-31193-euro/ (14.01.2026)",
+  "IHK Bodensee-Oberschwaben – Kaufkraft (MB Research, Prognose 2026) – https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404 (2026)",
+  "IHK Elbe-Weser – Kaufkraft und Einzelhandelszentralitäten 2026 (MB Research, Bundeswerte) – https://www.ihk.de/blueprint/servlet/resource/blob/1700492/092cbabb1dcce51e82d56666566b7cf9/kaufkraft-einzelhandelszentralitaet--data.pdf (04.05.2026)",
+  "IHK Region Stuttgart – Einzelhandelskennziffern Landkreis Böblingen 2026 – https://www.ihk.de/stuttgart/branchen/handel/zahlen-und-fakten/einzelhandelskennziffern-2025-landkreis-boeblingen-7117436 (2026)",
+  "Statistisches Landesamt BW – Verfügbares Einkommen der privaten Haushalte in den Stadt- und Landkreisen 2015–2022 (Statistischer Bericht 416322001) – https://www.statistik-bw.de/fileadmin/user_upload/Service/Veroeff/Statistische_Berichte/416322001.pdf (29.01.2025)",
+  "WFB Bodenseekreis – Standortdaten – https://www.wf-bodenseekreis.de/standort/standortdaten/ (2025/2026)",
+  "citypopulation.de – Kreise und Gemeinden Baden-Württemberg (StaLa, Fortschreibung 31.12.2025, Zensus 2022) – https://www.citypopulation.de/de/germany/badenwurttemberg/ (2026)",
+  "Pendleratlas – Friedrichshafen, Böblingen, Sindelfingen (amtliche Pendlerstatistik 2025) – https://pendleratlas.de/ (2025)",
+  "DDW – Standortprofil Böblingen – https://die-deutsche-wirtschaft.de/standort/boeblingen/ (06.03.2026)",
+  "fair-for-fitness.de – Preise 2026 McFIT, clever fit, FitX, Fitness First, EasyFitness – https://fair-for-fitness.de/ (27.09.2026)",
+  "Kieser Training – Preise und Mitgliedschaft (UVP) – https://www.kieser.com/de-de/studios/preise/ (2026)",
+  "ems-training.de – Der EMS-Markt in Deutschland (DSSV-Eckdaten 2019–2026) – https://www.ems-training.de/magazin/business-und-karriere/ems-markt-deutschland (29.07.2026)",
+  "INJOY – Mitgliedschaft (Leistungen) – https://www.injoy.de/mitgliedschaft (2026)",
+  "Happy Fit Premium Konstanz – Preise – https://happyfitpremium.de/preise/ (27.09.2026)",
+  "8Black Fitness Friedrichshafen/Ravensburg – Mitgliedschaften – https://www.8black.fitness/ (27.09.2026)",
+  "Pfitzenmeier – Preise für Abos und Tageskarten – https://www.pfitzenmeier.de/mitgliedschaft/preise-fuer-abos-und-tageskartenpreise/ (27.09.2026)",
+  "Wettbewerber-Websites Bodensee und Region Stuttgart (ai-fitness.de, mcshape.com, happy-fit-studios.de, fitnessbunker.de, gym-24.de, jonny-m.de, sportwelt-leonberg.de, urbanhealth-club.com, fitnessfirst.de, fitnessexpress-clubs.de, xtrafit.de, clever-fit.com u. a.) – Stand 09/2026 (Rechercheprotokoll (Anhang I))",
+  "fitness MANAGEMENT – 5 Profi-Tipps Marketing (Zusatzumsatz Wellness bis 10 %) – https://www.fitnessmanagement.de/best-practice-marketing-vertrieb-verkauf-kundenbindung-fitnessstudio/ (05/2020)",
+  "BODYMEDIA – Wie Fitnessclubs mit Wellness 324.000 € Zusatzumsatz generieren – https://www.bodymedia.de/themen/management/wie-fitnessclubs-mit-wellness-324000-euro-zusatzumsatz-pro-jahr-generieren-koennen/ (28.09.2020)",
+  "DNB – Dissertation zum Kündigungsverhalten von Fitnessstudio-Mitgliedern (zitiert DSSV 2019) – https://d-nb.info/124761851X/34 (2021)",
+  "A. Bechler – Warum die Fitnessbranche sich mit dem Glauben an eine niedrige Fluktuationsquote selbst belügt (DSSV-Eckdaten) – https://de.linkedin.com/pulse/warum-die-fitnessbranche-sich-mit-dem-glauben-von-einer-bechler (02.05.2021)",
+  "IN-COME Unternehmensberatung – Vorverkauf und Fluktuation – https://www.in-come.de/vorverkauf-und-fluktuation/ (05.05.2020)",
+  "BODYMEDIA – Warum Mitglieder wirklich kündigen (Pixformance 2018, IHRSA 2017) – https://www.bodymedia.de/themen/best-practice/warum-mitglieder-wirklich-kuendigen/ (14.10.2021)",
+  "GymPlanner – Datenauszug Projekt „No.1 (überarbeitet)“ (Rechercheprotokoll (Anhang I), Export 26.09.2026)",
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)"
+ ]
+}

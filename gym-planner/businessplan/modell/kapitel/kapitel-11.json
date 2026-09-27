@@ -1,0 +1,286 @@
+{
+ "nummer": 11,
+ "titel": "Anhang – Übersicht und Unterlagen",
+ "bloecke": [
+  {
+   "typ": "absatz",
+   "text": "Die Anhänge A bis I enthalten die vollständigen Zahlentabellen der Planrechnung, den Grundriss, die Immobilien-Shortlist, die Regularien-Checkliste und das Quellenverzeichnis. Alle Zahlen in den Anhängen A bis E stammen aus der beiliegenden Excel-Planrechnung Finanzplan_No1.xlsx (Stand 27.09.2026); die Excel-Datei enthält alle Formeln und ein Blatt „Annahmen“, über das die Hausbank einzelne Planannahmen selbst verändern und die Wirkung auf Liquidität, Rentabilität und Kapitaldienstfähigkeit nachvollziehen kann. Die Anhänge F, G und H beruhen auf dem Planungsprojekt „No.1 (überarbeitet)“ der Planungssoftware GymPlanner (Export 26.09.2026) und der Standortrecherche vom September 2026. Dieses Kapitel gibt einen Überblick über die Anhänge, listet die Unterlagen für das Bankgespräch auf und erläutert die verwendeten Fachbegriffe."
+  },
+  {
+   "typ": "h2",
+   "text": "11.1 Anhang A – Investitions- und Geräteliste"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang A enthält den vollständigen Investitionsplan mit allen Positionen (netto, 1.912.583 €), die Geräte- und Ausstattungssummen je Bereich, die 30 größten Gerätepositionen sowie die Stückliste aller 147 Positionen und 369 Objekte nach Bereichen mit Hersteller, Modell, Stückzahl, Stückpreis und Preisbasis (Listenpreis, Händlerpreis oder Schätzung). Die Liste dient der Bank als Grundlage für die Sicherungsübereignung und ist vor der Kreditzusage durch verbindliche Angebote der Hersteller und Händler zu unterlegen (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "11.2 Anhang B – Tilgungspläne"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang B zeigt für jeden Finanzierungsbaustein (MBG-Beteiligung 250.000 €, KfW 077 500.000 €, L-Bank GuW-BW 1.752.583 €) Auszahlung, Zinsen beziehungsweise Beteiligungsvergütung, Tilgung, Kapitaldienst und Restschuld am Jahresende für die Planjahre 1 bis 5 sowie in Tabelle B.5 den Kapitaldienst aller Bausteine über die gesamte Laufzeit von 20 Jahren; die vollständigen Tilgungspläne je Baustein stehen in der Excel-Datei. Die Zinssätze sind Planannahmen (6,40 bis 7,00 % p. a.); den individuellen Satz legt die Hausbank nach Preisklasse fest. Der KfW ERP-Gründerkredit StartGeld (067) wurde geprüft und nicht angesetzt, weil er nur bei einem Gesamtfremdfinanzierungsbedarf von höchstens 200.000 € förderfähig ist (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "11.3 Anhang C – Liquiditätsplan (monatlich)"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang C enthält den monatlichen Liquiditätsplan des Basisszenarios für die Monate −5 bis 36 (April 2027 bis August 2030) mit allen Zahlungsströmen brutto: Einzahlungen aus Beiträgen und Nebenumsätzen, Auszahlungen für Investition, Betriebskosten und Kapitaldienst, Umsatzsteuer-Zahllast und Vorsteuererstattung mit einem Monat Verzögerung, Eigenkapital- und Darlehenszuflüsse sowie Kassenbestand am Monatsende. Der Kassentiefststand von 107.975 € im 18. Monat und die Deckung der Anlaufphase durch die Reserve von 740.000 € sind hier nachvollziehbar; alle 60 Betriebsmonate stehen in der Excel-Datei."
+  },
+  {
+   "typ": "h2",
+   "text": "11.4 Anhang D – Rentabilitätsvorschau (Plan-GuV)"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang D enthält die vollständige Plan-Gewinn-und-Verlustrechnung der Jahre 1 bis 5 für das Basisszenario (Umsatz nach Erlösarten, Wareneinsatz, Personal, Raumkosten, Marketing, Sachkosten, EBITDA, Abschreibungen, Zinsen, Ergebnis vor und nach Steuern, Verlustvortrag) sowie Kurzfassungen für das pessimistische und das optimistische Szenario. Die Kapitaldienstfähigkeit (DSCR) je Jahr ist ausgewiesen."
+  },
+  {
+   "typ": "h2",
+   "text": "11.5 Anhang E – Planungsannahmen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang E listet die wesentlichen Annahmen des Finanzmodells als Auszug aus dem Excel-Blatt „Annahmen“, das alle Annahmen vollständig enthält: Projekt und Flächen, Miete und Nebenkosten, Tarife und Nebenumsätze, Mitgliederentwicklung und Kündigungsquote, Stellenplan und Abgabensätze, Sachkosten, Vorlaufkosten, Investitions- und Abschreibungsregeln, Zahlungsplan, Finanzierungsbausteine, Steuersätze und Szenariofaktoren. Jede Annahme ist mit ihrer Quelle oder Herleitung versehen."
+  },
+  {
+   "typ": "h2",
+   "text": "11.6 Anhang F – Grundriss"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang F zeigt den Grundriss des Studios aus der Planungssoftware GymPlanner (Erdgeschoss, Halle 59,50 × 33,20 m, 1.975,40 m² Bruttofläche) mit allen 26 Räumen und Zonen samt Flächen, der Geräteaufstellung mit Sicherheitsabständen, den sechs Notausgängen, den zwölf gezeichneten Fluchtwegen und der Sicherheitsausstattung (Feuerlöscher, AED, Verbandkästen, Rettungszeichenleuchten). Der Grundriss ist die Vorlage für die Bauvorlagen der Nutzungsänderung und für die Kostenschätzung der Fachplaner (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "11.7 Anhang G – Immobilien-Shortlist"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang G enthält je zwölf Hallenobjekte in der Bodenseeregion und in der Region Stuttgart aus der Portalrecherche vom September 2026 mit Ort, Fläche, Kaltmiete, Deckenhöhe und Bemerkungen zur Eignung. Alle Angaben beruhen auf Suchseiten-Snippets von Immowelt und ImmobilienScout24 und sind vor dem Bankgespräch durch Exposés, Bebauungsplan-Auszüge und Mietangebote der Eigentümer zu ersetzen (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "11.8 Anhang H – Regularien-Checkliste"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang H fasst das Ergebnis der automatisierten Regularienprüfung der Planungssoftware zusammen: 121 Prüfpunkte nach Arbeitsstättenregeln (ASR), DGUV-Vorschriften, Musterbauordnung, DIN EN ISO 20957-1, DIN 18040-1 und Trinkwasserverordnung, davon 114 erfüllt, 6 organisatorische Hinweise und 1 nicht anwendbar (Versammlungsstättenverordnung). Die Checkliste ist eine Planungshilfe und ersetzt nicht das Brandschutzkonzept und die Abstimmung mit der Baurechtsbehörde (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "11.9 Anhang I – Quellen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Anhang I führt alle in den Kapiteln zitierten Quellen alphabetisch mit Kurzzitat, Adresse und Abrufdatum auf: Branchenstatistiken (DSSV, Deloitte, DHfPG), Förderprogramme (KfW, L-Bank, Bürgschaftsbank und MBG Baden-Württemberg), Betriebskennzahlen (DSSV-Kostenrichtwerte, GEHALT.de, GEMA, Versicherer), Standortdaten (Statistisches Landesamt, IHK, Pendleratlas, Immobilienportale) sowie Rechtsquellen (BGB, GmbHG, UStG, LBO, BauNVO, DSGVO). Die vollständigen Rechercheprotokolle liegen dem Plan digital bei."
+  },
+  {
+   "typ": "h2",
+   "text": "11.10 Checkliste der Unterlagen für das Bankgespräch"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Sparkassen-Finanzgruppe nennt als Standardunterlagen für eine Gründungsfinanzierung den Businessplan, den Investitionsplan mit Angeboten, eine Vermögensaufstellung beziehungsweise Selbstauskunft, eine Schufa-Auskunft, die Einkommensteuerbescheide der letzten zwei Jahre sowie die Entwürfe von Miet- und Gesellschaftsvertrag (Sparkasse Gründungsfinanzierung). Für die Förderanträge über KfW, L-Bank, Bürgschaftsbank und MBG kommen die programmspezifischen Antragsformulare der Hausbank hinzu. Tabelle 11.1 fasst die Unterlagen mit Status zusammen; die persönlichen Nachweise des Gründers sind in Kapitel 2 (Tabelle 2.2) im Einzelnen aufgeführt."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 11.1: Unterlagen für das Bankgespräch (Status vom Gründer zu pflegen)",
+   "spalten": [
+    "Unterlage",
+    "Inhalt / Zweck",
+    "Anlage",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Businessplan mit Finanzplan",
+     "Dieses Dokument (Kapitel 1 bis 11) mit Anhängen A bis I und Excel-Planrechnung Finanzplan_No1.xlsx",
+     "Hauptdokument, Excel digital",
+     "liegt vor"
+    ],
+    [
+     "Investitionsplan mit Angeboten",
+     "Anhang A; verbindliche Angebote Atlantis/Prime (Europa-Vertrieb), Cardio-Hersteller, Sauna-/Dampfbadbauer; mindestens zwei Kostenschätzungen Fachplaner für Ausbau und Lüftung",
+     "Anhang A + Angebote",
+     "[Angebote einzuholen]"
+    ],
+    [
+     "Angebote der Gerätehersteller",
+     "Kraftgeräte 268.570 €, Cardio 104.760 €, Wellness 55.850 € (netto) mit Lieferzeiten und CE-Konformität der Importgeräte",
+     "Anlage zu Anhang A",
+     "[einzuholen]"
+    ],
+    [
+     "Vermögensaufstellung / Selbstauskunft",
+     "Formular der Hausbank; Nachweis der Eigenmittel [Eigenmittel] mit Kontoauszügen, ggf. Schenkungs- oder Nachrangdarlehensvertrag",
+     "Anlage",
+     "[auszufüllen]"
+    ],
+    [
+     "Schufa-Auskunft",
+     "Nicht älter als drei Monate",
+     "Anlage",
+     "[zu beantragen]"
+    ],
+    [
+     "Einkommensteuerbescheide",
+     "Letzte zwei Jahre; bei fehlender Veranlagung Aufstellung der bisherigen Einkünfte mit Erklärung",
+     "Anlage",
+     "[liegt bei / Erklärung]"
+    ],
+    [
+     "Lebenslauf und Zeugnisse",
+     "Tabellarischer Lebenslauf, Schul- und Ausbildungszeugnisse, Trainerlizenzen, Arbeitszeugnisse; Lebenslauf der stellvertretenden Studioleitung",
+     "Anlage",
+     "[liegt bei]"
+    ],
+    [
+     "Mietvertragsentwurf / Letter of Intent",
+     "Objekt aus Anhang G mit Exposé, Grundriss, Bebauungsplan-Auszug; 10 Jahre, 8,50 €/m², 3 mietfreie Monate, aufschiebende Bedingung Baugenehmigung",
+     "Anlage",
+     "[nach Objektwahl]"
+    ],
+    [
+     "Gesellschaftsvertragsentwurf",
+     "GmbH, Stammkapital 25.000 €, Vertretungsregelung, Thesaurierung; daneben Entwurf des Beteiligungsvertrags der MBG (Nachrang) nach deren Vorgaben",
+     "Anlage",
+     "[Notar / Anwalt]"
+    ],
+    [
+     "Versicherungsangebote",
+     "Betriebshaftpflicht, Geschäftsinhalt (ca. 1,5 Mio. € Sachwert), Betriebsunterbrechung, Elektronik; Risikolebens- und BU-Versicherung des Gründers",
+     "Anlage",
+     "[Makler]"
+    ],
+    [
+     "Fachkundige Stellungnahme",
+     "IHK-Gründungsberatung zur Plausibilität von Konzept und Finanzplan",
+     "Anlage",
+     "[zu beauftragen]"
+    ],
+    [
+     "Förderanträge",
+     "KfW 077 (Antrag vor Vorhabensbeginn), L-Bank GuW-BW, Bürgschaftsantrag Bürgschaftsbank BW, Beteiligungsanfrage MBG",
+     "Formulare der Hausbank",
+     "[mit der Bank]"
+    ],
+    [
+     "Ergänzende Nachweise",
+     "Bauvoranfrage oder Stellungnahme der Baurechtsbehörde, Angebot Steuerberater, Studiosoftware, Interessentenliste Vorverkauf, Absichtserklärungen Firmenfitness",
+     "Anlage",
+     "[optional, stärkt den Antrag]"
+    ]
+   ],
+   "quelle": "Quelle: Sparkasse Gründungsfinanzierung (Rechercheprotokoll (Anhang I)); KfW-Merkblatt 077; Bürgschaftsbank BW; MBG BW; Kapitel 2, 3, 5, 8 und 10 dieses Plans.",
+   "breiten": [
+    22,
+    44,
+    16,
+    18
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "11.11 Glossar"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 11.2: Fachbegriffe des Finanzplans",
+   "spalten": [
+    "Begriff",
+    "Erklärung und Bezug zum Plan"
+   ],
+   "zeilen": [
+    [
+     "Kapitaldienst",
+     "Summe aus Zinsen, Beteiligungsvergütung und Tilgung eines Jahres; im Plan 187.801 € im dritten und 260.585 € im vierten Jahr."
+    ],
+    [
+     "Kapitaldienstfähigkeit / DSCR",
+     "Debt Service Coverage Ratio: EBITDA abzüglich Ertragsteuern geteilt durch den Kapitaldienst; Werte über 1,0 bedeuten, dass der Kapitaldienst aus dem laufenden Betrieb gedeckt ist. Plan: 2,12 (Jahr 3), 1,61 (Jahr 4); Der Plan verwendet nach der Anlaufphase eine Warnschwelle von 1,2 als bankübliche Größenordnung (Kapitel 10.8, Tabelle 10.16); die IHK Stuttgart bezeichnet die Kapitaldienstfähigkeit als Kernstück jeder Kreditbeurteilung (Quellen: Anhang I)."
+    ],
+    [
+     "EBITDA",
+     "Ergebnis vor Zinsen, Steuern und Abschreibungen; Maß für den Cashflow aus dem Betrieb. Plan Jahr 3: 398.960 € (EBITDA-Marge 29,2 %)."
+    ],
+    [
+     "Annuität / Ratentilgung",
+     "Annuität: gleichbleibende Rate aus Zins und Tilgung; Ratentilgung: gleichbleibende Tilgung, mit sinkender Restschuld fallende Rate. Die Tilgungspläne in Anhang B rechnen mit Ratentilgung nach den tilgungsfreien Jahren."
+    ],
+    [
+     "Tilgungsfreie Anlaufjahre",
+     "Jahre zu Beginn der Laufzeit, in denen nur Zinsen gezahlt werden; KfW 077: 5 Jahre, L-Bank GuW-BW: 3 Jahre. Sie passen den Kapitaldienst an den Mitgliederaufbau an."
+    ],
+    [
+     "Zinsbindung",
+     "Zeitraum mit festem Zinssatz; KfW 077 und L-Bank 10 Jahre. Danach ist ein Anschlusszins zu vereinbaren (Zinsrisiko, Kapitel 9)."
+    ],
+    [
+     "Haftungsfreistellung",
+     "Übernahme eines Teils des Ausfallrisikos der Hausbank durch die KfW, beim ERP-Gründerkredit StartGeld (067) 80 %. Das StartGeld wurde geprüft und nicht angesetzt, weil es nur bei einem Gesamtfremdfinanzierungsbedarf bis 200.000 € förderfähig ist; im Plan übernimmt die Bürgschaftsbank diese Funktion (siehe Ausfallbürgschaft / Garantie)."
+    ],
+    [
+     "Ausfallbürgschaft / Garantie",
+     "Die Bürgschaftsbank Baden-Württemberg haftet gegenüber der Hausbank für einen Teil des Kredits (L-Bank-Darlehen 80 %, KfW 077 100 % mit anteiliger Rückgarantie des Bundes); sie ersetzt fehlende bankübliche Sicherheiten, verlangt aber die persönliche Mitverpflichtung des Gesellschafters."
+    ],
+    [
+     "Stille Beteiligung / Nachrangkapital",
+     "Beteiligung der MBG Baden-Württemberg (250.000 €) ohne Stimmrechte, im Insolvenzfall nachrangig gegenüber Bankdarlehen und deshalb wirtschaftliches Eigenkapital; feste plus erfolgsabhängige Vergütung, endfällig nach 10 Jahren."
+    ],
+    [
+     "Eigenkapitalquote",
+     "Anteil von Eigenmitteln und eigenkapitalähnlichen Mitteln am Kapitalbedarf; Plan 400.000 € von 2.652.583 € = 15,1 %."
+    ],
+    [
+     "Vorsteuer / Umsatzsteuer-Zwischenfinanzierung",
+     "Die in Eingangsrechnungen enthaltene Umsatzsteuer (340.941 € auf die Investition), die das Finanzamt nach der Voranmeldung erstattet; bis dahin ist sie aus der Kasse oder dem Kontokorrent zu finanzieren (höchster offener Betrag 366.018 €)."
+    ],
+    [
+     "Anlaufreserve (Betriebsmittelreserve)",
+     "Im Kapitalbedarf enthaltener Betrag (740.000 €), der die Verluste und den Kapitaldienst der Anlaufphase bis zum 24. Betriebsmonat deckt; Herleitung aus dem maximalen kumulierten Fehlbetrag (640.858 € im 18. Betriebsmonat) plus 15 % Puffer = 736.987 €, aufgerundet."
+    ],
+    [
+     "Break-even",
+     "Punkt, ab dem Erlöse die Kosten decken. EBITDA-Break-even Monat 12, Cashflow-Break-even nach Kapitaldienst Monat 19; Break-even-Mitgliederzahl 1.572 (ohne) bzw. 2.018 (mit Kapitaldienst)."
+    ],
+    [
+     "ARPU",
+     "Average Revenue per User: durchschnittlicher Beitrag je Mitglied und Monat; Plan 50,15 € brutto bzw. 42,14 € netto, zuzüglich 6,20 € brutto Nebenumsatz."
+    ],
+    [
+     "Churn (Kündigungsquote)",
+     "Anteil der Mitglieder, die je Monat kündigen; Plan 2,2 % je Monat (kumuliert 23,4 % je Jahr), Branchendurchschnitt rund 25 % je Jahr (DSSV 2019 in Kruse 2021)."
+    ],
+    [
+     "Deckungsbeitrag je Mitglied",
+     "Nettoerlös je Mitglied und Monat abzüglich variabler Kosten (Wareneinsatz, Zahlungsentgelte); Plan 49,40 € netto, Grundlage der Break-even-Rechnung."
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Finanzmodell), Rechercheprotokoll (Anhang I; KfW, L-Bank, Bürgschaftsbank BW, MBG BW, IHK Stuttgart); Definitionen nach banküblicher Verwendung.",
+   "breiten": [
+    28,
+    72
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Alle Zahlen dieses Businessplans und der Anhänge A bis E stammen aus der beiliegenden Excel-Planrechnung Finanzplan_No1.xlsx (Stand 27.09.2026). Änderungen an Annahmen sind ausschließlich dort vorzunehmen; die Tabellen des Plans sind danach neu zu erzeugen, damit Text, Anhänge und Excel-Datei übereinstimmen."
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "Rechercheprotokoll (Anhang I) – Standortrecherche Bodensee und Region Stuttgart, Immobilien-Shortlist (Immowelt/ImmobilienScout24, Stand 26.09.2026)",
+  "Rechercheprotokoll (Anhang I) – Finanzierung und Förderung Baden-Württemberg, Stand 24.–28.09.2026 (Anforderungen der Hausbank)",
+  "Sparkasse – Gründungsfinanzierung und Unterlagen für das Bankgespräch – https://www.sparkasse.de/fk/produkte/finanzierung/gruendungsfinanzierung.html (Stand 09/2026)",
+  "IHK Stuttgart – Bankgespräch erfolgreich führen (Kapitaldienstfähigkeit) – https://www.ihk.de/stuttgart/gruendung/finanzierung/finanzierungsquellen/kredite/bankgespraech-erfolgreich-fuehren-index-685364",
+  "KfW – Merkblatt ERP-Gründerkredit StartGeld (067), Stand 18.06.2026; Merkblatt ERP-Förderkredit Gründung und Nachfolge (077), Stand 10.12.2025",
+  "Bürgschaftsbank Baden-Württemberg – Standardprogramm, Preis- und Konditionenverzeichnis 05/2026 – https://bw.ermoeglicher.de/",
+  "MBG Baden-Württemberg – Stille Beteiligung Existenzgründung – https://mbg-bw.ermoeglicher.de/",
+  "Kruse, T. (2021) – Ökonomische Analyse des Trainings- und Kündigungsverhaltens von Fitnessstudio-Mitgliedern, Dissertation Univ. Paderborn (Fluktuation 25 %, DSSV 2019) – https://d-nb.info/124761851X/34"
+ ]
+}

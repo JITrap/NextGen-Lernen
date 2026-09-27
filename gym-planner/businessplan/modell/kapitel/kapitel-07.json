@@ -1,0 +1,733 @@
+{
+ "nummer": 7,
+ "titel": "Organisation, Personal und Rechtsform",
+ "bloecke": [
+  {
+   "typ": "absatz",
+   "text": "Dieses Kapitel beschreibt, wie das Studio rechtlich verfasst, organisiert und personell besetzt wird, welche externen Partner den Betrieb tragen, nach welchen Prozessen gearbeitet wird und in welchen Schritten das Vorhaben von der Finanzierungszusage bis zur Eröffnung am 1. September 2027 umgesetzt wird. Die Personalzahlen stammen aus dem Stellenplan des Finanzmodells; Gehälter sind Bruttomonatsgehälter, Arbeitgeberkosten enthalten die Sozialabgaben. Die persönliche Haftung des Gründers und die Eigenmittel sind in Kapitel 2.8 und Kapitel 10.3 behandelt und werden hier nur aufgegriffen, soweit sie die Rechtsform betreffen."
+  },
+  {
+   "typ": "h2",
+   "text": "7.1 Rechtsform: GmbH"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Studio wird von einer neu zu gründenden Gesellschaft mit beschränkter Haftung betrieben [Firma, z. B. „No.1 Fitness GmbH“, Sitz: Standortgemeinde]. Das Stammkapital beträgt 25.000 € und wird vor der Handelsregisteranmeldung voll eingezahlt; gesetzlich müssen vor der Anmeldung mindestens 12.500 € geleistet sein (§ 7 Abs. 2 GmbHG). Der Gründer hält [100 %] der Geschäftsanteile und ist alleiniger Geschäftsführer; die Gesellschafterversammlung besteht damit aus einer Person. Die GmbH wurde gegenüber einer UG (haftungsbeschränkt) und einem Einzelunternehmen gewählt, weil eine UG mit 1 bis 24.999 € Stammkapital und Pflichtrücklage für ein Fremdkapital von 2,50 Mio. € wenig bankfähig ist und ein Einzelunternehmen die unbeschränkte Haftung mit dem Privatvermögen bedeutet (§ 5a GmbHG; IHK Karlsruhe 01/2025; IHK Konstanz 12/2025). Die Haftungsbeschränkung der GmbH gilt gegenüber Lieferanten, Vermieter und Mitgliedern; gegenüber den Finanzierungspartnern übernimmt der Gründer die persönliche Mitverpflichtung, die Bürgschaftsbank Baden-Württemberg und KfW im Programm 077 verlangen (Kapitel 2.8). Das KfW ERP-Gründerkredit StartGeld (067) wurde geprüft und nicht angesetzt, weil es nur bei einem Gesamtfremdfinanzierungsbedarf bis 200.000 € förderfähig ist (Quellen: Anhang I)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.1: Gründungskosten der GmbH (brutto, sofern nicht anders angegeben)",
+   "spalten": [
+    "Position",
+    "Marktspanne",
+    "Planansatz",
+    "Quelle"
+   ],
+   "zeilen": [
+    [
+     "Notar, Beurkundung mit Musterprotokoll",
+     "259 bis 271 €",
+     "",
+     "notar-check 18.05.2026"
+    ],
+    [
+     "Notar, individueller Gesellschaftsvertrag",
+     "476 bis 512 €",
+     "",
+     "notar-check 18.05.2026"
+    ],
+    [
+     "Handelsregistereintragung",
+     "150 bis 225 €",
+     "",
+     "deutschland-rechner 2026; IHK Karlsruhe"
+    ],
+    [
+     "Gesamt ohne Beratung",
+     "410 bis 700 €",
+     "",
+     "Rechercheprotokoll (Anhang I)"
+    ],
+    [
+     "Gesamt mit Anwalt / Steuerberater",
+     "1.000 bis 1.500 €",
+     "2.500 € (Gründungskosten GmbH, netto)",
+     "Rechercheprotokoll (Anhang I); Excel-Planrechnung"
+    ],
+    [
+     "Beratung Businessplan und Steuern",
+     "",
+     "5.000 € (netto)",
+     "Excel-Planrechnung"
+    ],
+    [
+     "Summe Gründung im Investitionsplan",
+     "",
+     "7.500 €",
+     "Excel-Planrechnung"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; notar-check 18.05.2026, deutschland-rechner 2026, IHK Karlsruhe „ca. 500 €“); Excel-Planrechnung. Der Planansatz enthält einen individuellen Gesellschaftsvertrag mit anwaltlicher Prüfung, Gewerbeanmeldung und Nebenkosten.",
+   "breiten": [
+    34,
+    20,
+    24,
+    22
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Gesellschaftsvertrag wird individuell beurkundet, nicht per Musterprotokoll, weil die Finanzierungspartner Regelungen zu Vertretung, Geschäftsführervergütung, Gewinnverwendung und Nachrangvereinbarungen erwarten und weil die stille Beteiligung der MBG Baden-Württemberg vertraglich anzudocken ist (Quellen: Anhang I). Vorgesehen sind: ein Zustimmungsvorbehalt der Gesellschafterversammlung für Investitionen über [Betrag], ein Geschäftsführergehalt von 3.500 € brutto je Monat ab Juni 2027, eine Thesaurierung der Gewinne bis zur Tilgung der Gründungsdarlehen sowie eine Vertretungsregelung für den Ausfall des Geschäftsführers. Nach der Eintragung folgen Gewerbeanmeldung, steuerliche Erfassung beim Finanzamt mit Option zur monatlichen Umsatzsteuervoranmeldung (Vorsteuererstattung aus der Investition, Kapitel 8.9 und 10.7), Anmeldung bei der zuständigen Berufsgenossenschaft, Betriebsnummer für die Lohnabrechnung sowie die Meldungen an GEMA und GVL. Die Gesellschaft unterliegt der Körperschaftsteuer von 15 % zuzüglich 5,5 % Solidaritätszuschlag und der Gewerbesteuer mit Messzahl 3,5 % ohne Freibetrag; beim Planhebesatz von 390 % (Ravensburg) ergibt sich eine Gesamtbelastung von 29,47 % des Gewinns, in Friedrichshafen (350 %) 28,08 %, in Stuttgart (430 %) 30,88 % (Quellen: Anhang I). Wegen des Verlustvortrags aus der Anlaufphase fallen im Planzeitraum keine Ertragsteuern an."
+  },
+  {
+   "typ": "h2",
+   "text": "7.2 Aufbauorganisation"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Organisation ist bewusst flach. Der Gründer führt als Geschäftsführer und Studioleiter die Bereiche Vertrieb und Marketing, Finanzen und Controlling sowie Personal; er ist zugleich Trainer auf der Fläche. Die stellvertretende Studioleitung (Vollzeit, Trainer-A-Lizenz) leitet den Bereich Training und Kurse, verantwortet Trainingsplanung, Kursplan, Einarbeitung der Trainer und Gerätesicherheit und vertritt den Geschäftsführer im Tagesgeschäft; sie erhält eine Handlungsvollmacht, gegebenenfalls Prokura [Entscheidung des Gründers]. Der Bereich Empfang und Service (Mitgliederverwaltung, Verkauf, Shakebar, Beschwerden, Kasse) wird von den zwei Teilzeitkräften geführt, die vier Minijobs am Abend und am Wochenende anleiten. Reinigung, Wellness-Technik und Gebäude werden von der Studioleitung mit den Reinigungs-Minijobs und externen Dienstleistern organisiert. Buchhaltung, Lohnabrechnung, Jahresabschluss und Steuern liegen beim Steuerberater. Ein Beirat oder Mentor aus der Branche (Kapitel 2.5) berät quartalsweise."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.2: Verantwortungsbereiche",
+   "spalten": [
+    "Bereich",
+    "Verantwortlich",
+    "Aufgaben",
+    "Vertretung"
+   ],
+   "zeilen": [
+    [
+     "Geschäftsführung",
+     "Gründer",
+     "Strategie, Finanzen, Bank und Förderer, Personal, Marketing und Vertrieb, Mietvertrag, Versicherungen",
+     "Stellv. Studioleitung (Handlungsvollmacht)"
+    ],
+    [
+     "Training und Kurse",
+     "Stellv. Studioleitung",
+     "Trainingsplanung, Kursplan, HYROX-Programme, Einarbeitung, Gerätesicherheit, Trainerkontakte",
+     "Vollzeittrainer"
+    ],
+    [
+     "Empfang und Service",
+     "Teilzeitkräfte Empfang",
+     "Vertragsabschluss, Check-in, Kasse, Shakebar, Beschwerden, Anleitung Minijobs",
+     "Gründer"
+    ],
+    [
+     "Wellness, Reinigung, Gebäude",
+     "Gründer mit Stellv. Studioleitung",
+     "Sauna- und Dampfbadbetrieb, Hygiene- und Reinigungsplan, Wartung, Dienstleister",
+     "Stellv. Studioleitung"
+    ],
+    [
+     "Finanzbuchhaltung, Lohn, Steuern",
+     "Steuerberater (extern)",
+     "Buchführung, Lohnabrechnung, Umsatzsteuer, Jahresabschluss, BWA",
+     "Gründer (Belegfluss)"
+    ],
+    [
+     "Beratung",
+     "Beirat / Mentor (extern)",
+     "Quartalsgespräch zu Kennzahlen, Vertrieb, Personal",
+     "–"
+    ]
+   ],
+   "quelle": "Quelle: Organisationsplanung des Gründers; Stellenplan Excel-Planrechnung.",
+   "breiten": [
+    20,
+    20,
+    40,
+    20
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "7.3 Stellenplan und Personalkosten"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Stellenplan sieht zur Eröffnung 14 Beschäftigte vor (4 Vollzeit, 4 Teilzeit mit 50 %, 6 Minijobs); ab dem 13. Betriebsmonat kommt ein dritter Vollzeittrainer hinzu, sodass 15 Beschäftigte tätig sind. Rechnerisch entspricht das rund 7,5 Vollzeitäquivalenten im ersten und 8,5 im zweiten Jahr, wenn ein Minijob mit 620 € beim Mindestlohn 2027 von 14,60 € rund 42 Stunden je Monat umfasst (Bundesregierung 21.09.2026). Zum Vergleich beschäftigt die durchschnittliche deutsche Anlage 17,3 Personen einschließlich Teilzeit und Minijobs (DSSV Eckdaten 2026, rechnerisch); nach der letzten amtlichen Kostenstrukturerhebung waren 76,3 % der abhängig Beschäftigten in Fitnesszentren teilzeit- oder geringfügig beschäftigt (Destatis 2010), bei No.1 sind es 10 von 14. Die Arbeitgeberabgaben sind mit 21,3 % für sozialversicherungspflichtige Beschäftigte (Krankenversicherung 7,3 % plus halber durchschnittlicher Zusatzbeitrag 1,45 %, Pflege 1,8 %, Rente 9,3 %, Arbeitslosenversicherung 1,3 %, Insolvenzgeldumlage 0,15 %; lohn-info 2026) und 31,17 % pauschal für Minijobs (Minijob-Zentrale 16.12.2025) angesetzt (Quellen: Anhang I); Die Umlagen U1/U2 und der Beitrag zur Verwaltungs-Berufsgenossenschaft sind in diesem Satz nicht enthalten und im Stellenplan nicht gesondert angesetzt; sie sind aus der Position Sonstiges (1.500 € je Monat) zu decken [Beitragssatz der Berufsgenossenschaft zu ergänzen und mit dem Steuerberater in die Lohnkostenplanung aufzunehmen]."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.3: Stellenplan mit Arbeitgeberkosten je Monat (Jahr 1, ohne Gehaltssteigerung)",
+   "spalten": [
+    "Rolle",
+    "Anzahl",
+    "Brutto je Person und Monat",
+    "AG-Abgaben",
+    "AG-Kosten gesamt je Monat",
+    "Eintritt"
+   ],
+   "zeilen": [
+    [
+     "Geschäftsführung / Studioleitung (Gründer)",
+     "1",
+     "3.500 €",
+     "21,3 %",
+     "4.246 €",
+     "Juni 2027 (Monat −3)"
+    ],
+    [
+     "Stellv. Studioleitung / Trainer (Vollzeit, Lizenz A)",
+     "1",
+     "3.600 €",
+     "21,3 %",
+     "4.367 €",
+     "Juli 2027 (Monat −2)"
+    ],
+    [
+     "Fitnesstrainer (Vollzeit)",
+     "2",
+     "3.000 €",
+     "21,3 %",
+     "7.278 €",
+     "August 2027 (Monat −1)"
+    ],
+    [
+     "Fitnesstrainer (Vollzeit, ab Jahr 2)",
+     "1",
+     "3.000 €",
+     "21,3 %",
+     "3.639 €",
+     "September 2028 (Monat 13)"
+    ],
+    [
+     "Trainer / Kursleiter (Teilzeit 50 %)",
+     "2",
+     "1.650 €",
+     "21,3 %",
+     "4.003 €",
+     "September 2027 (Eröffnung)"
+    ],
+    [
+     "Empfang / Service (Teilzeit 50 %)",
+     "2",
+     "1.550 €",
+     "21,3 %",
+     "3.760 €",
+     "September 2027 (Eröffnung)"
+    ],
+    [
+     "Empfang / Abend und Wochenende (Minijob)",
+     "4",
+     "620 €",
+     "31,17 %",
+     "3.253 €",
+     "September 2027 (Eröffnung)"
+    ],
+    [
+     "Reinigung Abend (Minijob)",
+     "2",
+     "620 €",
+     "31,17 %",
+     "1.627 €",
+     "September 2027 (Eröffnung)"
+    ],
+    [
+     "Summe Jahr 1 (14 Beschäftigte)",
+     "14",
+     "",
+     "",
+     "28.533 €",
+     "Monate 1 bis 12"
+    ],
+    [
+     "Summe ab Jahr 2 (15 Beschäftigte, vor Gehaltssteigerung)",
+     "15",
+     "",
+     "",
+     "32.172 €",
+     "ab Monat 13"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Summen entsprechen Excel-Planrechnung 28.533 € und, mit 2,5 % Gehaltssteigerung je Jahr, 33.801 € im dritten Jahr.",
+   "breiten": [
+    30,
+    8,
+    16,
+    10,
+    18,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Im ersten Betriebsjahr betragen die Personalkosten 371.144 €; darin sind 28.749 € für die Vorlaufmonate enthalten (Geschäftsführer ab Juni, stellvertretende Studioleitung ab Juli, zwei Trainer ab August 2027), die übrigen 342.395 € entsprechen zwölf Monaten zu 28.533 €. Im zweiten Jahr steigen die Personalkosten mit dem dritten Trainer und 2,5 % Gehaltssteigerung auf 395.716 €, im dritten Jahr auf 405.609 € (33.801 € je Monat), im fünften Jahr auf 426.143 €. Bezogen auf den Nettoumsatz liegt die Personalkostenquote im ersten Jahr anlaufbedingt bei 59,6 %, im zweiten Jahr bei 35,9 % und ab dem dritten Jahr bei 29,6 % (Jahr 4: 29,6 %, Jahr 5: 29,9 %). Der DSSV nennt 32 % als optimalen und 38 % als maximalen Richtwert für betreuungsintensive Anlagen (DSSV Leitfaden Kostenmanagement 04/2022), die amtliche Erhebung 2010 wies 27,9 % aus (Destatis). Ab dem dritten Jahr liegt No.1 damit unter dem DSSV-Optimalwert; das ist der Größe der Anlage geschuldet, die mit einem Stellenplan von 15 Personen 2.200 Mitglieder betreut. Für die Bank ist das zugleich ein Hinweis auf eine knappe Besetzung: Die Branche beschäftigt rechnerisch 17,3 Personen je Anlage bei 1.281 Mitgliedern. Sollte der Betreuungsanspruch des Premiumkonzepts mehr Personal erfordern, zeigt die Sensitivität „Personalkosten +10 %“ (Abschnitt 7.4), dass die Kapitaldienstfähigkeit erhalten bleibt."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.4: Personalkosten und Quote je Planjahr (netto)",
+   "spalten": [
+    "Jahr",
+    "Personalkosten",
+    "Nettoumsatz",
+    "Quote",
+    "DSSV-Richtwert"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1 (inkl. 28.749 € Vorlauf)",
+     "371.144 €",
+     "622.361 €",
+     "59,6 %",
+     "32 % optimal / 38 % maximal"
+    ],
+    [
+     "Jahr 2",
+     "395.716 €",
+     "1.101.585 €",
+     "35,9 %",
+     ""
+    ],
+    [
+     "Jahr 3",
+     "405.609 €",
+     "1.368.522 €",
+     "29,6 %",
+     ""
+    ],
+    [
+     "Jahr 4",
+     "415.749 €",
+     "1.403.873 €",
+     "29,6 %",
+     ""
+    ],
+    [
+     "Jahr 5",
+     "426.143 €",
+     "1.427.024 €",
+     "29,9 %",
+     ""
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; DSSV Leitfaden Kostenmanagement 04/2022.",
+   "breiten": [
+    28,
+    18,
+    18,
+    12,
+    24
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "7.4 Gehaltsbenchmarks"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Gehaltsansätze wurden mit den Vergütungsdaten 2026 abgeglichen. Fitnesstrainerinnen und -trainer verdienen bundesweit im Median 2.942 € brutto je Monat (Quartile 2.683 bis 3.227 €), in Baden-Württemberg 3.081 € beziehungsweise 38.203 € im Jahr; Studioleitungen (branchenübergreifende Berufsgruppe) im Median 5.379 €, unteres Quartil 4.685 €, in Baden-Württemberg 5.632 € beziehungsweise 69.842 € im Jahr (GEHALT.de 2026). Die Monatswerte von GEHALT.de entsprechen dem Jahreswert geteilt durch 12,4, also einschließlich Sonderzahlungen; auf zwölf Monate umgerechnet sind das 3.184 € für Trainer und 5.820 € für Studioleitungen in Baden-Württemberg (Prüfung). Der gesetzliche Mindestlohn beträgt 13,90 € (2026) und 14,60 € (2027), die Minijob-Grenze 603 € (2026) und 633 € (2027); der Planansatz von 620 € je Minijob liegt unter der Grenze 2027 (Bundesregierung 21.09.2026; Minijob-Zentrale 09.12.2025)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.5: Planansätze im Vergleich zu Marktgehältern 2026 (brutto je Monat)",
+   "spalten": [
+    "Rolle",
+    "Planansatz",
+    "Benchmark",
+    "Einordnung"
+   ],
+   "zeilen": [
+    [
+     "Geschäftsführung / Studioleitung (Gründer)",
+     "3.500 €",
+     "Studioleitung Median 5.379 €, unteres Quartil 4.685 €, BW 5.632 €",
+     "Bewusster Gehaltsverzicht in der Anlaufphase; Privatbedarf siehe Tabelle 2.5"
+    ],
+    [
+     "Stellv. Studioleitung / Trainer (Lizenz A)",
+     "3.600 €",
+     "Trainer BW 3.081 €; Studioleitung unteres Quartil 4.685 €",
+     "Erfahrene Trainerkraft mit Leitungsaufgaben; Rekrutierungsrisiko, siehe Hinweis"
+    ],
+    [
+     "Fitnesstrainer Vollzeit",
+     "3.000 €",
+     "Median D 2.942 €, BW 3.081 €, Quartile 2.683 bis 3.227 €",
+     "Innerhalb der Quartile, knapp unter BW-Median"
+    ],
+    [
+     "Trainer / Kursleiter Teilzeit 50 %",
+     "1.650 € (entspricht 3.300 € Vollzeit)",
+     "Trainer BW 3.081 €",
+     "Über BW-Median; Kursleiter mit Zusatzlizenzen"
+    ],
+    [
+     "Empfang / Service Teilzeit 50 %",
+     "1.550 € (entspricht 3.100 € Vollzeit)",
+     "Mindestlohn 2027 14,60 € = ca. 2.530 € bei 40 h",
+     "Über Mindestlohn"
+    ],
+    [
+     "Minijobs Empfang, Reinigung",
+     "620 €",
+     "Minijob-Grenze 2027 633 €; Mindestlohn 14,60 € = ca. 42 h je Monat",
+     "Innerhalb der Grenze"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; GEHALT.de Fitnesstrainer/-in und Studioleiter/-in 2026; Bundesregierung 21.09.2026 (Mindestlohn); Minijob-Zentrale 09.12.2025. Umrechnung Mindestlohn auf Monat: 14,60 € x 173,3 h.",
+   "breiten": [
+    24,
+    18,
+    32,
+    26
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Bankrelevant: Der Ansatz für die stellvertretende Studioleitung (3.600 €) liegt unter dem unteren Quartil für Studioleitungen (4.685 €). Die Sensitivität „Personalkosten +10 %“ zeigt, dass ein marktgerechteres Gehalt tragbar ist (EBITDA Jahr 3 358.399 €, Kapitaldienstdeckung Jahr 3 1,91). Der Gründer sollte die Position vor dem Bankgespräch mit einer konkreten Person und deren Gehaltsvorstellung unterlegen [Name, Lebenslauf, Absichtserklärung]. Das eigene Gehalt von 3.500 € ist mit dem privaten Finanzbedarf (Tabelle 2.5) abzustimmen; eine Erhöhung ab Jahr 3 ist im Modell über die Gehaltssteigerung von 2,5 % je Jahr nur teilweise abgebildet."
+  },
+  {
+   "typ": "h2",
+   "text": "7.5 Öffnungszeiten und Schichtmodell"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Studio öffnet montags bis freitags von 6:00 bis 23:00 Uhr und an Samstagen, Sonntagen und Feiertagen von 8:00 bis 21:00 Uhr, zusammen 111 Stunden je Woche; davon sind 83 Stunden Kernzeit mit Empfang und Trainer besetzt (werktags 8:00 bis 21:00 Uhr, am Wochenende 9:00 bis 18:00 Uhr), 28 Stunden Randzeit laufen über das Zutrittssystem (Kapitel 3.4, Tabelle 3.5). Das Modell folgt dem in der Branche etablierten Hybridansatz mit besetzten Kernzeiten und Zutrittssystem in den Randzeiten (GymAccess 14.12.2025) und liegt zwischen dem betreuten Premiummodell des Happy Fit Premium Konstanz (6 bis 22 Uhr werktags, 9 bis 19 Uhr am Wochenende) und dem unbesetzten 24/7-Modell von 8Black (Quellen: Anhang I). Wellnessbereich, Kursbetrieb und Probetrainings finden nur in der Kernzeit statt; in der Randzeit sind Zutritt, Videoaufzeichnung und Notruf aktiv (Abschnitt 7.7)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.6: Wochenbesetzung in der Kernzeit (Regelwoche)",
+   "spalten": [
+    "Schicht",
+    "Zeit",
+    "Empfang",
+    "Trainer auf der Fläche",
+    "Kurse"
+   ],
+   "zeilen": [
+    [
+     "Frühschicht Mo bis Fr",
+     "8:00 bis 14:30 Uhr",
+     "1 Teilzeitkraft",
+     "1 Trainer (Vollzeit oder Stellv. Studioleitung)",
+     "Vormittagskurse (Kursleiter Teilzeit)"
+    ],
+    [
+     "Spätschicht Mo bis Fr",
+     "14:30 bis 21:00 Uhr",
+     "1 Teilzeitkraft bis 17 Uhr, danach Minijob",
+     "2 Trainer ab 17 Uhr (Stoßzeit)",
+     "Abendkurse, HYROX-Training (Kursleiter, Trainer)"
+    ],
+    [
+     "Wochenende und Feiertage",
+     "9:00 bis 18:00 Uhr",
+     "Minijob",
+     "1 Trainer (rollierend)",
+     "Wochenendkurse, HYROX-Simulation"
+    ],
+    [
+     "Randzeiten",
+     "6:00 bis 8:00, 21:00 bis 23:00 Uhr (Mo bis Fr); 8:00 bis 9:00, 18:00 bis 21:00 Uhr (Wochenende)",
+     "unbesetzt, Zutrittssystem",
+     "keine Betreuung; Kameras, Notruf",
+     "keine Kurse, kein Wellness"
+    ],
+    [
+     "Reinigung",
+     "ab 21:00 Uhr (Mo bis Fr), ab 18:00 Uhr (Wochenende)",
+     "–",
+     "–",
+     "2 Reinigungs-Minijobs, Tagesreinigung durch Empfang"
+    ]
+   ],
+   "quelle": "Quelle: Öffnungszeiten Kapitel 3.4; Stellenplan Excel-Planrechnung. Wochenstunden: 111 geöffnet, 83 besetzt, 28 Randzeit.",
+   "breiten": [
+    18,
+    22,
+    20,
+    22,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die verfügbaren Arbeitsstunden decken die Kernzeit mit Reserve: Für den Empfang stehen je Woche rund 40 Stunden aus den zwei Teilzeitkräften und rund 40 Stunden aus den vier Minijobs zur Verfügung, die 83 Kernzeitstunden werden durch Gründer und stellvertretende Studioleitung ergänzt. Für die Fläche stehen 160 Stunden aus vier Vollzeitkräften (einschließlich Gründer und stellvertretender Studioleitung, deren Verwaltungsanteil abzuziehen ist) und 40 Stunden aus den zwei Teilzeit-Kursleitern zur Verfügung; benötigt werden 83 Stunden Grundbesetzung, 20 Stunden Doppelbesetzung am Abend und die Kursstunden [Kursplan mit Stundenzahl vom Gründer festzulegen]. Urlaub und Krankheit werden über die rollierende Wochenendbesetzung und die Minijobs aufgefangen; für Spitzen wird ein Pool freier Kursleiter auf Honorarbasis aufgebaut [im Modell nicht angesetzt]. Der Dienstplan wird über die Studiosoftware oder ein Dienstplantool geführt; Arbeitszeiten werden nach dem Arbeitszeitgesetz erfasst."
+  },
+  {
+   "typ": "h2",
+   "text": "7.6 Externe Partner und Dienstleister"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Betrieb stützt sich auf externe Partner, deren Kosten im Finanzmodell als Sachkosten angesetzt und mit Marktwerten abgeglichen sind (Quellen: Anhang I). Verträge werden vor der Eröffnung geschlossen, Angebote liegen dem Plan bei [Angebote einholen]."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.7: Externe Partner, Planansatz und Marktreferenz (netto)",
+   "spalten": [
+    "Partner / Leistung",
+    "Planansatz",
+    "Marktreferenz",
+    "Auswahlkriterien"
+   ],
+   "zeilen": [
+    [
+     "Steuerberater: Buchhaltung, Lohn, USt-Voranmeldung, Jahresabschluss, BWA",
+     "1.000 € je Monat (12.000 € je Jahr)",
+     "Laufende GmbH-Buchhaltung 600 bis 1.200 € je Monat, Jahresabschluss 3.500 bis 7.000 € je Jahr; Lohn 18 bis 25 € je Mitarbeiter; DSSV 1,2 bis 1,5 % vom Umsatz",
+     "Branchenerfahrung Fitness, monatliche BWA und Liquiditätsbericht für die Bank [Angebot]"
+    ],
+    [
+     "Studiosoftware und Zutritt (z. B. Magicline, aidoo, Fitogram)",
+     "450 € je Monat",
+     "Magicline Pro 449 € je Monat (bis 7.500 Mitglieder), Startpaket 399 € (FitPro Tools 2026, Sekundärquelle); Software 200 bis 800 € je Monat (GymAccess 2026)",
+     "SEPA, Kündigungsbutton, App, Kursbuchung, Zutritt, Auswertungen"
+    ],
+    [
+     "Zahlungsdienstleister (SEPA-Lastschrift)",
+     "0,8 % vom Bruttobeitrag",
+     "0,08 bis 0,35 € je Lastschrift, Rücklastschrift bis über 10 € (WHK 2026)",
+     "Rücklastschriftmanagement, Mahnwesen"
+    ],
+    [
+     "Gerätewartung und Herstellerservice (Atlantis, Prime, Cardio-Hersteller)",
+     "5 % des Gerätewerts je Jahr = 31.160 € (Jahr 3)",
+     "Wartung ab 53 € je Gerät, DGUV-Sichtprüfung ab 62 € je Gerät (KERKMANN/one-bear); 200 bis 500 € je Monat mittleres Studio (Virtuagym 2026)",
+     "Wartungsvertrag mit Reaktionszeit, Ersatzteile für Importgeräte (Importanteil 268.570 €)"
+    ],
+    [
+     "Reinigung: Material, Hygiene, Fremdreinigung Nassbereich",
+     "2.200 € je Monat zzgl. 2 Minijobs (1.627 €)",
+     "DSSV 2,00 bis 3,00 € je m² und Monat (3.950 bis 5.926 € für 1.975 m²); Unterhaltsreinigung 0,80 bis 1,50 € je m² je Reinigung (CleanCalc 2026)",
+     "Hygieneplan Sauna/Dampfbad, Legionellenprüfung"
+    ],
+    [
+     "Versicherungen (Betriebshaftpflicht, Inhalt/Elektronik, Betriebsunterbrechung, Glas, Rechtsschutz)",
+     "900 € je Monat",
+     "Großes Studio 500 bis 1.500 € je Monat (GymAccess 2026); Durchschnittsstudio 250 bis 280 € (DSSV 2022); Kleinstudio-Pakete 39 bis 79 € (ODV)",
+     "Versicherungssumme Inventar ca. 623.196 € Gerätewert plus Ausbau; Deckung für unbesetzte Randzeiten [individuelles Angebot]"
+    ],
+    [
+     "GEMA, GVL, Rundfunkbeitrag",
+     "350 € je Monat",
+     "GEMA M-U 2026: 1.988 € je Jahr für 2.000 m² bei Jahreszahlung (166 € je Monat, bei Monatszahlung 199 €), zzgl. 20 % GVL ca. 199 bis 239 € je Monat; Sauna-Tarif 259,50 € je Jahr bis 100 m²; Rundfunkbeitrag 18,36 € je Monat (9 bis 19 Beschäftigte); DSSV-Richtwert gesamt 250 bis 400 €",
+     "Anmeldung vor Eröffnung; DSSV-Mitgliedschaft für Gesamtvertragsnachlass prüfen"
+    ],
+    [
+     "Telekommunikation, IT, Kameras",
+     "250 € je Monat",
+     "DSSV: Telefon/Internet 100 € je Monat",
+     "Internetanbindung für Zutritt, Kameras, Musik"
+    ],
+    [
+     "Instandhaltung Gebäude und Technik (Lüftung, Sauna, Sanitär)",
+     "4,00 € je m² und Jahr = 7.902 €",
+     "0,30 bis 0,90 € je m² und Monat, das sind 3,60 bis 10,80 € je m² und Jahr (IN-COME 2020); Planansatz am unteren Rand",
+     "Wartungsverträge RLT-Anlage, Sauna, Dampfbad, Cold Plunge"
+    ],
+    [
+     "Marketingagentur / Freelancer",
+     "aus Marketingbudget (Kapitel 6)",
+     "–",
+     "Lokale Referenzen Fitness"
+    ]
+   ],
+   "quelle": "Quellen: Excel-Planrechnung; Rechercheprotokoll (Anhang I; Steuerberater Beck 2026, LohnDialog 2026, DSSV Leitfaden 04/2022, FitPro Tools 2026, GymAccess 2026, WHK 2026, KERKMANN/one-bear, Virtuagym 21.05.2026, CleanCalc 08/2026, ODV, GEMA Tarif M-U 2026, rundfunkbeitrag.de, IN-COME 14.06.2020).",
+   "breiten": [
+    24,
+    18,
+    36,
+    22
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Drei Punkte sind vor dem Bankgespräch zu klären. Erstens liegt der Reinigungsansatz mit 2.200 € Material und Fremdleistung zuzüglich 1.627 € für zwei Minijobs (zusammen 3.827 € je Monat) knapp unter dem unteren DSSV-Richtwert von 3.950 € für die Fläche; die Tagesreinigung durch das Empfangspersonal ist eingerechnet, ein Angebot für die Nassbereichsreinigung muss den Ansatz bestätigen. Zweitens ist die Versicherungsprämie für ein Studio dieser Größe mit Wellnessbereich und unbesetzten Randzeiten nicht öffentlich belegbar (offene Punkte); der Ansatz von 900 € je Monat liegt in der Mitte der Spanne für große Studios und ist durch ein individuelles Angebot zu ersetzen. Drittens liegt der Instandhaltungsansatz von 4,00 € je m² und Jahr am unteren Rand der Beraterspanne von 3,60 bis 10,80 € (IN-COME 2020); in den ersten Jahren ist das wegen der Neuausstattung und der Herstellergarantien vertretbar, ab dem dritten Jahr sind Wartungsverträge für Lüftung, Sauna und Dampfbad einzupreisen."
+  },
+  {
+   "typ": "h2",
+   "text": "7.7 Prozesse"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kernprozesse sind schriftlich in einem Betriebshandbuch festgelegt, das vor der Eröffnung erstellt und mit dem Team geschult wird. Es umfasst Onboarding neuer Mitglieder, Trainingsplanung und Betreuung, Kursbetrieb, Empfang und Kasse, Beschwerdemanagement, Hygiene und Reinigung, Wellnessbetrieb, Gerätesicherheit sowie Notfall- und Erste-Hilfe-Organisation."
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Onboarding: Vertragsabschluss vor Ort oder online (Vertragsmuster mit Laufzeitregelung nach § 309 Nr. 9 BGB, Kündigungsbutton nach § 312k BGB, SEPA-Mandat, Datenschutzhinweise), Gesundheitsfragebogen, Chip-Armband und Einweisung in Zutritt und App, Termin für das Einführungstraining innerhalb von sieben Tagen; Trainingsplan-Termine in Woche 1, 4 und 12.",
+    "Trainingsplanung und Betreuung: Eingangsanalyse, Trainingsplan in der App, Planwechsel alle acht bis zwölf Wochen, mindestens zwei dokumentierte Trainerkontakte je Mitglied und Monat als Ziel (IHRSA 2017 zitiert in BODYMEDIA 14.10.2021); Mitglieder mit weniger als zwei Check-ins in vier Wochen werden angesprochen (Kapitel 6.6). HYROX-Programme laufen als Kurs mit Teilnehmerliste und Leistungsstandsmessung.",
+    "Empfang und Kasse: Check-in über Drehkreuze (2 Stück), Kassensystem mit Belegpflicht, Tagesabschluss, Kassenbuch; Bargeld minimiert durch Kartenzahlung und Lastschrift.",
+    "Beschwerdemanagement: Jede Beschwerde wird in der Studiosoftware erfasst, innerhalb von zwei Werktagen beantwortet und monatlich ausgewertet; Kündigungen werden mit Grund erfasst und mit einem Rückgewinnungsangebot beantwortet (Kapitel 6.6).",
+    "Hygiene und Reinigung: Reinigungsplan mit Zonen (Trainingsfläche, Umkleiden und Duschen, Wellness, Empfang), Sichtreinigung durch das Personal in der Kernzeit, Grundreinigung am Abend; 9 Desinfektionsstationen und 10 Wasserspender (Quellen: Anhang I); Legionellenprüfung der Trinkwasseranlage und Hygieneplan für Sauna, Dampfbad und Cold Plunge (Regularien-Hinweise).",
+    "Gerätesicherheit: Sichtprüfung der Geräte nach DGUV Information 202-044 und Wartung nach Herstellervorgabe, dokumentiert im Wartungsbuch (KERKMANN/one-bear); Sperrung defekter Geräte, Meldeweg über App.",
+    "Datenschutz: Verzeichnis der Verarbeitungstätigkeiten, Auftragsverarbeitung mit Softwareanbieter, Hinweisbeschilderung für die 5 Kameras, Löschfristen; Datenschutzbeauftragter, sofern gesetzlich erforderlich [zu prüfen]."
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Notfall- und Erste-Hilfe-Organisation: Die Planung weist 6 Notausgänge mit 690 cm Gesamtbreite (erforderlich mindestens 120 cm für 132 Personen, das sind 126 Trainierende zuzüglich 6 Beschäftigte), 12 gezeichnete Fluchtwege mit Lauflängen von 14,7 bis 35,2 m (zulässig bis 52,5 m), 21 Feuerlöscher mit 126 Löschmitteleinheiten (erforderlich 60), 2 automatisierte externe Defibrillatoren, 5 Verbandkästen, 6 Notausgangsschilder, 6 Rettungszeichenleuchten und 4 Flucht- und Rettungspläne aus; die Regularienprüfung der Planungssoftware ergab 114 erfüllte Anforderungen, keine offenen oder nicht erfüllten Punkte, 6 Hinweise und eine nicht anwendbare Anforderung (Versammlungsstättenverordnung erst ab 200 Personen), darunter Brandschutzhelfer, Ersthelfer, Legionellen- und Feuerlöscherprüfung (Quellen: Anhang I). Organisatorisch werden vor der Eröffnung alle Vollzeit- und Teilzeitkräfte als Ersthelfer und mindestens zwei Personen als Brandschutzhelfer ausgebildet [Kurse buchen], AED-Einweisungen halbjährlich wiederholt und eine Räumungsübung mit dem Team durchgeführt. In den unbesetzten Randzeiten haben nur eingewiesene Mitglieder Zutritt; die 5 Kameras, eine Notrufeinrichtung mit Verbindung zum Gründer beziehungsweise zur Rufbereitschaft und die Videoaufzeichnung sichern den Betrieb (Kapitel 3.4). Wellnessbereich und Kurse sind in der Randzeit geschlossen."
+  },
+  {
+   "typ": "h2",
+   "text": "7.8 Meilensteinplan Gründung bis Eröffnung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Zeitplan geht von der Eröffnung am 1. September 2027 rückwärts und enthält fünf Vorlaufmonate ab Mietbeginn im April 2027, davon drei mietfreie Monate für den Ausbau. Die Genehmigung der Nutzungsänderung dauert in der Praxis drei bis sechs Monate (Planeco 2025). § 54 Abs. 5 LBO sieht eine Entscheidung innerhalb von zwei Monaten ab Vollständigkeit der Unterlagen vor; die mit der LBO-Reform 2025 eingeführte Genehmigungsfiktion nach drei Monaten gilt nur im vereinfachten Verfahren und damit nicht, wenn die Anlage als Sonderbau eingestuft wird (Quellen: Anhang I). Der Bauantrag ist daher, wie in Kapitel 5.6 vorgesehen, spätestens im Dezember 2026 einzureichen, damit die Genehmigung bei einer Verfahrensdauer von drei bis sechs Monaten vor dem Ausbaubeginn im Mai 2027 vorliegt; wird die Genehmigung nicht bis zum Mietbeginn im April 2027 erteilt, verschieben sich Ausbau und Eröffnung. Der KfW-Förderkredit 077 setzt voraus, dass das Vorhaben bei Antragstellung noch nicht begonnen wurde (Quellen: Anhang I); Mietvertrag, Gerätebestellung und Ausbauaufträge werden deshalb erst nach der Antragstellung unterzeichnet."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 7.8: Meilensteine",
+   "spalten": [
+    "Zeitraum",
+    "Meilenstein",
+    "Inhalt",
+    "Verantwortlich / Beteiligte"
+   ],
+   "zeilen": [
+    [
+     "Oktober bis Dezember 2026",
+     "Bankgespräche und Förderanträge",
+     "Businessplan mit fachkundiger Stellungnahme (IHK); Gespräche mit Hausbank/Sparkasse; Antrag KfW 077, L-Bank GuW-BW mit Bürgschaftsbank BW, MBG stille Beteiligung; Standortauswahl mit Absichtserklärung des Vermieters; Steuerberater beauftragen",
+     "Gründer, Hausbank, IHK, Steuerberater"
+    ],
+    [
+     "November bis Dezember 2026",
+     "Mietvertrag und Bauantrag",
+     "Mietvertrag 10 Jahre zu 8,50 € je m², 3 mietfreie Monate, Kaution drei Monatsmieten einschließlich Nebenkosten (85.930 €); Fachplaner (Architekt, Brandschutz, Lüftung, Sanitär); Bauantrag Nutzungsänderung mit Brandschutzkonzept und Stellplatznachweis (ca. 52 Kfz, ca. 26 Fahrrad; Einstufung als Sonderbau mit der Baurechtsbehörde zu klären; Einreichung Dezember 2026, Genehmigungsverfahren Januar bis März 2027); Gerätebestellung Atlantis/Prime mit Lieferzeit [anfragen]",
+     "Gründer, Vermieter, Architekt, Bauamt"
+    ],
+    [
+     "Januar bis März 2027",
+     "Finanzierungszusagen, GmbH-Gründung",
+     "Notarielle Gründung, Einzahlung 25.000 €, Handelsregister, Gewerbeanmeldung, steuerliche Erfassung; Gesellschafts- und Beteiligungsverträge; Konten und Kontokorrent 200.000 €",
+     "Gründer, Notar, Steuerberater, MBG"
+    ],
+    [
+     "April 2027 (Monat −5)",
+     "Mietbeginn und Baufreigabe",
+     "Übergabe der Halle, Kaution, Auszahlung MBG; Baugenehmigung erwartet; Beginn Planungsleistungen; Vorbereitung Vorverkauf (Marke, Landingpage, Vertragsmuster, Studiosoftware)",
+     "Gründer, Fachplaner"
+    ],
+    [
+     "Mai bis August 2027 (Monate −4 bis −1)",
+     "Ausbau",
+     "Grundausbau, Lüftung, Sportboden, Nassbereich, Brandschutz und Sicherheitsbeleuchtung (851.788 €), Sanitär (39.800 €); Auszahlung KfW (Monat −4) und L-Bank (Monat −3); Baustellenbegehungen mit Bank",
+     "Gründer, Bauunternehmen, Fachplaner"
+    ],
+    [
+     "Juni bis August 2027",
+     "Vorverkauf und Personalaufbau",
+     "Vorverkauf mit 35.000 € Budget, Ziel 350 Mitglieder; Eintritt Gründer (Juni), stellvertretende Studioleitung (Juli), zwei Trainer (August); Recruiting Teilzeit und Minijobs; Firmenfitness-Gespräche, Aggregator-Anbindung, GEMA-Anmeldung, Versicherungen",
+     "Gründer, Stellv. Studioleitung"
+    ],
+    [
+     "August 2027 (Monat −1)",
+     "Gerätelieferung, Abnahmen, Probebetrieb",
+     "Lieferung und Montage der Geräte (590.968 € plus Importnebenkosten 32.228 €); Abnahmen Brandschutz, Lüftung, Sauna und Dampfbad; Einweisung des Teams, Erste-Hilfe- und Brandschutzhelferkurse, Räumungsübung; Probebetrieb mit Vorverkaufsmitgliedern",
+     "Gründer, Lieferanten, Sachverständige"
+    ],
+    [
+     "1. September 2027",
+     "Eröffnung",
+     "Eröffnungswochenende; Monate 1 bis 3 mit Eröffnungsmarketing (6.000 € je Monat zusätzlich) und 140 Neuzugängen je Monat",
+     "Gesamtes Team"
+    ],
+    [
+     "September 2028 (Monat 13)",
+     "Ausbau des Teams",
+     "Dritter Vollzeittrainer; Überprüfung Stellenplan anhand Bestand (Plan 1.429 Mitglieder nach 12 Monaten)",
+     "Gründer"
+    ],
+    [
+     "Monat 12 / 19 / 29",
+     "Wirtschaftliche Meilensteine",
+     "EBITDA-Break-even Monat 12, Cashflow-Break-even Monat 19, Kapazität 2.200 Mitglieder Monat 29 (Basisszenario)",
+     "Gründer, Bank (Reporting)"
+    ]
+   ],
+   "quelle": "Quellen: Excel-Planrechnung; Rechercheprotokoll (Anhang I; KfW 077: Vorhabenbeginn; § 54 LBO, LBO-Reform 2025, Planeco, VwV Stellplätze).",
+   "breiten": [
+    16,
+    18,
+    46,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Zahlungsplan des Finanzmodells folgt diesen Meilensteinen: Kaution im Monat −5, Planungsleistungen in den Monaten −5 bis −1, Ausbau in den Monaten −4 bis −1, Sonstiges im Monat −2, Geräte im Monat −1; die Darlehen werden in den Monaten −5 (MBG), −4 (KfW 077) und −3 (L-Bank) ausgezahlt. Verzögerungen im Genehmigungsverfahren oder bei der Gerätelieferung verschieben die Eröffnung; da Kaltmiete und Betriebskosten ab Juli 2027 laufen und das Personal ab Juni eingestellt wird, kostet jeder Verzugsmonat rund 20.742 € Kaltmiete und Betriebskosten zuzüglich der bereits laufenden Personalkosten von zuletzt rund 15.900 € je Monat und der Energiekosten der Bauphase, die im Modell erst ab Eröffnung angesetzt sind. Werden der Energieansatz von 7.902 € je Monat und die Zinsen von 13.514 € je Monat hinzugerechnet, ergeben sich rund 58.000 € je Verzugsmonat (Kapitel 9, Tabelle 9.3; Kapitel 10.9). Der Plan enthält dafür keine gesonderte Reserve, wohl aber die Betriebsmittelreserve von 740.000 € und den Kontokorrentrahmen von 200.000 €; die Bauzeit von vier Monaten für einen Hallenausbau ohne Rohbau ist mit den Fachplanern zu bestätigen [Bauzeitenplan beilegen]."
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Rechtsform",
+     "GmbH, Stammkapital 25.000 €"
+    ],
+    [
+     "Beschäftigte",
+     "14 (Jahr 1), 15 (ab Jahr 2)"
+    ],
+    [
+     "Personalkosten je Monat",
+     "28.533 € (Jahr 1), 33.801 € (Jahr 3)"
+    ],
+    [
+     "Personalkostenquote Jahr 3",
+     "29,6 %"
+    ],
+    [
+     "Öffnungszeit je Woche",
+     "111 h, davon 83 h besetzt"
+    ],
+    [
+     "Eröffnung",
+     "01.09.2027"
+    ]
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vom Gründer vor dem Bankgespräch zu ergänzen: Firma und Sitz der GmbH, Entwurf des Gesellschaftsvertrags, Entscheidung über Prokura für die stellvertretende Studioleitung, Beitragssatz der Berufsgenossenschaft, Angebote von Steuerberater, Softwareanbieter, Versicherer, Reinigungs- und Wartungsdienstleistern, Bauzeitenplan der Fachplaner mit Lieferzeiten der Geräte sowie ein Kursplan mit Stundenzahl für den Personaleinsatz."
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "GymPlanner – Datenauszug Projekt „No.1 (überarbeitet)“ (Rechercheprotokoll (Anhang I), Export 26.09.2026): Kapazität, Notausgänge, Fluchtwege, Feuerlöscher, AED, Regularien-Prüfung, Ausstattung",
+  "§ 5 und § 7 Abs. 2 GmbHG (Stammkapital 25.000 €, Mindesteinzahlung 12.500 €) – https://www.gesetze-im-internet.de/gmbhg/__7.html; § 5a GmbHG (UG) – https://www.gesetze-im-internet.de/gmbhg/__5a.html",
+  "notar-check – Notarkosten GmbH-Gründung (Musterprotokoll 259–271 €, individueller Vertrag 476–512 €) – https://notar-check.de/wissen/notarkosten-gmbh-gruendung (18.05.2026)",
+  "deutschland-rechner – GmbH-Gründungskosten-Rechner (Handelsregister 150–225 €) – https://www.deutschland-rechner.de/gmbh-gruendungskosten-rechner (2026)",
+  "IHK Karlsruhe – Wahl der Rechtsform und Registrierungspflichten – https://www.ihk.de/karlsruhe/fachthemen/recht/gesellschaftsrecht-handelsrecht/gesellschaftsrecht/wahl-der-rechtsform-und-registrierungspflichten-2459116 (01/2025)",
+  "IHK Konstanz – Wahl der Rechtsform und Registrierungspflichten – https://www.ihk.de/konstanz/recht-und-steuern/vertrag-gesellschaft/unternehmensgruendung/wahlderrechtsformundregistrierungspflichten-1672580 (12/2025)",
+  "KfW – Merkblatt ERP-Förderkredit Gründung und Nachfolge (077): persönliche Haftung, Vorhabenbeginn – https://www.kfw.de/PDF/Download-Center/F%C3%B6rderprogramme-(Inlandsf%C3%B6rderung)/PDF-Dokumente/6000000213_M_077.pdf (10.12.2025)",
+  "Bürgschaftsbank Baden-Württemberg – Standardprogramm (persönliche Mitverpflichtung der Gesellschafter) – https://bw.ermoeglicher.de/de/ueber-uns/service-downloads/produktliste/bbbw-standardprogramm/ (2026)",
+  "IHK zu Essen – Einkommensteuer, Körperschaftsteuer und Solidaritätszuschlag (KSt 15 %) – https://www.ihk.de/meo/recht-und-steuern/steuerrecht/einkommensteuer/einkommensteuer-kirchensteuer-koerperschaftssteuer-und-solidar-2104572 (01/2026)",
+  "Gewerbesteuer-Hebesätze: Stadt Friedrichshafen (350 %, Haushalt 2025/2026) – https://www.friedrichshafen.de/buerger-stadt/politik-finanzen/haushalt-finanzen/; Stadt Ravensburg Hebesatzsatzung ab 01.01.2025 (390 %); Landeshauptstadt Stuttgart Doppelhaushalt 2026/2027 (430 %) – https://www.stuttgart.de/doppelhaushalt-2026-2027",
+  "GEHALT.de – Fitnesstrainer/-in Gehalt 2026 (Median 2.942 €, BW 3.081 €, Quartile 2.683–3.227 €) – https://www.gehalt.de/beruf/fitnesstrainer-fitnesstrainerin (2026)",
+  "GEHALT.de – Studioleiter/-in Gehalt 2026 (Median 5.379 €, unteres Quartil 4.685 €, BW 5.632 €) – https://www.gehalt.de/beruf/studioleiter (2026)",
+  "Bundesregierung – Mindestlohn steigt 2026 auf 13,90 € und 2027 auf 14,60 € – https://www.bundesregierung.de/breg-de/aktuelles/mindestlohn-steigt-2391010 (21.09.2026)",
+  "Minijob-Zentrale Magazin – Minijob 2026: Änderungen (Verdienstgrenze 603 € / 633 €) – https://magazin.minijob-zentrale.de/minijob-2026-aenderungen/ (09.12.2025)",
+  "Minijob-Zentrale Magazin – Minijob-Beiträge 2026 (Arbeitgeberabgaben 31,17 %) – https://magazin.minijob-zentrale.de/minijob-beitraege-2026/ (16.12.2025)",
+  "lohn-info.de – Sozialversicherungsbeiträge 2026 (Arbeitgeberanteil ca. 21,3 % inkl. halbem Zusatzbeitrag) – https://www.lohn-info.de/sozialversicherungsbeitraege2026.html (Bekanntmachungen 11–12/2025)",
+  "DSSV/Deloitte/DHfPG – Eckdaten der deutschen Fitnesswirtschaft 2026 (167.100 Beschäftigte, 9.647 Anlagen) – https://www.dssv.de/wp-content/uploads/2026/03/03_18_pm_eckdaten.pdf (18.03.2026); hashtag-fitness – Eckdaten 2026 (17,3 Beschäftigte je Anlage, rechnerisch) – https://hashtag-fitness.com/eckdaten-der-deutschen-fitnesswirtschaft-2026-794 (19.03.2026)",
+  "Statistisches Bundesamt – Fachserie 2 Reihe 1.6.2 Kostenstruktur bei Fitnesszentren 2010 (Personalaufwand 27,9 %, 76,3 % Teilzeit/geringfügig) – https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Dienstleistungen/Publikationen/Downloads-Dienstleistungen-Kostenstruktur/kostenstruktur-fitness-2020163109004.pdf?__blob=publicationFile (06/2012)",
+  "DSSV e.V. / W.I.F.F. GmbH – Leitfaden Kostenmanagement (Personal 32/38 %, Reinigung 2,00–3,00 €/m², Versicherung 250–280 €, Steuerberater 1,2–1,5 %, Telefon 100 €) – https://www.dssv.de/wp-content/uploads/2022/05/DSSV_Leitfaden_kostenmanagement_202204.pdf (04/2022)",
+  "Happy Fit Premium Konstanz – Öffnungszeiten (Mo–Fr 6–22, Sa/So 9–19 Uhr) – https://happyfitpremium.de/ (abgerufen 27.09.2026)",
+  "8Black Fitness Friedrichshafen/Ravensburg – 24/7 mit Zutrittschip – https://www.8black.fitness/ (abgerufen 27.09.2026)",
+  "GymAccess – 24/7 Fitnessstudio Konzept: Hybridmodell, Zutrittssystem-Budget 32.500 € – https://gymaccess.de/blog/24-7-fitnessstudio-konzept (14.12.2025)",
+  "GymAccess – Fitnessstudio eröffnen: Kosten, Businessplan und Guide (Versicherung 500–1.500 €, Software 200–800 €/Monat) – https://gymaccess.de/blog/fitnessstudio-eroeffnen-kosten-guide (2026)",
+  "Steuerberater Beck – GmbH Steuerberater Kosten 2026 (Buchhaltung 600–1.200 €/Monat, Jahresabschluss 3.500–7.000 €) – https://www.steuerberater-beck.de/gmbh-steuerberater-kosten/ (2026)",
+  "LohnDialog – Lohnbüro Kosten 2026 (18–25 € je Mitarbeiter und Monat) – https://www.lohndialog.de/lohnbuero-kosten/ (2026)",
+  "FitPro Tools – Magicline Preise 2026 (Basic 189 / Advanced 349 / Pro 449 / Ultimate 699 €/Monat, Startpaket 399 €; Sekundärquelle) – https://fitprotools.de/directory/magicline/ (2026); Magicline – Preise (Module) – https://www.magicline.com/de/preise/ (abgerufen 27.09.2026)",
+  "WHK Controlling – Lastschrift Kosten 2026 (0,08–0,35 € je Buchung, Rücklastschrift bis 10+ €) – https://www.whk-controlling.de/wissen/lastschrift-kosten (2026)",
+  "KERKMANN/one-bear – Preise Wartung, Prüfung, Reparatur Fitnessgeräte (Wartung ab 53 €, DGUV-Sichtprüfung ab 62 € je Gerät) – https://one-bear.de/preise-wartung-sportgeraete-fitnessgeraete.html (o. D.)",
+  "Virtuagym – Fitnessstudio eröffnen: Kosten im Überblick 2026 (Wartung 200–500 €, Versicherung 300–800 €/Monat) – https://business.virtuagym.com/de/blog/fitnessstudio-eroeffnen-kosten/ (21.05.2026)",
+  "CleanCalc – Gebäudereinigung Preise 2026 (0,80–1,50 €/m² je Reinigung, Tariflohn 15,00 €/h) – https://www.cleancalc.de/preise-reinigung.html (08/2026)",
+  "ODV Versicherungen – Fitnessstudio-Versicherung (Pakete 39–79 €/Monat bis 400 m²) – https://odv-versicherungen.de/gewerbeversicherung/fitnessstudio-versicherung/ (2024)",
+  "GEMA – Tarif M-U (Version 92, gültig ab 01.01.2026): Fitness-/Sportstudios 465,30 € bis 200 m² + 169,20 € je weitere 200 m²; Saunabäder 259,50 € bis 100 m² – https://www.gema.de/documents/20121/1599214/tarif_m_u_version92.pdf (2026)",
+  "rundfunkbeitrag.de – Unternehmen und Institutionen (Betriebsstätte 9–19 Beschäftigte 18,36 €/Monat) – https://www.rundfunkbeitrag.de/unternehmen-und-institutionen/informationen (2026)",
+  "IN-COME Unternehmensberatung – Raumkosten (Instandhaltung 0,30–0,90 €/m²/Monat) – https://www.in-come.de/raumkosten/ (14.06.2020)",
+  "BODYMEDIA – Warum Mitglieder wirklich kündigen (IHRSA 2017: 2 Trainerkontakte/Monat) – https://www.bodymedia.de/themen/best-practice/warum-mitglieder-wirklich-kuendigen/ (14.10.2021)",
+  "§ 54 LBO Baden-Württemberg – Fristen im Genehmigungsverfahren – https://lxgesetze.de/lbo/54 (Stand 16.03.2026); ARGE Baurecht – Gesetz für das schnelleres Bauen (Genehmigungsfiktion 3 Monate) – https://arge-baurecht.com/baurecht-wissen/fachartikel/artikel/das-neue-gesetz-fuer-das-schnellere-bauen (29.07.2025)",
+  "Planeco Building – Nutzungsänderung Fitnessstudio (Praxisdauer 3–6 Monate, Sonderbau) – https://www.planecobuilding.de/nutzungsaenderung/nutzungsaenderung-fitnessstudio (akt. 21.10.2025)",
+  "Architektenkammer BW – Merkblatt Nr. 593 VwV Stellplätze (1 Kfz-Stellplatz je 25 m² Sportfläche) – https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt593_VwV-Stellplaetze.pdf (01.09.2022)",
+  "§ 309 Nr. 9 BGB (Vertragslaufzeiten) und § 312k BGB (Kündigungsbutton) – https://www.gesetze-im-internet.de/bgb/__309.html"
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "nummer": 1,
+ "titel": "Zusammenfassung (Executive Summary)",
+ "bloecke": [
+  {
+   "typ": "h2",
+   "text": "1.1 Vorhaben und Gründer"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die zu gründende No.1 Fitness GmbH eröffnet am 1. September 2027 in der Bodenseeregion, alternativ in der Region Stuttgart, ein inhabergeführtes Fitnessstudio mit 1.975,40 m² Bruttofläche, das Kraft-, Freihantel- und Cardiotraining, eine HYROX-Zone, einen Kursraum und Wellness (Sauna, Dampfbad, Cold Plunge) verbindet (Quellen: Anhang I). Das Studio positioniert sich in der Premium-Mittelklasse mit Beiträgen von 34,90 bis 59,90 € brutto je Monat und einem Zielbestand von 2.200 Mitgliedern ab dem 29. Betriebsmonat. Der Kapitalbedarf von 2.652.583 € netto einschließlich einer Anlaufreserve für 24 Monate wird über 150.000 € Eigenmittel, eine stille Beteiligung der MBG Baden-Württemberg sowie KfW- und L-Bank-Darlehen über die Hausbank gedeckt (Quellen: Anhang I)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Gründer, alleiniger Gesellschafter und Geschäftsführer ist [Name], geboren am [Geburtsdatum], wohnhaft in [Wohnort], etwa 20 Jahre alt, [Ausbildung / Trainerlizenzen / Branchenerfahrung]; er bringt [Eigenmittel] als Bareinlage ein (Planansatz 150.000 €) und übernimmt die persönliche Mitverpflichtung gegenüber KfW, Bürgschaftsbank und MBG. Die fehlende Führungserfahrung wird durch eine erfahrene stellvertretende Studioleitung (Trainer-A-Lizenz), Steuerberater, IHK-Gründungsberatung, einen Beirat aus der Branche [Name] und die 24-monatige Anlaufreserve ausgeglichen (Kapitel 2)."
+  },
+  {
+   "typ": "h2",
+   "text": "1.2 Konzept und Alleinstellung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Kein erfasster Wettbewerber in beiden Regionen bietet die Kombination aus Vollsortiment-Kraftbereich, fester HYROX-Zone und Wellness mit Dampfbad und Cold Plunge (Quellen: Anhang I): 1.138,58 m² Trainingsfläche mit 52 Kraftmaschinen von Atlantis und Prime, 5 Racks und 20 Cardiogeräten, eine HYROX-Zone von 169,88 m² und ein Kursraum von 149 m² (Quellen: Anhang I). Drei Tarife (Basic 44,90 €, Premium 59,90 € mit Wellness und HYROX, Student/Azubi/Senior 34,90 €, brutto) ergeben im Planmix 50,15 € je Mitglied und Monat, nahe dem Branchendurchschnitt von 48,55 € und unter den 59,24 € der Einzelanlagen (DSSV Eckdaten 2026)."
+  },
+  {
+   "typ": "h2",
+   "text": "1.3 Standort und Markt"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die deutsche Fitnesswirtschaft erreichte 2025 mit 12,36 Mio. Mitgliedern, 6,25 Mrd. € Nettoumsatz (+7,4 %) und 14,8 % Penetration ihren Höchststand (DSSV Eckdaten 2026). Das 15-Minuten-Einzugsgebiet um Friedrichshafen zählt 149.548 Einwohner und rechnerisch 22.133 Fitnessmitglieder, der Zielbestand von 2.200 entspricht 9,9 % davon; die Kaufkraft im Bodenseekreis liegt mit 36.069 € je Einwohner rund 7 % über dem Landeswert; nur zwei von 20 erfassten Studios bieten HYROX an (Rechercheprotokoll (Anhang I); IHK Bodensee-Oberschwaben 2026). Der Alternativraum Böblingen/Sindelfingen bietet 215.039 Einwohner (Marktanteil 6,9 %) bei stärkerem Wettbewerb; die Kaltmiete von 8,50 €/m² liegt am Bodensee über den IHK-Mietpreisspannen für Produktionshallen (4,30 bis 6,70 €/m²) und im oberen Bereich der Angebotsmieten für Hallen ab 1.300 m² (4,33 bis 9,68 €/m²) und entspricht in der Region Stuttgart der Spitzenmiete 2025 für Hallenflächen im Stadtgebiet (Umland bis 9,90 €/m², Durchschnitt 7,00 €/m²); sie ist damit konservativ angesetzt (Rechercheprotokoll (Anhang I); IHK Bodensee-Oberschwaben 06/2025; Realogis 2025; Shortlist Anhang G)."
+  },
+  {
+   "typ": "h2",
+   "text": "1.4 Kapitalbedarf und Finanzierung"
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Investition (netto)",
+     "1.912.583 €"
+    ],
+    [
+     "Anlaufreserve 24 Monate",
+     "740.000 €"
+    ],
+    [
+     "Kapitalbedarf gesamt",
+     "2.652.583 €"
+    ],
+    [
+     "Eigenkapital inkl. MBG (Quote)",
+     "150.000 € + 250.000 € = 400.000 € (15,1 %)"
+    ],
+    [
+     "KfW ERP-Förderkredit 077",
+     "500.000 € (15 Jahre, 5 tilgungsfrei)"
+    ],
+    [
+     "L-Bank GuW-BW über Hausbank",
+     "1.752.583 € (20 Jahre, 3 tilgungsfrei)"
+    ],
+    [
+     "Finanzierungswunsch an die Hausbank",
+     "2.252.583 € + 200.000 € Kontokorrent"
+    ]
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Anlaufreserve deckt den kumulierten Fehlbetrag aus Betrieb und Kapitaldienst, der im 18. Betriebsmonat seinen Höchstwert von 640.858 € erreicht, plus 15 % Puffer (rechnerisch 736.987 €, aufgerundet auf 740.000 €); die Eigenkapitalquote von 15,1 % liegt in der Sparkassen-Spanne von 15 bis 20 %, setzt jedoch die Zusage der stillen Beteiligung der MBG voraus; die harten Eigenmittel des Gründers allein entsprechen 5,7 % des Kapitalbedarfs (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "1.5 Planzahlen und Break-even"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 1.1: Planzahlen Basisszenario Jahr 1 bis 3 (netto; Jahr 1 einschließlich fünf Vorlaufmonaten)",
+   "spalten": [
+    "Kennzahl",
+    "Jahr 1 (2027/28)",
+    "Jahr 2 (2028/29)",
+    "Jahr 3 (2029/30)"
+   ],
+   "zeilen": [
+    [
+     "Mitglieder am Jahresende",
+     "1.429",
+     "2.053",
+     "2.200"
+    ],
+    [
+     "Umsatz",
+     "622.361 €",
+     "1.101.585 €",
+     "1.368.522 €"
+    ],
+    [
+     "EBITDA",
+     "−389.492 €",
+     "153.383 €",
+     "398.960 €"
+    ],
+    [
+     "Jahresergebnis",
+     "−798.519 €",
+     "−209.477 €",
+     "36.237 €"
+    ],
+    [
+     "Kapitaldienstdeckung (DSCR)",
+     "−1,87 (aus Reserve)",
+     "0,95",
+     "2,12"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Jahr 4: Ergebnis 61.146 €, DSCR 1,61.",
+   "breiten": [
+    37,
+    21,
+    21,
+    21
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Start mit 350 Vorverkaufsmitgliedern, Kündigungsquote 2,2 % je Monat auf Branchenniveau (DSSV 2019 in Kruse 2021); EBITDA ab dem 12., Cashflow nach Kapitaldienst ab dem 19. Betriebsmonat positiv; Break-even bei 1.572 Mitgliedern ohne und 2.018 mit vollem Kapitaldienst (erreicht im 24. Monat); Kassenminimum 107.975 € im 18. Monat, stets positiv."
+  },
+  {
+   "typ": "h2",
+   "text": "1.6 Wesentliche Risiken und Gegenmaßnahmen"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 1.2: Wichtigste Risiken (Wirkung Jahr 3) und Gegenmaßnahmen",
+   "spalten": [
+    "Risiko",
+    "Wirkung (Sensitivität)",
+    "Gegenmaßnahme"
+   ],
+   "zeilen": [
+    [
+     "Mitgliederaufbau unter Plan",
+     "Neuzugänge −20 %: DSCR 0,92, Kasse −202.288 €; −30 %: Nachfinanzierung nötig",
+     "Vorverkauf-Warnschwelle 280, Firmenfitness, Aggregatoren, Kostenpaket bis 86.623 €/Jahr, Kontokorrent, Tilgungsstreckung"
+    ],
+    [
+     "Churn 3,0 % oder Beiträge −10 %",
+     "DSCR 1,57 bzw. 1,53; Ergebnis −68.514 € bzw. −74.793 €",
+     "Zwei Trainerkontakte je Monat; keine Preiskämpfe, Differenzierung über Wellness und HYROX"
+    ],
+    [
+     "Kosten, Miete, Zinsen",
+     "Miete 10,00 €/m², Personal +10 %, Energie 5,50 €/m², Zinsen +1,5 Pp.: DSCR 1,77 bis 1,93",
+     "Zinsbindung 10 Jahre, Festpreisangebote, Position Unvorhergesehenes 165.378 € im Investitionsplan"
+    ],
+    [
+     "Unerfahrenheit, Ausfall des Gründers",
+     "Führungslücke, Bankvertrauen",
+     "Stellv. Studioleitung mit Vollmacht, Beirat, Risikolebens- und BU-Versicherung"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Kapitel 9 und 10; Frühindikatoren Kapitel 6.7.",
+   "breiten": [
+    22,
+    38,
+    40
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "1.7 Bitte an die Hausbank"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die No.1 Fitness GmbH (in Gründung) bittet die Hausbank um die Begleitung der Gründungsfinanzierung mit 2.252.583 € Darlehen und 200.000 € Kontokorrent (Stand 09/2026): KfW ERP-Förderkredit Gründung und Nachfolge (077) über 500.000 € mit 100-%-Garantie der Bürgschaftsbank Baden-Württemberg; L-Bank Gründungs- und Wachstumsfinanzierung (GuW-BW) über 1.752.583 € mit 80-%-Ausfallbürgschaft der Bürgschaftsbank (1.402.066 €) und Sicherheitenpaket nach Kapitel 10.3; der KfW ERP-Gründerkredit StartGeld (067) wurde geprüft und nicht angesetzt, weil er einen Gesamtfremdfinanzierungsbedarf von höchstens 200.000 € voraussetzt; Kontokorrent als Sicherheitslinie für eine verzögerte Vorsteuererstattung (höchster offener Umsatzsteuerbetrag 366.018 € im Monat −1, im Plan aus dem Kassenbestand vorfinanziert). Parallel werden die MBG-Beteiligung (250.000 €) beantragt und 150.000 € Eigenmittel eingebracht [Herkunft zu belegen]; Zusage unter der aufschiebenden Bedingung eines Mietvertrags mit Baugenehmigung (Unterlagen: Kapitel 11, Planrechnung: Finanzplan_No1.xlsx)."
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "DSSV/Deloitte/DHfPG – Pressemitteilung „Eckdaten der deutschen Fitnesswirtschaft 2026“ (PDF) – https://www.dssv.de/wp-content/uploads/2026/03/03_18_pm_eckdaten.pdf (18.03.2026)",
+  "citypopulation.de – Kreise und Gemeinden Baden-Württemberg (StaLa, Fortschreibung 31.12.2025, Zensus 2022) – https://www.citypopulation.de/de/germany/badenwurttemberg/ (2026)",
+  "IHK Bodensee-Oberschwaben – Kaufkraft (MB Research, Prognose 2026) – https://www.ihk.de/bodensee-oberschwaben/branchen/handel/news/kaufkraft-nominal-6593404 (2026)",
+  "IHK Bodensee-Oberschwaben – Mietpreisspannen für Produktions- und Lagerhallen – https://www.ihk.de/bodensee-oberschwaben/produktmarken/wirtschaftsstandort-bo/gewerbeflaechen-und-stadtentwicklung/mietpreisspannen-fuer-produktions-und-lagerhallen--4916024 (06/2025)",
+  "Realogis – Marktbericht Logistikimmobilienmarkt Stuttgart Gesamtjahr 2025 – https://www.realogis.com/market-report/logistics/leasing/stuttgart-full-year/2025 (2025)",
+  "Wettbewerber-Websites Bodensee und Region Stuttgart (Rechercheprotokoll (Anhang I), Stand 09/2026)",
+  "Kruse, T. (2021) – Ökonomische Analyse des Trainings- und Kündigungsverhaltens von Fitnessstudio-Mitgliedern, Dissertation Univ. Paderborn (Fluktuation 25 %, DSSV 2019) – https://d-nb.info/124761851X/34",
+  "KfW – Merkblatt ERP-Gründerkredit StartGeld (067), Stand 18.06.2026; Merkblatt ERP-Förderkredit Gründung und Nachfolge (077), Stand 10.12.2025",
+  "L-Bank – Gründungs- und Wachstumsfinanzierung (GuW-BW), Konditionenübersicht Wirtschaftsförderung (24.09.2026) – https://www.l-bank.de/",
+  "Bürgschaftsbank Baden-Württemberg – Standardprogramm, Preis- und Konditionenverzeichnis 05/2026 – https://bw.ermoeglicher.de/",
+  "MBG Baden-Württemberg – Stille Beteiligung Existenzgründung – https://mbg-bw.ermoeglicher.de/",
+  "Sparkasse – Gründungsfinanzierung und Unterlagen für das Bankgespräch – https://www.sparkasse.de/fk/produkte/finanzierung/gruendungsfinanzierung.html (Stand 09/2026)"
+ ]
+}

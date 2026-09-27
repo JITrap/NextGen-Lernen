@@ -1,0 +1,886 @@
+{
+ "nummer": 3,
+ "titel": "Geschäftsidee, Leistungsangebot und Studiokonzept",
+ "bloecke": [
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Bruttofläche",
+     "1.975,40 m²"
+    ],
+    [
+     "Trainingsfläche",
+     "1.138,58 m² (59,0 % der Nettofläche)"
+    ],
+    [
+     "Kapazität gleichzeitig",
+     "126 Trainierende (9 m²-Regel)"
+    ],
+    [
+     "Ziel-Mitgliederbestand",
+     "2.200 (ab Monat 29)"
+    ],
+    [
+     "Kraftmaschinen / Cardiogeräte",
+     "52 / 20"
+    ],
+    [
+     "Beiträge brutto",
+     "34,90 bis 59,90 €/Monat"
+    ],
+    [
+     "Geräteinvestition netto",
+     "590.968 € (147 Positionen)"
+    ],
+    [
+     "Eröffnung",
+     "01.09.2027"
+    ]
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "3.1 Geschäftsidee und Positionierung"
+  },
+  {
+   "typ": "absatz",
+   "text": "No.1 Fitness & HYROX Studio (Arbeitstitel) ist ein inhabergeführtes Fitnessstudio mit rund 1.975 m² Bruttofläche auf einer Ebene, das vier Angebote unter einem Dach verbindet: einen vollständig mit Premiumgeräten der Hersteller Atlantis und Prime ausgestatteten Kraftbereich mit 52 Maschinen, gegliedert nach Muskelgruppen, einen Freihantel- und Rack-Bereich, eine HYROX-Zone mit acht Stationen und einer Sled-Bahn sowie einen Wellnessbereich mit finnischer Sauna, Dampfbad, Cold Plunge und Erlebnisdusche. Ergänzt wird das Angebot durch einen Cardiobereich mit 20 Geräten, einen Kursraum mit 149 m² und betreutes Training durch lizenzierte Trainer in den Kernzeiten (Quellen: Anhang I). Das Studio positioniert sich in der Premium-Mittelklasse: oberhalb der Discount-Ketten, die 2026 effektiv 31 bis 39 € je Monat verlangen (fair-for-fitness 2026), und unterhalb der reinen Premiumanbieter wie Happy Fit Premium Konstanz mit 80 bis 109 € je Monat (Happy Fit Premium)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Positionierung greift die belegten Nachfragetrends auf. Im ACSM-Trendranking 2026 für Deutschland liegt klassisches Krafttraining auf Platz 1, datengestützte Trainingstechnologie auf Platz 2 und Functional Training auf Platz 4 (BODYMEDIA/DHfPG 2026); die DSSV-Betreiberbefragung 2024 nennt Krafttraining mit freien Gewichten, qualifizierte Fachkräfte und Functional Fitness unter den fünf wichtigsten Trends (DSSV 2024). HYROX hat sich seit der Gründung 2017 zur weltweit größten Fitness-Wettkampfserie entwickelt: rund 900.000 Athleten im Jahr 2025, über 1,5 Mio. Teilnehmer in der Saison 2025/26 und rund 15.000 Partnerstudios, davon etwa 1.300 im DACH-Raum (BODYMEDIA 29.05.2026; endurance.biz 20.07.2026). In der Bodenseeregion bieten nur zwei der 20 erfassten Studios ein HYROX-Training an, in der Region Stuttgart zwei von zehn (Quellen: Anhang I). Sauna ist dagegen bei rund zwei Dritteln der Wettbewerber vorhanden und wird deshalb nicht als Alleinstellungsmerkmal, sondern als Hygienefaktor für das Premiumsegment betrachtet."
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Kundennutzen lässt sich in vier Aussagen zusammenfassen. Erstens: vollständige Geräteausstattung auf Wettkampfniveau (Atlantis Precision-, Power- und Pro-Serie; Prime Hybrid und Evolution) statt der in Discount-Ketten üblichen Standardlinien. Zweitens: ein HYROX-Trainingsangebot mit den offiziellen Stationen, das in der Region kaum verfügbar ist und eine wachsende, zahlungsbereite Zielgruppe anspricht. Drittens: Betreuung durch lizenzierte Trainer in den Kernzeiten, verbunden mit langen Öffnungszeiten über ein Zutrittssystem. Viertens: Regeneration und Wellness als Bestandteil des Premiumtarifs statt als kostenpflichtiges Extra. Damit spricht das Studio sowohl leistungsorientierte Trainierende (20 bis 40 Jahre) als auch gesundheits- und regenerationsorientierte Mitglieder (40 Jahre und älter) an; das Durchschnittsalter der Fitnessstudiomitglieder in Deutschland liegt bei 40,5 Jahren, der Frauenanteil bei 53,3 % (DSSV Eckdaten 2022). Die Zielgruppen und das Einzugsgebiet werden in Kapitel 4 quantifiziert."
+  },
+  {
+   "typ": "h2",
+   "text": "3.2 Studiokonzept und Flächenprogramm"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Studio wurde vollständig in der Planungssoftware GymPlanner geplant und geprüft (Projekt „No.1 (überarbeitet)“, Export 26.09.2026). Die Halle misst 59,50 × 33,20 m bei 4,00 m Deckenhöhe und 24 cm Außenwänden; die Bruttofläche beträgt 1.975,40 m², die Nettofläche 1.931,13 m² (Quellen: Anhang I). Alle Funktionen liegen im Erdgeschoss, was Barrierefreiheit, kurze Wege und einfache Aufsicht ermöglicht. Die Flächenbilanz zeigt einen für Fitnessanlagen hohen Anteil produktiver Trainingsfläche von 59,0 %:"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.1: Flächenprogramm nach Flächenklassen",
+   "spalten": [
+    "Flächenklasse",
+    "m²",
+    "Anteil Nettofläche",
+    "Inhalt"
+   ],
+   "zeilen": [
+    [
+     "Trainingsfläche",
+     "1.138,58",
+     "59,0 %",
+     "Maschinen, Freihantel, HYROX, Kursraum, Functional, Cardio"
+    ],
+    [
+     "Verkehrsfläche",
+     "340,26",
+     "17,6 %",
+     "Hauptwege in der Halle, Flur Umkleiden, Flur WC/Wellness"
+    ],
+    [
+     "Nebenfläche",
+     "207,01",
+     "10,7 %",
+     "Empfang/Lounge, Lager, Technik, Putzraum, Büro, Personalraum"
+    ],
+    [
+     "Umkleide/Sanitär",
+     "158,99",
+     "8,2 %",
+     "Umkleiden Damen/Herren, Duschen, WCs"
+    ],
+    [
+     "Wellness",
+     "58,35",
+     "3,0 %",
+     "Sauna, Dampfbad, Cold Plunge, Ruheraum"
+    ],
+    [
+     "Innenwände (nicht zugeordnet)",
+     "27,94",
+     "1,4 %",
+     ""
+    ],
+    [
+     "Nettofläche gesamt",
+     "1.931,13",
+     "100 %",
+     "Bruttofläche 1.975,40 m²"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I), GymPlanner-Flächenbilanz.",
+   "breiten": [
+    26,
+    14,
+    18,
+    42
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.2: Zonen und Räume mit Flächen",
+   "spalten": [
+    "Zone / Raum",
+    "m²",
+    "Kernausstattung"
+   ],
+   "zeilen": [
+    [
+     "Maschinen Rücken",
+     "158,68",
+     "12 Kraftmaschinen (Latzug, Ruderzug, Rack-Module, Hyperextension)"
+    ],
+    [
+     "Maschinen Beine",
+     "141,90",
+     "12 Kraftmaschinen (Beinpressen, Hack Squat, Pendulum Squat, Beinbeuger/-strecker)"
+    ],
+    [
+     "Maschinen Schultern & Arme",
+     "99,50",
+     "10 Kraftmaschinen (Schulterpresse, Seitheben, Bizeps-/Trizepsgeräte, Dip)"
+    ],
+    [
+     "Maschinen Brust",
+     "76,10",
+     "7 Kraftmaschinen (Brustpressen, Butterfly, Pec/Rear-Delt)"
+    ],
+    [
+     "Freihantel",
+     "184,25",
+     "3 Half Racks, 1 Power Rack, 2 Smith Machines, Plattform, 3 Bänke, Kurzhantel-Racks"
+    ],
+    [
+     "HYROX-Zone",
+     "169,88",
+     "8 Stationen, 2 Sleds auf einer Kunstrasenbahn, 2 SkiErg, 2 RowErg, 2 Wall-Ball-Ziele"
+    ],
+    [
+     "Kursraum",
+     "149,01",
+     "12 Matten, 8 Indoor-Cycling-Räder, Musikanlage, Trainerpodest"
+    ],
+    [
+     "Core & Dehnen (Functional/Stretching)",
+     "88,11",
+     "9 Matten, Kettlebell-, Medizinball-Regal, Plyo-Boxen"
+    ],
+    [
+     "Cardio",
+     "71,16",
+     "16 Cardiogeräte (Laufbänder, Crosstrainer, Stairmaster, Ergometer)"
+    ],
+    [
+     "Empfang / Lounge",
+     "78,28",
+     "Theke, Shakebar, 2 Drehkreuze, Sitzbereich"
+    ],
+    [
+     "Umkleide Damen / Herren",
+     "44,92 / 44,18",
+     "178 Spindfächer gesamt, 2 Einzelkabinen, 10 Bänke"
+    ],
+    [
+     "Duschen Damen / Herren",
+     "25,14 / 24,73",
+     "18 Duschen gesamt (davon 2 barrierefrei)"
+    ],
+    [
+     "WC Damen und barrierefrei / WC Herren",
+     "8,43 / 11,58",
+     "7 WCs, 4 Urinale, 8 Waschtische"
+    ],
+    [
+     "Wellness / Sauna",
+     "45,99",
+     "Sauna 400 × 300 cm, Dampfbad, Cold Plunge, Erlebnisdusche"
+    ],
+    [
+     "Ruheraum",
+     "12,36",
+     "3 Ruheliegen, Teestation"
+    ],
+    [
+     "Lager / Technik / Putzraum",
+     "42,09 / 24,04 / 23,80",
+     "Lüftungsanlage, Warmwasserspeicher, Waschmaschine, Trockner"
+    ],
+    [
+     "Büro / Personalraum",
+     "19,51 / 19,30",
+     "Arbeitsplatz Geschäftsführung, Besprechungstisch, Teeküche"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I).",
+   "breiten": [
+    32,
+    18,
+    50
+   ]
+  },
+  {
+   "typ": "abbildung",
+   "datei": "grundriss-no1.png",
+   "titel": "Abbildung 3.1: Grundriss No.1 Fitness & HYROX Studio (Erdgeschoss, 59,50 × 33,20 m) mit Zonen, Fluchtwegen und Legende, Export GymPlanner 26.09.2026"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kapazitätsprüfung nach der 9 m²-Regel ergibt 126 gleichzeitig Trainierende (1.138,58 m² Trainingsfläche geteilt durch 9 m²); die Bemessung für Rettungswege und Sanitäranlagen erfolgt für 132 Personen einschließlich 6 Beschäftigten (Quellen: Anhang I). Die Sanitärausstattung übertrifft die Mindestwerte deutlich: 178 Spindfächer bei einem Soll von 126, 18 Duschen bei einem Soll von 9 (empfohlen 13) und 11 WCs bei einem Soll von 6 (Quellen: Anhang I). Sechs Notausgänge mit zusammen 690 cm Breite (Soll mindestens 120 cm) und zwölf gezeichnete Fluchtwege mit Lauflängen zwischen 14,7 und 35,2 m (Soll höchstens 52,5 m) sind eingeplant; 21 Feuerlöscher, 2 AED-Geräte, 5 Verbandkästen, Rettungszeichenleuchten und Flucht- und Rettungspläne sind Teil der Ausstattung. Die Regularienprüfung der Planungssoftware weist 114 erfüllte Prüfpunkte, keinen nicht erfüllten Punkt und sechs Hinweise aus (Bewegungsfläche barrierefreies WC, Beschäftigten-Toiletten, Brandschutzhelfer, Ersthelfer, Legionellenprüfung, Feuerlöscherprüfung); die Versammlungsstättenverordnung ist bei 132 Personen nicht anwendbar, da sie erst ab 200 Personen greift (Quellen: Anhang I). Für die Nutzungsänderung einer Gewerbehalle zum Fitnessstudio sind nach der Stellplatzverwaltungsvorschrift Baden-Württemberg 1 Kfz-Stellplatz je 25 m² Sportfläche nachzuweisen, für No.1 bei rund 1.300 m² anrechenbarer Sportfläche überschlägig 52 Kfz-Stellplätze; für Fahrräder enthält die Verwaltungsvorschrift keine Richtzahl für Fitnesscenter, in Anlehnung an Sporthallen (1 je 50 m²) sind rund 26 Fahrradstellplätze anzusetzen (AKBW-Merkblatt 593, Rechercheprotokoll (Anhang I); Planungsannahme, im Bauantrag zu konkretisieren)."
+  },
+  {
+   "typ": "h2",
+   "text": "3.3 Leistungsangebot je Bereich"
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.1 Gerätegestütztes Krafttraining"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Kraftbereich umfasst 52 Maschinen, davon 45 von Atlantis (Kanada) und 7 von Prime (USA), auf 476,17 m² in vier nach Muskelgruppen gegliederten Zonen (Quellen: Anhang I). Die Gliederung nach Beine, Rücken, Brust sowie Schultern und Arme ermöglicht Trainierenden einen klaren Split-Ablauf und den Trainern eine effiziente Betreuung. Jede Muskelgruppe ist mit mehreren Geräten für unterschiedliche Winkel und Bewegungsmuster abgedeckt, so dass auch zu Spitzenzeiten keine Wartezeiten an Schlüsselgeräten entstehen; für die Brustpresse sind beispielsweise drei Converging Incline Bench Press (Atlantis P443) vorgesehen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.3: Kraftmaschinen nach Muskelgruppe (Auswahl der Geräte, Preise netto je Stück)",
+   "spalten": [
+    "Muskelgruppe",
+    "Anzahl",
+    "Beispiele (Hersteller, Modell, Preis netto)"
+   ],
+   "zeilen": [
+    [
+     "Beine",
+     "12",
+     "Horizontal Leg Press Atlantis C403 10.610 €; Pendulum Squat Pro PW212 9.280 €; 40° Leg Press C401 8.470 €; Hack Squat C412 8.310 €; Leg Extension C105 7.590 €; Kneeling Leg Curl C118 7.410 €; Lying Leg Curl C106 7.220 €; Glute Abductor PW429 6.830 €; Hip Thruster Pro PW702 6.450 €; Inner Thigh Prime Hybrid 5.260 €; Seated Calf PW319 4.240 €; Single Leg Squat Stand C220 660 €"
+    ],
+    [
+     "Rücken",
+     "12",
+     "Unilateral Lat Pulldown MS12 (2 ×) 7.020 €; Assisted Chin/Dip D131 7.950 €; Lat Pulldown D123 6.480 €; Low Row MS7 (2 ×) 5.870 €; Lat Pulldown MS6 (2 ×) 5.270 €; Low Row PW637 4.420 €; Row PW437 4.420 €; Incline T-Bar Row PW625 3.160 €; Incline Hyper Extension D828 3.010 €"
+    ],
+    [
+     "Brust",
+     "7",
+     "Converging Incline Bench Press P443 (3 ×) 5.080 €; Pec/Rear Delt Fly Combo P156 6.430 €; Decline Vertical Chest Press PW739 5.660 €; Incline Pec Fly PW256 (2 ×) 3.750 €"
+    ],
+    [
+     "Schultern",
+     "2",
+     "Standing Lateral Raise E252 8.140 €; Converging Shoulder Press E449 5.500 €"
+    ],
+    [
+     "Arme",
+     "8",
+     "Biceps Isolator B160 9.400 €; Triceps Pushdown T163 7.950 €; Incline Triceps Pushdown T215 5.520 €; Arm Curl Prime Evolution 4.690 €; Seated Preacher Curl B256 2.380 €; Dip Bars P245 1.940 €; Double-Sided Preacher Prime (2 ×) 1.180 €"
+    ],
+    [
+     "Rumpf",
+     "1",
+     "Abdominal Crunch Prime Hybrid 4.910 €"
+    ],
+    [
+     "Racks / Smith",
+     "6",
+     "Smith Machine E155 (2 ×) 7.240 €; Half Rack C511 (3 ×) 3.100 €; Power Rack C513 4.380 €"
+    ],
+    [
+     "Bänke / Plattform",
+     "4",
+     "Adjustable Bench Prime (2 ×) 640 €; Flat Bench B275 880 €; Plattform Hartholz B4800 2.540 €"
+    ],
+    [
+     "Summe Kraftgeräte",
+     "52",
+     "268.570 € netto zzgl. 12 % Import-Nebenkosten (32.228 €)"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I); Händlerpreise Show Me Weights / True Iron (09/2026), Listenpreise Prime Fitness USA; vollständige Liste in Anhang A.",
+   "breiten": [
+    18,
+    10,
+    72
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.2 Freihantelbereich"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Freihantelbereich mit 184,25 m² bildet zusammen mit den Racks das Zentrum für leistungsorientiertes Training. Vorgesehen sind 3 Half Racks und 1 Power Rack (Atlantis Athletic Series), 2 Smith Machines, 1 Adjustable Single Leg Squat Stand, eine Plattform mit Hartholzoberfläche, 3 Hantelbänke (1 Flat Bench, 2 verstellbare Prime-Bänke), 2 Kurzhantel-Racks, 5 Scheibenständer, ein Langhantelständer und 2 Hantelscheiben-Sätze (Quellen: Anhang I). Die Rack-Straße ist mit den Rack-Modulen Lat Pulldown und Low Row (Atlantis MS6/MS7/MS12) kombiniert, so dass Grundübungen und Zugübungen ohne Zonenwechsel möglich sind. Der Bodenaufbau ist im Investitionsplan als Sportboden für die gesamte Trainingsfläche (1.138,58 m² × 55 € = 62.622 €) berücksichtigt."
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.3 Cardiobereich"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Cardiobereich umfasst 20 Geräte, davon 16 in der Cardiozone mit 71,16 m² und 4 (2 SkiErg, 2 Rudergeräte) in der HYROX-Zone (Quellen: Anhang I). Die Auswahl ist auf kommerzielle Dauerlast ausgelegt; die Preisansätze beruhen auf Händlerpreisen und Marktspannen für Studiogeräte (Matrix, Life Fitness, StairMaster, Concept2), sie sind im Investitionsplan mit 104.760 € netto enthalten."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.4: Cardiogeräte",
+   "spalten": [
+    "Gerät",
+    "Anzahl",
+    "Preis netto je Stück",
+    "Preisbasis"
+   ],
+   "zeilen": [
+    [
+     "Laufband, motorisiert (kommerziell)",
+     "5",
+     "8.000 €",
+     "Matrix T1x 7.199 € brutto; Life Fitness/Technogym 9.000 bis 12.000 € netto"
+    ],
+    [
+     "Curved Treadmill",
+     "1",
+     "3.780 €",
+     "AssaultRunner Pro 4.499 € brutto"
+    ],
+    [
+     "Crosstrainer",
+     "3",
+     "7.000 €",
+     "Life Fitness Club Series+/Integrity+ 8.100 bis 9.800 € netto"
+    ],
+    [
+     "Stairmaster",
+     "4",
+     "6.500 €",
+     "StairMaster 8 Series Gauntlet, Spanne 5.000 bis 8.500 € netto"
+    ],
+    [
+     "Sitzergometer",
+     "3",
+     "3.300 €",
+     "Matrix U1x 3.899 € brutto"
+    ],
+    [
+     "SkiErg (HYROX-Zone)",
+     "2",
+     "1.040 €",
+     "Concept2 SkiErg inkl. Bodenständer"
+    ],
+    [
+     "Rudergerät (HYROX-Zone)",
+     "2",
+     "1.000 €",
+     "Concept2 RowErg"
+    ],
+    [
+     "Summe",
+     "20",
+     "104.760 €",
+     ""
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I); Händlerpreise professionell-fitness-shop.de, assaultfitness.de, concept2.de, fitnessclub-24.de (Stand 09/2026).",
+   "breiten": [
+    32,
+    10,
+    18,
+    40
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.4 HYROX-Zone"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die HYROX-Zone mit 169,88 m² bildet die acht Stationen des Wettkampfformats ab: SkiErg, Sled Push, Sled Pull, Burpee Broad Jumps, Rudern, Farmers Carry, Sandbag Lunges und Wall Balls. Vorgesehen sind 2 Sleds mit einer 2 m breiten und 16 m langen Sled-Bahn aus Kunstrasen (Stücklistenobjekt 200 × 1.600 cm), 2 SkiErg, 2 Rudergeräte, 2 Wall-Ball-Ziele mit Wandmontage (Zielhöhe 2,70 m bzw. 3,00 m) und Wall-Ball-Regal, ein Sandbag-Regal mit Sandbags von 10 bis 30 kg, Farmers-Carry-Griffe, ein Kettlebell-Regal, ein Plyo-Box-Set, ein Medizinball-Regal und 2 Intervall-Timer (Rechercheprotokoll (Anhang I).hyrox). Das Angebot richtet sich an drei Gruppen: Mitglieder, die für ein HYROX-Rennen trainieren, Mitglieder, die das Format als intensives Zirkeltraining nutzen, und Kurse in Kleingruppen unter Anleitung. Die Zone wird im Premiumtarif abgedeckt; in den betreuten Kernzeiten werden HYROX-Kurse angeboten [Kursplan vom Gründer zu ergänzen]. Eine Partnerschaft als offizielles HYROX-Trainingsstudio ist anzustreben [Konditionen und Bewerbung zu klären]; regionaler Vergleich: Fitness Bunker Konstanz ist offizieller HYROX Training Club, urban health club Ludwigsburg arbeitet mit sechs Coaches (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.5 Kursraum und Functional-Bereich"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Kursraum mit 149,01 m² ist mit 12 Kursmatten und 3 Mattenregalen, 8 Indoor-Cycling-Rädern (Studio-Klasse, 1.850 € netto je Rad), einer Musikanlage mit Funkmikrofon, einem Trainerpodest, einem Step-Wagen für 20 Steps, einem Kurshantel-Regal für Pump-Sets und einem Gymnastikball-Regal ausgestattet; die Investition beträgt 20.610 € netto (Quellen: Anhang I). Der Raum ermöglicht Gruppenkurse (Indoor Cycling, Mobility, Rücken, Functional, HYROX-Vorbereitung) und wird außerhalb der Kurszeiten als offene Stretching-Fläche genutzt. Kursleitung übernehmen zwei Teilzeit-Kursleiter sowie die Vollzeittrainer (Stellenplan Kapitel 2). Musik in Kursen auf bereits lizenzierter, beschallter Studiofläche löst nach der Vereinbarung zwischen GEMA und DSSV keine zusätzliche Gebühr aus; für Kurse in einem gesondert abgeschlossenen Kursraum wie bei No.1 gilt dagegen der Tarif WR-KS-F mit 0,56 bis 2,52 € je Kursstunde (fitness MANAGEMENT 2018; GEMA-Tarife 2026, Rechercheprotokoll (Anhang I); Kapitel 8). Im Plan sind 350 € je Monat für GEMA und GVL angesetzt. Der Functional- und Stretching-Bereich „Core & Dehnen“ mit 88,11 m² ergänzt das Angebot mit 9 Boden- und Trainingsmatten, Kettlebell- und Medizinball-Regal sowie einem Plyo-Box-Set."
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.6 Wellness und Regeneration"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Wellnessbereich mit 45,99 m² und der angrenzende Ruheraum mit 12,36 m² umfassen eine finnische Sauna mit 400 × 300 cm für 12 Personen (22.000 € netto), ein Dampfbad für 6 Personen (20.000 €), einen Cold Plunge mit gewerblichem Kühlaggregat (5.500 €), eine Erlebnisdusche mit Regen-, Nebel- und Lichtfunktion (5.000 €), 3 Ruheliegen und eine Teestation; die Investition beträgt 55.850 € netto (Quellen: Anhang I). Der Bereich ist Teil des Premiumtarifs und dient zugleich als Instrument der Mitgliederbindung: Premiumclubs erzielen mit Wellness- und Beauty-Anwendungen bis zu 10 % Zusatzumsatz (fitness MANAGEMENT 2020), ein dokumentiertes Beispiel eines Hamburger Clubs erreichte mit einem Wellness-Upgrade von 30 € je Monat 900 Verträge in 24 Monaten (BODYMEDIA 2020). Der Betrieb von Sauna und Dampfbad erhöht den Energiebedarf; der DSSV nennt Stromkosten ab 2,50 € je m² und Monat in Abhängigkeit von Saunen (DSSV Kostenrichtwerte). Der Plan setzt für Energie und Wasser 4,00 € je m² an; die Sensitivität „Energie/Wasser 5,50 €/m²“ ist in Kapitel 9 dargestellt. Die Regularienprüfung weist auf die Pflicht zur Legionellenprüfung hin; ein Hygieneplan ist vor Eröffnung zu erstellen."
+  },
+  {
+   "typ": "h2",
+   "text": "3.3.7 Umkleiden, Sanitär und Empfang"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Umkleiden für Damen (44,92 m²) und Herren (44,18 m²) verfügen über 8 zweistöckige Spindreihen und 2 Wertfächer-Einheiten mit insgesamt 178 Fächern, 2 Einzelkabinen, 10 Umkleidebänke, 2 Föhnplätze und Wäschesammler; die Duschbereiche (25,14 und 24,73 m²) enthalten 4 Reihenduschen mit je 4 Plätzen und 2 barrierefreie Duschen, die Sanitärräume 7 WCs (davon 1 barrierefrei), 4 Urinale und 8 Waschtische (Quellen: Anhang I). Die Spindschlösser sind Teil des elektronischen Zutritts- und Schließsystems (Abschnitt 3.7). Der Empfang mit Lounge (78,28 m²) umfasst Theke und Shakebar, Getränkeautomat und Kühlschrank, 2 Drehkreuze, einen Info-Bildschirm sowie Sitzgelegenheiten (2 Sofas, 12 Stühle, 5 Barhocker); im gesamten Studio sind 10 Wasserspender, 9 Desinfektionsstationen, 5 TV-Bildschirme und 5 Kameras vorgesehen (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "3.4 Öffnungszeiten und Betreuungsmodell"
+  },
+  {
+   "typ": "absatz",
+   "text": "Im Wettbewerbsumfeld haben sich drei Modelle etabliert: das betreute Premiummodell mit Öffnungszeiten von 6 bis 22 Uhr werktags und 9 bis 19 Uhr am Wochenende (Happy Fit Premium Konstanz), das unbesetzte 24/7-Modell mit Zutrittschip (8Black Friedrichshafen/Ravensburg) und das Hybridmodell mit besetzten Kernzeiten und Zutrittssystem in den Randzeiten (GymAccess 2025). No.1 wählt das Hybridmodell, weil es die Betreuungsqualität des Premiumsegments mit der Flexibilität langer Öffnungszeiten verbindet: Nach GymAccess finden 15 bis 25 % der Trainingseinheiten außerhalb klassischer Zeiten statt, und ein erweitertes Zeitfenster erschließt 10 bis 20 % zusätzliches Mitgliederpotenzial (Quellen: Anhang I)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.5: Geplantes Öffnungszeiten- und Betreuungsmodell",
+   "spalten": [
+    "Zeitraum",
+    "Öffnungszeit",
+    "Besetzte Kernzeit (Empfang und Trainer)",
+    "Randzeit (Zutrittssystem)"
+   ],
+   "zeilen": [
+    [
+     "Montag bis Freitag",
+     "6:00 bis 23:00 Uhr",
+     "8:00 bis 21:00 Uhr",
+     "6:00 bis 8:00 und 21:00 bis 23:00 Uhr"
+    ],
+    [
+     "Samstag, Sonntag, Feiertage",
+     "8:00 bis 21:00 Uhr",
+     "9:00 bis 18:00 Uhr",
+     "8:00 bis 9:00 und 18:00 bis 21:00 Uhr"
+    ],
+    [
+     "Wochenstunden gesamt",
+     "111 Stunden",
+     "83 Stunden",
+     "28 Stunden"
+    ]
+   ],
+   "quelle": "Quelle: Planungsvorschlag auf Basis der Modelle in Rechercheprotokoll (Anhang I; Happy Fit Premium, 8Black, GymAccess); Kernzeiten mit dem Personalplan abzustimmen.",
+   "breiten": [
+    22,
+    22,
+    30,
+    26
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "In den Kernzeiten sind mindestens ein Trainer auf der Fläche und eine Empfangskraft anwesend; in den Stoßzeiten am Abend zwei Trainer. Die Besetzung wird über die zwei Teilzeitkräfte und vier Minijobs am Empfang, die zwei Vollzeittrainer (ab Jahr 2 drei), die zwei Teilzeit-Kursleiter sowie den Gründer und die stellvertretende Studioleitung abgedeckt (Kapitel 2, Tabelle 2.4). In den Randzeiten erfolgt der Zutritt über RFID-Armband oder App an den zwei Drehkreuzen; 5 Kameras, eine Notrufeinrichtung und die Videoaufzeichnung sichern den unbesetzten Betrieb. Wellnessbereich und HYROX-Kurse stehen nur in den besetzten Zeiten zur Verfügung. Das Zutrittssystem einschließlich Spindschlössern ist im Investitionsplan mit 32.000 € (Position Zutrittssystem, Studiosoftware-Einrichtung, Kleinmaterial, Brandschutzkonzept) enthalten; GymAccess nennt für Drehkreuz mit Leser, 500 RFID-Armbänder und 100 Spindschlösser ein Budget von 32.500 € (Quellen: Anhang I)."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Betreutes Training bedeutet konkret: Einführungstermin mit Trainingsplan für jedes Neumitglied, Planaktualisierung alle 8 bis 12 Wochen, Trainerpräsenz auf der Fläche in den Kernzeiten, Kursprogramm mit festen Zeiten. Die genauen Betreuungsstandards und der Kursplan sind vom Gründer vor Eröffnung festzulegen und im Anhang zu dokumentieren [zu ergänzen]."
+  },
+  {
+   "typ": "h2",
+   "text": "3.5 Tarife und Preispositionierung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Tarifsystem ist bewusst einfach gehalten und besteht aus drei Mitgliedschaften mit einer halbjährlichen Servicepauschale und einer einmaligen Aufnahmegebühr. Alle Beträge sind Bruttobeträge einschließlich 19 % Umsatzsteuer; Mitgliedsbeiträge, Kurse, Sauna und Personal Training unterliegen dem Regelsteuersatz (§ 12 UStG)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.6: Mitgliedschaften und Gebühren (brutto inkl. 19 % USt)",
+   "spalten": [
+    "Tarif",
+    "Leistungen",
+    "Beitrag/Monat",
+    "Planmix",
+    "Effektiv inkl. Servicepauschale"
+   ],
+   "zeilen": [
+    [
+     "Basic",
+     "Kraft, Cardio, Freihantel, Kurse, betreutes Training",
+     "44,90 €",
+     "40 %",
+     "49,05 €"
+    ],
+    [
+     "Premium",
+     "Basic plus Wellness (Sauna, Dampfbad, Cold Plunge), HYROX-Zone und -Kurse, Getränke-Flat",
+     "59,90 €",
+     "45 %",
+     "64,05 €"
+    ],
+    [
+     "Student / Azubi / Senior",
+     "Basic-Leistungen mit Nachweis",
+     "34,90 €",
+     "15 %",
+     "39,05 €"
+    ],
+    [
+     "Servicepauschale",
+     "halbjährlich, alle Tarife",
+     "24,90 €/Halbjahr",
+     "",
+     "4,15 €/Monat"
+    ],
+    [
+     "Aufnahmegebühr",
+     "einmalig; bei Aktionen erlassen (Planansatz: 70 % zahlend)",
+     "49,00 €",
+     "",
+     ""
+    ],
+    [
+     "Durchschnitt (Planmix)",
+     "",
+     "50,15 €",
+     "100 %",
+     "54,30 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Beitragsanpassung 2,0 % p. a. ab Jahr 3 eingeplant; Durchschnitt und Effektivwerte rechnerisch.",
+   "breiten": [
+    16,
+    36,
+    14,
+    12,
+    22
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Preise liegen im Zielsegment. Der Bruttodurchschnittsbeitrag der deutschen Fitnessbranche beträgt 48,55 € je Monat, für Einzelanlagen 59,24 €, für Ketten 40,54 € und für Special-Interest-Anlagen 80,02 € (DSSV Eckdaten 2026). Der Premiumtarif von 59,90 € entspricht damit fast genau dem Durchschnitt inhabergeführter Einzelanlagen, der Basictarif von 44,90 € liegt unter dem Branchendurchschnitt und deutlich über den Discount-Effektivpreisen (FitX 31,42 €, McFIT 35,65 €, clever fit Ø 39,23 €; fair-for-fitness 2026). Der rechnerische Planbeitrag von 50,15 € je Mitglied (Tarifmix) liegt nahe am Branchenschnitt und ist damit konservativ für ein Studio mit Wellness und HYROX. Aufnahmegebühr und Servicepauschale sind branchenüblich: Wettbewerber verlangen 39,90 bis 129 € Aufnahmegebühr und 10 bis 29,90 € je Quartal bzw. Halbjahr (Happy Fit Premium, 8Black, GYM-24, clever fit)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.7: Preisvergleich mit regionalen Wettbewerbern (brutto je Monat)",
+   "spalten": [
+    "Anbieter",
+    "Segment",
+    "Beitrag je Monat",
+    "Sauna",
+    "HYROX"
+   ],
+   "zeilen": [
+    [
+     "No.1 (Plan)",
+     "Premium-Mittelklasse",
+     "34,90 / 44,90 / 59,90 €",
+     "ja (Premium)",
+     "ja"
+    ],
+    [
+     "DSSV-Durchschnitt Einzelanlagen 2025",
+     "Referenz",
+     "59,24 €",
+     "",
+     ""
+    ],
+    [
+     "DSSV-Durchschnitt Branche 2025",
+     "Referenz",
+     "48,55 €",
+     "",
+     ""
+    ],
+    [
+     "Happy Fit Premium Konstanz (2.500 m²)",
+     "Premium",
+     "80 (24 Mon.) / 90 (12 Mon.) / 109 € flex",
+     "ja",
+     "nein"
+    ],
+    [
+     "Happy Fit Konstanz / Singen / Radolfzell",
+     "Regionale Kette",
+     "55 bis 70 €",
+     "ja",
+     "nein"
+    ],
+    [
+     "GYM-24 Premium Böblingen",
+     "Regionale Kette",
+     "49,90 (24 Mon.) / 64,90 €",
+     "ja",
+     "nein"
+    ],
+    [
+     "Sportwelt Leonberg",
+     "Vereinsstudio",
+     "55 (24 Mon.) / 65 €",
+     "ja",
+     "nein"
+    ],
+    [
+     "all inclusive Fitness Friedrichshafen",
+     "Kette",
+     "34,95 / 39,95 / 49,95 €",
+     "ja",
+     "ja"
+    ],
+    [
+     "MC Shape Überlingen / Markdorf",
+     "Kette",
+     "39,90 / 49,90 €",
+     "ja",
+     "nein"
+    ],
+    [
+     "8Black Friedrichshafen / Ravensburg",
+     "24/7-Kette",
+     "34,99 / 39,99 / 49,99 €",
+     "k. A.",
+     "nein"
+    ],
+    [
+     "clever fit (bundesweit, effektiv)",
+     "Discount",
+     "Ø 39,23 €",
+     "teilweise",
+     "nein"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; Happy Fit Premium, 8Black; Anbieterwebseiten, Stand 27.09.2026); DSSV Eckdaten 2026; fair-for-fitness 2026 (Rechercheprotokoll (Anhang I)); Excel-Planrechnung.",
+   "breiten": [
+    32,
+    18,
+    26,
+    12,
+    12
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "3.6 Zusatzleistungen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Neben den Mitgliedsbeiträgen sind vier Nebenumsatzquellen eingeplant, die zusammen 6,20 € brutto je Mitglied und Monat ergeben. Getränke und Shakes an der Shakebar sind mit 3,00 € je Mitglied und Monat bei einem Wareneinsatz von 40 % angesetzt; der DSSV nennt 30 bis 40 % Wareneinsatz als Richtwert (Quellen: Anhang I). Wellness-Zusatzleistungen (z. B. Tagesnutzung des Wellnessbereichs für Basic-Mitglieder, Handtuchservice) sind mit 1,20 €, Personal Training und kostenpflichtige Spezialkurse mit 1,50 € und Merchandise sowie Sonstiges mit 0,50 € je Mitglied und Monat angesetzt. Personal Training wird zu Marktpreisen angeboten; der Bundesverband Personal Training empfiehlt mindestens 95 € je Stunde, üblich sind 60 bis 120 € (Quellen: Anhang I) [Preisliste vom Gründer festzulegen]. Der Ansatz ist konservativ: Im Branchendurchschnitt lag der Nebenumsatzanteil 2018 bei 9,2 % des Umsatzes (fitness MANAGEMENT 2019); im Plan entspricht der Nebenumsatz im dritten Jahr 135.868 € von 1.368.522 € Nettoumsatz, also 9,9 %."
+  },
+  {
+   "typ": "absatz",
+   "text": "Weitere Erlösquellen sind nicht in der Planung enthalten und stellen Aufwärtspotenzial dar: Tageskarten und 10er-Karten für Gäste (Wettbewerber verlangen 8 bis 20 € je Tag), Firmenfitness und betriebliches Gesundheitsmanagement für die großen Arbeitgeber im Einzugsgebiet (Kapitel 4), die Anbindung an Aggregatoren wie Wellpass oder Urban Sports Club, an die 2025 bereits 76,1 % der Anlagen angeschlossen waren (DSSV Eckdaten 2026), sowie HYROX-Vorbereitungsprogramme mit Startgebühr."
+  },
+  {
+   "typ": "h2",
+   "text": "3.7 Digitalisierung: Studiosoftware, App und Zutritt"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Betrieb wird von Beginn an digital organisiert. Eine Studiosoftware (z. B. Magicline, aidoo oder Fitogram; Anbieterauswahl nach Angebot) übernimmt Mitgliederverwaltung, SEPA-Lastschrift, Kursbuchung, Check-in und Auswertung; eine Mitglieder-App ermöglicht Online-Vertragsabschluss, Kursbuchung, Trainingspläne und den Zutritt. Der Anteil der Online-Vertragsabschlüsse in der Branche stieg von 14,0 % im Jahr 2023 auf 24,0 % im Jahr 2024 (DSSV Eckdaten 2025). Der Plan setzt 450 € je Monat für Studiosoftware und Zutrittssystem an; zum Vergleich kostet bei Magicline die Mitgliederplattform MySports ab 149 € je Monat und eine Branded App 349 € je Monat (magicline.com), Marktspannen für Software und Verwaltung liegen bei 100 bis 500 € je Monat (Virtuagym 2026) bzw. 200 bis 800 € je Monat (GymAccess 2026) (Quellen: Anhang I). Für Zahlungsverkehr sind 0,8 % des Bruttobeitragsumsatzes eingeplant; SEPA-Lastschriften kosten je nach Anbieter 0,08 bis 0,35 € je Buchung (WHK Controlling 2026). Das Zutrittssystem mit RFID-Armbändern, zwei Drehkreuzen und elektronischen Spindschlössern ist mit 32.000 € in der Investition enthalten (Abschnitt 3.4). Videoüberwachung, Zutrittsprotokolle und Mitgliederdaten werden datenschutzkonform betrieben [Datenschutzkonzept, Auftragsverarbeitungsverträge: vor Eröffnung zu erstellen]. Für Digitalisierungsinvestitionen steht optional die L-Bank-Digitalisierungsfinanzierung mit 5 % Tilgungszuschuss zur Verfügung (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "3.8 Qualität und Herkunft der Ausstattung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Geräteausstattung ist in einer Stückliste mit 147 Positionen und 369 Objekten hinterlegt; der Gesamtwert beträgt 590.968 € netto bei 23.484 kg Gesamtgewicht, kein Objekt ist ohne Preis (Quellen: Anhang I). Die Kraftgeräte stammen von Atlantis Strength (Kanada; Serien Precision, Power, Pro, Athletic, Bench sowie Rack-Module) und Prime Fitness (USA; Serien Hybrid, Evolution, Specialty, Benches). Beide Hersteller gelten als Premiummarken im Bereich plattenbeladener und selektorisierter Kraftgeräte und werden in leistungsorientierten Studios eingesetzt. Da beide Hersteller aus Nordamerika liefern, sind 12 % Import-Nebenkosten (Fracht, Zoll, Einfuhrumsatzsteuer) auf den Importanteil von 268.570 € eingeplant, also 32.228 €. Die Preise wurden je Position recherchiert und mit einer Konfidenzstufe versehen:"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.8: Preisbasis der Stückliste nach Konfidenzstufe",
+   "spalten": [
+    "Konfidenz",
+    "Positionen",
+    "Objekte",
+    "Wert netto",
+    "Erläuterung"
+   ],
+   "zeilen": [
+    [
+     "Listenpreis",
+     "7",
+     "11",
+     "22.580 €",
+     "Online-Listenpreise (Prime Fitness USA, Concept2)"
+    ],
+    [
+     "Händlerpreis",
+     "58",
+     "128",
+     "372.319 €",
+     "Händlerangebote (Show Me Weights, True Iron, professionell-fitness-shop.de u. a., Stand 09/2026)"
+    ],
+    [
+     "Schätzung",
+     "82",
+     "230",
+     "196.069 €",
+     "Marktspannen für Kleingeräte, Möbel, Sauna/Dampfbad, Ausstattung"
+    ],
+    [
+     "Summe",
+     "147",
+     "369",
+     "590.968 €",
+     ""
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I).",
+   "breiten": [
+    16,
+    14,
+    12,
+    16,
+    42
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 3.9: Geräteinvestition je Bereich (netto)",
+   "spalten": [
+    "Bereich",
+    "Objekte",
+    "Wert netto",
+    "Anteil"
+   ],
+   "zeilen": [
+    [
+     "Kraftgeräte (Atlantis, Prime)",
+     "52",
+     "268.570 €",
+     "45,4 %"
+    ],
+    [
+     "Cardio",
+     "20",
+     "104.760 €",
+     "17,7 %"
+    ],
+    [
+     "Wellness",
+     "8",
+     "55.850 €",
+     "9,5 %"
+    ],
+    [
+     "Umkleide",
+     "39",
+     "32.310 €",
+     "5,5 %"
+    ],
+    [
+     "Ausstattung (Wasserspender, Kameras, TV, Sicherheit)",
+     "111",
+     "32.035 €",
+     "5,4 %"
+    ],
+    [
+     "Sanitär",
+     "18",
+     "26.250 €",
+     "4,4 %"
+    ],
+    [
+     "Empfang & Lounge",
+     "28",
+     "25.274 €",
+     "4,3 %"
+    ],
+    [
+     "Kursraum",
+     "28",
+     "20.610 €",
+     "3,5 %"
+    ],
+    [
+     "Lager & Technik",
+     "14",
+     "8.850 €",
+     "1,5 %"
+    ],
+    [
+     "Functional / HYROX-Kleingeräte",
+     "22",
+     "6.709 €",
+     "1,1 %"
+    ],
+    [
+     "Büro & Personal",
+     "12",
+     "5.450 €",
+     "0,9 %"
+    ],
+    [
+     "Freihantel-Zubehör",
+     "10",
+     "4.300 €",
+     "0,7 %"
+    ],
+    [
+     "Bauelemente (ohne Preis)",
+     "7",
+     "0 €",
+     "0,0 %"
+    ],
+    [
+     "Summe Stückliste",
+     "369",
+     "590.968 €",
+     "100 %"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I); Anteile rechnerisch. Vollständige Geräteliste mit Modell, Stückpreis und Preisquelle in Anhang A.",
+   "breiten": [
+    46,
+    14,
+    20,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Ausstattung wird im Basisfall gekauft und über 8 Jahre abgeschrieben; alternativ kann ein Teil der Geräte über 36 bis 60 Monate geleast werden, wofür Händler Faktoren von etwa 1,9 bis 3,0 % des Anschaffungswerts je Monat nennen (Quellen: Anhang I). Für Wartung und Instandhaltung sind 5 % des Gerätewerts je Jahr eingeplant (31.160 € im dritten Jahr); Wartungsverträge mit Sichtprüfung nach DGUV 202-044 kosten ab 53 bzw. 62 € je Gerät (KERKMANN/one-bear). Vor der Bestellung sind für alle Atlantis- und Prime-Geräte verbindliche Angebote des europäischen Vertriebs einzuholen, da die recherchierten Händlerpreise US-Nettopreise ohne Fracht sind [Angebote vom Gründer einzuholen; der Bank als Anlage zum Investitionsplan vorzulegen]."
+  },
+  {
+   "typ": "h2",
+   "text": "3.9 Kapazität und Ziel-Mitgliederbestand"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Ziel-Mitgliederbestand beträgt 2.200 Mitglieder und wird im Basisszenario im 29. Betriebsmonat erreicht; nach 12 Monaten sind 1.429, nach 24 Monaten 2.053 Mitglieder geplant. Der Zielwert entspricht 1,1 Mitgliedern je m² Bruttofläche. Zum Vergleich: Die durchschnittliche Anlage in Deutschland hatte 2018 bei 1.166 m² Fläche 1.187 Mitglieder, also etwa 1,0 Mitglied je m² (fitness MANAGEMENT 2019); Einzelanlagen betreuen 2025 im Schnitt 1.023 Mitglieder, Kettenanlagen 2.528 (DSSV Eckdaten 2026). Die Kapazitätsprüfung bestätigt, dass 2.200 Mitglieder mit der Fläche vereinbar sind: Bei einem Spitzenlastanteil von 5,5 % gleichzeitig anwesender Mitglieder sind zur Hauptzeit 121 Personen im Studio, die Kapazität nach der 9 m²-Regel liegt bei 126 Trainierenden (Quellen: Anhang I). Die Sanitäranlagen sind auf 178 Spindfächer und 18 Duschen ausgelegt und damit ebenfalls ausreichend dimensioniert. Der Break-even liegt bei 2.018 Mitgliedern einschließlich vollem Kapitaldienst bzw. 1.572 Mitgliedern ohne Kapitaldienst; die Herleitung erfolgt im Finanzplan (Kapitel 10), die Szenarien und Sensitivitäten in Kapitel 9."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu ergänzen: verbindliche Geräteangebote (Atlantis/Prime-Vertrieb Europa, Cardio-Hersteller, Sauna-/Dampfbadbauer), Kursplan und Betreuungsstandards, Preisliste Personal Training und Zusatzleistungen, Angebot der Studiosoftware, Datenschutz- und Hygienekonzept (Legionellenprüfung), Entscheidung über eine offizielle HYROX-Partnerschaft."
+  }
+ ],
+ "quellen": [
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "DSSV/Deloitte/DHfPG – Eckdaten der deutschen Fitnesswirtschaft 2026, PM 18.03.2026 – https://www.dssv.de/wp-content/uploads/2026/03/03_18_pm_eckdaten.pdf",
+  "DSSV – Eckdaten 2025 (Online-Vertragsabschlüsse 24 %), PM 26.03.2025 – https://www.dssv.de/wp-content/uploads/2025/03/pm_eckdaten_2025.pdf",
+  "BODYMEDIA – DSSV-Eckdaten 2022 (Durchschnittsalter 40,5 J., Frauenanteil 53,3 %) – https://www.bodymedia.de/themen/trends-specials/dssv-eckdaten-2022/ (31.05.2022)",
+  "fitness MANAGEMENT – 30 Jahre Eckdaten-Studie: Strukturwandel (Ø 1.166 m², 1.187 Mitglieder, Nebenumsatz 9,2 %) – https://www.fitnessmanagement.de/strukturwandel-der-branche/ (19.03.2019)",
+  "fair-for-fitness – Preise 2026 McFIT, FitX, clever fit, Fitness First – https://fair-for-fitness.de/ (27.09.2026)",
+  "BODYMEDIA – HYROX: Zahlen, Daten, Fakten – https://www.bodymedia.de/themen/trends-specials/hyrox-zahlen-daten-fakten/ (29.05.2026)",
+  "endurance.biz – HYROX expands global calendar for 2026/27 – https://endurance.biz/2026/industry-news/targeting-2-million-athletes-hyrox-expands-global-calendar-for-2026-27-season/ (20.07.2026)",
+  "BODYMEDIA – ACSM-Fitness-Trends 2026 (Deutschland-Ranking) – https://www.bodymedia.de/themen/trends-specials/die-acsm-fitness-trends-fuer-2026/ (01.02.2026); DHfPG – Fitnesstrends 2026 (27.10.2025)",
+  "DSSV – Fitnesstrends 2024 (Betreiberbefragung) – https://www.dssv.de/fitnesstrends-2024/ (17.01.2024)",
+  "Happy Fit Premium Konstanz – Preise und Öffnungszeiten – https://happyfitpremium.de/preise/ (27.09.2026)",
+  "Happy Fit Studios Konstanz/Singen/Radolfzell – https://happy-fit-studios.de/ (27.09.2026)",
+  "8Black Fitness Friedrichshafen/Ravensburg – Mitgliedschaften – https://www.8black.fitness/ (27.09.2026)",
+  "GYM-24 Premium Böblingen-Hulb – https://www.gym-24.de/boeblingen-hulb.html (27.09.2026)",
+  "Sportwelt Leonberg – Tarife – https://www.sportwelt-leonberg.de/tarife.html (27.09.2026)",
+  "all inclusive Fitness Friedrichshafen – https://www.ai-fitness.de/studios/friedrichshafen (27.09.2026)",
+  "MC Shape Überlingen / Markdorf – https://www.mcshape.com/ (27.09.2026)",
+  "Fitness Bunker Konstanz – HYROX – https://fitnessbunker.de/hyrox/; urban health club Ludwigsburg – https://urbanhealth-club.com/hyrox-ludwigsburg/ (27.09.2026)",
+  "GymAccess – 24/7 Fitnessstudio Konzept (Hybridmodell, Zutrittssystem-Budget 32.500 €) – https://gymaccess.de/blog/24-7-fitnessstudio-konzept (14.12.2025)",
+  "GymAccess – Fitnessstudio eröffnen: Kosten, Businessplan und Guide – https://gymaccess.de/blog/fitnessstudio-eroeffnen-kosten-guide (2026)",
+  "Virtuagym – Fitnessstudio eröffnen Kosten 2026 – https://business.virtuagym.com/de/blog/fitnessstudio-eroeffnen-kosten/ (21.05.2026)",
+  "Magicline – Preise – https://www.magicline.com/de/preise/ (27.09.2026)",
+  "WHK Controlling – Lastschrift Kosten 2026 – https://www.whk-controlling.de/wissen/lastschrift-kosten",
+  "Bundesverband Personal Training – Preise – https://www.bundesverband-pt.de/qualitaetssicherung/preise/ (08.06.2026); personalfitness.de – Was kostet ein Personal Trainer? (25.09.2024)",
+  "fitness MANAGEMENT – 5 Profi-Tipps Marketing (Zusatzumsatz Wellness bis 10 %) – fMi 05/2020; BODYMEDIA – Wellness-Zusatzumsatz 324.000 € (28.09.2020)",
+  "DSSV / W.I.F.F. – Leitfaden Kostenmanagement (04/2022); DSSV – Überblick der Kostenrichtwerte – https://www.dssv.de/kostenrichtwerte/",
+  "fitness MANAGEMENT – GEMA: Kurse auf lizenzierter Studiofläche nicht zusätzlich vergütet – https://www.fitnessmanagement.de/gema-gebuehren/ (22.08.2018)",
+  "§ 12 UStG – https://www.gesetze-im-internet.de/ustg_1980/__12.html",
+  "Show Me Weights – Atlantis Strength Händlerpreise – https://showmeweights.com/collections/atantis-strength (09/2026); True Iron (Atlantis); Prime Fitness USA – Online-Shop (09/2026)",
+  "professionell-fitness-shop.de (Matrix T1x, U1x); assaultfitness.de (AssaultRunner Pro); concept2.de (SkiErg, RowErg); fitnessclub-24.de (StairMaster); akw-fitness.de (Life Fitness ICG IC5) – Stand 09/2026",
+  "KERKMANN/one-bear – Preise Wartung, Prüfung, Reparatur Fitnessgeräte – https://one-bear.de/preise-wartung-sportgeraete-fitnessgeraete.html",
+  "AKBW – Merkblatt 593 Stellplätze (VwV Stellplätze BW, Stand 01.09.2022); Rechercheprotokoll (Anhang I)",
+  "L-Bank – Digitalisierungsfinanzierung – https://www.l-bank.de/produkte/wirtschaftsfoerderung/digitalisierungsfinanzierung.html; Rechercheprotokoll (Anhang I), Leasingfaktoren"
+ ]
+}

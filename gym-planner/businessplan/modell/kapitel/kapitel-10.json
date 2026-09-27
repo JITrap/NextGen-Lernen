@@ -1,0 +1,1721 @@
+{
+ "nummer": 10,
+ "titel": "Finanzplanung",
+ "bloecke": [
+  {
+   "typ": "absatz",
+   "text": "Dieses Kapitel enthält die vollständige Finanzplanung des Vorhabens: Investition und Kapitalbedarf, Finanzierungsplan, Umsatz- und Kostenplanung, Rentabilitätsvorschau, Liquiditätsplanung, Kapitaldienstfähigkeit sowie Szenarien und Sensitivitäten. Alle Werte stammen aus dem Finanzmodell No.1 (Excel-Planrechnung Finanzplan_No1.xlsx, Stand 27.09.2026); die Planungsdaten des Studios stammen aus der Planungssoftware GymPlanner (Projekt „No.1 (überarbeitet)“, Export 26.09.2026). Die Planzahlen sind Nettowerte ohne Umsatzsteuer; Mitgliedsbeiträge und Verkaufspreise werden brutto (inklusive 19 % Umsatzsteuer) genannt und im Modell auf Nettowerte umgerechnet. Die vollständigen Monats- und Jahrestabellen stehen in den Anhängen A bis E."
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Investition (netto)",
+     "1.912.583 €"
+    ],
+    [
+     "Anlaufreserve (24 Monate)",
+     "740.000 €"
+    ],
+    [
+     "Kapitalbedarf gesamt",
+     "2.652.583 €"
+    ],
+    [
+     "Eigenkapital und MBG-Beteiligung",
+     "400.000 € (15,1 %)"
+    ],
+    [
+     "Bankdarlehen (KfW, L-Bank)",
+     "2.252.583 €"
+    ],
+    [
+     "Jahresergebnis Jahr 3 / DSCR Jahr 3",
+     "36.237 € / 2,12"
+    ]
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "10.1 Planungsgrundlagen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Grundlage der Investitionsplanung ist die Stückliste der Planungssoftware GymPlanner für das Projekt „No.1 (überarbeitet)“: 147 Positionen mit 369 Objekten und einem Netto-Gerätewert von 590.968 € (Quellen: Anhang I). Die Preise stammen aus der Preisbibliothek der Software: 22.580 € (7 Positionen) sind Listenpreise, 372.319 € (58 Positionen) recherchierte Händlerpreise und 196.069 € (82 Positionen, überwiegend Kleinteile, Möbel und Sanitärobjekte) Schätzungen (Quellen: Anhang I). Für die Importgeräte der Hersteller Atlantis und Prime (268.570 €, 52 Objekte) sind 12 % Import-Nebenkosten für Fracht, Zoll und Einfuhrumsatzsteuer angesetzt (32.228 €)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Ausbau der Halle ist mit Richtwerten je Quadratmeter kalkuliert, weil noch kein Objekt vertraglich gebunden ist: Grundausbau (Trockenbau, Elektro, LED, Heizung, Maler) 250 €/m² Nettofläche, Lüftungsanlage 110 €/m², Brandschutz und Sicherheitsbeleuchtung 30 €/m², Sportboden 55 €/m² Trainingsfläche, Nassbereichsboden 90 €/m², Spiegelwände 660 € je laufendem Meter, Sanitärinstallation je Stück (Dusche 1.500 €, WC/Urinal 800 €, Waschtisch 500 €) sowie Planung, Fachplaner und Genehmigung mit 12 % der Ausbau- und Sanitärsumme (Quellen: Anhang I). Bezugsgrößen sind die Nettofläche von 1.931,13 m², die Trainingsfläche von 1.138,58 m² und die Bruttofläche von 1.975,40 m² für Miete und Nebenkosten (Quellen: Anhang I)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Finanzmodell rechnet über fünf Planjahre im Monatsraster. Vor dem ersten Betriebsmonat liegt ein Vorlauf von fünf Monaten (April bis August 2027, Monate −5 bis −1) für Kaution, Planung, Ausbau, Gerätelieferung, Personalaufbau und Vorverkauf; die Eröffnung ist der 1. September 2027 (Monat 1). Das erste Planjahr umfasst in der Rentabilitätsvorschau den Vorlauf und die zwölf ersten Betriebsmonate, die Jahre 2 bis 5 jeweils zwölf Betriebsmonate. Alle Beträge sind netto; die Umsatzsteuer wird in der Liquiditätsplanung als eigener Zahlungsstrom mit einer Erstattungsverzögerung von einem Monat abgebildet. Das Modell liegt als Excel-Datei mit Formeln bei (Finanzplan_No1.xlsx), sodass die Hausbank einzelne Annahmen selbst verändern kann."
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_investition.png",
+   "titel": "Abbildung 10.1: Investition 1.913 T€ netto nach Gruppen (ohne Anlaufreserve)"
+  },
+  {
+   "typ": "h2",
+   "text": "10.2 Investition und Kapitalbedarf"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.1: Investitionsplan nach Gruppen (netto, EUR)",
+   "spalten": [
+    "Gruppe",
+    "Betrag",
+    "Anteil"
+   ],
+   "zeilen": [
+    [
+     "Geräte und Ausstattung (Stückliste, 369 Objekte)",
+     "590.968 €",
+     "30,9 %"
+    ],
+    [
+     "Import-Nebenkosten Atlantis/Prime (12 %)",
+     "32.228 €",
+     "1,7 %"
+    ],
+    [
+     "Ausbau (Grundausbau, Lüftung, Böden, Spiegel, Brandschutz)",
+     "851.788 €",
+     "44,5 %"
+    ],
+    [
+     "Sanitärinstallation",
+     "39.800 €",
+     "2,1 %"
+    ],
+    [
+     "Planung, Fachplaner, Genehmigung (12 %)",
+     "106.991 €",
+     "5,6 %"
+    ],
+    [
+     "Sonstiges (Zutritt, Software-Einrichtung, Kleinmaterial, Brandschutzkonzept)",
+     "32.000 €",
+     "1,7 %"
+    ],
+    [
+     "Unvorhergesehenes (10 % der Investitionssumme)",
+     "165.378 €",
+     "8,6 %"
+    ],
+    [
+     "Mietkaution (3 Monatsmieten inkl. Nebenkosten)",
+     "85.930 €",
+     "4,5 %"
+    ],
+    [
+     "Gründungskosten GmbH und Beratung",
+     "7.500 €",
+     "0,4 %"
+    ],
+    [
+     "Summe Investition (netto)",
+     "1.912.583 €",
+     "100,0 %"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Stückliste GymPlanner (Rechercheprotokoll (Anhang I)).",
+   "breiten": [
+    60,
+    22,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Investition beträgt 1.912.583 € netto, das sind 968 € je Quadratmeter Bruttofläche. Der Ausbau ist mit 44,5 % die größte Gruppe, weil eine Gewerbehalle ohne Vornutzung als Fitnessstudio unterstellt ist (Nutzungsänderung, vollständige Lüftungsanlage, Elektro- und Sanitärinstallation). Der Posten Unvorhergesehenes von 165.378 € entspricht 10 % der Summe aus Geräten, Import, Ausbau, Sanitär, Planung und Sonstigem (1.653.775 €) und deckt Mehrkosten im Ausbau ab; er wird nur bei Bedarf abgerufen. Die Mietkaution ist eine Sicherheitsleistung und kein Aufwand; die Gründungskosten sind Aufwand des ersten Jahres."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.2: Die 20 größten Investitionspositionen (netto, EUR)",
+   "spalten": [
+    "Position",
+    "Ansatz",
+    "Betrag"
+   ],
+   "zeilen": [
+    [
+     "Grundausbau Trockenbau, Elektro, LED, Heizung, Maler",
+     "1.931 m² × 250 €",
+     "482.784 €"
+    ],
+    [
+     "Geräte Kraftgeräte (52 Objekte, Atlantis/Prime)",
+     "Stückliste",
+     "268.570 €"
+    ],
+    [
+     "Lüftung (RLT-Anlage)",
+     "1.931 m² × 110 €",
+     "212.425 €"
+    ],
+    [
+     "Unvorhergesehenes",
+     "10 %",
+     "165.378 €"
+    ],
+    [
+     "Planung, Fachplaner, Genehmigung",
+     "12 % von 891.588 €",
+     "106.991 €"
+    ],
+    [
+     "Geräte Cardio (20 Objekte)",
+     "Stückliste",
+     "104.760 €"
+    ],
+    [
+     "Mietkaution",
+     "3 × 28.643 €",
+     "85.930 €"
+    ],
+    [
+     "Sportboden Trainingsfläche",
+     "1.139 m² × 55 €",
+     "62.622 €"
+    ],
+    [
+     "Brandschutz / Sicherheitsbeleuchtung",
+     "1.931 m² × 30 €",
+     "57.934 €"
+    ],
+    [
+     "Geräte Wellness (Sauna, Dampfbad, Cold Plunge, Erlebnisdusche, Ruheliegen)",
+     "Stückliste",
+     "55.850 €"
+    ],
+    [
+     "Geräte Umkleide (39 Objekte)",
+     "Stückliste",
+     "32.310 €"
+    ],
+    [
+     "Import-Nebenkosten",
+     "12 % von 268.570 €",
+     "32.228 €"
+    ],
+    [
+     "Geräte Ausstattung (111 Objekte)",
+     "Stückliste",
+     "32.035 €"
+    ],
+    [
+     "Sonstiges (Zutritt, Software, Kleinmaterial, Brandschutzkonzept)",
+     "pauschal",
+     "32.000 €"
+    ],
+    [
+     "Sanitärinstallation Duschen",
+     "18 × 1.500 €",
+     "27.000 €"
+    ],
+    [
+     "Geräte Sanitär (18 Objekte)",
+     "Stückliste",
+     "26.250 €"
+    ],
+    [
+     "Geräte Empfang und Lounge (28 Objekte)",
+     "Stückliste",
+     "25.274 €"
+    ],
+    [
+     "Spiegelwände",
+     "33 m × 660 €",
+     "21.714 €"
+    ],
+    [
+     "Geräte Kursraum (28 Objekte)",
+     "Stückliste",
+     "20.610 €"
+    ],
+    [
+     "Nassbereichsboden Umkleide/Sanitär",
+     "159 m² × 90 €",
+     "14.309 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Rechercheprotokoll (Anhang I). Vollständige Liste und Geräteliste je Bereich in Anhang A.",
+   "breiten": [
+    56,
+    26,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Geräteausstattung von 590.968 € verteilt sich auf Kraftgeräte 268.570 €, Cardio 104.760 €, Wellness 55.850 €, Umkleide 32.310 €, Ausstattung 32.035 €, Sanitär 26.250 €, Empfang und Lounge 25.274 €, Kursraum 20.610 €, Lager und Technik 8.850 €, Functional 6.709 €, Büro und Personal 5.450 € sowie Freihantel-Zubehör 4.300 € (Quellen: Anhang I). Die größten Einzelpositionen sind fünf Laufbänder (40.000 €), vier Stairmaster (26.000 €), die finnische Sauna (22.000 €), drei Crosstrainer (21.000 €) und das Dampfbad (20.000 €) (Quellen: Anhang I). Mit den Import-Nebenkosten ergibt sich ein abschreibungsfähiger Gerätewert von 623.196 €, der auch Bezugsgröße für die Wartungskosten ist (Excel-Planrechnungwert)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Anlaufreserve ist der zweite Bestandteil des Kapitalbedarfs. Sie ist definiert als der maximale kumulierte Fehlbetrag aus dem laufenden Betrieb einschließlich Kapitaldienst vom Beginn des Vorlaufs bis zum 24. Betriebsmonat, zuzüglich eines Sicherheitspuffers von 15 %. Im Basisszenario erreicht der kumulierte Fehlbetrag im 18. Betriebsmonat sein Maximum von 640.858 €; mit 15 % Puffer ergibt sich ein Reservebedarf von 736.987 €, im Finanzierungsplan gerundet auf 740.000 €. Die Reserve deckt damit die gesamte Anlaufphase von 24 Monaten ab, in der der Mitgliederbestand auf das tragfähige Niveau aufgebaut wird, und nicht nur die branchenüblich empfohlenen 6 bis 12 Monate Fixkosten (GymAccess 2026)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.3: Kapitalbedarf (netto, EUR)",
+   "spalten": [
+    "Position",
+    "Betrag"
+   ],
+   "zeilen": [
+    [
+     "Investition (Tabelle 10.1)",
+     "1.912.583 €"
+    ],
+    [
+     "Anlaufreserve (max. kumulierter Fehlbetrag 640.858 € + 15 % Puffer, gerundet)",
+     "740.000 €"
+    ],
+    [
+     "Kapitalbedarf gesamt",
+     "2.652.583 €"
+    ],
+    [
+     "Kapitalbedarf je m² Bruttofläche",
+     "1.343 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung.",
+   "breiten": [
+    70,
+    30
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Auf die Investitionen entfällt Vorsteuer von 340.941 € (19 % auf alle vorsteuerfähigen Positionen; Kaution und Import-Nebenkosten ohne Vorsteuer, Einfuhrumsatzsteuer in den Import-Nebenkosten enthalten). Die Vorsteuer ist im Kapitalbedarf nicht als eigene Position enthalten, muss aber bis zur Erstattung durch das Finanzamt aus den vorhandenen Mitteln (Anlaufreserve, noch nicht verwendete Darlehensmittel) zwischenfinanziert werden. In der Liquiditätsplanung beträgt der höchste gleichzeitig offene Umsatzsteuerbetrag 366.018 € (Monat −1, Gerätelieferung). Er wird im Plan aus dem Kassenbestand nach Auszahlung der Darlehen gedeckt; zusätzlich ist ein Kontokorrentrahmen von 200.000 € zu 9,0 % p. a. vorgesehen, der im Basisszenario nicht in Anspruch genommen wird. Die GmbH gibt monatliche Umsatzsteuer-Voranmeldungen ab und erhält die Vorsteuer mit einem Monat Verzögerung erstattet."
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu ergänzen: verbindliche Angebote für die Gerätepositionen mit Preiskonfidenz „Schätzung“ (196.069 €) und für die Importgeräte (Atlantis/Prime inkl. Lieferzeit), mindestens zwei Kostenschätzungen von Fachplanern für Ausbau und Lüftung auf Basis des konkreten Objekts sowie das Mietvertragsangebot mit Kaution und mietfreien Monaten. Der Posten Unvorhergesehenes wird nach Vorliegen der Angebote überprüft."
+  },
+  {
+   "typ": "h2",
+   "text": "10.3 Finanzierungsplan"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Kapitalbedarf von 2.652.583 € wird aus vier Bausteinen gedeckt: Bareinlage des Gründers, stille Beteiligung der MBG Baden-Württemberg als wirtschaftliches Eigenkapital, ein KfW-Förderkredit über die Hausbank und ein L-Bank-Darlehen mit Bürgschaft der Bürgschaftsbank Baden-Württemberg als Restfinanzierung. Die Struktur folgt den Programmgrenzen, die für ein Vorhaben dieser Größe in Baden-Württemberg gelten (Stand 24. bis 28.09.2026)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.4: Mittelherkunft (EUR, Zinssätze als Planannahmen)",
+   "spalten": [
+    "Baustein",
+    "Betrag",
+    "Anteil",
+    "Zins",
+    "Laufzeit",
+    "Besicherung"
+   ],
+   "zeilen": [
+    [
+     "Bareinlage Gründer [Eigenmittel, Herkunft belegen]",
+     "150.000 €",
+     "5,7 %",
+     "–",
+     "–",
+     "Eigenkapital"
+    ],
+    [
+     "MBG BW – stille Beteiligung Existenzgründung",
+     "250.000 €",
+     "9,4 %",
+     "7,00 % p. a.",
+     "10 J., endfällig",
+     "wirtschaftl. Eigenkapital, nachrangig"
+    ],
+    [
+     "KfW ERP-Förderkredit Gründung und Nachfolge (077)",
+     "500.000 €",
+     "18,8 %",
+     "6,50 % p. a.",
+     "15 J., 5 tilgungsfrei",
+     "100 % Garantie Bürgschaftsbank"
+    ],
+    [
+     "L-Bank GuW-BW Gründungsfinanzierung über Hausbank",
+     "1.752.583 €",
+     "66,1 %",
+     "6,40 % p. a.",
+     "20 J., 3 tilgungsfrei",
+     "80 % Bürgschaft Bürgschaftsbank BW"
+    ],
+    [
+     "Summe Mittelherkunft",
+     "2.652.583 €",
+     "100,0 %",
+     "",
+     "",
+     ""
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Programmbedingungen Rechercheprotokoll (Anhang I; KfW, L-Bank, Bürgschaftsbank BW, MBG BW).",
+   "breiten": [
+    30,
+    14,
+    10,
+    12,
+    16,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Bareinlage von 150.000 € entspricht 5,7 % des Kapitalbedarfs; zusammen mit der stillen Beteiligung der MBG, die als nachrangiges Kapital wirtschaftlich dem Eigenkapital zugerechnet wird, beträgt die Eigenkapitalquote 15,1 % (400.000 €). Sie liegt damit in der Spanne von 15 bis 20 %, die Sparkassen für Gründungsfinanzierungen nennen; das BMWK-Existenzgründungsportal empfiehlt möglichst nicht unter 20 % (Quellen: Anhang I). Die Bankdarlehen im engeren Sinn (KfW 077, L-Bank) summieren sich auf 2.252.583 €, die gesamten Fremd- und Beteiligungsmittel auf 2.502.583 €. Die Herkunft der Eigenmittel ist gegenüber der Bank nachzuweisen [Vermögensaufstellung, Kontoauszüge, ggf. Schenkungs- oder Nachrangdarlehensvertrag aus der Familie]."
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "MBG Baden-Württemberg, stille Beteiligung Existenzgründung, 250.000 €: Programmhöchstbetrag bis 250.000 € (im Einzelfall bis 1 Mio. €), bis drei Jahre nach Gründung, Laufzeit 10 Jahre, 1,0 % Bearbeitungsgebühr, Vergütung fest plus erfolgsabhängig insgesamt etwa 4,5 bis 9,5 % p. a.; Planannahme 7,00 % p. a., endfällige Rückzahlung nach 10 Jahren; keine Sicherheiten außer der persönlichen Garantie des Gesellschafters; nachrangig und damit wirtschaftliches Eigenkapital (Quellen: Anhang I).",
+    "KfW ERP-Förderkredit Gründung und Nachfolge (077), 500.000 €: bis 500.000 € je Antragsteller, höchstens 35 % der förderfähigen Kosten (35 % von 2.652.583 € wären 928.404 €, der Programmhöchstbetrag ist damit die bindende Grenze); Laufzeit 15 Jahre mit 5 tilgungsfreien Jahren, Zinsbindung 10 Jahre; 100 % Garantie der Bürgschaftsbank mit Bundesrückgarantie, keine Sicherheiten außer der persönlichen Haftung des Gründers; Garantieentgelte 0,98 % p. a. (BMF) und 1,01 % p. a. (Bürgschaftsbank) sind im Effektivzins enthalten, 750 € Bearbeitungsentgelt; Effektivzins 15/5/10 nach Preisklasse 6,03 % (A) bis 12,88 % (I), Planannahme 6,50 % p. a.; die Garantie wird nicht auf den Höchstbetrag von 2 Mio. € der Bürgschaftsbank angerechnet; das Vorhaben darf bei Antragstellung noch nicht begonnen sein (Quellen: Anhang I).",
+    "L-Bank Gründungs- und Wachstumsfinanzierung (GuW-BW) über die Hausbank, 1.752.583 €: 10.000 € bis 5 Mio. €, Laufzeit bis 20 Jahre mit bis zu 3 tilgungsfreien Jahren, Sollzinsbindung 10 Jahre, Bereitstellung 12 Monate provisionsfrei; Effektivzins junge Unternehmen 15 bis 20 Jahre nach Preisklasse 4,66 % (A) bis 11,44 % (I), Planannahme 6,40 % p. a. (Preisklasse D bis E); Besicherung durch Ausfallbürgschaft der Bürgschaftsbank Baden-Württemberg von 80 % (bei Existenzgründung bis 80 %, Höchstbetrag 2,0 Mio. €; hier 1.402.066 €), Bearbeitungsentgelt 1,0 % der Bürgschaft und Provision 1,0 % p. a. des Kreditbetrags, bankübliche Sicherheiten quotal und persönliche Mitverpflichtung des Gesellschafters (Quellen: Anhang I)."
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der KfW ERP-Gründerkredit StartGeld (067) wurde geprüft und nicht angesetzt: Das KfW-Merkblatt setzt voraus, dass der Gesamtfremdfinanzierungsbedarf des Vorhabens höchstens 200.000 € beträgt (Quellen: Anhang I); bei Fremd- und Beteiligungsmitteln von 2.502.583 € ist das Programm nicht förderfähig. Der Betrag ist in die L-Bank-Restfinanzierung (GuW-BW, Obergrenze 5 Mio. €) übernommen; die Bürgschaftssumme von 1.402.066 € bleibt unter dem Höchstbetrag der Bürgschaftsbank von 2,0 Mio. €. Die Bürgschaftsquote von 80 % ist die Obergrenze der Bürgschaftsbank für Existenzgründungen (Regelfall 70 %); die tatsächliche Quote und damit das Blankorisiko der Hausbank legt die Bürgschaftsbank im Einzelfall fest [vor dem Bankgespräch mit Hausbank und Bürgschaftsbank zu klären]."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Zinssätze sind Planannahmen; den individuellen Satz legt die Hausbank nach Rating und Besicherung fest (Quellen: Anhang I). Für ein junges Unternehmen ohne Historie ist mit den Preisklassen C bis E zu rechnen. Die Annahme für das L-Bank-Darlehen (6,40 %) liegt zwischen den Preisklassen D und E, die Annahme für den KfW-Kredit 077 (6,50 % einschließlich Garantieentgelte) dagegen nur zwischen den Preisklassen A und C (6,03 % bzw. 6,77 %) und damit eher am unteren Rand. Die Sensitivität „Zinsen +1,5 Prozentpunkte“ in Abschnitt 10.9 deckt eine Einstufung des KfW-Kredits 077 bis Preisklasse E (7,93 %) und des L-Bank-Darlehens bis Preisklasse F (7,27 %) ab. Nach Ablauf der zehnjährigen Zinsbindung ist für das L-Bank-Darlehen und den KfW-Kredit 077 ab dem elften Jahr ein Anschlusszins zu vereinbaren; die Tabellen dieses Kapitels schreiben den Planzins fort. Nicht eingeplant sind die L-Bank Startfinanzierung 80 (Kapitalbedarfsgrenze 250.000 € je Unternehmer) und der Gründungszuschuss der Arbeitsagentur (kein ALG-I-Anspruch); der Mikromezzaninfonds III (bis 100.000 €, 11 % p. a.) bleibt als Reserveoption (Quellen: Anhang I)."
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_finanzierung.png",
+   "titel": "Abbildung 10.2: Kapitalbedarf und Finanzierung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Kapitaldienst beginnt mit reinen Zins- und Vergütungszahlungen: Von der Eröffnung bis zum Ende der tilgungsfreien Zeit des L-Bank-Darlehens beträgt die Rate unverändert 13.514 € je Monat (Monat 1 wie Monat 25; bis Monat 33 wird kein Darlehen getilgt), ab dem 34. Monat mit der L-Bank-Tilgung 22.105 € (Monat 34; 22.013 € im Monat 36) und ab dem 57. Monat, wenn auch der KfW-Kredit 077 getilgt wird, 25.218 € (Monat 57; Näherung ab Monat 61: 25.172 €) je Monat; bei Ratentilgung sinkt die Rate mit fallender Restschuld. Die MBG-Beteiligung wird im zehnten Jahr endfällig zurückgezahlt (250.000 €); dafür sind ab dem dritten Jahr Überschüsse anzusammeln oder eine Anschlussfinanzierung zu vereinbaren. Tabelle 10.5 zeigt den Kapitaldienst je Darlehensjahr; die vollständigen Tilgungspläne stehen in Anhang B."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.5: Kapitaldienst je Darlehensjahr, Jahre 1 bis 10 (EUR, Zins auf Restschuld)",
+   "spalten": [
+    "Jahr",
+    "Zinsen / Vergütung",
+    "Tilgung",
+    "Kapitaldienst",
+    "Restschuld Jahresende"
+   ],
+   "zeilen": [
+    [
+     "1",
+     "162.165 €",
+     "0 €",
+     "162.165 €",
+     "2.502.583 €"
+    ],
+    [
+     "2",
+     "162.165 €",
+     "0 €",
+     "162.165 €",
+     "2.502.583 €"
+    ],
+    [
+     "3",
+     "162.165 €",
+     "0 €",
+     "162.165 €",
+     "2.502.583 €"
+    ],
+    [
+     "4",
+     "162.165 €",
+     "103.093 €",
+     "265.258 €",
+     "2.399.490 €"
+    ],
+    [
+     "5",
+     "155.567 €",
+     "103.093 €",
+     "258.660 €",
+     "2.296.397 €"
+    ],
+    [
+     "6",
+     "148.969 €",
+     "153.093 €",
+     "302.063 €",
+     "2.143.304 €"
+    ],
+    [
+     "7",
+     "139.121 €",
+     "153.093 €",
+     "292.215 €",
+     "1.990.211 €"
+    ],
+    [
+     "8",
+     "129.273 €",
+     "153.093 €",
+     "282.367 €",
+     "1.837.117 €"
+    ],
+    [
+     "9",
+     "119.426 €",
+     "153.093 €",
+     "272.519 €",
+     "1.684.024 €"
+    ],
+    [
+     "10",
+     "109.578 €",
+     "403.093 €",
+     "512.671 €",
+     "1.280.931 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Jahr 10 enthält die endfällige Rückzahlung der MBG-Beteiligung (250.000 €). Zinsen mit den Planzinssätzen der Tabelle 10.4 (Zinsbindung 10 Jahre).",
+   "breiten": [
+    10,
+    24,
+    20,
+    22,
+    24
+   ]
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_kapitaldienst.png",
+   "titel": "Abbildung 10.3: Kapitaldienst über die Laufzeit (Jahreswerte)"
+  },
+  {
+   "typ": "absatz",
+   "text": "Als Sicherheiten bietet die GmbH der Hausbank folgendes Paket an:"
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Ausfallbürgschaft der Bürgschaftsbank Baden-Württemberg über 80 % des L-Bank-Darlehens (1.402.066 €), Antrag über die Hausbank (Quellen: Anhang I).",
+    "100 % Garantie der Bürgschaftsbank für den KfW-Förderkredit 077; aus diesem Kredit verbleibt der Hausbank damit kein Obligo.",
+    "Sicherungsübereignung der Geräte und Einrichtung (Anschaffungswert 623.196 € inkl. Import-Nebenkosten) sowie Abtretung der Ansprüche aus der Inhalts- und Betriebsunterbrechungsversicherung.",
+    "Globalzession der Forderungen aus Mitgliedsverträgen (SEPA-Lastschriften) und Verpfändung des Geschäftskontos.",
+    "Persönliche, selbstschuldnerische Bürgschaft des Gründers und Gesellschafters [Betrag mit der Bank festzulegen]; die Mitverpflichtung des Gesellschafters wird von KfW 077, Bürgschaftsbank und MBG ohnehin verlangt (Quellen: Anhang I).",
+    "Verpfändung der Mietkaution (85.930 €) nachrangig zum Vermieter sowie Eintritts- und Kündigungsrechte der Bank im Mietvertrag [mit Vermieter zu verhandeln]."
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Sollte die Hausbank den Kapitalbedarf reduzieren wollen, stehen drei Alternativen zur Verfügung, die im Modell nicht unterstellt sind, aber die Investition ohne Änderung des Konzepts senken:"
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Geräteleasing statt Kauf: Bei 36 bis 60 Monaten Laufzeit kosten Fitnessgeräte etwa 300 € (36 Monate), 230 € (48 Monate) bzw. 190 € (60 Monate) je Monat und 10.000 € Anschaffungswert (Händlerangaben). Werden beispielsweise die Kraft- und Cardiogeräte (373.330 €) geleast, sinken Kapitalbedarf und Bankdarlehen um diesen Betrag; dafür entstehen Leasingraten von rund 7.100 € (60 Monate) bis 11.200 € (36 Monate) je Monat, die den Betriebsaufwand erhöhen und den Kapitaldienst der ersten Jahre übersteigen. Leasing verbessert die Eigenkapitalquote und die Bilanz, verschlechtert aber EBITDA und Liquidität in der Anlaufphase; die Bürgschaftsbank bietet dafür eine Leasing-Bürgschaft ab 0,24 % an (Quellen: Anhang I).",
+    "Ausbau durch den Vermieter gegen Mietaufschlag: Übernimmt der Vermieter Grundausbau und Lüftung (695.209 €) und refinanziert sie über die Miete, sinkt die Investition um gut ein Drittel. Die Sensitivität „Kaltmiete 10,00 €/m²“ in Abschnitt 10.9 zeigt, dass ein Aufschlag von 1,50 €/m² (35.557 € je Jahr) das Ergebnis des dritten Jahres von 36.237 € auf −1.325 € und den DSCR auf 1,92 senkt, der Kapitaldienst aber gedeckt bleibt; ein Aufschlag müsste unterhalb der ersparten Kapitalkosten liegen.",
+    "Gestaffelter Wellness-Ausbau: Sauna, Dampfbad, Cold Plunge und Erlebnisdusche (55.850 € Geräte zuzüglich anteiliger Nassbereichsausbau) könnten in einem zweiten Bauabschnitt nach Erreichen von 1.500 Mitgliedern folgen. Das senkt die Anfangsinvestition, gefährdet aber den Premium-Tarif (45 % der Mitglieder, 59,90 €), der den Wellnessbereich voraussetzt, und ist deshalb nur als letzte Option vorgesehen."
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vom Gründer zu ergänzen: Nachweis der Eigenmittel [Eigenmittel], Selbstauskunft und Schufa, Vorgespräch mit der Bürgschaftsbank BW (0711 1645-6) zur Höhe der Bürgschaft für ein Erstvorhaben dieser Größe, MBG-Beteiligungsanfrage, Entscheidung der Hausbank über die Preisklassen. Die De-minimis-Obergrenze von 300.000 € in drei Jahren (Zinsverbilligung, Garantien, Bürgschaften) ist mit der Bank zu prüfen (Quellen: Anhang I)."
+  },
+  {
+   "typ": "h2",
+   "text": "10.4 Umsatzplanung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Umsatzplanung beruht auf dem Mitgliederbestand. Zur Eröffnung sind 350 Mitglieder aus dem dreimonatigen Vorverkauf unterstellt (Kapitel 6.3). Danach sind je Monat 140 Neuzugänge in den Monaten 1 bis 3, 100 in den Monaten 4 bis 12, 90 im zweiten Jahr, 80 im dritten Jahr und 75 ab dem vierten Jahr geplant; die Kündigungsquote beträgt 2,2 % je Monat des Bestands, das sind kumuliert 23,4 % je Jahr (in einfacher Addition 26,4 %, Kapitel 4.7) und damit auf dem Niveau des Branchendurchschnitts von 25 % (DSSV 2019, zitiert in Kruse 2021; Einzelstudios 21 bis 25 %). Der Bestand ist auf die Kapazitätsgrenze von 2.200 Mitgliedern begrenzt, die im 29. Monat erreicht wird; danach werden nur noch so viele Neumitglieder aufgenommen, wie Mitglieder kündigen. Die Grenze entspricht 1,11 Mitgliedern je Quadratmeter Bruttofläche und liegt damit nahe dem Branchenwert von rund einem Mitglied je Quadratmeter (1.187 Mitglieder auf 1.166 m², DSSV 2018); bei einem Spitzenlastanteil von 5,5 % gleichzeitig Trainierender sind das 121 Personen gegenüber einer Kapazität von 126 Trainierenden (Rechercheprotokoll (Anhang I); Kapitel 3.9)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.6: Mitgliederplanung Jahr 1 bis 5, Basisszenario (Anzahl Mitglieder)",
+   "spalten": [
+    "Jahr",
+    "Neuzugänge",
+    "Kündigungen",
+    "Bestand Jahresende",
+    "Ø Bestand"
+   ],
+   "zeilen": [
+    [
+     "Jahr 1 (inkl. 350 aus Vorverkauf)",
+     "1.670",
+     "241",
+     "1.429",
+     "1.003"
+    ],
+    [
+     "Jahr 2",
+     "1.080",
+     "456",
+     "2.053",
+     "1.781"
+    ],
+    [
+     "Jahr 3",
+     "960 (wirksam 716)",
+     "569",
+     "2.200",
+     "2.179"
+    ],
+    [
+     "Jahr 4",
+     "900 (wirksam 576)",
+     "576",
+     "2.200",
+     "2.200"
+    ],
+    [
+     "Jahr 5",
+     "900 (wirksam 576)",
+     "576",
+     "2.200",
+     "2.200"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung, Jahressummen der Monatswerte; Vorverkauf Blatt „Annahmen“. Ab Erreichen der Kapazitätsgrenze (Monat 29) werden nur so viele Neuzugänge wirksam, wie Mitglieder kündigen; die Spalte zeigt die Planzugänge und in Klammern die rechnerisch wirksamen Zugänge (Bestand Jahresende minus Bestand Vorjahr plus Kündigungen).",
+   "breiten": [
+    30,
+    18,
+    18,
+    18,
+    16
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Aufnahmegebühren werden im Finanzmodell nur auf die wirksamen Neuzugänge berechnet (Finanzplan_No1.xlsx, Blatt Mitglieder, Zeile „Wirksame Neuzugänge“): Nach Erreichen der Kapazitätsgrenze zahlen nur die tatsächlich aufgenommenen Mitglieder (716 im dritten, 576 im vierten und fünften Jahr) die Gebühr, nicht die Planzugänge (960 bzw. 900); die Aufnahmegebühren des dritten Jahres betragen 20.736 €."
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_mitglieder.png",
+   "titel": "Abbildung 10.4: Mitgliederentwicklung in drei Szenarien (60 Monate)"
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Tarifmix besteht aus Basic (44,90 € brutto, 40 % der Mitglieder), Premium mit Wellness und HYROX-Zone (59,90 €, 45 %) und Student/Azubi/Senior (34,90 €, 15 %). Daraus ergibt sich ein durchschnittlicher Monatsbeitrag von 50,15 € brutto beziehungsweise 42,14 € netto je Mitglied. Der Wert liegt zwischen dem Branchendurchschnitt von 48,55 € und dem Durchschnitt der Einzelanlagen von 59,24 € brutto (DSSV Eckdaten 2026). Hinzu kommen eine Servicepauschale von 24,90 € brutto je Halbjahr für alle Mitglieder und eine Aufnahmegebühr von 49,00 € brutto, die 70 % der Neumitglieder zahlen (der Rest tritt über Aktionen ohne Gebühr ein). Ab dem dritten Jahr ist eine Beitragsanpassung von 2,0 % je Jahr eingeplant."
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Nebenumsätze sind mit 6,20 € brutto je Mitglied und Monat angesetzt: Getränke und Shakes 3,00 € (Wareneinsatz 40 %), Solarium und Wellness-Zusatzleistungen 1,20 €, Personal Training und Zusatzkurse 1,50 € sowie Merchandise und Sonstiges 0,50 €. Der Wareneinsatz von 30 bis 40 % des Warenumsatzes entspricht dem DSSV-Richtwert (DSSV Leitfaden Kostenmanagement 04/2022). Getränke-Flat und Wellness sind im Premium-Tarif enthalten, sodass die Nebenumsätze bewusst zurückhaltend geplant sind."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.7: Umsatz je Planjahr und Umsatzstruktur, Basisszenario (netto, EUR)",
+   "spalten": [
+    "Position",
+    "Jahr 1",
+    "Jahr 2",
+    "Jahr 3",
+    "Jahr 4",
+    "Jahr 5"
+   ],
+   "zeilen": [
+    [
+     "Umsatz gesamt",
+     "622.361 €",
+     "1.101.585 €",
+     "1.368.522 €",
+     "1.403.873 €",
+     "1.427.024 €"
+    ],
+    [
+     "davon Mitgliedsbeiträge",
+     "484.353 € (77,8 %)",
+     "",
+     "1.120.974 € (81,9 %)",
+     "",
+     ""
+    ],
+    [
+     "davon Servicepauschale",
+     "40.081 € (6,4 %)",
+     "",
+     "90.944 € (6,6 %)",
+     "",
+     ""
+    ],
+    [
+     "davon Aufnahmegebühren",
+     "38.047 € (6,1 %)",
+     "",
+     "20.736 € (1,5 %)",
+     "",
+     ""
+    ],
+    [
+     "davon Nebenumsätze",
+     "59.880 € (9,6 %)",
+     "",
+     "135.868 € (9,9 %)",
+     "",
+     ""
+    ],
+    [
+     "Mitglieder Jahresende",
+     "1.429",
+     "2.053",
+     "2.200",
+     "2.200",
+     "2.200"
+    ],
+    [
+     "Umsatz je Ø Mitglied und Jahr",
+     "621 €",
+     "619 €",
+     "628 €",
+     "638 €",
+     "649 €"
+    ],
+    [
+     "Umsatz je m² Bruttofläche",
+     "315 €",
+     "558 €",
+     "693 €",
+     "711 €",
+     "722 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Kennzahlen je Mitglied und je m² rechnerisch aus diesen Werten.",
+   "breiten": [
+    25,
+    15,
+    15,
+    15,
+    15,
+    15
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Im dritten Jahr erreicht der Umsatz 1.368.522 € netto, davon 81,9 % aus Mitgliedsbeiträgen; das entspricht 693 € je Quadratmeter Bruttofläche und 628 € je durchschnittlichem Mitglied. Der Branchenwert liegt bei 506 € Nettoumsatz je Mitglied und Jahr, für Einzelanlagen bei 616 € (rechnerisch aus DSSV Eckdaten 2026: 6,25 Mrd. € Umsatz, 12,36 Mio. Mitglieder; Einzelanlagen 2,65 Mrd. € und 4,30 Mio. Mitglieder). Der Planwert liegt wegen des Premium-Anteils, der Servicepauschale und der Nebenumsätze leicht über dem Wert der Einzelanlagen und ist damit ambitioniert, aber nicht außerhalb der Branche. Eine durchschnittliche Einzelanlage erzielt 631 T€ Umsatz mit 1.023 Mitgliedern (Quellen: Anhang I); No.1 plant mit rund der 1,6-fachen Fläche (1.975 m² gegenüber 1.255 m² Durchschnitt der Einzelanlagen, Eckdaten 2014 nach CoGAP) das 2,2-fache des Umsatzes und das 2,1-fache der Mitglieder (Ø Jahr 3). Die Kapazitätsgrenze von 2.200 Mitgliedern ist deshalb die kritische Planannahme; sie wird in Abschnitt 10.9 mit reduzierten Neuzugängen geprüft."
+  },
+  {
+   "typ": "h2",
+   "text": "10.5 Kostenplanung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Personal: Der Stellenplan (Kapitel 7.3) sieht zur Eröffnung 14 Beschäftigte vor: Geschäftsführung/Studioleitung (Gründer, 3.500 € brutto), stellvertretende Studioleitung mit Trainer-A-Lizenz (3.600 €), zwei Vollzeittrainer (je 3.000 €), zwei Trainer/Kursleiter und zwei Empfangskräfte in Teilzeit (1.650 € bzw. 1.550 €) sowie sechs Minijobs für Empfang am Abend und Wochenende und für die Reinigung (je 620 €). Ab dem 13. Monat kommt ein dritter Vollzeittrainer hinzu. Mit Arbeitgeberabgaben von 21,3 % (sozialversicherungspflichtig) und 31,17 % (Minijob) betragen die Personalkosten 28.533 € je Monat im ersten und 33.801 € im dritten Jahr (Gehaltssteigerung 2,5 % je Jahr). Die Personalkostenquote sinkt von 59,6 % im Anlaufjahr auf 29,6 % im dritten Jahr und liegt damit unter dem DSSV-Optimalwert von 32 % (DSSV Leitfaden Kostenmanagement 04/2022)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Raumkosten: Die Kaltmiete von 8,50 €/m² auf 1.975,40 m² Bruttofläche ergibt 16.791 € je Monat; hinzu kommen Betriebskosten von 2,00 €/m² (3.951 €) und Energie und Wasser von 4,00 €/m² (7.902 €), zusammen 28.643 € je Monat beziehungsweise 343.720 € im Jahr auf Preisbasis 2027. Der Ansatz von 6,00 €/m² für Nebenkosten und Energie liegt am oberen Rand der DSSV-Richtwerte (Betriebskosten 3,00 bis 3,50 €/m² und Strom ab 2,50 €/m², zusammen ab 5,50 €/m²; DSSV Leitfaden 04/2022) und über der Beraterspanne von 2,80 bis 4,20 €/m² für Energie (IN-COME 2020), weil Sauna, Dampfbad und eine Lüftungsanlage für 1.931 m² den Energiebedarf erhöhen; die GEG-Vergleichswerte für Fitnessstudios enthalten keinen Sauna-Zuschlag (Quellen: Anhang I). Miete und Nebenkosten sind mit 2,0 % je Jahr ab dem zweiten Jahr indexiert (Mietvertrag 10 Jahre, 3 mietfreie Ausbaumonate). Im ersten Jahr enthalten die Raumkosten von 393.105 € auch die zwei Vorlaufmonate mit Miete und Betriebskosten, die nach den drei mietfreien Ausbaumonaten anfallen (Monate −2 und −1); sie liegen deshalb über den Raumkosten des zweiten Jahres von 355.651 €, das zwölf Betriebsmonate mit indexierter Miete umfasst. Im dritten Jahr betragen sie 359.761 € einschließlich Gebäudeinstandhaltung von 4,00 €/m² und Jahr (7.902 €). Die Raumkostenquote von 26,3 % im dritten Jahr liegt über dem DSSV-Richtwert von maximal 22 %; das ist der Flächengröße und dem Wellnessbereich geschuldet und wird durch die niedrige Personalkostenquote ausgeglichen (DSSV-Kostenrichtwerte)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.8: Sachkosten je Monat (netto, EUR, Preisbasis Jahr 1) mit Begründung",
+   "spalten": [
+    "Kostenart",
+    "Betrag je Monat",
+    "Begründung / Quelle"
+   ],
+   "zeilen": [
+    [
+     "Marketing laufend",
+     "4.600 €",
+     "Kapitel 6.4; Eröffnungsphase Monate 1–3 zusätzlich 6.000 €/Monat, Vorverkauf 35.000 € einmalig; DSSV-Richtwert Werbung 4–5 % vom Umsatz (Jahr 3: 55.200 € = 4,0 %)"
+    ],
+    [
+     "Versicherungen (Haftpflicht, Inhalt, Betriebsunterbrechung, Elektronik, Glas)",
+     "900 €",
+     "GymAccess 2026: 500–1.500 €/Monat für große Studios; DSSV-Richtwert Durchschnittsstudio 250–280 € (Quellen: Anhang I); nicht vorsteuerfähig"
+    ],
+    [
+     "GEMA, GVL, Rundfunkbeitrag",
+     "350 €",
+     "GEMA-Tarif M-U III 5b 2026 für 2.000 m² ca. 199 €/Monat zzgl. 20 % GVL ≈ 239 €; Kurse auf lizenzierter Fläche ohne Zuschlag; DSSV-Richtwert 250–400 € (Quellen: Anhang I)"
+    ],
+    [
+     "Studiosoftware und Zutrittssystem",
+     "450 €",
+     "Magicline-Pakete 189–699 €/Monat, Module ab 149 € (Quellen: Anhang I); Kapitel 3.7"
+    ],
+    [
+     "Zahlungsverkehr (SEPA-Lastschrift)",
+     "0,8 % der Bruttobeiträge",
+     "WHK 2026: 0,08–0,35 € je Buchung; DSSV-Richtwert Bankgebühren 0,2–0,3 %; Jahr 3: 11.735 €"
+    ],
+    [
+     "Steuerberater, Buchhaltung, Jahresabschluss",
+     "1.000 €",
+     "Steuerberater Beck 2026: Buchhaltung GmbH 600–1.200 €/Monat plus Jahresabschluss 3.500–7.000 €; DSSV 1,2–1,5 % vom Umsatz (Quellen: Anhang I)"
+    ],
+    [
+     "Reinigungsmaterial, Hygiene, Fremdreinigung Nassbereich",
+     "2.200 €",
+     "ergänzend zu 2 Reinigungs-Minijobs im Stellenplan; DSSV-Richtwert Reinigung 2,00–3,00 €/m² (Quellen: Anhang I)"
+    ],
+    [
+     "Telekommunikation, IT, Internet",
+     "250 €",
+     "Planannahme"
+    ],
+    [
+     "Wartung Geräte (5 % des Gerätewerts je Jahr)",
+     "2.597 €",
+     "5 % von 623.196 € = 31.160 €/Jahr; one-bear: Wartung ab 53 €, DGUV-Sichtprüfung ab 62 € je Gerät (Quellen: Anhang I)"
+    ],
+    [
+     "Instandhaltung Gebäude (4 €/m² und Jahr)",
+     "658 €",
+     "7.902 €/Jahr; in Raumkosten enthalten"
+    ],
+    [
+     "Sonstiges (Berufsgenossenschaft, Umlagen, Büro, Gebühren, Kleinreparaturen)",
+     "1.500 €",
+     "Planannahme"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Rechercheprotokoll (Anhang I; DSSV Leitfaden Kostenmanagement 04/2022, GEMA-Tarife 2026, GymAccess 2026, Steuerberater Beck 2026, one-bear, WHK 2026).",
+   "breiten": [
+    34,
+    16,
+    50
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.9: Betriebskosten Jahr 3 nach Gruppen, Basisszenario (netto, EUR, ohne Abschreibung und Kapitaldienst)",
+   "spalten": [
+    "Gruppe",
+    "Betrag",
+    "Anteil an Kosten",
+    "Anteil am Umsatz"
+   ],
+   "zeilen": [
+    [
+     "Personal",
+     "405.609 €",
+     "41,8 %",
+     "29,6 %"
+    ],
+    [
+     "Raumkosten (Miete, Betriebskosten, Energie, Instandhaltung)",
+     "359.761 €",
+     "37,1 %",
+     "26,3 %"
+    ],
+    [
+     "Sonstige Sachkosten (Tabelle 10.8 ohne Marketing und Instandhaltung)",
+     "122.695 €",
+     "12,7 %",
+     "9,0 %"
+    ],
+    [
+     "Marketing",
+     "55.200 €",
+     "5,7 %",
+     "4,0 %"
+    ],
+    [
+     "Wareneinsatz Getränke",
+     "26.297 €",
+     "2,7 %",
+     "1,9 %"
+    ],
+    [
+     "Summe Betriebskosten Jahr 3",
+     "969.562 €",
+     "100,0 %",
+     "70,8 %"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung: Miete 209.631 €, Betriebskosten 47.410 €, Energie 94.819 €, Instandhaltung 7.902 €, Versicherungen 10.800 €, GEMA/GVL 4.200 €, Software 5.400 €, Zahlungsverkehr 11.735 €, Steuerberater 12.000 €, Reinigung 26.400 €, Telekommunikation 3.000 €, Wartung 31.160 €, Sonstiges 18.000 €.",
+   "breiten": [
+    46,
+    18,
+    18,
+    18
+   ]
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_kosten_j3.png",
+   "titel": "Abbildung 10.5: Betriebskosten Jahr 3 (970 T€) nach Kostenarten"
+  },
+  {
+   "typ": "absatz",
+   "text": "Abschreibungen: Die Investitionen werden linear abgeschrieben, Geräte und Import-Nebenkosten (623.196 €) über 8 Jahre (77.900 € je Jahr), Ausbau, Sanitär, Planung und Unvorhergesehenes (1.163.957 €) über 10 Jahre (116.396 € je Jahr) und Sonstiges (32.000 €) über 5 Jahre (6.400 € je Jahr). Die Abschreibung beträgt in allen fünf Planjahren 200.695 €. Kaution und Gründungskosten werden nicht abgeschrieben. Eine degressive Abschreibung oder Sonderabschreibung würde das steuerliche Ergebnis der ersten Jahre weiter senken, ist im Plan aber nicht unterstellt [mit dem Steuerberater abzustimmen]."
+  },
+  {
+   "typ": "h2",
+   "text": "10.6 Rentabilitätsvorschau"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.10: Rentabilitätsvorschau Jahr 1 bis 5, Basisszenario (netto, EUR; Jahr 1 einschließlich Vorlauf April bis August 2027)",
+   "spalten": [
+    "Position",
+    "Jahr 1",
+    "Jahr 2",
+    "Jahr 3",
+    "Jahr 4",
+    "Jahr 5"
+   ],
+   "zeilen": [
+    [
+     "Umsatz",
+     "622.361 €",
+     "1.101.585 €",
+     "1.368.522 €",
+     "1.403.873 €",
+     "1.427.024 €"
+    ],
+    [
+     "Wareneinsatz",
+     "11.590 €",
+     "21.232 €",
+     "26.297 €",
+     "26.622 €",
+     "26.622 €"
+    ],
+    [
+     "Personalkosten",
+     "371.144 €",
+     "395.716 €",
+     "405.609 €",
+     "415.749 €",
+     "426.143 €"
+    ],
+    [
+     "Raumkosten",
+     "393.105 €",
+     "355.651 €",
+     "359.761 €",
+     "363.954 €",
+     "368.231 €"
+    ],
+    [
+     "Marketing",
+     "108.200 €",
+     "55.200 €",
+     "55.200 €",
+     "55.200 €",
+     "55.200 €"
+    ],
+    [
+     "Sonstige Sachkosten",
+     "127.815 €",
+     "120.403 €",
+     "122.695 €",
+     "123.015 €",
+     "123.236 €"
+    ],
+    [
+     "EBITDA",
+     "−389.492 €",
+     "153.383 €",
+     "398.960 €",
+     "419.333 €",
+     "427.593 €"
+    ],
+    [
+     "Abschreibungen",
+     "200.695 €",
+     "200.695 €",
+     "200.695 €",
+     "200.695 €",
+     "200.695 €"
+    ],
+    [
+     "EBIT",
+     "−590.187 €",
+     "−47.312 €",
+     "198.265 €",
+     "218.638 €",
+     "226.898 €"
+    ],
+    [
+     "Zinsen und MBG-Vergütung",
+     "208.332 €",
+     "162.165 €",
+     "162.028 €",
+     "157.492 €",
+     "150.758 €"
+    ],
+    [
+     "Ergebnis vor Steuern (EBT)",
+     "−798.519 €",
+     "−209.477 €",
+     "36.237 €",
+     "61.146 €",
+     "76.140 €"
+    ],
+    [
+     "Steuern",
+     "0 €",
+     "0 €",
+     "0 €",
+     "0 €",
+     "0 €"
+    ],
+    [
+     "Jahresergebnis",
+     "−798.519 €",
+     "−209.477 €",
+     "36.237 €",
+     "61.146 €",
+     "76.140 €"
+    ],
+    [
+     "Mitglieder Jahresende",
+     "1.429",
+     "2.053",
+     "2.200",
+     "2.200",
+     "2.200"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung. Vollständige Plan-GuV in Anhang D.",
+   "breiten": [
+    25,
+    15,
+    15,
+    15,
+    15,
+    15
+   ]
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_guv.png",
+   "titel": "Abbildung 10.6: Rentabilitätsvorschau Jahr 1 bis 5 (Basis) mit Kapitaldienstfähigkeit"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das erste Jahr schließt mit einem Verlust von 798.519 €. Darin enthalten sind der fünfmonatige Vorlauf (Personal ab Juni 2027, Miete nach den mietfreien Monaten, Vorverkaufsmarketing von 35.000 €, Zinsen ab Auszahlung der Darlehen), die Eröffnungswerbung und vor allem der Mitgliederaufbau: Der Umsatz steigt von 25.193 € im ersten auf 73.752 € im zwölften Monat, während die Betriebskosten von Beginn an bei 72.834 € bis 78.694 € je Monat liegen. Die Abschreibung von 200.695 € und die Zinsen von 208.332 € (einschließlich der Vorlaufmonate) verstärken den Anlaufverlust. Die Raumkosten des ersten Jahres (393.105 €) liegen über denen des zweiten Jahres (355.651 €), weil das erste Planjahr neben zwölf Betriebsmonaten die zwei Vorlaufmonate mit Miete und Betriebskosten nach Ablauf der drei mietfreien Ausbaumonate enthält (Abschnitt 10.5). Das zweite Jahr erreicht ein positives EBITDA von 153.383 €, bleibt nach Abschreibung und Zinsen aber mit 209.477 € negativ. Ab dem dritten Jahr ist das Jahresergebnis positiv (36.237 €; Jahr 5: 76.140 €). Die EBITDA-Marge beträgt im dritten Jahr 29,2 % und im fünften Jahr 30,0 %."
+  },
+  {
+   "typ": "absatz",
+   "text": "Break-even: Auf Monatsbasis ist das EBITDA erstmals im 12. Betriebsmonat (August 2028) positiv; der Cashflow nach Kapitaldienst wird ab dem 19. Monat (März 2029) positiv. Je Mitglied und Monat verbleibt ein Deckungsbeitrag von 49,40 € netto (Beitrag, Servicepauschale und Nebenumsätze abzüglich Wareneinsatz und Zahlungsentgelten). Bezogen auf die Fixkosten des dritten Jahres sind 1.572 Mitglieder nötig, um die Betriebskosten zu decken, und 2.018 Mitglieder, um zusätzlich den vollen Kapitaldienst nach Ende der tilgungsfreien Jahre des L-Bank-Darlehens (22.013 € je Monat im 36. Monat) zu tragen. Der Zielbestand von 2.200 Mitgliedern liegt 9,0 % über dem Break-even mit Kapitaldienst; im Basisszenario wird die Schwelle von 2.018 Mitgliedern im 24. Monat überschritten."
+  },
+  {
+   "typ": "absatz",
+   "text": "Steuern: Der kombinierte Steuersatz der GmbH beträgt 29,47 % (Körperschaftsteuer 15 % zuzüglich Solidaritätszuschlag 5,5 % darauf sowie Gewerbesteuer mit Messzahl 3,5 % und Hebesatz 390 % als Planannahme; Friedrichshafen 350 %, Stuttgart 430 %, Kapitel 8.9). In den fünf Planjahren fallen keine Ertragsteuern an, weil der Verlustvortrag aus den ersten beiden Jahren (1.007.996 € zu Beginn des dritten Jahres) mit den Gewinnen verrechnet wird; zum Ende des fünften Jahres verbleibt ein Verlustvortrag von 834.473 €. Die Verrechnung ist im Rahmen der Mindestbesteuerung möglich, da die Jahresgewinne deutlich unter dem Sockelbetrag liegen [vom Steuerberater zu bestätigen]."
+  },
+  {
+   "typ": "h2",
+   "text": "10.7 Liquiditätsplanung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Liquiditätsplanung bildet alle Zahlungsströme brutto im Monatsraster ab: Einzahlungen aus Beiträgen und Nebenumsätzen einschließlich Umsatzsteuer, Auszahlungen für Investitionen, Betriebskosten und Kapitaldienst, Umsatzsteuer-Zahllast bzw. -Erstattung mit einem Monat Verzögerung sowie Eigenkapital- und Darlehenszuflüsse. Die vollständige Tabelle für die Monate −5 bis 36 steht in Anhang C (Tabellen C.1 bis C.4); Abbildung 10.7 zeigt den Kassenbestand aller drei Szenarien über 60 Monate."
+  },
+  {
+   "typ": "abbildung",
+   "datei": "charts/chart_liquiditaet.png",
+   "titel": "Abbildung 10.7: Kassenbestand je Monat mit Anlaufreserve 740.000 € (24 Monate Deckung)"
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.11: Kassenbestand am Monatsende, Basisszenario (EUR, ausgewählte Monate)",
+   "spalten": [
+    "Monat",
+    "Kassenbestand",
+    "Ereignis"
+   ],
+   "zeilen": [
+    [
+     "−5 (April 2027)",
+     "278.223 €",
+     "Eigenkapital 150.000 € und MBG 250.000 € eingezahlt; Kaution, Gründung, erste Planung bezahlt"
+    ],
+    [
+     "−4 (Mai 2027)",
+     "438.446 €",
+     "KfW 077 ausgezahlt (500.000 €); erste Ausbaurate"
+    ],
+    [
+     "−3 (Juni 2027)",
+     "1.872.746 €",
+     "L-Bank-Darlehen ausgezahlt (1.752.583 €); Höchststand der Kasse"
+    ],
+    [
+     "−1 (August 2027)",
+     "411.699 €",
+     "Geräte und letzte Ausbaurate bezahlt, Vorsteuer noch offen"
+    ],
+    [
+     "1 (September 2027)",
+     "513.500 €",
+     "Eröffnung; Vorsteuererstattung des Vormonats eingegangen"
+    ],
+    [
+     "12",
+     "155.395 €",
+     "Ende Jahr 1"
+    ],
+    [
+     "18 (Februar 2029)",
+     "107.975 €",
+     "Tiefststand der Kasse (Minimum)"
+    ],
+    [
+     "24",
+     "152.514 €",
+     "Ende Jahr 2, Anlaufphase abgeschlossen"
+    ],
+    [
+     "36",
+     "365.344 €",
+     "Ende Jahr 3"
+    ],
+    [
+     "60",
+     "681.759 €",
+     "Ende Jahr 5"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung.",
+   "breiten": [
+    22,
+    22,
+    56
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Kassenbestand sinkt nach der Eröffnung von 513.500 € monatlich, weil die Betriebskosten und der Kapitaldienst den Umsatz der Anlaufphase übersteigen, und erreicht im 18. Betriebsmonat sein Minimum von 107.975 €. Danach steigt er wieder und erreicht 365.344 € am Ende des dritten und 681.759 € am Ende des fünften Jahres. Das Minimum bleibt positiv, weil der Reserve-Logik ein Sicherheitspuffer zugrunde liegt: Der kumulierte Fehlbetrag aus Betrieb und Kapitaldienst beträgt im 18. Monat höchstens 640.858 €; die Anlaufreserve von 740.000 € übersteigt ihn um rund 99.142 € und hält zusätzlich den Vorsteuer- und Zahlungsrhythmus aus. Der Kassentiefststand ist zugleich die Frühwarnschwelle: Unterschreitet der Kassenbestand die Planlinie um mehr als den Puffer, greift der Handlungsplan aus Abschnitt 10.9."
+  },
+  {
+   "typ": "absatz",
+   "text": "Umsatzsteuer: Auf die Investitionen entfällt Vorsteuer von 340.941 €, die bei Lieferung im Monat −1 den höchsten offenen Betrag von 366.018 € erzeugt und im Folgemonat erstattet wird. Im laufenden Betrieb entsteht aus den Bruttobeiträgen eine monatliche Zahllast, die im Folgemonat abgeführt wird; die Vorsteuer aus Miete, Nebenkosten, Sachkosten und Wartung mindert sie. Versicherungen und Zahlungsentgelte sind nicht vorsteuerfähig. Als Sicherheitslinie für Zahlungsspitzen und eine verzögerte Vorsteuererstattung dient der Kontokorrentrahmen von 200.000 € zu 9,0 % p. a.; im Basisszenario wird er in keinem Monat beansprucht. Für die Vorsteuererstattung des Investitionsmonats wird eine Dauerfristverlängerung nicht beantragt, damit die Erstattung nicht verzögert wird [mit dem Steuerberater abzustimmen]."
+  },
+  {
+   "typ": "h2",
+   "text": "10.8 Kapitaldienstfähigkeit"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kapitaldienstfähigkeit ist das Kernstück jeder Kreditbeurteilung (IHK Stuttgart). Die Kapitaldienstdeckung (DSCR, Debt Service Coverage Ratio) ist hier definiert als EBITDA abzüglich Ertragsteuern, geteilt durch den Kapitaldienst des Jahres (Zinsen, MBG-Vergütung und Tilgung). Da in den Planjahren keine Ertragsteuern anfallen und die GmbH keine Privatentnahmen kennt (die Geschäftsführervergütung des Gründers ist in den Personalkosten enthalten), entspricht der Zähler dem EBITDA. Der Cashflow nach Kapitaldienst ist die Differenz aus EBITDA, Steuern und Kapitaldienst und zeigt, welcher Betrag für Ersatz- und Erweiterungsinvestitionen, die Rückführung der MBG-Beteiligung und den Aufbau von Rücklagen verbleibt."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.12: Kapitaldienstfähigkeit Jahr 1 bis 5, Basisszenario (netto, EUR)",
+   "spalten": [
+    "Position",
+    "Jahr 1",
+    "Jahr 2",
+    "Jahr 3",
+    "Jahr 4",
+    "Jahr 5"
+   ],
+   "zeilen": [
+    [
+     "EBITDA",
+     "−389.492 €",
+     "153.383 €",
+     "398.960 €",
+     "419.333 €",
+     "427.593 €"
+    ],
+    [
+     "Zinsen und MBG-Vergütung",
+     "208.332 €",
+     "162.165 €",
+     "162.028 €",
+     "157.492 €",
+     "150.758 €"
+    ],
+    [
+     "Tilgung",
+     "0 €",
+     "0 €",
+     "25.773 €",
+     "103.093 €",
+     "119.760 €"
+    ],
+    [
+     "Kapitaldienst",
+     "208.332 €",
+     "162.165 €",
+     "187.801 €",
+     "260.585 €",
+     "270.518 €"
+    ],
+    [
+     "DSCR (EBITDA ÷ Kapitaldienst)",
+     "−1,87",
+     "0,95",
+     "2,12",
+     "1,61",
+     "1,58"
+    ],
+    [
+     "Cashflow nach Kapitaldienst",
+     "−597.824 €",
+     "−8.782 €",
+     "211.159 €",
+     "158.748 €",
+     "157.075 €"
+    ],
+    [
+     "Kapitaldienst in % vom Umsatz",
+     "33,5 %",
+     "14,7 %",
+     "13,7 %",
+     "18,6 %",
+     "19,0 %"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Plan-GuV); Jahr 1 einschließlich Vorlaufzinsen.",
+   "breiten": [
+    30,
+    14,
+    14,
+    14,
+    14,
+    14
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Im ersten Jahr ist der Kapitaldienst von 208.332 € planmäßig nicht aus dem Betrieb gedeckt (DSCR −1,87); er wird aus der Anlaufreserve bezahlt, die genau dafür im Kapitalbedarf enthalten ist. Im zweiten Jahr deckt das EBITDA den Kapitaldienst nahezu (DSCR 0,95, Cashflow nach Kapitaldienst −8.782 €). Ab dem dritten Jahr liegt die Deckung bei 2,12 und bleibt mit 1,61 im vierten und 1,58 im fünften Jahr auch nach Einsetzen der Tilgungen von L-Bank (ab Monat 34) und KfW 077 (ab Monat 57) über der im Plan als Warnschwelle verwendeten Größenordnung von 1,2 (Tabelle 10.16); die verbindliche Mindestdeckung legt die Hausbank im Rahmen ihres Ratings fest [mit der Hausbank abzustimmen]. Der Cashflow nach Kapitaldienst von 211.159 € (Jahr 3) bis 157.075 € (Jahr 5) reicht aus, um bis zum zehnten Jahr die MBG-Rückzahlung von 250.000 € anzusparen und Ersatzinvestitionen in Geräte zu finanzieren. Der Kapitaldienst beansprucht im dritten Jahr 13,7 % des Umsatzes und damit mehr als den DSSV-Richtwert von 6 % (Quellen: Anhang I); das ist Folge der vollständigen Fremdfinanzierung eines Neubauausbaus und der Grund, warum die Eigenkapitalquote und die Bürgschaften für die Bank entscheidend sind. Der Kapitaldienst nach Darlehensjahren (Tabelle 10.5) zeigt, dass der Kapitaldienst erst im sechsten Jahr mit rund 302.000 € sein Maximum vor der MBG-Rückzahlung erreicht; bezogen auf das EBITDA des fünften Jahres (427.593 €) entspricht das einer Deckung von 1,42."
+  },
+  {
+   "typ": "h2",
+   "text": "10.9 Szenarien und Sensitivitäten"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Modell rechnet drei Szenarien mit identischer Investition und Finanzierung, die sich nur in den Nachfrageannahmen unterscheiden: Neuzugänge, Kündigungsquote und Beitragsniveau. Das pessimistische Szenario unterstellt 30 % weniger Neuzugänge, eine Kündigungsquote von 2,8 % je Monat und ein um 5 % niedrigeres Beitragsniveau gleichzeitig; das optimistische Szenario 20 % mehr Neuzugänge, 1,8 % Kündigungen und 3 % höhere Beiträge."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.13: Szenarienvergleich (netto; Reserve im Finanzierungsplan jeweils 740.000 €)",
+   "spalten": [
+    "Kennzahl",
+    "Pessimistisch",
+    "Basis",
+    "Optimistisch"
+   ],
+   "zeilen": [
+    [
+     "Neuzugänge (Faktor)",
+     "0,7",
+     "1,0",
+     "1,2"
+    ],
+    [
+     "Kündigungsquote je Monat",
+     "2,8 %",
+     "2,2 %",
+     "1,8 %"
+    ],
+    [
+     "Beitragsniveau (Faktor)",
+     "0,95",
+     "1,00",
+     "1,03"
+    ],
+    [
+     "Mitglieder Monat 12 / 24 / 36",
+     "959 / 1.332 / 1.525",
+     "1.429 / 2.053 / 2.200",
+     "1.763 / 2.200 / 2.200"
+    ],
+    [
+     "Umsatz Jahr 1 / 2 / 3 (T€)",
+     "409 / 698 / 872",
+     "622 / 1.102 / 1.369",
+     "777 / 1.334 / 1.412"
+    ],
+    [
+     "EBITDA Jahr 1 / 2 / 3 (T€)",
+     "−598 / −239 / −85",
+     "−389 / 153 / 399",
+     "−239 / 380 / 442"
+    ],
+    [
+     "Jahresergebnis Jahr 3",
+     "−447.281 €",
+     "36.237 €",
+     "79.169 €"
+    ],
+    [
+     "DSCR Jahr 3 / Jahr 4",
+     "−0,45 / −0,01",
+     "2,12 / 1,61",
+     "2,35 / 1,73"
+    ],
+    [
+     "Reservebedarf 24 Monate (inkl. 15 % Puffer)",
+     "1.380.094 €",
+     "736.987 €",
+     "512.557 €"
+    ],
+    [
+     "Kassenminimum (Monat)",
+     "−1.206.153 € (Monat 60)",
+     "107.975 € (Monat 18)",
+     "278.223 € (Monat −5)"
+    ],
+    [
+     "Break-even EBITDA (Monat)",
+     "43",
+     "12",
+     "9"
+    ],
+    [
+     "Break-even Cashflow nach Kapitaldienst (Monat)",
+     "nicht in 60 Monaten",
+     "19",
+     "11"
+    ],
+    [
+     "Break-even-Mitglieder mit Kapitaldienst",
+     "2.107",
+     "2.018",
+     "1.968"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung.",
+   "breiten": [
+    40,
+    20,
+    20,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Das optimistische Szenario erreicht die Kapazitätsgrenze bereits im zweiten Jahr, benötigt nur 512.557 € Reserve und ist ab dem zweiten Jahr profitabel. Das pessimistische Szenario ist ohne Gegenmaßnahmen nicht tragfähig: Mit 1.332 Mitgliedern nach 24 Monaten bleibt das EBITDA bis ins dritte Jahr negativ, der Reservebedarf steigt auf 1.380.094 €, die Kasse wird trotz der Reserve von 740.000 € negativ und der Kapitaldienst kann in keinem Planjahr aus dem Betrieb gedeckt werden (DSCR Jahr 4 −0,01). Für diesen Verlauf sind nachfolgend die Gegenmaßnahmen und ihre Grenzen dargestellt."
+  },
+  {
+   "typ": "absatz",
+   "text": "Pessimistisches Szenario mit Gegenmaßnahmen: Bei gleicher Nachfrage werden vier Kostenmaßnahmen unterstellt, die der Gründer ohne Zustimmung Dritter umsetzen kann (Excel-Planrechnung.massnahmen):"
+  },
+  {
+   "typ": "liste",
+   "punkte": [
+    "Dritter Vollzeittrainer erst ab Jahr 3 statt Jahr 2",
+    "Empfangs-Minijobs 3 statt 4",
+    "Marketing laufend 2.500 € statt 4.600 €/Monat",
+    "Reinigung/Sonstiges −15 %"
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.14: Pessimistisches Szenario ohne und mit Gegenmaßnahmen (netto)",
+   "spalten": [
+    "Kennzahl",
+    "Ohne Maßnahmen",
+    "Mit Kostenmaßnahmen"
+   ],
+   "zeilen": [
+    [
+     "EBITDA Jahr 1 / 2 / 3 (T€)",
+     "−598 / −239 / −85",
+     "−556 / −153 / −42"
+    ],
+    [
+     "Jahresergebnis Jahr 3",
+     "−447.281 €",
+     "−405.168 €"
+    ],
+    [
+     "Jahresergebnis Jahr 5",
+     "−300.799 €",
+     "−258.166 €"
+    ],
+    [
+     "DSCR Jahr 3 / Jahr 4",
+     "−0,45 / −0,01",
+     "−0,23 / 0,16"
+    ],
+    [
+     "Reservebedarf 24 Monate",
+     "1.380.094 €",
+     "1.232.616 €"
+    ],
+    [
+     "Kassenminimum (Monat 60)",
+     "−1.206.153 €",
+     "−950.293 €"
+    ],
+    [
+     "Break-even EBITDA (Monat)",
+     "43",
+     "36"
+    ],
+    [
+     "Break-even-Mitglieder mit Kapitaldienst",
+     "2.107",
+     "2.032"
+    ],
+    [
+     "Personalkosten je Monat Jahr 3",
+     "33.801 €",
+     "32.946 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Szenario pessimistisch ohne und mit Maßnahmen).",
+   "breiten": [
+    40,
+    30,
+    30
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kostenmaßnahmen verbessern das EBITDA um rund 87 T€ im zweiten und 42 T€ im dritten Jahr und senken den Reservebedarf um 147.478 €; sie reichen aber nicht aus, um das pessimistische Szenario tragfähig zu machen (DSCR Jahr 4 0,16, Kasse am Ende des fünften Jahres −950.293 €). Bei einem so ungünstigen Verlauf müssten deshalb zusätzlich die Tilgung ausgesetzt, Nachrangmittel aufgestockt und die Nachfrageseite (Vertrieb, Kooperationen, Tarife) angepasst werden; die Nachfrage ist der entscheidende Hebel, wie die Sensitivitäten zeigen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.15: Sensitivitäten gegenüber dem Basisszenario (jeweils eine Annahme verändert, netto)",
+   "spalten": [
+    "Fall",
+    "EBITDA J3",
+    "Ergebnis J3",
+    "DSCR J3 / J4",
+    "Reservebedarf 24",
+    "Mitglieder M24"
+   ],
+   "zeilen": [
+    [
+     "Basis",
+     "398.960 €",
+     "36.237 €",
+     "2,12 / 1,61",
+     "736.987 €",
+     "2.053"
+    ],
+    [
+     "Neuzugänge −20 %",
+     "173.665 €",
+     "−189.058 €",
+     "0,92 / 1,24",
+     "1.074.527 €",
+     "1.642"
+    ],
+    [
+     "Neuzugänge −30 %",
+     "35.516 €",
+     "−327.207 €",
+     "0,19 / 0,63",
+     "1.267.304 €",
+     "1.437"
+    ],
+    [
+     "Kündigungsquote 3,0 %/Monat (statt 2,2 %)",
+     "294.209 €",
+     "−68.514 €",
+     "1,57 / 1,56",
+     "809.041 €",
+     "1.856"
+    ],
+    [
+     "Beitragsniveau −10 %",
+     "287.930 €",
+     "−74.793 €",
+     "1,53 / 1,17",
+     "853.059 €",
+     "2.053"
+    ],
+    [
+     "Kaltmiete 10,00 €/m² (statt 8,50 €)",
+     "361.966 €",
+     "−1.325 €",
+     "1,92 / 1,46",
+     "809.209 €",
+     "2.053"
+    ],
+    [
+     "Zinsen +1,5 Prozentpunkte",
+     "398.960 €",
+     "−1.270 €",
+     "1,77 / 1,41",
+     "816.556 €",
+     "2.053"
+    ],
+    [
+     "Personalkosten +10 %",
+     "358.399 €",
+     "−4.324 €",
+     "1,91 / 1,45",
+     "805.202 €",
+     "2.053"
+    ],
+    [
+     "Energie/Wasser 5,50 €/m² (statt 4,00 €)",
+     "363.403 €",
+     "111 €",
+     "1,93 / 1,47",
+     "801.917 €",
+     "2.053"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung.",
+   "breiten": [
+    30,
+    14,
+    14,
+    14,
+    16,
+    12
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Kostensensitivitäten sind moderat: Eine um 1,50 €/m² höhere Kaltmiete, 10 % höhere Personalkosten, 1,5 Prozentpunkte höhere Zinsen oder Energiekosten von 5,50 €/m² senken das Ergebnis des dritten Jahres jeweils auf einen Wert um null (−4.324 € bis 111 €), lassen den DSCR aber bei 1,77 bis 1,93 (Jahr 3) und 1,41 bis 1,47 (Jahr 4) und erhöhen den Reservebedarf um höchstens 79.569 € (auf höchstens 816.556 €); der Kassentiefststand bleibt in diesen Fällen mit 39.275 € bis 51.441 € positiv. Ein Beitragsniveau von −10 % oder eine Kündigungsquote von 3,0 % je Monat führen im dritten Jahr zu einem Verlust, bei einem DSCR von 1,53 bzw. 1,57 bleibt der Kapitaldienst gedeckt. Kritisch ist allein der Neuzugang: Bei 20 % weniger Neumitgliedern sinkt der DSCR im dritten Jahr auf 0,92 (Jahr 4: 1,24), der Reservebedarf steigt auf 1.074.527 € und die Kasse wird mit −202.288 € negativ, was den Kontokorrentrahmen von 200.000 € knapp übersteigt; bei 30 % weniger Neuzugängen ist das Vorhaben ohne Nachfinanzierung nicht mehr tragfähig. Der Plan ist somit robust gegenüber Kosten- und Zinsabweichungen, aber abhängig davon, dass die Neuzugänge mindestens 80 % des Plans erreichen."
+  },
+  {
+   "typ": "absatz",
+   "text": "Frühindikatoren und Handlungsplan: Die folgenden Schwellen werden monatlich überwacht (Kapitel 6.7); bei Unterschreitung greifen die genannten Maßnahmen in der angegebenen Reihenfolge."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.16: Frühindikatoren und Handlungsplan",
+   "spalten": [
+    "Indikator",
+    "Planwert (Basis)",
+    "Warnschwelle",
+    "Maßnahmen"
+   ],
+   "zeilen": [
+    [
+     "Vorverkauf bis Eröffnung",
+     "350 Mitglieder",
+     "unter 280 (80 %)",
+     "Eröffnungsaktionen verlängern, Aufnahmegebühr aussetzen, Firmenkooperationen vorziehen, Eröffnung nicht verschieben"
+    ],
+    [
+     "Neuzugänge je Monat",
+     "140 (Monate 1–3), 100 (4–12), 90 (Jahr 2)",
+     "unter 80 % des Plans in drei Folgemonaten",
+     "Marketingbudget umschichten statt kürzen (Empfehlungsprogramm, Probetraining, HYROX-Events), Vertriebsziele für Empfang und Trainer, Tarifaktionen für Studenten und Firmen"
+    ],
+    [
+     "Kündigungsquote",
+     "2,2 % je Monat",
+     "über 2,6 % im Quartalsmittel",
+     "Mitgliederbindung (Kapitel 6.6): Trainingsplan-Updates, Kursplan, Kontakt bei Inaktivität, Rückholangebote"
+    ],
+    [
+     "Mitgliederbestand Monat 12 / 24",
+     "1.429 / 2.053",
+     "unter 90 % des Planbestands (1.286 / 1.848)",
+     "Kostenflexibilisierung: dritter Trainer erst ab Jahr 3, Minijobs 3 statt 4, Reinigung/Sonstiges −15 %, Marketing 2.500 €/Monat (Wirkung Tabelle 10.14)"
+    ],
+    [
+     "Kassenbestand",
+     "Minimum 107.975 € (Monat 18)",
+     "Unterschreitung der Planlinie um mehr als 90.000 €",
+     "Kontokorrent 200.000 € nutzen; mit der Hausbank Tilgungsaussetzung bzw. Verlängerung der tilgungsfreien Jahre (L-Bank ab Monat 34, KfW 077 ab Monat 57) vereinbaren"
+    ],
+    [
+     "DSCR Jahr 3",
+     "2,12",
+     "unter 1,2",
+     "Nachrangmittel aufstocken (MBG im Einzelfall bis 1 Mio. €, Mikromezzaninfonds bis 100.000 €), Geräteleasing für Ersatzinvestitionen, Verhandlung Mietanpassung, Tarifanpassung"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Rechercheprotokoll (Anhang I; MBG, Mikromezzanin, Leasing).",
+   "breiten": [
+    20,
+    22,
+    20,
+    38
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Die Szenarien verändern nur die Nachfrage; Bauzeitverzögerungen und Mehrkosten im Ausbau sind über den Posten Unvorhergesehenes (165.378 €) und die Reserve abgedeckt, nicht über eigene Szenarien. Jeder Monat Eröffnungsverzug kostet rund 28.643 € Miete und Nebenkosten zuzüglich der laufenden Personalkosten (Kapitel 7.8). Der Gründer sollte der Bank den Bauzeitenplan der Fachplaner und die Lieferzeiten der Importgeräte vorlegen."
+  },
+  {
+   "typ": "h2",
+   "text": "10.10 Umsetzungs- und Auszahlungsplan"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Mittelverwendung im Vorlauf folgt dem Zahlungsplan des Finanzmodells: Kaution und Gründungskosten im Monat −5, Planungsleistungen gleichmäßig über die Monate −5 bis −1, Ausbau, Sanitär und der Posten Unvorhergesehenes in vier Raten in den Monaten −4 bis −1, Sonstiges im Monat −2 und die Geräte einschließlich Import-Nebenkosten bei Lieferung im Monat −1. Die Darlehen werden entsprechend abgerufen: MBG-Beteiligung und Eigenkapital im Monat −5, KfW 077 im Monat −4 und das L-Bank-Darlehen im Monat −3. Die Reihenfolge stellt sicher, dass jede Ausbaurate aus bereits ausgezahlten Mitteln bezahlt wird und keine Bereitstellungsprovision für ungenutzte Kreditteile anfällt (KfW 077 ohne Bereitstellungsprovision; L-Bank 12 Monate provisionsfrei)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.17: Mittelverwendung und Mittelzufluss im Vorlauf (netto, EUR, Ausbau- und Planungsraten rechnerisch gleichmäßig verteilt)",
+   "spalten": [
+    "Monat",
+    "Mittelverwendung (Investition)",
+    "Betrag",
+    "Mittelzufluss",
+    "Betrag"
+   ],
+   "zeilen": [
+    [
+     "−5 (April 2027)",
+     "Kaution, Gründung und Beratung, Planung (1/5)",
+     "114.828 €",
+     "Bareinlage Gründer, MBG stille Beteiligung",
+     "400.000 €"
+    ],
+    [
+     "−4 (Mai 2027)",
+     "Ausbau/Sanitär/Unvorhergesehenes (1/4), Planung (1/5)",
+     "285.640 €",
+     "KfW 077",
+     "500.000 €"
+    ],
+    [
+     "−3 (Juni 2027)",
+     "Ausbau/Sanitär/Unvorhergesehenes (2/4), Planung (1/5)",
+     "285.640 €",
+     "L-Bank GuW-BW",
+     "1.752.583 €"
+    ],
+    [
+     "−2 (Juli 2027)",
+     "Ausbau/Sanitär/Unvorhergesehenes (3/4), Planung (1/5), Sonstiges",
+     "317.640 €",
+     "–",
+     "–"
+    ],
+    [
+     "−1 (August 2027)",
+     "Ausbau/Sanitär/Unvorhergesehenes (4/4), Planung (1/5), Geräte und Import",
+     "908.836 €",
+     "–",
+     "–"
+    ],
+    [
+     "Summe",
+     "Investition gesamt",
+     "1.912.583 €",
+     "Mittelherkunft gesamt (inkl. Reserve 740.000 €)",
+     "2.652.583 €"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Zahlungsplan Investition, Auszahlungsmonate der Darlehen).",
+   "breiten": [
+    16,
+    34,
+    14,
+    22,
+    14
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Neben den Investitionen fallen im Vorlauf laufende Kosten an: Personal ab Juni 2027 (Geschäftsführer), Juli (stellvertretende Studioleitung) und August (zwei Trainer), Vorverkaufsmarketing von 35.000 € in den Monaten −3 bis −1, Miete und Nebenkosten ab dem vierten Vorlaufmonat nach drei mietfreien Monaten sowie Zinsen ab Auszahlung der Darlehen (1.458 € im Monat −5, 13.514 € ab Monat −3). Diese Vorlaufkosten von zusammen rund 155.398 € sind Teil des kumulierten Fehlbetrags, aus dem die Anlaufreserve abgeleitet ist."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 10.18: Meilensteine bis zur Eröffnung am 01.09.2027 (Finanzierungssicht)",
+   "spalten": [
+    "Zeitraum",
+    "Meilenstein",
+    "Voraussetzung / Ergebnis"
+   ],
+   "zeilen": [
+    [
+     "Oktober bis Dezember 2026",
+     "Bankgespräch, Anträge KfW 077, L-Bank GuW-BW mit Bürgschaftsbank, MBG",
+     "Businessplan mit Finanzmodell, fachkundige Stellungnahme (IHK), Eigenmittelnachweis, Selbstauskunft; Standort mit Absichtserklärung des Vermieters; KfW 077 vor Vorhabensbeginn beantragen"
+    ],
+    [
+     "November 2026 bis März 2027",
+     "Mietvertrag (November 2026), Bauantrag (Dezember 2026), Finanzierungszusagen, GmbH-Gründung",
+     "Kreditverträge und Bürgschaftszusage; Stammkapital 25.000 €; Mietvertrag 10 Jahre zu 8,50 €/m² mit 3 mietfreien Monaten; Kontokorrent 200.000 €; Gerätebestellung Atlantis/Prime nach Zusage"
+    ],
+    [
+     "April 2027 (Monat −5)",
+     "Mietbeginn, Kaution, Abruf Eigenkapital und MBG",
+     "Baugenehmigung Nutzungsänderung; Planungsleistungen; Vorbereitung Vorverkauf"
+    ],
+    [
+     "Mai bis Juni 2027 (Monate −4 und −3)",
+     "Abruf KfW-Kredit 077 und L-Bank-Darlehen, Baubeginn",
+     "Ausbauraten 1 und 2; Personal Geschäftsführung ab Juni; Vorverkaufsstart Juni"
+    ],
+    [
+     "Juli bis August 2027 (Monate −2 und −1)",
+     "Ausbau abgeschlossen, Gerätelieferung, Abnahmen",
+     "Ausbauraten 3 und 4, Sonstiges, Geräte; Brandschutz- und Bauabnahme, DGUV-Geräteprüfung; Vorverkauf 350 Mitglieder; Vorsteuerantrag Monat −1"
+    ],
+    [
+     "1. September 2027 (Monat 1)",
+     "Eröffnung",
+     "Beginn der Beitragseinzüge; Eröffnungsmarketing Monate 1 bis 3; erste Vorsteuererstattung"
+    ],
+    [
+     "August 2028 (Monat 12)",
+     "EBITDA-Break-even auf Monatsbasis",
+     "1.429 Mitglieder; Planabgleich mit der Bank (Jahresabschluss Jahr 1)"
+    ],
+    [
+     "März 2029 (Monat 19)",
+     "Cashflow nach Kapitaldienst positiv",
+     "Kasse steigt ab Monat 19 wieder; bis Monat 33 keine Tilgung"
+    ],
+    [
+     "Januar 2030 (Monat 29)",
+     "Kapazitätsgrenze 2.200 Mitglieder",
+     "Beginn Tilgung L-Bank ab Monat 34; Rücklagenaufbau für MBG-Rückzahlung"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung; Kapitel 7.8; Rechercheprotokoll (Anhang I).",
+   "breiten": [
+    22,
+    30,
+    48
+   ]
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Kapitalbedarf",
+     "2.652.583 €"
+    ],
+    [
+     "Eigenkapitalquote (inkl. MBG)",
+     "15,1 %"
+    ],
+    [
+     "Kapitaldienst Monat 1 / 25 / 61 (Näherung)",
+     "13.514 € / 13.514 € / 25.172 €"
+    ],
+    [
+     "Break-even EBITDA / Cashflow",
+     "Monat 12 / Monat 19"
+    ],
+    [
+     "Kassenminimum",
+     "107.975 € (Monat 18)"
+    ],
+    [
+     "DSCR Jahr 3 / 4 / 5",
+     "2,12 / 1,61 / 1,58"
+    ]
+   ]
+  }
+ ],
+ "quellen": [
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "Rechercheprotokoll (Anhang I) – Finanzierung und Förderung Baden-Württemberg, Stand 24.–28.09.2026 (KfW 067/077/365-366, L-Bank GuW-BW, Bürgschaftsbank BW, MBG BW, Mikromezzanin, Leasing, Bankanforderungen, Zinsniveau)",
+  "KfW – Merkblatt ERP-Gründerkredit StartGeld (067), Stand 18.06.2026; Merkblatt ERP-Förderkredit Gründung und Nachfolge (077), Stand 10.12.2025; KfW-Konditionenanzeiger (28.09.2026) – https://www.kfw.de/",
+  "L-Bank – Gründungs- und Wachstumsfinanzierung (GuW-BW), Startfinanzierung 80, Konditionenübersicht Wirtschaftsförderung (24.09.2026) – https://www.l-bank.de/",
+  "Bürgschaftsbank Baden-Württemberg – Standardprogramm, Produktdatenblatt ERP-Förderkredit 077 (13.11.2024), Preis- und Konditionenverzeichnis 05/2026 – https://bw.ermoeglicher.de/",
+  "MBG Baden-Württemberg – Stille Beteiligung Existenzgründung und Festigung; Mikromezzaninfonds III – https://mbg-bw.ermoeglicher.de/; IHK Nordschwarzwald – Mezzanine-Kapital",
+  "Sparkasse – Gründungsfinanzierung (Eigenkapital 15–20 %) – https://www.sparkasse.de/fk/produkte/finanzierung/gruendungsfinanzierung.html (Stand 09/2026); BMWK-Existenzgründungsportal – Finanzierung, Sicherheiten, Bürgschaften, Rating",
+  "IHK Stuttgart – Bankgespräch erfolgreich führen (Kapitaldienstfähigkeit) – https://www.ihk.de/stuttgart/gruendung/finanzierung/finanzierungsquellen/kredite/bankgespraech-erfolgreich-fuehren-index-685364",
+  "Telju – Leasingkonditionen Fitnessgeräte (25.08.2026); Atletica – Leasing vs. Kauf; Kraftathlet – Leasing/Mietkauf; abcfinance und GRENKE – Fitnessgeräte-Leasing",
+  "Deutsche Bundesbank – Zinsstatistik, Neugeschäft Juli 2026 (02.09.2026) – https://www.bundesbank.de/",
+  "DSSV/Deloitte/DHfPG – Eckdaten der deutschen Fitnesswirtschaft 2026, PM 18.03.2026 – https://www.dssv.de/ (Mitglieder, Umsatz, Anlagen, Beiträge; rechnerisch Umsatz je Mitglied und je Anlage, Rechercheprotokoll (Anhang I))",
+  "DSSV e. V. / W.I.F.F. – Leitfaden Kostenmanagement (04/2022) – https://www.dssv.de/wp-content/uploads/2022/05/DSSV_Leitfaden_kostenmanagement_202204.pdf (Kostenrichtwerte Personal, Raum, Kapitaldienst, Werbung, Betriebskosten, GEMA, Versicherung, Steuerberater, Wareneinsatz)",
+  "Kruse, T. (2021) – Ökonomische Analyse des Trainings- und Kündigungsverhaltens von Fitnessstudio-Mitgliedern, Dissertation Univ. Paderborn (Fluktuation 25 %, DSSV 2019) – https://d-nb.info/124761851X/34; Bechler (2021) – Fluktuationsquote Fitnessbranche",
+  "GEMA – Tarif M-U III 5b Tonträgerwiedergabe in Fitness- und Sportstudios (gültig ab 01.01.2026); WR-KS-F 2026; PureLicence – GEMA-Gebühren 2026 Fitnessstudios (22.07.2026)",
+  "Magicline – Preise und Module (magicline.com, 2026); FitPro Tools – Magicline Paketpreise 2026; WHK 2026 – SEPA-Lastschriftgebühren",
+  "GymAccess – Fitnessstudio eröffnen: Kosten, Businessplan und Guide (2026); Virtuagym – Fitnessstudio eröffnen Kosten 2026 (21.05.2026); ODV Versicherungen – Fitnessstudio-Versicherung (2024)",
+  "Steuerberater Beck – GmbH Steuerberater Kosten 2026 – https://www.steuerberater-beck.de/gmbh-steuerberater-kosten/",
+  "KERKMANN/one-bear – Preise Wartung, Prüfung, Reparatur Fitnessgeräte – https://one-bear.de/preise-wartung-sportgeraete-fitnessgeraete.html",
+  "BMWi/BMI – Bekanntmachung Energieverbrauchskennwerte Nichtwohngebäude, Kategorie 31 Fitnessstudios (15.04.2021); IN-COME Unternehmensberatung – Raumkosten (14.06.2020)",
+  "lohn-info.de – Sozialversicherungsbeiträge 2026; Minijob-Zentrale – Minijob-Beiträge 2026 (16.12.2025); GEHALT.de 2026 – Fitnesstrainer/-in, Studioleiter/-in",
+  "Stadt Friedrichshafen – Hebesätze 2025/2026; Landeshauptstadt Stuttgart – Doppelhaushalt 2026/2027 (Gewerbesteuerhebesätze)"
+ ]
+}

@@ -117,7 +117,7 @@ def gegenmassnahmen(a: dict, d: dict) -> dict:
     b['sachkosten_monat']['sonstiges'] = round(b['sachkosten_monat']['sonstiges'] * 0.85)
     b['sachkosten_monat']['reinigung_material_hygiene'] = round(b['sachkosten_monat']['reinigung_material_hygiene'] * 0.85)
     r = M.compute(b, d, 'pessimistisch')
-    return {'massnahmen': ['Dritter Vollzeittrainer erst ab Jahr 3 statt Jahr 2', 'Empfangs-Minijobs 3 statt 4', 'Marketing laufend 2.500 € statt 3.500 €/Monat', 'Reinigung/Sonstiges −15 %'], **scen_block(r)}
+    return {'massnahmen': ['Dritter Vollzeittrainer erst ab Jahr 3 statt Jahr 2', 'Empfangs-Minijobs 3 statt 4', f"Marketing laufend 2.500 € statt {a['sachkosten_monat']['marketing_laufend']:,.0f} €/Monat".replace(',', '.'), 'Reinigung/Sonstiges −15 %'], **scen_block(r)}
 
 
 def main(annahmen: str, daten: str, out: str) -> None:

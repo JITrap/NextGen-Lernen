@@ -1,0 +1,1192 @@
+{
+ "nummer": 8,
+ "titel": "Rechtliche Rahmenbedingungen, Sicherheit und Genehmigungen",
+ "bloecke": [
+  {
+   "typ": "absatz",
+   "text": "Dieses Kapitel fasst die rechtlichen, bau- und sicherheitstechnischen Anforderungen an den Betrieb des Studios zusammen und zeigt, wie sie in der Planung berücksichtigt sind. Grundlage sind die Regularienprüfung der Planungssoftware GymPlanner für das Projekt „No.1 (überarbeitet)“ (Export 26.09.2026), die Rechercheergebnisse zu Baurecht, Steuern, GEMA, Versicherungen und Arbeitsrecht (Quellen: Anhang I) sowie die Planzahlen des Finanzmodells. Die Stellplatz- und Genehmigungstabellen in Kapitel 5 (Tabellen 5.2 und 5.3) werden hier nicht wiederholt, sondern nur in Bezug genommen."
+  },
+  {
+   "typ": "h2",
+   "text": "8.1 Rechtsform und Gründungsformalitäten"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Studio wird als GmbH gegründet. Das Stammkapital beträgt 25.000 €, von denen vor der Anmeldung zum Handelsregister mindestens 12.500 € eingezahlt sein müssen (§ 7 Abs. 2 GmbHG). Die reinen Gründungskosten für Notar und Handelsregister liegen bei rund 410 bis 700 €, mit anwaltlicher und steuerlicher Begleitung realistisch bei 1.000 bis 1.500 € (notar-check 05/2026, IHK Karlsruhe). Im Investitionsplan sind 2.500 € für Notar, Handelsregister und Gewerbeanmeldung sowie 5.000 € für die Beratung zu Businessplan und Gründungssteuerrecht angesetzt. Die Haftung ist auf das Gesellschaftsvermögen begrenzt; die persönliche Mitverpflichtung des Gesellschafters gegenüber Bürgschaftsbank und KfW bleibt davon unberührt (siehe Abschnitt 2.8)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Der Betrieb eines Fitnessstudios ist ein erlaubnisfreies Gewerbe; es genügt die Gewerbeanmeldung nach § 14 GewO bei der Standortgemeinde. Sauna, Dampfbad und Cold Plunge lösen keine gesonderte Gewerbeerlaubnis aus, unterliegen aber den Hygieneanforderungen in Abschnitt 8.4. Die Reihenfolge der Gründungsschritte ist in Tabelle 8.1 dargestellt; die Zeitangaben beziehen sich auf den Eröffnungstermin 01.09.2027 und den fünfmonatigen Vorlauf des Finanzmodells."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.1: Gründungsschritte und zuständige Stellen",
+   "spalten": [
+    "Schritt",
+    "Stelle",
+    "Zeitpunkt",
+    "Hinweis / Kosten"
+   ],
+   "zeilen": [
+    [
+     "Gesellschaftsvertrag, Beurkundung, Einzahlung Stammkapital",
+     "Notar, Geschäftsbank",
+     "Januar bis März 2027 (Monat −8 bis −6)",
+     "25.000 € Stammkapital, mind. 12.500 € vor Anmeldung; Notar/Register 410–700 €"
+    ],
+    [
+     "Eintragung Handelsregister",
+     "Amtsgericht (Registergericht)",
+     "spätestens Monat −6",
+     "GmbH entsteht mit Eintragung; vorher GmbH i. G."
+    ],
+    [
+     "Gewerbeanmeldung",
+     "Gemeinde des Standorts",
+     "Monat −6",
+     "§ 14 GewO; erlaubnisfrei; Meldung geht automatisch an Finanzamt, IHK, Berufsgenossenschaft"
+    ],
+    [
+     "Fragebogen zur steuerlichen Erfassung, USt-ID",
+     "Finanzamt",
+     "Monat −6",
+     "Monatliche USt-Voranmeldung; Vorsteuererstattung aus Investition (Abschnitt 8.9)"
+    ],
+    [
+     "Mitgliedschaft IHK",
+     "IHK Bodensee-Oberschwaben bzw. IHK Region Stuttgart",
+     "automatisch",
+     "Pflichtmitgliedschaft; Beitrag abhängig vom Gewerbeertrag"
+    ],
+    [
+     "Anmeldung gesetzliche Unfallversicherung",
+     "VBG (Berufsgenossenschaft)",
+     "Monat −3, mit erster Einstellung",
+     "Anmeldung binnen einer Woche nach Betriebsbeginn (§ 192 SGB VII)"
+    ],
+    [
+     "Betriebsnummer, Sozialversicherung, Minijobs",
+     "Agentur für Arbeit, Krankenkassen, Minijob-Zentrale",
+     "Monat −3",
+     "Vor erster Lohnabrechnung (Gründer ab Monat −3, stellv. Leitung ab Monat −2)"
+    ],
+    [
+     "Bauantrag Nutzungsänderung",
+     "Untere Baurechtsbehörde",
+     "Dezember 2026 (Monat −9); Bescheid vor Ausbaubeginn Monat −4",
+     "Siehe Abschnitt 8.2, Tabelle 5.9 und Tabelle 7.8"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; GmbHG, Notarkosten), Excel-Planrechnung (Vorlauf, Stellenplan); Zeitpunkte nach dem Meilensteinplan in Kapitel 7 (Tabelle 7.8) und Kapitel 10 (Tabelle 10.18); die GmbH muss vor der Auszahlung der MBG-Beteiligung im Monat −5 (April 2027) eingetragen sein.",
+   "breiten": [
+    30,
+    24,
+    16,
+    30
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.2 Baurecht: Nutzungsänderung, Stellplätze, Brandschutz und Barrierefreiheit"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Umnutzung einer Lager- oder Produktionshalle zum Fitnessstudio ist eine genehmigungspflichtige Nutzungsänderung nach §§ 49, 50 LBO Baden-Württemberg (Quellen: Anhang I). Im Gewerbegebiet sind Anlagen für sportliche Zwecke allgemein zulässig (§ 8 Abs. 2 Nr. 4 BauNVO); im Industriegebiet nur ausnahmsweise, im Sondergebiet nur bei passender Zweckbestimmung (Quellen: Anhang I). Die Objektsuche in Kapitel 5 konzentriert sich deshalb auf Gewerbegebiete. Die Baurechtsbehörde entscheidet nach § 54 Abs. 5 LBO innerhalb von zwei Monaten ab Vollständigkeit der Unterlagen. Die mit der LBO-Reform 2025 eingeführte Genehmigungsfiktion nach drei Monaten gilt nur im vereinfachten Verfahren nach § 52 LBO; wird das Studio als Sonderbau eingestuft, läuft der Antrag im regulären Verfahren ohne Fiktion (ARGE Baurecht 07/2025, Tabelle 5.3). In der Praxis sind einschließlich Vorprüfung und Brandschutzkonzept drei bis sechs Monate anzusetzen (Planeco 10/2025). Der Zeitplan sieht die Einreichung des Bauantrags deshalb für Dezember 2026 vor (Tabellen 5.9 und 7.8), damit die Genehmigung bei einer Verfahrensdauer von drei bis sechs Monaten vor dem Ausbaubeginn im Mai 2027 (Monat −4) vorliegt."
+  },
+  {
+   "typ": "absatz",
+   "text": "Für die Einstufung als Sonderbau ist die Personenzahl maßgeblich. Die Regularienprüfung setzt 132 Bemessungspersonen an (126 gleichzeitig Trainierende nach der 9-m²-Regel auf 1.138,58 m² Trainingsfläche zuzüglich 6 Beschäftigte). Damit liegt das Studio unter der 200-Personen-Schwelle der Muster-Versammlungsstättenverordnung (§ 1 MVStättVO); die Prüfung weist diesen Punkt als nicht anwendbar aus. Maßgeblich bleiben die Landesbauordnung und die Arbeitsstättenregeln. Die Standortrecherche geht davon aus, dass die Baurechtsbehörde die Anlage wegen der Größe von rund 2.000 m² gleichwohl als Sonderbau mit eigenem Brandschutzkonzept und regulärem Genehmigungsverfahren behandelt (Quellen: Anhang I); die Einstufung ist mit der Bauvoranfrage zu klären (Kapitel 5, Tabelle 5.9); der Investitionsplan enthält für diesen Fall bereits das Brandschutzkonzept (in der Position Sonstiges, 32.000 €) sowie Planung, Fachplaner und Genehmigung mit 106.991 €."
+  },
+  {
+   "typ": "absatz",
+   "text": "Stellplätze: Nach der VwV Stellplätze Baden-Württemberg ist ein Kfz-Stellplatz je 25 m² Sportfläche nachzuweisen; Umkleiden, Sanitär-, Technik- und Verkehrsflächen zählen nicht mit (AKBW-Merkblatt 593, 09/2022). Für die Objektsuche werden 52 Kfz-Stellplätze (1.300 m² anrechenbare Sportfläche als konservative Planungsannahme; nach der Trainingsfläche des Plans 46) und in Anlehnung an die Richtzahl für Sporthallen rund 26 Fahrradstellplätze angesetzt (Kapitel 5, Tabelle 5.2). Ein Stellplatznachweis ist Teil der Bauvorlagen; Minderungen nach ÖPNV-Anbindung oder Ablösung nach kommunaler Satzung sind mit der Gemeinde zu verhandeln."
+  },
+  {
+   "typ": "absatz",
+   "text": "Brandschutz: Die baulichen Anforderungen sind in der Planung umgesetzt. Alle sechs Notausgänge liegen in Außenwänden, sind als Notausgangstüren typisiert und zwischen 90 und 200 cm breit (Quellen: Anhang I). Sechs Rettungszeichenleuchten und sechs Notausgangsschilder sind an den Türen platziert; 21 Feuerlöscher ergeben 126 Löschmitteleinheiten bei einem Soll von 60 (Quellen: Anhang I). Im Investitionsplan sind Brandschutz und Sicherheitsbeleuchtung mit 30 €/m² auf 1.931,13 m² Nettofläche, also 57.934 €, sowie die raumlufttechnische Anlage mit 212.425 € angesetzt. Rauch- und Wärmeabzug, Feuerwiderstand der Trennwände zu Technik- und Lagerräumen sowie die Brandmeldetechnik legt das Brandschutzkonzept des Fachplaners fest; sie sind aus der Position Unvorhergesehenes (165.378 €) zu decken, sofern sie über den Grundausbau hinausgehen."
+  },
+  {
+   "typ": "absatz",
+   "text": "Barrierefreiheit: Als öffentlich zugängliche bauliche Anlage muss das Studio in den dem allgemeinen Besucherverkehr dienenden Teilen barrierefrei erreichbar und nutzbar sein (§ 39 LBO BW, DIN 18040-1). Die Planung enthält ein barrierefreies WC (Objektmaß 150 × 220 cm, Bewegungsfläche enthalten), zwei barrierefreie Duschen und Türen von mindestens 90 cm an allen Notausgängen sowie einen zweiflügeligen Haupteingang mit 200 cm (Quellen: Anhang I). Die Regularienprüfung weist als Hinweis aus, dass die Bewegungsfläche von 150 × 150 cm vor dem WC im Plan nicht automatisch geprüft werden kann und in der Ausführungsplanung freizuhalten ist (ASR V3a.2, DIN 18040-1 Abs. 5.3.3). Ein stufenloser Zugang vom Parkplatz ist Anforderung an das Mietobjekt (Kapitel 5, Tabelle 5.1)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.2: Bauordnungsrechtliche Nachweise für die Nutzungsänderung",
+   "spalten": [
+    "Nachweis",
+    "Inhalt",
+    "Ersteller",
+    "Budget im Investitionsplan"
+   ],
+   "zeilen": [
+    [
+     "Bauvorlagen (Pläne, Baubeschreibung)",
+     "Grundriss mit 26 Räumen, Flächen, Nutzung, Personenzahl",
+     "Architekt / Bauvorlageberechtigter",
+     "Teil von Planung 106.991 €"
+    ],
+    [
+     "Brandschutznachweis / -konzept",
+     "Rettungswege, Löschmittel, Sicherheitsbeleuchtung, ggf. RWA und BMA",
+     "Brandschutzplaner",
+     "Sonstiges 32.000 € (anteilig); Ausführung 57.934 €"
+    ],
+    [
+     "Stellplatznachweis",
+     "52 Kfz + ca. 26 Fahrrad (Planannahme 1.300 m² Sportfläche)",
+     "Architekt, Vermieter",
+     "Objektabhängig; Ablöse [vom Gründer zu klären]"
+    ],
+    [
+     "Schallschutz",
+     "Kursraum (Musikanlage), Freihantel- und HYROX-Zone (Sled-Bahn)",
+     "Bauphysiker",
+     "Teil von Grundausbau 482.784 € (Trockenbau)"
+    ],
+    [
+     "Lüftungs- und Sanitärkonzept",
+     "RLT-Anlage, 18 Duschen, 11 WC/Urinale, 8 Waschtische, Sauna/Dampfbad",
+     "TGA-Fachplaner",
+     "RLT 212.425 €; Sanitär 39.800 €"
+    ],
+    [
+     "Barrierefreiheit",
+     "Barrierefreies WC, Duschen, Eingänge ≥ 90 cm, stufenloser Zugang",
+     "Architekt",
+     "Im Grundausbau enthalten"
+    ],
+    [
+     "Standsicherheit (bei Eingriffen)",
+     "Bodenlasten Freihantel/Racks, Deckenabhängungen, Sled-Bahn",
+     "Tragwerksplaner",
+     "Nur bei baulichen Eingriffen; Unvorhergesehenes 165.378 €"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; LBO, BauNVO, VwV Stellplätze; Räume, Sanitär), Excel-Planrechnung (Investitionspositionen netto).",
+   "breiten": [
+    24,
+    34,
+    18,
+    24
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.3 Arbeitsstätten- und Sicherheitsanforderungen: Ergebnis der Regularienprüfung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Planungssoftware GymPlanner prüft den Grundriss automatisiert gegen die Technischen Regeln für Arbeitsstätten (ASR A2.3 Fluchtwege und Notausgänge, ASR A2.2 Maßnahmen gegen Brände, ASR A1.3 Kennzeichnung, ASR A1.8 Verkehrswege, ASR A4.1 Sanitärräume, ASR A4.3 Erste Hilfe, ASR V3a.2 Barrierefreiheit), die DGUV Vorschrift 1, die Musterbauordnung (§ 33 MBO), DIN EN ISO 20957-1 für Trainingsgeräte, DIN 18040-1 sowie die Trinkwasserverordnung (GymPlanner-Dokumentation). Die Prüfung ist eine Planungshilfe; sie ersetzt weder das Brandschutzkonzept noch die Abstimmung mit Baurechtsbehörde und Unfallversicherungsträger. Für das Projekt No.1 wurden 121 Prüfpunkte ausgewertet: 114 erfüllt, 0 zu prüfen, 0 nicht erfüllt, 6 Hinweise organisatorischer Art und 1 nicht anwendbar (Quellen: Anhang I). Es gibt keine Planungsfehler oder -warnungen; als Information wird lediglich vermerkt, dass 310 generische Objekte ungeprüfte Herstellermaße tragen (Quellen: Anhang I)."
+  },
+  {
+   "typ": "kennzahlen",
+   "items": [
+    [
+     "Bemessungspersonen",
+     "132 (126 Trainierende + 6 Beschäftigte)"
+    ],
+    [
+     "Notausgänge",
+     "6 in Außenwänden, 690 cm Gesamtbreite"
+    ],
+    [
+     "Gezeichnete Fluchtwege",
+     "12, Lauflängen 14,7 bis 35,2 m"
+    ],
+    [
+     "Feuerlöscher",
+     "21 (126 Löschmitteleinheiten)"
+    ],
+    [
+     "AED / Verbandkästen",
+     "2 / 5"
+    ],
+    [
+     "Rettungszeichenleuchten / Flucht- und Rettungspläne",
+     "6 / 4"
+    ],
+    [
+     "Barrierefreies WC",
+     "1"
+    ],
+    [
+     "Prüfergebnis",
+     "114 erfüllt, 6 Hinweise, 1 nicht anwendbar"
+    ]
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.3: Auswahl der Regularienprüfung (Stand Planung 26.09.2026)",
+   "spalten": [
+    "Thema",
+    "Anforderung (Soll)",
+    "Ist",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Anzahl Notausgänge (MBO § 33, ASR A2.3 Abs. 4)",
+     "≥ 2 je Stockwerk ab 200 m² oder > 20 Personen",
+     "6, alle in Außenwänden",
+     "erfüllt"
+    ],
+    [
+     "Ausgangsbreite gesamt (ASR A2.3 Tab. 1)",
+     "≥ 120 cm für 132 Personen",
+     "690 cm",
+     "erfüllt"
+    ],
+    [
+     "Türbreite Hauptausgang (ASR A2.3 Tab. 1)",
+     "≥ 105 cm für 132 Personen",
+     "200 cm, zweiflügelig, Panikbeschlag",
+     "erfüllt"
+    ],
+    [
+     "Türbreite je Notausgang (ASR A2.3 Tab. 1)",
+     "≥ 80 cm",
+     "90 bis 200 cm",
+     "erfüllt"
+    ],
+    [
+     "Fluchtweglänge je Raum (ASR A2.3 Abs. 5)",
+     "≤ 35 m Luftlinie zum nächsten Notausgang",
+     "max. 21,8 m (Trainingshalle, Core & Dehnen)",
+     "erfüllt"
+    ],
+    [
+     "Gezeichnete Fluchtwege (ASR A2.3 Abs. 5 (3))",
+     "≤ 52,5 m Lauflänge und ≤ 35 m Luftlinie",
+     "12 Wege, 14,7 bis 35,2 m Lauflänge",
+     "erfüllt"
+    ],
+    [
+     "Korridor frei, Laufwegbreite (ASR A1.8, A2.3)",
+     "100 bis 120 cm ohne Objekte; ≥ 120 cm bis 200 Personen",
+     "frei, keine Engpässe",
+     "erfüllt"
+    ],
+    [
+     "Aufschlagrichtung Notausgangstüren (ASR A2.3 Abs. 6)",
+     "in Fluchtrichtung nach außen",
+     "erfüllt an allen 6 Türen",
+     "erfüllt"
+    ],
+    [
+     "Löschmitteleinheiten (ASR A2.2 Tab. 3)",
+     "≥ 60 LE für 1.975,40 m²",
+     "21 Feuerlöscher = 126 LE",
+     "erfüllt"
+    ],
+    [
+     "Entfernung zum Feuerlöscher (ASR A2.2 Abs. 6.2)",
+     "≤ 20 m Luftlinie von jedem Punkt",
+     "max. 13,2 m (Trainingshalle)",
+     "erfüllt"
+    ],
+    [
+     "Verbandkästen (ASR A4.3, DGUV V1 § 25)",
+     "≥ 2 kleine (DIN 13157) oder 1 großer (DIN 13169)",
+     "5",
+     "erfüllt"
+    ],
+    [
+     "AED (DGUV Information 204-010)",
+     "vorhanden",
+     "2",
+     "erfüllt"
+    ],
+    [
+     "Rettungszeichen und Sicherheitsbeleuchtung (ASR A1.3, A2.3 Abschn. 9)",
+     "Zeichen E001/E002 und Rettungszeichenleuchte ≤ 150 cm je Notausgang",
+     "6 Schilder, 6 Leuchten in 1,11 bis 1,31 m",
+     "erfüllt"
+    ],
+    [
+     "Spinde / Duschen / WCs (ASR A4.1)",
+     "≥ 126 / ≥ 9 (empfohlen 13) / ≥ 6",
+     "178 / 18 / 11",
+     "erfüllt"
+    ],
+    [
+     "Barrierefreies WC (ASR V3a.2, DIN 18040-1)",
+     "≥ 1; Tür ≥ 90 cm; Bewegungsfläche 150 × 150 cm",
+     "1 (Objekt 150 × 220 cm)",
+     "erfüllt, Bewegungsfläche Hinweis"
+    ],
+    [
+     "Gerätefreiräume (DIN EN ISO 20957-1)",
+     "Freiraum nach Hersteller, mind. 60 cm",
+     "keine Kollisionen",
+     "erfüllt"
+    ],
+    [
+     "Flucht- und Rettungsplan (ASR A2.3 Abs. 9, DIN ISO 23601)",
+     "Aushang je Stockwerk",
+     "4 Aushänge",
+     "erfüllt"
+    ],
+    [
+     "Versammlungsstättenverordnung (§ 1 MVStättVO)",
+     "anwendbar ab 200 Personen",
+     "132 Bemessungspersonen",
+     "nicht anwendbar"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I), GymPlanner-Dokumentation; Regelwerke ASR A1.3, A1.8, A2.2, A2.3, A4.1, A4.3, V3a.2, DGUV V1, MBO, DIN EN ISO 20957-1, DIN 18040-1.",
+   "breiten": [
+    34,
+    28,
+    24,
+    14
+   ]
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.4: Gezeichnete Fluchtwege (Lauflänge, Soll ≤ 52,5 m)",
+   "spalten": [
+    "Nr.",
+    "Fluchtweg",
+    "Lauflänge",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "1",
+     "Freihantel → Notausgang West",
+     "24,9 m",
+     "ok"
+    ],
+    [
+     "2",
+     "Beine → Notausgang Nord",
+     "21,5 m",
+     "ok"
+    ],
+    [
+     "3",
+     "Cardio → Notausgang Nord-Ost",
+     "19,5 m",
+     "ok"
+    ],
+    [
+     "4",
+     "Rücken / Rack-Straße → Notausgang Nord-Ost",
+     "35,2 m",
+     "ok"
+    ],
+    [
+     "5",
+     "Schultern & Arme → Notausgang Süd",
+     "20,8 m",
+     "ok"
+    ],
+    [
+     "6",
+     "Duschen / Umkleide Damen → Notausgang Süd",
+     "17,0 m",
+     "ok"
+    ],
+    [
+     "7",
+     "Duschen / Umkleide Herren → Notausgang Süd",
+     "16,9 m",
+     "ok"
+    ],
+    [
+     "8",
+     "Kursraum → Notausgang Kursraum",
+     "14,7 m",
+     "ok"
+    ],
+    [
+     "9",
+     "Büro / Personal → Haupteingang",
+     "18,6 m",
+     "ok"
+    ],
+    [
+     "10",
+     "Technik / Lager → Haupteingang",
+     "23,6 m",
+     "ok"
+    ],
+    [
+     "11",
+     "Wellness → Notausgang Süd",
+     "32,2 m",
+     "ok"
+    ],
+    [
+     "12",
+     "Kursraum → Halle → Notausgang Süd",
+     "34,4 m",
+     "ok"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I); alle Wege enden ≤ 100 cm vor einer Notausgangstür und kreuzen Wände nur in Türöffnungen (ASR A2.3 Abs. 4).",
+   "breiten": [
+    8,
+    56,
+    18,
+    18
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Die sechs Hinweise der Prüfung betreffen keine baulichen Mängel, sondern organisatorische Pflichten des Betreibers, die vor Eröffnung umzusetzen und laufend nachzuweisen sind. Tabelle 8.5 ordnet ihnen Maßnahmen, Verantwortliche und Termine zu. Die Beschäftigtenzahl ist in der Prüfung als Konstante mit 6 hinterlegt; tatsächlich sind bei Eröffnung 14 Personen beschäftigt (Kapitel 2, Tabelle 2.4), wovon die Quoten für Brandschutzhelfer und Ersthelfer abgeleitet werden."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.5: Hinweise der Regularienprüfung und Umsetzung",
+   "spalten": [
+    "Hinweis",
+    "Anforderung",
+    "Maßnahme",
+    "Verantwortlich / Termin"
+   ],
+   "zeilen": [
+    [
+     "Bewegungsfläche barrierefreies WC",
+     "150 × 150 cm frei, seitlich 90 cm neben dem WC (DIN 18040-1)",
+     "Freihaltung in Ausführungsplanung, keine Spender oder Türflügel in der Fläche",
+     "Architekt, Ausbauplanung Monat −5"
+    ],
+    [
+     "Toiletten für Beschäftigte",
+     "≥ 1 Toilette je Geschlecht bis 5 Beschäftigte (ASR A4.1 Tab. 2)",
+     "Mitnutzung der Mitglieds-WCs (7 WC, 4 Urinale) in Arbeitsplatznähe; Personalraum 19,30 m² angrenzend",
+     "Erfüllt durch Planung"
+    ],
+    [
+     "Brandschutzhelfer",
+     "≥ 5 % der Beschäftigten, mind. 1 je Schicht (ASR A2.2 Abs. 7.3, DGUV I 205-023)",
+     "Ausbildung von Gründer, stellv. Leitung und allen Vollzeittrainern (4 Personen), Schichtplan mit Abdeckung aller Öffnungszeiten",
+     "Gründer, Monat −1"
+    ],
+    [
+     "Ersthelfer",
+     "1 Ersthelfer bei 2 bis 20 Versicherten, Fortbildung alle 2 Jahre (DGUV V1 § 26)",
+     "Erste-Hilfe-Ausbildung aller Trainer und Empfangskräfte, AED-Einweisung; Kurs über die VBG kostenfrei",
+     "Stellv. Studioleitung, Monat −1"
+    ],
+    [
+     "Legionellenprüfung (18 Duschen)",
+     "Untersuchung alle 3 Jahre, Warmwasser ≥ 60 °C (TrinkwV § 31)",
+     "Erstuntersuchung vor Eröffnung, Spülplan in Anlaufphase, Probenahme durch zugelassenes Labor",
+     "TGA-Planer / Gründer, Monat −1, dann alle 3 Jahre"
+    ],
+    [
+     "Prüfung der Feuerlöscher",
+     "Sachkundigenprüfung alle 2 Jahre, Prüfplakette, Kennzeichnung F001 (ASR A2.2 Abs. 7.1)",
+     "Wartungsvertrag mit Brandschutzfachbetrieb, Prüfbuch",
+     "Gründer, ab Eröffnung"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I), ASR A2.2, ASR A4.1, DGUV Vorschrift 1, DIN 18040-1, TrinkwV.",
+   "breiten": [
+    18,
+    28,
+    34,
+    20
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Gerätesicherheit: Alle stationären Trainingsgeräte müssen DIN EN ISO 20957-1 (allgemeine sicherheitstechnische Anforderungen) und den gerätespezifischen Teilen der Norm entsprechen; die Planung hält die Freiräume nach Herstellerangabe ein, die Prüfung meldet keine Kollisionen (Quellen: Anhang I). Ein erheblicher Teil der Kraftgeräte stammt von den Herstellern Atlantis und Prime mit einem Importanteil von 268.570 € (Quellen: Anhang I). Für diese Geräte ist mit dem Lieferanten vertraglich sicherzustellen, dass CE-Kennzeichnung und Konformitätserklärung für den EU-Markt vorliegen; andernfalls treffen die Pflichten des Einführers nach dem Produktsicherheitsrecht die GmbH. Nach der Betriebssicherheitsverordnung sind die Geräte regelmäßig zu prüfen und zu warten; das Finanzmodell setzt hierfür 5 % des Gerätewerts je Jahr an, im dritten Betriebsjahr 31.160 €, zuzüglich Gebäudeinstandhaltung von 7.902 €."
+  },
+  {
+   "typ": "absatz",
+   "text": "Arbeitsschutzorganisation: Vor Betriebsbeginn erstellt die Geschäftsführung die Gefährdungsbeurteilung nach § 5 ArbSchG (Trainingsfläche, Freihantel, Sauna und Dampfbad, Reinigung, Alleinarbeit in Randzeiten) und dokumentiert die Unterweisungen nach § 12 ArbSchG. Die sicherheitstechnische und arbeitsmedizinische Betreuung erfolgt für einen Betrieb dieser Größe im Unternehmermodell der VBG (DGUV Vorschrift 2). Für die unbesetzten Randzeiten mit Zutrittssystem (28 Wochenstunden, Kapitel 3, Tabelle 3.5) sind Notrufeinrichtungen, Videoüberwachung der Trainingsfläche und eine Bereitschaftsregelung vorzusehen; für Sauna und Dampfbad gilt in diesen Zeiten eine Sperre, weil die Nutzung ohne Aufsicht ein erhöhtes Risiko darstellt [vom Gründer im Betriebskonzept festzulegen]."
+  },
+  {
+   "typ": "h2",
+   "text": "8.4 Hygiene: Sauna, Dampfbad, Trinkwasser und Reinigung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Trinkwasser: Das Studio betreibt mit 18 Duschen, 8 Waschtischen, einer Erlebnisdusche und 10 Wasserspendern eine gewerblich genutzte Großanlage zur Trinkwassererwärmung. Nach § 31 TrinkwV ist die Trinkwasserinstallation alle drei Jahre durch ein zugelassenes Labor auf Legionellen zu untersuchen; das Warmwasser ist am Speicheraustritt auf mindestens 60 °C zu halten (Prüfhinweis). Besonders in der Anlaufphase mit noch geringer Auslastung besteht Stagnationsgefahr; deshalb wird ein Spülplan für selten genutzte Entnahmestellen geführt und die Erstuntersuchung vor Eröffnung vorgenommen. Die Wasserspender sind nach Herstellerangabe zu reinigen und die Filter zu wechseln."
+  },
+  {
+   "typ": "absatz",
+   "text": "Sauna, Dampfbad und Cold Plunge: Finnische Sauna (22.000 €), Dampfbad (20.000 €) und Cold Plunge sind in der Stückliste enthalten (Quellen: Anhang I). Für Sauna und Dampfbad gelten die allgemeinen Hygieneanforderungen des Infektionsschutzgesetzes und die Hygieneempfehlungen des Deutschen Sauna-Bundes: tägliche Reinigung und Desinfektion der Sitzflächen und Böden, im Dampfbad zusätzlich regelmäßige Desinfektion der Wände und Düsen, Aufgussmittel nur aus geprüften Quellen, Aushang der Baderegeln. Für das Cold-Plunge-Tauchbecken ist mit dem Gesundheitsamt zu klären, ob es als Badebecken im Sinne von § 37 Abs. 2 IfSG gilt; dann wären Wasseraufbereitung nach DIN 19643 und Überwachung durch das Gesundheitsamt erforderlich. Alternativ ist ein Frischwasserbetrieb mit täglichem Wasserwechsel möglich [vom Gründer mit Hersteller und Gesundheitsamt zu klären]. Das Hygienekonzept ist vor Inbetriebnahme mit dem Gesundheitsamt abzustimmen (Tabelle 8.13, Monat −3)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Reinigung: Der Personalplan enthält zwei Reinigungskräfte im Minijob für die Abendreinigung (je 620 € brutto); für Reinigungsmaterial, Hygieneartikel und ergänzende Fremdreinigung sind 2.200 € je Monat angesetzt, im dritten Betriebsjahr 26.400 €. Zusammen ergeben sich rechnerisch rund 3.830 € je Monat einschließlich Minijob-Pauschalabgaben, das sind etwa 1,94 €/m² Bruttofläche und damit knapp unter dem DSSV-Richtwert von 2,00 bis 3,00 €/m² und Monat (DSSV Leitfaden Kostenmanagement 04/2022). Die Tagesreinigung der Trainingsfläche (Geräte, Matten, Umkleiden) übernehmen Empfang und Trainer in den Kernzeiten; neun Desinfektionsstationen stehen den Mitgliedern für die Gerätedesinfektion zur Verfügung (Quellen: Anhang I). Das Maßnahmenpaket des pessimistischen Szenarios kürzt Reinigung und Sonstiges um 15 %; die Hygienemindeststandards in Tabelle 8.6 sind davon ausgenommen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.6: Hygiene- und Reinigungsplan (Mindeststandard)",
+   "spalten": [
+    "Bereich",
+    "Maßnahme",
+    "Turnus",
+    "Nachweis / Regelwerk"
+   ],
+   "zeilen": [
+    [
+     "Trainingsfläche, Geräte, Matten",
+     "Wischdesinfektion Kontaktflächen, Bodenreinigung, Mitglieder-Desinfektion an 9 Stationen",
+     "täglich (Abend), Kontaktflächen laufend",
+     "Reinigungsprotokoll"
+    ],
+    [
+     "Umkleiden, Duschen, WC",
+     "Nassreinigung, Desinfektion, Verbrauchsmaterial",
+     "täglich, Stoßzeiten zusätzlich",
+     "Reinigungsprotokoll, ASR A4.1"
+    ],
+    [
+     "Sauna, Dampfbad, Ruheraum",
+     "Reinigung und Desinfektion Sitzflächen, Böden, Dampfbadwände; Liegen",
+     "täglich nach Betriebsende",
+     "Hygieneplan, Deutscher Sauna-Bund, IfSG"
+    ],
+    [
+     "Cold Plunge, Erlebnisdusche",
+     "Wasserwechsel oder Aufbereitung, Beckenreinigung",
+     "täglich bzw. nach DIN 19643 (falls Badebecken)",
+     "Abstimmung Gesundheitsamt"
+    ],
+    [
+     "Trinkwasserinstallation",
+     "Legionellenuntersuchung, Warmwasser ≥ 60 °C, Spülplan",
+     "alle 3 Jahre; Spülung wöchentlich bei Stagnation",
+     "TrinkwV § 31, Laborbefund"
+    ],
+    [
+     "Wasserspender (10)",
+     "Reinigung, Filterwechsel nach Hersteller",
+     "nach Herstellerangabe",
+     "Wartungsprotokoll"
+    ],
+    [
+     "Lüftungsanlage (RLT)",
+     "Filterwechsel, Hygieneinspektion",
+     "nach VDI 6022, Wartungsvertrag",
+     "Wartungsprotokoll"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; Ausstattung), Excel-Planrechnung (Reinigungsbudget), Rechercheprotokoll (Anhang I; DSSV-Richtwert), TrinkwV, IfSG; Turnus als Planung des Gründers.",
+   "breiten": [
+    22,
+    36,
+    22,
+    20
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.5 Datenschutz: Zutrittssystem, Videoüberwachung und Mitgliederdaten"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Studio verarbeitet personenbezogene Daten in drei Bereichen: Mitgliederverwaltung mit Vertrags-, Zahlungs- und Trainingsdaten, Zutrittskontrolle über zwei Drehkreuze mit Chip oder App sowie Videoüberwachung mit fünf Kameras (Quellen: Anhang I). Für die Studiosoftware und das Zutrittssystem sind 450 € je Monat eingeplant. Die Verarbeitung der Vertragsdaten stützt sich auf Art. 6 Abs. 1 lit. b DSGVO; Zutrittsprotokolle dienen der Vertragsdurchführung und in den unbesetzten Randzeiten der Sicherheit (Art. 6 Abs. 1 lit. f DSGVO) und werden nach einer festzulegenden kurzen Frist gelöscht. Gesundheitsdaten aus Anamnesebögen, Körperanalysen oder Trainingsplänen sind besondere Kategorien nach Art. 9 DSGVO und dürfen nur mit ausdrücklicher Einwilligung verarbeitet werden; die Einwilligung wird getrennt vom Mitgliedsvertrag eingeholt und ist jederzeit widerruflich."
+  },
+  {
+   "typ": "absatz",
+   "text": "Videoüberwachung: Kameras sind ausschließlich für Eingang, Empfang, Kassenbereich und die Trainingsfläche vorgesehen, nicht für Umkleiden, Duschen, WC, Wellness- und Ruheräume. Rechtsgrundlage ist die Interessenabwägung nach Art. 6 Abs. 1 lit. f DSGVO (Schutz von Eigentum und Personen, insbesondere in den 28 unbesetzten Wochenstunden); § 4 BDSG regelt die Überwachung öffentlich zugänglicher Räume. Erforderlich sind Hinweisschilder mit Informationen nach Art. 13 DSGVO vor Betreten des überwachten Bereichs, eine kurze Löschfrist von wenigen Tagen ohne dokumentierten Anlass (Orientierungshilfe Videoüberwachung der Datenschutzkonferenz), eine Zugriffsbeschränkung auf Geschäftsführung und stellvertretende Leitung sowie die Prüfung, ob wegen der systematischen Überwachung eines öffentlich zugänglichen Bereichs eine Datenschutz-Folgenabschätzung nach Art. 35 DSGVO durchzuführen ist."
+  },
+  {
+   "typ": "absatz",
+   "text": "Organisation: Die GmbH führt ein Verzeichnis der Verarbeitungstätigkeiten (Art. 30 DSGVO), schließt mit dem Anbieter der Studiosoftware, dem Zahlungsdienstleister und dem Marketing-Dienstleister Auftragsverarbeitungsverträge (Art. 28 DSGVO) und dokumentiert technische und organisatorische Maßnahmen (Art. 32 DSGVO), darunter Rollenrechte in der Software, Verschlüsselung der SEPA-Mandate und Löschkonzept nach Vertragsende unter Beachtung der handels- und steuerrechtlichen Aufbewahrungsfristen. Ein Datenschutzbeauftragter ist nach § 38 BDSG erst zu benennen, wenn in der Regel mindestens 20 Personen ständig mit automatisierter Verarbeitung beschäftigt sind; mit 14 bis 15 Beschäftigten, von denen nur ein Teil Zugriff auf die Mitgliederdaten hat, ist dies voraussichtlich nicht der Fall [vom Gründer mit dem Datenschutzberater zu prüfen]. Beim Online-Vertragsabschluss, der in der Branche bereits 24 % der Abschlüsse ausmacht (DSSV Eckdaten 2025), gelten zusätzlich die Informationspflichten des Fernabsatzrechts (Abschnitt 8.6)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.7: Datenverarbeitungen und Maßnahmen",
+   "spalten": [
+    "Verarbeitung",
+    "Rechtsgrundlage",
+    "Maßnahme"
+   ],
+   "zeilen": [
+    [
+     "Mitgliedsvertrag, SEPA-Lastschrift, Rechnungen",
+     "Art. 6 Abs. 1 lit. b DSGVO",
+     "Rollenrechte in der Studiosoftware, AV-Vertrag Software und Zahlungsdienstleister, Löschkonzept"
+    ],
+    [
+     "Gesundheits- und Trainingsdaten",
+     "Art. 9 Abs. 2 lit. a DSGVO (Einwilligung)",
+     "Gesonderte Einwilligung, Zugriff nur Trainer, kein Export an Dritte"
+    ],
+    [
+     "Zutrittsprotokolle (2 Drehkreuze, Chip/App)",
+     "Art. 6 Abs. 1 lit. b und f DSGVO",
+     "Kurze Speicherfrist, Auswertung nur bei Vorfall oder Kapazitätsplanung in anonymisierter Form"
+    ],
+    [
+     "Videoüberwachung (5 Kameras)",
+     "Art. 6 Abs. 1 lit. f DSGVO, § 4 BDSG",
+     "Keine Kameras in Umkleide, Sanitär, Wellness; Hinweisschilder; Löschung nach wenigen Tagen; Prüfung DSFA"
+    ],
+    [
+     "Online-Abschluss, App, Newsletter",
+     "Art. 6 Abs. 1 lit. b und a DSGVO, § 7 UWG",
+     "Double-Opt-in, Kündigungsbutton, Datenschutzerklärung, Cookie-Einwilligung"
+    ],
+    [
+     "Bewerber- und Beschäftigtendaten",
+     "§ 26 BDSG",
+     "Getrennte Ablage, Löschung nach Ende des Verfahrens bzw. der Aufbewahrungsfristen"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; Kameras, Drehkreuze), Excel-Planrechnung (Software), DSGVO, BDSG; Umsetzung durch den Gründer mit externem Datenschutzberater.",
+   "breiten": [
+    30,
+    26,
+    44
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.6 Mitgliedsverträge und Allgemeine Geschäftsbedingungen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Die Mitgliedsverträge sind Verbraucherverträge. Nach § 309 Nr. 9 BGB darf die Erstlaufzeit höchstens zwei Jahre betragen; eine stillschweigende Verlängerung ist nur auf unbestimmte Zeit mit einer Kündigungsfrist von höchstens einem Monat zulässig, und die Kündigungsfrist zum Ende der Erstlaufzeit darf einen Monat nicht überschreiten (Gesetz für faire Verbraucherverträge, in Kraft seit 01.03.2022). Für die Kündigung darf keine strengere Form als die Textform verlangt werden (§ 309 Nr. 13 BGB). Verträge, die online abgeschlossen werden können, müssen einen Kündigungsbutton nach § 312k BGB bereithalten; im Fernabsatz besteht ein 14-tägiges Widerrufsrecht (§§ 312g, 355 BGB). Das Tarifsystem (Kapitel 3, Tabelle 3.6) wird deshalb mit Erstlaufzeiten von 12 und 24 Monaten sowie einem monatlich kündbaren Flex-Tarif angeboten; die genaue Staffelung und der Flex-Aufpreis sind vor dem Vorverkauf festzulegen [vom Gründer zu ergänzen]. Vergleichbare Strukturen nutzen die Wettbewerber ai fitness Friedrichshafen (23 und 12 Monate sowie flex) und Happy Fit Premium Konstanz (12 und 24 Monate sowie Flex) (Quellen: Anhang I)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Preisanpassung: Das Finanzmodell rechnet ab dem dritten Jahr mit einer Beitragsanpassung von 2,0 % je Jahr. Preisanpassungsklauseln in AGB sind nur wirksam, wenn Anlass, Maßstab und Umfang der Anpassung für den Verbraucher nachvollziehbar sind und dem Mitglied bei einer Erhöhung ein Kündigungsrecht eingeräumt wird (§§ 307, 308 Nr. 4 BGB). Eine unwirksame Klausel führt zur Rückforderung der erhöhten Beiträge. Die Klausel wird deshalb anwaltlich formuliert; alternativ erfolgt die Anpassung bei Neuabschluss und Verlängerung. Die halbjährliche Servicepauschale von 24,90 € und die Aufnahmegebühr von 49 € werden in der Preisliste und im Vertrag als Effektivpreis ausgewiesen; die Kritik von Verbraucherschützern an intransparenten Pauschalen der Discount-Ketten (Arbeiterkammer 01/2025) zeigt das Reputationsrisiko versteckter Gebühren."
+  },
+  {
+   "typ": "absatz",
+   "text": "Weitere Regelungen: Eine außerordentliche Kündigung ist aus wichtigem Grund möglich (§ 314 BGB), etwa bei dauerhafter Erkrankung mit Attest; ein Umzug berechtigt nach der Rechtsprechung des Bundesgerichtshofs nicht zur Kündigung (BGH, Urteil vom 04.05.2016, XII ZR 62/15). Als Kulanzregel sind Ruhezeiten bei Krankheit, Schwangerschaft und längerer Abwesenheit vorgesehen; die Branche rechnet mit einer Ruhequote von 2 bis 8 % (IN-COME 2020), im Finanzmodell ist sie in der Kündigungsquote von 2,2 % je Monat enthalten. Verträge mit Minderjährigen (Tarif Student/Azubi) bedürfen der Zustimmung der Erziehungsberechtigten (§ 107 BGB). Haftungsklauseln dürfen die Haftung für Körperschäden und grobes Verschulden nicht beschränken (§ 309 Nr. 7 BGB); die Verkehrssicherungspflicht des Betreibers wird durch die Geräteeinweisung jedes Neumitglieds, die Trainerpräsenz in den Kernzeiten und die Hausordnung erfüllt. Der AGB-Entwurf wird vor Beginn des Vorverkaufs (drei Monate vor Eröffnung) anwaltlich geprüft [vom Gründer zu ergänzen: Kanzlei, Angebot]."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.8: Vertragsrahmen für Mitgliedschaften",
+   "spalten": [
+    "Regelungspunkt",
+    "Geplante Regelung",
+    "Rechtsgrundlage"
+   ],
+   "zeilen": [
+    [
+     "Erstlaufzeit",
+     "12 oder 24 Monate; Flex monatlich kündbar",
+     "§ 309 Nr. 9 lit. a BGB (max. 2 Jahre)"
+    ],
+    [
+     "Verlängerung",
+     "auf unbestimmte Zeit, jederzeit mit 1 Monat Frist kündbar",
+     "§ 309 Nr. 9 lit. b BGB"
+    ],
+    [
+     "Kündigung",
+     "Textform (E-Mail, App), Kündigungsbutton online",
+     "§ 309 Nr. 13, § 312k BGB"
+    ],
+    [
+     "Widerruf",
+     "14 Tage bei Online- und Haustürabschluss",
+     "§§ 312g, 355 BGB"
+    ],
+    [
+     "Beitrag, Servicepauschale, Aufnahmegebühr",
+     "44,90 / 59,90 / 34,90 € brutto; 24,90 € je Halbjahr; 49 € einmalig; Effektivpreis ausgewiesen",
+     "Preisangabenverordnung, § 307 BGB"
+    ],
+    [
+     "Preisanpassung",
+     "2,0 % p. a. mit transparenter Klausel und Sonderkündigungsrecht",
+     "§§ 307, 308 Nr. 4 BGB"
+    ],
+    [
+     "Ruhezeit, Sonderkündigung",
+     "Attest, Schwangerschaft; wichtiger Grund",
+     "§ 314 BGB; BGH XII ZR 62/15"
+    ],
+    [
+     "Minderjährige",
+     "Zustimmung der Erziehungsberechtigten, Tarif Student/Azubi",
+     "§ 107 BGB"
+    ],
+    [
+     "Haftung, Hausordnung",
+     "Keine Beschränkung bei Körperschäden; Einweisungspflicht; Sauna-Baderegeln",
+     "§ 309 Nr. 7 BGB, § 823 BGB"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Tarife), BGB; Vertragsstaffel als Planung, anwaltliche Prüfung vor Vorverkauf.",
+   "breiten": [
+    26,
+    44,
+    30
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.7 GEMA, GVL und Rundfunkbeitrag"
+  },
+  {
+   "typ": "absatz",
+   "text": "Für die Musikwiedergabe auf der Trainingsfläche gilt der GEMA-Tarif M-U Abschnitt III 5 b (Tonträgerwiedergabe in Fitness- und Sportstudios). Nach dem seit 01.01.2026 gültigen Tarifblatt betragen die Vergütungssätze 465,30 € je Jahr bis 200 m² beschallter Fläche zuzüglich 169,20 € je weitere angefangene 200 m²; für 2.000 m² ergeben sich 1.988,10 € je Jahr bei Jahreszahlung, das sind 165,68 € je Monat, bei Monatszahlung 198,81 € (GEMA Tarif M-U Version 92). Hinzu kommt der GVL-Anteil für die Leistungsschutzrechte, der nach dem Abgleich mit Sekundärquellen etwa 20 % beträgt, sodass rund 239 € je Monat netto anfallen (Purelicence 07/2026). Kurse auf der bereits lizenzierten, beschallten Studiofläche werden nach der Vereinbarung zwischen GEMA und DSSV nicht zusätzlich vergütet (fitness MANAGEMENT 08/2018); für Kurse in einem gesondert abgeschlossenen Kursraum gilt der Tarif WR-KS-F mit 0,56 bis 2,52 € je Kursstunde, im Rechenbeispiel eines Premiumstudios mit 15 Teilnehmern und 40 Kursstunden je Monat rund 202 € je Monat (GEMA WR-KS-F 2026). Musik in Sauna und Ruheraum wird gesondert nach dem Saunatarif vergütet (bis 100 m²: 259,50 € je Jahr, Tarifstand 2026)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Finanzmodell setzt für GEMA und GVL 350 € je Monat, also 4.200 € je Jahr an. Damit sind Trainingsfläche, GVL-Anteil, Sauna und Rundfunkbeitrag abgedeckt; kommt für den gesondert abgeschlossenen Kursraum der Tarif WR-KS-F hinzu (Rechenbeispiel rund 202 € je Monat, Tabelle 8.9), wird der Planansatz überschritten. Die Differenz ist über den Gesamtvertragsnachlass für DSSV-Mitglieder, dessen Höhe für diesen Tarif nicht öffentlich belegt ist (Quellen: Anhang I), über die Zahl der Kursstunden im Kursraum zu begrenzen oder aus der Position Sonstiges zu decken [vom Gründer vor Eröffnung mit GEMA und DSSV zu klären]. Alternativ bietet die GEMA Pakete für Fitnessstudios mit Radio, Streaming und TV ab 84,23, 121,85 und 188,88 € je Monat an (gema.de 2026). Für die Wiedergabe über Streamingdienste ist ein Geschäftskundenvertrag erforderlich, da Privatabonnements die öffentliche Wiedergabe nicht abdecken. Der Rundfunkbeitrag für die Betriebsstätte beträgt bei 9 bis 19 Beschäftigten 18,36 € je Monat, zuzüglich 6,12 € je betrieblichem Kfz (rundfunkbeitrag.de 2026); er ist in der Position Sonstiges enthalten."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.9: Musiknutzung und Rundfunkbeitrag (netto, Tarifstand 2026)",
+   "spalten": [
+    "Position",
+    "Tarif",
+    "Je Jahr",
+    "Je Monat"
+   ],
+   "zeilen": [
+    [
+     "Trainingsfläche 2.000 m²",
+     "GEMA M-U III 5 b, Jahreszahlung",
+     "1.988,10 €",
+     "165,68 €"
+    ],
+    [
+     "GVL-Anteil (ca. 20 %)",
+     "auf GEMA-Vergütung",
+     "ca. 398 €",
+     "ca. 33 €"
+    ],
+    [
+     "Kurse auf beschallter Fläche",
+     "DSSV-Vereinbarung",
+     "0 €",
+     "0 €"
+    ],
+    [
+     "Kurse im separaten Kursraum (Beispiel 40 Std./Monat, 15 TN)",
+     "GEMA WR-KS-F 2026",
+     "ca. 2.424 €",
+     "ca. 202 €"
+    ],
+    [
+     "Sauna/Ruheraum bis 100 m²",
+     "GEMA Saunatarif 2026",
+     "259,50 €",
+     "21,63 €"
+    ],
+    [
+     "Rundfunkbeitrag Betriebsstätte 9–19 Beschäftigte",
+     "Rundfunkbeitragsstaatsvertrag",
+     "220,32 €",
+     "18,36 €"
+    ],
+    [
+     "Planansatz GEMA/GVL im Finanzmodell",
+     "Excel-Planrechnung",
+     "4.200 €",
+     "350 €"
+    ]
+   ],
+   "quelle": "Quelle: GEMA Tarif M-U (Version 92, gültig ab 01.01.2026), GEMA Tarif WR-KS-F 2026, Purelicence 22.07.2026 (GVL-Anteil), rundfunkbeitrag.de, Excel-Planrechnung; Beträge je Monat rechnerisch.",
+   "breiten": [
+    38,
+    30,
+    16,
+    16
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.8 Versicherungen"
+  },
+  {
+   "typ": "absatz",
+   "text": "Das Versicherungsprogramm deckt die Haftung gegenüber Mitgliedern und Dritten, den Sachwert von Geräten und Mietereinbauten sowie den Ertragsausfall bei Betriebsunterbrechung ab. Der zu versichernde Sachwert ergibt sich aus dem Investitionsplan: Geräte 590.968 €, Import-Nebenkosten 32.228 €, Ausbau 851.788 € und Sanitär 39.800 €, zusammen rund 1,5 Mio. € netto. Öffentlich belegte Prämien liegen nur für kleine Studios vor: Komplettpakete mit Haftpflicht, Inhalt, Betriebsunterbrechung, Elektronik und Glas kosten 39 bis 79 € je Monat bis 400 m² (ODV 2024), eine Betriebshaftpflicht ab 285 € je Jahr bei 100.000 € Umsatz, eine Inhaltsversicherung mit 100.000 € Versicherungssumme rund 400 bis 600 € je Jahr (Quellen: Anhang I). Für ein Studio mit 2.000 m² und 1,5 Mio. € Sachwert nennen Branchenquellen 500 bis 1.500 € je Monat (GymAccess 2026) bzw. 300 bis 800 € je Monat für mittelgroße Studios (Virtuagym 05/2026); der DSSV-Richtwert für ein Durchschnittsstudio beträgt 250 bis 280 € je Monat (DSSV 04/2022). Das Finanzmodell setzt 900 € je Monat, also 10.800 € je Jahr an; der Ansatz liegt über der Spanne für mittelgroße Studios und innerhalb der Spanne für große Studios, ist aber mangels belegbarer Prämien für diese Größe eine Planannahme. Ein verbindliches Angebot eines auf Fitnessbetriebe spezialisierten Maklers ist vor dem Bankgespräch einzuholen [vom Gründer zu ergänzen]."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.10: Versicherungsprogramm",
+   "spalten": [
+    "Sparte",
+    "Deckung / Zweck",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Betriebshaftpflicht",
+     "Personen-, Sach- und Vermögensschäden von Mitgliedern und Dritten, Trainingsbetrieb, Sauna, Veranstaltungen; Deckungssumme nach Angebot",
+     "Pflichtbaustein, Angebot einholen"
+    ],
+    [
+     "Geschäftsinhalt (Feuer, Leitungswasser, Sturm, Einbruchdiebstahl)",
+     "Geräte 590.968 €, Mietereinbauten 851.788 €, Sanitär 39.800 €; Neuwert",
+     "Pflichtbaustein, Versicherungssumme ca. 1,5 Mio. €"
+    ],
+    [
+     "Elektronik",
+     "Cardiogeräte, Zutrittssystem, IT, Musikanlage, Kameras",
+     "Empfohlen"
+    ],
+    [
+     "Betriebsunterbrechung / Ertragsausfall",
+     "Fixkosten und entgangener Gewinn nach Sachschaden; Haftzeit 12 bis 24 Monate",
+     "Von Banken üblicherweise verlangt"
+    ],
+    [
+     "Glas",
+     "13 Fenster, 13 Spiegel, Spiegelwände 32,9 m",
+     "Empfohlen"
+    ],
+    [
+     "Gesetzliche Unfallversicherung (VBG)",
+     "Beschäftigte; Beitrag nach Entgeltsumme und Gefahrklasse",
+     "Pflicht"
+    ],
+    [
+     "Rechtsschutz (Arbeits-, Vertrags-, Steuerrecht)",
+     "Streitigkeiten mit Mitgliedern, Beschäftigten, Vermieter",
+     "Optional"
+    ],
+    [
+     "Vermögensschadenhaftpflicht / D&O Geschäftsführer",
+     "Organhaftung des Gründers als Geschäftsführer",
+     "Optional"
+    ],
+    [
+     "Cyber",
+     "Ausfall Studiosoftware, Datenverlust, Erpressung",
+     "Optional"
+    ],
+    [
+     "Risikolebens- / Berufsunfähigkeitsversicherung Gründer",
+     "Absicherung der Finanzierung bei Tod oder Ausfall; Abtretung an Bank möglich",
+     "Von Banken häufig verlangt [vom Gründer zu ergänzen]"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Sachwerte, Planansatz 900 €/Monat), Rechercheprotokoll (Anhang I; Fenster, Spiegel; ODV, GymAccess, Virtuagym, DSSV).",
+   "breiten": [
+    28,
+    46,
+    26
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.9 Steuern: Umsatzsteuer, Vorsteuer, Gewerbe- und Körperschaftsteuer"
+  },
+  {
+   "typ": "absatz",
+   "text": "Umsatzsteuer: Mitgliedsbeiträge, Servicepauschalen, Aufnahmegebühren, Kurse, Personal Training, Solarium und Sauna unterliegen dem Regelsteuersatz von 19 % (§ 12 UStG); der ermäßigte Satz für Schwimm- und Heilbäder (§ 12 Abs. 2 Nr. 9 UStG) gilt nicht für Saunen (Quellen: Anhang I). Der ermäßigte Satz von 7 % kommt nur für Lieferungen nach Anlage 2 in Betracht, etwa Milchmischgetränke mit mindestens 75 % Milchanteil zum Mitnehmen; Mineralwasser, Säfte, isotonische Getränke und Shakes zum Verzehr vor Ort werden mit 19 % besteuert (hashtag-fitness 09/2024). Das Finanzmodell rechnet vereinfachend alle Umsätze mit 19 % und ist damit konservativ. Alle Beiträge in diesem Plan sind Bruttopreise; aus dem Bruttobeitrag von durchschnittlich 50,15 € je Mitglied und Monat verbleiben netto 42,14 €."
+  },
+  {
+   "typ": "absatz",
+   "text": "Vorsteuer: Da alle Ausgangsumsätze steuerpflichtig sind, ist die GmbH in vollem Umfang zum Vorsteuerabzug berechtigt (§ 15 UStG). Auf die Investition von 1.912.583 € netto entfällt eine abziehbare Vorsteuer von 340.941 € (Kaution und Import-Nebenkosten ohne Vorsteuer angesetzt). Die Vorsteuer ist bis zur Erstattung durch das Finanzamt zwischenzufinanzieren; der Liquiditätsplan berücksichtigt eine Verzögerung von einem Monat und weist im Basisszenario eine maximale Zwischenfinanzierung von 366.018 € aus. Diese Summe ist kein zusätzlicher Kapitalbedarf; sie wird im Liquiditätsplan aus dem Kassenbestand nach Auszahlung der Darlehen gedeckt, als Sicherheitslinie für eine verzögerte Erstattung dient der Kontokorrentrahmen von 200.000 € (Kapitel 10, Abschnitte 10.2 und 10.7). Voraussetzung sind monatliche Umsatzsteuer-Voranmeldungen ab dem ersten Vorlaufmonat und ordnungsgemäße Rechnungen der Bau- und Gerätelieferanten. Bei Importgeräten ist die Einfuhrumsatzsteuer nur mit den Zollbelegen abziehbar; das Modell setzt sie vorsichtig als Teil der Import-Nebenkosten ohne Vorsteuerabzug an. Die Miete ist im Modell mit Umsatzsteuer geplant (Option des Vermieters nach § 9 UStG); sie ist für die GmbH wegen des vollen Vorsteuerabzugs ergebnisneutral."
+  },
+  {
+   "typ": "absatz",
+   "text": "Gewerbesteuer: Die Gewerbesteuer ergibt sich aus dem Gewerbeertrag, der Steuermesszahl von 3,5 % und dem Hebesatz der Standortgemeinde; für Kapitalgesellschaften gibt es keinen Freibetrag (§ 11 GewStG). Tabelle 8.11 zeigt die Hebesätze der Kandidatenstädte. Das Finanzmodell rechnet mit 390 %, was zusammen mit Körperschaftsteuer von 15 % und Solidaritätszuschlag von 5,5 % darauf eine Gesamtbelastung von 29,47 % des Gewinns ergibt. Am günstigsten wäre Friedrichshafen mit 350 % (28,08 %), am teuersten Stuttgart mit 430 % (30,88 %); für Ludwigsburg ist eine Erhöhung von 400 auf 420 % rückwirkend zum 01.01.2026 in der Diskussion (IHK Region Stuttgart 30.04.2026). Hinzurechnungen nach § 8 Nr. 1 GewStG für Zinsen und Mieten können auch in Verlustjahren einen Gewerbeertrag entstehen lassen; wegen des Freibetrags von 200.000 € und der gewerbesteuerlichen Verlustvorträge ist die Wirkung in den Planjahren nach Einschätzung gering und vom Steuerberater zu bestätigen."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.11: Gewerbesteuer-Hebesätze der Kandidatenstädte und Gesamtsteuerlast einer GmbH",
+   "spalten": [
+    "Stadt",
+    "Hebesatz",
+    "Stand",
+    "Gesamtlast GmbH (rechnerisch)"
+   ],
+   "zeilen": [
+    [
+     "Friedrichshafen",
+     "350 %",
+     "Haushalt 2025/2026",
+     "28,08 %"
+    ],
+    [
+     "Überlingen",
+     "370 %",
+     "2025 (Sekundärquelle)",
+     "28,78 %"
+    ],
+    [
+     "Böblingen",
+     "380 %",
+     "IHK-Liste 08/2026",
+     "29,13 %"
+    ],
+    [
+     "Ravensburg",
+     "390 %",
+     "Satzung ab 01.01.2025",
+     "29,47 %"
+    ],
+    [
+     "Ludwigsburg",
+     "400 % (420 % geplant)",
+     "2026, Erhöhung rückwirkend in Diskussion",
+     "29,83 % (30,53 %)"
+    ],
+    [
+     "Esslingen am Neckar",
+     "400 %",
+     "IHK-Liste 08/2026",
+     "29,83 %"
+    ],
+    [
+     "Konstanz",
+     "410 %",
+     "Satzung ab 01.01.2023",
+     "30,18 %"
+    ],
+    [
+     "Stuttgart",
+     "430 %",
+     "Doppelhaushalt 2026/2027",
+     "30,88 %"
+    ],
+    [
+     "Planansatz Finanzmodell",
+     "390 %",
+     "Excel-Planrechnung",
+     "29,47 %"
+    ]
+   ],
+   "quelle": "Quelle: Rechercheprotokoll (Anhang I; Stadt Friedrichshafen, Stadt Konstanz, Stadt Ravensburg, Stadt Stuttgart, Stadt Ludwigsburg, IHK Region Stuttgart Hebesatzliste 13.08.2026, gewerbesteuer.net); Gesamtlast = KSt 15 % + Soli 0,825 % + 3,5 % × Hebesatz; bei 390 % rechnerisch 29,475 %, im Finanzmodell mit 29,47 % angesetzt (Excel-Planrechnung).",
+   "breiten": [
+    26,
+    22,
+    28,
+    24
+   ]
+  },
+  {
+   "typ": "absatz",
+   "text": "Körperschaftsteuer und Verlustvortrag: Die Körperschaftsteuer beträgt 2026 und 2027 15 % und sinkt ab 2028 jährlich um einen Prozentpunkt auf 10 % im Jahr 2032 (IHK zu Essen 01/2026); der Solidaritätszuschlag von 5,5 % auf die Körperschaftsteuer fällt für Kapitalgesellschaften ohne Freigrenze an. Das Finanzmodell rechnet konservativ durchgehend mit 15 %. Wegen der Anlaufverluste von 798.519 € im ersten und 209.477 € im zweiten Jahr entstehen im Basisszenario in den ersten fünf Jahren keine Ertragsteuerzahlungen; der Verlustvortrag beträgt zu Beginn des fünften Jahres noch 910.613 €. Handelsrechtlich schreibt das Modell Geräte und Import-Nebenkosten über 8 Jahre, Ausbau, Sanitär, Planung und Unvorhergesehenes über 10 Jahre und Sonstiges über 5 Jahre ab, zusammen 200.695 € je Jahr. Steuerlich sieht die AfA-Tabelle für Fitnessgeräte 5 Jahre vor, und für bewegliche Wirtschaftsgüter mit Anschaffung bis 31.12.2027 ist eine degressive Abschreibung von bis zu 30 % möglich (§ 7 Abs. 2 EStG); die Gerätelieferung im August 2027 fällt in diesen Zeitraum. Eine schnellere steuerliche Abschreibung erhöht den Verlustvortrag, ändert in den Planjahren aber weder Liquidität noch Kapitaldienstfähigkeit."
+  },
+  {
+   "typ": "h2",
+   "text": "8.10 Arbeitsrecht und Beschäftigung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Bei Eröffnung beschäftigt die GmbH 14 Personen: den Gründer als Geschäftsführer, die stellvertretende Studioleitung, zwei Vollzeittrainer, zwei Kursleiter und zwei Empfangskräfte in Teilzeit sowie vier Empfangs- und zwei Reinigungs-Minijobs; ab dem zweiten Jahr kommt ein dritter Vollzeittrainer hinzu (Kapitel 2, Tabelle 2.4). Die Personalkosten betragen im ersten Betriebsjahr 28.533 € und im dritten 33.801 € je Monat einschließlich Arbeitgeberabgaben von 21,3 % für sozialversicherungspflichtige Beschäftigte und 31,17 % Pauschalabgaben für Minijobs (Minijob-Zentrale 12/2025, lohn-info 2026)."
+  },
+  {
+   "typ": "absatz",
+   "text": "Lohnuntergrenzen: Der gesetzliche Mindestlohn beträgt 2026 13,90 € und ab 01.01.2027 14,60 € je Stunde (Bundesregierung 21.09.2026); die Minijob-Verdienstgrenze steigt entsprechend von 603 € (2026) auf 633 € je Monat (2027) (Minijob-Zentrale). Der Planansatz von 620 € brutto je Minijob liegt unter der ab Eröffnung geltenden Grenze von 633 € und erlaubt bei 14,60 € rechnerisch bis zu 42,5 Arbeitsstunden je Monat; die Einsatzpläne für Empfang und Reinigung werden darauf begrenzt, damit die Minijobs nicht in die Sozialversicherungspflicht wachsen. Die Vollzeittrainer sind mit 3.000 € brutto je Monat geplant, nahe dem Median für Baden-Württemberg von 3.081 € (GEHALT.de 2026); die stellvertretende Studioleitung mit 3.600 € liegt unter dem unteren Quartil branchenübergreifender Studioleiter von 4.685 € (Kapitel 2). Alle Gehälter steigen im Modell um 2,5 % je Jahr."
+  },
+  {
+   "typ": "absatz",
+   "text": "Arbeitszeit und Vertragsgestaltung: Sonn- und Feiertagsarbeit ist in Sport- und Freizeiteinrichtungen zulässig (§ 10 Abs. 1 Nr. 7 ArbZG); die Beschäftigten erhalten Ersatzruhetage (§ 11 ArbZG), und die Arbeitszeiten werden im Dienstplan der Studiosoftware dokumentiert (§ 16 ArbZG). Alle Arbeitsverträge enthalten die wesentlichen Vertragsbedingungen nach dem Nachweisgesetz; Teilzeit- und Minijobverträge folgen dem Teilzeit- und Befristungsgesetz. Kursleiter, die auf Honorarbasis einzelne Kurse geben, werden auf Scheinselbständigkeit geprüft (Statusfeststellung bei der Deutschen Rentenversicherung), da sie in den Kursplan eingebunden sind; im Finanzmodell sind die Kursleiter deshalb als Teilzeitbeschäftigte angesetzt. Trainer benötigen eine anerkannte Fitnesstrainer-Lizenz (B oder A) und eine Erste-Hilfe-Ausbildung; die Branche investiert breit in Weiterbildung, 95,3 % der Anlagen haben 2025 Fortbildungen finanziert (DSSV Eckdaten 2026). Die Beschäftigten werden vor Aufnahme der Tätigkeit nach § 12 ArbSchG unterwiesen (Geräte, Notfall, Sauna, Hygiene, Datenschutz)."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.12: Lohnuntergrenzen und Arbeitgeberabgaben 2026/2027",
+   "spalten": [
+    "Kennzahl",
+    "2026",
+    "2027 (ab Eröffnung)",
+    "Planansatz"
+   ],
+   "zeilen": [
+    [
+     "Gesetzlicher Mindestlohn je Stunde",
+     "13,90 €",
+     "14,60 €",
+     "Trainer 3.000 € brutto ≈ 17,3 €/h bei 173 h"
+    ],
+    [
+     "Minijob-Verdienstgrenze je Monat",
+     "603 €",
+     "633 €",
+     "620 € je Minijob (max. 42,5 h/Monat bei 14,60 €)"
+    ],
+    [
+     "Arbeitgeberabgaben sozialversicherungspflichtig",
+     "ca. 21,3 %",
+     "ca. 21,3 % (Annahme)",
+     "21,3 %"
+    ],
+    [
+     "Pauschalabgaben Minijob (RV, KV, Pauschsteuer, Umlagen)",
+     "31,17 %",
+     "31,17 % (Annahme)",
+     "31,17 %"
+    ],
+    [
+     "Gebäudereinigung Tariflohn Lohngruppe 1",
+     "15,00 €/h",
+     "[nach Tarifabschluss]",
+     "Reinigungs-Minijobs plus Fremdreinigung"
+    ],
+    [
+     "Gehaltssteigerung",
+     "",
+     "",
+     "2,5 % je Jahr"
+    ]
+   ],
+   "quelle": "Quelle: Bundesregierung (Mindestlohn 2026/2027, 21.09.2026), Minijob-Zentrale (12/2025), lohn-info.de (SV-Sätze 2026), BIV/CleanCalc (Gebäudereiniger-Tarif 2026), Excel-Planrechnung; Stundenwerte rechnerisch.",
+   "breiten": [
+    34,
+    16,
+    20,
+    30
+   ]
+  },
+  {
+   "typ": "h2",
+   "text": "8.11 Genehmigungs- und Nachweisplan bis zur Eröffnung"
+  },
+  {
+   "typ": "absatz",
+   "text": "Tabelle 8.13 fasst alle Genehmigungen, Anmeldungen und Nachweise zusammen, die vor der Eröffnung am 01.09.2027 vorliegen müssen, und ordnet sie dem Vorlauf des Finanzmodells zu (Kaution und Planung ab Monat −5, Ausbau Monate −4 bis −1, Gerätelieferung Monat −1, Vorverkauf in den letzten drei Monaten). Der kritische Pfad ist die Baugenehmigung: Sie muss vor Beginn des Ausbaus im Mai 2027 (Monat −4) vorliegen, sodass der Bauantrag mit Brandschutzkonzept im Dezember 2026 einzureichen ist (Kapitel 5, Tabelle 5.9; Kapitel 7, Tabelle 7.8). Der zweite zeitkritische Punkt sind die anwaltlich geprüften AGB, weil der Vorverkauf drei Monate vor Eröffnung beginnt."
+  },
+  {
+   "typ": "tabelle",
+   "titel": "Tabelle 8.13: Genehmigungen, Anmeldungen und Nachweise vor Eröffnung",
+   "spalten": [
+    "Nachweis",
+    "Zuständige Stelle",
+    "Spätester Zeitpunkt",
+    "Status"
+   ],
+   "zeilen": [
+    [
+     "Bauvoranfrage zur Genehmigungsfähigkeit des Objekts",
+     "Untere Baurechtsbehörde",
+     "Oktober bis November 2026, vor Mietvertragsabschluss (Monat −11 bis −10)",
+     "offen, mit Objektwahl"
+    ],
+    [
+     "Baugenehmigung Nutzungsänderung inkl. Brandschutz-, Stellplatz-, Schallschutznachweis",
+     "Untere Baurechtsbehörde",
+     "Antrag Dezember 2026 (Monat −9), Genehmigungsverfahren Januar bis März 2027, Bescheid vor Ausbaubeginn Monat −4",
+     "offen"
+    ],
+    [
+     "GmbH-Gründung, Handelsregister, Gewerbeanmeldung",
+     "Notar, Amtsgericht, Gemeinde",
+     "Januar bis März 2027 (Monat −8 bis −6)",
+     "offen"
+    ],
+    [
+     "Steuerliche Erfassung, USt-Voranmeldung",
+     "Finanzamt",
+     "Monat −6",
+     "offen"
+    ],
+    [
+     "Anmeldung VBG, Betriebsnummer, Krankenkassen",
+     "VBG, Agentur für Arbeit",
+     "Monat −3 (erste Einstellung)",
+     "offen"
+    ],
+    [
+     "AGB, Mitgliedsvertrag, Datenschutzerklärung, Widerrufsbelehrung",
+     "Rechtsanwalt",
+     "Monat −3 (vor Vorverkauf)",
+     "offen [Kanzlei zu ergänzen]"
+    ],
+    [
+     "Hygienekonzept Sauna, Dampfbad, Cold Plunge",
+     "Gesundheitsamt",
+     "Monat −3",
+     "offen"
+    ],
+    [
+     "Verzeichnis Verarbeitungstätigkeiten, AV-Verträge, Videohinweise",
+     "Datenschutzberater",
+     "Monat −2",
+     "offen"
+    ],
+    [
+     "Versicherungen (Inhalt ab Gerätelieferung, Haftpflicht ab Eröffnung)",
+     "Versicherungsmakler",
+     "Monat −1",
+     "Angebot einholen"
+    ],
+    [
+     "GEMA/GVL-Anmeldung, Rundfunkbeitrag",
+     "GEMA, Beitragsservice",
+     "Monat −1",
+     "offen"
+    ],
+    [
+     "Abnahmen Elektro, RLT, Sicherheitsbeleuchtung, Brandschutz",
+     "Fachunternehmen, Prüfsachverständige, Baurechtsbehörde",
+     "Monat −1",
+     "offen"
+    ],
+    [
+     "Legionellen-Erstuntersuchung, Spülprotokoll",
+     "Zugelassenes Labor",
+     "Monat −1",
+     "offen"
+    ],
+    [
+     "Gefährdungsbeurteilung, Unterweisungen, Brandschutzhelfer, Ersthelfer",
+     "Geschäftsführung, VBG-Kurse",
+     "Monat −1",
+     "offen"
+    ],
+    [
+     "Flucht- und Rettungspläne (4 Aushänge), Feuerlöscher-Prüfplaketten",
+     "Brandschutzfachbetrieb",
+     "Monat −1",
+     "in Planung enthalten"
+    ],
+    [
+     "Konformitätserklärungen und CE-Nachweise der Importgeräte",
+     "Lieferant Atlantis/Prime",
+     "mit Lieferung Monat −1",
+     "vertraglich vereinbaren"
+    ]
+   ],
+   "quelle": "Quelle: Excel-Planrechnung (Zahlungsplan Vorlauf), Rechercheprotokoll (Anhang I; Genehmigungsdauer; Sicherheitsausstattung); Zeitpunkte als Planung des Gründers.",
+   "breiten": [
+    38,
+    22,
+    24,
+    16
+   ]
+  },
+  {
+   "typ": "hinweis",
+   "text": "Vor dem Bankgespräch zu ergänzen: schriftliche Bauvoranfrage oder Stellungnahme der Baurechtsbehörde zum Wunschobjekt (Zulässigkeit, Sonderbau-Einstufung, Stellplätze), Angebot eines Brandschutzplaners, Angebot eines Versicherungsmaklers für Haftpflicht, Inhalt und Betriebsunterbrechung, Angebot einer Kanzlei für AGB und Datenschutz sowie die Bestätigung des Steuerberaters zu Vorsteuererstattung und Gewerbesteuer. Diese Unterlagen belegen der Bank, dass die rechtlichen Voraussetzungen des Vorhabens geprüft sind."
+  }
+ ],
+ "quellen": [
+  "Rechercheprotokoll (Anhang I) – Datenauszug GymPlanner „No.1 (überarbeitet)“, Export 26.09.2026 (Flächen, Kapazität, Stückliste, Sicherheit, Regularienprüfung)",
+  "Excel-Planrechnung Finanzplan_No1.xlsx – Finanzmodell No.1, Stand 27.09.2026 (Annahmen, Investition, Finanzierung, Szenarien, Sensitivitäten; Excel-Datei mit Formeln, Blatt „Annahmen“)",
+  "GymPlanner – Dokumentation „Fluchtwege und Regularien-Prüfung“ (Rechercheprotokoll (Anhang I)): Regeln und Quellen der Prüfung (ASR, DGUV, MBO, DIN)",
+  "ASR A2.3 Fluchtwege und Notausgänge; ASR A2.2 Maßnahmen gegen Brände; ASR A1.3 Sicherheitskennzeichnung; ASR A1.8 Verkehrswege; ASR A4.1 Sanitärräume; ASR A4.3 Erste Hilfe; ASR V3a.2 Barrierefreie Gestaltung – BAuA, Technische Regeln für Arbeitsstätten (geltende Fassungen 2026)",
+  "DGUV Vorschrift 1 Grundsätze der Prävention (§§ 25, 26); DGUV Information 205-023 Brandschutzhelfer; DGUV Information 204-010 AED",
+  "DIN EN ISO 20957-1 Stationäre Trainingsgeräte – Allgemeine sicherheitstechnische Anforderungen; DIN 18040-1 Barrierefreies Bauen; DIN ISO 23601 Flucht- und Rettungspläne",
+  "Muster-Versammlungsstättenverordnung (MVStättVO) § 1; Musterbauordnung (MBO) § 33",
+  "Trinkwasserverordnung (TrinkwV) § 31 Untersuchungspflichten Legionellen; Infektionsschutzgesetz (IfSG) § 37",
+  "§ 8 BauNVO Gewerbegebiete (Normtext) – https://www.juraforum.de/gesetze/baunvo/8-gewerbegebiete",
+  "§ 54 LBO Baden-Württemberg (Stand 16.03.2026) – https://www.lxgesetze.de/lbo-bw/54; ARGE Baurecht: LBO-Reform 2025 (29.07.2025)",
+  "Architektenkammer BW – Merkblatt Nr. 593: VwV Stellplätze – https://www.akbw.de/fileadmin/download/dokumenten_datenbank/AKBW_Merkblaetter/Baurecht_Planungsrecht/Merkblatt593_VwV-Stellplaetze.pdf (01.09.2022)",
+  "Planeco – Nutzungsänderung Fitnessstudio (aktualisiert 21.10.2025)",
+  "§ 7 GmbHG Anmeldung der Gesellschaft – https://www.gesetze-im-internet.de/gmbhg/__7.html; notar-check.de Notarkosten GmbH-Gründung (18.05.2026); IHK Karlsruhe Wahl der Rechtsform (01/2025)",
+  "§ 12 UStG Steuersätze – https://www.gesetze-im-internet.de/ustg_1980/__12.html; § 15 UStG Vorsteuerabzug – https://www.gesetze-im-internet.de/ustg_1980/__15.html (Fassung 2026)",
+  "hashtag-fitness – Umsatzsteuerliche Fallstricke im Fitness-Studio – https://hashtag-fitness.com/umsatzsteuerliche-fallstricke-im-fitness-studio-512 (10.09.2024)",
+  "Stadt Friedrichshafen – Haushalt und Finanzen, Hebesätze 2025/2026 – https://www.friedrichshafen.de/buerger-stadt/politik-finanzen/haushalt-finanzen/ (24.03.2025)",
+  "Stadt Konstanz – Hebesatzsatzung Gewerbesteuer ab 01.01.2023 (14.12.2022); Stadt Ravensburg – Hebesatzsatzung ab 01.01.2025 (27.11.2024); gewerbesteuer.net – Hebesatz Überlingen (2025)",
+  "Landeshauptstadt Stuttgart – Doppelhaushalt 2026/2027 – https://www.stuttgart.de/doppelhaushalt-2026-2027 (12/2025); Stadt Ludwigsburg – Gewerbesteuerhebesatz (ab 01.01.2025); IHK Region Stuttgart – Gesamtliste Hebesätze 2018–2026 (13.08.2026)",
+  "IHK zu Essen – Einkommensteuer, Körperschaftsteuer und Solidaritätszuschlag (01/2026); Lexware – Gewerbesteuer-Rechner 2026 (Messzahl 3,5 %, Freibetrag)",
+  "BMF – AfA-Tabelle Heil-, Kur-, Sport- und Freizeitbäder; BMF – Wachstumsbooster, degressive AfA 30 % (§ 7 Abs. 2 EStG, 2025)",
+  "GEMA – Tarif M-U Version 92 (gültig ab 01.01.2026) und Tarif WR-KS-F Version 8 (2026) – https://www.gema.de/de/musiknutzer/branchen/fitnessstudio; GEMA-Tarife DOSB-Übersicht April 2025",
+  "PureLicence – GEMA-Gebühren 2026 Fitnessstudios (Sekundärquelle, 22.07.2026); fitness MANAGEMENT – GEMA: Kurse auf lizenzierter Studiofläche (22.08.2018)",
+  "rundfunkbeitrag.de – Unternehmen und Institutionen, Beitragsstaffel 2026 – https://www.rundfunkbeitrag.de/unternehmen-und-institutionen/informationen",
+  "ODV Versicherungen – Fitnessstudio-Versicherung (2024); Berufshaftpflichtversicherung-Experten – Betriebshaftpflicht Fitnessstudio (2026); Schirmer Assekuranz – Inhaltsversicherung Fitnessstudios; GymAccess – Fitnessstudio eröffnen Kosten-Guide (2026); Virtuagym – Fitnessstudio eröffnen Kosten 2026 (21.05.2026)",
+  "DSSV e. V. / W.I.F.F. – Leitfaden Kostenmanagement – https://www.dssv.de/wp-content/uploads/2022/05/DSSV_Leitfaden_kostenmanagement_202204.pdf (04/2022)",
+  "DSSV/Deloitte/DHfPG – Eckdaten der deutschen Fitnesswirtschaft 2026, PM 18.03.2026 (Weiterbildung 95,3 %); DSSV – Eckdaten 2025, PM 26.03.2025 (Online-Abschlüsse 24 %)",
+  "Bundesregierung – Mindestlohn 2026 auf 13,90 Euro erhöht (2027: 14,60 Euro) – https://www.bundesregierung.de/breg-de/aktuelles/mindestlohn-steigt-2391010 (21.09.2026)",
+  "Minijob-Zentrale – Minijob 2026 Änderungen (603 €, 2027: 633 €) – https://magazin.minijob-zentrale.de/minijob-2026-aenderungen/ (09.12.2025); Minijob-Beiträge 2026 (31,17 %) (16.12.2025)",
+  "lohn-info.de – Sozialversicherungsbeiträge 2026 – https://www.lohn-info.de/sozialversicherungsbeitraege2026.html; GEHALT.de – Fitnesstrainer/-in und Studioleiter/-in Gehalt 2026",
+  "CleanCalc / BIV – Gebäudereinigung Tariflohn Lohngruppe 1 ab 01.01.2026 (15,00 €/h)",
+  "IN-COME Unternehmensberatung – Vorverkauf und Fluktuation (Ruhequote 2–8 %) – https://www.in-come.de/vorverkauf-und-fluktuation/ (05.05.2020)",
+  "Arbeiterkammer (AT) – Unsportliche Klauseln bei Fitnesscentern (Pauschalen) – https://www.arbeiterkammer.at/fitness (14.01.2025)",
+  "BGB §§ 107, 307, 308, 309 Nr. 7, 9 und 13, 312g, 312k, 314, 355, 823 (Fassung 2026, Gesetz für faire Verbraucherverträge); BGH, Urteil vom 04.05.2016, XII ZR 62/15 (Umzug kein wichtiger Grund)",
+  "DSGVO Art. 6, 9, 13, 28, 30, 32, 35; BDSG §§ 4, 26, 38; Datenschutzkonferenz – Orientierungshilfe Videoüberwachung durch nicht-öffentliche Stellen",
+  "ArbSchG §§ 5, 12; ArbZG §§ 10, 11, 16; Nachweisgesetz; SGB VII § 192 (Anmeldung Unfallversicherung); DGUV Vorschrift 2 (Unternehmermodell)"
+ ]
+}
