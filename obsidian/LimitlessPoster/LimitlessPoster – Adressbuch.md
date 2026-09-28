@@ -1,6 +1,6 @@
 ---
 tags: [limitlessposter, kontakte]
-stand: 2026-09-03
+stand: 2026-09-28
 ---
 # LimitlessPoster – Adressbuch
 
@@ -14,6 +14,7 @@ stand: 2026-09-03
 - Steuernummer: 59106/01603 (vertraulich, nur Rechnungen/Finanzamt) · USt-IdNr.: DE463961672
 
 ## Zentrale Stelle Verpackungsregister (LUCID)
+- **Für uns erledigt (28.09.):** Printify-LUCID **DE4139628009499** deckt alle Printify-Bestellungen ab – keine eigene Registrierung, kein dualer-System-Vertrag nötig. Nachweis: `vorlagen/Nachweis Printify LUCID-Nummer (2026-09-28).md`
 - **Hotline:** 0541 34310555 · Mo/Di/Do 9–16, Mi 10:30–17, Fr 9–14 Uhr
 - [LUCID-Registrierung starten](https://lucid.verpackungsregister.org/Hersteller/Registrierung/Teil-1) (kostenlos) · [Leitfaden](https://www.verpackungsregister.org/registrierung/alle-informationen-zur-registrierung)
 - Duale Systeme: [activate.reclay.de](https://activate.reclay.de/) (Kleinstmengen), [Lizenzero-Kalkulator](https://www.lizenzero.de/verpackungsmengen-kalkulator/), [Vergleich](https://verpackungslizenz24.de/)

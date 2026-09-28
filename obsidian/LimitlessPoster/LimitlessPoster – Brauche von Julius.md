@@ -1,6 +1,6 @@
 ---
 tags: [limitlessposter, offen]
-stand: 2026-09-21
+stand: 2026-09-28
 ---
 # LimitlessPoster – Das brauche ich von Julius
 
@@ -13,6 +13,9 @@ stand: 2026-09-21
 - [ ] **Shop-Postfach** limitless.posterje@gmail.com ist nicht mit Claude verbunden (nur das private Gmail). Wenn ich Printify-/Shopify-Mails prüfen soll: das Konto verbinden.
 
 ## 2. Shopify-Admin (nur du kannst das klicken)
+- [ ] **Impressum: LUCID-Zeile einfügen** (zusammen mit den zwei Checkout-Richtlinien unten, gleiche Seite) – https://admin.shopify.com/store/gexdm4-2q/settings/legal → Impressum → unter der USt-IdNr.:
+  `Verpackungsregister (LUCID): DE4139628009499 – Registrierung und Systembeteiligung der Versandverpackungen erfolgen über unseren Fulfillment-Partner Printify, über den alle unsere Bestellungen gefertigt und versendet werden.`
+- [ ] **Entscheidung Marken-/Bildrechte:** Batman (DC), Ferrari, Marlboro, Messi/Ronaldo/Neymar/Jordan-Porträts sind typische Abmahnthemen. Behalten, ersetzen oder entfernen? Claude kann Entwurf-Status/Collections per API setzen.
 - [ ] **2 Checkout-Richtlinien einfügen (2 Min, wichtig!)** – https://admin.shopify.com/store/gexdm4-2q/settings/legal → „Versandrichtlinie" und „Allgemeine Geschäftsbedingungen" jeweils komplett ersetzen durch die fertigen Texte in `vorlagen/` (Checkout-Richtlinie Versand / AGB, DE-only). Grund: Die Shopify-Verbindung von Claude hat keinen Schreibzugriff auf Richtlinien (`write_legal_policies`). Bis dahin sagt /policies/shipping-policy noch „DE + EU"; die Seiten /pages/agb und FAQ sind schon umgestellt.
 - [ ] **OFE v3 veröffentlichen** – https://admin.shopify.com/store/gexdm4-2q/themes → „LimitlessPoster OFE v3" → ⋯ → Veröffentlichen. Erst danach sind die Deutschland-Texte und die korrigierte Versand-Leiste („Kostenloser Versand innerhalb Deutschlands" statt „ab 50 €") live. Die API darf kein Theme publishen.
 - [ ] **Homepage-Meta-Description** auf Deutschland umstellen – https://admin.shopify.com/store/gexdm4-2q/online_store/preferences → Beschreibung ersetzen durch:
@@ -23,7 +26,7 @@ stand: 2026-09-21
 
 ## 3. Behörden / extern
 - [ ] **Finanzamt anrufen** (Termin im Kalender: Fr 04.09., 09:30) – 0711 397-2929 / -2007.
-- [ ] **LUCID** registrieren + duales System – Links im Adressbuch.
+- [x] ~~**LUCID** registrieren + duales System~~ – entfällt: Printify-LUCID DE4139628009499 deckt alles ab (28.09.).
 - [ ] **PayPal** auf Geschäftskonto umstellen.
 
 ## 4. Printify (manuell, bis ich einen Token habe)
