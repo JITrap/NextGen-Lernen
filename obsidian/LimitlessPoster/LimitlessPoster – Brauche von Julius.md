@@ -20,6 +20,7 @@ stand: 2026-09-28
 - [ ] **OFE v3 veröffentlichen** – https://admin.shopify.com/store/gexdm4-2q/themes → „LimitlessPoster OFE v3" → ⋯ → Veröffentlichen. Erst danach sind die Deutschland-Texte und die korrigierte Versand-Leiste („Kostenloser Versand innerhalb Deutschlands" statt „ab 50 €") live. Die API darf kein Theme publishen.
 - [ ] **Homepage-Meta-Description** auf Deutschland umstellen – https://admin.shopify.com/store/gexdm4-2q/online_store/preferences → Beschreibung ersetzen durch:
   `Premium-Poster für Sport, Mindset & Lifestyle — fertig gerahmt in Schwarz oder Weiß, Versand innerhalb Deutschlands inklusive. In 4–10 Werktagen bei dir.`
+- [ ] **PayPal mit Shopify verbinden** – https://admin.shopify.com/store/gexdm4-2q/settings/payments → Abschnitt PayPal → „Aktivieren“ bzw. „Einrichtung abschließen“ → mit dem PayPal-Geschäftskonto anmelden → Berechtigungen bestätigen. Geht nur per Login, nicht per API.
 - [ ] **Shopify Payments** einrichten (Ausweis, IBAN) – https://admin.shopify.com/store/gexdm4-2q/settings/payments (2FA vorher aktivieren) · danach PayPal-Geschäftskonto verbinden.
 - [ ] **Absender-E-Mail** (Zoho) – Datenmappe/Checkliste.
 - [ ] **Passwort entfernen** – ganz am Schluss.

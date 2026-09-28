@@ -14,4 +14,5 @@ stand: 2026-09-28
 - **Themes:** Live = „LimitlessPoster v2.0". Ziel = „LimitlessPoster OFE v3" (unveröffentlicht, enthält alle Fixes + Deutschland-Texte; seit 14./20.09. zusätzlich Rooms, 3D-Viewer, Gallery Wall). ⚠️ Publish muss Julius im Admin machen (API-Publish ist gesperrt).
 - **Shop-Einstellungen geprüft 03.09.:** metrisch, kg, EUR, Europe/Berlin, Steuern nicht im Preis (Kleinunternehmer), Standort Deutschland, Checkout deutsch.
 - **Zahlungen:** Shopify Payments noch nicht aktiv (keine Wallets erkannt) → offen.
+- **PayPal ↔ Claude:** PayPal-Connector seit 28.09.2026 mit Claude verbunden (Transaktionen/Rechnungen lesbar, bisher 0 Umsätze). **PayPal ↔ Shopify** (Zahlungsart im Checkout) muss Julius selbst im Admin verbinden – dafür gibt es keine API.
 - **Rechtstexte:** Impressum, Datenschutz (17 Abschnitte), AGB (Stand 03.09.2026), Widerruf, Versandrichtlinie – alle Deutschland-only.
