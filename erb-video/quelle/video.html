@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>ERB Motion</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script>
+const W=1920,H=1080,FPS=30,DUR=98;
+const Y='#FFED00',K='#121211',D='#0b0b0a',G='#8a8a86',WH='#f4f4f0';
+const cv=document.getElementById('c'),X=cv.getContext('2d');
+const buf=document.createElement('canvas');buf.width=W;buf.height=H;const B=buf.getContext('2d');
+
+// ---------- utils ----------
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const pr=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,4);
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x);
+const eio=x=>x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2;
+const ei=x=>x*x*x;
+const back=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,t)=>a+(b-a)*t;
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const hash=n=>{const r=rng(n*9973+7);return r()};
+
+const FONT={bc:'BC',in:'IN',mo:'MO'};
+function font(c,f,size,w){c.font=`${w||800} ${size}px ${FONT[f]||f}`}
+function txt(c,s,x,y,o={}){
+  c.save();font(c,o.f||'bc',o.s||100,o.w);c.fillStyle=o.c||WH;c.textAlign=o.a||'left';c.textBaseline=o.b||'alphabetic';
+  c.letterSpacing=(o.ls||0)+'px';c.globalAlpha*= (o.al==null?1:o.al);
+  if(o.stroke){c.strokeStyle=o.stroke;c.lineWidth=o.lw||2;c.strokeText(s,x,y)}else c.fillText(s,x,y);
+  c.restore();
+}
+function tw(c,s,f,size,w,ls=0){c.save();font(c,f,size,w);c.letterSpacing=ls+'px';const m=c.measureText(s).width;c.restore();return m}
+// masked line reveal (text slides up from under a mask)
+function rise(c,s,x,y,p,o={}){
+  const sz=o.s||100;const e=eo(cl(p));
+  c.save();c.beginPath();c.rect(x-(o.a==='center'?3000:o.a==='right'?6000:20),y-sz*1.05,6000,sz*1.35);c.clip();
+  txt(c,s,x,y+(1-e)*sz*1.2,o);c.restore();
+}
+// slam: scale down + fade in
+function slam(c,s,x,y,p,o={}){
+  const e=eo(cl(p));const sc=lerp(o.from||1.35,1,e);
+  c.save();c.translate(x,y);c.scale(sc,sc);c.globalAlpha*=cl(p*3);
+  txt(c,s,0,0,Object.assign({},o,{a:o.a||'center',b:o.b||'middle'}));c.restore();
+}
+// per letter reveal
+function letters(c,s,x,y,t,o={}){
+  const sz=o.s||100;font(c,o.f||'bc',sz,o.w);
+  let total=tw(c,s,o.f||'bc',sz,o.w,o.ls||0);let cx=o.a==='center'?x-total/2:x;
+  for(let i=0;i<s.length;i++){
+    const ch=s[i];const cw=tw(c,ch,o.f||'bc',sz,o.w,o.ls||0);
+    const p=eo(pr(t,i*(o.st||.035),i*(o.st||.035)+(o.d||.45)));
+    c.save();c.beginPath();c.rect(cx-5,y-sz*1.05,cw+10,sz*1.3);c.clip();
+    txt(c,ch,cx,y+(1-p)*sz*1.1,Object.assign({},o,{a:'left'}));c.restore();cx+=cw;
+  }
+}
+function rect(c,x,y,w,h,col,a=1){c.save();c.globalAlpha*=a;c.fillStyle=col;c.fillRect(x,y,w,h);c.restore()}
+function imgCover(c,img,t,o={}){
+  const z=(o.z0||1.08)+((o.z1||1.2)-(o.z0||1.08))*t;
+  const s=Math.max(W/img.width,H/img.height)*z;
+  const w=img.width*s,h=img.height*s;
+  c.save();c.filter=o.filter||'grayscale(0.35) contrast(1.15) brightness(0.55)';
+  c.drawImage(img,(W-w)/2+(o.dx||0)*t,(H-h)/2+(o.dy||0)*t,w,h);c.restore();
+}
+function grid(c,a,step=60,off=0){
+  c.save();c.globalAlpha*=a;c.strokeStyle='rgba(255,255,255,.09)';c.lineWidth=1;c.beginPath();
+  for(let x=-(off%step);x<W;x+=step){c.moveTo(x+.5,0);c.lineTo(x+.5,H)}
+  for(let y=0;y<H;y+=step){c.moveTo(0,y+.5);c.lineTo(W,y+.5)}c.stroke();
+  c.strokeStyle='rgba(255,237,0,.12)';c.beginPath();
+  for(let x=-(off%(step*5));x<W;x+=step*5){c.moveTo(x+.5,0);c.lineTo(x+.5,H)}
+  for(let y=0;y<H;y+=step*5){c.moveTo(0,y+.5);c.lineTo(W,y+.5)}c.stroke();c.restore();
+}
+function polyReveal(c,pts,p,col,lw,glow){
+  // draw first p fraction of polyline length
+  let L=0;const seg=[];for(let i=1;i<pts.length;i++){const l=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);seg.push(l);L+=l}
+  let rem=L*cl(p);c.save();c.strokeStyle=col;c.lineWidth=lw;c.lineCap='round';c.lineJoin='round';
+  if(glow){c.shadowColor=col;c.shadowBlur=glow}
+  c.beginPath();c.moveTo(pts[0][0],pts[0][1]);let hx=pts[0][0],hy=pts[0][1];
+  for(let i=1;i<pts.length&&rem>0;i++){const l=seg[i-1];const f=Math.min(1,rem/l);hx=lerp(pts[i-1][0],pts[i][0],f);hy=lerp(pts[i-1][1],pts[i][1],f);c.lineTo(hx,hy);rem-=l}
+  c.stroke();c.restore();return [hx,hy];
+}
+function headGlow(c,x,y,r,col){c.save();const g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.15,col);g.addColorStop(1,'rgba(255,237,0,0)');c.fillStyle=g;c.beginPath();c.arc(x,y,r,0,7);c.fill();c.restore()}
+function label(c,s,x,y,o={}){txt(c,s,x,y,Object.assign({f:'mo',s:22,w:500,c:G,ls:3},o))}
+function bar(c,x,y,w,h,p,col=Y,dir=1){const e=eo(cl(p));if(dir>0)rect(c,x,y,w*e,h,col);else rect(c,x+w*(1-e),y,w*e,h,col)}
+function numLabel(c,n,x,y,a=1){c.save();c.globalAlpha*=a;txt(c,n,x,y,{f:'mo',s:26,w:500,c:Y,ls:4});c.restore()}
+
+// Logo mark (reconstruction): open double ring + ERB
+function logo(c,cx,cy,sc,p,col=K,sub=true,subCol){
+  c.save();c.translate(cx,cy);c.scale(sc,sc);
+  const a0=0.30*Math.PI,a1=1.70*Math.PI; // opening to the right
+  const p1=eio(pr(p,0,.45)),p2=eio(pr(p,.08,.53));
+  c.strokeStyle=col;c.lineCap='butt';
+  c.lineWidth=14;c.beginPath();c.arc(0,0,120,a1,a1-(a1-a0)*p1,true);c.stroke();
+  c.lineWidth=9;c.beginPath();c.arc(0,0,92,a1,a1-(a1-a0)*p2,true);c.stroke();
+  // ERB letters
+  const lp=pr(p,.35,.8);
+  c.save();c.beginPath();c.rect(-70,-80,420,160);c.clip();
+  txt(c,'ERB',-52+(1-eo(lp))*-60,4,{s:150,w:800,c:col,b:'middle',ls:2,al:cl(lp*3)});c.restore();
+  if(sub){const sp=pr(p,.6,1);
+    c.save();c.beginPath();c.rect(-160,150,760,70);c.clip();
+    txt(c,'Esslinger Rohrleitungsbau GmbH',-150,196+(1-eo(sp))*60,{f:'in',s:40,w:600,c:subCol||col});c.restore();}
+  c.restore();
+}
+
+// icons
+function iconFlame(c,x,y,s,col){c.save();c.translate(x,y);c.scale(s,s);c.fillStyle=col;c.beginPath();c.moveTo(0,-50);c.bezierCurveTo(30,-15,40,5,40,20);c.bezierCurveTo(40,45,20,55,0,55);c.bezierCurveTo(-20,55,-40,45,-40,20);c.bezierCurveTo(-40,0,-20,-10,-15,-30);c.bezierCurveTo(-5,-15,0,-10,5,-8);c.bezierCurveTo(8,-25,5,-40,0,-50);c.fill();c.restore()}
+function iconDrop(c,x,y,s,col){c.save();c.translate(x,y);c.scale(s,s);c.fillStyle=col;c.beginPath();c.moveTo(0,-55);c.bezierCurveTo(20,-25,40,0,40,20);c.arc(0,20,40,0,Math.PI);c.bezierCurveTo(-40,0,-20,-25,0,-55);c.fill();c.restore()}
+function iconHeat(c,x,y,s,col){c.save();c.translate(x,y);c.scale(s,s);c.strokeStyle=col;c.lineWidth=10;c.lineCap='round';for(let i=-1;i<=1;i++){c.beginPath();for(let k=0;k<=20;k++){const yy=-50+k*5;const xx=i*28+Math.sin(k/20*Math.PI*2)*10;k?c.lineTo(xx,yy):c.moveTo(xx,yy)}c.stroke()}c.restore()}
+
+// sparks
+function sparks(c,t,cx,cy,n,seed){
+  c.save();c.globalCompositeOperation='lighter';
+  for(let i=0;i<n;i++){
+    const r=rng(seed+i*13);const born=r()*6;const life=.35+r()*.8;
+    let age=(t-born)%6; if(age<0) age+=6; if(age>life) continue;
+    const ang=-Math.PI*(0.05+r()*.9)+ (r()-.5)*.6;const sp=600+r()*1300;
+    const x=cx+Math.cos(ang)*sp*age;const y=cy+Math.sin(ang)*sp*age+900*age*age;
+    const vx=Math.cos(ang)*sp,vy=Math.sin(ang)*sp+1800*age;const vl=Math.hypot(vx,vy);
+    const L=16+r()*20;const f=1-age/life;
+    c.strokeStyle=`rgba(255,${200+r()*55|0},${90+r()*100|0},${f})`;c.lineWidth=2+r()*2;
+    c.beginPath();c.moveTo(x,y);c.lineTo(x-vx/vl*L,y-vy/vl*L);c.stroke();
+  }
+  c.restore();
+}
+
+// pipe network (precomputed)
+const NET=(()=>{const r=rng(42);const lines=[];
+  for(let i=0;i<34;i++){let x=Math.round(r()*32)*60,y=Math.round(r()*18)*60;const pts=[[x,y]];let dir=r()<.5?0:1;
+    for(let k=0;k<4+r()*5;k++){const len=(2+Math.floor(r()*7))*60;const sgn=r()<.5?-1:1;if(dir===0)x+=len*sgn;else y+=len*sgn;pts.push([x,y]);dir=1-dir}
+    lines.push({pts,d:r()*1.4,sp:.9+r()*1.2,w:r()<.25?5:2})}
+  return lines})();
+
+// ---------- assets ----------
+const IM={};
+async function load(){
+  const fonts=[['BC','bc-500',500],['BC','bc-700',700],['BC','bc-800',800],['BC','bc-900',900],['IN','inter-400',400],['IN','inter-600',600],['IN','inter-700',700],['MO','mono-500',500]];
+  await Promise.all(fonts.map(async([fam,f,w])=>{const ff=new FontFace(fam,`url(fonts/${f}.woff2)`,{weight:String(w)});await ff.load();document.fonts.add(ff)}));
+  const imgs={rohr:'header-rohrleitungsbau-01',heiz:'header-heizungsbau-01',bad:'header-badinstallation-01',verm:'header-vermietung-01',schw:'header-schweissfachhandel-01'};
+  await Promise.all(Object.entries(imgs).map(([k,f])=>new Promise(res=>{const i=new Image();i.onload=()=>{IM[k]=i;res()};i.src=`img/${f}.jpg`})));
+  // grain tiles
+  IM.grain=[];for(let g=0;g<6;g++){const gc=document.createElement('canvas');gc.width=gc.height=256;const gx=gc.getContext('2d');const id=gx.createImageData(256,256);const r=rng(g+1);
+    for(let i=0;i<id.data.length;i+=4){const v=r()*255|0;id.data[i]=id.data[i+1]=id.data[i+2]=v;id.data[i+3]=255}gx.putImageData(id,0,0);IM.grain.push(gx.createPattern(gc,'repeat'))}
+}
+
+// ---------- scenes ----------
+// each: [start,end,fn(c,lt,t)]
+const S=[];
+const sc=(a,b,f,o={})=>S.push({a,b,f,o});
+
+// 1 Intro 0-4
+sc(0,4,(c,t)=>{
+  rect(c,0,0,W,H,D);grid(c,pr(t,0,1.2)*.9,60,t*10);
+  const pts=[[-20,860],[1280,860],[1280,300],[1960,300]];
+  const [hx,hy]=polyReveal(c,pts,eio(pr(t,.2,3.6)),Y,10,25);
+  if(t>.2&&t<3.7)headGlow(c,hx,hy,70,'rgba(255,237,0,.8)');
+  label(c,'ESSLINGEN AM NECKAR',120,140,{al:pr(t,.3,.6)});
+  label(c,'48.74° N  /  9.31° E',120,176,{al:pr(t,.5,.8),c:Y});
+  const s1='UNTER DER STADT';letters(c,s1,120,560,t-1.2,{s:170,w:900,c:WH,st:.04});
+  if(t>2.3)rise(c,'liegt, was sie am Leben hält.',124,640,pr(t,2.3,2.9),{f:'in',s:52,w:400,c:'#d9d9d4'});
+  label(c,'ERB / 00',W-120,H-80,{a:'right',al:pr(t,.5,1)});
+});
+
+// 2 Word cuts 4-8
+const WORDS=[['GAS.',Y,K,'MEDIUM 01'],['WASSER.',K,Y,'MEDIUM 02'],['WÄRME.',Y,K,'MEDIUM 03'],['100 BAR',null,WH,'DRUCKSTUFE'],['DN 1000',K,Y,'NENNWEITE'],['STAHL',WH,K,'WERKSTOFF'],['PE-HD',Y,K,'WERKSTOFF'],['GUSS',null,Y,'WERKSTOFF']];
+sc(4,8,(c,t)=>{
+  const i=Math.min(7,Math.floor(t/.5));const lt=t-i*.5;const [w,bg,fg,lab]=WORDS[i];
+  if(bg)rect(c,0,0,W,H,bg);else{imgCover(c,i===3?IM.rohr:IM.verm,lt*2,{z0:1.3,z1:1.45,filter:'grayscale(1) contrast(1.3) brightness(0.35)'})}
+  c.save();c.translate(W/2,H/2);c.scale(1+lt*.12,1+lt*.12);c.translate(-W/2,-H/2);
+  slam(c,w,W/2,H/2+10,lt/.22,{s:330,w:900,c:fg,ls:4,from:1.5});c.restore();
+  label(c,lab,120,140,{c:fg===K?K:fg,al:.8});label(c,'0'+(i+1)+' / 08',W-120,140,{a:'right',c:fg===K?K:fg,al:.8});
+  // corner ticks
+  c.save();c.strokeStyle=fg;c.lineWidth=3;c.globalAlpha=.7;[[80,80,1,1],[W-80,80,-1,1],[80,H-80,1,-1],[W-80,H-80,-1,-1]].forEach(([x,y,sx,sy])=>{c.beginPath();c.moveTo(x,y+30*sy);c.lineTo(x,y);c.lineTo(x+30*sx,y);c.stroke()});c.restore();
+});
+
+// 3 Network 8-12
+sc(8,12,(c,t)=>{
+  rect(c,0,0,W,H,D);grid(c,.6,60,t*30);
+  c.save();c.translate(W/2,H/2);c.scale(1+t*.05,1+t*.05);c.translate(-W/2,-H/2);
+  NET.forEach((l,i)=>{const p=eio(pr(t,l.d*.8,l.d*.8+1.4/l.sp));polyReveal(c,l.pts,p,i%3?'rgba(255,237,0,.55)':Y,l.w,l.w>3?18:0);
+    if(p>=1){const e=l.pts[l.pts.length-1];c.save();c.fillStyle=Y;c.globalAlpha=.5+.5*Math.sin(t*8+i);c.fillRect(e[0]-7,e[1]-7,14,14);c.restore()}});
+  c.restore();
+  const bp=pr(t,.6,1.1);rect(c,0,H/2-150,W*eo(bp),300,'rgba(11,11,10,.88)');
+  rise(c,'WIR BRINGEN ES DAHIN,',W/2,H/2-20,pr(t,.8,1.3),{s:120,w:900,a:'center',c:WH});
+  rise(c,'WO ES HINGEHÖRT.',W/2,H/2+110,pr(t,1.1,1.6),{s:120,w:900,a:'center',c:Y});
+});
+
+// 4 Logo 12-16
+sc(12,16,(c,t)=>{
+  rect(c,0,0,W,H,Y);
+  // expanding rings shockwave
+  for(let k=0;k<3;k++){const p=pr(t,k*.12,1.2+k*.12);if(p>0&&p<1){c.save();c.strokeStyle=K;c.globalAlpha=(1-p)*.25;c.lineWidth=30*(1-p)+2;c.beginPath();c.arc(W/2-200,H/2-30,100+p*1300,0,7);c.stroke();c.restore()}}
+  const s=1.55+t*.03;logo(c,W/2-330,H/2-40,s,pr(t,.05,1.7),K,true);
+  label(c,'SEIT JAHRZEHNTEN IN ESSLINGEN',W/2,H-120,{a:'center',c:K,al:pr(t,1.8,2.3),ls:8});
+});
+
+// 5 Fünf Leistungen 16-20
+const LEIST=['ROHRLEITUNGSBAU','HEIZUNGSBAU','SANITÄRINSTALLATION','MASCHINENVERMIETUNG','SCHWEISSFACHHANDEL'];
+sc(16,20,(c,t)=>{
+  rect(c,0,0,W,H,K);grid(c,.4);
+  const n=Math.min(5,Math.floor(pr(t,.1,1.2)*5)+1);
+  txt(c,'0'+n,150,700,{s:560,w:900,c:Y,al:1});
+  rise(c,'LEISTUNGEN.',165,860,pr(t,.2,.6),{s:90,w:800,c:WH,ls:6});
+  rise(c,'EIN PARTNER.',165,950,pr(t,.5,.9),{s:90,w:800,c:G,ls:6});
+  LEIST.forEach((l,i)=>{const p=pr(t,.35+i*.28,.8+i*.28);const y=260+i*135;
+    c.save();c.globalAlpha=cl(p*2);
+    numLabel(c,'0'+(i+1),900+(1-eo(p))*200,y-40);
+    txt(c,l,1000+(1-eo(p))*300,y,{s:92,w:800,c:WH});
+    bar(c,1000,y+22,tw(c,l,'bc',92,800),4,pr(t,.6+i*.28,1.1+i*.28));c.restore()});
+});
+
+// Section title card helper
+function sectionCard(c,t,num,title,img,sub,side=1){
+  imgCover(c,img,t/6,{z0:1.1,z1:1.3,dx:-60*side});
+  // yellow panel slides
+  const p=eo(pr(t,0,.45));const pw=820;
+  c.save();c.globalAlpha=.94;rect(c,side>0?-pw+pw*p:W-pw*p,0,pw,H,Y);c.restore();
+  const x=side>0?-pw+pw*p:W-pw*p;
+  c.save();c.beginPath();c.rect(x,0,pw,H);c.clip();
+  txt(c,num,x+90,330,{s:300,w:900,c:K,al:.13});
+  rise(c,num,x+95,300,pr(t,.2,.6),{f:'mo',s:34,w:500,c:K,ls:6});
+  let yy=460;title.forEach((tl,i)=>{rise(c,tl,x+90,yy,pr(t,.28+i*.1,.75+i*.1),{s:tl.length>12?118:140,w:900,c:K});yy+= (tl.length>12?118:140)*.92});
+  if(sub)sub.forEach((s,i)=>rise(c,s,x+94,yy+50+i*50,pr(t,.6+i*.1,1.1+i*.1),{f:'in',s:34,w:400,c:'#222'}));
+  c.restore();
+}
+
+// 6 Rohrleitungsbau 20-30
+sc(20,23,(c,t)=>sectionCard(c,t,'01',['ROHRLEITUNGS-','BAU'],IM.rohr,['Für den sicheren Transport fester,','flüssiger und gasförmiger Medien.']));
+sc(23,25,(c,t)=>{ // gauge 100 bar
+  rect(c,0,0,W,H,K);grid(c,.5);
+  const cx=620,cy=600,R=330;const v=ex(pr(t,.05,1.3))*100;
+  c.save();c.lineCap='butt';c.strokeStyle='#2a2a28';c.lineWidth=40;c.beginPath();c.arc(cx,cy,R,Math.PI*.75,Math.PI*2.25);c.stroke();
+  c.strokeStyle=Y;c.shadowColor=Y;c.shadowBlur=30;c.beginPath();c.arc(cx,cy,R,Math.PI*.75,Math.PI*.75+Math.PI*1.5*v/100);c.stroke();c.restore();
+  for(let i=0;i<=10;i++){const a=Math.PI*.75+Math.PI*1.5*i/10;c.save();c.strokeStyle=i*10<=v?Y:'#555';c.lineWidth=4;c.beginPath();c.moveTo(cx+Math.cos(a)*(R-60),cy+Math.sin(a)*(R-60));c.lineTo(cx+Math.cos(a)*(R-90),cy+Math.sin(a)*(R-90));c.stroke();c.restore()}
+  const na=Math.PI*.75+Math.PI*1.5*v/100+Math.sin(t*40)*.01*(v>98?1:0);
+  c.save();c.strokeStyle=WH;c.lineWidth=8;c.lineCap='round';c.beginPath();c.moveTo(cx,cy);c.lineTo(cx+Math.cos(na)*(R-110),cy+Math.sin(na)*(R-110));c.stroke();c.fillStyle=Y;c.beginPath();c.arc(cx,cy,22,0,7);c.fill();c.restore();
+  txt(c,Math.round(v)+'',cx,cy+210,{s:120,w:900,c:WH,a:'center'});label(c,'BAR',cx,cy+255,{a:'center',c:Y});
+  label(c,'GASVERSORGUNG',1120,330,{c:Y,al:pr(t,.1,.4)});
+  rise(c,'BIS 100 BAR.',1115,480,pr(t,.2,.6),{s:150,w:900,c:WH});
+  rise(c,'Gasleitungen in allen Nennweiten',1120,570,pr(t,.45,.9),{f:'in',s:38,w:400,c:'#cfcfca'});
+  rise(c,'und Druckstufen – Guss, Stahl, PE-HD.',1120,620,pr(t,.55,1),{f:'in',s:38,w:400,c:'#cfcfca'});
+  rise(c,'DVGW G1',1120,740,pr(t,.8,1.2),{f:'mo',s:30,w:500,c:Y,ls:5});
+});
+sc(25,27,(c,t)=>{ // DN 1000 cross-section
+  rect(c,0,0,W,H,Y);
+  const cx=1380,cy=540;
+  for(let i=0;i<7;i++){const p=eo(pr(t,i*.07,.8+i*.07));c.save();c.strokeStyle=K;c.globalAlpha=i===0?1:.18+.1*(6-i)/6;c.lineWidth=i===0?46:3;c.beginPath();c.arc(cx,cy,(380-i*48)*p,0,7);c.stroke();c.restore()}
+  c.save();c.setLineDash([12,12]);c.strokeStyle=K;c.lineWidth=3;const dp=eo(pr(t,.5,1.1));c.beginPath();c.moveTo(cx-400*dp,cy);c.lineTo(cx+400*dp,cy);c.stroke();c.restore();
+  label(c,'Ø',cx,cy-20,{c:K,a:'center',s:40,al:pr(t,.9,1.1)});
+  const v=Math.round(ex(pr(t,.1,1.2))*1000);
+  txt(c,'DN '+v,140,560,{s:260,w:900,c:K});
+  label(c,'WASSERVERSORGUNG',148,330,{c:K});
+  rise(c,'Wasserleitungen in allen Werkstoffen',148,650,pr(t,.4,.9),{f:'in',s:38,w:400,c:K});
+  rise(c,'und Druckbereichen – nach DVGW-Regelwerk.',148,700,pr(t,.5,1),{f:'in',s:38,w:400,c:K});
+  rise(c,'DVGW W1',148,810,pr(t,.8,1.2),{f:'mo',s:30,w:500,c:K,ls:5});
+});
+sc(27,30,(c,t)=>{ // three columns
+  rect(c,0,0,W,H,K);
+  const cols=[['GAS','G1 + PE',iconFlame],['WASSER','W1 + PE',iconDrop],['FERNWÄRME','FW 1',iconHeat]];
+  cols.forEach(([n,code,ic],i)=>{const p=eo(pr(t,i*.15,.6+i*.15));const x=i*W/3;
+    c.save();c.beginPath();c.rect(x,H*(1-p),W/3,H*p);c.clip();
+    rect(c,x,0,W/3,H,i===1?Y:K);if(i!==1)grid(c,.5);
+    ic(c,x+W/6,400+(1-p)*80,1.6,i===1?K:Y);
+    txt(c,n,x+W/6,640,{s:110,w:900,a:'center',c:i===1?K:WH});
+    label(c,'DVGW '+code,x+W/6,700,{a:'center',c:i===1?K:Y});c.restore();
+    if(i)rect(c,x,0,2,H,'#333')});
+  const tp=pr(t,1.2,1.8);rect(c,0,H-150,W*eo(tp),150,WH);
+  rise(c,'VON DER TRASSE BIS ZUM HAUSANSCHLUSS.',W/2,H-52,pr(t,1.4,1.9),{s:74,w:800,c:K,a:'center',ls:2});
+});
+
+// 7 Heizungsbau 30-36
+sc(30,33,(c,t)=>sectionCard(c,t,'02',['HEIZUNGSBAU'],IM.heiz,['Welche Heizung ist die beste?','Wir planen Ihre Modernisierung.'],-1));
+sc(33,36,(c,t)=>{
+  imgCover(c,IM.heiz,t/3,{z0:1.5,z1:1.7,filter:'grayscale(1) brightness(0.25) blur(4px)'});
+  const L=[['GRÜNDLICH','GEPLANT.'],['SAUBER','AUSGEFÜHRT.'],['IM','ZEITPLAN.']];
+  L.forEach(([a,b],i)=>{const p=pr(t,i*.5,i*.5+.4);const y=320+i*230;
+    c.save();c.globalAlpha=cl(p*3);txt(c,a,140+(1-eo(p))*-120,y,{s:170,w:900,c:WH});
+    const bw=tw(c,b,'bc',170,900)+40;bar(c,140+tw(c,a+' ','bc',170,900)-20,y-150,bw,180,pr(t,i*.5+.1,i*.5+.4));
+    const p2=pr(t,i*.5+.2,i*.5+.5);c.save();c.beginPath();c.rect(0,y-160,W,200);c.clip();
+    txt(c,b,140+tw(c,a+' ','bc',170,900),y+(1-eo(p2))*190,{s:170,w:900,c:K});c.restore();c.restore()});
+  // check marks
+  L.forEach((_,i)=>{const p=pr(t,i*.5+.4,i*.5+.7);if(p>0){c.save();c.strokeStyle=Y;c.lineWidth=12;c.lineCap='round';c.beginPath();const x=1720,y=260+i*230;polyReveal(c,[[x-40,y],[x-10,y+35],[x+50,y-40]],eo(p),Y,14,0);c.restore()}});
+});
+
+// 8 Sanitär 36-42
+sc(36,39,(c,t)=>sectionCard(c,t,'03',['SANITÄR-','INSTALLATION'],IM.bad,['Ein schönes Bad bringt','mehr Lebensqualität.']));
+sc(39,42,(c,t)=>{
+  rect(c,0,0,W,H,WH);
+  // image framed and zooming
+  const p=eo(pr(t,0,.6));const fw=lerp(300,900,p),fh=fw*438/724;
+  c.save();c.beginPath();c.rect(W-160-fw,H/2-fh/2,fw,fh);c.clip();c.filter='contrast(1.1) brightness(0.95)';
+  const s=fw/724*1.1+t*.03;c.drawImage(IM.bad,W-160-fw/2-724*s/2,H/2-438*s/2,724*s,438*s);c.restore();
+  rect(c,W-160-fw-18,H/2-fh/2-18,12,fh+36,Y);
+  const words='MEHR LEBENS- QUALITÄT IM ALLTAG.'.split(' ');
+  words.forEach((w,i)=>rise(c,w,140,300+i*170,pr(t,.3+i*.2,.7+i*.2),{s:170,w:900,c:i===1||i===2?K:'#999'}));
+  label(c,'BADINSTALLATION · PLANUNG · MONTAGE',144,H-110,{c:'#555',al:pr(t,1.2,1.6)});
+});
+
+// 9 Vermietung 42-48
+sc(42,45,(c,t)=>sectionCard(c,t,'04',['MASCHINEN-','VERMIETUNG'],IM.verm,['Spezialmaschinen und Werkzeuge –','mit ausgebildetem Personal.'],-1));
+const MACH=[['KABELZIEHWINDE','KW 3000 · mit Zugkraftbegrenzung'],['ROHRBUNDTRANSPORTER','BRVT 16 · Kabeltrommel & PE-Rohr'],['EXMÜ PRO AIR','Das Multitalent für die Baustelle'],['LKW MIT LADEKRAN','Pritsche & Kran'],['LANGROHRHÄNGER','Stahl- und PE-Rohre bis 12 m']];
+sc(45,48,(c,t)=>{
+  rect(c,0,0,W,H,K);grid(c,.5,60,t*200);
+  label(c,'VERFÜGBAR AB DIESELSTRASSE 22',120,130,{c:Y});
+  MACH.forEach(([n,d],i)=>{const p=pr(t,i*.3,i*.3+.45);const y=200+i*165;const e=eo(p);
+    const x=lerp(W+100,220+i*60,e);
+    rect(c,x,y,1500,135,i%2?'#1c1c1a':'#232320');rect(c,x,y,12,135,Y);
+    numLabel(c,'0'+(i+1),x+40,y+80);
+    txt(c,n,x+140,y+88,{s:80,w:800,c:WH});
+    txt(c,d,x+140+tw(c,n,'bc',80,800)+40,y+84,{f:'in',s:30,w:400,c:G})});
+});
+
+// 10 Schweißfachhandel 48-54
+sc(48,54,(c,t)=>{
+  imgCover(c,IM.schw,t/6,{z0:1.2,z1:1.4,filter:'grayscale(0.6) contrast(1.3) brightness(0.3)'});
+  const cx=1460,cy=560;const fl=.7+.3*Math.sin(t*63)*Math.sin(t*17);
+  c.save();c.globalCompositeOperation='lighter';const g=c.createRadialGradient(cx,cy,0,cx,cy,520*fl);g.addColorStop(0,'rgba(255,255,240,.95)');g.addColorStop(.05,'rgba(160,210,255,.7)');g.addColorStop(.3,'rgba(255,170,40,.25)');g.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=g;c.fillRect(0,0,W,H);c.restore();
+  sparks(c,t+2,cx,cy,260,7);
+  numLabel(c,'05',140,290,pr(t,.1,.4));
+  rise(c,'SCHWEISS-',135,450,pr(t,.15,.55),{s:180,w:900,c:WH});
+  rise(c,'FACHHANDEL',135,610,pr(t,.3,.7),{s:180,w:900,c:Y});
+  ['Schweißerbedarf','Arbeitsschutzkleidung','Rohrleitungsbauausstattung'].forEach((s,i)=>{const p=pr(t,1+i*.3,1.4+i*.3);rect(c,140,700+i*70,10*eo(p),40,Y);rise(c,s,170,735+i*70,p,{f:'in',s:36,w:600,c:WH})});
+  label(c,'DIN EN ISO 15614-1 · WPQR',140,H-90,{al:pr(t,2.4,2.8),c:G});
+  // cut to white flash at 51 -> second shot: big text
+  if(t>3.5){const q=t-3.5;rect(c,0,0,W,H,K,cl(q*5));
+    slam(c,'STAHL.',W/2,H/2-150,q/.25,{s:220,w:900,c:WH});
+    if(q>.5)slam(c,'KUNSTSTOFF.',W/2,H/2+60,(q-.5)/.25,{s:220,w:900,c:Y});
+    if(q>1)slam(c,'ZUGELASSEN.',W/2,H/2+270,(q-1)/.25,{s:220,w:900,c:WH,stroke:WH,lw:3});}
+});
+
+// 11 Qualifikationen 54-64
+const Q=[['GW 301','G1 + PE','Gasleitungen · alle Druckstufen'],['GW 301','W1 + PE','Wasserleitungen'],['GW 302','R2','Relining mit Ringraum'],['FW 601','FW 1','Fernwärme · alle Nennweiten'],['FW 432','ANBOHREN','an Leitungen in Betrieb'],['ISO 15614-1','WPQR','Schweißverfahrensprüfung'],['ISO 9606-1','DIN-SCHWEISSER','Stahl'],['GW 330','PE-SCHWEISSER','PE 80 · PE 100 · PE-Xa'],['GW 15','ROHRUMHÜLLER','Nachumhüllung'],['GW 331','AUFSICHT','Schweißfachaufsicht'],['TrinkwV','PROBENNEHMER','zertifiziert'],['HWK','MEISTERBETRIEB','Handwerkskammer Stuttgart']];
+sc(54,56,(c,t)=>{
+  rect(c,0,0,W,H,K);grid(c,.5);
+  letters(c,'ZERTIFIZIERT.',W/2,H/2+90,t,{s:300,w:900,c:WH,a:'center',st:.04});
+  // stamp
+  const p=pr(t,.9,1.2);if(p>0){c.save();c.translate(1560,300);c.rotate(-.2);c.scale(lerp(2.2,1,eo(p)),lerp(2.2,1,eo(p)));c.globalAlpha=cl(p*3);c.strokeStyle=Y;c.lineWidth=8;c.beginPath();c.arc(0,0,120,0,7);c.stroke();c.lineWidth=3;c.beginPath();c.arc(0,0,100,0,7);c.stroke();txt(c,'DVGW',0,-8,{s:70,w:900,c:Y,a:'center',b:'middle'});label(c,'GEPRÜFT',0,45,{a:'center',c:Y,s:20});c.restore()}
+  label(c,'QUALIFIKATIONEN',120,130,{c:Y});
+});
+sc(56,62,(c,t)=>{
+  const i=Math.min(11,Math.floor(t/.5));const lt=t-i*.5;const [a,b,d]=Q[i];const inv=i%2===1;
+  rect(c,0,0,W,H,inv?Y:K);if(!inv)grid(c,.4);
+  const fg=inv?K:WH,ac=inv?K:Y;
+  c.save();c.translate(W/2,H/2);c.scale(1+lt*.08,1+lt*.08);c.translate(-W/2,-H/2);
+  slam(c,a,W/2,330,lt/.18,{f:'mo',s:60,w:500,c:ac,ls:8,from:1.2});
+  slam(c,b,W/2,540,lt/.2,{s:250,w:900,c:fg,from:1.4});
+  slam(c,d,W/2,720,(lt-.08)/.2,{f:'in',s:44,w:400,c:inv?'#222':'#cfcfca',from:1.1});c.restore();
+  // progress ticks
+  for(let k=0;k<12;k++)rect(c,W/2-12*30/2+k*30,H-110,18,6,k<=i?ac:(inv?'rgba(0,0,0,.2)':'#333'));
+  label(c,String(i+1).padStart(2,'0')+' / 12',W-120,130,{a:'right',c:ac});
+});
+sc(62,64,(c,t)=>{
+  rect(c,0,0,W,H,K);
+  Q.forEach(([a,b],i)=>{const col=i%4,row=Math.floor(i/4);const p=pr(t,i*.03,i*.03+.35);const x=150+col*420,y=170+row*170;
+    c.save();c.globalAlpha=cl(p*2);c.strokeStyle='#3a3a37';c.lineWidth=2;c.strokeRect(x,y+(1-eo(p))*40,390,140);
+    label(c,a,x+24,y+46+(1-eo(p))*40,{c:Y,s:20});txt(c,b,x+24,y+110+(1-eo(p))*40,{s:52,w:800,c:WH});c.restore()});
+  const p=pr(t,.8,1.3);rect(c,0,H-240,W*eo(p),240,Y);
+  rise(c,'MITGLIED IM DVGW · RBV · SHK-INNUNG',W/2,H-100,pr(t,1,1.5),{s:80,w:900,c:K,a:'center',ls:3});
+});
+
+// 12 Projekte 64-76
+const P=[['2019','ÜBERGABESTATION','Gas & Wasser für das Mercedes-Benz Werk Esslingen-Brühl – im Auftrag der SWE.'],['2021','VOGELSANGBRÜCKE','Gas-Mitteldruckleitung DN 300 unter der Brücke – über dem Neckar.'],['2022','FERNWÄRME','Zwei Anschlüsse DN 65 eingebaut – ohne die Wärmezufuhr zu unterbrechen.'],['2023','STUTTGART','Sickstraße: neue Stahlleitung DN 400 in alte Guss-Leitung DN 600 eingezogen.']];
+sc(64,76,(c,t)=>{
+  rect(c,0,0,W,H,D);
+  const idx=Math.min(3,Math.floor(t/3));const lt=t-idx*3;
+  // camera pan along timeline
+  const camX=lerp(idx*1400,(idx)*1400,1)+eio(pr(lt,0,.5))*0;
+  const panFrom=(idx-1)*1400,panTo=idx*1400;const cam=idx===0?-200+eo(pr(lt,0,.8))*200:lerp(panFrom,panTo,eio(pr(lt,0,.5)));
+  grid(c,.5,60,cam*.5);
+  c.save();c.translate(-cam,0);
+  const ty=820;rect(c,-400,ty,6000,4,'#333');rect(c,-400,ty,cam+400+300,4,Y);
+  P.forEach(([y,h,d],i)=>{const x=260+i*1400;const on=i<idx||(i===idx&&lt>.3);
+    c.save();c.fillStyle=on?Y:'#333';c.beginPath();c.arc(x,ty+2,on?16:10,0,7);c.fill();c.restore();
+    txt(c,y,x-20,ty-40,{s:430,w:900,c:'transparent',stroke:i===idx?Y:'#2e2e2b',lw:3});
+  });
+  c.restore();
+  const [y,h,d]=P[idx];
+  label(c,'ABGEWICKELTE PROJEKTE',120,130,{c:Y});label(c,'0'+(idx+1)+' / 04',W-120,130,{a:'right',c:Y});
+  rise(c,h,1040,380,pr(lt,.35,.8),{s:120,w:900,c:WH});
+  // wrap description
+  const words=d.split(' ');let line='',lines=[];c.save();font(c,'in',38,400);words.forEach(w=>{const tt=line?line+' '+w:w;if(c.measureText(tt).width>760){lines.push(line);line=w}else line=tt});lines.push(line);c.restore();
+  lines.forEach((l,k)=>rise(c,l,1044,470+k*54,pr(lt,.5+k*.08,.95+k*.08),{f:'in',s:38,w:400,c:'#cfcfca'}));
+  bar(c,1044,410,120,6,pr(lt,.4,.8));
+});
+
+// 13 Referenzen 76-82
+const REF=['EnBW','Stadtwerke Esslingen','SWLB','Stadtwerke Winnenden','Festo','Hornbach','Eurovia','Landkreis Esslingen','Diakonie Stetten','Stadt Ostfildern','Kirchheim','Gemeinde Tamm','Gemeinde Wangen','Deutsche Post Real Estate'];
+sc(76,82,(c,t)=>{
+  rect(c,0,0,W,H,K);
+  for(let r=0;r<5;r++){const dir=r%2?1:-1;const y=170+r*190;const sp=90+r*25;let x=(dir>0?-3000:0)+dir*t*sp- (r*350);
+    c.save();c.globalAlpha=r===2?1:.28;
+    for(let k=0;k<30;k++){const n=REF[(k+r*3)%REF.length];txt(c,n.toUpperCase(),x,y,{s:110,w:900,c:r===2?Y:'transparent',stroke:r===2?null:WH,lw:2});x+=tw(c,n.toUpperCase(),'bc',110,900)+90;
+      c.save();c.fillStyle=r===2?Y:WH;c.beginPath();c.arc(x-45,y-40,8,0,7);c.fill();c.restore();}
+    c.restore()}
+  const p=pr(t,.2,.7);rect(c,0,H/2-120+15,W,0,K);
+  c.save();c.fillStyle='rgba(18,18,17,.9)';c.fillRect(W/2-700*eo(p),H/2-330,1400*eo(p),150);c.restore();
+  rise(c,'PARTNER, DIE UNS VERTRAUEN.',W/2,H/2-220,pr(t,.4,.9),{s:100,w:900,c:WH,a:'center',ls:3});
+});
+
+// 14 Karriere 82-90
+const JOBS=['BAULEITER','DIN-SCHWEISSER','ANLAGENMECHANIKER','ROHRUMHÜLLER','PE-SCHWEISSER'];
+sc(82,90,(c,t)=>{
+  rect(c,0,0,W,H,Y);
+  if(t<3){
+    letters(c,'DIE COOLE TRUPPE',W/2,H/2-30,t,{s:230,w:900,c:K,a:'center',st:.035});
+    rise(c,'SUCHT DICH.',W/2,H/2+170,pr(t,.9,1.4),{s:230,w:900,c:K,a:'center'});
+    if(t>1.6){const p=pr(t,1.6,1.9);c.save();c.globalAlpha=cl(p*2);txt(c,'#COOLETRUPPE',W/2,H-110,{f:'mo',s:34,w:500,c:K,a:'center',ls:8});c.restore()}
+  } else {
+    const q=t-3;const i=Math.min(4,Math.floor(q/.8));const lt=q-i*.8;
+    if(i%2){rect(c,0,0,W,H,K)}
+    const fg=i%2?Y:K;
+    for(let k=-3;k<=3;k++){if(!k)continue;c.save();c.globalAlpha=.08;txt(c,JOBS[i],W/2+lt*80*k,H/2+k*190+60,{s:200,w:900,c:'transparent',stroke:fg,lw:2,a:'center'});c.restore()}
+    slam(c,JOBS[i],W/2,H/2,lt/.2,{s:220,w:900,c:fg,from:1.5});
+    label(c,'WIR STELLEN EIN · '+(i+1)+'/5',W/2,H/2+170,{a:'center',c:fg});
+    if(q>4){const p=pr(q,4,4.4);rect(c,0,H-200,W*eo(p),200,K);rise(c,'AUSBILDUNGSBETRIEB · ERB-ESSLINGEN.DE/KARRIERE',W/2,H-80,pr(q,4.2,4.6),{s:66,w:800,c:Y,a:'center',ls:3})}
+  }
+});
+
+// 15 Outro 90-98
+sc(90,98,(c,t)=>{
+  rect(c,0,0,W,H,K);grid(c,pr(t,0,1)*.5);
+  const pts=[[-20,760],[170,760],[170,440],[330,440]];
+  if(t<1.4){const [hx,hy]=polyReveal(c,pts,eio(pr(t,0,1.2)),Y,10,25);headGlow(c,hx,hy,60,'rgba(255,237,0,.8)')}
+  else polyReveal(c,pts,1,Y,10,0);
+  logo(c,520,440,1.3,pr(t,.9,2.6),Y,true,WH);
+  const info=[['TELEFON','0711 945 88 35-0'],['E-MAIL','info@erb-esslingen.de'],['ADRESSE','Dieselstraße 22 · 73734 Esslingen']];
+  info.forEach(([l,v],i)=>{const p=pr(t,2.4+i*.2,2.9+i*.2);label(c,l,1200,400+i*110,{al:cl(p*2),c:Y});rise(c,v,1196,445+i*110,p,{f:'in',s:40,w:600,c:WH})});
+  const p=pr(t,3.4,3.9);rect(c,0,H-170,W*eo(p),170,Y);
+  rise(c,'ERB-ESSLINGEN.DE',W/2,H-58,pr(t,3.6,4.1),{s:100,w:900,c:K,a:'center',ls:10});
+  rect(c,0,0,W,H,'#000',pr(t,7,8));
+});
+
+// ---------- cut FX ----------
+const CUTS=S.map(s=>s.a).filter(a=>a>0);
+// word-level micro cuts add glitch too
+for(let i=1;i<8;i++)CUTS.push(4+i*.5);for(let i=1;i<12;i++)CUTS.push(56+i*.5);for(let i=1;i<4;i++)CUTS.push(64+i*3);for(let i=1;i<5;i++)CUTS.push(85+i*.8);
+const IMPACTS=[4,12,16,20,23,25,27,30,36,42,48,51.5,54,56,64,76,82,90];
+const FLASH=[12,20,54,82,90];
+
+function renderFrame(t){
+  const fr=Math.round(t*FPS);
+  B.setTransform(1,0,0,1,0,0);B.globalAlpha=1;B.filter='none';B.globalCompositeOperation='source-over';
+  B.clearRect(0,0,W,H);
+  const s=S.find(s=>t>=s.a&&t<s.b)||S[S.length-1];
+  B.save();s.f(B,t-s.a,t);B.restore();
+
+  // shake
+  let sh=0;IMPACTS.forEach(i=>{const d=t-i;if(d>=0&&d<.35)sh=Math.max(sh,(1-d/.35)*14)});
+  const sx=(hash(fr)-.5)*2*sh,sy=(hash(fr+999)-.5)*2*sh;
+  X.setTransform(1,0,0,1,0,0);X.globalAlpha=1;X.filter='none';X.globalCompositeOperation='source-over';
+  X.fillStyle='#000';X.fillRect(0,0,W,H);
+  const zs=1+sh*.002;X.setTransform(zs,0,0,zs,W/2*(1-zs)+sx,H/2*(1-zs)+sy);X.drawImage(buf,0,0);X.setTransform(1,0,0,1,0,0);
+
+  // glitch slices near cuts
+  let g=0;CUTS.forEach(ct=>{const d=t-ct;if(d>=0&&d<.1)g=Math.max(g,1-d/.1)});
+  if(g>0){const r=rng(fr*31+5);for(let k=0;k<9;k++){const y=r()*H|0,h=(10+r()*90)|0,off=(r()-.5)*160*g;X.drawImage(buf,0,y,W,h,off,y,W,h)}
+    X.save();X.globalCompositeOperation='screen';X.globalAlpha=.35*g;X.filter='sepia(1) saturate(8) hue-rotate(-50deg)';X.drawImage(buf,14*g,0);X.filter='sepia(1) saturate(8) hue-rotate(160deg)';X.drawImage(buf,-14*g,0);X.restore()}
+  // flash
+  FLASH.forEach(ft=>{const d=t-ft;if(d>=0&&d<.2){X.fillStyle=`rgba(255,255,245,${(1-d/.2)*.85})`;X.fillRect(0,0,W,H)}});
+  // vignette
+  const vg=X.createRadialGradient(W/2,H/2,H*.45,W/2,H/2,H*1.05);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.45)');X.fillStyle=vg;X.fillRect(0,0,W,H);
+  // grain
+  X.save();X.globalAlpha=.055;X.globalCompositeOperation='overlay';X.fillStyle=IM.grain[fr%6];X.translate((hash(fr)*256)|0,(hash(fr+3)*256)|0);X.fillRect(-256,-256,W+512,H+512);X.restore();
+}
+window.renderFrame=renderFrame;
+window.ready=load().then(()=>{renderFrame(0);return true});
+window.DUR=DUR;window.FPS=FPS;
+</script></body></html>
