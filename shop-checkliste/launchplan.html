@@ -93,6 +93,15 @@
   .item.done .it-title{text-decoration:line-through; text-decoration-thickness:1.5px; color:var(--done)}
   .item.done .it-detail{color:var(--done)}
   .item.done .prio{opacity:.45}
+  .state{display:inline-block; vertical-align:2px; margin-left:6px; font-family:"Space Grotesk", Inter, sans-serif;
+    font-size:10.5px; font-weight:700; letter-spacing:.06em; padding:1px 7px; border-radius:4px; border:1px solid currentColor}
+  .state.st-part{color:var(--p2)}
+  .state.st-ofe{color:var(--p3)}
+  .state.st-fix{color:var(--accent)}
+  .state.st-new{color:var(--accent); background:var(--accent-soft); border-color:transparent}
+  .item.done .state{opacity:.6}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin:-12px 0 22px}
+  .legend .state{margin-left:0; margin-right:4px}
   .hidden{display:none!important}
 
   .howto{grid-column:2; margin-top:10px; border:1px solid var(--line); border-radius:8px; background:var(--surface)}
@@ -129,7 +138,7 @@
   <header class="top">
     <div class="eyebrow">LimitlessPoster · limitlessposter.com</div>
     <h1>Launch-Checkliste</h1>
-    <p class="sub">Alles, was bis zum Livegang und danach zu tun ist — zuletzt geprüft am 28.&nbsp;September&nbsp;2026. Jede offene Aufgabe hat eine aufklappbare Schritt-für-Schritt-Anleitung — jetzt mit direkten Links, Telefonnummern und Servicezeiten zu allem, was du brauchst. Häkchen werden in deinem Browser gespeichert.</p>
+    <p class="sub">Alles, was bis zum Livegang und danach zu tun ist — zuletzt komplett geprüft am 29.&nbsp;September&nbsp;2026 (Shop, Theme, Versand, Rechtstexte, Produkte; Printify soweit ohne Zugang möglich). Jede offene Aufgabe hat eine aufklappbare Schritt-für-Schritt-Anleitung — jetzt mit direkten Links, Telefonnummern und Servicezeiten zu allem, was du brauchst. Häkchen werden in deinem Browser gespeichert.</p>
   </header>
 
   <div class="board">
@@ -147,6 +156,8 @@
     <button class="chip" data-filter="p1" aria-pressed="false">Nur Prio&nbsp;1</button>
   </div>
 
+  <div class="legend"><span><span class="state st-part">Teilweise</span>angefangen, Rest offen</span><span><span class="state st-ofe">Mit OFE v3</span>erledigt sich mit dem Publish von OFE&nbsp;v3</span><span><span class="state st-fix">Behoben 29.09.</span>zurückgefallen und von Claude behoben</span><span><span class="state st-new">Neu 29.09.</span>neu aus dem Check</span></div>
+
   <a class="datalink" href="https://claude.ai/code/artifact/b78ee699-be90-44aa-b2f1-c34e5c8d98b4">
     <span class="ic">🗂️</span>
     <span>
@@ -157,7 +168,7 @@
   </a>
 
   <div class="callout">
-    <strong>Update 28.09.:</strong> <strong>Verpackungsgesetz erledigt</strong> — Printify deckt LUCID für alle Printify-Bestellungen ab (Nummer DE4139628009499); eigene Registrierung und Lizenzvertrag entfallen. Die Impressums-Zeile liegt als Vorlage bereit (API hat keinen Schreibzugriff auf Richtlinien). Außerdem 3 weitere neue Motive vom 21.09. auf Konvention gebracht.<br><br><strong>Update 21.09.:</strong> Deine <strong>11 neuen Printify-Motive vom 17.09.</strong> kamen mit englischen Printify-Texten, ohne GPSR-Block und ohne Collection in den Shop — Claude hat sie auf die Shop-Konvention gebracht (deutscher Titel, Beschreibung mit Größen in cm, GPSR, Versandformel, SEO-Text, Alt-Texte, Collections „New Drop" + Thema) und verifiziert. Theme OFE&nbsp;v3 wurde am 14./20.09. weiter ausgebaut (Rooms, 3D-Viewer, Gallery Wall) — die Deutschland-Texte sind dabei erhalten geblieben. Unverändert offen: die zwei Checkout-Richtlinien, Meta-Description, OFE&nbsp;v3 veröffentlichen, Shopify Payments.<br><br><strong>Update 03.09. — Shop auf Deutschland umgestellt:</strong> Von Claude per API erledigt und unabhängig verifiziert: EU-Markt deaktiviert, allgemeines Versandprofil bereinigt (nur DE, Express weg), Seiten AGB/FAQ/Über&nbsp;uns, alle 15 Collection-Meta-Texte, alle 99 Produktbeschreibungen (deutsche Gewährleistungsformel statt Printify-EU-Satz) und Theme OFE&nbsp;v3 (8 Steuertexte, Versandleiste „ab 50&nbsp;€" korrigiert). <strong>Neu für dich (2&nbsp;Min):</strong> die zwei Checkout-Richtlinien Versand + AGB einfügen — die API darf Richtlinien nicht schreiben. Reihenfolge: <strong>Richtlinien einfügen → Finanzamt (Fr 09:30 im Kalender) → LUCID → Zahlarten → Testbestellung → OFE&nbsp;v3 veröffentlichen → Passwort raus.</strong> Unten: fertige <strong>Vorlagen zum Kopieren</strong>.
+    <strong>Update 29.09. — Komplett-Check von Shop und Printify:</strong> Alle 69 Punkte neu bewertet, die Etiketten oben zeigen „Teilweise“ und „Mit OFE&nbsp;v3“. <strong>Wichtigster Befund:</strong> Printify hatte seine Versandprofile überschrieben, der Checkout hätte 23,19&nbsp;€ pro Poster verlangt. <strong>Von Claude behoben und per Probeberechnung geprüft:</strong> automatischer Gratisversand für Deutschland, der Testcode LAUNCH-TEST-100 ist damit kombinierbar (Testbestellung 0,00&nbsp;€). Außerdem heißt „Bestseller“ jetzt „Favoriten“, weil es noch keine Bestellungen gibt, und der kaputte Kontakt-Link auf „Über uns“ ist repariert. <strong>Gerade in Arbeit:</strong> Alt-Texte für 2.474 Bilder, Rahmen- und Größenangaben in Texten, Menü mit GRIT und ICONS, Feinschliff in OFE&nbsp;v3. <strong>Deine Reihenfolge:</strong> Richtlinien einfügen → Zahlarten → Testbestellung → OFE&nbsp;v3 veröffentlichen → Passwort raus.<br><br><strong>Update 28.09.:</strong> <strong>Verpackungsgesetz erledigt</strong> — Printify deckt LUCID für alle Printify-Bestellungen ab (Nummer DE4139628009499); eigene Registrierung und Lizenzvertrag entfallen. Die Impressums-Zeile liegt als Vorlage bereit (API hat keinen Schreibzugriff auf Richtlinien). Außerdem 3 weitere neue Motive vom 21.09. auf Konvention gebracht.<br><br><strong>Update 21.09.:</strong> Deine <strong>11 neuen Printify-Motive vom 17.09.</strong> kamen mit englischen Printify-Texten, ohne GPSR-Block und ohne Collection in den Shop — Claude hat sie auf die Shop-Konvention gebracht (deutscher Titel, Beschreibung mit Größen in cm, GPSR, Versandformel, SEO-Text, Alt-Texte, Collections „New Drop" + Thema) und verifiziert. Theme OFE&nbsp;v3 wurde am 14./20.09. weiter ausgebaut (Rooms, 3D-Viewer, Gallery Wall) — die Deutschland-Texte sind dabei erhalten geblieben. Unverändert offen: die zwei Checkout-Richtlinien, Meta-Description, OFE&nbsp;v3 veröffentlichen, Shopify Payments.<br><br><strong>Update 03.09. — Shop auf Deutschland umgestellt:</strong> Von Claude per API erledigt und unabhängig verifiziert: EU-Markt deaktiviert, allgemeines Versandprofil bereinigt (nur DE, Express weg), Seiten AGB/FAQ/Über&nbsp;uns, alle 15 Collection-Meta-Texte, alle 99 Produktbeschreibungen (deutsche Gewährleistungsformel statt Printify-EU-Satz) und Theme OFE&nbsp;v3 (8 Steuertexte, Versandleiste „ab 50&nbsp;€" korrigiert). <strong>Neu für dich (2&nbsp;Min):</strong> die zwei Checkout-Richtlinien Versand + AGB einfügen — die API darf Richtlinien nicht schreiben. Reihenfolge: <strong>Richtlinien einfügen → Finanzamt (Fr 09:30 im Kalender) → LUCID → Zahlarten → Testbestellung → OFE&nbsp;v3 veröffentlichen → Passwort raus.</strong> Unten: fertige <strong>Vorlagen zum Kopieren</strong>.
   </div>
 
   <!-- ===================== 0 · ADRESSBUCH ===================== -->
@@ -209,7 +220,7 @@
     <ul class="items">
       <li class="item" data-prio="1"><input type="checkbox" id="b0"><label for="b0">
         <span class="it-title">Richtlinien einfügen: Versand, AGB + LUCID im Impressum</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">Neu seit 03.09.: Die Shop-Seiten sagen schon „nur Deutschland", aber die zwei <strong>Checkout-Richtlinien</strong> (Einstellungen → Richtlinien) nennen noch „DE + EU" — die Shopify-Verbindung von Claude hat dafür keinen Schreibzugriff. Seit 28.09. kommt die <strong>LUCID-Zeile fürs Impressum</strong> dazu — gleiche Seite, gleicher Grund. Dauer: ~3 Minuten, alle Texte stehen unten bei den Vorlagen.</div>
+        <div class="it-detail">Stand 29.09. (per API nachgelesen): Die <strong>Versandrichtlinie</strong> nennt die EU noch an 3 Stellen, die <strong>Checkout-AGB</strong> (Stand 25.08.) in §&nbsp;4 Abs.&nbsp;2 und §&nbsp;5 Abs.&nbsp;1, und im <strong>Impressum</strong> fehlt die LUCID-Zeile. Das ist jetzt der wichtigste offene Punkt: Der Footer-Link „Versand &amp; Lieferung“ und das Hilfe-Center zeigen direkt auf die veraltete Versandrichtlinie. Claude darf Richtlinien nur lesen, nicht speichern. Dauer: ~3 Minuten, alle Texte stehen unten bei den Vorlagen.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 2 Min)</summary><ol>
         <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/settings/legal" target="_blank" rel="noopener">Admin → Einstellungen → Richtlinien</a>.</li>
@@ -220,15 +231,15 @@
       </ol></details></li>
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b1"><label for="b1">
         <span class="it-title">Versandländer vs. AGB konsistent machen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude erledigt (24.–25.08.): AGB, Versandrichtlinie und FAQ sagen einheitlich „Versand DE + EU inklusive"; die International-Zone (14 Nicht-EU-Länder, 19,99&nbsp;€) wurde aus dem allgemeinen Profil gelöscht; die Markets begrenzen den Checkout auf DE + EU („America" deaktiviert). Kein Express-Angebot — alle Texte dazu konsistent. <strong>Update 03.09.:</strong> Auf deine Entscheidung „erst nur Deutschland" hin ist der EU-Markt jetzt deaktiviert (Entwurf), das allgemeine Versandprofil hat nur noch die Zone Deutschland (eine Express-Methode für 9,99&nbsp;€ war noch drin und ist gelöscht), und Seiten, Collections, Produkte und OFE&nbsp;v3 sagen „Versand nur innerhalb Deutschlands".</div>
+        <div class="it-detail">✓ Technisch nur Deutschland (29.09. erneut geprüft): Nur der Markt „Deutschland“ ist aktiv, „Europäische Union“ und „America“ liegen als Entwurf. Für Österreich und alle anderen Länder gibt es keine Versandoption. Verlauf: am 24.–25.08. auf DE&nbsp;+&nbsp;EU vereinheitlicht, am 03.09. auf deine Entscheidung hin auf nur Deutschland umgestellt (Seiten, Collections, Produkte, OFE&nbsp;v3). Einziger Rest sind die zwei Checkout-Richtlinien, die stehen im Punkt „Richtlinien einfügen“ oben.</div>
       </label></li>
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b2"><label for="b2">
-        <span class="it-title">Printify-Versandprofile geklärt</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Endstand (25.08., live verifiziert): Die Varianten müssen in den Printify-Profilen bleiben — nur dort kann der Printify-Standort (der das Inventar hält) versenden; ein Umzug ins allgemeine Profil machte alle Produkte „ausverkauft" und wurde vollständig rückabgewickelt. Die USD-Zonen der Printify-Profile für Nicht-EU-Länder sind unschädlich, weil die Markets Nicht-EU-Käufe blockieren. Für DE + EU gilt deren Zone „Versand inklusive" (0&nbsp;€). Kaufbarkeit im Shop bestätigt.</div>
+        <span class="it-title">Versand innerhalb Deutschlands immer kostenlos</span><span class="prio pr1">Prio 1</span><span class="state st-fix">Behoben 29.09.</span>
+        <div class="it-detail">✓ Am 29.09. zurückgefallen und robust behoben: Printify hatte beim Veröffentlichen der neuen Motive (17./21.09.) seine 5 Versandprofile neu synchronisiert und den 0-€-Fix vom 03.09. überschrieben. Der Checkout hätte <strong>23,19&nbsp;€ pro Poster</strong> verlangt (61&nbsp;×&nbsp;91&nbsp;cm: 30,49&nbsp;€, mehrere Poster addiert), obwohl überall „versandkostenfrei“ steht. <strong>Fix von Claude:</strong> automatischer Rabatt „Kostenloser Versand Deutschland“ (nur DE, ohne Mindestbestellwert, ohne Enddatum, kombinierbar mit Rabattcodes). Er wirkt unabhängig davon, was Printify in die Profile schreibt. Per Probeberechnung verifiziert: 1 Poster 23,19&nbsp;€ → 0&nbsp;€, 2 Poster 46,39&nbsp;€ → 0&nbsp;€. Wichtig für künftige Rabattcodes: immer „mit Versandrabatten kombinierbar“ einstellen, sonst entfällt der Gratisversand. Die Versandart heißt im Checkout noch englisch „Standard Delivery“ (der Name kommt von Printify).</div>
       </label></li>
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b3"><label for="b3">
         <span class="it-title">Theme-Steuertexte auf § 19 UStG umstellen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude erledigt in OFE&nbsp;v3: Alle 8 Steuertext-Bausteine zeigen jetzt „Gemäß §&nbsp;19 UStG wird keine Umsatzsteuer ausgewiesen. Versand ist innerhalb Deutschlands und der EU kostenlos." statt „Inkl. Steuern". An den Preisen selbst war kein Steuerhinweis aktiv (geprüft).</div>
+        <div class="it-detail">✓ Von Claude erledigt in OFE&nbsp;v3: Alle 8 Steuertext-Bausteine und der Preisblock der Produktseite zeigen den §&nbsp;19-Hinweis statt „Inkl. Steuern“ (29.09. erneut geprüft). Kunden sehen das mit dem OFE-v3-Publish; das Live-Theme v2.0 zeigt noch „Steuern und Versand werden beim Checkout berechnet“.</div>
       </label></li>
 
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b9"><label for="b9">
@@ -244,15 +255,13 @@
 
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b4"><label for="b4">
         <span class="it-title">AGB als Checkout-Richtlinie eingefügt</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude über deinen PC erledigt (25.08.): Kompletter AGB-Text (Stand 25.08.) in Einstellungen → Richtlinien eingefügt — per API bestätigt: TERMS_OF_SERVICE existiert jetzt und ist im Checkout-Footer verlinkt. Bonus: Dadurch hängt Shopify AGB + Widerrufsbelehrung für deutsche Bestellungen automatisch als PDF an die Bestellbestätigung an.</div>
-      </label>
-</li>
+        <div class="it-detail">✓ Von Claude über deinen PC erledigt (25.08.): Kompletter AGB-Text in Einstellungen → Richtlinien eingefügt, im Checkout-Footer verlinkt. Dadurch hängt Shopify AGB + Widerrufsbelehrung für deutsche Bestellungen automatisch als PDF an die Bestellbestätigung. Der Inhalt nennt aber noch DE&nbsp;+&nbsp;EU; die drei Änderungen stecken im Punkt „Richtlinien einfügen“ oben.</div>
+      </label></li>
 
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="bd1"><label for="bd1">
         <span class="it-title">Checkout-Datenschutzerklärung ersetzt</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude über deinen PC erledigt (25.08.): Den „Automatisierte Richtlinie"-Schalter deaktiviert und das generische US-Template durch deine deutsche DSGVO-Version (17 Abschnitte) ersetzt. Auch die Versandrichtlinie wurde final abgestimmt (Versand DE+EU inklusive, keine Zusatzkosten).</div>
-      </label>
-</li>
+        <div class="it-detail">✓ Von Claude über deinen PC erledigt (25.08.): Den „Automatisierte Richtlinie“-Schalter deaktiviert und das generische US-Template durch deine deutsche DSGVO-Version (17 Abschnitte) ersetzt, 29.09. erneut geprüft. Offen ist nur der Zahlungsabschnitt, siehe „Datenschutzerklärung nach Zahlarten-Setup konkretisieren“.</div>
+      </label></li>
 
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="b5"><label for="b5">
         <span class="it-title">Verpackungsgesetz: LUCID über Printify abgedeckt</span><span class="prio pr1">Prio 1</span>
@@ -261,7 +270,7 @@
 
       <li class="item" data-prio="1"><input type="checkbox" id="b6"><label for="b6">
         <span class="it-title">Zahlungsarten scharf schalten</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">Geprüft (25.08.): Es sind <strong>keine Digital Wallets aktiv</strong> — Shopify Payments ist demnach sehr wahrscheinlich noch nicht eingerichtet. Dafür brauchst du: Ausweis, IBAN, PayPal-Geschäftskonto (siehe Datenmappe). Dauer: ~20–30 Minuten + Prüfzeit durch Shopify.</div>
+        <div class="it-detail">Stand 29.09.: weiterhin <strong>keine Digital Wallets aktiv</strong>, Shopify Payments ist also noch nicht eingerichtet. PayPal muss zum Launch laufen, weil AGB und Datenschutzerklärung es nennen. Wichtig: Die Verbindung zwischen PayPal und Claude (28.09.) ersetzt nicht die Verbindung zwischen PayPal und Shopify, die geht nur im Admin. Dafür brauchst du: Ausweis, IBAN, PayPal-Geschäftskonto (siehe Datenmappe). Dauer: ~20–30 Minuten + Prüfzeit durch Shopify.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 20–30 Min)</summary><ol>
         <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/settings/payments" target="_blank" rel="noopener">Admin → Einstellungen → Zahlungen</a>. Voraussetzung: Zwei-Faktor-Authentifizierung fürs Shopify-Konto aktiv (<a href="https://help.shopify.com/de/manual/payments/shopify-payments/setting-up-shopify-payments" target="_blank" rel="noopener">Einrichtungs-Anleitung</a>).</li>
@@ -273,32 +282,32 @@
 
       <li class="item" data-prio="1"><input type="checkbox" id="b7"><label for="b7">
         <span class="it-title">Komplette Testbestellung durchspielen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">Der Generalprobe-Durchlauf einmal von vorn bis hinten — inklusive Storno, damit nichts wirklich gedruckt wird. Dauer: ~15 Minuten.</div>
+        <div class="it-detail">Noch keine einzige Bestellung im Shop (29.09.). Vorbereitet: Code <strong>LAUNCH-TEST-100</strong> (100&nbsp;%, einmalig) ist seit 29.09. mit dem Gratisversand kombinierbar, die Probeberechnung ergibt <strong>0,00&nbsp;€ gesamt</strong>. Am besten nach „Richtlinien einfügen“, damit die Bestellmail schon die richtigen AGB anhängt. Danach Claude Bescheid geben, dann wird der Code gelöscht. Dauer: ~15 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 15 Min)</summary><ol>
-        <li>Vorbereitung bei Printify: <a href="https://printify.com/app/store/settings/order-settings" target="_blank" rel="noopener">Store settings → Order settings</a> → <strong>Order approval auf „Manually"</strong> stellen (verhindert, dass die Testbestellung sofort in den Druck geht).</li>
-        <li>In Shopify: <a href="https://admin.shopify.com/store/gexdm4-2q/settings/payments" target="_blank" rel="noopener">Einstellungen → Zahlungen</a> → Shopify Payments → <strong>Testmodus aktivieren</strong> (<a href="https://help.shopify.com/de/manual/checkout-settings/test-orders" target="_blank" rel="noopener">offizielle Anleitung zu Testbestellungen</a>).</li>
-        <li>Shop im Browser öffnen (Passwort eingeben) → ein Poster in den Warenkorb → Checkout mit deiner echten Adresse → Testkarte <strong>4242 4242 4242 4242</strong>, beliebiges Zukunftsdatum, CVC 123.</li>
-        <li>Dabei prüfen: Kauf-Button eindeutig („Jetzt kaufen"), <strong>keine Steuerzeile</strong>, §&nbsp;19-Hinweis sichtbar, Versand kostenlos, AGB/Widerruf im Footer verlinkt, AGB+Widerruf-PDFs an der Bestätigungs-Mail.</li>
-        <li>Bestellbestätigungs-Mail lesen: deutsch? Widerrufs-Link drin (nach Punkt „Bestellbestätigung" in Abschnitt&nbsp;2)?</li>
-        <li>Gegenprobe Ausland: Checkout mit Schweizer Adresse versuchen → es darf <strong>keine Versandoption</strong> geben.</li>
-        <li>Aufräumen: Bestellung in Shopify öffnen → <strong>stornieren/erstatten</strong>; bei Printify prüfen, dass nichts in Produktion ist; <strong>Testmodus wieder AUS</strong>.</li>
+        <li>Vorbereitung bei Printify: <a href="https://printify.com/app/store/settings/order-settings" target="_blank" rel="noopener">Store settings → Order settings</a> → <strong>Order approval auf „Manually“</strong> stellen (so geht die Bestellung nicht ungefragt in den Druck).</li>
+        <li>Shop im Browser öffnen (Passwort eingeben) → ein Poster in den Warenkorb → Checkout mit deiner echten Adresse → Rabattcode <strong>LAUNCH-TEST-100</strong> eingeben. Erwartet: Artikel 0&nbsp;€, Versand kostenlos, <strong>Gesamtsumme 0,00&nbsp;€</strong> → bestellen. (Wenn Shopify Payments schon läuft, kannst du stattdessen im <a href="https://admin.shopify.com/store/gexdm4-2q/settings/payments" target="_blank" rel="noopener">Testmodus</a> mit der Testkarte 4242&nbsp;4242&nbsp;4242&nbsp;4242 auch die Zahlung testen, <a href="https://help.shopify.com/de/manual/checkout-settings/test-orders" target="_blank" rel="noopener">Anleitung</a>.)</li>
+        <li>Dabei prüfen: Versandzeile kostenlos (Rabatt „Kostenloser Versand Deutschland“), <strong>keine Steuerzeile</strong>, §&nbsp;19-Hinweis, Kauf-Button eindeutig („Jetzt kaufen“), AGB/Widerruf im Checkout-Footer verlinkt.</li>
+        <li>Bestellbestätigungs-Mail lesen: deutsch? AGB- und Widerrufs-PDF angehängt, und zwar schon in der Fassung „nur Deutschland“ (dafür vorher „Richtlinien einfügen“ erledigen)?</li>
+        <li>Gegenprobe Ausland: Checkout mit Adresse in Österreich oder der Schweiz versuchen → es darf <strong>keine Versandoption</strong> geben.</li>
+        <li>Entscheiden: Bestellung bei Printify <strong>freigeben</strong> (= deine Musterbestellung, Printify berechnet dir Produktion + Versand) oder in Shopify <strong>stornieren</strong> und bei Printify prüfen, dass nichts in Produktion ist.</li>
+        <li><strong>Claude Bescheid geben:</strong> Dann wird LAUNCH-TEST-100 gelöscht, damit niemand sonst ein Gratis-Poster bekommt.</li>
       </ol></details></li>
 
       <li class="item" data-prio="1"><input type="checkbox" id="b10"><label for="b10">
         <span class="it-title">Theme OFE v3 veröffentlichen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">OFE&nbsp;v3 ist dein finales Theme und enthält alle Fixes (deutsche 404-/Warenkorb-/Kollektionen-Seite, §&nbsp;19-Steuertexte, Bestseller-Verlinkung, Footer bereinigt) — seit 03.09. zusätzlich alle Deutschland-only-Texte und die korrigierte Versandleiste („Kostenloser Versand innerhalb Deutschlands" statt fälschlich „ab 50&nbsp;€"; das Live-Theme v2.0 zeigt den Fehler noch). Dauer: ~5 Minuten.</div>
+        <div class="it-detail">OFE&nbsp;v3 ist dein finales Theme und enthält alle Fixes: deutsche 404-, Warenkorb- und Kollektionen-Seite, §&nbsp;19-Steuertexte, Deutschland-only-Texte, korrigierte Versandleiste. Das Live-Theme v2.0 zeigt dagegen noch „Kostenloser Versand ab 50&nbsp;€“, „Acht Kollektionen“, englische Warenkorb-Texte und Platzhalter-Social-Links (29.09. geprüft). Stand 29.09.: weiterhin unveröffentlicht. Achtung bei der Auswahl: Es gibt zwei ähnlich heißende Themes, veröffentlichen musst du „LimitlessPoster OFE v3“. Dauer: ~5 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 5 Min)</summary><ol>
         <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/themes" target="_blank" rel="noopener">Admin → Onlineshop → Themes</a>.</li>
-        <li>In der Liste der Theme-Bibliothek <strong>„LimitlessPoster OFE v3"</strong> suchen → Menü <strong>⋯</strong> → <strong>„Veröffentlichen"</strong> → bestätigen.</li>
-        <li>Danach einmal durchklicken: Startseite, eine Collection, eine Produktseite, Warenkorb, /collections (16 Kollektionen sichtbar?), eine Fantasie-URL für die 404-Seite (deutsch? „BESTSELLER"-Button führt zur Bestseller-Collection?).</li>
+        <li>In der Theme-Bibliothek genau <strong>„LimitlessPoster OFE v3“</strong> suchen (die richtige ist die mit Stand 20.09., nicht „OFE v3 — Experience (Claude WIP)“) → Menü <strong>⋯</strong> → <strong>„Veröffentlichen“</strong> → bestätigen.</li>
+        <li>Danach einmal durchklicken: Startseite, eine Collection, eine Produktseite, Warenkorb, /collections (16 Kollektionen sichtbar?), eine Fantasie-URL für die 404-Seite (deutsch? Button führt zur Favoriten-Collection?), Footer-Link „Datenschutz-Einstellungen“ (öffnet die Cookie-Einstellungen?).</li>
         <li>Falls irgendwo etwas klemmt: v2.0 bleibt in der Bibliothek — du kannst jederzeit zurück-publishen.</li>
       </ol></details></li>
 
       <li class="item" data-prio="1"><input type="checkbox" id="b8"><label for="b8">
         <span class="it-title">Passwortschutz entfernen — Launch 🚀</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">Erst wenn alle Punkte oben abgehakt sind — inklusive OFE-v3-Publish. Danach direkt: „Google Search Console" in Abschnitt&nbsp;6.</div>
+        <div class="it-detail">Stand 29.09.: Passwortschutz aktiv, 0 Bestellungen, 0 Kunden. Die Passwortseite von v2.0 ist englisch („Opening soon“), die von OFE&nbsp;v3 deutsch, also erst OFE&nbsp;v3 veröffentlichen. Passwort erst entfernen, wenn Richtlinien, Zahlarten, Testbestellung und OFE-v3-Publish erledigt sind. Danach direkt: „Google Search Console“ in Abschnitt&nbsp;6.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 2 Min)</summary><ol>
         <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/online_store/preferences" target="_blank" rel="noopener">Admin → Onlineshop → Präferenzen</a> (<a href="https://help.shopify.com/de/manual/online-store/themes/password-page" target="_blank" rel="noopener">Hilfe zur Passwortseite</a>).</li>
@@ -313,13 +322,13 @@
   <section data-sec="recht">
     <div class="sec-head"><span class="num">02</span><h2>Rechtliches &amp; Steuern</h2><span class="sec-count"></span></div>
     <ul class="items">
-      <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="r1"><label for="r1">
-        <span class="it-title">Impressum vorhanden und im Footer verlinkt</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Als Shop-Richtlinie hinterlegt und in den Footer-Menüs verlinkt. ✓ Live geprüft.</div>
+      <li class="item" data-prio="2"><input type="checkbox" id="r1"><label for="r1">
+        <span class="it-title">Impressum vorhanden und im Footer verlinkt</span><span class="prio pr2">Prio 2</span><span class="state st-ofe">Mit OFE v3</span>
+        <div class="it-detail">Das Impressum ist als Shop-Richtlinie hinterlegt (/policies/legal-notice) und im Ziel-Theme OFE&nbsp;v3 direkt im Footer verlinkt. Im aktuellen Live-Theme v2.0 steckt es nur im Richtlinien-Popover (29.09. geprüft). Erledigt sich mit „Theme OFE v3 veröffentlichen“, dann abhaken.</div>
       </label></li>
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="r2"><label for="r2">
         <span class="it-title">Impressum: USt-IdNr. eingetragen</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude auf deine Anweisung eingetragen und live verifiziert (27.08.): „Umsatzsteuer-Identifikationsnummer gemäß §&nbsp;27a UStG: DE463961672" steht jetzt im veröffentlichten Impressum unter dem Kontakt-Block. Alles andere im Impressum war bereits vollständig — es fehlt nur noch die LUCID-Nummer nach deiner Registrierung.</div>
+        <div class="it-detail">✓ Von Claude auf deine Anweisung eingetragen und live verifiziert (27.08.): „Umsatzsteuer-Identifikationsnummer gemäß §&nbsp;27a UStG: DE463961672“ steht im veröffentlichten Impressum. Alles andere im Impressum war bereits vollständig. Die LUCID-Zeile (Printify-Nummer) kommt mit dem Punkt „Richtlinien einfügen“.</div>
       </label></li>
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="r3"><label for="r3">
         <span class="it-title">Widerrufsbelehrung mit Muster-Widerrufsformular</span><span class="prio pr2">Prio 2</span>
@@ -327,12 +336,12 @@
       </label></li>
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="r4"><label for="r4">
         <span class="it-title">Widerruf: Seite und Checkout-Richtlinie identisch</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Byte-identisch verifiziert (24.08.). Beim Datenschutz war das NICHT so — dafür gibt es den Launch-Blocker „Checkout-Datenschutzerklärung ersetzen".</div>
+        <div class="it-detail">✓ Byte-identisch verifiziert (24.08.), am 29.09. erneut bestätigt. Kleinigkeit: Im Footer-Menü „Hilfe“ führen „Widerrufsrecht“ (Seite) und „Rückgaben &amp; Stornierungen“ (Richtlinie) auf denselben Inhalt. Stört nicht, kann Claude auf Wunsch zusammenlegen.</div>
       </label></li>
 
       <li class="item" data-prio="2"><input type="checkbox" id="r5"><label for="r5">
         <span class="it-title">Datenschutzerklärung nach Zahlarten-Setup konkretisieren</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Deine Datenschutz-Seite ist stark (17 Abschnitte, DSGVO-konform). Sobald Shopify Payments aktiv ist, den Anbieter konkret benennen. Google Fonts: geprüft — lokal gehostet, kein Abschnitt nötig.</div>
+        <div class="it-detail">Die Datenschutz-Seite ist stark (17 Abschnitte, DSGVO-konform). Sobald feststeht, welche Zahlarten live sind, Abschnitt&nbsp;7 (Zahlungsabwicklung) konkretisieren: Anbieter nennen und den Satz „Sofern wir weitere Zahlungsarten anbieten …“ streichen, auf der Seite UND in der Checkout-Richtlinie. Die Seite kann Claude anpassen, die Richtlinie machst du im Admin. Google Fonts: geprüft, lokal gehostet.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 5 Min, nach Zahlarten-Setup)</summary><ol>
         <li><a href="https://admin.shopify.com/store/gexdm4-2q/pages" target="_blank" rel="noopener">Admin → Onlineshop → Seiten</a> → „Datenschutzerklärung" öffnen.</li>
@@ -341,14 +350,14 @@
         <li>Speichern — und denselben Text auch in der Checkout-Richtlinie nachziehen (<a href="https://admin.shopify.com/store/gexdm4-2q/settings/legal" target="_blank" rel="noopener">Einstellungen → Richtlinien</a> → Datenschutzerklärung), damit beide synchron bleiben.</li>
       </ol></details></li>
 
-      <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="r6"><label for="r6">
-        <span class="it-title">Cookie-/Consent-Banner aktiv</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Verifiziert (25.08.): Shopify verwaltet den Banner automatisch für alle 28 Consent-Regionen — <strong>Deutschland und die komplette EU sind dabei</strong> (Regionsliste im Admin geprüft), und der Banner erschien live beim Shop-Test (deutsch, mit Datenschutz-Link). Nichts zu tun.</div>
+      <li class="item" data-prio="1"><input type="checkbox" id="r6"><label for="r6">
+        <span class="it-title">Cookie-/Consent-Banner aktiv</span><span class="prio pr1">Prio 1</span><span class="state st-part">Teilweise</span>
+        <div class="it-detail">Der Shopify-Cookie-Banner ist aktiv: Das Banner-Skript wird live ausgeliefert, am 25.08. erschien er deutsch. <strong>Neu 29.09.:</strong> Die Datenschutzerklärung verspricht einen Footer-Link, über den man die Einwilligung ändern kann. In OFE&nbsp;v3 führt „Datenschutz-Einstellungen“ aber auf Shopifys US-Opt-out-Seite statt zu den Cookie-Einstellungen. Claude baut das gerade in OFE&nbsp;v3 um. Bleibt für dich: nach dem Publish einmal im privaten Fenster testen.</div>
       </label></li>
 
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="r7"><label for="r7">
         <span class="it-title">GPSR-Pflichtblock in allen Produktbeschreibungen</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ In allen 99 aktiven Produkten — auch nach dem cm-Batch erneut verifiziert (99/99). Regel für die Zukunft: bei jedem neuen Produkt und jedem Beschreibungs-Edit erhalten!</div>
+        <div class="it-detail">✓ In allen 113 aktiven Produkten, jeweils mit §&nbsp;19-Hinweis (29.09. geprüft). Regel für die Zukunft: bei jedem neuen Produkt und jedem Beschreibungs-Edit erhalten!</div>
       </label></li>
 
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="r8"><label for="r8">
@@ -382,7 +391,12 @@
 
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="r11"><label for="r11">
         <span class="it-title">Keine veralteten OS-Plattform-Hinweise</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">✓ Gescannt (24.08.): Kein einziger ODR-Link in allen 7 Rechtstexten — nichts zu entfernen. Der §&nbsp;36 VSBG-Hinweis ist korrekt und bleibt.</div>
+        <div class="it-detail">✓ Gescannt (24.08., am 29.09. erneut): kein OS-Plattform- oder ODR-Link in Richtlinien, Seiten und Theme-Vorlagen. Der §&nbsp;36 VSBG-Hinweis ist korrekt und bleibt.</div>
+      </label></li>
+
+      <li class="item" data-prio="3"><input type="checkbox" id="rn2"><label for="rn2">
+        <span class="it-title">AGB §&nbsp;11: nur eigene Rechte beanspruchen</span><span class="prio pr3">Prio 3</span><span class="state st-new">Neu 29.09.</span>
+        <div class="it-detail">§&nbsp;11 sagt, alle Motive und Designs seien urheberrechtlich geschützt und ohne Zustimmung nicht nutzbar. Mehrere Motive zeigen aber fremde Marken oder reale Personen (siehe „Marken- und Bildrechte“ in Abschnitt&nbsp;4). Formuliere §&nbsp;11 bei dieser Entscheidung so, dass er nur Rechte an eigenen Texten, Fotos und Designs beansprucht. Die Seite /pages/agb kann Claude anpassen, die Checkout-AGB änderst du im Admin. Keine Rechtsberatung.</div>
       </label></li>
     </ul>
   </section>
@@ -395,14 +409,14 @@
         <span class="it-title">Domain limitlessposter.com verbunden, SSL aktiv</span><span class="prio pr2">Prio 2</span>
         <div class="it-detail">✓ Live geprüft — Domain als primäre Domain, HTTPS läuft.</div>
       </label></li>
-      <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="s2"><label for="s2">
-        <span class="it-title">Footer- und Hauptmenüs vollständig</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Live geprüft — Hauptmenü mit Collections, Footer mit Impressum, Datenschutz, AGB, Widerruf, Versand, Rückgaben, Datenschutz-Einstellungen; Kundenkonto-Menü vorhanden.</div>
+      <li class="item" data-prio="2"><input type="checkbox" id="s2"><label for="s2">
+        <span class="it-title">Footer- und Hauptmenüs vollständig</span><span class="prio pr2">Prio 2</span><span class="state st-ofe">Mit OFE v3</span>
+        <div class="it-detail">Die Menüs für OFE&nbsp;v3 sind angelegt (Hauptmenü, footer-shop, footer-info, footer-hilfe), alle Links funktionieren (29.09. geprüft). GRIT und ICONS fehlen noch im Untermenü „Kollektionen“, Claude ergänzt das gerade. Das Live-Theme v2.0 zeigt gar keine Footer-Menüs; das erledigt sich mit dem OFE-v3-Publish. Optional: Dubletten zwischen footer-info und footer-hilfe bereinigen (sag Bescheid).</div>
       </label></li>
 
       <li class="item" data-prio="2"><input type="checkbox" id="s0"><label for="s0">
         <span class="it-title">Homepage-Meta-Description auf Deutschland umstellen</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Die Beschreibung im Google-Snippet sagt noch „Versand nach DE &amp; EU inklusive" — die Präferenzen sind per API nicht erreichbar. Dauer: ~1 Minute, Text unten bei den Vorlagen.</div>
+        <div class="it-detail">Die Beschreibung im Google-Snippet und beim Teilen (og:description) sagt noch „Versand nach DE &amp; EU inklusive“. Die Präferenzen sind per API nicht erreichbar. Seit dem Versand-Fix vom 29.09. stimmt „versandkostenfrei innerhalb Deutschlands“ auch im Checkout. Dauer: ~1 Minute, Text unten bei den Vorlagen. Tipp: im selben Formular gleich das Social-Sharing-Bild hochladen (Abschnitt&nbsp;5).</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 1 Min)</summary><ol>
         <li>Direkt öffnen: <a href="https://admin.shopify.com/store/gexdm4-2q/online_store/preferences" target="_blank" rel="noopener">Admin → Onlineshop → Präferenzen</a>.</li>
@@ -410,7 +424,7 @@
       </ol></details></li>
       <li class="item" data-prio="2"><input type="checkbox" id="s3"><label for="s3">
         <span class="it-title">E-Mail-Absender auf eigene Domain umstellen</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">info@limitlessposter.com statt Gmail — sonst landen Bestellmails im Spam und wirken unseriös. Dauer: ~30–45 Minuten (plus DNS-Wartezeit).</div>
+        <div class="it-detail">Stand 29.09.: Absender ist noch Gmail. info@limitlessposter.com statt Gmail, sonst landen Bestellmails im Spam und wirken unseriös. Danach kann Claude die Adresse in allen Seiten per API ersetzen, die Richtlinien machst du im Admin. Dauer: ~30–45 Minuten (plus DNS-Wartezeit).</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 30–45 Min)</summary><ol>
         <li>Kostenlose Mailbox anlegen: <a href="https://mail.zoho.eu/signup?type=org&amp;plan=free" target="_blank" rel="noopener">Zoho Mail „Forever Free" — direkt im EU-Rechenzentrum</a> → Domain <strong>limitlessposter.com</strong> angeben. (Free-Plan: bis 5 Nutzer, je 5&nbsp;GB; Abruf per Webmail/Zoho-App, kein IMAP/Outlook — <a href="https://www.zoho.com/de/mail/zohomail-pricing.html" target="_blank" rel="noopener">Preisübersicht</a>.)</li>
@@ -433,7 +447,7 @@
 
       <li class="item" data-prio="2"><input type="checkbox" id="s5"><label for="s5">
         <span class="it-title">Rechnungslösung einrichten (§ 19-Hinweis)</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Shopify erstellt von sich aus keine deutschen Rechnungen. Für den Start reicht die kostenlose Shopify-App „Order Printer". Dauer: ~15 Minuten.</div>
+        <div class="it-detail">Stand 29.09.: noch keine Rechnungs-App. Shopify erstellt von sich aus keine deutschen Rechnungen. Für den Start reicht die kostenlose Shopify-App „Order Printer“; am besten mit der Testbestellung prüfen. Dauer: ~15 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 15 Min)</summary><ol>
         <li><a href="https://apps.shopify.com/shopify-order-printer" target="_blank" rel="noopener">„Shopify Order Printer" im App Store öffnen</a> (von Shopify, kostenlos) → installieren.</li>
@@ -444,8 +458,8 @@
       </ol></details></li>
 
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="s6"><label for="s6">
-        <span class="it-title">Markets auf DE+EU begrenzt</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Geprüft (24.08.): Aktiv sind nur „Deutschland" und „Europäische Union"; der Markt „America" (GB/US) ist deaktiviert. Passt exakt zur Versand-Entscheidung — nichts zu tun.</div>
+        <span class="it-title">Markets auf Deutschland begrenzt</span><span class="prio pr2">Prio 2</span>
+        <div class="it-detail">✓ Seit 03.09. ist nur der Markt „Deutschland“ aktiv (29.09. erneut geprüft). „Europäische Union“ und „America“ liegen als Entwurf bereit. Vor einer späteren Aktivierung prüfen: Versand, Steuer-Einstellungen und Rechtstexte.</div>
       </label></li>
 
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="s7"><label for="s7">
@@ -457,6 +471,11 @@
         <span class="it-title">Die 2 Entwurf-Produkte entscheiden</span><span class="prio pr3">Prio 3</span>
         <div class="it-detail">✓ Auf deine Entscheidung hin beide gelöscht (24.08.): „They Doubt Me I Deliver" und „Motivational Quote Vertical Framed Poster".</div>
       </label></li>
+
+      <li class="item" data-prio="3"><input type="checkbox" id="sn1"><label for="sn1">
+        <span class="it-title">Vertriebskanal „Shop“ (Shop-App) nutzen?</span><span class="prio pr3">Prio 3</span><span class="state st-new">Neu 29.09.</span>
+        <div class="it-detail">Der Kanal „Shop“ ist installiert, zeigt aber 0 Produkte (Onlineshop: 113). Wenn du willst, veröffentlicht Claude alle Produkte per API in der Shop-App: zusätzliche Reichweite ohne Mehraufwand. Sag einfach Bescheid. Den ebenfalls installierten Kanal Point of Sale kannst du ignorieren.</div>
+      </label></li>
     </ul>
   </section>
 
@@ -466,19 +485,19 @@
     <ul class="items">
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="p1"><label for="p1">
         <span class="it-title">Titel-Konvention, deutsche Beschreibungen, SEO-Meta auf allen Produkten</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Auf allen 99 aktiven Produkten (Hook + Qualität &amp; Details + Versand &amp; Garantie + GPSR).</div>
+        <div class="it-detail">✓ Auf allen 113 aktiven Produkten (29.09. geprüft): deutscher Titel, Beschreibung nach Konvention (Hook + Qualität &amp; Details + Versand &amp; Garantie + GPSR), SEO-Description ≤&nbsp;160 Zeichen. Möglicher Feinschliff: englische URLs, siehe neuer Punkt unten.</div>
       </label></li>
-      <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="p2"><label for="p2">
-        <span class="it-title">Alt-Texte aller Produktbilder</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Erledigt — Featured-Images tragen den Produkttitel als Alt-Text.</div>
+      <li class="item" data-prio="2"><input type="checkbox" id="p2"><label for="p2">
+        <span class="it-title">Alt-Texte aller Produktbilder</span><span class="prio pr2">Prio 2</span><span class="state st-part">Teilweise</span>
+        <div class="it-detail">Teilweise (29.09. gezählt): 2.474 von 3.264 Produktbildern haben keinen Alt-Text, vor allem die Varianten-Mockups von Printify. Die ersten 6–7 Bilder je Produkt sind beschriftet. Claude trägt die fehlenden gerade nach dem Schema „Titel, Rahmenfarbe, Größe“ nach.</div>
       </label></li>
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="p3"><label for="p3">
         <span class="it-title">Preisstrategie entschieden: Preise bleiben</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Deine Entscheidung (24.08.): Die Staffel 64,99–108,99&nbsp;€ bleibt — zusätzlich zum Produktionspreis fallen bei Printify echte Versandkosten pro Bestellung an. Die Trust-Leiste auf der Produktseite trägt das Premium-Argument.</div>
+        <div class="it-detail">✓ Deine Entscheidung (24.08.): Die Staffel 64,99–108,99&nbsp;€ bleibt. Zusätzlich zum Produktionspreis fallen bei Printify echte Versandkosten pro Bestellung an. Offen ist nur ein Ausreißer bei 46&nbsp;×&nbsp;61&nbsp;cm, siehe neuer Punkt unten.</div>
       </label></li>
-      <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="p4"><label for="p4">
-        <span class="it-title">Größen in Zentimetern kommunizieren</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Von Claude erledigt (25.08.): Alle 99 Beschreibungen haben eine Größen-Zeile mit cm-Werten im „Qualität &amp; Details"-Block. GPSR-Block überall verifiziert erhalten (99/99).</div>
+      <li class="item" data-prio="2"><input type="checkbox" id="p4"><label for="p4">
+        <span class="it-title">Größen in Zentimetern kommunizieren</span><span class="prio pr2">Prio 2</span><span class="state st-part">Teilweise</span>
+        <div class="it-detail">In allen Beschreibungen stehen cm-Angaben. Offen: Die Variantenauswahl zeigt noch Zoll und englische Optionsnamen („Size“, „Color“, „Black/White“), die kommen von Printify. Umstellen am sichersten in Printify, sonst überschreibt der nächste Sync die Änderung. Außerdem nennen 11 Querformat-Produkte die Größen noch in Hochformat-Reihenfolge; das korrigiert Claude gerade.</div>
       </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="p5"><label for="p5">
@@ -495,12 +514,12 @@
 
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="p6"><label for="p6">
         <span class="it-title">Tag-System vorhanden</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">✓ Geprüft (24.08.): Alle 99 Produkte tragen je 13 Tags — die Grundlage für Filter und Suche steht bereits.</div>
+        <div class="it-detail">✓ Geprüft (24.08.): Alle Produkte tragen Tags, die Grundlage für Filter und Suche steht. Kür (29.09.): Es sind 568 englische Printify-Schlagwörter; ein eigenes System (z.&nbsp;B. thema:*, format:hoch/quer) würde echte Filter und Smart-Collections ermöglichen.</div>
       </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="p7"><label for="p7">
         <span class="it-title">Bewertungs-App installieren</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Damit ab der ersten Bestellung automatisch Review-Anfragen rausgehen — Social Proof ist bei Premium-Preisen entscheidend. Dauer: ~20 Minuten.</div>
+        <div class="it-detail">Damit ab der ersten Bestellung automatisch Review-Anfragen rausgehen, Social Proof ist bei Premium-Preisen entscheidend. Neu 29.09.: Am Shop hängt eine Spur der App <strong>„Sternify“</strong>. Schau unter <a href="https://admin.shopify.com/store/gexdm4-2q/apps" target="_blank" rel="noopener">Apps</a> nach, ob sie noch installiert ist, und entscheide dich für eine Lösung, damit keine doppelten Widgets oder Kosten entstehen. Dauer: ~20 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 20 Min)</summary><ol>
         <li><a href="https://apps.shopify.com/judgeme" target="_blank" rel="noopener">„Judge.me Product Reviews" im App Store öffnen</a> → installieren (Forever-Free-Plan reicht).</li>
@@ -521,39 +540,54 @@
       </ol></details></li>
 
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="pn3"><label for="pn3">
-        <span class="it-title">Bestseller-Collection kuratiert</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">✓ Von Claude befüllt (24.08.): 12 Poster quer durchs Sortiment — Ronaldo, Messi, Jordan, Scuderia Ferrari, Marlboro F1, The World Is Yours u.&nbsp;a. Nach dem Launch durch echte Verkaufsdaten ersetzen.</div>
+        <span class="it-title">Favoriten-Collection kuratiert (ehemals „Bestseller“)</span><span class="prio pr3">Prio 3</span><span class="state st-fix">Behoben 29.09.</span>
+        <div class="it-detail">✓ 12 Motive quer durchs Sortiment (24.08.). <strong>Am 29.09. umbenannt:</strong> Es gibt noch keine Bestellungen, deshalb war „Bestseller … am häufigsten bestellt“ irreführend. Die Collection heißt jetzt „Favoriten“ mit neutralem Text und SEO, die Adresse /collections/bestseller bleibt. Nach den ersten echten Verkäufen kann sie wieder „Bestseller“ heißen. Hinweis: 5 der 12 Motive sind Marken- bzw. Personenmotive (Ronaldo, Messi, Ferrari, Jordan, Marlboro), siehe „Marken- und Bildrechte“.</div>
       </label></li>
 
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="pn4"><label for="pn4">
         <span class="it-title">14 neue Motive (17./21.09.) auf Shop-Konvention gebracht</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Von Claude erledigt und verifiziert (21.09.): Red Retro, Life Is Tough, Nobody Is Coming, What a Privilege, Born to Win, Leopard mit Perlenkette, Matchday von oben, Winning Isn't for Everyone, Tiger im Pool, FOCUS, Queens Don't Compete; am 28.09. außerdem Designer Heels, Noir – Pistole &amp; Perlen und Batman-Silhouette — jeweils deutscher Titel, Beschreibung nach Konvention (cm-Größen, Versand nur DE, GPSR-Block), SEO-Text, Alt-Texte und Collections (New Drop + Thema). Regel bleibt: Nach jedem Printify-Publish kurz melden — dann übernimmt Claude Texte, Collections und Prüfung.</div>
+        <div class="it-detail">✓ Von Claude erledigt und verifiziert (21./28.09.): Red Retro, Life Is Tough, Nobody Is Coming, What a Privilege, Born to Win, Leopard mit Perlenkette, Matchday von oben, Winning Isn't for Everyone, Tiger im Pool, FOCUS, Queens Don't Compete, Designer Heels, Noir – Pistole &amp; Perlen und Batman-Silhouette: deutscher Titel, Beschreibung nach Konvention (cm-Größen, Versand nur DE, GPSR-Block), SEO-Text, Alt-Texte und Collections (New Drop + Thema). Rest daraus: Preis für 46&nbsp;×&nbsp;61&nbsp;cm (neuer Punkt unten). Regel bleibt: Nach jedem Printify-Publish kurz melden, dann übernimmt Claude Texte, Collections und Prüfung.</div>
       </label></li>
 
       <li class="item" data-prio="2"><input type="checkbox" id="pn5"><label for="pn5">
         <span class="it-title">Marken- und Bildrechte der Motive prüfen</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Mehrere Motive nutzen geschützte Marken, Figuren oder echte Personen — z.&nbsp;B. Batman (DC/Warner), Ferrari/Scuderia, Marlboro, Porträts von Messi, Ronaldo, Neymar oder Michael Jordan. Ohne Lizenz ist das in Deutschland ein typischer Abmahngrund (Markenrecht, Urheberrecht, Recht am eigenen Bild) und Printify kann solche Produkte sperren. Deine Entscheidung: behalten, durch eigene Motive ersetzen oder entfernen. Sag Bescheid — Entwurf-Status setzen oder aus Collections nehmen kann Claude per API übernehmen.</div>
+        <div class="it-detail">Stand 29.09.: <strong>19 Produkte</strong> nennen eine Marke oder Person direkt (u.&nbsp;a. Batman, Ferrari/F1, Marlboro, Porsche, Nike „Just Do It“, Wimbledon, Godfather, Messi, Ronaldo, Neymar, Jordan), dazu rund 15 Motive mit Promi-Bezug in den Tags. 5 davon liegen in der Favoriten-Collection, und OFE&nbsp;v3 zeigt Ferrari und Messi auf der Startseite (Claude tauscht sie gerade gegen eigene Motive). Ohne Lizenz ist das in Deutschland ein typischer Abmahngrund, und Printify kann solche Produkte sperren. Deine Entscheidung je Motiv: behalten, umbenennen oder entfernen. Entwurf-Status setzen oder aus Collections nehmen übernimmt Claude. Keine Rechtsberatung: im Zweifel fachlich prüfen lassen.</div>
       </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="pn1"><label for="pn1">
         <span class="it-title">„Dressurpferd"-Produkt prüfen</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Hat nur 6 Varianten (3 Größen) und 15 Medien statt der üblichen 12/27 — absichtlich reduziert oder beim Import verloren gegangen?</div>
+        <div class="it-detail">Hat nur 3 Größen (alle 2:3) statt 6. Der SEO-Text sagt noch „viele Größen“, Claude korrigiert das gerade. Bleibt nur deine Entscheidung: in Printify 11×14, 16×20 und 18×24 ergänzen oder bei 3 Größen bleiben (dann abhaken).</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 5 Min)</summary><ol>
         <li><a href="https://printify.com/app/store/products/1" target="_blank" rel="noopener">printify.com → My Products</a> → „Dressurpferd" öffnen → Reiter Varianten: Sind dort die Größen 11×14, 16×20 und 18×24 aktiviert?</li>
         <li>Falls sie fehlen und du sie willst: Häkchen setzen → Preise angleichen (64,99 / 74,99 / 81,99&nbsp;€) → <strong>„Publish"</strong> zu Shopify.</li>
-        <li><strong>Wichtig danach:</strong> Shopify-Admin → Einstellungen → Versand: Die neuen Varianten landen im Printify-Profil — sie dem <strong>„Allgemeinen Profil"</strong> zuordnen (das gilt bei jedem Printify-Republish!).</li>
+        <li>Danach Claude Bescheid geben: Größenzeile und SEO-Text werden angepasst. Versand bleibt dank Gratisversand-Rabatt automatisch kostenlos, im Versandprofil musst du nichts umziehen.</li>
         <li>Falls die 3 Größen Absicht sind: einfach abhaken, alles gut.</li>
       </ol></details></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="pn2"><label for="pn2">
-        <span class="it-title">Dünne Collections auffüllen oder ausblenden</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Artists (2), GRIT (2), ICONS (3), Film &amp; Series (6). Geprüft: Alle eindeutig passenden Bestandsprodukte sind bereits zugeordnet — Auffüllen geht nur mit neuen Motiven.</div>
+        <span class="it-title">Dünne Collections auffüllen oder ausblenden</span><span class="prio pr3">Prio 3</span><span class="state st-part">Teilweise</span>
+        <div class="it-detail">Film &amp; Series ist mit 8 Motiven erledigt. Dünn sind noch GRIT (2), Artists (3) und ICONS (4). Vorschlag aus dem Check: Artists mit ICONS zusammenlegen oder offline nehmen; GRIT mit vorhandenen Gym- und Disziplin-Motiven füllen und in „GRIT: Gym, Boxing &amp; MMA“ umbenennen. Sag Bescheid, welche Variante du willst, Claude setzt sie um.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (zwei Wege)</summary><ol>
         <li><strong>Weg A — Auffüllen:</strong> Bei Printify 3–5 neue Motive je Thema anlegen (Boxing/MMA für GRIT, Musik-Ikonen für ICONS, Film-Ästhetik für Film&nbsp;&amp;&nbsp;Series) → publishen → mir Bescheid geben: Ich übernehme dann Beschreibung nach Konvention (inkl. GPSR + cm), Collection- und Versandprofil-Zuordnung.</li>
-        <li><strong>Weg B — Ausblenden bis genug Motive da sind:</strong> <a href="https://admin.shopify.com/store/gexdm4-2q/menus" target="_blank" rel="noopener">Admin → Onlineshop → Navigation</a> → Menüs durchgehen und die dünnen Collections vorerst herausnehmen. (Aktuell verlinken die Hauptmenüs sie ohnehin nicht — nur prüfen, ob sie über „Finde deinen Stil" auf der Startseite auftauchen.)</li>
+        <li><strong>Weg B — Ausblenden bis genug Motive da sind:</strong> <a href="https://admin.shopify.com/store/gexdm4-2q/menus" target="_blank" rel="noopener">Admin → Onlineshop → Navigation</a> → Menüs durchgehen und die dünnen Collections vorerst herausnehmen. (GRIT und ICONS stehen noch in keinem Menü, Claude nimmt sie gerade ins Kollektionen-Menü auf.)</li>
       </ol></details></li>
+
+      <li class="item" data-prio="3"><input type="checkbox" id="p9"><label for="p9">
+        <span class="it-title">Preis für 46&nbsp;×&nbsp;61&nbsp;cm vereinheitlichen</span><span class="prio pr3">Prio 3</span><span class="state st-new">Neu 29.09.</span>
+        <div class="it-detail">Die 14 Motive vom 17./21.09. kosten in 46&nbsp;×&nbsp;61&nbsp;cm 79,99&nbsp;€, die übrigen 99 kosten 81,99&nbsp;€. Alle anderen Größen sind überall gleich (64,99 / 68,99 / 74,99 / 89,99 / 108,99&nbsp;€). Entscheide dich für einen Preis und stell ihn in Printify ein, sonst setzt der nächste Sync eine Änderung in Shopify zurück.</div>
+      </label></li>
+
+      <li class="item" data-prio="3"><input type="checkbox" id="p10"><label for="p10">
+        <span class="it-title">Kraftausdrücke in 2 Titeln: Werbe-Feeds bedenken</span><span class="prio pr3">Prio 3</span><span class="state st-new">Neu 29.09.</span>
+        <div class="it-detail">„Fuck Them All“ und „Just Do Some Creative Shits“ (plus Tag „profanity art“) können von Google Shopping, Meta- und Pinterest-Katalogen abgelehnt werden. Entscheide vor dem Merchant Center (Abschnitt&nbsp;6), ob diese Motive neutrale Feed-Titel bekommen oder aus den Werbekatalogen bleiben.</div>
+      </label></li>
+
+      <li class="item" data-prio="3"><input type="checkbox" id="p11"><label for="p11">
+        <span class="it-title">Englische Produkt-URLs vor dem Launch umstellen?</span><span class="prio pr3">Prio 3</span><span class="state st-new">Neu 29.09.</span>
+        <div class="it-detail">Alle 113 Adressen sind lange englische Printify-Namen, z.&nbsp;B. „horizontal-framed-poster“ für Vintage Formula&nbsp;1. Solange das Passwort aktiv ist, ist nichts bei Google indexiert: Jetzt wäre der günstigste Zeitpunkt für kurze deutsche URLs. Claude kann das samt Weiterleitungen und Theme-Verweisen übernehmen, wenn du willst. Sonst einfach abhaken.</div>
+      </label></li>
     </ul>
   </section>
 
@@ -563,20 +597,20 @@
     <ul class="items">
       <li class="item" data-prio="1" data-done="1"><input type="checkbox" id="t1"><label for="t1">
         <span class="it-title">OFE v3: alle Sprach- und Rechts-Fixes eingebaut</span><span class="prio pr1">Prio 1</span>
-        <div class="it-detail">✓ Von Claude erledigt, unabhängig gegengeprüft UND live in der Theme-Vorschau bestätigt (25.08.): 404-Seite deutsch („Diese Seite gibt es nicht — dein nächstes Poster schon." mit Bestseller-Button), Warenkorb + Upsell deutsch, Kollektionen-Seite mit allen 16 Collections, „Zur Kasse", Newsletter „Anmelden", „Powered by Shopify" aus, §&nbsp;19-Steuertexte, Produktseiten voll kaufbar (Warenkorb-Button + PayPal). Live gehen die Fixes mit dem OFE-v3-Publish (Launch-Blocker).</div>
+        <div class="it-detail">✓ Von Claude erledigt, unabhängig gegengeprüft und in der Theme-Vorschau bestätigt (25.08., Deutschland-Texte 03.09., erneut geprüft 29.09.): 404-Seite deutsch, Warenkorb + Upsell deutsch, Kollektionen-Seite, „Zur Kasse“, Newsletter „Anmelden“, „Powered by Shopify“ aus, §&nbsp;19-Steuertexte, Produktseiten voll kaufbar. Live gehen die Fixes mit dem OFE-v3-Publish.</div>
       </label></li>
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="tn1"><label for="tn1">
         <span class="it-title">Shop-Hauptsprache = Deutsch verifiziert</span><span class="prio pr2">Prio 2</span>
         <div class="it-detail">✓ Per API geprüft (25.08.): Deutsch ist die einzige, primäre und veröffentlichte Shop-Sprache — die deutschen Theme-Texte greifen überall.</div>
       </label></li>
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="tb1"><label for="tb1">
-        <span class="it-title">Bestseller-Collection im Theme verlinkt</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">✓ Von Claude erledigt und verifiziert (25.08.): 404-Button, 404-Produktgrid und Warenkorb-Upsell zeigen jetzt auf die kuratierte Bestseller-Collection.</div>
+        <span class="it-title">Favoriten-Collection im Theme verlinkt</span><span class="prio pr3">Prio 3</span>
+        <div class="it-detail">✓ In OFE&nbsp;v3 ist die kuratierte Collection auf Startseite, Hero, 404, Warenkorb, Gallery Wall und im Hauptmenü verlinkt. Die Collection heißt seit 29.09. „Favoriten“; die Überschriften im Theme stellt Claude gerade ebenfalls um.</div>
       </label></li>
 
       <li class="item" data-prio="2"><input type="checkbox" id="t2"><label for="t2">
         <span class="it-title">Mobile-Durchgang aller Kernseiten</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Über die Hälfte des Traffics kommt mobil. Nach dem Publish von OFE&nbsp;v3, am echten Handy. Dauer: ~15 Minuten.</div>
+        <div class="it-detail">Über die Hälfte des Traffics kommt mobil. Per API nicht prüfbar; die Konfiguration ist mobil vorbereitet (2 Spalten, Sticky-Header, Galerie als Karussell). Am echten Handy, geht über die OFE-v3-Vorschau auch schon vor dem Launch. Dauer: ~15 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 15 Min)</summary><ol>
         <li>limitlessposter.com am Handy öffnen (nach dem Launch; vorher: Passwort eingeben).</li>
@@ -588,12 +622,12 @@
 
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="t3"><label for="t3">
         <span class="it-title">Theme-Aufräumen entschieden: alle bleiben</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">✓ Deine Entscheidung (24.08.): kein Löschen. Live ist v2.0, Ziel-Theme ist OFE&nbsp;v3; die übrigen vier bleiben als Archiv liegen.</div>
+        <div class="it-detail">✓ Deine Entscheidung (24.08.): kein Löschen. Live ist v2.0, Ziel-Theme ist „LimitlessPoster OFE&nbsp;v3“; die übrigen bleiben als Archiv liegen.</div>
       </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="t4"><label for="t4">
         <span class="it-title">Social-Sharing-Bild (OG) setzen — Favicon ist schon da</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Das Bild erscheint, wenn jemand den Shop auf WhatsApp/Instagram teilt. Favicon: ✓ bereits im Theme gesetzt. Dauer: ~15 Minuten.</div>
+        <div class="it-detail">Das Bild erscheint, wenn jemand den Shop auf WhatsApp/Instagram teilt; aktuell ist keins gesetzt (29.09. geprüft). Favicon: ✓ bereits im Theme gesetzt. Im selben Formular die Meta-Beschreibung korrigieren (Punkt in Abschnitt&nbsp;3). Dauer: ~15 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 15 Min)</summary><ol>
         <li>In <a href="https://www.canva.com/facebook-ads/templates/" target="_blank" rel="noopener">Canva</a> ein Design mit <strong>1200 × 630 px</strong> anlegen („Benutzerdefinierte Größe" 1200×630 — oder Vorlage „Facebook-Anzeige", die hat genau dieses Maß).</li>
@@ -605,7 +639,7 @@
 
       <li class="item" data-prio="3"><input type="checkbox" id="t5"><label for="t5">
         <span class="it-title">Echte Social-Media-Profile im Footer verlinken</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Im Footer stehen nur Domain-Platzhalter — das Theme blendet sie live automatisch aus, kein Schaden. Sobald die Profile existieren (Abschnitt&nbsp;6):</div>
+        <div class="it-detail">In OFE&nbsp;v3 sind die Social-Links leer, es erscheinen also keine Icons. Das Live-Theme v2.0 zeigt Platzhalter auf die Startseiten von Facebook, Instagram, YouTube, TikTok und X; die verschwinden mit dem OFE-v3-Publish. Sobald deine Profile existieren (Abschnitt&nbsp;6):</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 5 Min)</summary><ol>
         <li><a href="https://admin.shopify.com/store/gexdm4-2q/themes" target="_blank" rel="noopener">Admin → Onlineshop → Themes</a> → bei <strong>OFE&nbsp;v3</strong> auf <strong>„Anpassen"</strong>.</li>
@@ -615,14 +649,9 @@
       </ol></details></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="tn2"><label for="tn2">
-        <span class="it-title">3D-Viewer lädt extern von Google</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Der optionale 3D-Block lädt model-viewer von ajax.googleapis.com — aber nur bei Produkten mit gesetztem 3D-Metafield (aktuell wohl ungenutzt).</div>
-      </label>
-      <details class="howto"><summary>Schritt für Schritt (≈ 3 Min)</summary><ol>
-        <li><a href="https://admin.shopify.com/store/gexdm4-2q/products" target="_blank" rel="noopener">Admin → Produkte</a> → ein beliebiges Produkt öffnen → ganz unten zu <strong>Metafelder</strong> scrollen.</li>
-        <li>Gibt es ein Feld „poster_3d_url" und ist es <strong>leer</strong>? → Dann wird nie extern geladen: Punkt einfach abhaken.</li>
-        <li>Nur falls du 3D später nutzt: kurz melden — dann binde ich die Bibliothek lokal ins Theme ein und ergänze den Datenschutz-Absatz.</li>
-      </ol></details></li>
+        <span class="it-title">3D-Viewer lädt extern von Google</span><span class="prio pr3">Prio 3</span><span class="state st-ofe">Mit OFE v3</span>
+        <div class="it-detail">Stand 29.09.: Im Live-Theme v2.0 lädt der 3D-Viewer bei 99 Produkten (Metafeld poster_3d_url ist gesetzt) auf Klick ein Script von Google. OFE&nbsp;v3 nutzt einen eigenen 3D-Viewer ohne externe Quelle. Das Thema erledigt sich also mit dem OFE-v3-Publish, dann abhaken.</div>
+      </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="t6"><label for="t6">
         <span class="it-title">Ladezeit prüfen</span><span class="prio pr3">Prio 3</span>
@@ -656,17 +685,17 @@
 
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="m2"><label for="m2">
         <span class="it-title">Homepage-Title &amp; Meta-Description gesetzt</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Von Claude über deinen PC erledigt (25.08.): „LimitlessPoster — Gerahmte Motivations- &amp; Sport-Poster" (54 Zeichen) + Beschreibung mit Kernnutzen (143 Zeichen) in den Präferenzen gespeichert — live im Browser-Tab-Titel bestätigt. Damit sind Homepage-, Produkt- und Collection-SEO komplett.</div>
+        <div class="it-detail">✓ Von Claude über deinen PC erledigt (25.08.): „LimitlessPoster — Gerahmte Motivations- &amp; Sport-Poster“ (54 Zeichen) + Beschreibung (143 Zeichen) in den Präferenzen gespeichert. Die Beschreibung nennt noch „DE &amp; EU“, die Korrektur steckt im Punkt „Homepage-Meta-Description“ in Abschnitt&nbsp;3.</div>
       </label></li>
 
       <li class="item" data-prio="2" data-done="1"><input type="checkbox" id="mn1"><label for="mn1">
         <span class="it-title">SEO-Metas für alle Collections gesetzt</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">✓ Von Claude erledigt und verifiziert (25.08.): Alle 15 sichtbaren Collections haben deutsche SEO-Titel („…-Poster gerahmt | LimitlessPoster") und Meta-Descriptions mit Kernnutzen „fertig gerahmt + Versand inklusive". Vorher waren alle leer.</div>
+        <div class="it-detail">✓ Von Claude erledigt und verifiziert (25.08., 29.09. erneut geprüft): Alle 15 sichtbaren Collections haben deutsche SEO-Titel und Meta-Descriptions ≤&nbsp;160 Zeichen. Die Favoriten-Collection hat am 29.09. neue, neutrale Texte bekommen.</div>
       </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="m3"><label for="m3">
         <span class="it-title">Analytics-Setup entscheiden</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Zum Start reicht Shopify Analytics völlig. Pixel erst mit aktivem Cookie-Banner.</div>
+        <div class="it-detail">Stand 29.09.: Shopify Analytics läuft (127 Sitzungen in 30 Tagen, alle direkt, also vor allem du selbst). Zum Start reicht das; so steht es auch in der Datenschutzerklärung. Pixel erst mit Cookie-Einwilligung und passender Ergänzung der Datenschutzerklärung.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (wenn es so weit ist)</summary><ol>
         <li>Phase 1 (jetzt): Nichts installieren — Shopify Analytics (Admin → Analytics) zeigt Sessions, Conversion und Umsatz von Haus aus.</li>
@@ -688,23 +717,23 @@
 
       <li class="item" data-prio="3" data-done="1"><input type="checkbox" id="m5"><label for="m5">
         <span class="it-title">Newsletter mit Double-Opt-in</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">✓ Verifiziert (25.08.): „Marketing-Bestätigung für Kunden" ist aktiv und wird an neue E-Mail-Abonnenten gesendet — Double-Opt-in läuft also bereits DSGVO-konform. Kür für später: Willkommens-Rabatt (WELCOME10) im Footer-Text erwähnen; Kampagnen über Shopify Email (10.000 Mails/Monat kostenlos).</div>
+        <div class="it-detail">✓ Verifiziert (25.08.): „Marketing-Bestätigung für Kunden“ ist aktiv, Double-Opt-in läuft DSGVO-konform. Per API nicht lesbar (29.09.), bisher 0 Abonnenten: Bei der Testbestellung einmal mit eigener Adresse anmelden und prüfen, ob die Bestätigungsmail kommt. Kür: Willkommens-Rabatt im Footer-Text erwähnen.</div>
       </label></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="m6"><label for="m6">
         <span class="it-title">Launch-Aktion planen</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Ein Einführungsangebot für die ersten 2 Wochen gibt dem Launch Schwung. Dauer: ~10 Minuten.</div>
+        <div class="it-detail">Ein Einführungsangebot für die ersten 2 Wochen gibt dem Launch Schwung; WELCOME10 gibt es noch nicht. <strong>Neu 29.09.:</strong> Jeder Rabattcode muss „mit Versandrabatten kombinierbar“ sein, sonst verliert der Kunde beim Einlösen den Gratisversand. Claude kann WELCOME10 richtig eingestellt anlegen, sag einfach Bescheid. Dauer: ~10 Minuten.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 10 Min)</summary><ol>
         <li><a href="https://admin.shopify.com/store/gexdm4-2q/discounts" target="_blank" rel="noopener">Admin → Rabatte</a> → „Rabatt erstellen" → Typ <strong>„Betrag von Bestellung"</strong> → Code <strong>WELCOME10</strong>, 10&nbsp;%.</li>
-        <li>Zeitraum: Launch-Tag + 14 Tage; keine Mindestbestellmenge nötig; Kombination mit anderen Rabatten aus.</li>
+        <li>Zeitraum: Launch-Tag + 14 Tage; keine Mindestbestellmenge nötig. <strong>Kombination: „Versandrabatte“ anhaken</strong> (sonst entfällt der Gratisversand), andere Rabatte aus.</li>
         <li>Kommunizieren: Announcement-Bar im Theme („🚀 Launch-Aktion: 10&nbsp;% mit Code WELCOME10"), Social-Posts, Newsletter-Willkommensmail.</li>
         <li>Rabattcode statt Streichpreis verwenden — dann greift die 30-Tage-Bestpreis-Regel nicht (siehe Abschnitt&nbsp;4).</li>
       </ol></details></li>
 
       <li class="item" data-prio="3"><input type="checkbox" id="m7"><label for="m7">
         <span class="it-title">Google Merchant Center später prüfen</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Kostenlose Shopping-Listings + ggf. Ads — erst angehen, wenn der Shop ein paar Wochen rund läuft.</div>
+        <div class="it-detail">Kostenlose Shopping-Listings + ggf. Ads, erst angehen, wenn der Shop ein paar Wochen rund läuft (29.09.: Google-Kanal noch nicht installiert). Vorher die zwei Titel mit Kraftausdrücken klären (Abschnitt&nbsp;4).</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (wenn es so weit ist)</summary><ol>
         <li>Voraussetzungen schaffen: Shop live, Search Console verifiziert, Versand-/Rückgabeangaben sauber (alles Teil dieser Liste).</li>
@@ -720,19 +749,19 @@
     <ul class="items">
       <li class="item" data-prio="2"><input type="checkbox" id="o1"><label for="o1">
         <span class="it-title">Printify-Einstellungen festzurren</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Damit Bestellungen zuverlässig (und kontrolliert) in Produktion gehen. Dauer: ~10 Minuten. Tipp: Mit einem <strong>Printify-API-Token</strong> (Konto → Connections) kann Claude Produkte und Bestellungen dort direkt prüfen — siehe Datenmappe.</div>
+        <div class="it-detail">Per API nicht prüfbar, Claude hat keinen Printify-Zugang. <strong>Neu 29.09.:</strong> Printify synchronisiert seine Versandprofile in Shopify und hat dabei den 0-€-Versand überschrieben. Der Gratisversand-Rabatt fängt das jetzt ab; schau trotzdem, ob du die Synchronisierung der Versandprofile abschalten kannst. Dauer: ~10 Minuten. Tipp: Mit einem <strong>Printify-API-Token</strong> (Konto → Connections) kann Claude Produkte und Bestellungen dort direkt prüfen, siehe Datenmappe.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 10 Min)</summary><ol>
         <li><a href="https://printify.com/app/account/payment/details" target="_blank" rel="noopener">printify.com → Wallet/Payments</a>: Zahlungsmittel hinterlegen (Karte) — ohne das produziert Printify nicht.</li>
         <li><a href="https://printify.com/app/store/settings/order-settings" target="_blank" rel="noopener">Settings → Stores → Order settings</a>: „Order approval" für den Anfang auf <strong>„Manually approve"</strong> oder mit 24-h-Verzögerung — so kannst du Fehlbestellungen abfangen; später auf automatisch stellen (<a href="https://help.printify.com/hc/en-us/articles/4483625253265-How-do-I-set-up-store-details-and-order-approval-settings" target="_blank" rel="noopener">Anleitung</a>).</li>
         <li>Prüfen, dass <strong>Tracking-Sync</strong> aktiv ist (Versandbestätigung mit Tracking geht dann automatisch über Shopify raus).</li>
-        <li>Gute Nachricht: Neue Printify-Produkte landen automatisch in den richtigen Printify-Versandprofilen — da muss nichts mehr umgezogen werden (Stand 25.08.).</li>
+        <li>Versandprofile: Neue Printify-Produkte landen in Printifys eigenen Profilen mit Versandkosten. Das ist okay, der Rabatt „Kostenloser Versand Deutschland“ macht den Versand im Checkout trotzdem kostenlos. Falls Printify anbietet, den Versandprofil-Sync abzuschalten: abschalten.</li>
         <li><strong>GPSR-Angaben</strong> in den Store settings prüfen/eintragen (Verantwortlicher: Julius Erb, Eugen-Bolz-Straße 28, 73732 Esslingen, limitless.posterje@gmail.com) und nach dem Finanzamt-Telefonat die <strong>USt-IdNr.</strong> unter Wallet → Taxes hinterlegen. Für „nur Deutschland" muss bei Printify nichts umgestellt werden — die Länderfreigabe steuert Shopify (Markets).</li>
       </ol></details></li>
 
       <li class="item" data-prio="2"><input type="checkbox" id="o2"><label for="o2">
-        <span class="it-title">Retouren-Prozess definieren</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Kundenseitig ist alles kommuniziert (✓ FAQ + Widerrufsbelehrung mit Esslinger Adresse). Intern nur noch den Ablauf festzurren.</div>
+        <span class="it-title">Retouren-Prozess definieren</span><span class="prio pr2">Prio 2</span><span class="state st-part">Teilweise</span>
+        <div class="it-detail">Kundenseitig ist alles kommuniziert (✓ FAQ + Widerrufsbelehrung mit Esslinger Adresse, 29.09. geprüft). Intern nur noch den Ablauf festzurren; die Support-Vorlage „Widerruf“ unten ist seit 29.09. an die Widerrufsbelehrung angeglichen.</div>
       </label>
       <details class="howto"><summary>Interner Ablauf (einmal festlegen)</summary><ol>
         <li><strong>Widerruf kommt rein</strong> (E-Mail): Mit der Widerrufs-Vorlage (Vorlagen-Bereich) antworten — Rücksendeadresse Esslingen, Kunde trägt Rücksendekosten.</li>
@@ -743,7 +772,7 @@
 
       <li class="item" data-prio="2"><input type="checkbox" id="o3"><label for="o3">
         <span class="it-title">Musterbestellung: eigene Poster bestellen</span><span class="prio pr2">Prio 2</span>
-        <div class="it-detail">Qualität, Rahmen, Verpackung und Laufzeit einmal selbst erleben — und Material für eigene Fotos bekommen. Budget: ~50–90&nbsp;€.</div>
+        <div class="it-detail">Stand 29.09.: noch nicht bestellt. Zwei Wege: über Printify „Order sample“ (günstiger) oder als echte Shop-Bestellung mit LAUNCH-TEST-100 (testet zusätzlich Checkout, Weitergabe an Printify und Tracking-Mail, siehe Testbestellung). Qualität, Rahmen, Verpackung und Laufzeit einmal selbst erleben und Material für eigene Fotos bekommen. Budget: ~50–90&nbsp;€.</div>
       </label>
       <details class="howto"><summary>Schritt für Schritt (≈ 10 Min + Lieferzeit)</summary><ol>
         <li><a href="https://printify.com/app/store/products/1" target="_blank" rel="noopener">printify.com → My Products</a> → einen Top-Seller öffnen → <strong>„Order sample"</strong> (<a href="https://help.printify.com/hc/en-us/articles/4483617804689-How-does-sample-ordering-work" target="_blank" rel="noopener">so funktioniert Sample-Bestellen</a>; günstiger als über den eigenen Shop — du zahlst nur Produktions- + Versandkosten).</li>
@@ -776,7 +805,7 @@
 
       <li class="item" data-prio="3"><input type="checkbox" id="o6"><label for="o6">
         <span class="it-title">Wöchentlicher KPI-Blick</span><span class="prio pr3">Prio 3</span>
-        <div class="it-detail">Erst ab ~500 Sessions/Woche lassen sich echte Schlüsse ziehen — vorher nicht an jedem Rädchen drehen.</div>
+        <div class="it-detail">Erst ab ~500 Sessions/Woche lassen sich echte Schlüsse ziehen, vorher nicht an jedem Rädchen drehen. Claude kann dir die Zahlen per ShopifyQL als wöchentliche Routine liefern.</div>
       </label>
       <details class="howto"><summary>Wochen-Routine (≈ 10 Min/Woche)</summary><ol>
         <li>Admin → <strong>Analytics</strong> → Zeitraum „Letzte 7 Tage" vs. Vorwoche.</li>
@@ -784,6 +813,11 @@
         <li>Nur auf klare Muster reagieren (z.&nbsp;B. viele Abbrüche bei der Zahlung → Zahlarten prüfen) — nicht auf Einzeltage.</li>
         <li>Einmal im Monat: Bestseller-Collection anhand der echten Top-Seller aktualisieren (Analytics → „Top-Produkte nach verkauften Einheiten").</li>
       </ol></details></li>
+
+      <li class="item" data-prio="3"><input type="checkbox" id="on1"><label for="on1">
+        <span class="it-title">Shop-Postfach für Claude freigeben (optional)</span><span class="prio pr3">Prio 3</span><span class="state st-new">Neu 29.09.</span>
+        <div class="it-detail">Die Shop-Mails von Shopify, Printify und Kunden gehen an limitless.posterje@gmail.com. Mit Claude verbunden ist aber dein privates Gmail, dort kam in 45 Tagen keine Printify-Mail an. Wenn Claude Bestellungen, Printify-Meldungen und Support mitprüfen soll: Weiterleitung einrichten oder das Shop-Postfach verbinden.</div>
+      </label></li>
     </ul>
   </section>
 
@@ -916,9 +950,9 @@ LimitlessPoster, Julius Erb
 Eugen-Bolz-Straße 28
 73732 Esslingen am Neckar
 
-Sobald das Poster hier eintrifft (oder du mir den Versandnachweis schickst),
-erstatte ich dir den vollen Kaufpreis innerhalb von 14 Tagen auf dein
-ursprüngliches Zahlungsmittel.
+Den vollen Kaufpreis erstatte ich dir spätestens 14 Tage nach deinem
+Widerruf auf dein ursprüngliches Zahlungsmittel, sobald das Poster hier
+ist oder du mir den Versandnachweis schickst.
 
 Beste Grüße
 Julius von LimitlessPoster</pre>
@@ -927,7 +961,7 @@ Julius von LimitlessPoster</pre>
   </section>
 
   <footer>
-    <span>Stand: 28. September 2026 · Deutschland-Umstellung (03.09.), 14 neue Produkte (21./28.09.) und LUCID-Klärung (28.09.) erledigt und verifiziert · Links und Nummern am 30.08. geprüft · Häkchen bleiben nur in diesem Browser gespeichert · <a style="color:var(--accent); text-decoration:none" href="https://claude.ai/code/artifact/b78ee699-be90-44aa-b2f1-c34e5c8d98b4">Zur Datenmappe →</a></span>
+    <span>Stand: 29. September 2026 · Komplett-Check von Shop und Printify mit Versand-Fix (29.09.) · Deutschland-Umstellung (03.09.), 14 neue Produkte (21./28.09.) und LUCID-Klärung (28.09.) erledigt und verifiziert · Links und Nummern am 30.08. geprüft · Häkchen bleiben nur in diesem Browser gespeichert · <a style="color:var(--accent); text-decoration:none" href="https://claude.ai/code/artifact/b78ee699-be90-44aa-b2f1-c34e5c8d98b4">Zur Datenmappe →</a></span>
     <button class="reset" id="resetBtn">Alle Häkchen zurücksetzen</button>
   </footer>
 </div>

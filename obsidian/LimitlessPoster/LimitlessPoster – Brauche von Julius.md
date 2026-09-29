@@ -1,39 +1,56 @@
 ---
 tags: [limitlessposter, offen]
-stand: 2026-09-28
+stand: 2026-09-29
 ---
 # LimitlessPoster – Das brauche ich von Julius
 
 > Alles, was Claude per API **nicht** selbst erledigen kann. Sobald du einen Punkt erledigt hast oder mir Daten gibst, mache ich weiter.
+> Stand 29.09.2026 nach dem Komplett-Check von Shop und Printify. Versandkosten-Problem ist von Claude behoben (automatischer Gratisversand für Deutschland).
 
-## 1. Zugänge / Daten für mich
-- [ ] **Nach jedem Printify-Publish Bescheid geben** – die 11 Motive vom 17.09. kamen englisch, ohne GPSR und ohne Collection an (21.09. von Claude nachgezogen). Ein kurzes „neue Produkte drin“ reicht.
-- [ ] **Printify-API-Token** (Printify → Konto-Menü → *Connections* → *API tokens* → Token erzeugen, Rechte lesen/schreiben) → hier oder im Chat eintragen. Damit kann ich Produkte, Bestellungen und Store-Einstellungen bei Printify prüfen.
-- [ ] **Obsidian-Vault-Ort** (Ordnerpfad, GitHub-Repo oder Google-Drive-Ordner). Bis dahin liegen meine Notizen im Repo unter `obsidian/LimitlessPoster/` – einfach in den Vault kopieren. Hinweis: Deine Tagesplan-Session nutzt einen Memory-Vault mit `/areas/…` und `/topics/…`-Notizen – falls das dein Obsidian ist, muss dieser Speicher auch dieser Shop-Session zugänglich gemacht werden.
-- [ ] **Shop-Postfach** limitless.posterje@gmail.com ist nicht mit Claude verbunden (nur das private Gmail). Wenn ich Printify-/Shopify-Mails prüfen soll: das Konto verbinden.
-
-## 2. Shopify-Admin (nur du kannst das klicken)
-- [ ] **Impressum: LUCID-Zeile einfügen** (zusammen mit den zwei Checkout-Richtlinien unten, gleiche Seite) – https://admin.shopify.com/store/gexdm4-2q/settings/legal → Impressum → unter der USt-IdNr.:
-  `Verpackungsregister (LUCID): DE4139628009499 – Registrierung und Systembeteiligung der Versandverpackungen erfolgen über unseren Fulfillment-Partner Printify, über den alle unsere Bestellungen gefertigt und versendet werden.`
-- [ ] **Entscheidung Marken-/Bildrechte:** Batman (DC), Ferrari, Marlboro, Messi/Ronaldo/Neymar/Jordan-Porträts sind typische Abmahnthemen. Behalten, ersetzen oder entfernen? Claude kann Entwurf-Status/Collections per API setzen.
-- [ ] **2 Checkout-Richtlinien einfügen (2 Min, wichtig!)** – https://admin.shopify.com/store/gexdm4-2q/settings/legal → „Versandrichtlinie" und „Allgemeine Geschäftsbedingungen" jeweils komplett ersetzen durch die fertigen Texte in `vorlagen/` (Checkout-Richtlinie Versand / AGB, DE-only). Grund: Die Shopify-Verbindung von Claude hat keinen Schreibzugriff auf Richtlinien (`write_legal_policies`). Bis dahin sagt /policies/shipping-policy noch „DE + EU"; die Seiten /pages/agb und FAQ sind schon umgestellt.
-- [ ] **OFE v3 veröffentlichen** – https://admin.shopify.com/store/gexdm4-2q/themes → „LimitlessPoster OFE v3" → ⋯ → Veröffentlichen. Erst danach sind die Deutschland-Texte und die korrigierte Versand-Leiste („Kostenloser Versand innerhalb Deutschlands" statt „ab 50 €") live. Die API darf kein Theme publishen.
-- [ ] **Homepage-Meta-Description** auf Deutschland umstellen – https://admin.shopify.com/store/gexdm4-2q/online_store/preferences → Beschreibung ersetzen durch:
+## 1. Shopify-Admin, in dieser Reihenfolge (nur du kannst das klicken)
+- [ ] **Richtlinien einfügen (≈ 3 Min, wichtigster Punkt)** – https://admin.shopify.com/store/gexdm4-2q/settings/legal
+  - Versandrichtlinie: komplett ersetzen durch `vorlagen/Checkout-Richtlinie Versand (neu, DE-only).html` (nennt die EU noch 3×).
+  - AGB: Text von /pages/agb (Stand 3.9.) übernehmen bzw. `vorlagen/Checkout-Richtlinie AGB (neu, DE-only).html` (§ 4 Abs. 2 und § 5 Abs. 1 nennen noch die EU).
+  - Impressum: unter der USt-IdNr. einfügen:
+    `Verpackungsregister (LUCID): DE4139628009499 – Registrierung und Systembeteiligung der Versandverpackungen erfolgen über unseren Fulfillment-Partner Printify, über den alle unsere Bestellungen gefertigt und versendet werden.`
+  - Grund: Claude hat nur Leserechte auf Richtlinien (`write_legal_policies` fehlt). Footer-Link „Versand & Lieferung" und Hilfe-Center zeigen direkt auf die veraltete Versandrichtlinie.
+- [ ] **Homepage-Meta-Description** – https://admin.shopify.com/store/gexdm4-2q/online_store/preferences → Beschreibung ersetzen durch:
   `Premium-Poster für Sport, Mindset & Lifestyle — fertig gerahmt in Schwarz oder Weiß, Versand innerhalb Deutschlands inklusive. In 4–10 Werktagen bei dir.`
-- [ ] **PayPal mit Shopify verbinden** – https://admin.shopify.com/store/gexdm4-2q/settings/payments → Abschnitt PayPal → „Aktivieren“ bzw. „Einrichtung abschließen“ → mit dem PayPal-Geschäftskonto anmelden → Berechtigungen bestätigen. Geht nur per Login, nicht per API.
-- [ ] **Shopify Payments** einrichten (Ausweis, IBAN) – https://admin.shopify.com/store/gexdm4-2q/settings/payments (2FA vorher aktivieren) · danach PayPal-Geschäftskonto verbinden.
-- [ ] **Absender-E-Mail** (Zoho) – Datenmappe/Checkliste.
-- [ ] **Passwort entfernen** – ganz am Schluss.
+  Im selben Formular: Social-Sharing-Bild (1200×630) hochladen.
+- [ ] **Shopify Payments** einrichten (Ausweis, IBAN, 2FA vorher) – https://admin.shopify.com/store/gexdm4-2q/settings/payments
+- [ ] **PayPal mit Shopify verbinden** – gleiche Seite → PayPal → „Aktivieren" → mit dem PayPal-Geschäftskonto anmelden. Die PayPal-Verbindung zu Claude ersetzt das nicht.
+- [ ] **Testbestellung** mit Code `LAUNCH-TEST-100` (ergibt jetzt 0,00 € inkl. Versand). Vorher bei Printify Order approval auf „Manually". **Danach Claude Bescheid geben → Code wird gelöscht.**
+- [ ] **OFE v3 veröffentlichen** – https://admin.shopify.com/store/gexdm4-2q/themes → genau **„LimitlessPoster OFE v3"** → ⋯ → Veröffentlichen. Nicht „ARCHIV – OFE v3 WIP (nicht veröffentlichen)". Danach im privaten Fenster testen: Cookie-Banner erscheint, Footer-Link „Datenschutz-Einstellungen" öffnet die Cookie-Einstellungen.
+- [ ] **Passwort entfernen** – ganz am Schluss (Onlineshop → Präferenzen).
+- [ ] **Apps prüfen:** Ist „Sternify" noch installiert? Entscheide dich für Sternify oder Judge.me, nicht beides.
+- [ ] **Absender-E-Mail** (Zoho, info@limitlessposter.com) – Datenmappe/Checkliste.
 
-## 3. Behörden / extern
-- [ ] **Finanzamt anrufen** (Termin im Kalender: Fr 04.09., 09:30) – 0711 397-2929 / -2007.
+## 2. Entscheidungen (sag mir einfach, was du willst, ich setze es per API um)
+- [ ] **Marken-/Bildrechte (19 Produkte):** Batman, Ferrari/F1, Marlboro, Porsche, Nike „Just Do It", Wimbledon, Godfather, Messi, Ronaldo, Neymar, Jordan u. a. Behalten, umbenennen oder entfernen? 5 davon liegen in „Favoriten". Dazu AGB § 11 (beansprucht Urheberrecht an allen Motiven).
+- [ ] **Dünne Collections:** GRIT (2), Artists (3), ICONS (4). Vorschlag: Artists mit ICONS zusammenlegen; GRIT mit vorhandenen Gym-Motiven füllen als „GRIT: Gym, Boxing & MMA".
+- [ ] **Dressurpferd:** bei 3 Größen bleiben (SEO-Text passt jetzt) oder in Printify 11×14, 16×20, 18×24 ergänzen?
+- [ ] **Preis 46×61 cm:** 79,99 € (14 neue Motive) oder 81,99 € (übrige 99)? Am besten in Printify angleichen.
+- [ ] **Variantenauswahl:** „Size/Color" mit Zoll auf „Größe/Rahmen" mit cm umstellen? Geht am sichersten in Printify.
+- [ ] **Englische Produkt-URLs** jetzt (vor dem Launch, noch nicht indexiert) auf kurze deutsche umstellen? Mache ich samt Weiterleitungen.
+- [ ] **Shop-App-Kanal:** alle 113 Produkte auch in der Shop-App veröffentlichen?
+- [ ] **Kraftausdrücke** („Fuck Them All", „Just Do Some Creative Shits"): für Google/Meta-Feeds neutrale Titel oder rausnehmen?
+- [ ] **WELCOME10** anlegen (10 %, mit Versandrabatt kombinierbar)?
+
+## 3. Zugänge / Daten für mich
+- [ ] **Nach jedem Printify-Publish Bescheid geben** – neue Motive kommen englisch, ohne GPSR und ohne Collection an.
+- [ ] **Printify-API-Token** (Printify → Konto-Menü → *Connections* → *API tokens*). Damit prüfe ich Bestellungen, Freigabe-Einstellung und Versandprofil-Sync direkt.
+- [ ] **Shop-Postfach** limitless.posterje@gmail.com verbinden oder an das verbundene Gmail weiterleiten (dort kam in 45 Tagen keine Printify-Mail an).
+- [ ] **Obsidian-Vault-Ort** (Ordnerpfad, GitHub-Repo oder Google-Drive-Ordner). Bis dahin liegen die Notizen im Repo unter `obsidian/LimitlessPoster/`.
+
+## 4. Behörden / extern
+- [ ] **Finanzamt anrufen** – § 19 bestätigen, Reverse-Charge bei Printify-Rechnungen klären – 0711 397-2929 / -2007.
 - [x] ~~**LUCID** registrieren + duales System~~ – entfällt: Printify-LUCID DE4139628009499 deckt alles ab (28.09.).
 - [ ] **PayPal** auf Geschäftskonto umstellen.
 
-## 4. Printify (manuell, bis ich einen Token habe)
+## 5. Printify (manuell, bis ich einen Token habe)
 - [ ] Wallet → Zahlungsmittel hinterlegen · [Link](https://printify.com/app/account/payment/details)
 - [ ] Store settings → Order settings → **Manual approval** · [Link](https://printify.com/app/store/settings/order-settings)
+- [ ] **Versandprofil-Sync abschalten, falls möglich** – Printify hat die Shopify-Versandprofile überschrieben (DE ≈ 23 € pro Poster). Der Gratisversand-Rabatt fängt das ab, aber ohne Sync bleibt es sauberer.
 - [ ] Wallet → **Taxes** → USt-IdNr. DE463961672 hinterlegen (nach dem Finanzamt-Telefonat).
-- [ ] Store settings → **GPSR**: Verantwortlicher = Julius Erb, Eugen-Bolz-Str. 28, 73732 Esslingen, limitless.posterje@gmail.com (Pflicht für EU/DE-Verkauf).
+- [ ] Store settings → **GPSR**: Verantwortlicher = Julius Erb, Eugen-Bolz-Str. 28, 73732 Esslingen, limitless.posterje@gmail.com.
 - [ ] Ship-from/Store-Adresse auf Esslingen prüfen.
-- [ ] Versand: Für „nur Deutschland" muss bei Printify nichts umgestellt werden – die Länderfreigabe steuert Shopify (Markets: nur Deutschland aktiv).

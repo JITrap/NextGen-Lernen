@@ -1,0 +1,142 @@
+=== b0 [open] Richtlinien einfügen: Versand, AGB + LUCID im Impressum
+  <recht:open> Offen: Unter Einstellungen → Richtlinien musst du drei Dinge ändern. Versandrichtlinie: die 3 EU-Stellen auf „nur Deutschland“ ändern. Checkout-AGB: am einfachsten den Text der Seite /pages/agb (Stand 3.9.) übernehmen, damit § 4 Abs. 2, § 5 Abs. 1 und das Stand-Datum passen. Impressum: die Zeile zur LUCID-Registrierung (DE4139628009499 über Printify) ergänzen. Das hat Vorrang, weil der Footer-Link „Versand & Lieferung“ und das Hilfe-Center direkt auf die veraltete Versandrichtlinie zeigen.
+  <CRITIC:open> Offen, und das geht nur im Admin, weil die API bei Richtlinien nur lesen darf. Unter Einstellungen → Richtlinien änderst du drei Dinge: In der Versandrichtlinie die 3 EU-Stellen auf „nur Deutschland“. Für die AGB übernimmst du den Text von /pages/agb (Stand 3.9.). Ins Impressum kommt die LUCID-Zeile (DE4139628009499 über Printify).
+=== b1 [DONE] Versandländer vs. AGB konsistent machen
+  <checkout:partial> Versandgebiet ist technisch nur DE (Markets + Allgemeines Profil). Offen: Die Shopify-Richtlinien 'AGB' und 'Versand' (Checkout-Links) sagen noch DE+EU und müssen an /pages/agb angeglichen werden. Außerdem muss 'Versand inklusive' auch in den Printify-Profilen gelten (b2).
+=== b2 [DONE] Printify-Versandprofile geklärt
+  <checkout:open> Printify hat seine Versandprofile neu synchronisiert: In allen 5 aktiven Printify-Profilen kostet DE-Versand wieder 26–35 $ pro Poster. Setz die Zone Germany in jedem Profil wieder auf 0 € (oder lass Claude das machen) und prüf das nach jedem Printify-Sync erneut.
+  <CRITIC:open> Das ist zurückgefallen: Printify hat die Versandprofile neu synchronisiert, und der Checkout verlangt jetzt 23,19 € pro Poster (24×36: 30,49 €). Setzt du die Zonen einfach wieder auf 0 €, überschreibt Printify das beim nächsten Sync erneut. Besser: Lass Claude einen automatischen Gratisversand-Rabatt für Deutschland anlegen und prüf danach per Probeberechnung.
+=== b3 [DONE] Theme-Steuertexte auf § 19 UStG umstellen
+  <theme:done> In OFE v3 zeigen alle 8 Steuertext-Bausteine und der Preisblock auf der Produktseite den § 19-Hinweis. Kunden sehen ihn erst, wenn du OFE v3 veröffentlichst. Live (v2.0) steht noch 'Steuern und Versand werden beim Checkout berechnet'.
+=== b9 [DONE] Steuereinstellungen im Admin umgestellt
+  <checkout:done> 'Preise inkl. Steuer' ist aus (per API bestätigt). Dass keine Region Steuern erhebt, siehst du nur im Admin: Bei der Testbestellung prüfen, ob keine MwSt-Zeile aufgeschlagen wird.
+=== b4 [DONE] AGB als Checkout-Richtlinie eingefügt
+  <recht:done> Die AGB sind als Checkout-Richtlinie angelegt. Der Inhalt muss aber noch auf „nur Deutschland“ angepasst werden (siehe b0).
+=== bd1 [DONE] Checkout-Datenschutzerklärung ersetzt
+  <recht:done> Die deutsche DSGVO-Version (17 Abschnitte) steht im Checkout und auf der Seite. Offen ist nur noch der Zahlungsabschnitt (r5).
+=== b5 [DONE] Verpackungsgesetz: LUCID über Printify abgedeckt
+  <recht:done> Die LUCID-Abdeckung läuft über Printify (DE4139628009499). Die Zeile im Impressum fehlt noch und wird mit b0 ergänzt.
+=== b6 [open] Zahlungsarten scharf schalten
+  <checkout:open> Weiterhin keine Digital Wallets aktiv. Richte Shopify Payments ein und verbinde das PayPal-Geschäftskonto (nur im Admin prüfbar). PayPal muss zum Launch aktiv sein, weil AGB und Datenschutzerklärung es nennen.
+=== b7 [open] Komplette Testbestellung durchspielen
+  <checkout:open> Noch keine Bestellung im Shop. Code LAUNCH-TEST-100 ist vorbereitet. Mach den Test erst nach dem Versand-Fix (b2) und prüf dabei 0 € Versand, 0 € MwSt, Weitergabe an Printify (manuelle Freigabe) und Storno. Danach den Code deaktivieren.
+=== b10 [open] Theme OFE v3 veröffentlichen
+  <theme:open> OFE v3 (ID …283725, NICHT 'OFE v3 — Experience (Claude WIP)') enthält alle Fixes und ist weiter unveröffentlicht. Veröffentliche es im Admin unter Onlineshop > Themes, am besten vor dem Entfernen des Shop-Passworts.
+=== b8 [open] Passwortschutz entfernen — Launch 🚀
+  <checkout:open> Passwortschutz ist noch aktiv. Entfernen (nur im Admin), sobald b1, b2, b6 und b7 erledigt sind.
+=== r1 [DONE] Impressum vorhanden und im Footer verlinkt
+  <recht:partial> Das Impressum existiert (/policies/legal-notice) und ist im Ziel-Theme OFE v3 direkt im Footer verlinkt. Im aktuellen Live-Theme v2.0 steckt es nur im Richtlinien-Popover; das erledigt sich, sobald du OFE v3 veröffentlichst.
+=== r2 [DONE] Impressum: USt-IdNr. eingetragen
+  <recht:done> EV: Im Impressum (LEGAL_NOTICE) steht: „Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE463961672“.
+=== r3 [DONE] Widerrufsbelehrung mit Muster-Widerrufsformular
+  <recht:done> EV: Die Seite /pages/widerrufsrecht und die Checkout-Richtlinie REFUND_POLICY enthalten beide die vollständige Widerrufsbelehrung und das Muster-Widerrufsformular (bis „(*) Unzutreffendes streichen.“).
+=== r4 [DONE] Widerruf: Seite und Checkout-Richtlinie identisch
+  <recht:done> EV: Der Text der Seite „Widerrufsrecht“ (angelegt 02.08.) und der Richtlinie „Widerrufsrecht“ (geändert 04.08.) ist identisch. Kleinigkeit: Im Menü footer-hilfe führen „Widerrufsrecht“ (Seite) und „Rückgaben & Stornierungen“ (/policies/refund-policy) auf denselben Inhalt, und der Menütitel weicht vom Richtlinientitel „Widerrufsrecht“ ab.
+=== r5 [open] Datenschutzerklärung nach Zahlarten-Setup konkretisieren
+  <recht:open> Offen: Sobald feststeht, welche Zahlarten live sind (Shopify Payments ja/nein), passt du Abschnitt 7 in der Checkout-Richtlinie UND auf der Seite /pages/datenschutzerklaerung an. Nenn dann die Anbieter konkret und streich den Satz „Sofern wir weitere Zahlungsarten anbieten …“.
+=== r6 [DONE] Cookie-/Consent-Banner aktiv
+  <recht:unknown> Prüf im Admin unter Einstellungen → Kundendatenschutz, ob der Cookie-Banner für Deutschland aktiv ist. Test danach mit deutscher IP, ob der Footer-Link wirklich die Cookie-Einstellungen öffnet (siehe neuer Befund zum Cookie-Link).
+  <CRITIC:partial> Der Shopify-Cookie-Banner ist offenbar aktiv, das Banner-Skript wird ausgeliefert. Prüf noch mit deutscher IP, ob er erscheint. Außerdem muss der Footer-Link „Datenschutz-Einstellungen“ wirklich die Cookie-Einstellungen öffnen, nicht nur die US-Opt-out-Seite.
+=== r7 [DONE] GPSR-Pflichtblock in allen Produktbeschreibungen
+  <produkte:done> Erledigt: Alle 113 Produkte haben den GPSR-Block (gpsr-info) samt § 19-Hinweis. Neue Printify-Produkte bekommen ihn beim Konventions-Check.
+=== r8 [DONE] Gewerbe & Finanzamt erledigt
+  <recht:unknown> EV: Liegt außerhalb von Shopify und ist per API nicht prüfbar. Einziges Indiz: Die USt-IdNr. DE463961672 steht im Impressum. Die Steuernummer muss nicht im Shop stehen. Es gibt keinen Widerspruch zum bisherigen Stand.
+  <CRITIC:done> Erledigt, extern. Die erteilte USt-IdNr. (DE463961672) belegt die steuerliche Erfassung.
+=== rn1 [open] USt-Status mit Steuerberater/Finanzamt klären
+  <recht:unknown> Das bleibt eine externe Aufgabe: § 19 bestätigen lassen und klären, wie Printify-Rechnungen mit Reverse-Charge zu behandeln sind. Der Shop ist technisch schon auf Kleinunternehmer eingestellt.
+=== r9 [DONE] Widerruf & AGB in der Bestellbestätigung
+  <recht:unknown> Das ist per API nicht prüfbar. Mach nach b0 eine Testbestellung (z. B. mit dem Code „Testbestellung Launch (100 %)“) und prüf, ob die Bestätigungsmail AGB und Widerrufsbelehrung in der aktuellen Fassung (nur Deutschland) enthält.
+=== r10 [open] Kauf-Button-Beschriftung im Live-Checkout prüfen
+  <recht:unknown> Prüf das bei der Testbestellung: Der letzte Button im Checkout muss eindeutig auf die Zahlungspflicht hinweisen. Prüf ihn nach dem Wechsel auf OFE v3 noch einmal, falls du Checkout-Texte angepasst hast.
+=== r11 [DONE] Keine veralteten OS-Plattform-Hinweise
+  <recht:done> EV: In keiner Richtlinie, keiner Seite und keiner der geprüften Theme-Vorlagen beider Themes (Footer, Header, Index, Produkt, Hilfe, Story) steht „OS-Plattform“, „ec.europa.eu/consumers/odr“ oder „Online-Streitbeilegung“. Impressum und AGB § 12 enthalten nur den VSBG-Satz zur Verbraucherschlichtung.
+=== s1 [DONE] Domain limitlessposter.com verbunden, SSL aktiv
+  <checkout:done> Domain verbunden, SSL aktiv, www und http leiten korrekt auf https://limitlessposter.com um.
+=== s2 [DONE] Footer- und Hauptmenüs vollständig
+  <recht:partial> Die Menüs sind für OFE v3 angelegt (main-menu-ofe, footer-shop, footer-info, footer-hilfe) und alle Links funktionieren. Offen sind: GRIT und ICONS ins Kollektionen-Menü aufnehmen, die Dubletten zwischen footer-info und footer-hilfe bereinigen und OFE v3 veröffentlichen, weil das Live-Theme keine Footer-Menüs zeigt.
+=== s0 [open] Homepage-Meta-Description auf Deutschland umstellen
+  <checkout:open> Ändere den Text im Admin unter Onlineshop > Einstellungen (Startseiten-Meta-Beschreibung), z. B. auf '… fertig gerahmt in Schwarz oder Weiß, versandkostenfrei innerhalb Deutschlands. In 4–10 Werktagen bei dir.' 'Versandkostenfrei' stimmt erst nach dem Fix in b2.
+=== s3 [open] E-Mail-Absender auf eigene Domain umstellen
+  <checkout:open> Absender ist noch Gmail. Richte info@limitlessposter.com ein (Postfach und DNS mit SPF/DKIM, extern), stell sie im Admin als Absender ein und authentifiziere die Domain. Danach lässt du die Adresse in allen Rechtstexten und Seiten per API ersetzen.
+=== s4 [open] Benachrichtigungs-Mails auf Deutsch + Branding prüfen
+  <checkout:unknown> Nur im Admin prüfbar (Einstellungen > Benachrichtigungen): Logo, Farbe und die übrigen Vorlagen (Versandbestätigung, Storno, Erstattung) auf Deutsch prüfen. Am besten zusammen mit der Testbestellung.
+=== s5 [open] Rechnungslösung einrichten (§ 19-Hinweis)
+  <betrieb:unknown> Installiere im Admin Order Printer oder eine andere Rechnungs-App. Leg eine Rechnungsvorlage mit dem Satz „Gemäß § 19 UStG wird keine Umsatzsteuer berechnet“ an und prüf sie mit der Musterbestellung.
+=== s6 [DONE] Markets auf DE+EU begrenzt
+  <checkout:done> Seit 03.09. ist nur der Markt Deutschland aktiv. EU und America liegen als Entwurf vor und bleiben aus.
+=== s7 [DONE] Checkout-Feineinstellungen
+  <checkout:unknown> Der lesbare Teil ist ok (Kundenkonten optional, keine SMS-Einwilligung). Die übrigen Checkout-Einstellungen prüfst du bei der Testbestellung im Admin bzw. im echten Checkout.
+=== s8 [DONE] Die 2 Entwurf-Produkte entscheiden
+  <produkte:done> Erledigt: Die Entwürfe sind gelöscht, alle 113 Produkte sind aktiv.
+=== p1 [DONE] Titel-Konvention, deutsche Beschreibungen, SEO-Meta auf allen Produkten
+  <produkte:done> Erledigt für alle 113 Produkte: deutsche Titel und Beschreibungen, SEO-Description ≤ 160 Zeichen. Offen sind nur Feinschliff-Titel (Luke 1:37, Red Icon, Tennis Court Aerial) und die englischen Handles.
+=== p2 [DONE] Alt-Texte aller Produktbilder
+  <produkte:partial> Teilweise: Die ersten 6–7 Bilder je Produkt haben Alt-Texte, die rund 2.470 Varianten-Mockups von Printify nicht. Claude kann sie per API nach dem Schema „Titel – Rahmenfarbe/Größe“ nachziehen.
+=== p3 [DONE] Preisstrategie entschieden: Preise bleiben
+  <produkte:done> Entschieden: Die Preise bleiben bei 64,99–108,99 €. Offen ist nur die Angleichung der Größe 46×61 cm (79,99 € bei den 14 neuen, 81,99 € bei den übrigen) – am besten in Printify, sonst überschreibt der nächste Sync die Änderung.
+=== p4 [DONE] Größen in Zentimetern kommunizieren
+  <produkte:partial> Teilweise: In allen Beschreibungen stehen cm-Angaben. Die Variantenauswahl zeigt aber noch Zoll und „Size/Color/Black/White“. Die Optionen sollten auf „Größe“ und „Rahmen“ mit cm-Werten umgestellt werden; prüf vorher, ob der Printify-Sync die Umbenennung überschreibt.
+=== p5 [open] Eigene Lifestyle-Fotos als Ergänzung
+  <produkte:open> Offen: Bisher gibt es nur Mockups. Eigene Fotos machst du, sobald die Musterbestellung da ist (Testcode LAUNCH-TEST-100 ist noch ungenutzt).
+=== p6 [DONE] Tag-System vorhanden
+  <produkte:partial> Teilweise: Tags gibt es auf allen Produkten, aber nur als 568 unstrukturierte englische Printify-Tags. Ein echtes Tag-System (z. B. thema:*, format:hoch/quer) würde Filter und Smart-Collections ermöglichen.
+=== p7 [open] Bewertungs-App installieren
+  <betrieb:open> Installiere Judge.me oder entscheide dich bewusst für Sternify. Aktiviere danach das App-Embed und den Bewertungsblock auf der Produktseite in OFE v3, bevor du das Theme veröffentlichst.
+=== p8 [open] Bei künftigen Rabatten: 30-Tage-Bestpreis-Regel
+  <produkte:open> Merkpunkt, weiter gültig: Aktuell gibt es keine Streichpreise. Sobald du compareAtPrice setzt, zeigt der Savings-Block in OFE v3 eine Ersparnis an; dafür gilt dann die 30-Tage-Bestpreis-Regel.
+=== pn3 [DONE] Bestseller-Collection kuratiert
+  <produkte:done> Kuratiert (12 Motive). Den Text „am häufigsten bestellt / von der Community gewählt“ ersetzt du, solange es keine echten Verkäufe gibt, z. B. durch „Unsere Favoriten“.
+=== pn4 [DONE] 14 neue Motive (17./21.09.) auf Shop-Konvention gebracht
+  <produkte:done> Erledigt: Alle 14 neuen Motive entsprechen der Shop-Konvention. Rest: Preis für 46×61 cm angleichen (79,99 → 81,99 €) und Alt-Texte der Varianten-Mockups ergänzen.
+=== pn5 [open] Marken- und Bildrechte der Motive prüfen
+  <produkte:open> Offen: 19 Produkte nennen Marke oder Person direkt (u. a. Batman, Ferrari/F1, Marlboro, Porsche, Nike „Just Do It“, Wimbledon, WM, Godfather/Scarface/Fight Club, Messi, Ronaldo, Neymar, Jordan). Dazu kommen rund 15 Motive mit Tag-Hinweisen (LeBron, DiCaprio, Olympia) oder Promi-Portraits; prüf alle mit Blick auf die Printify-Lizenz/Quelle und entscheide je Motiv, ob es bleibt, umbenannt oder entfernt wird.
+=== pn1 [open] „Dressurpferd"-Produkt prüfen
+  <produkte:open> Offen: Das Dressurpferd hat nur 3 Größen (alle 2:3). Entweder ergänzt du in Printify 11×14, 16×20 und 18×24 mit angepasster Platzierung, oder du belässt es bei 3 Größen und änderst die SEO-Description von „viele Größen“ auf „drei Größen“.
+=== pn2 [open] Dünne Collections auffüllen oder ausblenden
+  <produkte:partial> Teilweise: Film & Series (8) ist erledigt. Artists (3) legst du mit ICONS (4) zusammen oder nimmst es offline. GRIT (2) füllst du mit Gym/Disziplin-Motiven (discipline-motivational-poster-gym-wall-art, stay-hungry-…, motivational-gym-poster-i-dont-know-how-…, motivational-fitness-poster-stay-focused-…, focus-framed-poster-motivational-gym-wall-art), z. B. als „GRIT — Gym, Boxing & MMA“.
+=== t1 [DONE] OFE v3: alle Sprach- und Rechts-Fixes eingebaut
+  <theme:done> Sprach- und Rechtsfixes in OFE v3 sind drin und geprüft. Offen sind nur Kleinigkeiten außerhalb des Themes: die Shopify-Richtlinien Versand/AGB und die Shop-Meta-Beschreibung nennen noch die EU.
+=== tn1 [DONE] Shop-Hauptsprache = Deutsch verifiziert
+  <theme:done> EV: shopLocales: nur 'de' (Deutsch), primary=true und published=true, keine weiteren Sprachen. Das Theme setzt lang={{ request.locale.iso_code }}, also 'de'.
+=== tb1 [DONE] Bestseller-Collection im Theme verlinkt
+  <theme:done> In OFE v3 ist die Bestseller-Collection (12 Produkte) auf Startseite, Hero, 404, Warenkorb, Gallery Wall und im Hauptmenü verlinkt. Kunden sehen das erst nach dem Publish.
+=== t2 [open] Mobile-Durchgang aller Kernseiten
+  <theme:unknown> EV: Per API nicht prüfbar. Die Konfiguration ist mobil vorbereitet (Produktlisten mobile_columns=2, Header sticky, Mediengalerie als Karussell). Einen echten Durchgang auf dem Handy gibt es noch nicht. Möglich ist er über die Vorschau von OFE v3, obwohl der Shop passwortgeschützt ist.
+=== t3 [DONE] Theme-Aufräumen entschieden: alle bleiben
+  <theme:done> Entschieden: alle 6 Themes bleiben. Veröffentliche beim Publish nur 'LimitlessPoster OFE v3' (ID …283725), nicht die WIP-Variante.
+=== t4 [open] Social-Sharing-Bild (OG) setzen — Favicon ist schon da
+  <theme:open> Das Favicon ist gesetzt. Lade im Admin unter Onlineshop > Einstellungen ein Social-Sharing-Bild hoch (ca. 1200×628 px) und korrigiere dabei gleich die Meta-Beschreibung ('DE & EU' raus).
+=== t5 [open] Echte Social-Media-Profile im Footer verlinken
+  <theme:open> Echte Profil-URLs fehlen noch. In OFE v3 sind alle Social-Links leer (keine Icons), live v2.0 zeigt Platzhalter auf die Startseiten von Facebook, Instagram, YouTube, TikTok und X. Trag deine Profile im OFE-Footer-Block 'Social Links' ein, sobald du sie hast.
+=== tn2 [open] 3D-Viewer lädt extern von Google
+  <theme:partial> Live (v2.0) lädt der 3D-Viewer bei 99 Produkten mit gesetztem Metafield auf Klick ein Script von Google. OFE v3 nutzt einen eigenen CSS-3D-Viewer ohne externe Quelle, das Thema erledigt sich also mit dem Publish von OFE v3.
+=== t6 [open] Ladezeit prüfen
+  <theme:open> Nach Launch (Passwort entfernt, OFE v3 live) mit PageSpeed Insights mobil messen. Falls der LCP schwach ist, teste zuerst die Seitenübergänge (page_transition) ohne das Render-Blocking.
+=== m1 [open] Google Search Console + Sitemap (direkt nach Launch)
+  <betrieb:open> Erst den Passwortschutz entfernen. Dann limitlessposter.com in der Search Console als Domain-Property (DNS) bestätigen und https://limitlessposter.com/sitemap.xml einreichen.
+=== m2 [DONE] Homepage-Title & Meta-Description gesetzt
+  <checkout:partial> Die Description ist gesetzt, muss aber auf 'nur Deutschland' geändert werden (s0). Den Startseiten-Titel prüfst du im Admin unter Onlineshop > Einstellungen.
+=== mn1 [DONE] SEO-Metas für alle Collections gesetzt
+  <produkte:done> Erledigt: Alle 15 Shop-Collections haben SEO-Titel und SEO-Description ≤ 160 Zeichen. Nur die leere System-Collection „Startseite“ hat keine; die kannst du ignorieren oder offline nehmen.
+=== m3 [open] Analytics-Setup entscheiden
+  <betrieb:partial> Entscheide, ob Shopify Analytics für den Anfang reicht (so steht es aktuell in der Datenschutzerklärung). Zusätzliche Pixel (GA4, Meta, TikTok) kommen nur mit Cookie-Einwilligung und passender Ergänzung der Datenschutzerklärung dazu.
+=== m4 [open] Instagram/TikTok für die Marke aufbauen
+  <betrieb:open> Leg Instagram und TikTok für LimitlessPoster an und trag die echten Profil-URLs im Footer von OFE v3 ein. Entferne die Platzhalter-Links im Live-Theme.
+=== m5 [DONE] Newsletter mit Double-Opt-in
+  <betrieb:partial> Prüf im Admin (Einstellungen → Kundenkonten bzw. die Marketing-Einstellungen), ob Double-Opt-in an ist. Mach eine Test-Anmeldung mit eigener Adresse: Bestätigungsmail muss kommen, danach Status „Abonniert“.
+=== m6 [open] Launch-Aktion planen
+  <betrieb:open> Leg WELCOME10 an (10 %, einmal pro Kunde, gern mit Enddatum) und verknüpf den Code mit der Newsletter-Anmeldung. Leg Datum und Kanäle für den Launch fest (Passwort entfernen, Social, Newsletter).
+=== m7 [open] Google Merchant Center später prüfen
+  <betrieb:open> Später: Installier die App Google & YouTube und verbinde das Merchant Center. Das geht erst, wenn der Passwortschutz weg ist und der Versand im Checkout zu den Angaben im Shop passt.
+=== o1 [open] Printify-Einstellungen festzurren
+  <betrieb:unknown> Prüf in Printify: hinterlegtes Zahlungsmittel, Order Approval (manuell oder automatisch), Tracking-Sync mit Shopify, GPSR-Angaben und USt-IdNr. Schalt vor allem die Synchronisierung der Versandprofile ab, damit Printify die Versandkosten in Shopify nicht überschreibt.
+=== o2 [open] Retouren-Prozess definieren
+  <betrieb:partial> Schreib dir einen kurzen Ablauf auf: Widerruf per Mail → Rücksendung an Esslingen → Erstattung in Shopify innerhalb von 14 Tagen. Bei Schäden oder Fehldrucken: Foto anfordern → Reklamation bei Printify (Frist beachten) → Nachdruck.
+=== o3 [open] Musterbestellung: eigene Poster bestellen
+  <betrieb:open> Bestell 1–2 eigene Poster über den Shop mit LAUNCH-TEST-100. Damit testest du Checkout, Versandkosten, Weitergabe an Printify, Tracking-Mail und Rechnung. Bewerte danach Druck, Rahmen und Verpackung.
+=== o4 [open] Buchhaltungs-Routine aufsetzen
+  <betrieb:unknown> Leg eine feste Monatsroutine fest: Shopify-Auszahlungen, PayPal-Umsätze und Printify-Rechnungen exportieren, Einnahmen und Ausgaben erfassen (EÜR), Belege ablegen und die Kleinunternehmergrenze im Blick behalten.
+=== o5 [open] Support-Routine
+  <betrieb:partial> Leg fest, wann du täglich Shop-Postfach und Inbox-Chat prüfst (die Zusage lautet 24–48 Stunden). Bereite Antwortvorlagen vor für: Wo ist meine Bestellung, Widerruf, beschädigtes Poster.
+=== o6 [open] Wöchentlicher KPI-Blick
+  <betrieb:unknown> Leg einen festen wöchentlichen Termin an (z. B. Montag): Sitzungen, Conversion-Rate, Bestellungen, Umsatz, Warenkorbabbrüche, Top-Produkte und Newsletter-Anmeldungen. Claude kann das per ShopifyQL als Routine liefern.
