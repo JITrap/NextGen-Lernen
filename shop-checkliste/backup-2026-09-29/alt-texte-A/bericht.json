@@ -1,0 +1,12 @@
+{
+  "area": "alt-texte-A",
+  "produkte_bearbeitet": 0,
+  "alt_texte_gesetzt": 0,
+  "rest_ohne_alt": 0,
+  "beispiele": [],
+  "problems": [
+    "Keine Produkte mit gerader ID im Shop: Live-Abfrage (products, paginiert, sortKey ID; productsCount = 113, alle ACTIVE, keine DRAFT/ARCHIVED/UNLISTED) ergab 113 Produkte, deren numerische IDs ALLE auf eine ungerade Ziffer enden (1:29, 3:29, 5:24, 7:17, 9:14). Damit ist der Umfang fuer alt-texte-A leer; es wurde keine Mutation ausgefuehrt.",
+    "Die Aufteilung gerade/ungerade ID ist fuer diesen Shop unbrauchbar: der Agent fuer ungerade IDs hat alle 113 Produkte. Fuer eine echte Parallelisierung ein anderes Kriterium verwenden (z. B. vorletzte Ziffer gerade/ungerade oder Position in der nach ID sortierten Liste 1-57 / 58-113).",
+    "Hinweis zu Vorlagen: alt-texte-1/ und alt-texte-2/ enthalten nur ungerade Produkte (13 bzw. 12). alt-texte-2/plan-neu.json nummeriert nicht zugeordnete Bilder ab 'gerahmtes Poster – Ansicht 1'; laut Regel muss das erste Bild ', gerahmtes Poster' (ohne Nummer) heissen und erst ab dem zweiten '– Ansicht 2' usw. folgen. Dieser Plan sollte vor der Nutzung korrigiert werden."
+  ]
+}
