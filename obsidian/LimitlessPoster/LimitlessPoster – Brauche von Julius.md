@@ -1,6 +1,6 @@
 ---
 tags: [limitlessposter, offen]
-stand: 2026-09-29
+stand: 2026-10-01
 ---
 # LimitlessPoster – Das brauche ich von Julius
 
@@ -22,11 +22,12 @@ stand: 2026-09-29
 - [ ] **Testbestellung** mit Code `LAUNCH-TEST-100` (ergibt jetzt 0,00 € inkl. Versand). Vorher bei Printify Order approval auf „Manually". **Danach Claude Bescheid geben → Code wird gelöscht.**
 - [ ] **OFE v3 veröffentlichen** – https://admin.shopify.com/store/gexdm4-2q/themes → genau **„LimitlessPoster OFE v3"** → ⋯ → Veröffentlichen. Nicht „ARCHIV – OFE v3 WIP (nicht veröffentlichen)". Danach im privaten Fenster testen: Cookie-Banner erscheint, Footer-Link „Datenschutz-Einstellungen" öffnet die Cookie-Einstellungen.
 - [ ] **Passwort entfernen** – ganz am Schluss (Onlineshop → Präferenzen).
+- [ ] **OFE v3 im Theme-Editor prüfen:** Steht im Editorial-Block der Startseite „99 kuratierte Motive“? Dann auf 113 ändern oder Zahlen ausblenden.
 - [ ] **Apps prüfen:** Ist „Sternify" noch installiert? Entscheide dich für Sternify oder Judge.me, nicht beides.
 - [ ] **Absender-E-Mail** (Zoho, info@limitlessposter.com) – Datenmappe/Checkliste.
 
 ## 2. Entscheidungen (sag mir einfach, was du willst, ich setze es per API um)
-- [ ] **Marken-/Bildrechte (19 Produkte):** Batman, Ferrari/F1, Marlboro, Porsche, Nike „Just Do It", Wimbledon, Godfather, Messi, Ronaldo, Neymar, Jordan u. a. Behalten, umbenennen oder entfernen? 5 davon liegen in „Favoriten". Dazu AGB § 11 (beansprucht Urheberrecht an allen Motiven).
+- [ ] **Marken-/Bildrechte (19 Produkte):** (Startseite OFE v3 ist entschärft; offen sind noch Raum „Büro“ mit Vintage F1 und die Seite „Raum-Inspiration“ mit Messi.) Batman, Ferrari/F1, Marlboro, Porsche, Nike „Just Do It", Wimbledon, Godfather, Messi, Ronaldo, Neymar, Jordan u. a. Behalten, umbenennen oder entfernen? 5 davon liegen in „Favoriten". Dazu AGB § 11 (beansprucht Urheberrecht an allen Motiven).
 - [ ] **Dünne Collections:** GRIT (2), Artists (3), ICONS (4). Vorschlag: Artists mit ICONS zusammenlegen; GRIT mit vorhandenen Gym-Motiven füllen als „GRIT: Gym, Boxing & MMA".
 - [ ] **Dressurpferd:** bei 3 Größen bleiben (SEO-Text passt jetzt) oder in Printify 11×14, 16×20, 18×24 ergänzen?
 - [ ] **Preis 46×61 cm:** 79,99 € (14 neue Motive) oder 81,99 € (übrige 99)? Am besten in Printify angleichen.
