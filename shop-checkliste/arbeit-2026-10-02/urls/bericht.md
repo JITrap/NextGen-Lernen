@@ -77,6 +77,36 @@ Tipp: In Printify beim erneuten Veröffentlichen unter „Publishing settings“
 - Bereits verschickte Links (Test-Mails, Social Posts, Printify-Mockups) mit alten Adressen funktionieren weiter über die Weiterleitungen.
 - Die Datei `shop-checkliste/daten/produkte-2026-10-02.json` ist ein Export von heute früh und enthält noch die alten Handles; die Zuordnung alt → neu steht in `handle-plan.json`.
 
+## Gegenprüfung (02.10.2026, ca. 14:30 UTC)
+
+Unabhängig vom Bericht oben gegen den **Live-Stand in Shopify** und die Repo-Dateien geprüft (per Skript, ohne Änderungen am Shop).
+
+| Prüfpunkt | Ergebnis |
+|---|---|
+| Alle 113 Produkte: Live-Handle = geplanter neuer Handle (`handle-plan.json`) | 113/113 korrekt, alle Produkte aktiv und im Onlineshop + Shop-Kanal veröffentlicht |
+| Weiterleitungen: genau eine `/products/<alt>` → `/products/<neu>` je alter Adresse | 109/109 vorhanden, Ziel korrekt, IDs = `redirect_id` im Plan; keine doppelten Pfade |
+| Ketten, Schleifen, tote Ziele | keine: kein Ziel ist selbst eine Weiterleitung, jedes Ziel ist ein Live-Handle, kein Weiterleitungs-Pfad überdeckt ein Live-Produkt |
+| Sonstige Weiterleitungen | nur `/collections` → `/collections/all` (alt, unverändert); insgesamt 110 |
+| Handles: nur a–z, 0–9, Bindestrich; Länge; Dubletten; alte Handles wiederverwendet | alles sauber; Ø 30 Zeichen, max. 42; jedes Wort stammt aus dem Produkttitel (einzige Übersetzung: „Formula“ → `formel`, gewollt); keine Tippfehler gefunden |
+| OFE v3: alle 459 Dateien auf 109 alte Handles | 0 Treffer |
+| OFE v3: alle Einstellungen vom Typ Produkt (aus den Section-Schemas ermittelt) | 16 Werte: 15 Handles (index.json 9, page.rooms.json 6), alle existieren live; 1 × `{{ closest.product }}` (dynamisch, korrekt); keine leeren Felder |
+| OFE v3: fest eingetragene `/products/…`-Links und `shopify://products/…` | keine (einzige Fundstelle: Shopify-Hilfelink in den Editor-Übersetzungen) |
+| OFE v3: Einstellungen vom Typ Collection | 8 Werte, alle existieren |
+| Live-Theme v2.0 (nur gelesen): 428 Dateien | 0 alte Handles; Produkt-Einstellung im Scroll-Showcase zeigt auf `not-over-until-i-win-poster` (existiert) |
+| Menüs (7, 57 Einträge), Seiten (12), Artikel (0), Collection-Beschreibungen + Metafelder (16), Shop-Metafelder, Produktbeschreibungen + SEO-Texte (113) | keine alten Handles, keine Produkt-Links auf nicht existierende Produkte |
+| Metaobjekte | nur Shopify-Kategorie-Werte (Material, Ausrichtung …), keine Handles |
+| Übersetzte Handles (andere Sprachen) | nicht möglich: Shop hat nur die Sprache Deutsch |
+| Produkt-Metafelder `custom.poster_3d*` | alte Handles nur in CDN-**Dateinamen** (über 1.000 Fundstellen in `poster_3d`, `poster_3d_v4`, `poster_3d_url`, alle `cdn.shopify.com/.../files/...`); Stichprobe 60 Datei-Links: alle HTTP 200. OFE v3 nutzt diese Metafelder nicht → kein Handlungsbedarf |
+| Repo: Bericht-Tabelle und Backups | Tabelle 109/109 identisch mit Plan; Backup enthält alle 113 alten Handles + Weiterleitungen vorher; keine Zugangsdaten in den Dateien |
+| Repo: weitere Dateien mit alten Handles | nur alte Backups/Audits (Absicht), `daten/produkte-2026-10-02.json` und `launchplan.html` (bereits als Übergabe vermerkt), `social/motive.json` (nur CDN-Bilddateinamen, gültig) |
+
+**Gefunden:** keine Fehler. **Behoben:** nichts nötig, keine Änderung am Shop oder Theme.
+
+Grenzen der Prüfung:
+- Der Shop ist passwortgeschützt; ein echter Aufruf der alten Adressen landet auf `/password` (geprüft). Ob die 301 im Browser greift, lässt sich erst ohne Passwort testen → nach dem Launch einmal `limitlessposter.com/products/horizontal-framed-poster` aufrufen, es muss `/products/vintage-formel-1-racing-poster` öffnen.
+- Archiv-Theme „ARCHIV – OFE v3 WIP“ vorgabegemäß nicht geprüft. Es darf nicht veröffentlicht werden, ohne vorher die Produkt-Verweise (Startseite, Räume) neu zu wählen.
+- Adressen mit Collection-Pfad (`/collections/<x>/products/<alt>`) haben keine eigene Weiterleitung. Da der Shop noch nie öffentlich war, gibt es solche Links praktisch nicht; kein Handlungsbedarf.
+
 ## Tabelle alt → neu (109 Produkte)
 
 | # | Titel | alt | neu |
