@@ -69,7 +69,7 @@
 {%- for sl in order.shipping_methods -%}
   {%- if forloop.first -%}{%- assign lp_versandart = sl.title -%}{%- endif -%}
 {%- endfor -%}
-{%- assign lp_versandart = lp_versandart | replace: "Standard Delivery", "Standardversand" | replace: "Standard Shipping", "Standardversand" -%}
+{%- assign lp_versandart = lp_versandart | replace: "Standard Delivery", "Standardversand" | replace: "Standard Shipping", "Standardversand" | split: " (" | first -%}
 
 {%- assign lp_versanddaten = "" -%}
 {%- for f in order.fulfillments -%}

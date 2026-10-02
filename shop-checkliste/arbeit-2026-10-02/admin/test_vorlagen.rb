@@ -51,7 +51,7 @@ orders = {
     "shipping_address" => addr("Anna", "Muster", "Hauptstraße 1", "70173", "Stuttgart"),
     "line_items" => [li("Dressurpferd", "46 × 61 cm", "Black", 8199, 1, "LP-0001")],
     "discount_applications" => [{ "target_type" => "shipping_line", "title" => "Kostenloser Versand Deutschland", "total_allocated_amount" => 2319 }],
-    "shipping_methods" => [{ "title" => "Standard Delivery", "original_price" => 2319, "price_with_discounts" => 0 }],
+    "shipping_methods" => [{ "title" => "Standardversand (4–10 Werktage)", "original_price" => 2319, "price_with_discounts" => 0 }],
     "fulfillments" => [], "tax_price" => 0, "total_price" => 8199, "total_refunded_amount" => 0,
     "financial_status" => "paid", "cancelled" => false,
     "transactions" => [{ "status" => "success", "kind" => "sale", "gateway" => "paypal", "gateway_display_name" => "PayPal",
