@@ -1,37 +1,38 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><title>Rechnung #1002</title></head><body><style>
   @page { size: A4; margin: 16mm 16mm 18mm; }
-  .lp-rechnung { font-family: Inter, "Helvetica Neue", Arial, sans-serif; color: #141215; font-size: 10.5pt; line-height: 1.45; max-width: 178mm; margin: 0 auto; }
+  .lp-rechnung { font-family: Inter, "Helvetica Neue", Arial, sans-serif; color: #141215; font-size: 10pt; line-height: 1.38; max-width: 178mm; margin: 0 auto; }
   .lp-rechnung h1 { font-size: 20pt; letter-spacing: .04em; margin: 0 0 2mm; font-weight: 700; }
-  .lp-kopf { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #8B1E2D; padding-bottom: 5mm; margin-bottom: 7mm; }
+  .lp-kopf { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #8B1E2D; padding-bottom: 4mm; margin-bottom: 5mm; }
   .lp-logo { width: 62mm; height: 12mm; object-fit: cover; object-position: center; display: block; }
+  .lp-logo-text { font-size: 19pt; font-weight: 800; letter-spacing: .12em; color: #141215; line-height: 12mm; }
   .lp-absender-klein { font-size: 7.5pt; color: #55575C; text-decoration: underline; margin-bottom: 1.5mm; }
-  .lp-adressen { display: flex; justify-content: space-between; gap: 8mm; margin-bottom: 8mm; }
+  .lp-adressen { display: flex; justify-content: space-between; gap: 8mm; margin-bottom: 6mm; }
   .lp-adressen > div { flex: 1; }
   .lp-label { font-size: 8pt; text-transform: uppercase; letter-spacing: .08em; color: #55575C; margin-bottom: 1mm; }
-  .lp-meta td { padding: 0 0 1mm 0; vertical-align: top; }
+  .lp-meta td { padding: 0 0 .6mm 0; vertical-align: top; }
   .lp-meta td:first-child { color: #55575C; padding-right: 4mm; white-space: nowrap; }
   table.lp-pos { width: 100%; border-collapse: collapse; margin-top: 2mm; }
+  table.lp-pos th.lp-r { text-align: right; }
   table.lp-pos th { text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: .06em; color: #55575C; border-bottom: 1px solid #141215; padding: 2mm 1.5mm; }
-  table.lp-pos td { border-bottom: 1px solid #E3DFD8; padding: 2.5mm 1.5mm; vertical-align: top; }
+  table.lp-pos td { border-bottom: 1px solid #E3DFD8; padding: 2mm 1.5mm; vertical-align: top; }
   .lp-r { text-align: right; white-space: nowrap; }
   .lp-klein { font-size: 8.5pt; color: #55575C; }
   table.lp-summen { width: 85mm; margin: 4mm 0 0 auto; border-collapse: collapse; }
-  table.lp-summen td { padding: 1.2mm 1.5mm; }
+  table.lp-summen td { padding: 1mm 1.5mm; }
   table.lp-summen tr.lp-gesamt td { border-top: 2px solid #141215; font-weight: 700; font-size: 12pt; padding-top: 2.5mm; }
-  .lp-hinweis { margin-top: 7mm; padding: 3mm 4mm; border-left: 3px solid #8B1E2D; background: #F7F5F1; }
+  .lp-hinweis { margin-top: 5mm; padding: 3mm 4mm; border-left: 3px solid #8B1E2D; background: #F7F5F1; }
   .lp-warnung { margin-bottom: 6mm; padding: 3mm 4mm; border: 2px solid #C0182B; color: #C0182B; font-weight: 700; }
-  .lp-fuss { margin-top: 12mm; padding-top: 3mm; border-top: 1px solid #E3DFD8; font-size: 8pt; color: #55575C; display: flex; justify-content: space-between; gap: 6mm; }
+  table.lp-pos tr, table.lp-summen, .lp-hinweis, .lp-fuss { break-inside: avoid; page-break-inside: avoid; }
+  .lp-fuss { margin-top: 7mm; padding-top: 3mm; border-top: 1px solid #E3DFD8; font-size: 8pt; color: #55575C; display: flex; justify-content: space-between; gap: 6mm; }
 </style>
 
 <div class="lp-rechnung"><div class="lp-kopf">
-    <div>
-      <img class="lp-logo" src="https://cdn.shopify.com/s/files/1/0976/9979/1181/files/ChatGPT_Image_14._Juni_2026_21_16_15.png?v=1781464649" alt="LimitlessPoster">
-    </div>
+    <div><div class="lp-logo-text">LIMITLESSPOSTER</div></div>
     <div style="text-align:right;">
       <h1>RECHNUNG</h1>
       <table class="lp-meta" style="margin-left:auto;">
         <tr><td>Rechnungsnummer</td><td><strong>RE-1002</strong></td></tr>
-        <tr><td>Rechnungsdatum</td><td>06.10.2026</td></tr>
+        <tr><td>Rechnungsdatum</td><td>09.10.2026</td></tr>
         <tr><td>Bestellnummer</td><td>#1002</td></tr>
         <tr><td>Bestelldatum</td><td>06.10.2026</td></tr>
         <tr><td>Liefer-/Leistungsdatum</td><td>09.10.2026 (Versand)</td></tr>
@@ -86,11 +87,11 @@
     <strong>Steuerfreie Kleinunternehmerleistung gemäß § 19 UStG.</strong> Es wird keine Umsatzsteuer berechnet und ausgewiesen.
   </div>
 
-  <table class="lp-meta" style="margin-top:6mm;">
+  <table class="lp-meta" style="margin-top:4mm;">
     <tr><td>Zahlart</td><td>Shopify Payments (Visa)</td></tr>
     <tr><td>Zahlungsstatus</td><td>bezahlt (Zahlung vom 06.10.2026)</td></tr></table>
 
-  <p style="margin-top:8mm;">Vielen Dank für deinen Einkauf bei LimitlessPoster! Bei Fragen zu dieser Rechnung schreib uns an limitless.posterje@gmail.com und nenne die Rechnungsnummer RE-1002.</p>
+  <p style="margin:5mm 0 0;">Vielen Dank für deinen Einkauf bei LimitlessPoster! Bei Fragen zu dieser Rechnung schreib uns an limitless.posterje@gmail.com und nenne die Rechnungsnummer RE-1002.</p>
 
   <div class="lp-fuss">
     <div>LimitlessPoster<br>Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28<br>73732 Esslingen am Neckar, Deutschland</div>

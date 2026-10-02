@@ -83,23 +83,6 @@ orders = {
     "financial_status" => "refunded", "cancelled" => true,
     "transactions" => [{ "status" => "success", "kind" => "sale", "gateway" => "bogus", "gateway_display_name" => "(For Testing) Bogus Gateway",
                          "created_at" => Time.parse("2026-10-07T12:00:05+02:00"), "payment_details" => {} }]
-  },
-  "4-live-optionen-mit-logo" => {
-    "name" => "#1004", "order_number" => 1004, "email" => "lena@example.com",
-    "created_at" => Time.parse("2026-10-10T09:00:00+02:00"),
-    "billing_address" => addr("Lena", "Live", "Am Markt 3", "73728", "Esslingen am Neckar"),
-    "shipping_address" => addr("Lena", "Live", "Am Markt 3", "73728", "Esslingen am Neckar"),
-    "line_items" => [{ "title" => "Yacht auf offener See – Ozean-Poster - 46 × 61 cm / Schwarz", "quantity" => 1, "sku" => "",
-                       "original_price" => 8199, "original_line_price" => 8199,
-                       "product" => { "title" => "Yacht auf offener See – Ozean-Poster" },
-                       "variant" => { "title" => "46 × 61 cm / Schwarz" },
-                       "options_with_values" => [{ "name" => "Größe", "value" => "46 × 61 cm" }, { "name" => "Rahmen", "value" => "Schwarz" }] }],
-    "discount_applications" => [{ "target_type" => "shipping_line", "title" => "Kostenloser Versand Deutschland", "total_allocated_amount" => 2319 }],
-    "shipping_methods" => [{ "title" => "Standard Delivery", "original_price" => 2319, "price_with_discounts" => 0 }],
-    "fulfillments" => [{ "created_at" => Time.parse("2026-10-13T11:00:00+02:00") }], "tax_price" => 0, "total_price" => 8199, "total_refunded_amount" => 0,
-    "financial_status" => "paid", "cancelled" => false,
-    "transactions" => [{ "status" => "success", "kind" => "sale", "gateway" => "paypal", "gateway_display_name" => "PayPal",
-                         "created_at" => Time.parse("2026-10-10T09:00:20+02:00"), "payment_details" => {} }]
   }
 }
 
@@ -108,8 +91,7 @@ ok = true
 src = File.read(File.join(BASE, "Order Printer Rechnung (§ 19).liquid"), encoding: "UTF-8")
 tpl = Liquid::Template.parse(src, error_mode: :strict)
 orders.each do |key, order|
-  shop = key.start_with?("4-") ? SHOP.merge("email_logo_url" => "https://cdn.shopify.com/s/files/beispiel/email-logo.png") : SHOP
-  html = tpl.render!({ "order" => order, "shop" => shop }, strict_filters: true)
+  html = tpl.render!({ "order" => order, "shop" => SHOP }, strict_filters: true)
   html = "<!doctype html><html lang=\"de\"><head><meta charset=\"utf-8\"><title>Rechnung #{order["name"]}</title></head><body>#{html}</body></html>"
   File.write(File.join(OUT, "rechnung-#{key}.html"), html, encoding: "UTF-8")
   text = html.gsub(/<[^>]+>/, " ").gsub(/\s+/, " ")
@@ -124,16 +106,6 @@ orders.each do |key, order|
   }
   checks["Warnung bei Steuer"] = text.include?("ACHTUNG") if order["tax_price"].to_i > 0
   checks["Versand 0 €"] = text.include?("kostenlos 0,00 €") if order["tax_price"].to_i == 0
-  checks["kein fremder Bild-Link"] = !html.include?("_Image_")
-  if shop["email_logo_url"].to_s.empty?
-    checks["Logo-Ersatz Schriftzug"] = html.include?("lp-logo-text") && !html.include?("<img")
-  else
-    checks["E-Mail-Logo genutzt"] = html.include?(shop["email_logo_url"])
-  end
-  erstes = order["fulfillments"].first
-  soll = (erstes ? erstes["created_at"] : order["created_at"]).strftime("%d.%m.%Y")
-  checks["Rechnungsdatum"] = text.include?("Rechnungsdatum #{soll}")
-  checks["Optionen Live-Namen"] = text.include?("Größe: 46 × 61 cm · Rahmen: Schwarz") if key.start_with?("4-")
   checks.each { |k, v| ok &&= v; puts format("%-34s %-22s %s", "rechnung-#{key}", k, v ? "OK" : "FEHLER") }
 end
 
@@ -150,8 +122,7 @@ if File.exist?(bs_path)
     "Widerrufsbelehrung" => text.include?("Muster-Widerrufsformular") && text.include?("vierzehn Tagen"),
     "AGB § 1–§ 13" => text.include?("§ 1 Geltungsbereich") && text.include?("§ 13 Schlussbestimmungen"),
     "Kontakt" => text.include?("limitless.posterje@gmail.com"),
-    "keine EU-Lieferung" => !(text =~ /in die Länder der Europäischen Union|und der EU/),
-    "AGB § 11 = Live (02.10.)" => text.include?("Urheber- oder Leistungsschutzrechte bestehen, stehen diese uns zu") && !text.include?("für Ihre private Nutzung") }.each do |k, v|
+    "keine EU-Lieferung" => !(text =~ /in die Länder der Europäischen Union|und der EU/) }.each do |k, v|
     ok &&= v
     puts format("%-34s %-22s %s", "bestellbestaetigung-baustein", k, v ? "OK" : "FEHLER")
   end

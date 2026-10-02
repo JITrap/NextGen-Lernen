@@ -4,14 +4,12 @@
   Vorlage für die kostenlose Shopify-App „Order Printer“
   (Apps > Order Printer > Templates > Create a template > Edit code)
 
-  Stand: 02.10.2026 (Gegenprüfung) · Liquid-Syntax geprüft (Shopify-Liquid 5.14, strict),
-  alle Variablen laut Order-Printer-Referenz vorhanden
+  Stand: 02.10.2026 · Liquid-Syntax geprüft (Shopify-Liquid 5.14, strict)
   Erfüllt § 34a UStDV (Rechnung Kleinunternehmer) und § 33 UStDV
   (Kleinbetragsrechnung): Name + Anschrift Verkäufer und Käufer,
-  USt-IdNr. (Pflicht nach § 34a Nr. 2, nicht entfernen), Ausstellungsdatum,
-  Menge + Art der Ware, Betrag in einer Summe, Hinweis auf die
-  Steuerbefreiung für Kleinunternehmer.
-  Zusätzlich: fortlaufende Rechnungsnummer, Lieferdatum, Zahlart.
+  Ausstellungsdatum, Menge + Art der Ware, Betrag in einer Summe,
+  Hinweis auf die Steuerbefreiung für Kleinunternehmer.
+  Zusätzlich: fortlaufende Rechnungsnummer, Lieferdatum, Zahlart, USt-IdNr.
 
   Alles, was du eventuell ändern willst, steht im Block EINSTELLUNGEN.
   Es wird nie Umsatzsteuer ausgewiesen (§ 14c UStG). Falls Shopify doch
@@ -30,19 +28,14 @@
 {%- assign lp_ustid = "DE463961672" -%}
 {%- assign lp_re_prefix = "RE-" -%}
 {%- assign lp_akzent = "#8B1E2D" -%}
-{%- comment -%} Logo = das unter Benachrichtigungen > „E-Mail-Vorlagen anpassen“ hochgeladene E-Mail-Logo. Ohne E-Mail-Logo erscheint der Shop-Name als Schriftzug. {%- endcomment -%}
-{%- assign lp_logo = shop.email_logo_url | default: "" -%}
+{%- assign lp_logo = "<URL des Theme-Logos, exakt in git show 9e634f1>" -%}
+{%- if shop.email_logo_url != blank -%}{%- assign lp_logo = shop.email_logo_url -%}{%- endif -%}
 {%- comment -%}
-  Rechnungsdatum (= Ausstellungsdatum): Datum der ersten Sendung, wenn Printify schon
-  versendet hat (so empfiehlt es die Anleitung: Rechnung nach dem Versand erzeugen).
-  Vor dem Versand: Bestelldatum. Beim erneuten Drucken bleibt das Datum gleich.
-  Willst du immer das heutige Druckdatum: in der letzten Zeile dieses Blocks
-  order.created_at durch "now" ersetzen und die for-Schleife löschen.
+  Rechnungsdatum: Standard = Bestelldatum (die Zahlung erfolgt bei der Bestellung).
+  Wenn du die Rechnung erst beim Versand erstellst und das heutige Datum willst,
+  ersetze die nächste Zeile durch:  assign lp_rechnungsdatum = "now"  (in Liquid-Klammern).
 {%- endcomment -%}
 {%- assign lp_rechnungsdatum = order.created_at -%}
-{%- for f in order.fulfillments -%}
-  {%- if forloop.first -%}{%- assign lp_rechnungsdatum = f.created_at -%}{%- endif -%}
-{%- endfor -%}
 
 {%- comment -%} ===== BERECHNUNGEN (nicht ändern) ===== {%- endcomment -%}
 {%- assign lp_rechnung = order.billing_address -%}
@@ -123,30 +116,27 @@
 
 <style>
   @page { size: A4; margin: 16mm 16mm 18mm; }
-  .lp-rechnung { font-family: Inter, "Helvetica Neue", Arial, sans-serif; color: #141215; font-size: 10pt; line-height: 1.38; max-width: 178mm; margin: 0 auto; }
+  .lp-rechnung { font-family: Inter, "Helvetica Neue", Arial, sans-serif; color: #141215; font-size: 10.5pt; line-height: 1.45; max-width: 178mm; margin: 0 auto; }
   .lp-rechnung h1 { font-size: 20pt; letter-spacing: .04em; margin: 0 0 2mm; font-weight: 700; }
-  .lp-kopf { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid {{ lp_akzent }}; padding-bottom: 4mm; margin-bottom: 5mm; }
+  .lp-kopf { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid {{ lp_akzent }}; padding-bottom: 5mm; margin-bottom: 7mm; }
   .lp-logo { width: 62mm; height: 12mm; object-fit: cover; object-position: center; display: block; }
-  .lp-logo-text { font-size: 19pt; font-weight: 800; letter-spacing: .12em; color: #141215; line-height: 12mm; }
   .lp-absender-klein { font-size: 7.5pt; color: #55575C; text-decoration: underline; margin-bottom: 1.5mm; }
-  .lp-adressen { display: flex; justify-content: space-between; gap: 8mm; margin-bottom: 6mm; }
+  .lp-adressen { display: flex; justify-content: space-between; gap: 8mm; margin-bottom: 8mm; }
   .lp-adressen > div { flex: 1; }
   .lp-label { font-size: 8pt; text-transform: uppercase; letter-spacing: .08em; color: #55575C; margin-bottom: 1mm; }
-  .lp-meta td { padding: 0 0 .6mm 0; vertical-align: top; }
+  .lp-meta td { padding: 0 0 1mm 0; vertical-align: top; }
   .lp-meta td:first-child { color: #55575C; padding-right: 4mm; white-space: nowrap; }
   table.lp-pos { width: 100%; border-collapse: collapse; margin-top: 2mm; }
-  table.lp-pos th.lp-r { text-align: right; }
   table.lp-pos th { text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: .06em; color: #55575C; border-bottom: 1px solid #141215; padding: 2mm 1.5mm; }
-  table.lp-pos td { border-bottom: 1px solid #E3DFD8; padding: 2mm 1.5mm; vertical-align: top; }
+  table.lp-pos td { border-bottom: 1px solid #E3DFD8; padding: 2.5mm 1.5mm; vertical-align: top; }
   .lp-r { text-align: right; white-space: nowrap; }
   .lp-klein { font-size: 8.5pt; color: #55575C; }
   table.lp-summen { width: 85mm; margin: 4mm 0 0 auto; border-collapse: collapse; }
-  table.lp-summen td { padding: 1mm 1.5mm; }
+  table.lp-summen td { padding: 1.2mm 1.5mm; }
   table.lp-summen tr.lp-gesamt td { border-top: 2px solid #141215; font-weight: 700; font-size: 12pt; padding-top: 2.5mm; }
-  .lp-hinweis { margin-top: 5mm; padding: 3mm 4mm; border-left: 3px solid {{ lp_akzent }}; background: #F7F5F1; }
+  .lp-hinweis { margin-top: 7mm; padding: 3mm 4mm; border-left: 3px solid {{ lp_akzent }}; background: #F7F5F1; }
   .lp-warnung { margin-bottom: 6mm; padding: 3mm 4mm; border: 2px solid #C0182B; color: #C0182B; font-weight: 700; }
-  table.lp-pos tr, table.lp-summen, .lp-hinweis, .lp-fuss { break-inside: avoid; page-break-inside: avoid; }
-  .lp-fuss { margin-top: 7mm; padding-top: 3mm; border-top: 1px solid #E3DFD8; font-size: 8pt; color: #55575C; display: flex; justify-content: space-between; gap: 6mm; }
+  .lp-fuss { margin-top: 12mm; padding-top: 3mm; border-top: 1px solid #E3DFD8; font-size: 8pt; color: #55575C; display: flex; justify-content: space-between; gap: 6mm; }
 </style>
 
 <div class="lp-rechnung">
@@ -160,11 +150,7 @@
 
   <div class="lp-kopf">
     <div>
-      {%- if lp_logo != "" -%}
       <img class="lp-logo" src="{{ lp_logo }}" alt="{{ lp_firma }}">
-      {%- else -%}
-      <div class="lp-logo-text">{{ lp_firma | upcase }}</div>
-      {%- endif -%}
     </div>
     <div style="text-align:right;">
       <h1>RECHNUNG</h1>
@@ -261,7 +247,7 @@
     <strong>Steuerfreie Kleinunternehmerleistung gemäß § 19 UStG.</strong> Es wird keine Umsatzsteuer berechnet und ausgewiesen.
   </div>
 
-  <table class="lp-meta" style="margin-top:4mm;">
+  <table class="lp-meta" style="margin-top:6mm;">
     <tr><td>Zahlart</td><td>{{ lp_zahlart }}</td></tr>
     <tr><td>Zahlungsstatus</td><td>{{ lp_status }}{%- if lp_bezahlt_am != "" and order.financial_status != "pending" %} (Zahlung vom {{ lp_bezahlt_am }}){% endif -%}</td></tr>
     {%- if order.total_refunded_amount > 0 -%}
@@ -269,7 +255,7 @@
     {%- endif -%}
   </table>
 
-  <p style="margin:5mm 0 0;">Vielen Dank für deinen Einkauf bei {{ lp_firma }}! Bei Fragen zu dieser Rechnung schreib uns an {{ lp_mail }} und nenne die Rechnungsnummer {{ lp_re_prefix }}{{ order.order_number }}.</p>
+  <p style="margin-top:8mm;">Vielen Dank für deinen Einkauf bei {{ lp_firma }}! Bei Fragen zu dieser Rechnung schreib uns an {{ lp_mail }} und nenne die Rechnungsnummer {{ lp_re_prefix }}{{ order.order_number }}.</p>
 
   <div class="lp-fuss">
     <div>{{ lp_firma }}<br>Inhaber: {{ lp_inhaber }}<br>{{ lp_strasse }}<br>{{ lp_ort }}, {{ lp_land }}</div>

@@ -25,8 +25,6 @@ stand: 2026-10-02
 Das Logo erscheint danach automatisch auch auf der Rechnung aus Order Printer (die Vorlage nimmt das E-Mail-Logo).
 
 ## 2. Bestellbestätigung ergänzen (10 Min)
-**Erst machen, wenn die Checkout-AGB aktualisiert sind:** Unter https://admin.shopify.com/store/gexdm4-2q/settings/legal muss die AGB (Allgemeine Geschäftsbedingungen) schon auf „Stand: 2. Oktober 2026“ stehen (Inhalt aus `vorlagen/Checkout-Richtlinie AGB (neu, DE-only).html`, siehe Recht-Bericht Abschnitt 4). Am 02.10.2026 stand dort noch die Fassung vom 25. August (EU-Versand, alter § 11). Sonst bekommt der Kunde per Mail andere AGB als die, denen er im Checkout zugestimmt hat.
-
 1. In den Kundenbenachrichtigungen **Bestellbestätigung** öffnen > **Code bearbeiten**.
 2. Im Feld **E-Mail-Text (HTML)** mit Strg+F nach `row footer` suchen.
 3. Den kompletten Inhalt von `vorlagen/Bestellbestätigung Zusatzbaustein (§ 19, Lieferzeit, Widerruf, AGB).liquid` direkt **vor** der Zeile `<table class="row footer">` einfügen.
@@ -36,7 +34,7 @@ Das Logo erscheint danach automatisch auch auf der Rechnung aus Order Printer (d
 Der Baustein bringt mit:
 - **Gut zu wissen:** Lieferzeit 4–10 Werktage, § 19-Hinweis, Kontakt mit Bestellnummer
 - **Widerrufsbelehrung + Muster-Widerrufsformular** (Pflicht: muss spätestens bei Lieferung als E-Mail oder Papier beim Kunden sein, § 312f Abs. 2 BGB; ein Link allein reicht nicht)
-- **AGB** im Wortlaut, Stand 2. Oktober 2026 (§ 11 in der finalen Fassung der Shop-Seite /pages/agb, abgeglichen am 02.10.2026)
+- **AGB** im Wortlaut, Stand 2. Oktober 2026 (§ 11 neu)
 - Links zu Widerrufsrecht, AGB und Datenschutz
 
 Wenn sich AGB oder Widerrufsbelehrung ändern, muss der Baustein mitgeändert werden. Die E-Mail-Adresse steht nur einmal oben im Baustein (`lp_mail`).

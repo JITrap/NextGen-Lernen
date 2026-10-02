@@ -79,8 +79,6 @@ Wenn alle Shop-Mails 4 Wochen lang sauber mit DKIM PASS ankommen, kannst du den 
 |---|---|---|
 | TXT | `_dmarc` | `v=DMARC1; p=quarantine; adkim=r; aspf=r` |
 
-Vorher prüfen: **Jeder Dienst, der als @limitlessposter.com sendet, muss DKIM PASS haben** (Shopify-Benachrichtigungen, Shopify Messaging/Newsletter, bei Weg B auch Zoho). Judge.me sendet standardmäßig von einer eigenen Adresse (requests+limitlessposter.com@judge.me) und ist davon nicht betroffen. Stellst du dort später einen eigenen Absender @limitlessposter.com ein, erst dessen DKIM- und Return-Path-Einträge in Shopify eintragen und in Judge.me prüfen lassen. Sonst landen diese Mails nach dem Verschärfen im Spam.
-
 Den alten Eintrag dabei **ersetzen**, nicht einen zweiten anlegen. Einen Bericht-Empfänger (`rua=`) lasse ich bewusst weg, sonst bekommst du täglich technische XML-Berichte ins Postfach.
 
 ## Weg B (optional): echtes Postfach, um auch ALS info@ zu antworten

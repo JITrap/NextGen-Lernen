@@ -14,13 +14,12 @@ Seit 01.01.2025 sind Umsätze von Kleinunternehmern **steuerfrei** (§ 19 Abs. 1
 | Pflicht nach § 34a UStDV | In der Vorlage |
 |---|---|
 | Name und Anschrift von dir und vom Kunden | Kopfzeile, Rechnungsadresse, Fußzeile |
-| Steuernummer **oder** USt-IdNr. (§ 34a Nr. 2 UStDV, Pflicht; nicht weglassen) | USt-IdNr. DE463961672 in der Fußzeile |
 | Ausstellungsdatum | Rechnungsdatum |
 | Menge und Art der Ware | Positionen mit Größe in cm und Rahmenfarbe |
 | Betrag in einer Summe | Gesamtbetrag |
 | Hinweis auf die Steuerbefreiung für Kleinunternehmer | „Steuerfreie Kleinunternehmerleistung gemäß § 19 UStG. Es wird keine Umsatzsteuer berechnet und ausgewiesen.“ |
 
-Freiwillig, aber sinnvoll und drin: fortlaufende Rechnungsnummer, Liefer-/Leistungsdatum, Zahlart.
+Freiwillig, aber sinnvoll und drin: fortlaufende Rechnungsnummer, Liefer-/Leistungsdatum, Zahlart, USt-IdNr. DE463961672.
 Rechnungsnummer und Leistungsdatum verlangt § 34a nicht. Die Nummer brauchst du aber für deine Buchhaltung.
 
 **Nie** eine Umsatzsteuer ausweisen. Sonst schuldest du sie trotzdem (§ 14c UStG). Die Vorlage zeigt einen roten Warnkasten, falls Shopify je Steuern berechnet.
@@ -67,14 +66,13 @@ Shopify Order Printer kann **keine** Rechnungen automatisch per Mail verschicken
 - Präfix ändern: in der Vorlage Zeile `lp_re_prefix`. Nur vor der ersten echten Rechnung ändern.
 
 ## Datum
-- **Empfehlung:** Rechnung erzeugen, sobald Printify versendet hat (Bestellung steht auf „Ausgeführt“).
-- **Rechnungsdatum** (= Ausstellungsdatum) = Datum der ersten Sendung. Vor dem Versand erzeugt: Bestelldatum. So liegt das Rechnungsdatum nie vor dem Tag, an dem du die Rechnung wirklich erstellst, und ein erneuter Druck ergibt dasselbe Datum. Willst du immer das Druckdatum: Kommentar oben in der Vorlage befolgen.
-- **Liefer-/Leistungsdatum** = Versanddatum von Printify. Erzeugst du die Rechnung vor dem Versand, steht dort „entspricht dem Versanddatum laut Versandbestätigung“.
+- **Rechnungsdatum** = Bestelldatum (Zahlung erfolgt bei der Bestellung). Willst du lieber das Druckdatum: Kommentar oben in der Vorlage befolgen.
+- **Liefer-/Leistungsdatum** = Versanddatum von Printify. Erzeugst du die Rechnung vor dem Versand, steht dort „entspricht dem Versanddatum laut Versandbestätigung“. Empfehlung: Rechnung erst nach dem Versand erzeugen.
 
 ## Checkliste mit der Testbestellung
-- [ ] Logo oben links gut sichtbar (die Vorlage nimmt das E-Mail-Logo aus den Benachrichtigungen; ist noch keins hochgeladen, steht dort der Schriftzug LIMITLESSPOSTER als Text)
+- [ ] Logo oben links gut sichtbar (wird schärfer, sobald du das E-Mail-Logo hochgeladen hast)
 - [ ] Rechnungsnummer = RE- + Bestellnummer
-- [ ] Rechnungsdatum = Versanddatum (vor dem Versand: Bestelldatum), Bestelldatum stimmt
+- [ ] Rechnungsdatum und Bestelldatum stimmen
 - [ ] Rechnungs- und Lieferadresse vollständig, Land „Deutschland“
 - [ ] Artikel mit Größe in cm und Rahmenfarbe auf Deutsch
 - [ ] Versand „kostenlos 0,00 €“
@@ -82,11 +80,9 @@ Shopify Order Printer kann **keine** Rechnungen automatisch per Mail verschicken
 - [ ] § 19-Hinweis vorhanden, **keine** MwSt-Zeile, **kein** roter Warnkasten
 - [ ] Zahlart richtig (bei der Testzahlung steht „Testzahlung (keine echte Zahlung)“)
 - [ ] Fußzeile: Name, Anschrift, E-Mail, Website, USt-IdNr.
-- [ ] Bei 1–2 Artikeln passt das PDF auf eine A4-Seite (ab 3 Artikeln zwei Seiten, Summen und Hinweis werden nicht zerrissen)
+- [ ] PDF passt auf eine A4-Seite
 
 ## Anpassen
-Sicherheitskopie: Die Vorlage liegt immer hier in Obsidian. Nutzer der App berichten gelegentlich von verschwundenen Vorlagen. Dann einfach neu anlegen und den Inhalt wieder einfügen.
-
 Alle festen Angaben (Anschrift, E-Mail, USt-IdNr., Farbe, Logo) stehen gesammelt oben im Block **EINSTELLUNGEN**. Wenn du info@limitlessposter.com eingerichtet hast: `lp_mail` ändern.
 
 ## Quellen

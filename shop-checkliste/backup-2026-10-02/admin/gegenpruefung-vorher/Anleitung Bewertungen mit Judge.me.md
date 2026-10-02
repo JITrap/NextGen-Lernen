@@ -45,7 +45,7 @@ stand: 2026-10-02
 | Farben | Sterne `#F4F1EA` (helles Creme wie deine Buttons), Text passend zum dunklen Hintergrund `#141215` | passt zum OFE-v3-Look; Alternative Gold `#D4A84B` |
 | Rewards / Gutscheine für Bewertungen | **aus** | Bezahlte Bewertungen müssten gekennzeichnet werden |
 
-**Warum nur an Kunden mit Marketing-Zustimmung?** Eine Bewertungsanfrage per Mail gilt in Deutschland als Werbung (BGH, 10.07.2018, VI ZR 225/17). Sie darf nur mit vorheriger Einwilligung verschickt werden. Die Ausnahme für Bestandskunden (§ 7 Abs. 3 UWG) ist für Bewertungsanfragen umstritten und an strenge Bedingungen geknüpft (Hinweis auf das Widerspruchsrecht schon bei der Bestellung und in jeder Mail; im BGH-Fall fehlte genau das). Mit Einwilligung bist du auf der sicheren Seite. Deshalb:
+**Warum nur an Kunden mit Marketing-Zustimmung?** Eine Bewertungsanfrage per Mail gilt in Deutschland als Werbung (BGH, 10.07.2018, VI ZR 225/17). Sie darf nur mit vorheriger Einwilligung verschickt werden. Die Ausnahme für Bestandskunden (§ 7 Abs. 3 UWG) greift hier nach herrschender Meinung nicht. Deshalb:
 1. Judge.me schickt nur an Kunden, die im Checkout Marketing zugestimmt haben (Einstellung oben).
 2. Das Marketing-Häkchen im Checkout darf **nicht vorausgewählt** sein: https://admin.shopify.com/store/gexdm4-2q/settings/checkout > **Marketingoptionen** > E-Mail: „Anmeldeoption beim Checkout anzeigen“ an, „vorausgewählt“ **aus**.
 3. Der Text am Häkchen soll die Bewertungsanfrage nennen, z. B.: „Ja, schickt mir Neuigkeiten, Angebote und nach der Lieferung eine Bitte um Bewertung per E-Mail. Abmeldung jederzeit möglich.“ (wird als Übergabe an den Checkout-Bereich gemeldet)
