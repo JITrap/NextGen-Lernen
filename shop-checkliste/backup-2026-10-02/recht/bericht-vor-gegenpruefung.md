@@ -9,7 +9,7 @@
 | Checkout-Richtlinien (Einstellungen > Richtlinien) | **Nicht änderbar per API** → Julius muss AGB und Datenschutz einfügen (Anleitung unten). |
 | Klarna, Judge.me | **Nicht** in der Erklärung, fertige Bausteine in `obsidian/LimitlessPoster/vorlagen/Datenschutz-Bausteine (optional).md`. |
 
-Shopify-Rückmeldung: beide `pageUpdate` ohne Fehler, `updatedAt` 2026-10-02T13:48:43Z. AGB nach der Gegenprüfung erneut geschrieben (`updatedAt` 2026-10-02T14:45:23Z), siehe Abschnitt 7.
+Shopify-Rückmeldung: beide `pageUpdate` ohne Fehler, `updatedAt` 2026-10-02T13:48:43Z.
 
 ## Dateien
 
@@ -25,12 +25,12 @@ Shopify-Rückmeldung: beide `pageUpdate` ohne Fehler, `updatedAt` 2026-10-02T13:
 
 Problem: Damit beansprucht LimitlessPoster Rechte an allen Motiven, auch an denen, die Sportler, Marken oder Filme zeigen. Das ist falsch und angreifbar.
 
-**Nachher („§ 11 Urheberrecht und Rechte Dritter“), Stand nach der Gegenprüfung:**
-> (1) Soweit an den von uns selbst erstellten Inhalten dieses Shops – insbesondere Texten, Produktfotos, eigenen Gestaltungen und Grafiken sowie der Gestaltung des Shops – Urheber- oder Leistungsschutzrechte bestehen, stehen diese uns zu. Eine Vervielfältigung, Verbreitung oder sonstige Nutzung dieser Inhalte ist ohne unsere vorherige Zustimmung nicht gestattet, soweit das Gesetz nichts anderes erlaubt.
+**Nachher („§ 11 Urheberrecht und Rechte Dritter“):**
+> (1) Die von uns selbst erstellten Inhalte dieses Shops – insbesondere Texte, Produktfotos, eigene Gestaltungen und Grafiken sowie die Gestaltung des Shops – sind urheberrechtlich geschützt. Ihre Vervielfältigung, Verbreitung oder sonstige Nutzung ist ohne unsere vorherige Zustimmung nicht gestattet, soweit das Gesetz nichts anderes erlaubt.
 >
 > (2) Soweit Motive Personen, Namen, Marken, Logos, Filme, Werke oder sonstige geschützte Inhalte Dritter zeigen oder darauf Bezug nehmen, liegen alle Rechte daran ausschließlich bei den jeweiligen Rechteinhabern. Wir beanspruchen an diesen Inhalten keine eigenen Rechte. Die Nennung oder Abbildung von Personen, Marken oder Produkten bedeutet nicht, dass diese mit uns verbunden sind oder uns bzw. unsere Produkte unterstützen oder sponsern.
 >
-> (3) Mit dem Kauf erwerben Sie das Eigentum an dem gelieferten Poster. Nutzungs-, Vervielfältigungs- oder Verwertungsrechte an den abgebildeten Motiven werden dabei nicht eingeräumt. Ihre gesetzlichen Rechte, etwa zur Weiterveräußerung des gekauften Posters, bleiben unberührt.
+> (3) Mit dem Kauf erwerben Sie das Eigentum an dem gelieferten Poster für Ihre private Nutzung. Nutzungs-, Vervielfältigungs- oder Verwertungsrechte an den abgebildeten Motiven werden dabei nicht eingeräumt. Ihre gesetzlichen Rechte, etwa zur Weiterveräußerung des gekauften Posters, bleiben unberührt.
 >
 > (4) Sollten Sie der Ansicht sein, dass ein Motiv Ihre Rechte verletzt, schreiben Sie uns bitte an limitless.posterje@gmail.com. Wir prüfen jeden Hinweis umgehend und nehmen betroffene Motive bei berechtigter Beanstandung aus dem Sortiment.
 
@@ -113,58 +113,3 @@ Mängel: Shopify Payments und Zahlungsabwickler nicht benannt, keine Rechtsgrund
 - Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork: https://www.apple.com/legal/privacy/de-ww/affiliated-company/
 - Aufbewahrungsfristen BEG IV: https://www.haufe.de/finance/buchfuehrung-kontierung/buerokratieentlastungsgesetz-aufbewahrungspflichten-verkuerzt_186_634670.html
 - Bausteine: Klarna-Datenschutzerklärung DE (Klarna Bank AB (publ), Sveavägen 46, 111 34 Stockholm): https://cdn.klarna.com/1.0/shared/content/legal/terms/0/de/privacy · Judge.me Ltd, Companies House 12157706: https://find-and-update.company-information.service.gov.uk/company/12157706 · Judge.me GDPR: https://judge.me/help/en/articles/8364277-gdpr-compliance
-
-## 7. Gegenprüfung (02.10.2026, nachmittags)
-
-Geprüft wurde gegen den **Live-Stand in Shopify** (Seiten `agb`, `datenschutzerklaerung`, Checkout-Richtlinien, Märkte, Versandprofile, übrige Seiten) und gegen die Dateien im Repo, nicht nur gegen diesen Bericht.
-
-### Was geprüft wurde und Ergebnis
-
-| Prüfpunkt | Ergebnis |
-|---|---|
-| Live-Seiten = Nachher-Dateien im Repo | AGB und Datenschutz waren byte-gleich mit `page-*-nachher.html`. |
-| Übrige Paragrafen/Ziffern unverändert | AGB: nur Stand-Datum und § 11 geändert. Datenschutz: nur Stand, Ziffer 3, 6, 7, 12, 13 geändert. Alles andere byte-gleich zum Backup. |
-| HTML sauber | Keine offenen oder falsch verschachtelten Tags. AGB: 13 × `<h2>` wie vorher. Datenschutz: 17 × `<h2>` wie vorher, neu 5 × `<h3>` als Unterpunkte (Hierarchie korrekt). |
-| Checkout-Vorlagen = Seitentext | AGB-Vorlage und Datenschutz-Vorlage stimmen (bis auf Zeilenumbrüche) exakt mit den Live-Seiten überein, auch nach der Korrektur unten. |
-| Firmen und Anschriften | Gegen die Originalquellen geprüft: Shopify International Limited (Vertragspartner Shopify Payments DE, Auftragsverarbeiter für Zahlungsdaten, Zahlungsabwickler teils eigenständig verantwortlich), Abwickler für DE laut Shopify-Liste: Stripe Payments Europe, Limited, PayPal (Europe) S.à r.l. et Cie, S.C.A., Adyen N.V. (Simon Carmiggeltstraat 6-50, 1011 DJ Amsterdam). Shopify-BCR (von EU-Datenschutzbehörden genehmigt) und Datum 07.07.2026 bestätigt. Google Ireland Limited ist für Google Pay im EWR verantwortlich. Printify, Inc., 108 West 13th Street, Wilmington; EU-Vertreter SIA „Printify Development“, Riga. Alles korrekt. |
-| Rechtsgrundlagen | Art. 6 Abs. 1 lit. b (Zahlung), lit. c (SCA, Geldwäsche, Aufbewahrung), lit. f (Betrugsprävention, PayPal-Bonitätsprüfung), Art. 28, Art. 46 Abs. 2 lit. c, Art. 47 DSGVO: passend. § 25 TDDDG korrekt benannt. Fristen § 147 AO (8/6/10 Jahre nach BEG IV) korrekt. |
-| Impressum, § 19 UStG, Versand nur DE | Kein Widerspruch. Name, Anschrift und E-Mail stimmen mit Impressum überein. § 4 (1) AGB nennt § 19 UStG. Nur der Markt „Deutschland“ ist aktiv (EU und America sind Entwurf), daher passt „Lieferung ausschließlich innerhalb Deutschlands“, obwohl die Printify-Versandprofile viele Länder enthalten. |
-| Andere Seiten (FAQ, Über uns, Größen-Guide, Widerruf) | Keine Aussagen zu Lizenzen, „offiziell“ oder EU-Versand, die § 11 oder der Datenschutzerklärung widersprechen. |
-| Übersetzungen | Shop hat nur Deutsch, keine veralteten englischen Übersetzungen der Seiten. |
-
-### Gefunden und behoben (AGB § 11, Seite und Checkout-Vorlage)
-
-1. **§ 11 (3) „Eigentum … für Ihre private Nutzung“** – Diese Einschränkung des Eigentums geht über das Urheberrecht hinaus (ein gekauftes Poster darf z. B. auch im Büro hängen). In AGB gegenüber Verbrauchern ist sie unklar (§ 305c Abs. 2 BGB) und als Abweichung vom gesetzlichen Leitbild des Kaufs (§§ 433, 903 BGB) nach § 307 BGB angreifbar. Sie bringt Julius keinen Vorteil, weil Nutzungs- und Vervielfältigungsrechte ohnehin nicht eingeräumt werden. **Behoben:** „Mit dem Kauf erwerben Sie das Eigentum an dem gelieferten Poster.“
-2. **§ 11 (1) „… sind urheberrechtlich geschützt“** – pauschale Behauptung eines Schutzes. Für Inhalte ohne Schutz (z. B. mit KI erzeugte Bilder ohne menschliche Schöpfung oder einfache Texte) würde LimitlessPoster damit Rechte beanspruchen, die nicht bestehen. Das passt nicht zum Ziel „nur eigene Rechte“. **Behoben:** „Soweit an den von uns selbst erstellten Inhalten … Urheber- oder Leistungsschutzrechte bestehen, stehen diese uns zu. Eine Vervielfältigung … dieser Inhalte ist ohne unsere vorherige Zustimmung nicht gestattet, soweit das Gesetz nichts anderes erlaubt.“
-
-Geschrieben per `pageUpdate` (keine Fehler, `updatedAt` 2026-10-02T14:45:23Z), danach live abgerufen: byte-gleich mit `page-agb-nachher.html`. Die Checkout-Vorlage `Checkout-Richtlinie AGB (neu, DE-only).html` ist identisch angepasst.
-Backups: `backup-2026-10-02/recht/page-agb-vor-gegenpruefung.html`, `vorlage-checkout-agb-vor-gegenpruefung.html`, `datenschutz-bausteine-vor-gegenpruefung.md`, `bericht-vor-gegenpruefung.md`.
-
-§ 11 (2) und (4) bleiben: Sie enthalten keine Zusicherung über Rechte Dritter und keinen Haftungsausschluss, sondern nur die Klarstellung, dass Rechte Dritter bei den Inhabern liegen, sowie eine Kontaktadresse.
-
-### Ergänzt
-
-- `Datenschutz-Bausteine (optional).md`: **Baustein C** für ein Zoho-Mail-Postfach („Weg B“ der E-Mail-Anleitung) und ein Hinweis zu Gmail.
-
-### Offen (nicht behoben, mit Begründung)
-
-- **AGB-Kopie in der Bestellbestätigung** (Admin-Bereich, `Bestellbestätigung Zusatzbaustein (§ 19, Lieferzeit, Widerruf, AGB).liquid` und `arbeit-2026-10-02/admin/vorschau/bestellbestaetigung-baustein.html`) enthält noch den alten Wortlaut von § 11 (1) und (3). Siehe Übergabe unten. Julius sollte den Baustein erst nach dieser Anpassung in die Bestellbestätigung einfügen.
-- **Gmail als Postfach:** Kundenmails liegen in einem kostenlosen Gmail-Konto, mit Google gibt es dafür keinen Auftragsverarbeitungsvertrag. Die Datenschutzerklärung nennt keinen E-Mail-Anbieter. Das lässt sich nicht durch Text lösen. Empfehlung: Zoho Mail mit DPA (dann Baustein C einfügen) oder Google Workspace.
-- **Zahlarten noch nicht aktiv:** Ziffer 7 a) beschreibt Shopify Payments, Apple Pay, Google Pay und Shop Pay schon jetzt. Nach der Freischaltung wie in Abschnitt 5 prüfen. Wenn PayPal „Rechnung“ oder „Später bezahlen“ aktiv wird, ist der Satz in 7 c) „bieten keinen Kauf auf Rechnung an“ anzupassen.
-- **Anschrift Shopify International Limited:** Die Zahlungsbedingungen nennen „The Sidings, 4th Floor, Grand Canal Quay, Dublin D02 E7K8“, die Datenschutzerklärung von Shopify nennt „Victoria Buildings, 1–2 Haddington Road, Dublin 4“. Beides sind Anschriften derselben Gesellschaft. Wir verwenden die aus Shopifys Datenschutzerklärung, das ist in Ordnung.
-- **Checkout-Richtlinien** (AGB, Datenschutz, Versand) sind weiter alt (EU-Versand, alter § 11). Nur Julius kann sie ersetzen (Abschnitt 4). Die Vorlagen sind jetzt auf dem neuesten Stand.
-
-### Übergabe an den Admin-Bereich
-
-In `obsidian/LimitlessPoster/vorlagen/Bestellbestätigung Zusatzbaustein (§ 19, Lieferzeit, Widerruf, AGB).liquid` und in `shop-checkliste/arbeit-2026-10-02/admin/vorschau/bestellbestaetigung-baustein.html` ersetzen:
-
-- „(1) Die von uns selbst erstellten Inhalte dieses Shops – insbesondere Texte, Produktfotos, eigene Gestaltungen und Grafiken sowie die Gestaltung des Shops – sind urheberrechtlich geschützt. Ihre Vervielfältigung, Verbreitung oder sonstige Nutzung ist ohne unsere vorherige Zustimmung nicht gestattet, soweit das Gesetz nichts anderes erlaubt.“
-  → „(1) Soweit an den von uns selbst erstellten Inhalten dieses Shops – insbesondere Texten, Produktfotos, eigenen Gestaltungen und Grafiken sowie der Gestaltung des Shops – Urheber- oder Leistungsschutzrechte bestehen, stehen diese uns zu. Eine Vervielfältigung, Verbreitung oder sonstige Nutzung dieser Inhalte ist ohne unsere vorherige Zustimmung nicht gestattet, soweit das Gesetz nichts anderes erlaubt.“
-- „Poster für Ihre private Nutzung.“ → „Poster.“
-
-### Quellen der Gegenprüfung (abgerufen am 02.10.2026)
-
-- https://www.shopify.com/legal/processor-list · https://www.shopify.com/legal/terms-payments/de · https://www.shopify.com/legal/privacy · https://www.shopify.com/legal/privacy/consumers
-- Google Payments Datenschutzhinweis (DE): https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice&ldl=de
-- https://printify.com/legal-imprint/
-- Zoho-Datenschutzkontakt: https://www.datenanfragen.de/company/zoho/ und https://www.zoho.com/privacy.html
