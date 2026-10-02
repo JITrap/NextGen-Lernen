@@ -6,12 +6,12 @@
     "preis_aktuell": 64.99,
     "preis_minimal": 77.99,
     "preis_gesund": 84.99,
-    "db_aktuell_worst": -2.93,
-    "db_minimal_worst": 8.42,
-    "db_gesund_worst": 14.53,
+    "db_aktuell_worst": -2.6,
+    "db_minimal_worst": 8.75,
+    "db_gesund_worst": 14.86,
     "kosten_produktion_eur": 25.38,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 58.12
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 57.8
   },
   {
     "groesse_zoll": "14″ x 11″",
@@ -20,12 +20,12 @@
     "preis_aktuell": 64.99,
     "preis_minimal": 77.99,
     "preis_gesund": 84.99,
-    "db_aktuell_worst": -2.93,
-    "db_minimal_worst": 8.42,
-    "db_gesund_worst": 14.53,
+    "db_aktuell_worst": -2.6,
+    "db_minimal_worst": 8.75,
+    "db_gesund_worst": 14.86,
     "kosten_produktion_eur": 25.38,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 58.12
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 57.8
   },
   {
     "groesse_zoll": "12″ x 18″",
@@ -34,12 +34,12 @@
     "preis_aktuell": 68.99,
     "preis_minimal": 82.99,
     "preis_gesund": 89.99,
-    "db_aktuell_worst": -4.41,
-    "db_minimal_worst": 7.81,
-    "db_gesund_worst": 13.92,
+    "db_aktuell_worst": -4.09,
+    "db_minimal_worst": 8.14,
+    "db_gesund_worst": 14.25,
     "kosten_produktion_eur": 29.48,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 63.0
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 62.68
   },
   {
     "groesse_zoll": "18″ x 12″",
@@ -48,12 +48,12 @@
     "preis_aktuell": 68.99,
     "preis_minimal": 82.99,
     "preis_gesund": 89.99,
-    "db_aktuell_worst": -4.41,
-    "db_minimal_worst": 7.81,
-    "db_gesund_worst": 13.92,
+    "db_aktuell_worst": -4.09,
+    "db_minimal_worst": 8.14,
+    "db_gesund_worst": 14.25,
     "kosten_produktion_eur": 29.48,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 63.0
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 62.68
   },
   {
     "groesse_zoll": "16\" x 20\"",
@@ -62,12 +62,12 @@
     "preis_aktuell": 74.99,
     "preis_minimal": 91.99,
     "preis_gesund": 99.99,
-    "db_aktuell_worst": -6.88,
-    "db_minimal_worst": 7.96,
-    "db_gesund_worst": 14.94,
+    "db_aktuell_worst": -6.56,
+    "db_minimal_worst": 8.29,
+    "db_gesund_worst": 15.27,
     "kosten_produktion_eur": 35.83,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 70.56
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 70.23
   },
   {
     "groesse_zoll": "20\" x 16\"",
@@ -76,12 +76,12 @@
     "preis_aktuell": 74.99,
     "preis_minimal": 91.99,
     "preis_gesund": 99.99,
-    "db_aktuell_worst": -6.88,
-    "db_minimal_worst": 7.96,
-    "db_gesund_worst": 14.94,
+    "db_aktuell_worst": -6.56,
+    "db_minimal_worst": 8.29,
+    "db_gesund_worst": 15.27,
     "kosten_produktion_eur": 35.83,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 70.56
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 70.23
   },
   {
     "groesse_zoll": "18″ x 24″",
@@ -90,12 +90,12 @@
     "preis_aktuell": 81.99,
     "preis_minimal": 99.99,
     "preis_gesund": 109.99,
-    "db_aktuell_worst": -8.2,
-    "db_minimal_worst": 7.52,
-    "db_gesund_worst": 16.25,
+    "db_aktuell_worst": -7.87,
+    "db_minimal_worst": 7.84,
+    "db_gesund_worst": 16.57,
     "kosten_produktion_eur": 41.95,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 77.84
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 77.52
   },
   {
     "groesse_zoll": "24″ x 18″",
@@ -104,12 +104,12 @@
     "preis_aktuell": 81.99,
     "preis_minimal": 99.99,
     "preis_gesund": 109.99,
-    "db_aktuell_worst": -8.2,
-    "db_minimal_worst": 7.52,
-    "db_gesund_worst": 16.25,
+    "db_aktuell_worst": -7.87,
+    "db_minimal_worst": 7.84,
+    "db_gesund_worst": 16.57,
     "kosten_produktion_eur": 41.95,
-    "kosten_versand_eur": 23.46,
-    "kosten_printify_inkl_ust_eur": 77.84
+    "kosten_versand_eur": 23.19,
+    "kosten_printify_inkl_ust_eur": 77.52
   },
   {
     "groesse_zoll": "20\" x 30\"",
@@ -118,12 +118,12 @@
     "preis_aktuell": 89.99,
     "preis_minimal": 115.99,
     "preis_gesund": 119.99,
-    "db_aktuell_worst": -14.26,
-    "db_minimal_worst": 8.44,
-    "db_gesund_worst": 11.93,
+    "db_aktuell_worst": -13.91,
+    "db_minimal_worst": 8.79,
+    "db_gesund_worst": 12.28,
     "kosten_produktion_eur": 50.39,
-    "kosten_versand_eur": 25.77,
-    "kosten_printify_inkl_ust_eur": 90.63
+    "kosten_versand_eur": 25.48,
+    "kosten_printify_inkl_ust_eur": 90.29
   },
   {
     "groesse_zoll": "30\" x 20\"",
@@ -132,12 +132,12 @@
     "preis_aktuell": 89.99,
     "preis_minimal": 115.99,
     "preis_gesund": 119.99,
-    "db_aktuell_worst": -14.26,
-    "db_minimal_worst": 8.44,
-    "db_gesund_worst": 11.93,
+    "db_aktuell_worst": -13.91,
+    "db_minimal_worst": 8.79,
+    "db_gesund_worst": 12.28,
     "kosten_produktion_eur": 50.39,
-    "kosten_versand_eur": 25.77,
-    "kosten_printify_inkl_ust_eur": 90.63
+    "kosten_versand_eur": 25.48,
+    "kosten_printify_inkl_ust_eur": 90.29
   },
   {
     "groesse_zoll": "24″ x 36″",
@@ -146,12 +146,12 @@
     "preis_aktuell": 108.99,
     "preis_minimal": 144.99,
     "preis_gesund": 149.99,
-    "db_aktuell_worst": -22.47,
-    "db_minimal_worst": 8.96,
-    "db_gesund_worst": 13.32,
+    "db_aktuell_worst": -22.05,
+    "db_minimal_worst": 9.38,
+    "db_gesund_worst": 13.75,
     "kosten_produktion_eur": 65.75,
-    "kosten_versand_eur": 30.84,
-    "kosten_printify_inkl_ust_eur": 114.94
+    "kosten_versand_eur": 30.49,
+    "kosten_printify_inkl_ust_eur": 114.53
   },
   {
     "groesse_zoll": "36″ x 24″",
@@ -160,11 +160,11 @@
     "preis_aktuell": 108.99,
     "preis_minimal": 144.99,
     "preis_gesund": 149.99,
-    "db_aktuell_worst": -22.47,
-    "db_minimal_worst": 8.96,
-    "db_gesund_worst": 13.32,
+    "db_aktuell_worst": -22.05,
+    "db_minimal_worst": 9.38,
+    "db_gesund_worst": 13.75,
     "kosten_produktion_eur": 65.75,
-    "kosten_versand_eur": 30.84,
-    "kosten_printify_inkl_ust_eur": 114.94
+    "kosten_versand_eur": 30.49,
+    "kosten_printify_inkl_ust_eur": 114.53
   }
 ]

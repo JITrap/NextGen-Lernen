@@ -3,7 +3,7 @@
 Liest Preise/unitCost aus shop-checkliste/daten/produkte-2026-10-02.json,
 schreibt preise-empfehlung.json und gibt die Markdown-Tabellen fuer den Bericht aus.
 Aufruf aus dem Repo-Root: python3 shop-checkliste/arbeit-2026-10-02/preise/rechnung.py
-Optional: --plan minimal|gesund [export.json] schreibt preis-update-<variante>.json
+Optional: --plan minimal|gesund schreibt preis-update-<variante>.json
 ([{productId, variants:[{id, price}]}] fuer productVariantsBulkUpdate; Varianten-IDs bleiben
 bei der Umbenennung der Optionswerte auf cm gleich). Nichts davon aendert den Shop.
 """
@@ -20,10 +20,8 @@ KARTE = (0.021, 0.30) # Shopify Payments Basic, Karten aus EWR (inkl. Apple/Goog
 PAYPAL = (0.0299, 0.39)  # PayPal Checkout DE; bei aktivem Shopify Payments keine Shopify-Transaktionsgebuehr
 SHOPIFY_DRITT = 0.02  # Shopify-Transaktionsgebuehr Basic fuer Drittanbieter (nur falls Shopify Payments NICHT aktiv)
 WELCOME = 0.10
-# Printify-Versand nach DE je Poster (jedes weitere Poster gleich teuer), USD laut Versandprofil -> EUR wie im Checkout.
-# Gegenpruefung 02.10.2026: Shopify rechnet heute mit ca. 1,125 USD/EUR (draftOrderCalculate, Checkout zeigt 23,46 EUR).
-# Vorher stand hier 23,19 / 25,48 / 30,49 (Kurs 1,138 vom 29.09.) - das war um 0,27-0,35 EUR je Poster zu niedrig.
-VERSAND = {'11x14': 23.46, '12x18': 23.46, '16x20': 23.46, '18x24': 23.46, '20x30': 25.77, '24x36': 30.84}
+# Printify-Versand nach DE je Poster (jedes weitere Poster gleich teuer), USD laut Versandprofil -> EUR wie im Checkout berechnet
+VERSAND = {'11x14': 23.19, '12x18': 23.19, '16x20': 23.19, '18x24': 23.19, '20x30': 25.48, '24x36': 30.49}
 VERSAND_USD = {'11x14': 26.39, '12x18': 26.39, '16x20': 26.39, '18x24': 26.39, '20x30': 28.99, '24x36': 34.69}
 CM = {11: 28, 12: 30, 14: 36, 16: 41, 18: 46, 20: 51, 24: 61, 30: 76, 36: 91}
 
@@ -33,18 +31,12 @@ GESUND = {'11x14': 84.99, '12x18': 89.99, '16x20': 99.99, '18x24': 109.99, '20x3
 REIHENFOLGE = ['11x14', '12x18', '16x20', '18x24', '20x30', '24x36']
 
 
-ZOLL = {v: k for k, v in CM.items()}  # cm -> Zoll (fuer Optionswerte, die schon in cm heissen)
-
-
 def zahl(t):
     return [int(x) for x in re.findall(r'\d+', t)[:2]]
 
 
 def schluessel(t):
-    """'11″ x 14″', '14″ x 11″', '28 × 36 cm' oder '36 × 28 cm' -> '11x14'."""
     a, b = zahl(t)
-    if 'cm' in t:
-        a, b = ZOLL[a], ZOLL[b]
     return f'{min(a, b)}x{max(a, b)}'
 
 
@@ -150,24 +142,14 @@ def main():
     aus(f'\npreise-empfehlung.json geschrieben ({len(out)} Optionswerte)')
 
 
-def plan(variante, quelle=DATEN):
-    """quelle: Datendatei oder frischer Live-Export im selben Format (Liste von Produkten mit
-    variants.nodes[].id/title). Vor dem Ausfuehren einen frischen Export nehmen, damit neue oder
-    geaenderte Varianten nicht fehlen."""
+def plan(variante):
     preise = {'minimal': MINIMAL, 'gesund': GESUND}[variante]
-    d = json.load(open(quelle))
-    out, unbekannt = [], []
+    d = json.load(open(DATEN))
+    out = []
     for p in d:
-        vs = []
-        for v in p['variants']['nodes']:
-            k = schluessel(v['title'].split(' / ')[0])
-            if k not in preise:
-                unbekannt.append(v['title'])
-                continue
-            vs.append({'id': v['id'], 'price': f"{preise[k]:.2f}"})
-        out.append({'productId': p['id'], 'handle': p.get('handle'), 'variants': vs})
-    if unbekannt:
-        raise SystemExit(f'Abbruch: {len(unbekannt)} Varianten ohne Preisregel, z. B. {unbekannt[:3]}')
+        vs = [{'id': v['id'], 'price': f"{preise[schluessel(v['title'].split(' / ')[0])]:.2f}"}
+              for v in p['variants']['nodes']]
+        out.append({'productId': p['id'], 'handle': p['handle'], 'variants': vs})
     ziel = os.path.join(HIER, f'preis-update-{variante}.json')
     json.dump(out, open(ziel, 'w'), ensure_ascii=False, indent=1)
     print(f'{ziel}: {len(out)} Produkte, {sum(len(x["variants"]) for x in out)} Varianten')
@@ -175,7 +157,7 @@ def plan(variante, quelle=DATEN):
 
 if __name__ == '__main__':
     import sys
-    if len(sys.argv) in (3, 4) and sys.argv[1] == '--plan':
-        plan(*sys.argv[2:])
+    if len(sys.argv) == 3 and sys.argv[1] == '--plan':
+        plan(sys.argv[2])
     else:
         main()
