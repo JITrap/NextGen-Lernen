@@ -1,0 +1,46 @@
+{
+  "stand": "2026-10-02",
+  "methode": "draftOrderCalculate (keine Entwurfsbestellung gespeichert; draftOrders danach leer), acceptAutomaticDiscounts=true, Waehrung EUR, Lieferadresse Eugen-Bolz-Strasse 28, 73732 Esslingen am Neckar, DE",
+  "faelle": {
+    "A_1_poster": {
+      "artikel": ["28 x 36 cm / Schwarz (Profil 11x14), 64,99 EUR"],
+      "vorher": {
+        "angebotene_versandarten": [["Standard Delivery", "23.46"], ["Standard Delivery", "46.92"]],
+        "gewaehlt": {"titel": "Standard Delivery", "original": "23.46", "nach_rabatt": "0.0"},
+        "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "betrag": "23.46"},
+        "gesamt": "64.99"
+      },
+      "nachher": {
+        "angebotene_versandarten": [["Standardversand (4–10 Werktage)", "23.46"], ["Standardversand (4–10 Werktage)", "46.92"]],
+        "gewaehlt_guenstigste": {"titel": "Standardversand (4–10 Werktage)", "original": "23.46", "nach_rabatt": "0.0"},
+        "gewaehlt_teuerste_handle": {"titel": "Standardversand (4–10 Werktage)", "original": "23.46", "nach_rabatt": "0.0", "hinweis": "Shopify ordnet den Handle ueber den Titel zu und nimmt bei gleichem Titel die erste Stufe"},
+        "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "betrag": "23.46"},
+        "gesamt": "64.99"
+      }
+    },
+    "B_2_poster_verschiedene_groessen": {
+      "artikel": ["46 x 61 cm / Schwarz (Profil 18x24), 81,99 EUR", "61 x 91 cm / Weiss (Profil 24x36), 108,99 EUR"],
+      "vorher": {
+        "angebotene_versandarten": [["Standard Delivery", "54.3"], ["Standard Delivery", "77.76"], ["Standard Delivery", "85.14"], ["Standard Delivery", "108.6"]],
+        "gewaehlt": {"titel": "Standard Delivery", "original": "54.3", "nach_rabatt": "0.0"},
+        "gesamt": "190.98"
+      },
+      "nachher": {
+        "angebotene_versandarten": [["Standardversand (4–10 Werktage)", "54.3"], ["Standardversand (4–10 Werktage)", "77.76"], ["Standardversand (4–10 Werktage)", "85.14"], ["Standardversand (4–10 Werktage)", "108.6"]],
+        "gewaehlt_guenstigste": {"titel": "Standardversand (4–10 Werktage)", "original": "54.3", "nach_rabatt": "0.0"},
+        "gewaehlt_teuerste_handle": {"titel": "Standardversand (4–10 Werktage)", "original": "54.3", "nach_rabatt": "0.0"},
+        "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "betrag": "54.3"},
+        "gesamt": "190.98"
+      }
+    },
+    "C_2_poster_weitere_profile": {
+      "artikel": ["41 x 51 cm / Schwarz (Profil 16x20), 74,99 EUR", "51 x 76 cm / Schwarz (Profil 20x30), 89,99 EUR"],
+      "nachher": {
+        "angebotene_versandarten": [["Standardversand (4–10 Werktage)", "49.23"], ["Standardversand (4–10 Werktage)", "72.69"], ["Standardversand (4–10 Werktage)", "75.01"], ["Standardversand (4–10 Werktage)", "98.47"]],
+        "gewaehlt_guenstigste": {"titel": "Standardversand (4–10 Werktage)", "original": "49.23", "nach_rabatt": "0.0"},
+        "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "betrag": "49.23"},
+        "gesamt": "164.98"
+      }
+    }
+  }
+}

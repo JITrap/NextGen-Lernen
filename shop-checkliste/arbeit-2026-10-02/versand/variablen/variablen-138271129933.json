@@ -1,0 +1,77 @@
+{
+  "id": "gid://shopify/DeliveryProfile/138271129933",
+  "profile": {
+    "locationGroupsToUpdate": [
+      {
+        "id": "gid://shopify/DeliveryLocationGroup/143356952909",
+        "zonesToUpdate": [
+          {
+            "id": "gid://shopify/DeliveryZone/678682296653",
+            "methodDefinitionsToUpdate": [
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477328717",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477361485",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477394253",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477427021",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477459789",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477492557",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477525325",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477558093",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477590861",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477623629",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477656397",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              },
+              {
+                "id": "gid://shopify/DeliveryMethodDefinition/1294477689165",
+                "name": "Standardversand (4–10 Werktage)",
+                "description": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

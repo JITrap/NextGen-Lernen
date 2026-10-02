@@ -1,0 +1,126 @@
+# Versandart in der Zone Deutschland eindeutschen (LimitlessPoster)
+# ---------------------------------------------------------------
+# Wozu: Printify nennt die Tarife in seinen 5 Versandprofilen "Standard Delivery"
+# ("7-15 business days"). Diese Mutation benennt NUR die Methoden in der Zone
+# Germany um. Preise, Gewichtsstufen, andere Laender: unveraendert. Nichts geloescht.
+#
+# Erstmals ausgefuehrt am 02.10.2026, Ergebnis und Belege:
+#   shop-checkliste/arbeit-2026-10-02/versand/bericht.md
+#
+# Wann erneut: wenn im Checkout oder in einer Bestellmail wieder "Standard Delivery"
+# steht (Printify synchronisiert die Profile z. B. nach dem Veroeffentlichen neuer
+# Motive neu und setzt dabei Namen und IDs zurueck).
+#
+# Ablauf (immer in dieser Reihenfolge):
+#   1. Abfrage "ProfilDetail" (unten) fuer jedes Profil "Standard: Print Pigeons ..."
+#      ausfuehren und die Antwort als JSON speichern. Die IDs aendern sich bei einer
+#      Neusynchronisierung, deshalb nie alte IDs wiederverwenden.
+#   2. Variablen erzeugen:
+#        python3 shop-checkliste/werkzeug/versand_deutsch_umbenennen.py \
+#            --aus-datei antwort.json --ausgabe-ordner versand-variablen
+#      (oder mit Token direkt: siehe Kopf des Python-Skripts, Option --anwenden)
+#   3. Zuerst EIN Profil mit "VersandartUmbenennen" + variablen-<id>.json ausfuehren,
+#      mit "ProfilDetail" pruefen, dann die uebrigen.
+#   4. Probeberechnung (draftOrderCalculate, Lieferland DE): Versandtitel deutsch,
+#      Versand nach Rabatt 0,00 EUR. Es wird dabei keine Bestellung angelegt.
+#
+# Zuruecksetzen auf den Stand vor dem 02.10.2026:
+#   python3 shop-checkliste/werkzeug/versand_deutsch_umbenennen.py --zuruecksetzen \
+#       shop-checkliste/backup-2026-10-02/versand/deutschland-zonen-vorher.json
+# (funktioniert nur, solange Printify die Methoden-IDs nicht neu vergeben hat)
+
+mutation VersandartUmbenennen($id: ID!, $profile: DeliveryProfileInput!) {
+  deliveryProfileUpdate(id: $id, profile: $profile) {
+    profile { id name version activeMethodDefinitionsCount }
+    userErrors { field message }
+  }
+}
+
+# Beispiel-Variablen (Aufbau; echte IDs liefert das Skript):
+# {
+#   "id": "gid://shopify/DeliveryProfile/<PROFIL>",
+#   "profile": {
+#     "locationGroupsToUpdate": [{
+#       "id": "gid://shopify/DeliveryLocationGroup/<GRUPPE>",
+#       "zonesToUpdate": [{
+#         "id": "gid://shopify/DeliveryZone/<ZONE GERMANY>",
+#         "methodDefinitionsToUpdate": [
+#           { "id": "gid://shopify/DeliveryMethodDefinition/<METHODE>",
+#             "name": "Standardversand (4–10 Werktage)",
+#             "description": "" }
+#         ]
+#       }]
+#     }]
+#   }
+# }
+
+query ProfilDetail($id: ID!, $zAfter: String) {
+  deliveryProfile(id: $id) {
+    id
+    name
+    version
+    activeMethodDefinitionsCount
+    profileLocationGroups {
+      locationGroup { id }
+      locationGroupZones(first: 70, after: $zAfter) {
+        pageInfo { hasNextPage endCursor }
+        nodes {
+          zone { id name countries { code { countryCode restOfWorld } } }
+          methodDefinitions(first: 50) {
+            pageInfo { hasNextPage }
+            nodes {
+              id
+              name
+              description
+              active
+              rateProvider {
+                __typename
+                ... on DeliveryRateDefinition { id price { amount currencyCode } }
+              }
+              methodConditions {
+                id
+                field
+                operator
+                conditionCriteria {
+                  __typename
+                  ... on Weight { unit value }
+                  ... on MoneyV2 { amount currencyCode }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query ProfileListe {
+  deliveryProfiles(first: 25) {
+    nodes { id name version activeMethodDefinitionsCount productVariantsCount { count } }
+  }
+}
+
+# Probeberechnung ohne Bestellung. Variablen z. B.:
+# {"input": {"acceptAutomaticDiscounts": true, "presentmentCurrencyCode": "EUR",
+#   "lineItems": [{"variantId": "gid://shopify/ProductVariant/54772202832205", "quantity": 1}],
+#   "shippingAddress": {"firstName": "Test", "lastName": "Versandpruefung",
+#     "address1": "Eugen-Bolz-Straße 28", "city": "Esslingen am Neckar",
+#     "zip": "73732", "countryCode": "DE"}}}
+# Danach einmal mit "shippingLine": {"shippingRateHandle": "<handle aus availableShippingRates>"}
+# wiederholen: shippingLine.discountedPriceSet muss 0.0 sein.
+mutation Probeberechnung($input: DraftOrderInput!) {
+  draftOrderCalculate(input: $input) {
+    calculatedDraftOrder {
+      availableShippingRates { handle title price { amount currencyCode } }
+      shippingLine {
+        title
+        originalPriceSet { presentmentMoney { amount currencyCode } }
+        discountedPriceSet { presentmentMoney { amount currencyCode } }
+      }
+      platformDiscounts { title automaticDiscount totalAmountPriceSet { presentmentMoney { amount } } }
+      totalPriceSet { presentmentMoney { amount currencyCode } }
+    }
+    userErrors { field message }
+  }
+}
