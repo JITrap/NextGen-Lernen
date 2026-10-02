@@ -1,0 +1,43 @@
+{
+  "stand": "2026-10-02, Gegenpruefung Bereich versand",
+  "methode": "draftOrderCalculate (es wird nichts gespeichert; draftOrders vorher und nachher leer), acceptAutomaticDiscounts=true, presentmentCurrencyCode=EUR, Lieferadresse Eugen-Bolz-Strasse 28, 73732 Esslingen am Neckar, DE. Andere Produkte als beim Umsetzer, damit die Pruefung unabhaengig ist.",
+  "rabatt_live": {
+    "id": "gid://shopify/DiscountAutomaticNode/1806649098573",
+    "titel": "Kostenloser Versand Deutschland",
+    "status": "ACTIVE",
+    "laender": ["DE"],
+    "endsAt": null,
+    "maximumShippingPrice": null,
+    "minimumRequirement": null
+  },
+  "faelle": {
+    "1_ein_poster_61x91": {
+      "artikel": ["Vintage Formula 1 – Racing-Poster im Ölgemälde-Stil, 91 × 61 cm / Schwarz (Profil 24x36), 108,99 EUR"],
+      "angebotene_versandarten": [["Standardversand (4–10 Werktage)", "30.84"], ["Standardversand (4–10 Werktage)", "61.68"]],
+      "gewaehlt_guenstigster_handle": {"titel": "Standardversand (4–10 Werktage)", "source": "shopify", "custom": false, "original": "30.84", "nach_rabatt": "0.0"},
+      "gewaehlt_teuerster_handle": {"titel": "Standardversand (4–10 Werktage)", "original": "30.84", "nach_rabatt": "0.0", "hinweis": "Shopify ordnet den Handle der guenstigsten Stufe mit gleichem Titel zu (wie beim Umsetzer beobachtet)"},
+      "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "ebene": "shipping_level", "betrag": "30.84"},
+      "steuer": "0.0",
+      "gesamt": "108.99",
+      "ergebnis": "deutscher Titel, Versand fuer Kunden 0,00 EUR, Gesamt = Warenwert"
+    },
+    "2_zwei_poster_61x91_und_28x36": {
+      "artikel": ["Yacht auf offener See – Ozean-Poster, 61 × 91 cm / Weiß (Profil 24x36), 108,99 EUR", "The World Rewards Action – Space-Motivationsposter, 28 × 36 cm / Schwarz (Profil 11x14), 64,99 EUR"],
+      "angebotene_versandarten": [["Standardversand (4–10 Werktage)", "54.3"], ["Standardversand (4–10 Werktage)", "77.76"], ["Standardversand (4–10 Werktage)", "85.14"], ["Standardversand (4–10 Werktage)", "108.6"]],
+      "gewaehlt_guenstigster_handle": {"titel": "Standardversand (4–10 Werktage)", "original": "54.3", "nach_rabatt": "0.0"},
+      "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "ebene": "shipping_level", "betrag": "54.3"},
+      "steuer": "0.0",
+      "gesamt": "173.98",
+      "ergebnis": "deutscher Titel, Versand fuer Kunden 0,00 EUR, Gesamt = Warenwert"
+    },
+    "3_zweimal_dasselbe_poster_61x91": {
+      "artikel": ["Yacht auf offener See – Ozean-Poster, 61 × 91 cm / Weiß, Menge 2 (0,44 lb), je 108,99 EUR"],
+      "angebotene_versandarten": [["Standardversand (4–10 Werktage)", "61.68"], ["Standardversand (4–10 Werktage)", "92.52"]],
+      "gewaehlt_teuerster_handle": {"titel": "Standardversand (4–10 Werktage)", "original": "61.68", "nach_rabatt": "0.0"},
+      "rabatt": {"titel": "Kostenloser Versand Deutschland", "automatisch": true, "ebene": "shipping_level", "betrag": "61.68"},
+      "steuer": "0.0",
+      "gesamt": "217.98",
+      "ergebnis": "deutscher Titel, Versand fuer Kunden 0,00 EUR, Gesamt = Warenwert"
+    }
+  }
+}

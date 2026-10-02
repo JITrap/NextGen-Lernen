@@ -1,0 +1,125 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hilfe_main": {
+      "type": "limitless-help",
+      "name": "Hilfe-Center",
+      "blocks": {
+        "topic_ship": {
+          "type": "topic",
+          "settings": {
+            "icon": "truck",
+            "title": "Versand",
+            "text": "Laufzeiten & Tracking",
+            "link": "#"
+          }
+        },
+        "topic_return": {
+          "type": "topic",
+          "settings": {
+            "icon": "return",
+            "title": "Rückgabe",
+            "text": "14 Tage Widerruf",
+            "link": "#"
+          }
+        },
+        "topic_hang": {
+          "type": "topic",
+          "settings": {
+            "icon": "hammer",
+            "title": "Aufhängen",
+            "text": "Ohne Bohren & mit",
+            "link": "#"
+          }
+        },
+        "topic_frame": {
+          "type": "topic",
+          "settings": {
+            "icon": "frame",
+            "title": "Rahmen",
+            "text": "Größen & Pflege",
+            "link": "#"
+          }
+        },
+        "faq_ship": {
+          "type": "faq",
+          "settings": {
+            "question": "Wie lange dauert der Versand?",
+            "answer": "<p>Deine Bestellung wird sorgfältig verpackt und schnell aus der EU versendet — den Tracking-Link bekommst du automatisch per Mail, sobald das Paket unterwegs ist.</p>"
+          }
+        },
+        "faq_return": {
+          "type": "faq",
+          "settings": {
+            "question": "Kann ich meine Bestellung zurückgeben?",
+            "answer": "<p>Ja — 14 Tage Widerrufsrecht ab Erhalt. Schreib uns kurz eine Mail, du bekommst sofort die Rücksende-Infos und nach Eingang den vollen Betrag zurück.</p>"
+          }
+        },
+        "faq_hang": {
+          "type": "faq",
+          "settings": {
+            "question": "Wie hänge ich das Poster ohne Bohren auf?",
+            "answer": "<p>Gerahmte Poster bis 30 × 46 cm halten problemlos mit Klebe-Nägeln oder Powerstrips für Bilderrahmen. Wichtig: Wand vorher trocken abwischen und die Strips eine Stunde andrücken lassen. Für größere Formate empfehlen wir einen Nagel oder eine Schraube mit Dübel.</p>"
+          }
+        },
+        "faq_frame": {
+          "type": "faq",
+          "settings": {
+            "question": "Kommt das Poster mit Rahmen?",
+            "answer": "<p>Ja — Massivholzrahmen in Schwarz oder Weiß, fertig montiert und bereit zum Aufhängen. Zum Reinigen reicht ein trockenes Mikrofasertuch.</p>"
+          }
+        },
+        "faq_size": {
+          "type": "faq",
+          "settings": {
+            "question": "Welche Größe passt zu meiner Wand?",
+            "answer": "<p>Faustregel: Über Sofa oder Schreibtisch wirken 41 × 51 cm und größer am besten, im Flur oder als Teil einer Gallery Wall reichen 28 × 36 cm. Auf jeder Produktseite zeigt dir der Größen-Guide die Wirkung maßstabsgetreu an der Wand.</p>"
+          }
+        },
+        "faq_warranty": {
+          "type": "faq",
+          "settings": {
+            "question": "Gibt es eine Gewährleistung?",
+            "answer": "<p>Ja — 2 Jahre Gewährleistung in der EU und Nordirland gemäß Richtlinie 1999/44/EG. Wenn etwas nicht passt, melde dich einfach — wir finden eine Lösung.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "topic_ship",
+        "topic_return",
+        "topic_hang",
+        "topic_frame",
+        "faq_ship",
+        "faq_return",
+        "faq_hang",
+        "faq_frame",
+        "faq_size",
+        "faq_warranty"
+      ],
+      "settings": {
+        "eyebrow": "HILFE-CENTER",
+        "heading": "Wie können wir helfen?",
+        "contact_mail": "limitless.posterje@gmail.com",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 88,
+        "padding-block-end": 96
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hilfe_main",
+    "main"
+  ]
+}

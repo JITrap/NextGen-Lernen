@@ -1,0 +1,150 @@
+
+######## recht
+- [hoch|claude_api] Versandkosten-Einstellungen widersprechen „versandkostenfrei“
+    EV: Die Versandprofile passen nicht zu den Texten. Das Standardprofil „Allgemeines Profil“ mit der Rate „Standardversand (kostenlos)“ 0 € für Deutschland enthält 0 Varianten. Alle 1.350 Varianten liegen in 5 Printify-Profilen „Standard: Print Pigeons …“ (450/224/226/224/226 Varianten). Deren Zone „Germany“ hat gewichtsabhängige Raten ab 26,39 USD (11×14/12×18, 16×20, 18×24), 28,99 USD (20×30) bzw. 34,69 USD (24×36). Rabatte für kostenlosen Versand gibt es keine. Dagegen versprechen Versandrichtlinie, AGB, FAQ und OFE-v3-Texte, dass keine Versandkosten anfallen.
+    REC: Mach vor dem Launch eine Testbestellung mit deutscher Adresse und schau, welche Versandkosten der Checkout zeigt. Wenn Versandkosten erscheinen: Setz die Deutschland-Rate in den Printify-Profilen auf 0 € oder verschieb die Varianten ins „Allgemeine Profil“. Prüf außerdem in den Printify-Versandeinstellungen, ob Printify die Profile beim nächsten Sync wieder überschreibt.
+- [mittel|entscheidung] Live-Theme v2.0 mit veralteten Versand- und Rechtsaussagen
+    EV: Das Live-Theme hat mehrere veraltete Aussagen. Header-Leiste und Startseite (templates/index.json): „Kostenloser Versand ab 50 €“, obwohl sonst „ohne Mindestbestellwert“ gilt; außerdem „14 Tage Rückgaberecht“. Produktvorlage (product.json): „2 Jahre Gewährleistung in der EU und Nordirland gemäß Richtlinie 1999/44/EG“ – diese Richtlinie gilt seit 2022 nicht mehr (ersetzt durch (EU) 2019/771). Footer: keine Menüs, Rechtstexte nur über ein Popover zu den Checkout-Richtlinien (EU-Fassungen), Social-Links auf die Startseiten facebook.com, instagram.com, youtube.com, tiktok.com und x.com, Newsletter-Button „Sign up“ ohne Datenschutzhinweis. Das Ziel-Theme OFE v3 hat das alles schon korrigiert. Der
+    REC: Veröffentliche OFE v3 vor dem Entfernen des Passworts und nach der Erledigung von b0, statt das alte Theme zu korrigieren. Öffne den Shop nicht mit Theme v2.0.
+- [mittel|claude_api] Cookie-Einwilligung: Link aus Datenschutzerklärung führt zur US-Opt-out-Seite
+    EV: Die Datenschutzerklärung (Abschnitt 5) sagt, man könne die Einwilligung über den Footer-Link „Deine Datenschutz-Einstellungen“ widerrufen. Im Live-Theme gibt es diesen Link nicht. In OFE v3 heißt er „Datenschutz-Einstellungen“ (Menü footer-hilfe) und führt auf /pages/data-sharing-opt-out. Das ist Shopifys US-Opt-out-Formular für Werbe-Tracking, kein Cookie-Einstellungsdialog. Einen Aufruf von privacyBanner.showPreferences habe ich in den geprüften Theme-Dateien nicht gefunden.
+    REC: Ruf den Link mit deutscher IP auf. Wenn sich keine Cookie-Einstellungen öffnen, bau in OFE v3 einen Footer-Link „Cookie-Einstellungen“ ein, der den Shopify-Banner wieder öffnet (window.privacyBanner.showPreferences()). Alternativ passt du den Wortlaut in Abschnitt 5 an.
+- [niedrig|entscheidung] Vier veröffentlichte Seiten sind im Live-Theme leer
+    EV: Die Seiten „Unsere Geschichte“ (story), „Raum-Inspiration“ (rooms), „Hilfe-Center“ (hilfe) und „Gallery Wall“ sind isPublished = true, aber ihr Inhalt ist leer. Ihre Vorlagen (page.story/rooms/hilfe/gallery-wall.json) gibt es nur in OFE v3; das Live-Theme v2.0 würde nur den Titel zeigen. Zurzeit verdeckt das Shop-Passwort die Seiten.
+    REC: Das erledigt sich, wenn du OFE v3 vor dem Launch veröffentlichst. Falls du doch mit v2.0 startest, blende die vier Seiten vorher aus.
+- [niedrig|claude_api] Defekter Link auf der Seite „Über uns“
+    EV: Der Text „Schreib uns“ auf /pages/ueber-uns verlinkt auf /pages/kontakt. Eine Seite mit diesem Handle gibt es nicht (die Kontaktseite heißt /pages/contact), und es existiert keine passende Weiterleitung. Die einzige Weiterleitung ist /collections → /collections/all.
+    REC: Ändere den Link auf /pages/contact oder leg eine Weiterleitung /pages/kontakt → /pages/contact an.
+- [niedrig|claude_api] „Acht Kollektionen“, aber GRIT und ICONS fehlen in der Navigation
+    EV: „Über uns“ nennt APEX, GRIT, LEGENDS, QUEENS, MINDSET, STILL, HERITAGE und ICONS. Die Collections grit-boxing-mma (2 Produkte) und icons-music-culture (4 Produkte) sind veröffentlicht, stehen aber in keinem Menü, auch nicht im Untermenü „Kollektionen“ von main-menu-ofe.
+    REC: Nimm GRIT und ICONS ins Untermenü „Kollektionen“ auf. Oder, falls sie wegen weniger Produkte bewusst fehlen, passe den Text in „Über uns“ an.
+- [niedrig|claude_api] Uneinheitliche Maßangaben in cm
+    EV: Größen-Guide und FAQ nennen 28 × 35,5 / 30,5 × 45,5 / 40,5 × 51 / 45,5 × 61 / 51 × 76 / 61 × 91,5 cm. „Über uns“ nennt „ca. 28×36 cm bis 61×91 cm“. OFE v3 rechnet per Snippet limitless-size auf ganze cm (28 × 36, 30 × 46, 41 × 51, 46 × 61), und auch das Hilfe-Center nutzt diese Werte.
+    REC: Leg dich auf eine Schreibweise fest (z. B. ganze cm wie im Theme) und passe Größen-Guide, FAQ und „Über uns“ daran an.
+- [niedrig|claude_api] Hilfe-Center-FAQ zur Erstattung weicht von der Widerrufsbelehrung ab
+    EV: Die FAQ im Hilfe-Center von OFE v3 (templates/page.hilfe.json) sagt: „Den Kaufpreis erstatten wir nach Eingang der Rücksendung“. Die Widerrufsbelehrung sieht die Rückzahlung binnen 14 Tagen nach dem Widerruf vor; zurückhalten darf man sie nur, bis die Ware zurück ist oder die Rücksendung nachgewiesen wurde.
+    REC: Formuliere die FAQ-Antwort passend zur Belehrung, z. B. „… spätestens 14 Tage nach deinem Widerruf, sobald das Poster zurück ist oder du die Rücksendung nachweist“, oder verlinke einfach nur auf die Widerrufsbelehrung.
+- [niedrig|claude_api] Aktiver 100-%-Rabattcode
+    EV: Der Rabattcode „Testbestellung Launch (100 %)“ (DiscountCodeBasic) hat den Status ACTIVE.
+    REC: Nutz ihn für die Testbestellung (Versandkosten, Kauf-Button, Bestellmail) und deaktivier ihn direkt danach bzw. vor dem Launch.
+
+######## checkout
+- [hoch|claude_api] Printify-Profile verlangen DE-Versandkosten trotz 'Versand inklusive'
+    EV: Alle 1.350 Varianten liegen in 5 Printify-Profilen mit Zone 'Germany': 26,39 $ je Poster (bis 18×24), 28,99 $ (20×30), 34,69 $ (24×36), pro weiterem Poster derselbe Betrag noch einmal (Variantengewicht 0,22 lb). Die Tarife sind in USD hinterlegt, der Shop rechnet in EUR. Es gibt keinen Gratisversand-Rabatt. AGB-Seite, FAQ, 'Über uns' und die Meta-Description versprechen dagegen 'Versand im Preis enthalten'.
+    REC: Lass Claude per deliveryProfileUpdate in allen 5 aktiven Printify-Profilen die Zone Germany auf einen einzigen Tarif 'Standardversand (kostenlos)' 0 € umstellen. Prüf das nach jeder Printify-Synchronisierung bzw. jedem neuen Produkt erneut. Rechne außerdem nach, ob die Verkaufspreise die Printify-Versandkosten (ca. 26–35 $ pro Poster) als Marge abdecken.
+- [mittel|claude_api] Doppelte Rechtstexte: Shopify-Richtlinien weichen von den Seiten ab
+    EV: Die Richtlinien AGB (Stand 25.08.) und Versand (25.08.) nennen DE+EU. Die Seite /pages/agb (Stand 03.09.) und die FAQ nennen nur DE. Datenschutz und Widerruf gibt es ebenfalls doppelt (Richtlinie + Seite). Die Richtlinien sind im Checkout verlinkt, die AGB-Seite verlinkt ihrerseits auf /policies/refund-policy.
+    REC: Lass Claude die Richtlinien 'AGB' und 'Versand' per shopPolicyUpdate inhaltlich an /pages/agb angleichen (nur Deutschland, Versand inklusive). Führ künftig jede Textänderung an beiden Stellen durch oder verlinke im Footer nur die /policies/-Versionen.
+- [niedrig|claude_api] Testrabatt LAUNCH-TEST-100 dauerhaft aktiv
+    EV: DiscountCodeBasic 'Testbestellung Launch (100 %)': 100 % auf alle Artikel, gilt für alle Käufer, usageLimit 1, 0× genutzt, ohne Enddatum. Versandkosten deckt er nicht ab.
+    REC: Nutz den Code für die Testbestellung und lass ihn danach von Claude löschen bzw. mit Enddatum versehen, damit er nach dem Launch nicht einmalig für eine Gratisbestellung missbraucht werden kann.
+- [niedrig|entscheidung] Printify-Profile liefern technisch weltweit, nur Markets bremst
+    EV: shipsToCountries umfasst praktisch alle Länder. Die Printify-Profile haben 61 Zonen inkl. 'Rest Of The World' mit aktiven Tarifen. Das Profil '11″ x 8″' (0 Varianten) und das Allgemeine Profil (0 Varianten) sind wirkungslos. Die Märkte EU und America liegen als Entwurf bereit.
+    REC: Lass die Märkte EU und America im Entwurf, solange nur DE geplant ist. Vor einer späteren Aktivierung müssen Versandtarife, Steuer-Einstellungen (EU-Markt steht auf 'Steuern im Checkout addieren') und Rechtstexte geprüft werden. Das leere 11″×8″-Profil kannst du optional aufräumen.
+- [niedrig|julius_admin] Zahlungsanbieter-Status per API nicht einsehbar
+    EV: shopifyPaymentsAccount, privacySettings (Cookie-Banner) und deliveryCustomizations liefern 'Access denied' (fehlende Scopes read_shopify_payments, read_privacy_settings, read_delivery_customizations).
+    REC: Prüf Shopify Payments, PayPal und den Cookie-Banner selbst im Admin. Alternativ kann Claude sie mitprüfen, wenn der Zugriff um diese Lese-Scopes erweitert wird.
+
+######## produkte
+- [hoch|claude_api] Bestseller-Text behauptet Verkaufszahlen, die es nicht gibt
+    EV: Der Shop hat 0 Bestellungen (ordersCount EXACT). Die Collection „Bestseller“ sagt trotzdem „Von der Community gewählt. Die Motive, die am häufigsten bestellt werden“, die SEO-Description „Die meistbestellten Motive der Community“. OFE v3 zeigt „Unsere Bestseller“ und einen Hero-CTA „Bestseller ansehen“.
+    REC: Formulier Collection-Text, SEO-Description und die Überschriften auf der Startseite neutral um (z. B. „Unsere Favoriten / Kuratierte Highlights“), bis echte Verkaufsdaten da sind. Den Handle /collections/bestseller kannst du behalten.
+- [mittel|julius_admin] 100-%-Rabattcode LAUNCH-TEST-100 ohne Enddatum für alle Kunden aktiv
+    EV: Der Code DiscountCodeBasic „Testbestellung Launch (100 %)“ ist seit 15.08.2026 ACTIVE, ohne endsAt, für alle Käufer (DiscountBuyerSelectionAll), auf alle Artikel, mit usageLimit 1 und bisher 0 Nutzungen. Wer den Code kennt, bekommt ein Poster gratis, und Printify stellt dir die Produktion trotzdem in Rechnung.
+    REC: Mach die Testbestellung zeitnah und deaktivier den Code danach, oder setz jetzt ein Enddatum bzw. beschränk ihn auf dein eigenes Kundenkonto.
+- [mittel|entscheidung] Onlineshop ist passwortgeschützt, bisher 0 Bestellungen
+    EV: onlineStore.passwordProtection.enabled = true. Bei allen 113 Produkten ist onlineStoreUrl deshalb null, obwohl sie im Onlineshop veröffentlicht sind. ordersCount = 0. Das widerspricht der Annahme „verkauft seit 03.09.2026“.
+    REC: Klär, ob der Passwortschutz Absicht ist (Pre-Launch). Wenn ja, arbeitest du die offenen Punkte (Theme-Wechsel auf OFE v3, Testbestellung, pn5) vor dem Entfernen des Passworts ab.
+- [mittel|claude_api] Startseite von OFE v3 stellt markenrechtlich heikle Motive in den Vordergrund
+    EV: Im Template index.json von OFE v3 nutzt die Editorial-Sektion das Produkt ferrari-scuderia-formula-1-vertical-framed-poster. Die Raum-Inspiration „Wohnzimmer“ zeigt messi-make-them-wonder-soccer-poster. Grid, Gallery-Wall und Poster-Wand ziehen aus der Bestseller-Collection, darin 5 pn5-Motive (Marlboro, Ferrari, Messi, Jordan, Ronaldo).
+    REC: Bevor du OFE v3 veröffentlichst, tauschst du die Hero-, Editorial- und Raum-Produkte gegen unkritische eigene Motive (z. B. Typo- oder Wildlife-Poster), unabhängig davon, wie pn5 ausgeht.
+- [mittel|entscheidung] Variantenauswahl zeigt Zoll und englische Optionsnamen
+    EV: Alle 113 Produkte haben die Optionen „Size“ (z. B. 11″ x 14″, 20" x 30") und „Color“ (Black/White). Die einzige Shop-Sprache ist de, eine Übersetzung greift also nicht. Außerdem sind die Zollzeichen gemischt (″ und ").
+    REC: Stell die Optionen auf „Größe“ mit Werten wie „30 × 45 cm“ und „Rahmen“ mit „Schwarz/Weiß“ um. Teste vorher an einem Produkt, ob Printify die Umbenennung beim nächsten Sync überschreibt. Wenn ja, mach es in Printify oder zeig die cm-Werte über das Theme an.
+- [niedrig|entscheidung] Preis für 46×61 cm uneinheitlich
+    EV: Die 14 Produkte vom 17./21.09. kosten in der Größe 18″×24″ bzw. 24″×18″ 79,99 €, die 98 älteren 81,99 €. Alle anderen Größen kosten überall gleich (64,99 / 68,99 / 74,99 / 89,99 / 108,99).
+    REC: Leg dich auf einen Preis fest und passe ihn in Printify an, damit der Sync ihn nicht zurücksetzt. Der Größen-Guide und der Gallery-Wall-Konfigurator sollten denselben Preis zeigen.
+- [niedrig|claude_api] 11 Collections verweisen auf nicht existierende Theme-Templates
+    EV: Die templateSuffix-Werte statements, sports, film-series, apex, grit, legends, icons, mindset, still, heritage und new-drop sind gesetzt. In beiden Themes (v2.0 MAIN und OFE v3) gibt es aber nur templates/collection.json und collection.queens.json. Shopify fällt daher still auf das Standard-Template zurück.
+    REC: Setz templateSuffix bei diesen 11 Collections auf null, oder leg die Templates in OFE v3 bewusst an, damit später niemand auf „verlorene“ Custom-Layouts hereinfällt.
+- [niedrig|claude_api] Collection-Texte nennen nur den schwarzen Rahmen
+    EV: 13 Collection-Beschreibungen (Bestseller, Statements, Sports, Film & Series, Quotes, QUEENS, APEX, GRIT, LEGENDS, ICONS, MINDSET, STILL, HERITAGE) sagen „gerahmt im klaren schwarzen Rahmen“. Alle Produkte gibt es aber in Schwarz und Weiß, und die SEO-Texte sagen korrekt „Schwarz oder Weiß“.
+    REC: Ändere die Formulierung in den Beschreibungen auf „im Rahmen in Schwarz oder Weiß“.
+- [niedrig|claude_api] Größenangabe bei 11 Querformat-Produkten in Hochformat-Reihenfolge
+    EV: Die Beschreibungen nennen „ca. 28 × 36 cm (11″ × 14″) …“, die Varianten heißen aber „14″ x 11″“ usw. Betroffen: horizontal-framed-poster, leopard-on-branch-black-white-framed-poster, framed-poster-watching-eyes-money-tear-wall-art-horizontal, marlboro-f1-racing-car-poster-horizontal-framed-print, wimbledon-tennis-court-framed-poster, tennis-court-framed-poster-aerial-tennis-match-wall-art, framed-poster-be-different-michael-jordan-basketball-print, framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait, framed-football-legends-poster-neymar-cristiano-messi-trio-print, framed-poster-messi-black-white-portrait-wall-art, focus-framed-poster-motivational-gym-wall-art. Die 3 neuen Querf
+    REC: Dreh die Größenzeile bei diesen 11 Produkten auf Breite × Höhe (36 × 28 cm usw.) und ergänze bei Bedarf „(Querformat)“ im Titel.
+- [niedrig|entscheidung] Englische Printify-Handles: jetzt ist der günstigste Zeitpunkt, sie zu ändern
+    EV: Alle 113 Handles sind lang und englisch, z. B. „motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office“ oder das nichtssagende „horizontal-framed-poster“ für Vintage Formula 1. Der Shop ist noch passwortgeschützt, also noch nicht indexiert.
+    REC: Wenn du deutsche oder kürzere URLs willst, stell sie vor dem Launch um (mit URL-Weiterleitungen) und prüf die festen Handle-Verweise im Theme (index.json nutzt z. B. horizontal-framed-poster und messi-make-them-wonder-soccer-poster).
+- [niedrig|entscheidung] Kraftausdrücke in Produkttiteln
+    EV: Die Titel „Fuck Them All – Street-Art-Poster“ (vertical-poster-fuck-them-all-street-art-money-throwing-print) und „Just Do Some Creative Shits – Typo-Art-Poster“ enthalten Kraftausdrücke, dazu der Tag „profanity art“.
+    REC: Für Google Shopping, Meta-Katalog und Pinterest-Ads können solche Titel abgelehnt werden. Entscheide, ob du für Feeds neutrale Titel nutzt oder die Motive aus den Werbekatalogen nimmst.
+- [niedrig|claude_api] Lagerregel der 14 neuen Produkte weicht ab
+    EV: 168 Varianten (die 14 Produkte vom 17./21.09.) haben inventoryPolicy DENY, die 1.182 übrigen CONTINUE. Alle Varianten stehen auf Bestand 9999 und sind damit aktuell kaufbar.
+    REC: Kein akuter Handlungsbedarf. Vereinheitliche die Einstellung, falls Printify den Bestand je wieder synchronisiert, damit neue Motive nicht plötzlich als ausverkauft erscheinen.
+
+######## theme
+- [hoch|julius_admin] Shop ist noch passwortgeschützt, live Passwortseite auf Englisch
+    EV: GET https://limitlessposter.com/ wird auf /password umgeleitet (HTTP 200 auf der Passwortseite). Angezeigt wird 'Opening soon – Sign up for our newsletter to be the first to know when we launch' mit Button 'Sign up' aus der Passwortvorlage von v2.0. ordersCount = 0.
+    REC: Wenn du wirklich verkaufen willst, entferne im Admin unter Onlineshop > Einstellungen den Passwortschutz, idealerweise direkt nach dem Publish von OFE v3 (dessen Passwortseite ist deutsch). Dafür brauchst du einen aktiven Shopify-Tarif.
+- [hoch|claude_api] Printify-Versandprofile berechnen für Deutschland Versandkosten
+    EV: deliveryProfiles: Das 'Allgemeine Profil' (DE, 'Standardversand (kostenlos)', 0 €) enthält 0 Varianten. Alle rund 1350 Varianten liegen in 5 Printify-Profilen ('Standard: Print Pigeons …'), deren Zone 'Germany' gewichtsabhängige Raten hat: ab 26,39 USD (0–0,22 lb), bei 20×30" ab 28,99 USD, bei 24×36" ab 34,69 USD. Die einzige Zone 'Deutschland + EU (Versand inklusive)' mit 0 € liegt im Profil 11×8", das 0 Varianten hat. Das widerspricht 'Versand immer kostenlos' in Theme, AGB und Hilfe.
+    REC: Mach zuerst einen Test-Checkout mit DE-Adresse. Wenn dort Versandkosten erscheinen, setz die Germany-Raten in den 5 Printify-Profilen auf 0 € oder schieb die Varianten ins Allgemeine Profil. Prüf danach, ob Printify die Profile beim nächsten Sync wieder überschreibt.
+- [hoch|claude_api] Shopify-Richtlinien Versand und AGB nennen noch EU-Versand
+    EV: shopPolicies SHIPPING_POLICY (Stand 25.08.): 'inklusive Versand innerhalb Deutschlands und der EU … Wir liefern nach Deutschland und in alle Länder der Europäischen Union'. TERMS_OF_SERVICE § 4 (2) und § 5 (1): 'Deutschland und der EU'. OFE v3 verlinkt diese Seiten mehrfach: /policies/shipping-policy in Footer und Hilfe und als Link 'Versandrichtlinie' im § 19-Steuertext.
+    REC: Stell die Versandrichtlinie und die AGB-Richtlinie auf 'nur Deutschland' um. Das geht per API mit shopPolicyUpdate. Gleich danach sollten die Seiten /pages/agb und die Checkout-Richtlinien denselben Wortlaut haben.
+- [mittel|julius_admin] Shop-Meta-Beschreibung (og:description) nennt 'DE & EU'
+    EV: shop.description und die ausgelieferten Tags og:description/twitter:description: 'Premium-Poster … Versand nach DE & EU inklusive. In 4–10 Werktagen bei dir.' Das ist der Fallback für die Startseite und für Social Shares.
+    REC: Ändere die Meta-Beschreibung der Startseite im Admin unter Onlineshop > Einstellungen, zum Beispiel in '… versandkostenfrei innerhalb Deutschlands …'.
+- [mittel|julius_admin] LIVE-Theme v2.0 zeigt viele veraltete oder falsche Texte
+    EV: v2.0 (MAIN): Ankündigungsleiste und Vorteile-Laufband 'Kostenloser Versand ab 50 €'. Mehrfach 'ACHT KOLLEKTIONEN' (tatsächlich 15 Collections). Stats '99+ Werke' (es sind 113 Produkte). USP '14 Tage Widerrufsrecht – ohne Wenn und Aber'. Produktseite: 'You may also like', '2 Jahre Gewährleistung in der EU und Nordirland gemäß Richtlinie 1999/44/EG', kein Steuerhinweis. Warenkorb: 'Cart', 'You may also like', 'View all', Steuertext ohne § 19. Footer: Social-Platzhalter, Button 'Sign up', keine Footer-Menüs. Titel-Suffixe 'tagged'/'Page'. Passwortseite auf Englisch. Die Seiten story, rooms, hilfe und gallery-wall haben in v2.0 kein eigenes Template. In OFE v3 ist alles davon behoben.
+    REC: Veröffentliche OFE v3, statt v2.0 zu flicken. Solange der Shop hinter dem Passwort liegt, sieht das kein Kunde.
+- [hoch|entscheidung] Produkte mit geschützten Marken und Namen realer Personen
+    EV: Aktive Produkte, u. a.: messi-make-them-wonder…, framed-poster-messi-…, …-ronaldo-7-…, …neymar-cristiano-messi-trio…, …michael-jordan-…, ferrari-scuderia-formula-1-…, framed-poster-ferrari-and-white-stallion…, vintage-porsche-…, no-risk-no-porsche-…, marlboro-f1-…, wimbledon-…, batman-silhouette-…, …godfather-quote…, just-do-it-aviation-…. Messi (Rooms-Bereich) und Ferrari (Editorial-Bereich) sind in OFE v3 sogar prominent auf der Startseite platziert.
+    REC: Entscheide vor dem Launch, ob du diese Motive (Marken-, Namens- und Bildrechte) behalten willst. Lass das im Zweifel fachlich prüfen und nimm solche Motive zumindest von der Startseite. Das ist keine Rechtsberatung.
+- [niedrig|claude_api] Collection-Template-Suffixe ohne passendes Template
+    EV: 11 Collections haben ein templateSuffix (statements, sports, film-series, apex, grit, legends, icons, mindset, still, heritage, new-drop). Weder in OFE v3 noch in v2.0 gibt es dazu collection.<suffix>.json, nur collection.queens.json existiert. Shopify fällt dann auf collection.json zurück.
+    REC: Setz die Suffixe auf Standard zurück, damit nichts Unerwartetes greift, oder leg die gewünschten Varianten-Templates bewusst an.
+- [niedrig|claude_api] Nicht erreichbare Steuer-Keys in OFE v3 noch im Standard, meta theme-color leer
+    EV: OFE de.json: content.taxes_included = 'Inkl. Steuern.', dazu 9 duties_*-Keys mit 'Inkl. Zollgebühren (und Steuern)'. Sie greifen nur, wenn die Preise inkl. Steuern eingestellt sind (aktuell taxesIncluded=false). meta-tags.liquid gibt <meta name=theme-color content=""> aus.
+    REC: Stell die Keys vorsorglich ebenfalls auf den § 19-Text um und setz theme-color auf die Markenfarbe (z. B. #141215).
+- [niedrig|claude_api] JSON-Validierung OFE v3
+    EV: 73 JSON-Dateien geprüft (templates, sections, config, alle locales). 71 sind nach Entfernen des /* */-Headers strikt gültig. locales/en.default.json (19) und en.default.schema.json (93) enthalten Zeilenkommentare mit //. Beide sind Original-Horizon-Dateien, seit dem 16.08. unverändert, und mit entfernten Kommentaren gültig. Shopify akzeptiert das.
+    REC: Kein Handlungsbedarf. Bei eigenen Änderungen an diesen zwei Dateien die //-Kommentare beachten.
+- [niedrig|claude_api] Verwechslungsgefahr bei Theme-Namen
+    EV: 'OFE v3 — Experience (Claude WIP)' (194124087629, Stand 15.08.) und 'LimitlessPoster OFE v3' (194580283725, Stand 20.09.) stehen nebeneinander in der Theme-Liste.
+    REC: Benenne die WIP-Version eindeutig um, z. B. 'ARCHIV – OFE v3 WIP (nicht veröffentlichen)', das geht per themeUpdate.
+
+######## betrieb
+- [hoch|claude_api] Checkout berechnet 23,19 € Versand pro Poster, obwohl überall „Versand inklusive“ steht
+    EV: Alle 1.350 Varianten hängen an 5 Versandprofilen, die Printify synchronisiert hat („Standard: Print Pigeons, 492, 493, Poster, …“). Deren Zone „Germany“ hat gewichtsabhängige Tarife in USD: 26,39 USD je 0,22 lb, beim Format 24×36 34,69 USD. Die Varianten wiegen 0,22 lb. Eine Probeberechnung mit draftOrderAvailableDeliveryOptions (nur lesend) für eine Adresse in Esslingen ergab: 1 Poster = „Standard Delivery“ 23,19 €, 2 Poster = 46,39 €. Das Allgemeine Profil (DE kostenlos) und die kostenlose Zone „Deutschland + EU (Versand inklusive)“ im 11×8-Profil haben 0 Varianten. Dagegen stehen: Versandrichtlinie und AGB § 4 Abs. 2 („keine zusätzlichen Versandkosten“), OFE v3 („Versandkostenfrei innerha
+    REC: Schalt in Printify die Synchronisierung der Versandprofile ab (sonst überschreibt Printify jede Korrektur beim nächsten Sync). Danach kann Claude per API alle Varianten ins Allgemeine Profil mit kostenlosem DE-Tarif verschieben oder den Printify-Profilen einen kostenlosen DE-Tarif geben. Prüf das Ergebnis anschließend mit einer Probeberechnung und der Musterbestellung.
+- [hoch|entscheidung] Onlineshop ist weiter mit Passwort geschützt, der Launch ist faktisch nicht passiert
+    EV: onlineStore.passwordProtection.enabled = true. 0 Bestellungen, 0 Kunden, 0 Checkouts. Alle 127 Sitzungen in 30 Tagen kamen direkt, 5 davon auf /password. Das Ziel-Theme OFE v3 ist weiterhin UNPUBLISHED, live ist v2.0.
+    REC: Entferne den Passwortschutz erst, wenn Versandkosten, Rechnung und Musterbestellung geklärt sind. Veröffentliche vorher OFE v3. Den Passwortschutz schaltest du im Admin unter Onlineshop → Einstellungen ab.
+- [mittel|julius_admin] Versandrichtlinie und AGB versprechen Lieferung in die EU, verkauft wird aber nur nach Deutschland
+    EV: Versandrichtlinie: „Wir liefern nach Deutschland und in alle Länder der Europäischen Union“. AGB § 5 Abs. 1 und § 4 Abs. 2 (Versand in DE und EU inklusive) sagen dasselbe. Aktiv ist aber nur der Markt „Deutschland“. Die Märkte „Europäische Union“ und „America“ stehen auf DRAFT.
+    REC: Passe Versandrichtlinie und AGB-Richtlinie im Admin auf „nur Deutschland“ an. Der API-Zugang hat nur Leserechte für Richtlinien. Die AGB-Seite /pages/agb kann Claude per API angleichen.
+- [niedrig|claude_api] 100-%-Testcode LAUNCH-TEST-100 ist seit 15.08. ohne Enddatum aktiv
+    EV: DiscountCodeBasic „Testbestellung Launch (100 %)“: Status ACTIVE, 100 %, insgesamt 1 Nutzung erlaubt, 0 genutzt, kein Enddatum.
+    REC: Nutz den Code für die Musterbestellung. Danach sollte Claude ihn per API deaktivieren oder ihm ein Enddatum geben, damit er nach dem Launch nicht zufällig eingelöst werden kann.
+- [mittel|julius_extern] Printify-Konto und Shop-Postfach sind nicht mit Claude verbunden
+    EV: Für Printify gibt es keinen API-Token, deshalb lassen sich die Punkte in o1 und eine direkt bei Printify bestellte Musterbestellung nicht prüfen. Das verbundene Gmail ist dein privates Konto. Die Shop-Mails von Shopify, Printify und Kunden gehen an limitless.posterje@gmail.com. Im privaten Postfach gab es in 45 Tagen keine einzige Printify-Mail und nur einen Shopify-Newsletter.
+    REC: Wenn Claude Printify und den Support mitprüfen soll: Erstell in Printify einen API-Token (unter Verbindungen) und verbinde das Shop-Postfach, oder richte eine Weiterleitung ein. Sonst bleiben diese Punkte bei dir.
+- [niedrig|julius_admin] Unbekannte App-Spur „Sternify“ am Shop
+    EV: Am Shop hängt das Metafield sternify.onboarding_completed. In den Themes ist dafür kein App-Embed aktiv. Die App-Liste ist per API nicht lesbar.
+    REC: Sieh im Admin unter Apps nach, ob Sternify noch installiert ist. Behalte sie bewusst als Bewertungslösung oder deinstalliere sie, bevor du Judge.me einrichtest, damit keine doppelten Bewertungs-Widgets oder Kosten entstehen.
+- [niedrig|entscheidung] Vertriebskanal „Shop“ ist installiert, aber leer
+    EV: Die Publication „Shop“ hat 0 veröffentlichte Produkte (Onlineshop: 113). Point of Sale ist auch installiert und hat 0 Produkte.
+    REC: Entscheide, ob du die Produkte in der Shop-App sichtbar machen willst (zusätzliche Reichweite ohne Mehraufwand). Wenn ja, kann Claude alle 113 Produkte per API auf den Kanal „Shop“ veröffentlichen. POS kannst du ignorieren.
+
+######## CRITIC
+- [hoch|claude_api] Printify überschreibt Versandprofile: ein einmaliger 0-€-Fix hält nicht
+    EV: Die 5 aktiven Printify-Profile stehen auf Version 342–346, das ungenutzte 11×8-Profil auf Version 15. Die Location-Group-IDs der aktiven Profile sind neu, die frühere Zone „Deutschland + EU (Versand inklusive)“ gibt es nur noch im leeren 11×8-Profil. Der Fix aus der Deutschland-Umstellung vom 03.09. wurde also überschrieben, vermutlich beim Veröffentlichen der neuen Motive am 17. und 21.09. Folge laut eigener Probeberechnung: 23,19 € je Poster bis 18×24, 30,49 € bei 24×36, mehrere Poster addieren sich (2× = 46,39 €), und die Versandart heißt englisch „Standard Delivery“. Die Scopes write_discounts und write_shipping sind vorhanden. Einen Gratisversand-Rabatt gibt es bisher nicht, der einzige
+    REC: Lass Claude einen automatischen Gratisversand-Rabatt anlegen (discountAutomaticFreeShippingCreate, Ziel nur DE, ohne Mindestbestellwert, ohne Enddatum). Der wirkt unabhängig davon, was Printify in die Profile schreibt. Prüf danach mit einer Probeberechnung und der Testbestellung; für den Test muss der Code LAUNCH-TEST-100 mit Versandrabatten kombinierbar sein. Schau zusätzlich in Printify nach, ob du die Synchronisierung der Versandprofile abschalten kannst. Denk daran, dass Printify dir den Ver
+- [mittel|julius_admin] Richtlinien sind per API nicht änderbar, mehrere Empfehlungen sind falsch zugeordnet
+    EV: currentAppInstallation.accessScopes enthält read_legal_policies, aber kein write_legal_policies. write_content für Seiten ist vorhanden. Trotzdem empfehlen die Prüfer checkout (Befund „Doppelte Rechtstexte“) und theme (Befund „Shopify-Richtlinien Versand und AGB“), Claude solle die Richtlinien per shopPolicyUpdate ändern. Das würde an der Berechtigung scheitern. Nur der Betriebs-Prüfer hat das richtig eingeordnet.
+    REC: Plan b0 (Versandrichtlinie, AGB-Richtlinie, LUCID im Impressum) als deine Aufgabe im Admin ein. Claude kann dir die fertigen Texte liefern und die Seiten (/pages/…) angleichen, die Richtlinien selbst aber nicht speichern. Alternativ: Du erweiterst den Connector um write_legal_policies.
+- [niedrig|entscheidung] AGB § 11 beansprucht Urheberrecht an allen Motiven
+    EV: In den Checkout-AGB und auf /pages/agb steht in § 11: „Alle Motive, Designs und Inhalte unseres Shops sind urheberrechtlich geschützt … ohne unsere Zustimmung nicht gestattet.“ Gleichzeitig zeigen mehrere aktive Motive fremde Marken oder reale Personen (Ferrari, Marlboro, Messi, Ronaldo, Jordan, Batman u. a.; 5 davon in der Bestseller-Collection, Ferrari und Messi auf der OFE-v3-Startseite).
+    REC: Nimm den Wortlaut von § 11 bei der pn5-Entscheidung mit auf und formulier ihn so, dass er nur Rechte beansprucht, die du tatsächlich hast (z. B. an eigenen Texten, Fotos und Designs). Die Richtlinie änderst du im Admin, die Seite kann Claude anpassen.

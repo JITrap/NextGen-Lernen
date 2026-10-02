@@ -1,0 +1,110 @@
+{%- comment -%}
+  ==========================================================================
+  LimitlessPoster – Zusatzbaustein für die Shopify-Benachrichtigung
+  „Bestellbestätigung“ (Stand 02.10.2026, Liquid-Syntax geprüft)
+
+  WO EINFÜGEN:
+  Einstellungen > Benachrichtigungen > Kundenbenachrichtigungen >
+  Bestellbestätigung > „Code bearbeiten“ > im Feld „E-Mail-Text (HTML)“
+  mit Strg+F nach   row footer   suchen und den GESAMTEN Baustein direkt
+  VOR der Zeile  <table class="row footer">  einfügen. Speichern.
+
+  INHALT:
+  Teil A  Gut zu wissen: Lieferzeit 4–10 Werktage, § 19-Hinweis, Kontakt
+  Teil B  Widerrufsbelehrung + Muster-Widerrufsformular (Pflicht: muss
+          spätestens bei Lieferung auf einem dauerhaften Datenträger beim
+          Kunden sein, § 312f Abs. 2 BGB – ein Link reicht dafür nicht)
+  Teil C  AGB, Stand 2. Oktober 2026 (Vertragsinhalt, § 312f Abs. 2 BGB)
+
+  WICHTIG: Ändern sich AGB oder Widerrufsbelehrung, muss Teil B bzw. C hier
+  ebenfalls ersetzt werden. Die E-Mail-Adresse nur in der Zeile darunter
+  ändern (z. B. auf info@limitlessposter.com, sobald die Weiterleitung läuft).
+  ==========================================================================
+{%- endcomment -%}
+{%- assign lp_mail = "limitless.posterje@gmail.com" -%}
+{%- assign lp_shop_url = shop.url | default: "https://limitlessposter.com" -%}
+<table class="row section" style="width:100%;border-spacing:0;border-collapse:collapse;border-top:1px solid #e5e5e5;">
+  <tr>
+    <td class="section__cell" style="padding:32px 0;">
+      <center>
+        <table class="container" style="width:560px;max-width:100%;text-align:left;border-spacing:0;border-collapse:collapse;margin:0 auto;">
+          <tr>
+            <td style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#141215;font-size:15px;line-height:1.55;">
+              <!-- Teil A: Gut zu wissen -->
+              <h3 style="font-size:18px;font-weight:600;margin:0 0 12px;">Gut zu wissen</h3>
+              <p style="margin:0 0 10px;"><strong>Lieferzeit:</strong> Dein Poster wird nach deiner Bestellung für dich gedruckt und gerahmt. Die Lieferung innerhalb Deutschlands dauert in der Regel 4–10 Werktage. Sobald dein Paket unterwegs ist, bekommst du eine Versandbestätigung mit Sendungsverfolgung.</p>
+              <p style="margin:0 0 10px;"><strong>Umsatzsteuer:</strong> Steuerfreie Kleinunternehmerleistung gemäß § 19 UStG. Es wird keine Umsatzsteuer berechnet und ausgewiesen.</p>
+              <p style="margin:0 0 10px;"><strong>Fragen?</strong> Antworte einfach auf diese E-Mail oder schreib uns an <a style="color:#8B1E2D;" href="mailto:{{ lp_mail }}">{{ lp_mail }}</a>. Bitte nenne dabei deine Bestellnummer {{ order_name | default: name }}.</p>
+              <p style="margin:0 0 0;font-size:13px;color:#55575C;">Unten findest du unsere Widerrufsbelehrung mit Muster-Widerrufsformular und unsere AGB. Bitte bewahre diese E-Mail auf. Online: <a style="color:#8B1E2D;" href="{{ lp_shop_url }}/policies/refund-policy">Widerrufsrecht</a> · <a style="color:#8B1E2D;" href="{{ lp_shop_url }}/pages/agb">AGB</a> · <a style="color:#8B1E2D;" href="{{ lp_shop_url }}/pages/datenschutzerklaerung">Datenschutz</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:24px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#55575C;font-size:13px;line-height:1.5;">
+              <!-- Teil B: Widerrufsbelehrung -->
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">Widerrufsbelehrung</p>
+              <p style="margin:0 0 8px;">Verbrauchern steht das nachfolgende Widerrufsrecht zu. Verbraucher ist jede natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">Widerrufsrecht</p>
+              <p style="margin:0 0 8px;">Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+              <p style="margin:0 0 8px;">Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p>
+              <p style="margin:0 0 8px;">Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (LimitlessPoster, Julius Erb, Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland, E-Mail: {{ lp_mail }}) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.</p>
+              <p style="margin:0 0 8px;">Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">Folgen des Widerrufs</p>
+              <p style="margin:0 0 8px;">Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p>
+              <p style="margin:0 0 8px;">Wir können die Rückzahlung verweigern, bis wir die Waren wieder zurückerhalten haben oder bis Sie den Nachweis erbracht haben, dass Sie die Waren zurückgesandt haben, je nachdem, welches der frühere Zeitpunkt ist.</p>
+              <p style="margin:0 0 8px;">Sie haben die Waren unverzüglich und in jedem Fall spätestens binnen vierzehn Tagen ab dem Tag, an dem Sie uns über den Widerruf dieses Vertrags unterrichten, an uns zurückzusenden oder zu übergeben. Die Frist ist gewahrt, wenn Sie die Waren vor Ablauf der Frist von vierzehn Tagen absenden.</p>
+              <p style="margin:0 0 8px;">Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.</p>
+              <p style="margin:0 0 8px;">Sie müssen für einen etwaigen Wertverlust der Waren nur aufkommen, wenn dieser Wertverlust auf einen zur Prüfung der Beschaffenheit, Eigenschaften und Funktionsweise der Waren nicht notwendigen Umgang mit ihnen zurückzuführen ist.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">Muster-Widerrufsformular</p>
+              <p style="margin:0 0 8px;"><em>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</em></p>
+              <p style="margin:0 0 8px;">An: LimitlessPoster, Julius Erb, Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland, E-Mail: {{ lp_mail }}</p>
+              <p style="margin:0 0 8px;">– Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)/die Erbringung der folgenden Dienstleistung (*)<br>– Bestellt am (*)/erhalten am (*)<br>– Name des/der Verbraucher(s)<br>– Anschrift des/der Verbraucher(s)<br>– Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)<br>– Datum</p>
+              <p style="margin:0 0 8px;">(*) Unzutreffendes streichen.</p>
+              <!-- Teil C: AGB -->
+              <p style="margin:24px 0 6px;font-size:15px;font-weight:700;color:#141215;">Allgemeine Geschäftsbedingungen (AGB)</p>
+              <p style="margin:0 0 8px;"><em>Stand: 2. Oktober 2026</em></p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 1 Geltungsbereich</p>
+              <p style="margin:0 0 8px;">Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen, die Verbraucher über den Onlineshop limitlessposter.com abgeben. Verbraucher ist jede natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können (§ 13 BGB).</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 2 Vertragspartner</p>
+              <p style="margin:0 0 8px;">Der Kaufvertrag kommt zustande mit:</p>
+              <p style="margin:0 0 8px;">LimitlessPoster<br>Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28<br>73732 Esslingen am Neckar<br>Deutschland<br>E-Mail: <a style="color:#8B1E2D;" href="mailto:{{ lp_mail }}">{{ lp_mail }}</a></p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 3 Vertragsschluss</p>
+              <p style="margin:0 0 8px;">(1) Die Darstellung der Produkte im Onlineshop stellt kein rechtlich bindendes Angebot, sondern eine Aufforderung zur Bestellung dar.</p>
+              <p style="margin:0 0 8px;">(2) Sie können Produkte in den Warenkorb legen und Ihre Eingaben vor Absenden der Bestellung jederzeit prüfen und korrigieren. Mit dem Anklicken des Bestellbuttons geben Sie eine verbindliche Bestellung der im Warenkorb enthaltenen Waren ab.</p>
+              <p style="margin:0 0 8px;">(3) Der Kaufvertrag kommt zustande, wenn wir Ihre Bestellung durch eine Auftragsbestätigung per E-Mail annehmen, spätestens jedoch mit dem Versand der Ware.</p>
+              <p style="margin:0 0 8px;">(4) Die Vertragssprache ist Deutsch. Der Vertragstext wird von uns gespeichert; die Bestelldaten erhalten Sie mit der Bestellbestätigung per E-Mail.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 4 Preise und Zahlung</p>
+              <p style="margin:0 0 8px;">(1) Alle angegebenen Preise sind Endpreise in Euro. Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer berechnet und daher auch nicht ausgewiesen.</p>
+              <p style="margin:0 0 8px;">(2) Der Versand innerhalb Deutschlands ist im Preis enthalten; es fallen keine zusätzlichen Versandkosten an.</p>
+              <p style="margin:0 0 8px;">(3) Die Zahlung erfolgt über die im Checkout angebotenen Zahlungsarten (derzeit u. a. PayPal). Ihr Konto bzw. Zahlungsmittel wird mit Abschluss der Bestellung belastet.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 5 Lieferung</p>
+              <p style="margin:0 0 8px;">(1) Wir liefern ausschließlich innerhalb Deutschlands. Eine Lieferung in andere Länder ist derzeit nicht möglich.</p>
+              <p style="margin:0 0 8px;">(2) Unsere Poster werden individuell im Print-on-Demand-Verfahren gefertigt. Die Produktion dauert in der Regel 2–5 Werktage, der anschließende Versand weitere 2–5 Werktage. Die voraussichtliche Lieferzeit beträgt insgesamt ca. 4–10 Werktage, sofern beim jeweiligen Produkt nichts anderes angegeben ist.</p>
+              <p style="margin:0 0 8px;">(3) Sollte ein Artikel nicht lieferbar sein, informieren wir Sie unverzüglich; bereits erhaltene Zahlungen werden in diesem Fall unverzüglich erstattet.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 6 Eigentumsvorbehalt</p>
+              <p style="margin:0 0 8px;">Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 7 Widerrufsrecht</p>
+              <p style="margin:0 0 8px;">Verbrauchern steht ein gesetzliches Widerrufsrecht von 14 Tagen zu. Einzelheiten, die Widerrufsfolgen sowie das Muster-Widerrufsformular finden Sie in unserer <a style="color:#8B1E2D;" href="{{ lp_shop_url }}/policies/refund-policy">Widerrufsbelehrung</a>.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 8 Transportschäden</p>
+              <p style="margin:0 0 8px;">Wird Ware mit offensichtlichen Transportschäden angeliefert, reklamieren Sie diese Fehler bitte möglichst sofort beim Zusteller und kontaktieren Sie uns. Die Versäumung dieser Reklamation hat für Ihre gesetzlichen Ansprüche und deren Durchsetzung, insbesondere Ihre Gewährleistungsrechte, keinerlei Konsequenzen. Sie helfen uns aber, unsere eigenen Ansprüche gegenüber dem Frachtführer bzw. der Transportversicherung geltend machen zu können.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 9 Gewährleistung</p>
+              <p style="margin:0 0 8px;">Es gilt das gesetzliche Mängelhaftungsrecht. Bei Mängeln wenden Sie sich bitte an <a style="color:#8B1E2D;" href="mailto:{{ lp_mail }}">{{ lp_mail }}</a> — in vielen Fällen können wir beschädigte oder fehlerhafte Poster unkompliziert ersetzen.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 10 Haftung</p>
+              <p style="margin:0 0 8px;">(1) Für Ansprüche aufgrund von Schäden, die durch uns, unsere gesetzlichen Vertreter oder Erfüllungsgehilfen verursacht wurden, haften wir stets unbeschränkt bei Verletzung des Lebens, des Körpers oder der Gesundheit, bei vorsätzlicher oder grob fahrlässiger Pflichtverletzung sowie nach dem Produkthaftungsgesetz.</p>
+              <p style="margin:0 0 8px;">(2) Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten (Pflichten, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung Sie regelmäßig vertrauen dürfen) ist unsere Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt. Im Übrigen ist die Haftung für leichte Fahrlässigkeit ausgeschlossen.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 11 Urheberrecht und Rechte Dritter</p>
+              <p style="margin:0 0 8px;">(1) Soweit an den von uns selbst erstellten Inhalten dieses Shops – insbesondere Texten, Produktfotos, eigenen Gestaltungen und Grafiken sowie der Gestaltung des Shops – Urheber- oder Leistungsschutzrechte bestehen, stehen diese uns zu. Eine Vervielfältigung, Verbreitung oder sonstige Nutzung dieser Inhalte ist ohne unsere vorherige Zustimmung nicht gestattet, soweit das Gesetz nichts anderes erlaubt.</p>
+              <p style="margin:0 0 8px;">(2) Soweit Motive Personen, Namen, Marken, Logos, Filme, Werke oder sonstige geschützte Inhalte Dritter zeigen oder darauf Bezug nehmen, liegen alle Rechte daran ausschließlich bei den jeweiligen Rechteinhabern. Wir beanspruchen an diesen Inhalten keine eigenen Rechte. Die Nennung oder Abbildung von Personen, Marken oder Produkten bedeutet nicht, dass diese mit uns verbunden sind oder uns bzw. unsere Produkte unterstützen oder sponsern.</p>
+              <p style="margin:0 0 8px;">(3) Mit dem Kauf erwerben Sie das Eigentum an dem gelieferten Poster. Nutzungs-, Vervielfältigungs- oder Verwertungsrechte an den abgebildeten Motiven werden dabei nicht eingeräumt. Ihre gesetzlichen Rechte, etwa zur Weiterveräußerung des gekauften Posters, bleiben unberührt.</p>
+              <p style="margin:0 0 8px;">(4) Sollten Sie der Ansicht sein, dass ein Motiv Ihre Rechte verletzt, schreiben Sie uns bitte an <a style="color:#8B1E2D;" href="mailto:{{ lp_mail }}">{{ lp_mail }}</a>. Wir prüfen jeden Hinweis umgehend und nehmen betroffene Motive bei berechtigter Beanstandung aus dem Sortiment.</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 12 Streitbeilegung</p>
+              <p style="margin:0 0 8px;">Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).</p>
+              <p style="margin:16px 0 6px;font-size:14px;font-weight:700;color:#141215;">§ 13 Schlussbestimmungen</p>
+              <p style="margin:0 0 8px;">(1) Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Haben Sie als Verbraucher Ihren gewöhnlichen Aufenthalt in einem anderen Staat der EU, bleiben zwingende verbraucherschützende Bestimmungen dieses Staates von dieser Rechtswahl unberührt.</p>
+              <p style="margin:0 0 8px;">(2) Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt der Vertrag im Übrigen wirksam.</p>
+            </td>
+          </tr>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>

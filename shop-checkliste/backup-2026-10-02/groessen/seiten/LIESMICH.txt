@@ -1,0 +1,1 @@
+Seite hilfe-faq (gid://shopify/Page/163065528653), Stand updatedAt 2026-09-29T08:04:27Z: nur der Absatz unter 'Welche Größen gibt es?' wurde ersetzt; Vorher-Absatz in hilfe-faq-absatz-vorher.html. groessen-guide (gid://shopify/Page/163300442445) komplett in groessen-guide-vorher.html (ohne abschließenden Zeilenumbruch einsetzen).

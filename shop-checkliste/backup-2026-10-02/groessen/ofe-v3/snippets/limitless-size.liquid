@@ -1,0 +1,70 @@
+{%- doc -%}
+  Größen- und Farb-Helfer für die Printify-Optionen.
+
+  Wandelt Zoll-Werte („11″ x 14″", „16" x 20"", „24″ x 36″") in Zentimeter um
+  und übersetzt die Rahmenfarben (Black/White → Schwarz/Weiß). Die Options-
+  werte selbst bleiben unverändert (Warenkorb, Printify-Sync) — nur die
+  Anzeige wird übersetzt.
+
+  @param {string} value - Optionswert, z. B. „11″ x 14″" oder „Black"
+  @param {string} [option] - Optionsname („Size" / „Color"); steuert die Übersetzung
+  @param {string} [output] - 'cm' (Default) → „28 × 36 cm"
+                             'in' → „11″ × 14″"
+                             'w' / 'h' → Breite / Höhe in cm (Zahl)
+                             'ratio' → CSS-Seitenverhältnis „11 / 14"
+                             'label' → HTML: cm groß, Zoll klein (für Buttons)
+                             'text' → Farbe übersetzt bzw. cm + Zoll in Klammern
+
+  @example
+  {% render 'limitless-size', value: '11″ x 14″' %}            → 28 × 36 cm
+  {% render 'limitless-size', value: 'Black', option: 'Color', output: 'text' %} → Schwarz
+{%- enddoc -%}
+
+{%- liquid
+  assign ls_out = output | default: 'cm'
+  assign ls_option = option | default: 'Size' | downcase
+  assign ls_val = value | strip
+
+  if ls_option == 'color' or ls_option == 'colour' or ls_option == 'farbe'
+    assign ls_low = ls_val | downcase
+    if ls_low == 'black'
+      echo 'Schwarz'
+    elsif ls_low == 'white'
+      echo 'Weiß'
+    else
+      echo ls_val | escape
+    endif
+  else
+    assign ls_clean = ls_val | replace: '″', '' | replace: '"', '' | replace: '”', '' | replace: '×', 'x' | replace: 'X', 'x' | replace: ' ', '' | replace: 'in', ''
+    assign ls_parts = ls_clean | split: 'x'
+    assign ls_w_in = 0
+    assign ls_h_in = 0
+    if ls_parts.size == 2
+      assign ls_w_in = ls_parts[0] | plus: 0
+      assign ls_h_in = ls_parts[1] | plus: 0
+    endif
+
+    if ls_w_in > 0 and ls_h_in > 0
+      assign ls_w_cm = ls_w_in | times: 2.54 | round
+      assign ls_h_cm = ls_h_in | times: 2.54 | round
+      case ls_out
+        when 'w'
+          echo ls_w_cm
+        when 'h'
+          echo ls_h_cm
+        when 'in'
+          echo ls_w_in | append: '″ × ' | append: ls_h_in | append: '″'
+        when 'ratio'
+          echo ls_w_in | append: ' / ' | append: ls_h_in
+        when 'label'
+          echo '<span class="lp-size__cm">' | append: ls_w_cm | append: ' × ' | append: ls_h_cm | append: ' cm</span><span class="lp-size__in">' | append: ls_w_in | append: '″ × ' | append: ls_h_in | append: '″</span>'
+        when 'text'
+          echo ls_w_cm | append: ' × ' | append: ls_h_cm | append: ' cm (' | append: ls_w_in | append: '″ × ' | append: ls_h_in | append: '″)'
+        else
+          echo ls_w_cm | append: ' × ' | append: ls_h_cm | append: ' cm'
+      endcase
+    else
+      echo ls_val | escape
+    endif
+  endif
+-%}

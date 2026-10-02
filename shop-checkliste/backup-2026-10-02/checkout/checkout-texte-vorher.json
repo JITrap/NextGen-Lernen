@@ -1,0 +1,27 @@
+{
+ "stand": "2026-10-02, per Admin-API translatableResource (Locale de, Shopify-Standardwerte, keine Overrides in locales/de.json)",
+ "live_theme_194055668045": {
+  "shopify.checkout.general.pay_now_button_label": "Jetzt kaufen",
+  "shopify.checkout.general.complete_purchase_button_label": "Kaufen",
+  "shopify.checkout.general.continue_to_review": "Bestellung überprüfen",
+  "shopify.checkout.general.confirm_order_button_label": "Bestellung bestätigen",
+  "shopify.checkout.general.submit_order_button_label": "Bestellung senden",
+  "shopify.checkout.general.finalize_order_accessibility_label": "Bestellung abschließen",
+  "shopify.checkout.review.review_notice_html": " ",
+  "shopify.checkout.review.review_title": "Schließe deine Bestellung ab",
+  "shopify.checkout.order_summary.vat_label_html": "inkl. %{amount} MwSt",
+  "shopify.checkout.order_payment_collection.pay_now": "Jetzt bezahlen"
+ },
+ "ofe_v3_194580283725": {
+  "shopify.checkout.general.pay_now_button_label": "Jetzt kaufen",
+  "shopify.checkout.general.complete_purchase_button_label": "Kaufen",
+  "shopify.checkout.general.continue_to_review": "Bestellung überprüfen",
+  "shopify.checkout.general.confirm_order_button_label": "Bestellung bestätigen",
+  "shopify.checkout.general.submit_order_button_label": "Bestellung senden",
+  "shopify.checkout.general.finalize_order_accessibility_label": "Bestellung abschließen",
+  "shopify.checkout.review.review_notice_html": " ",
+  "shopify.checkout.review.review_title": "Schließe deine Bestellung ab",
+  "shopify.checkout.order_summary.vat_label_html": "inkl. %{amount} MwSt",
+  "shopify.checkout.order_payment_collection.pay_now": "Jetzt bezahlen"
+ }
+}

@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "lp_weiterleitung": {
+      "type": "custom-liquid",
+      "name": "Weiterleitung",
+      "settings": {
+        "custom_liquid": "{%- comment -%}\n  Die bebilderte Kategorie-Uebersicht wurde am 20.09.2026 auf Wunsch von\n  Julius entfernt. /collections ist eine feste Shopify-Route und laesst\n  sich nicht loeschen; die Seite leitet deshalb auf den Katalog weiter.\n  Im Theme-Editor bleibt die Weiterleitung aus, sonst koennte man die\n  Seite dort nicht mehr bearbeiten.\n{%- endcomment -%}\n{%- unless request.design_mode -%}\n  <script>window.location.replace({{ routes.all_products_collection_url | json }});</script>\n{%- endunless -%}\n<p style=\"text-align:center;padding:64px 24px;\">\n  Weiter zu <a href=\"{{ routes.all_products_collection_url }}\">allen Postern</a>.\n</p>",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "lp_weiterleitung"
+  ]
+}

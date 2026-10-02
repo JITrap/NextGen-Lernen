@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rooms_main": {
+      "type": "limitless-rooms",
+      "name": "Raum-Inspiration",
+      "blocks": {
+        "room_gym": {
+          "type": "room",
+          "settings": {
+            "scene": "gym",
+            "title": "Home-Gym",
+            "subtitle": "Motivation, die beim Aufwärmen schon hängt.",
+            "link": "shopify://collections/mindset-words-ambition",
+            "product_1": "become-unstoppable-framed-poster-motivational-sports-wall-art",
+            "product_2": "motivational-poster-no-excuses-just-results-vertical-wall-art"
+          }
+        },
+        "room_office": {
+          "type": "room",
+          "settings": {
+            "scene": "office",
+            "title": "Büro",
+            "subtitle": "Fokus über dem Schreibtisch.",
+            "link": "shopify://collections/still-quiet-luxury",
+            "product_1": "framed-poster-the-world-rewards-action-motivational-space-wall-art",
+            "product_2": "horizontal-framed-poster"
+          }
+        },
+        "room_living": {
+          "type": "room",
+          "settings": {
+            "scene": "living",
+            "title": "Wohnzimmer",
+            "subtitle": "Galerie-Stimmung nach Feierabend.",
+            "link": "shopify://collections/heritage-timeless-classics",
+            "product_1": "framed-poster-aerial-yacht-wake-ocean-print",
+            "product_2": "messi-make-them-wonder-soccer-poster"
+          }
+        }
+      },
+      "block_order": [
+        "room_gym",
+        "room_office",
+        "room_living"
+      ],
+      "settings": {
+        "eyebrow": "RAUM-INSPIRATION",
+        "heading": "Kauf den Look, nicht nur das Poster.",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 88,
+        "padding-block-end": 72
+      }
+    },
+    "rooms_cta": {
+      "type": "section",
+      "blocks": {
+        "rc_head": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Oder bau dir gleich die ganze <em>Gallery Wall</em>.</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-accent--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "rc_btn": {
+          "type": "button",
+          "settings": {
+            "label": "Zum Wand-Konfigurator",
+            "link": "/pages/gallery-wall",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
+        }
+      },
+      "block_order": [
+        "rc_head",
+        "rc_btn"
+      ],
+      "name": "Rooms-CTA",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 22,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 64,
+        "padding-block-end": 72
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "rooms_main",
+    "rooms_cta",
+    "main"
+  ]
+}

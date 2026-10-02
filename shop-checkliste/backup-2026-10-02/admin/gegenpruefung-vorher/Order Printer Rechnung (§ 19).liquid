@@ -1,0 +1,266 @@
+{%- comment -%}
+  ==========================================================================
+  LimitlessPoster – Rechnung für Kleinunternehmer (§ 19 UStG)
+  Vorlage für die kostenlose Shopify-App „Order Printer“
+  (Apps > Order Printer > Templates > Create a template > Edit code)
+
+  Stand: 02.10.2026 · Liquid-Syntax geprüft (Shopify-Liquid 5.14, strict)
+  Erfüllt § 34a UStDV (Rechnung Kleinunternehmer) und § 33 UStDV
+  (Kleinbetragsrechnung): Name + Anschrift Verkäufer und Käufer,
+  Ausstellungsdatum, Menge + Art der Ware, Betrag in einer Summe,
+  Hinweis auf die Steuerbefreiung für Kleinunternehmer.
+  Zusätzlich: fortlaufende Rechnungsnummer, Lieferdatum, Zahlart, USt-IdNr.
+
+  Alles, was du eventuell ändern willst, steht im Block EINSTELLUNGEN.
+  Es wird nie Umsatzsteuer ausgewiesen (§ 14c UStG). Falls Shopify doch
+  einmal Steuern berechnet, erscheint oben ein roter Warnhinweis.
+  ==========================================================================
+{%- endcomment -%}
+
+{%- comment -%} ===== EINSTELLUNGEN ===== {%- endcomment -%}
+{%- assign lp_firma = "LimitlessPoster" -%}
+{%- assign lp_inhaber = "Julius Erb" -%}
+{%- assign lp_strasse = "Eugen-Bolz-Straße 28" -%}
+{%- assign lp_ort = "73732 Esslingen am Neckar" -%}
+{%- assign lp_land = "Deutschland" -%}
+{%- assign lp_mail = "limitless.posterje@gmail.com" -%}
+{%- assign lp_web = "limitlessposter.com" -%}
+{%- assign lp_ustid = "DE463961672" -%}
+{%- assign lp_re_prefix = "RE-" -%}
+{%- assign lp_akzent = "#8B1E2D" -%}
+{%- assign lp_logo = "<URL des Theme-Logos, exakt in git show 9e634f1>" -%}
+{%- if shop.email_logo_url != blank -%}{%- assign lp_logo = shop.email_logo_url -%}{%- endif -%}
+{%- comment -%}
+  Rechnungsdatum: Standard = Bestelldatum (die Zahlung erfolgt bei der Bestellung).
+  Wenn du die Rechnung erst beim Versand erstellst und das heutige Datum willst,
+  ersetze die nächste Zeile durch:  assign lp_rechnungsdatum = "now"  (in Liquid-Klammern).
+{%- endcomment -%}
+{%- assign lp_rechnungsdatum = order.created_at -%}
+
+{%- comment -%} ===== BERECHNUNGEN (nicht ändern) ===== {%- endcomment -%}
+{%- assign lp_rechnung = order.billing_address -%}
+{%- if lp_rechnung == blank -%}{%- assign lp_rechnung = order.shipping_address -%}{%- endif -%}
+
+{%- assign lp_summe_artikel = 0 -%}
+{%- for line_item in order.line_items -%}
+  {%- assign lp_summe_artikel = lp_summe_artikel | plus: line_item.original_line_price -%}
+{%- endfor -%}
+
+{%- assign lp_rabatt_artikel = 0 -%}
+{%- for da in order.discount_applications -%}
+  {%- if da.target_type == "line_item" -%}
+    {%- assign lp_rabatt_artikel = lp_rabatt_artikel | plus: da.total_allocated_amount -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign lp_steuer = order.tax_price | default: 0 -%}
+{%- comment -%} Versand = Gesamtbetrag minus Artikel minus Rabatte: so stimmt die Summe immer. {%- endcomment -%}
+{%- assign lp_versand = order.total_price | minus: lp_summe_artikel | plus: lp_rabatt_artikel | minus: lp_steuer -%}
+{%- if lp_versand < 0 -%}{%- assign lp_versand = 0 -%}{%- endif -%}
+
+{%- assign lp_versandart = "" -%}
+{%- for sl in order.shipping_methods -%}
+  {%- if forloop.first -%}{%- assign lp_versandart = sl.title -%}{%- endif -%}
+{%- endfor -%}
+{%- assign lp_versandart = lp_versandart | replace: "Standard Delivery", "Standardversand" | replace: "Standard Shipping", "Standardversand" -%}
+
+{%- assign lp_versanddaten = "" -%}
+{%- for f in order.fulfillments -%}
+  {%- assign lp_d = f.created_at | date: "%d.%m.%Y" -%}
+  {%- unless lp_versanddaten contains lp_d -%}
+    {%- if lp_versanddaten != "" -%}{%- assign lp_versanddaten = lp_versanddaten | append: ", " -%}{%- endif -%}
+    {%- assign lp_versanddaten = lp_versanddaten | append: lp_d -%}
+  {%- endunless -%}
+{%- endfor -%}
+
+{%- assign lp_zahlart = "" -%}
+{%- assign lp_bezahlt_am = "" -%}
+{%- for t in order.transactions -%}
+  {%- if t.status == "success" -%}
+    {%- if t.kind == "sale" or t.kind == "capture" or t.kind == "authorization" -%}
+      {%- assign lp_gw = t.gateway_display_name | default: t.gateway | default: "" -%}
+      {%- assign lp_gw_key = lp_gw | downcase -%}
+      {%- case lp_gw_key -%}
+        {%- when "paypal", "paypal express checkout" -%}{%- assign lp_gw = "PayPal" -%}
+        {%- when "shopify_payments", "shopify payments" -%}{%- assign lp_gw = "Shopify Payments" -%}
+        {%- when "manual", "manuell" -%}{%- assign lp_gw = "Manuelle Zahlung" -%}
+        {%- when "bogus", "(for testing) bogus gateway" -%}{%- assign lp_gw = "Testzahlung (keine echte Zahlung)" -%}
+      {%- endcase -%}
+      {%- if t.payment_details.credit_card_company != blank -%}
+        {%- assign lp_gw = lp_gw | append: " (" | append: t.payment_details.credit_card_company | append: ")" -%}
+      {%- endif -%}
+      {%- if lp_gw != "" -%}
+        {%- unless lp_zahlart contains lp_gw -%}
+          {%- if lp_zahlart != "" -%}{%- assign lp_zahlart = lp_zahlart | append: ", " -%}{%- endif -%}
+          {%- assign lp_zahlart = lp_zahlart | append: lp_gw -%}
+        {%- endunless -%}
+      {%- endif -%}
+      {%- if lp_bezahlt_am == "" and t.kind != "authorization" -%}
+        {%- assign lp_bezahlt_am = t.created_at | date: "%d.%m.%Y" -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if lp_zahlart == "" -%}{%- assign lp_zahlart = order.gateway | default: "siehe Bestellbestätigung" -%}{%- endif -%}
+
+{%- case order.financial_status -%}
+  {%- when "paid" -%}{%- assign lp_status = "bezahlt" -%}
+  {%- when "partially_refunded" -%}{%- assign lp_status = "bezahlt, teilweise erstattet" -%}
+  {%- when "refunded" -%}{%- assign lp_status = "erstattet" -%}
+  {%- when "pending" -%}{%- assign lp_status = "offen" -%}
+  {%- when "authorized" -%}{%- assign lp_status = "autorisiert" -%}
+  {%- when "partially_paid" -%}{%- assign lp_status = "teilweise bezahlt" -%}
+  {%- when "voided" -%}{%- assign lp_status = "storniert" -%}
+  {%- else -%}{%- assign lp_status = order.financial_status -%}
+{%- endcase -%}
+
+<style>
+  @page { size: A4; margin: 16mm 16mm 18mm; }
+  .lp-rechnung { font-family: Inter, "Helvetica Neue", Arial, sans-serif; color: #141215; font-size: 10.5pt; line-height: 1.45; max-width: 178mm; margin: 0 auto; }
+  .lp-rechnung h1 { font-size: 20pt; letter-spacing: .04em; margin: 0 0 2mm; font-weight: 700; }
+  .lp-kopf { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid {{ lp_akzent }}; padding-bottom: 5mm; margin-bottom: 7mm; }
+  .lp-logo { width: 62mm; height: 12mm; object-fit: cover; object-position: center; display: block; }
+  .lp-absender-klein { font-size: 7.5pt; color: #55575C; text-decoration: underline; margin-bottom: 1.5mm; }
+  .lp-adressen { display: flex; justify-content: space-between; gap: 8mm; margin-bottom: 8mm; }
+  .lp-adressen > div { flex: 1; }
+  .lp-label { font-size: 8pt; text-transform: uppercase; letter-spacing: .08em; color: #55575C; margin-bottom: 1mm; }
+  .lp-meta td { padding: 0 0 1mm 0; vertical-align: top; }
+  .lp-meta td:first-child { color: #55575C; padding-right: 4mm; white-space: nowrap; }
+  table.lp-pos { width: 100%; border-collapse: collapse; margin-top: 2mm; }
+  table.lp-pos th { text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: .06em; color: #55575C; border-bottom: 1px solid #141215; padding: 2mm 1.5mm; }
+  table.lp-pos td { border-bottom: 1px solid #E3DFD8; padding: 2.5mm 1.5mm; vertical-align: top; }
+  .lp-r { text-align: right; white-space: nowrap; }
+  .lp-klein { font-size: 8.5pt; color: #55575C; }
+  table.lp-summen { width: 85mm; margin: 4mm 0 0 auto; border-collapse: collapse; }
+  table.lp-summen td { padding: 1.2mm 1.5mm; }
+  table.lp-summen tr.lp-gesamt td { border-top: 2px solid #141215; font-weight: 700; font-size: 12pt; padding-top: 2.5mm; }
+  .lp-hinweis { margin-top: 7mm; padding: 3mm 4mm; border-left: 3px solid {{ lp_akzent }}; background: #F7F5F1; }
+  .lp-warnung { margin-bottom: 6mm; padding: 3mm 4mm; border: 2px solid #C0182B; color: #C0182B; font-weight: 700; }
+  .lp-fuss { margin-top: 12mm; padding-top: 3mm; border-top: 1px solid #E3DFD8; font-size: 8pt; color: #55575C; display: flex; justify-content: space-between; gap: 6mm; }
+</style>
+
+<div class="lp-rechnung">
+
+  {%- if lp_steuer > 0 -%}
+  <div class="lp-warnung">ACHTUNG: In dieser Bestellung hat Shopify {{ lp_steuer | money_without_currency }} € Steuern berechnet. Als Kleinunternehmer darfst du keine Umsatzsteuer ausweisen (§ 14c UStG). Diese Rechnung bitte NICHT versenden – erst die Steuereinstellungen prüfen.</div>
+  {%- endif -%}
+  {%- if order.cancelled -%}
+  <div class="lp-warnung">Diese Bestellung wurde am {{ order.cancelled_at | date: "%d.%m.%Y" }} storniert. Keine gültige Rechnung.</div>
+  {%- endif -%}
+
+  <div class="lp-kopf">
+    <div>
+      <img class="lp-logo" src="{{ lp_logo }}" alt="{{ lp_firma }}">
+    </div>
+    <div style="text-align:right;">
+      <h1>RECHNUNG</h1>
+      <table class="lp-meta" style="margin-left:auto;">
+        <tr><td>Rechnungsnummer</td><td><strong>{{ lp_re_prefix }}{{ order.order_number }}</strong></td></tr>
+        <tr><td>Rechnungsdatum</td><td>{{ lp_rechnungsdatum | date: "%d.%m.%Y" }}</td></tr>
+        <tr><td>Bestellnummer</td><td>{{ order.name }}</td></tr>
+        <tr><td>Bestelldatum</td><td>{{ order.created_at | date: "%d.%m.%Y" }}</td></tr>
+        <tr><td>Liefer-/Leistungsdatum</td><td>{%- if lp_versanddaten != "" -%}{{ lp_versanddaten }} (Versand){%- else -%}entspricht dem Versanddatum laut Versandbestätigung{%- endif -%}</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="lp-absender-klein">{{ lp_firma }} · {{ lp_inhaber }} · {{ lp_strasse }} · {{ lp_ort }}</div>
+  <div class="lp-adressen">
+    <div>
+      <div class="lp-label">Rechnungsadresse</div>
+      {%- if lp_rechnung != blank -%}
+        {%- if lp_rechnung.company != blank -%}{{ lp_rechnung.company }}<br>{%- endif -%}
+        {{ lp_rechnung.first_name }} {{ lp_rechnung.last_name }}<br>
+        {{ lp_rechnung.address1 }}<br>
+        {%- if lp_rechnung.address2 != blank -%}{{ lp_rechnung.address2 }}<br>{%- endif -%}
+        {{ lp_rechnung.zip }} {{ lp_rechnung.city }}<br>
+        {{ lp_rechnung.translated_country_name | default: lp_rechnung.country | replace: "Germany", "Deutschland" }}
+      {%- else -%}
+        {{ order.customer.first_name }} {{ order.customer.last_name }}
+      {%- endif -%}
+      {%- if order.email != blank -%}<br><span class="lp-klein">{{ order.email }}</span>{%- endif -%}
+    </div>
+    <div>
+      {%- if order.shipping_address != blank -%}
+      <div class="lp-label">Lieferadresse</div>
+        {%- if order.shipping_address.company != blank -%}{{ order.shipping_address.company }}<br>{%- endif -%}
+        {{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}<br>
+        {{ order.shipping_address.address1 }}<br>
+        {%- if order.shipping_address.address2 != blank -%}{{ order.shipping_address.address2 }}<br>{%- endif -%}
+        {{ order.shipping_address.zip }} {{ order.shipping_address.city }}<br>
+        {{ order.shipping_address.translated_country_name | default: order.shipping_address.country | replace: "Germany", "Deutschland" }}
+      {%- endif -%}
+    </div>
+  </div>
+
+  <table class="lp-pos">
+    <thead>
+      <tr>
+        <th style="width:8mm;">Pos.</th>
+        <th>Artikel</th>
+        <th class="lp-r" style="width:16mm;">Menge</th>
+        <th class="lp-r" style="width:28mm;">Einzelpreis</th>
+        <th class="lp-r" style="width:28mm;">Gesamt</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for line_item in order.line_items -%}
+      <tr>
+        <td>{{ forloop.index }}</td>
+        <td>
+          <strong>{{ line_item.product.title | default: line_item.title }}</strong>
+          {%- assign lp_opts = "" -%}
+          {%- if line_item.product.title != blank -%}
+            {%- for o in line_item.options_with_values -%}
+              {%- assign lp_name = o.name | replace: "Size", "Größe" | replace: "Color", "Rahmen" | replace: "Colour", "Rahmen" -%}
+              {%- assign lp_wert = o.value | replace: "Black", "Schwarz" | replace: "White", "Weiß" -%}
+              {%- if lp_opts != "" -%}{%- assign lp_opts = lp_opts | append: " · " -%}{%- endif -%}
+              {%- assign lp_opts = lp_opts | append: lp_name | append: ": " | append: lp_wert -%}
+            {%- endfor -%}
+            {%- if lp_opts == "" and line_item.variant.title != blank and line_item.variant.title != "Default Title" -%}
+              {%- assign lp_opts = line_item.variant.title -%}
+            {%- endif -%}
+          {%- endif -%}
+          {%- if lp_opts != "" -%}<br><span class="lp-klein">{{ lp_opts }}</span>{%- endif -%}
+          {%- if line_item.sku != blank -%}<br><span class="lp-klein">Art.-Nr. {{ line_item.sku }}</span>{%- endif -%}
+        </td>
+        <td class="lp-r">{{ line_item.quantity }}</td>
+        <td class="lp-r">{{ line_item.original_price | money_without_currency }} €</td>
+        <td class="lp-r">{{ line_item.original_line_price | money_without_currency }} €</td>
+      </tr>
+      {%- endfor -%}
+    </tbody>
+  </table>
+
+  <table class="lp-summen">
+    <tr><td>Summe Artikel</td><td class="lp-r">{{ lp_summe_artikel | money_without_currency }} €</td></tr>
+    {%- for da in order.discount_applications -%}
+      {%- if da.target_type == "line_item" and da.total_allocated_amount > 0 -%}
+    <tr><td>Rabatt{%- if da.title != blank %} „{{ da.title }}“{% endif -%}</td><td class="lp-r">−{{ da.total_allocated_amount | money_without_currency }} €</td></tr>
+      {%- endif -%}
+    {%- endfor -%}
+    <tr><td>Versand{%- if lp_versandart != "" %} ({{ lp_versandart }}){% endif -%}</td><td class="lp-r">{%- if lp_versand == 0 -%}kostenlos 0,00 €{%- else -%}{{ lp_versand | money_without_currency }} €{%- endif -%}</td></tr>
+    <tr class="lp-gesamt"><td>Gesamtbetrag</td><td class="lp-r">{{ order.total_price | money_without_currency }} €</td></tr>
+  </table>
+
+  <div class="lp-hinweis">
+    <strong>Steuerfreie Kleinunternehmerleistung gemäß § 19 UStG.</strong> Es wird keine Umsatzsteuer berechnet und ausgewiesen.
+  </div>
+
+  <table class="lp-meta" style="margin-top:6mm;">
+    <tr><td>Zahlart</td><td>{{ lp_zahlart }}</td></tr>
+    <tr><td>Zahlungsstatus</td><td>{{ lp_status }}{%- if lp_bezahlt_am != "" and order.financial_status != "pending" %} (Zahlung vom {{ lp_bezahlt_am }}){% endif -%}</td></tr>
+    {%- if order.total_refunded_amount > 0 -%}
+    <tr><td>Erstattet</td><td>{{ order.total_refunded_amount | money_without_currency }} € (Stand {{ "now" | date: "%d.%m.%Y" }})</td></tr>
+    {%- endif -%}
+  </table>
+
+  <p style="margin-top:8mm;">Vielen Dank für deinen Einkauf bei {{ lp_firma }}! Bei Fragen zu dieser Rechnung schreib uns an {{ lp_mail }} und nenne die Rechnungsnummer {{ lp_re_prefix }}{{ order.order_number }}.</p>
+
+  <div class="lp-fuss">
+    <div>{{ lp_firma }}<br>Inhaber: {{ lp_inhaber }}<br>{{ lp_strasse }}<br>{{ lp_ort }}, {{ lp_land }}</div>
+    <div>E-Mail: {{ lp_mail }}<br>Web: {{ lp_web }}</div>
+    <div>USt-IdNr.: {{ lp_ustid }}<br>Kleinunternehmer gemäß § 19 UStG</div>
+  </div>
+
+</div>

@@ -1,0 +1,902 @@
+[
+ {
+  "id": "gid://shopify/Product/10753336901965",
+  "titel": "Vintage Formula 1 – Racing-Poster im Ölgemälde-Stil",
+  "alt": "horizontal-framed-poster",
+  "neu": "vintage-formel-1-racing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087969952077"
+ },
+ {
+  "id": "gid://shopify/Product/10754859041101",
+  "titel": "Yacht auf offener See – Ozean-Poster",
+  "alt": "framed-poster-aerial-yacht-wake-ocean-print",
+  "neu": "yacht-auf-offener-see-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970050381"
+ },
+ {
+  "id": "gid://shopify/Product/10754905014605",
+  "titel": "The World Rewards Action – Space-Motivationsposter",
+  "alt": "framed-poster-the-world-rewards-action-motivational-space-wall-art",
+  "neu": "the-world-rewards-action-space-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970148685"
+ },
+ {
+  "id": "gid://shopify/Product/10755130753357",
+  "titel": "Make Them Wonder – Messi Fußball-Poster",
+  "alt": "messi-make-them-wonder-soccer-poster",
+  "neu": "make-them-wonder-messi-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970181453"
+ },
+ {
+  "id": "gid://shopify/Product/10755131310413",
+  "titel": "Become Unstoppable – Motivationsposter",
+  "alt": "become-unstoppable-framed-poster-motivational-sports-wall-art",
+  "neu": "become-unstoppable-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970214221"
+ },
+ {
+  "id": "gid://shopify/Product/10755131834701",
+  "titel": "Stay Focused, Stay Dangerous – Fitness-Poster",
+  "alt": "motivational-fitness-poster-stay-focused-stay-dangerous-vertical-wall-art",
+  "neu": "stay-focused-stay-dangerous-fitness-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970246989"
+ },
+ {
+  "id": "gid://shopify/Product/10755132391757",
+  "titel": "Start Unknown, Finish Unforgettable – Motivationsposter",
+  "alt": "framed-poster-start-unknown-finish-unforgettable-inspirational-vertical-wall-art",
+  "neu": "start-unknown-finish-unforgettable-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970279757"
+ },
+ {
+  "id": "gid://shopify/Product/10755132883277",
+  "titel": "Set Your Own Standard – Motivationsposter",
+  "alt": "motivational-poster-set-your-own-standard-vertical-framed-art",
+  "neu": "set-your-own-standard-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970345293"
+ },
+ {
+  "id": "gid://shopify/Product/10755133407565",
+  "titel": "Sacrifice Today, Own Tomorrow – Boxing-Poster",
+  "alt": "sacrifice-today-own-tomorrow-framed-motivational-boxing-poster",
+  "neu": "sacrifice-today-own-tomorrow-boxing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970378061"
+ },
+ {
+  "id": "gid://shopify/Product/10755133997389",
+  "titel": "No Excuses, Just Results – Motivationsposter",
+  "alt": "motivational-poster-no-excuses-just-results-vertical-wall-art",
+  "neu": "no-excuses-just-results-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970410829"
+ },
+ {
+  "id": "gid://shopify/Product/10755134456141",
+  "titel": "Money Follows Value – Office-Poster",
+  "alt": "money-follows-value-framed-poster-motivational-office-wall-art",
+  "neu": "money-follows-value-office-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970443597"
+ },
+ {
+  "id": "gid://shopify/Product/10755135242573",
+  "titel": "Stay Hungry – Gym-Poster",
+  "alt": "stay-hungry-poster-motivational-fitness-wall-art-vertical-framed",
+  "neu": "stay-hungry-gym-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970476365"
+ },
+ {
+  "id": "gid://shopify/Product/10755470229837",
+  "titel": "Prove Yourself Right – Motivationsposter",
+  "alt": "motivational-prove-yourself-right-framed-poster-inspiring-wall-art-for-home-or-office",
+  "neu": "prove-yourself-right-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970509133"
+ },
+ {
+  "id": "gid://shopify/Product/10755472097613",
+  "titel": "The Hard Way Builds the Strongest – Fight-Poster",
+  "alt": "motivational-fight-club-poster-hard-way-builds-the-strongest-vertical-framed-art",
+  "neu": "hard-way-builds-the-strongest-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970541901"
+ },
+ {
+  "id": "gid://shopify/Product/10755473211725",
+  "titel": "The Goal Never Moves – Fußball-Poster",
+  "alt": "poster-the-goal-never-moves-soccer-wall-art",
+  "neu": "the-goal-never-moves-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970574669"
+ },
+ {
+  "id": "gid://shopify/Product/10755474063693",
+  "titel": "Your Dreams Need You – Fußball-Poster",
+  "alt": "poster-motivational-soccer-print-your-dreams-need-you",
+  "neu": "your-dreams-need-you-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970607437"
+ },
+ {
+  "id": "gid://shopify/Product/10761700245837",
+  "titel": "Don't Quit – Minimal-Motivationsposter",
+  "alt": "dont-quit-framed-poster-minimal-motivational-wall-art",
+  "neu": "dont-quit-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970640205"
+ },
+ {
+  "id": "gid://shopify/Product/10761701163341",
+  "titel": "A Lot Can Happen in a Year – Motivationsposter",
+  "alt": "framed-poster-a-lot-can-happen-in-a-year-inspirational-wall-art",
+  "neu": "a-lot-can-happen-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970672973"
+ },
+ {
+  "id": "gid://shopify/Product/10761777480013",
+  "titel": "Pressure Makes Diamonds – Motivationsposter",
+  "alt": "vertical-poster-pressure-makes-diamonds-motivational-sports-wall-art",
+  "neu": "pressure-makes-diamonds-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970705741"
+ },
+ {
+  "id": "gid://shopify/Product/10761809199437",
+  "titel": "Don't Wait to Be Happy – Typo-Poster in Rot",
+  "alt": "framed-poster-dont-wait-to-be-happy-minimal-red-script-wall-art",
+  "neu": "dont-wait-to-be-happy-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970771277"
+ },
+ {
+  "id": "gid://shopify/Product/10761842360653",
+  "titel": "La Dolce Vita – Italien-Poster",
+  "alt": "la-dolce-vita-framed-poster-italian-phrase-wall-art",
+  "neu": "la-dolce-vita-italien-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970869581"
+ },
+ {
+  "id": "gid://shopify/Product/10761878536525",
+  "titel": "Just Do It – Aviation-Poster",
+  "alt": "just-do-it-aviation-framed-poster",
+  "neu": "just-do-it-aviation-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087970967885"
+ },
+ {
+  "id": "gid://shopify/Product/10761912746317",
+  "titel": "You Were Born an Original – Motivationsposter",
+  "alt": "framed-motivational-poster-you-were-born-an-original-don-t-die-a-copy",
+  "neu": "you-were-born-an-original-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087971033421"
+ },
+ {
+  "id": "gid://shopify/Product/10761913172301",
+  "titel": "You vs You – Berg-Motivationsposter",
+  "alt": "motivational-mountain-poster-it-always-been-you-vs-you-framed-wall-art",
+  "neu": "you-vs-you-berg-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087971066189"
+ },
+ {
+  "id": "gid://shopify/Product/10761946267981",
+  "titel": "Whatever It Takes – Portrait-Poster",
+  "alt": "framed-poster-whatever-it-takes-motivational-portrait-wall-art",
+  "neu": "whatever-it-takes-portrait-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087971098957"
+ },
+ {
+  "id": "gid://shopify/Product/10762022322509",
+  "titel": "Work So Hard They Think You're Crazy – Motivationsposter",
+  "alt": "framed-poster-work-so-hard-that-they-think-you-are-crazy-motivational-wall-art",
+  "neu": "work-so-hard-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087971131725"
+ },
+ {
+  "id": "gid://shopify/Product/10762023567693",
+  "titel": "I Always Win – Motivationsposter",
+  "alt": "motivational-poster-i-always-win-vertical-framed-wall-art",
+  "neu": "i-always-win-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087971164493"
+ },
+ {
+  "id": "gid://shopify/Product/10762093166925",
+  "titel": "Believe in Yourself – Pokal-Poster",
+  "alt": "believe-in-yourself-poster-motivational-sports-trophy-wall-art",
+  "neu": "believe-in-yourself-pokal-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087971197261"
+ },
+ {
+  "id": "gid://shopify/Product/10762095624525",
+  "titel": "I Win, That's What I Do – Motivationsposter",
+  "alt": "poster-i-win-thats-what-i-do-motivational-photo-wall-art",
+  "neu": "i-win-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087972802893"
+ },
+ {
+  "id": "gid://shopify/Product/10762128752973",
+  "titel": "I Don't Know How, But I Will – Gym-Poster",
+  "alt": "motivational-gym-poster-i-dont-know-how-but-i-will-framed-fitness-print",
+  "neu": "i-dont-know-how-gym-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087972901197"
+ },
+ {
+  "id": "gid://shopify/Product/10762173546829",
+  "titel": "Just Do Some Creative Shits – Typo-Art-Poster",
+  "alt": "framed-poster-just-do-some-creative-shits-bold-typographic-art-print",
+  "neu": "just-do-some-creative-shits-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087972999501"
+ },
+ {
+  "id": "gid://shopify/Product/10762173645133",
+  "titel": "The Only Limit Is Your Mind – Schwarz-Weiß-Poster",
+  "alt": "motivational-framed-poster-the-only-limit-is-your-mind-black-white-wall-art",
+  "neu": "only-limit-is-your-mind-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973130573"
+ },
+ {
+  "id": "gid://shopify/Product/10762173677901",
+  "titel": "No Risk, No Story – Foto-Poster",
+  "alt": "no-risk-no-story-poster-whimsical-baby-photo-wall-art",
+  "neu": "no-risk-no-story-foto-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973163341"
+ },
+ {
+  "id": "gid://shopify/Product/10762173743437",
+  "titel": "Never Too Late to Lock In – Portrait-Poster",
+  "alt": "motivational-poster-it-s-never-too-late-to-lock-in-black-white-portrait-art",
+  "neu": "never-too-late-lock-in-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973196109"
+ },
+ {
+  "id": "gid://shopify/Product/10762174300493",
+  "titel": "Jaguar in Blüten – Wildlife-Poster",
+  "alt": "roaring-jaguar-floral-poster",
+  "neu": "jaguar-in-blueten-wildlife-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973228877"
+ },
+ {
+  "id": "gid://shopify/Product/10762174660941",
+  "titel": "Schwanensee – Aquarell-Poster",
+  "alt": "swan-lake-framed-art-print-serene-watercolor-swan-poster",
+  "neu": "schwanensee-aquarell-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973294413"
+ },
+ {
+  "id": "gid://shopify/Product/10762174923085",
+  "titel": "Haie vor der Küste – Ozean-Poster",
+  "alt": "ocean-predator-art-poster-sharks-aerial-surf-scene-vertical-framed-print",
+  "neu": "haie-vor-der-kueste-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973327181"
+ },
+ {
+  "id": "gid://shopify/Product/10762175447373",
+  "titel": "Dobermann unter Schafen – Schwarz-Weiß-Poster",
+  "alt": "black-doberman-among-sheep-poster-monochrome-animal-wall-art",
+  "neu": "dobermann-unter-schafen-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973359949"
+ },
+ {
+  "id": "gid://shopify/Product/10762176790861",
+  "titel": "Vintage-Sportwagen & Pferd – Retro-Poster",
+  "alt": "vintage-sports-car-horse-art-poster-retro-automotive-wall-decor",
+  "neu": "vintage-sportwagen-pferd-retro-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973392717"
+ },
+ {
+  "id": "gid://shopify/Product/10762178003277",
+  "titel": "Pferd & Oldtimer – Surreal-Art-Poster",
+  "alt": "poster-surreal-horse-vintage-car-art-print",
+  "neu": "pferd-oldtimer-surreal-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973425485"
+ },
+ {
+  "id": "gid://shopify/Product/10762179182925",
+  "titel": "Vintage Porsche & Karussellpferd – Retro-Poster",
+  "alt": "vintage-porsche-poster-retro-car-carousel-horse-vertical-framed-art",
+  "neu": "vintage-porsche-karussellpferd-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973458253"
+ },
+ {
+  "id": "gid://shopify/Product/10762180460877",
+  "titel": "Dressurpferd – Equestrian-Poster",
+  "alt": "dressage-horse-poster-equestrian-art-print-vertical-framed",
+  "neu": "dressurpferd-equestrian-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973491021"
+ },
+ {
+  "id": "gid://shopify/Product/10762181378381",
+  "titel": "Leopard auf Ast – Schwarz-Weiß-Poster",
+  "alt": "leopard-on-branch-black-white-framed-poster",
+  "neu": "leopard-auf-ast-schwarz-weiss-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973523789"
+ },
+ {
+  "id": "gid://shopify/Product/10762186391885",
+  "titel": "Leopard auf Ast – Minimal-Wildlife-Poster",
+  "alt": "leopard-on-branch-framed-poster-minimalist-wildlife-wall-art",
+  "neu": "leopard-auf-ast-minimal-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973556557"
+ },
+ {
+  "id": "gid://shopify/Product/10762187505997",
+  "titel": "Go Get That Dream – Leopard-Poster",
+  "alt": "go-get-that-dream-leopard-poster",
+  "neu": "go-get-that-dream-leopard-poster",
+  "aendern": false
+ },
+ {
+  "id": "gid://shopify/Product/10762192781645",
+  "titel": "Ferrari & weißer Hengst – Auto-Poster",
+  "alt": "framed-poster-ferrari-and-white-stallion-art-print",
+  "neu": "ferrari-weisser-hengst-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973589325"
+ },
+ {
+  "id": "gid://shopify/Product/10762193961293",
+  "titel": "Watching Eyes – Money-Art-Poster (Querformat)",
+  "alt": "framed-poster-watching-eyes-money-tear-wall-art-horizontal",
+  "neu": "watching-eyes-money-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973622093"
+ },
+ {
+  "id": "gid://shopify/Product/10762195927373",
+  "titel": "Marlboro F1 – Racing-Poster (Querformat)",
+  "alt": "marlboro-f1-racing-car-poster-horizontal-framed-print",
+  "neu": "marlboro-f1-racing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973654861"
+ },
+ {
+  "id": "gid://shopify/Product/10762196123981",
+  "titel": "The World Is Yours – Motivationsposter",
+  "alt": "framed-poster-the-world-is-yours-motivational-wall-art",
+  "neu": "the-world-is-yours-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973687629"
+ },
+ {
+  "id": "gid://shopify/Product/10787875193165",
+  "titel": "Wimbledon von oben – Tennis-Poster",
+  "alt": "wimbledon-tennis-court-framed-poster",
+  "neu": "wimbledon-von-oben-tennis-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973720397"
+ },
+ {
+  "id": "gid://shopify/Product/10787875389773",
+  "titel": "Class. Intensity. Grit. – Tennis-Poster",
+  "alt": "class-intensity-grit-tennis-framed-poster",
+  "neu": "class-intensity-grit-tennis-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973785933"
+ },
+ {
+  "id": "gid://shopify/Product/10787875520845",
+  "titel": "Tennis Court Aerial – Tennis-Poster",
+  "alt": "tennis-court-framed-poster-aerial-tennis-match-wall-art",
+  "neu": "tennis-court-aerial-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973884237"
+ },
+ {
+  "id": "gid://shopify/Product/10787875553613",
+  "titel": "Green Court von oben – Tennis-Poster",
+  "alt": "tennis-court-framed-poster-aerial-green-court-art-print",
+  "neu": "green-court-von-oben-tennis-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087973982541"
+ },
+ {
+  "id": "gid://shopify/Product/10787889545549",
+  "titel": "You Can Always Be Better – Golf-Poster",
+  "alt": "framed-poster-you-can-always-be-better-golf-wall-art",
+  "neu": "always-be-better-golf-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087974080845"
+ },
+ {
+  "id": "gid://shopify/Product/10787889611085",
+  "titel": "Risk Is Better Than Regret – Tennis-Poster",
+  "alt": "framed-poster-risk-is-better-than-regret-tennis-photo-wall-art",
+  "neu": "risk-better-than-regret-tennis-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087974146381"
+ },
+ {
+  "id": "gid://shopify/Product/10787889643853",
+  "titel": "Discipline – Gym-Poster",
+  "alt": "discipline-motivational-poster-gym-wall-art",
+  "neu": "discipline-gym-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087974179149"
+ },
+ {
+  "id": "gid://shopify/Product/10787889742157",
+  "titel": "Be Different – Jordan Basketball-Poster",
+  "alt": "framed-poster-be-different-michael-jordan-basketball-print",
+  "neu": "be-different-jordan-basketball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087974211917"
+ },
+ {
+  "id": "gid://shopify/Product/10787889938765",
+  "titel": "Luke 1:37 – Faith & Sports Poster",
+  "alt": "inspirational-sports-poster-luke-1-37-for-nothing-is-impossible-with-god-vertical-framed-print",
+  "neu": "luke-1-37-faith-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999377741"
+ },
+ {
+  "id": "gid://shopify/Product/10787889971533",
+  "titel": "If You Quit, Everyone Was Right – Fußball-Poster",
+  "alt": "motivational-soccer-poster-if-you-quit-everyone-was-right-about-you-vertical-framed-poster",
+  "neu": "if-you-quit-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999410509"
+ },
+ {
+  "id": "gid://shopify/Product/10787890233677",
+  "titel": "All or Nothing – Fußball-Poster",
+  "alt": "all-or-nothing-soccer-poster-framed-vertical-sports-print",
+  "neu": "all-or-nothing-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999443277"
+ },
+ {
+  "id": "gid://shopify/Product/10787890299213",
+  "titel": "No Risk No Story – Basketball-Poster",
+  "alt": "framed-poster-no-risk-no-story-basketball-art-print",
+  "neu": "no-risk-no-story-basketball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999476045"
+ },
+ {
+  "id": "gid://shopify/Product/10787890331981",
+  "titel": "In God We Trust – Basketball-Poster",
+  "alt": "in-god-we-trust-basketball-poster",
+  "neu": "in-god-we-trust-basketball-poster",
+  "aendern": false
+ },
+ {
+  "id": "gid://shopify/Product/10787890397517",
+  "titel": "No Risk, No Porsche – Retro-Poster",
+  "alt": "no-risk-no-porsche-framed-poster-retro-palm-springs-wall-art",
+  "neu": "no-risk-no-porsche-retro-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999508813"
+ },
+ {
+  "id": "gid://shopify/Product/10787890430285",
+  "titel": "Self Respect – Vintage-Quote-Poster",
+  "alt": "self-respect-framed-poster-vintage-godfather-quote-wall-art",
+  "neu": "self-respect-vintage-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999607117"
+ },
+ {
+  "id": "gid://shopify/Product/10787890463053",
+  "titel": "Fuck Them All – Street-Art-Poster",
+  "alt": "vertical-poster-fuck-them-all-street-art-money-throwing-print",
+  "neu": "fuck-them-all-street-art-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999672653"
+ },
+ {
+  "id": "gid://shopify/Product/10787890495821",
+  "titel": "The Perfect Time Never Comes – World-Is-Yours-Poster",
+  "alt": "vertical-poster-the-perfect-time-never-comes-motivational-wall-art-the-world-is-yours",
+  "neu": "perfect-time-never-comes-world-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999770957"
+ },
+ {
+  "id": "gid://shopify/Product/10787890528589",
+  "titel": "Money Talks – Franklin Money-Art-Poster",
+  "alt": "money-talks-framed-poster-benjamin-franklin-eye-art-print",
+  "neu": "money-talks-franklin-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999836493"
+ },
+ {
+  "id": "gid://shopify/Product/10787890626893",
+  "titel": "Monochrome Player – Fußball-Poster in Schwarz-Weiß",
+  "alt": "monochrome-soccer-poster-black-white-framed-player-print",
+  "neu": "monochrome-player-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999934797"
+ },
+ {
+  "id": "gid://shopify/Product/10787890659661",
+  "titel": "Tutto Passa – Mediterranes Vintage-Poster",
+  "alt": "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait",
+  "neu": "tutto-passa-vintage-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1087999967565"
+ },
+ {
+  "id": "gid://shopify/Product/10787890692429",
+  "titel": "Pressure Is a Privilege – Motivationsposter",
+  "alt": "pressure-is-a-privilege-framed-poster-motivational-sports-wall-art",
+  "neu": "pressure-is-a-privilege-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000000333"
+ },
+ {
+  "id": "gid://shopify/Product/10787970908493",
+  "titel": "Discipline – Fußball-Poster",
+  "alt": "discipline-soccer-poster-motivational-framed-sports-wall-art",
+  "neu": "discipline-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000033101"
+ },
+ {
+  "id": "gid://shopify/Product/10787973923149",
+  "titel": "Signed Icon – Portrait-Poster in Schwarz-Weiß",
+  "alt": "framed-black-white-portrait-poster-minimalist-signed-headshot-art",
+  "neu": "signed-icon-portrait-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000065869"
+ },
+ {
+  "id": "gid://shopify/Product/10787975987533",
+  "titel": "It's More Than Football – Fußball-Poster",
+  "alt": "framed-poster-its-more-than-football-soccer-team-wall-art",
+  "neu": "its-more-than-football-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000098637"
+ },
+ {
+  "id": "gid://shopify/Product/10787976347981",
+  "titel": "Never Forgetting Where We Came From – Space-Poster",
+  "alt": "framed-poster-never-forgetting-where-we-came-from-space-surfer-print",
+  "neu": "where-we-came-from-space-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000131405"
+ },
+ {
+  "id": "gid://shopify/Product/10787976675661",
+  "titel": "Race Track Loop – Racing-Art-Poster",
+  "alt": "race-track-art-poster-framed-vertical-print-with-formula-car-loop-design",
+  "neu": "race-track-loop-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000164173"
+ },
+ {
+  "id": "gid://shopify/Product/10787977298253",
+  "titel": "Scuderia Ferrari – F1-Poster",
+  "alt": "ferrari-scuderia-formula-1-vertical-framed-poster",
+  "neu": "scuderia-ferrari-f1-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000196941"
+ },
+ {
+  "id": "gid://shopify/Product/10787978117453",
+  "titel": "Neymar, Cristiano & Messi – Legenden-Poster",
+  "alt": "framed-football-legends-poster-neymar-cristiano-messi-trio-print",
+  "neu": "neymar-cristiano-messi-legenden-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000229709"
+ },
+ {
+  "id": "gid://shopify/Product/10787980312909",
+  "titel": "Jesus Headband – Athleten-Portrait-Poster",
+  "alt": "jesus-headband-poster-black-white-signed-athlete-portrait-wall-art",
+  "neu": "jesus-headband-portrait-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000262477"
+ },
+ {
+  "id": "gid://shopify/Product/10787980640589",
+  "titel": "World Cup Moment – Fußball-Poster",
+  "alt": "framed-soccer-trophy-poster-inspirational-world-cup-celebration-wall-art",
+  "neu": "world-cup-moment-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000295245"
+ },
+ {
+  "id": "gid://shopify/Product/10787981263181",
+  "titel": "Messi – Portrait-Poster in Schwarz-Weiß",
+  "alt": "framed-poster-messi-black-white-portrait-wall-art",
+  "neu": "messi-portrait-schwarz-weiss-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000328013"
+ },
+ {
+  "id": "gid://shopify/Product/10787981754701",
+  "titel": "GOAT – Vintage-Portrait-Poster",
+  "alt": "goat-framed-poster-vintage-sports-portrait-wall-art",
+  "neu": "goat-vintage-portrait-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000360781"
+ },
+ {
+  "id": "gid://shopify/Product/10787984113997",
+  "titel": "Focus on You – Panther-Poster",
+  "alt": "framed-poster-focus-on-you-black-panther-wall-art-vertical",
+  "neu": "focus-on-you-panther-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000393549"
+ },
+ {
+  "id": "gid://shopify/Product/10787984539981",
+  "titel": "Your Only Limit Is Your Mind – Floral-Poster",
+  "alt": "floral-motivational-poster-your-only-limit-is-your-mind-vertical-framed-art",
+  "neu": "your-only-limit-floral-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000426317"
+ },
+ {
+  "id": "gid://shopify/Product/10787986669901",
+  "titel": "What's Behind You Doesn't Matter – Racing-Poster",
+  "alt": "racing-poster-whats-behind-you-doesnt-matter-framed-motivational-print",
+  "neu": "whats-behind-you-racing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000459085"
+ },
+ {
+  "id": "gid://shopify/Product/10787988308301",
+  "titel": "God Is With Me, I Can't Lose – Faith-Poster",
+  "alt": "framed-poster-god-is-with-me-i-cant-lose-inspirational-wall-art",
+  "neu": "god-is-with-me-faith-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000491853"
+ },
+ {
+  "id": "gid://shopify/Product/10787990929741",
+  "titel": "They Overlooked Me, God Didn't – Racing-Poster",
+  "alt": "inspirational-racing-poster-they-overlooked-me-god-didn-t-vertical-framed-print",
+  "neu": "they-overlooked-me-racing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088000557389"
+ },
+ {
+  "id": "gid://shopify/Product/10787992240461",
+  "titel": "Trust God – Faith-Poster",
+  "alt": "trust-god-poster",
+  "neu": "trust-god-poster",
+  "aendern": false
+ },
+ {
+  "id": "gid://shopify/Product/10787993846093",
+  "titel": "Red Icon – Music-Poster",
+  "alt": "red-icon-music-poster",
+  "neu": "red-icon-music-poster",
+  "aendern": false
+ },
+ {
+  "id": "gid://shopify/Product/10787994992973",
+  "titel": "It's Not Over Until I Win – Motivationsposter",
+  "alt": "motivational-framed-poster-its-not-over-until-i-win",
+  "neu": "not-over-until-i-win-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006291789"
+ },
+ {
+  "id": "gid://shopify/Product/10787996598605",
+  "titel": "Whatever It Takes – Typo-Poster",
+  "alt": "whatever-it-takes-framed-poster-motivational-bedroom-wall-art",
+  "neu": "whatever-it-takes-typo-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006357325"
+ },
+ {
+  "id": "gid://shopify/Product/10787998400845",
+  "titel": "Crystal OK – Art-Poster",
+  "alt": "framed-poster-crystal-gloved-hand-ok-sign-wall-art",
+  "neu": "crystal-ok-art-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006455629"
+ },
+ {
+  "id": "gid://shopify/Product/10788000563533",
+  "titel": "Focus – Gym-Poster",
+  "alt": "focus-framed-poster-motivational-gym-wall-art",
+  "neu": "focus-gym-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006553933"
+ },
+ {
+  "id": "gid://shopify/Product/10788002595149",
+  "titel": "Red Graffiti – Portrait-Poster",
+  "alt": "framed-poster-bold-red-graffiti-portrait",
+  "neu": "red-graffiti-portrait-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006586701"
+ },
+ {
+  "id": "gid://shopify/Product/10788002824525",
+  "titel": "Do It Alone – Fußball-Poster",
+  "alt": "motivational-soccer-poster-do-it-alone-framed-wall-art",
+  "neu": "do-it-alone-fussball-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006619469"
+ },
+ {
+  "id": "gid://shopify/Product/10788004168013",
+  "titel": "Signature – Minimal-Portrait-Poster",
+  "alt": "framed-portrait-poster-minimal-black-white-signature-art",
+  "neu": "signature-minimal-portrait-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006652237"
+ },
+ {
+  "id": "gid://shopify/Product/10788005445965",
+  "titel": "It's You vs You – Ronaldo Fußball-Poster",
+  "alt": "motivational-soccer-poster-its-you-vs-you-ronaldo-7-framed-print",
+  "neu": "its-you-vs-you-ronaldo-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006685005"
+ },
+ {
+  "id": "gid://shopify/Product/10788006920525",
+  "titel": "No Risk No Story – Racing-Poster",
+  "alt": "racing-poster-no-risk-no-story-framed-motorsport-wall-art",
+  "neu": "no-risk-no-story-racing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006717773"
+ },
+ {
+  "id": "gid://shopify/Product/10788044996941",
+  "titel": "Get Up, We Ain't Rich Yet – Motivationsposter",
+  "alt": "get-up-we-aint-rich-yet-motivational-wall-poster",
+  "neu": "we-aint-rich-yet-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006750541"
+ },
+ {
+  "id": "gid://shopify/Product/10788045390157",
+  "titel": "The Perfect Time Never Comes – Trader-Meme-Poster",
+  "alt": "framed-poster-the-perfect-time-never-comes-motivational-wall-art",
+  "neu": "perfect-time-never-comes-trader-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006783309"
+ },
+ {
+  "id": "gid://shopify/Product/10895204450637",
+  "titel": "Red Retro – Musik-Poster im Pop-Art-Stil",
+  "alt": "red-retro-music-poster",
+  "neu": "red-retro-musik-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006816077"
+ },
+ {
+  "id": "gid://shopify/Product/10895207989581",
+  "titel": "Life Is Tough, So Are You – Motivations-Poster",
+  "alt": "motivational-poster-life-is-tough-so-are-you-framed-vertical-art",
+  "neu": "life-is-tough-motivationsposter",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006848845"
+ },
+ {
+  "id": "gid://shopify/Product/10895277588813",
+  "titel": "Nobody Is Coming to Save You – Racing-Poster",
+  "alt": "vertical-framed-poster-nobody-is-coming-to-save-you-motivational-racing-portrait",
+  "neu": "nobody-is-coming-racing-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006881613"
+ },
+ {
+  "id": "gid://shopify/Product/10895312552269",
+  "titel": "What a Privilege – Tennis-Poster mit Augenzwinkern",
+  "alt": "what-a-privilege-poster-humorous-work-exhaustion-wall-art",
+  "neu": "what-a-privilege-tennis-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006914381"
+ },
+ {
+  "id": "gid://shopify/Product/10895346762061",
+  "titel": "Born to Win – Panther-Poster",
+  "alt": "panther-poster-born-to-win-motivational-wall-art",
+  "neu": "born-to-win-panther-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006947149"
+ },
+ {
+  "id": "gid://shopify/Product/10895383134541",
+  "titel": "Leopard mit Perlenkette – Wildlife-Poster (Querformat)",
+  "alt": "framed-poster-leopard-with-pearl-necklace-wall-art",
+  "neu": "leopard-mit-perlenkette-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088006979917"
+ },
+ {
+  "id": "gid://shopify/Product/10895417704781",
+  "titel": "Matchday von oben – Tennis-Poster (Querformat)",
+  "alt": "tennis-court-framed-art-print-aerial-matchday-poster",
+  "neu": "matchday-von-oben-tennis-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007012685"
+ },
+ {
+  "id": "gid://shopify/Product/10895454175565",
+  "titel": "Winning Isn't for Everyone – Medaillen-Poster",
+  "alt": "motivational-poster-winning-isn-t-for-everyone-medal-wall-art",
+  "neu": "winning-isnt-for-everyone-medaillen-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007078221"
+ },
+ {
+  "id": "gid://shopify/Product/10895456305485",
+  "titel": "Tiger im Pool – Vintage-Wildlife-Poster (Querformat)",
+  "alt": "tiger-pool-framed-poster-vintage-zoo-photography-wall-art",
+  "neu": "tiger-im-pool-vintage-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007176525"
+ },
+ {
+  "id": "gid://shopify/Product/10895490449741",
+  "titel": "FOCUS – Skulptur-Poster in Schwarz-Weiß",
+  "alt": "focus-motivational-poster-classical-sculpture-wall-art",
+  "neu": "focus-skulptur-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007274829"
+ },
+ {
+  "id": "gid://shopify/Product/10895531114829",
+  "titel": "Queens Don't Compete, They Reign – Leoparden-Poster",
+  "alt": "framed-poster-queens-dont-compete-they-reign-leopard-wall-art",
+  "neu": "queens-dont-compete-leoparden-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007373133"
+ },
+ {
+  "id": "gid://shopify/Product/10908050293069",
+  "titel": "Designer Heels – Fashion-Poster in Schwarz-Weiß",
+  "alt": "framed-fashion-poster-black-white-designer-heels-wall-art",
+  "neu": "designer-heels-fashion-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007438669"
+ },
+ {
+  "id": "gid://shopify/Product/10908064874829",
+  "titel": "Noir – Pistole & Perlen, Statement-Poster",
+  "alt": "framed-poster-noir-arm-with-gun-draped-beads-vertical-art-print",
+  "neu": "noir-pistole-perlen-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007471437"
+ },
+ {
+  "id": "gid://shopify/Product/10908072968525",
+  "titel": "Batman-Silhouette – Red-Noir-Poster",
+  "alt": "batman-silhouette-vertical-framed-poster-red-noir-superhero-wall-art",
+  "neu": "batman-silhouette-red-noir-poster",
+  "aendern": true,
+  "redirect_id": "gid://shopify/UrlRedirect/1088007504205"
+ }
+]

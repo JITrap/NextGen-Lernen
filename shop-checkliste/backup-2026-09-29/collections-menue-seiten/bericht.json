@@ -1,0 +1,140 @@
+{
+  "area": "collections-menue-seiten (Lauf 3, 2026-09-30)",
+  "changes": [
+    {
+      "target": "Collection Statements (gid://shopify/Collection/663243293005)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection Sports (gid://shopify/Collection/663243325773)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection Film & Series (gid://shopify/Collection/663243358541)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection Quotes (gid://shopify/Collection/663243424077)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection QUEENS (gid://shopify/Collection/663275897165)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection APEX (gid://shopify/Collection/665889505613)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection GRIT (gid://shopify/Collection/665889571149)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection LEGENDS (gid://shopify/Collection/665889603917)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection ICONS (gid://shopify/Collection/665889636685)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection MINDSET (gid://shopify/Collection/665889669453)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection STILL (gid://shopify/Collection/665889702221)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "Collection HERITAGE (gid://shopify/Collection/665889800525)",
+      "what": "war bereits erledigt",
+      "before": "'(gerahmt) im klaren schwarzen Rahmen' (laut Aufgabe, vor Lauf 1)",
+      "after": "'im klaren Rahmen in Schwarz oder Weiß' (live bestätigt, updatedAt 2026-09-29T08:00Z)",
+      "verified": true
+    },
+    {
+      "target": "SEO aller Collections",
+      "what": "Prüfung: seo.title/seo.description unverändert",
+      "before": "Stand collections-ist-2026-09-30.json",
+      "after": "live identisch, bei allen 12 Collections gesetzt; bestseller (Favoriten) unberührt (updatedAt 2026-09-03)",
+      "verified": true
+    },
+    {
+      "target": "Menü main-menu-ofe > Kollektionen: GRIT",
+      "what": "war bereits erledigt",
+      "before": "fehlte (laut Aufgabe)",
+      "after": "MenuItem/782365032781, COLLECTION, resourceId Collection/665889571149, Position 5 (nach Legends), genau 1x",
+      "verified": true
+    },
+    {
+      "target": "Menü main-menu-ofe > Kollektionen: ICONS",
+      "what": "war bereits erledigt",
+      "before": "fehlte (laut Aufgabe)",
+      "after": "MenuItem/782365065549, COLLECTION, resourceId Collection/665889636685, Position 12 (letzte), genau 1x",
+      "verified": true
+    },
+    {
+      "target": "Alle Menüs (7, menus(first:20)): Einträge 'Bestseller' -> Collection bestseller",
+      "what": "war bereits erledigt",
+      "before": "'Bestseller' (laut Aufgabe)",
+      "after": "kein Eintrag 'Bestseller' mehr; einziger Link auf Collection/663243260237 ist MenuItem/774413222221 'Favoriten' in main-menu-ofe",
+      "verified": true
+    },
+    {
+      "target": "Seite Größen-Guide (gid://shopify/Page/163300442445, groessen-guide)",
+      "what": "war bereits erledigt",
+      "before": "laut Aufgabe 28 × 35,5 / 30,5 × 45,5 / 40,5 × 51 / 45,5 × 61 / 51 × 76 / 61 × 91,5 cm (Wortlaut vor Lauf 1 nicht gesichert)",
+      "after": "28 × 36 / 30 × 46 / 41 × 51 / 46 × 61 / 51 × 76 / 61 × 91 cm (Tabelle, Schreibweise 'x × y cm')",
+      "verified": true
+    },
+    {
+      "target": "Seite Hilfe & FAQ (gid://shopify/Page/163065528653)",
+      "what": "war bereits erledigt",
+      "before": "laut Aufgabe 28 × 35,5 bis 61 × 91,5 cm (Wortlaut vor Lauf 1 nicht gesichert)",
+      "after": "ca. 28×36 cm bis ca. 61×91 cm (Schreibweise ohne Leerzeichen wie im Umfeld)",
+      "verified": true
+    }
+  ],
+  "problems": [],
+  "notes": [
+    "Lauf 3 hat keine Mutation ausgeführt: alle drei Aufgaben waren durch einen früheren Lauf bereits erledigt (Collections und Seiten am 2026-09-29 um ca. 08:00 bzw. 08:04 UTC).",
+    "Live-Stand per Admin-GraphQL gelesen (collections(first:50), menus(first:20) über 4 Ebenen, pages(first:50) plus Seiteninhalte); inhaltlich identisch mit collections-ist, menus-ist und seiten-ist-2026-09-30.json.",
+    "Menüs: 7 Menüs, Eintragszahlen unverändert (main-menu 9, footer 8, customer-account-main-menu 2, footer-shop 7, footer-hilfe 6, footer-info 8, main-menu-ofe 17). Keine doppelten IDs, keine doppelten Collections in Kollektionen (12 Einträge).",
+    "Keine Vollsicherung in vor-lauf3 nötig, weil nichts geändert wurde. Dort liegt nur ein Nachweis des geprüften Stands: vor-lauf3/ist-lauf3-2026-09-30.json.",
+    "Nur gelesen, nicht Teil der Aufgabe: Über uns (ueber-uns) nutzt bereits 28×36 cm bis 61×91 cm; hilfe, story, rooms und gallery-wall haben einen leeren Body. Collection Artists nennt keine Rahmenfarbe und stand nicht auf der Liste, daher unberührt.",
+    "Nicht angefasst: Themes, Preise, Varianten, Produkte, Rabatte, Richtlinien, Märkte, Versandprofile. Nichts gelöscht, keine git-Befehle."
+  ]
+}

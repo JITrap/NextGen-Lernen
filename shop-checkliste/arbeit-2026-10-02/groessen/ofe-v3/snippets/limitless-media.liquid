@@ -1,0 +1,236 @@
+{%- doc -%}
+  Zentrale Medien-Weiche für LimitlessPoster.
+
+  Kuratierte Assets pro Produkt, erkennbar am Alt-Text-Suffix (Konvention):
+    – „– Motiv"           → sauberes Artwork ohne Rand (Hauptbild, seit 09/2026)
+    – „Studio"            → einheitliche Sofa-Szene (2:3, hochkant)
+    – „Wohnbeispiel"      → thematische Raumszene (quer)
+    – „gerahmtes Poster"  → Legacy-Hero (Tight Shot auf Creme; wird ausgephast)
+
+  kind 'motiv' (und der Alias 'hero'):
+    1. hochgeladenes Motiv („– Motiv")
+    2. Fallback: Motiv-Ausschnitt aus dem Printify-Mockup „16×20 Weiß"
+       (bzw. „20×16 Weiß" bei Querformat) per CDN-Region-Crop — die
+       Mockup-Vorlagen sind für alle Produkte pixelgleich, deshalb sind
+       die Ausschnitt-Koordinaten Konstanten (gemessen an 2048-px-Mockups).
+    3. Fallback: Legacy-Hero mit dem alten Creme-Crop.
+
+  @param {object} [product] - Produkt, aus dessen Medien gewählt wird
+  @param {object} [media] - Direktes Medium (überspringt die Auswahl)
+  @param {string} [kind] - 'motiv' | 'hero' (Alias) | 'studio' | 'wohnbeispiel'
+  @param {string} [preset] - Crop-Fenster nur für Legacy-Hero: 'standard' | 'tight' | 'motif' | 'none'
+  @param {number} [inset_x] - Überschreibt das horizontale Inset in % (Legacy)
+  @param {number} [inset_y] - Überschreibt das vertikale Inset in % (Legacy)
+  @param {number} [width] - Zielbreite der Bild-URL (Default 800)
+  @param {string} [widths] - widths-Liste für image_tag
+  @param {string} [sizes] - sizes-Attribut für image_tag
+  @param {string} [class] - Klassen fürs <img>
+  @param {string} [alt] - Alt-Text (Default: Alt des Mediums)
+  @param {string} [loading] - 'lazy' (Default) | 'eager'
+  @param {string} [fetchpriority] - z. B. 'high'
+  @param {boolean} [preload] - Early-Hints-Preload
+  @param {string} [ref] - ref-Attribut fürs <img>
+  @param {string} [output] - 'img' (Default) | 'url' | 'index' (Media-Index, -1 wenn nicht gefunden)
+{%- enddoc -%}
+
+{%- liquid
+  assign lm_media = media
+  assign lm_kind = kind | default: 'motiv'
+  if lm_kind == 'hero'
+    assign lm_kind = 'motiv'
+  endif
+  assign lm_output = output | default: 'img'
+  assign lm_index = -1
+  assign lm_mode = 'plain'
+
+  if lm_media == blank and product != blank
+    if lm_kind == 'motiv'
+      for lm_m in product.media
+        if lm_m.media_type != 'image'
+          continue
+        endif
+        if lm_m.alt contains '– Motiv' or lm_m.alt contains '- Motiv'
+          assign lm_media = lm_m
+          assign lm_index = forloop.index0
+          break
+        endif
+      endfor
+
+      if lm_media == blank
+        for lm_v in product.variants
+          comment
+            Optionen ueber den Namen aufloesen: die Position ist nicht
+            garantiert, und limitless-size macht es an allen anderen
+            Stellen genauso.
+          endcomment
+          assign lm_o1 = ''
+          assign lm_o2 = ''
+          assign lm_color_names = 'color,colour,farbe,rahmen,rahmenfarbe' | split: ','
+          assign lm_size_names = 'size,größe,grösse,groesse,format' | split: ','
+          for lm_opt in product.options
+            assign lm_opt_low = lm_opt | downcase
+            assign lm_opt_val = lm_v.options[forloop.index0]
+            if lm_color_names contains lm_opt_low
+              assign lm_o2 = lm_opt_val | downcase
+              if lm_o2 == 'weiß' or lm_o2 == 'weiss' or lm_opt_val == 'Weiß'
+                assign lm_o2 = 'white'
+              endif
+            elsif lm_size_names contains lm_opt_low
+              comment
+                Zoll („16″ x 20″") und Zentimeter („41 × 51 cm") auf denselben
+                Schluessel bringen: 16x20 bzw. 20x16.
+              endcomment
+              assign lm_o1 = lm_opt_val | replace: '″', '' | replace: '"', '' | replace: '”', '' | replace: '×', 'x' | replace: 'X', 'x' | replace: ' ', '' | replace: ' ', '' | replace: ' ', '' | downcase | replace: 'cm', '' | replace: '41x51', '16x20' | replace: '51x41', '20x16'
+            endif
+          endfor
+          if lm_o2 == 'white' and lm_v.featured_media != blank
+            if lm_o1 == '16x20'
+              assign lm_media = lm_v.featured_media
+              assign lm_mode = 'mock-v'
+              break
+            elsif lm_o1 == '20x16'
+              assign lm_media = lm_v.featured_media
+              assign lm_mode = 'mock-h'
+              break
+            endif
+          endif
+        endfor
+      endif
+
+      if lm_media == blank
+        for lm_m in product.media
+          if lm_m.media_type != 'image'
+            continue
+          endif
+          if lm_m.alt contains 'gerahmtes Poster'
+            assign lm_media = lm_m
+            assign lm_index = forloop.index0
+            assign lm_mode = 'legacy'
+            break
+          endif
+        endfor
+      endif
+    else
+      assign lm_alt_needle = 'Studio'
+      assign lm_src_needle = '-studio.'
+      if lm_kind == 'wohnbeispiel'
+        assign lm_alt_needle = 'Wohnbeispiel'
+        assign lm_src_needle = '-wohnbeispiel.'
+      endif
+      for lm_m in product.media
+        if lm_m.media_type != 'image'
+          continue
+        endif
+        if lm_m.alt contains lm_alt_needle
+          assign lm_media = lm_m
+          assign lm_index = forloop.index0
+          break
+        endif
+      endfor
+      if lm_media == blank
+        for lm_m in product.media
+          if lm_m.media_type != 'image'
+            continue
+          endif
+          assign lm_src_probe = lm_m.preview_image.src | default: ''
+          if lm_src_probe contains lm_src_needle
+            assign lm_media = lm_m
+            assign lm_index = forloop.index0
+            break
+          endif
+        endfor
+      endif
+    endif
+
+    if lm_media == blank
+      assign lm_media = product.featured_media
+    endif
+  elsif lm_media != blank and kind == 'hero' and preset != 'none'
+    assign lm_mode = 'legacy'
+  endif
+
+  assign lm_img = lm_media.preview_image
+  assign lm_width = width | default: 800
+  assign lm_url = ''
+
+  if lm_img != blank
+    if lm_mode == 'mock-v' or lm_mode == 'mock-h'
+      comment
+        Konstanten aus der Vermessung der Printify-Vorlagen (2048 × 2048):
+        hochkant 16×20 Weiß  → Motiv bei x 422, y 276, 1204 × 1492 px
+        quer     20×16 Weiß  → Motiv bei x 274, y 418, 1498 × 1208 px
+        Bei abweichender Mockup-Größe wird proportional skaliert.
+      endcomment
+      assign lm_scale = lm_img.width | times: 1.0 | divided_by: 2048.0
+      if lm_mode == 'mock-v'
+        assign lm_cl = 422 | times: lm_scale | round
+        assign lm_ct = 276 | times: lm_scale | round
+        assign lm_cw = 1204 | times: lm_scale | round
+        assign lm_ch = 1492 | times: lm_scale | round
+      else
+        assign lm_cl = 274 | times: lm_scale | round
+        assign lm_ct = 418 | times: lm_scale | round
+        assign lm_cw = 1498 | times: lm_scale | round
+        assign lm_ch = 1208 | times: lm_scale | round
+      endif
+      assign lm_url = lm_img | image_url: width: lm_width, crop: 'region', crop_left: lm_cl, crop_top: lm_ct, crop_width: lm_cw, crop_height: lm_ch
+    elsif lm_mode == 'legacy'
+      assign lm_preset = preset | default: 'standard'
+      assign lm_l = 9.0
+      assign lm_t = 7.0
+      assign lm_r = 9.0
+      assign lm_b = 7.0
+      case lm_preset
+        when 'tight'
+          assign lm_l = 9.5
+          assign lm_t = 9.5
+          assign lm_r = 11.5
+          assign lm_b = 11.5
+        when 'motif'
+          assign lm_l = 11.5
+          assign lm_t = 9.5
+          assign lm_r = 13.0
+          assign lm_b = 11.5
+        when 'none'
+          assign lm_l = 0.0
+          assign lm_t = 0.0
+          assign lm_r = 0.0
+          assign lm_b = 0.0
+      endcase
+      if inset_x != blank
+        assign lm_l = inset_x | times: 1.0
+        assign lm_r = inset_x | times: 1.0
+      endif
+      if inset_y != blank
+        assign lm_t = inset_y | times: 1.0
+        assign lm_b = inset_y | times: 1.0
+      endif
+      assign lm_inset_sum = lm_l | plus: lm_t | plus: lm_r | plus: lm_b
+      if lm_inset_sum > 0 and lm_img.width > 0
+        assign lm_cl = lm_img.width | times: lm_l | divided_by: 100.0 | round
+        assign lm_ct = lm_img.height | times: lm_t | divided_by: 100.0 | round
+        assign lm_cr = lm_img.width | times: lm_r | divided_by: 100.0 | round
+        assign lm_cb = lm_img.height | times: lm_b | divided_by: 100.0 | round
+        assign lm_cw = lm_img.width | minus: lm_cl | minus: lm_cr
+        assign lm_ch = lm_img.height | minus: lm_ct | minus: lm_cb
+        assign lm_url = lm_img | image_url: width: lm_width, crop: 'region', crop_left: lm_cl, crop_top: lm_ct, crop_width: lm_cw, crop_height: lm_ch
+      else
+        assign lm_url = lm_img | image_url: width: lm_width
+      endif
+    else
+      assign lm_url = lm_img | image_url: width: lm_width
+    endif
+  endif
+
+  assign lm_widths = widths | default: '240, 352, 520, 720, 960, 1200'
+  assign lm_loading = loading | default: 'lazy'
+  assign lm_alt = alt | default: lm_media.alt
+-%}
+
+{%- if lm_output == 'index' -%}
+  {{- lm_index -}}
+{%- elsif lm_output == 'url' -%}
+  {{- lm_url -}}
+{%- elsif lm_url != blank -%}
+  {{- lm_url | image_tag: widths: lm_widths, sizes: sizes, alt: lm_alt, loading: lm_loading, class: class, fetchpriority: fetchpriority, preload: preload, ref: ref -}}
+{%- endif -%}

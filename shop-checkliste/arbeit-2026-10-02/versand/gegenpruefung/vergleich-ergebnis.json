@@ -1,0 +1,101 @@
+{
+ "profile": [
+  {
+   "profil": "gid://shopify/DeliveryProfile/138259333453",
+   "name": "Allgemeines Profil",
+   "version_vorher": 10,
+   "version_live": 10,
+   "methoden": 1,
+   "aktiv": 1,
+   "de_umbenannt": 0,
+   "sha256_vorher": "5f02c90b015bcdad0d9d657ae333f19596a407a5930a89fc850e9ec1cfb30c2b",
+   "sha256_live": "5f02c90b015bcdad0d9d657ae333f19596a407a5930a89fc850e9ec1cfb30c2b",
+   "fehler": []
+  },
+  {
+   "profil": "gid://shopify/DeliveryProfile/138270966093",
+   "name": "Standard: Print Pigeons, 492, 493,Poster,11″ x 14″, 12″ x 18″, 14″ x 11″, 18″ x 12″",
+   "version_vorher": 346,
+   "version_live": 347,
+   "methoden": 720,
+   "aktiv": 720,
+   "de_umbenannt": 12,
+   "sha256_vorher": "eb0ae97e0afca6c8eb88f303a1bb47300773e25fdd965c40a6e57b86bc43a06f",
+   "sha256_live": "eb0ae97e0afca6c8eb88f303a1bb47300773e25fdd965c40a6e57b86bc43a06f",
+   "fehler": []
+  },
+  {
+   "profil": "gid://shopify/DeliveryProfile/138270998861",
+   "name": "Standard: Print Pigeons, 492, 493,Poster,18″ x 24″, 24″ x 18″",
+   "version_vorher": 342,
+   "version_live": 343,
+   "methoden": 720,
+   "aktiv": 720,
+   "de_umbenannt": 12,
+   "sha256_vorher": "28aad1b30eae33bd75dbdee5debf2e8844d4d319001956e35166bd9c68ab1296",
+   "sha256_live": "28aad1b30eae33bd75dbdee5debf2e8844d4d319001956e35166bd9c68ab1296",
+   "fehler": []
+  },
+  {
+   "profil": "gid://shopify/DeliveryProfile/138271031629",
+   "name": "Standard: Print Pigeons, 492, 493,Poster,24″ x 36″, 36″ x 24″",
+   "version_vorher": 345,
+   "version_live": 346,
+   "methoden": 720,
+   "aktiv": 720,
+   "de_umbenannt": 12,
+   "sha256_vorher": "7ad44062cd2a21d19e3bd8a6beed681b4105be7c79e5a51d317b6b5b86f7c327",
+   "sha256_live": "7ad44062cd2a21d19e3bd8a6beed681b4105be7c79e5a51d317b6b5b86f7c327",
+   "fehler": []
+  },
+  {
+   "profil": "gid://shopify/DeliveryProfile/138271064397",
+   "name": "Standard: Print Pigeons, 492, 493,Poster,11\" x 8\", 8\" x 11\"",
+   "version_vorher": 15,
+   "version_live": 15,
+   "methoden": 397,
+   "aktiv": 397,
+   "de_umbenannt": 0,
+   "sha256_vorher": "7da290914560b91ef1af0e560dcb678c4012447e7dcad16563f72330b28a3bc3",
+   "sha256_live": "7da290914560b91ef1af0e560dcb678c4012447e7dcad16563f72330b28a3bc3",
+   "fehler": []
+  },
+  {
+   "profil": "gid://shopify/DeliveryProfile/138271097165",
+   "name": "Standard: Print Pigeons, 492, 493,Poster,16\" x 20\", 20\" x 16\"",
+   "version_vorher": 342,
+   "version_live": 343,
+   "methoden": 720,
+   "aktiv": 720,
+   "de_umbenannt": 12,
+   "sha256_vorher": "a5da368a03a6d4a7a959655e7117b3b4e2b5e96e89ed5fb7a5f0956cd0535936",
+   "sha256_live": "a5da368a03a6d4a7a959655e7117b3b4e2b5e96e89ed5fb7a5f0956cd0535936",
+   "fehler": []
+  },
+  {
+   "profil": "gid://shopify/DeliveryProfile/138271129933",
+   "name": "Standard: Print Pigeons, 492, 493,Poster,20\" x 30\", 30\" x 20\"",
+   "version_vorher": 345,
+   "version_live": 346,
+   "methoden": 720,
+   "aktiv": 720,
+   "de_umbenannt": 12,
+   "sha256_vorher": "5f434465b4b4671fa1d6aa73137de8e27262510b59d0769ce479ee9d1e73ef06",
+   "sha256_live": "5f434465b4b4671fa1d6aa73137de8e27262510b59d0769ce479ee9d1e73ef06",
+   "fehler": []
+  }
+ ],
+ "summen": {
+  "methoden": 3998,
+  "aktiv": 3998,
+  "de_umbenannt": 60,
+  "bedingungen": 7992,
+  "bedingungs_ids_neu": 120,
+  "bedingungs_ids_neu_ausserhalb_de": 0,
+  "zonen": 335,
+  "laender": 361,
+  "provinzen": 2466
+ },
+ "standorte_geprueft": true,
+ "fehler_gesamt": 0
+}

@@ -1,0 +1,89 @@
+{
+  "area": "Theme-Inhalte 'LimitlessPoster OFE v3' (gid://shopify/OnlineStoreTheme/194580283725, UNPUBLISHED), Lauf 3 am 2026-09-30",
+  "changes": [
+    {
+      "target": "templates/index.json > limitless_hero.cta_label",
+      "what": "war bereits erledigt",
+      "before": "Bestseller ansehen",
+      "after": "Favoriten ansehen",
+      "verified": true
+    },
+    {
+      "target": "templates/index.json > bestseller_grid > pl_title.text",
+      "what": "war bereits erledigt",
+      "before": "<h3>Unsere Bestseller</h3>",
+      "after": "<h3>Unsere Favoriten</h3>",
+      "verified": true
+    },
+    {
+      "target": "templates/404.json > button_3dQULE.label",
+      "what": "war bereits erledigt (Button zeigt FAVORITEN, Link shopify://collections/bestseller bleibt)",
+      "before": "unbekannt (kein älteres Backup von 404.json)",
+      "after": "FAVORITEN",
+      "verified": true
+    },
+    {
+      "target": "Bestseller-Suche in templates/*.json, sections/header-group.json, sections/footer-group.json, locales/de.json",
+      "what": "war bereits erledigt: kein sichtbarer Text mit Bestseller/meistverkauft/meistbestellt/beliebteste mehr; übrig sind nur Handles, Links und die Sektions-ID bestseller_grid (bewusst unverändert)",
+      "before": "-",
+      "after": "-",
+      "verified": true
+    },
+    {
+      "target": "templates/index.json > limitless_editorial.product",
+      "what": "war bereits erledigt (Hochformat durch Hochformat ersetzt, Ersatz ACTIVE)",
+      "before": "ferrari-scuderia-formula-1-vertical-framed-poster",
+      "after": "focus-motivational-poster-classical-sculpture-wall-art",
+      "verified": true
+    },
+    {
+      "target": "templates/index.json > rooms_lp > room_living.product_2",
+      "what": "war bereits erledigt (Hochformat durch Hochformat ersetzt, Ersatz ACTIVE)",
+      "before": "messi-make-them-wonder-soccer-poster",
+      "after": "framed-poster-queens-dont-compete-they-reign-leopard-wall-art",
+      "verified": true
+    },
+    {
+      "target": "templates/page.hilfe.json > FAQ 'Kann ich meine Bestellung zurückgeben?'.answer",
+      "what": "war bereits erledigt (passt zur Widerrufsbelehrung im Shop)",
+      "before": "<p>Ja — 14 Tage Widerrufsrecht ab Erhalt. Schreib uns kurz eine Mail, du bekommst sofort die Rücksende-Infos und nach Eingang den vollen Betrag zurück.</p>",
+      "after": "<p>Ja — 14 Tage Widerrufsrecht ab Erhalt. Schreib uns kurz eine Mail, du bekommst die Rücksende-Infos. Den Kaufpreis zahlen wir dir spätestens binnen 14 Tagen ab Eingang deines Widerrufs zurück. Wir dürfen die Rückzahlung verweigern, bis das Poster wieder bei uns ist oder du nachgewiesen hast, dass du es zurückgeschickt hast, je nachdem, was früher der Fall ist. Die Kosten der Rücksendung trägst du.</p>",
+      "verified": true
+    },
+    {
+      "target": "locales/de.json > content.taxes_included, content.duties_included, content.duties_and_taxes_included",
+      "what": "war bereits erledigt",
+      "before": "Inkl. Steuern. / Inkl. Zollgebühren. / Inkl. Zollgebühren und Steuern.",
+      "after": "Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen.",
+      "verified": true
+    },
+    {
+      "target": "locales/de.json > 8 weitere content.duties_*_shipping_at_checkout_*-Keys (mit/ohne Richtlinie, mit/ohne Rabatte)",
+      "what": "war bereits erledigt (Varianten mit Versandlink behalten den Link)",
+      "before": "Inkl. Zollgebühren (und Steuern). ... Versand wird beim Checkout berechnet.",
+      "after": "Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen. Versand innerhalb Deutschlands ist kostenlos. [+ Details in unserer <a href=\"{{ link }}\">Versandrichtlinie</a>.]",
+      "verified": true
+    },
+    {
+      "target": "snippets/meta-tags.liquid > meta theme-color",
+      "what": "war bereits erledigt: Wert kommt aus dem Hintergrund des ersten Farbschemas (scheme-1 = #141215 in config/settings_data.json), Fallback #141215",
+      "before": "content=\"\"",
+      "after": "content=\"{{ lp_theme_color | default: '#141215' }}\" (lp_theme_color = settings.color_schemes[erstes].settings.background)",
+      "verified": true
+    }
+  ],
+  "problems": [],
+  "notes": [
+    "In Lauf 3 war kein Schreiben nötig: alle 5 Aufgaben stammen schon aus dem ersten Lauf am 29.09. zwischen 07:53 und 08:07 UTC. Es gab keinen themeFilesUpsert und keine Mutation.",
+    "Ist-Zustand geprüft: Die MD5-Checksummen aller geprüften Theme-Dateien sind identisch mit ist-vor-aenderung/. Der zweite Lauf hat also nichts geschrieben. Theme updatedAt ist weiter 2026-09-29T08:07:35Z. Ausnahmen: config/settings_data.json und templates/list-collections.json haben lokal einen anderen Stand. Beide wurden live gelesen und nicht geändert. In list-collections steht kein Bestseller-Text.",
+    "Die verifizierten Ist-Dateien liegen als Sicherung (MD5-identisch mit dem Live-Stand) in vor-lauf3/. Alle JSON-Dateien sind gültig, der /* */-Header ist vorhanden.",
+    "Nur zur Info, nicht geändert: In templates/index.json verweist room_office.product_2 = horizontal-framed-poster auf 'Vintage Formula 1 – Racing-Poster im Ölgemälde-Stil' (F1-Bezug). Weitere Marken- oder Personen-Produkte gibt es in index.json nicht.",
+    "Nur zur Info: Grid, Gallery-Wall und Story-Wall in index.json ziehen aus der Collection bestseller ('Favoriten', 12 Produkte). Darin sind Ronaldo, Messi (Portrait), Ferrari, Michael Jordan und Marlboro F1.",
+    "Nur zur Info, außerhalb des Auftrags: templates/page.rooms.json nutzt im Wohnzimmer noch messi-make-them-wonder-soccer-poster und im Büro horizontal-framed-poster (Vintage F1).",
+    "Editorial-Text 'Ausdrucksstarke Motive aus Motorsport, Sport, Kultur und Mindset …' beschreibt die ganze Linie, nicht das alte Ferrari-Motiv. Er blieb deshalb unverändert.",
+    "Hinweis: limitless_editorial hat in index.json keine stat_*-Werte. Falls Shopify dann die Schema-Defaults zeigt, steht dort '99 Kuratierte Motive', aktiv sind aber 113 Produkte. Das bitte im Editor prüfen.",
+    "Außerhalb des Auftrags, nicht angefasst: Die Versandrichtlinie und die AGB sagen 'Lieferung nach Deutschland und in die EU', der Shop verkauft laut Vorgabe aber nur nach Deutschland.",
+    "Bestätigt, nur gelesen: snippets/lp-cookie-settings.liquid ist vorhanden (3953 Bytes), und layout/theme.liquid enthält {% render 'lp-cookie-settings' %} direkt vor </body>.",
+    "Live-Theme 'LimitlessPoster v2.0' blieb unberührt, es wurde nichts veröffentlicht oder gelöscht. Eine Lese-Query (Produkttitel der index.json-Referenzen) lief vor der Validierung; sie wurde danach nachvalidiert und ist gültig."
+  ]
+}

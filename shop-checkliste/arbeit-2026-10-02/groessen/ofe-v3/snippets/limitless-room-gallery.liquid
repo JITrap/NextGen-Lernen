@@ -1,0 +1,169 @@
+{%- doc -%}
+  Raum-Galerie für die Produktseite (ersetzt die Standard-Mediengalerie,
+  wenn in der Sektion „Produktinformationen" aktiviert).
+
+  Zeigt das Motiv im gezeichneten Holzrahmen maßstabsgetreu an der Wand
+  (Wandausschnitt folgt der Bühnenbreite: 3,45 m am Desktop, enger auf
+  dem Handy). Die Größenwahl skaliert den Rahmen live, die Rahmenfarbe
+  folgt der Farboption. Ansichten: Galerie, Wohnzimmer, Büro, Schlafzimmer
+  und Home-Gym — alle gezeichnet. Das Motiv öffnet sich über den Rahmen in
+  voller Größe in einem Dialog.
+
+  @param {object} product - Produkt
+{%- enddoc -%}
+
+{%- liquid
+  assign rg_product = product
+  assign rg_size_val = ''
+  assign rg_color_val = ''
+  assign rg_color_names = 'color,colour,farbe,rahmen,rahmenfarbe' | split: ','
+  assign rg_size_names = 'size,größe,grösse,groesse,format' | split: ','
+  for rg_opt in rg_product.options_with_values
+    assign rg_oname = rg_opt.name | downcase
+    if rg_size_names contains rg_oname
+      assign rg_size_val = rg_opt.selected_value
+    elsif rg_color_names contains rg_oname
+      assign rg_color_val = rg_opt.selected_value
+    endif
+  endfor
+
+  capture rg_w_raw
+    render 'limitless-size', value: rg_size_val, output: 'w'
+  endcapture
+  capture rg_h_raw
+    render 'limitless-size', value: rg_size_val, output: 'h'
+  endcapture
+  assign rg_w = rg_w_raw | strip | plus: 0
+  assign rg_h = rg_h_raw | strip | plus: 0
+  if rg_w < 1 or rg_h < 1
+    assign rg_w = 41
+    assign rg_h = 51
+  endif
+  capture rg_size_cm
+    render 'limitless-size', value: rg_size_val, output: 'cm'
+  endcapture
+  assign rg_size_cm = rg_size_cm | strip
+  unless rg_size_cm contains 'cm'
+    assign rg_size_cm = rg_w | append: ' × ' | append: rg_h | append: ' cm'
+  endunless
+
+  assign rg_frame_color = 'black'
+  assign rg_thumb_frame = '#15110F'
+  assign rg_color_low = rg_color_val | downcase
+  if rg_color_low == 'white' or rg_color_low == 'weiß' or rg_color_low == 'weiss' or rg_color_val == 'Weiß'
+    assign rg_frame_color = 'white'
+    assign rg_thumb_frame = '#F2F0EA'
+  endif
+
+  capture rg_motiv_thumb
+    render 'limitless-media', product: rg_product, kind: 'motiv', output: 'url', width: 160
+  endcapture
+  assign rg_motiv_thumb = rg_motiv_thumb | strip
+  capture rg_motiv_xl
+    render 'limitless-media', product: rg_product, kind: 'motiv', output: 'url', width: 2400
+  endcapture
+  assign rg_motiv_xl = rg_motiv_xl | strip
+
+  assign rg_scenes = 'gallery|Galerie,living|Wohnzimmer,office|Büro,bedroom|Schlafzimmer,gym|Home-Gym' | split: ','
+  assign rg_uid = rg_product.id
+-%}
+
+<div
+  class="lp-rg"
+  data-lp-rg
+  data-product-id="{{ rg_product.id }}"
+  style="--lp-pw: {{ rg_w }}; --lp-ph: {{ rg_h }}; --lp-thumb-frame: {{ rg_thumb_frame }};"
+>
+  <div class="lp-rg__thumbs" role="tablist" aria-label="Ansichten" data-lp-rg-thumbs>
+    {%- for rg_scene_raw in rg_scenes -%}
+      {%- assign rg_scene = rg_scene_raw | split: '|' -%}
+      <button
+        class="lp-rg__thumb"
+        type="button"
+        role="tab"
+        id="lp-rg-tab-{{ rg_uid }}-{{ rg_scene[0] }}"
+        aria-controls="lp-rg-panel-{{ rg_uid }}"
+        data-lp-rg-thumb
+        data-lp-rg-scene="{{ rg_scene[0] }}"
+        data-lp-rg-label="{{ rg_scene[1] }}"
+        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+        tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+      >
+        <span class="lp-rg__thumb-tile lp-rg__thumb-tile--scene lp-rg__thumb-tile--{{ rg_scene[0] }}" aria-hidden="true">
+          {%- if rg_motiv_thumb != blank -%}
+            <img class="lp-rg__thumb-art" src="{{ rg_motiv_thumb }}" alt="" loading="lazy">
+          {%- endif -%}
+        </span>
+        <span>{{ rg_scene[1] }}</span>
+      </button>
+    {%- endfor -%}
+
+  </div>
+
+  <div class="lp-rg__stage-wrap">
+    <div
+      class="lp-rg__stage"
+      id="lp-rg-panel-{{ rg_uid }}"
+      role="tabpanel"
+      aria-labelledby="lp-rg-tab-{{ rg_uid }}-gallery"
+      data-lp-rg-stage
+      data-view="scene"
+      data-scene="gallery"
+    >
+      <div class="lp-rg__scene">
+        <span class="lp-rg__wall"></span>
+        <span class="lp-rg__spot"></span>
+        <span class="lp-rg__floor"></span>
+        <span class="lp-rg__furniture" aria-hidden="true">
+          <span class="lp-rg__bench"></span>
+          <span class="lp-rg__sofa-back"></span>
+          <span class="lp-rg__sofa-seat"></span>
+          <span class="lp-rg__cushion lp-rg__cushion--a"></span>
+          <span class="lp-rg__cushion lp-rg__cushion--b"></span>
+          <span class="lp-rg__lamp"></span>
+          <span class="lp-rg__plant"></span>
+          <span class="lp-rg__desk"></span>
+          <span class="lp-rg__monitor"></span>
+          <span class="lp-rg__desklamp"></span>
+          <span class="lp-rg__chair"></span>
+          <span class="lp-rg__headboard"></span>
+          <span class="lp-rg__mattress"></span>
+          <span class="lp-rg__pillow lp-rg__pillow--a"></span>
+          <span class="lp-rg__pillow lp-rg__pillow--b"></span>
+          <span class="lp-rg__nightstand"></span>
+          <span class="lp-rg__rack"></span>
+          <span class="lp-rg__plate lp-rg__plate--a"></span>
+          <span class="lp-rg__plate lp-rg__plate--b"></span>
+        </span>
+        <span class="lp-rg__frame-shadow" aria-hidden="true"></span>
+        <button
+          class="lp-rg__frame-wrap"
+          type="button"
+          data-lp-rg-zoom
+          aria-label="{{ rg_product.title | escape }} vergrößert ansehen"
+        >
+          <span class="lp-frame lp-frame--{{ rg_frame_color }}" data-lp-rg-frame-el>
+            <span class="lp-frame__art">
+              {%- render 'limitless-media', product: rg_product, kind: 'motiv', width: 800, widths: '320, 480, 640, 800', sizes: '(min-width: 990px) 20vw, 40vw', class: 'lp-frame__img', alt: rg_product.title, loading: 'eager', fetchpriority: 'high' -%}
+            </span>
+          </span>
+        </button>
+        <span class="lp-rg__scale" aria-hidden="true">1 m</span>
+        <button class="lp-rg__zoom-hint" type="button" data-lp-rg-zoom-hint tabindex="-1" aria-hidden="true">Vergrößern</button>
+      </div>
+    </div>
+
+    {%- if rg_motiv_xl != blank -%}
+      <dialog class="lp-rg__zoom" data-lp-rg-zoom-dialog aria-label="{{ rg_product.title | escape }} – Motiv">
+        <button class="lp-rg__zoom-close" type="button" data-lp-rg-zoom-close aria-label="Ansicht schließen">✕</button>
+        <img src="{{ rg_motiv_xl }}" alt="{{ rg_product.title | escape }} – Motiv in voller Größe" loading="lazy">
+      </dialog>
+    {%- endif -%}
+
+    <div class="lp-rg__chip" data-lp-rg-chip>
+      <span data-lp-rg-chip-scene>Galerie</span>
+      <span aria-hidden="true">·</span>
+      <b data-lp-rg-chip-size>{{ rg_size_cm }}</b>
+    </div>
+  </div>
+</div>

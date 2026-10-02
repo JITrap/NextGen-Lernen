@@ -1,0 +1,185 @@
+{% doc %}
+  Renders all meta tags for the page including Open Graph, Twitter Cards, and SEO tags.
+
+  @param {object} [product] - The product object, available on product pages for price meta tags.
+{% enddoc %}
+
+<meta charset="utf-8">
+<meta
+  http-equiv="X-UA-Compatible"
+  content="IE=edge"
+>
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+<meta
+  name="view-transition"
+  content="same-origin"
+>
+{%- comment -%}
+  theme-color = Hintergrund des Standard-Farbschemas (erstes Schema, das
+  color-schemes.liquid auch auf :root legt). Fallback #141215.
+{%- endcomment -%}
+{%- liquid
+  assign lp_theme_color = '#141215'
+  for lp_scheme in settings.color_schemes limit: 1
+    assign lp_theme_color = lp_scheme.settings.background
+  endfor
+-%}
+<meta
+  name="theme-color"
+  content="{{ lp_theme_color | default: '#141215' }}"
+>
+
+{%- liquid
+  assign og_title = page_title | default: shop.name
+  assign og_url = canonical_url | default: request.origin
+  assign og_type = 'website'
+  assign og_description = page_description | default: shop.description | default: shop.name
+
+  if request.page_type == 'product'
+    assign og_type = 'product'
+  elsif request.page_type == 'article'
+    assign og_type = 'article'
+  elsif request.page_type == 'password'
+    assign og_url = request.origin
+  endif
+%}
+
+<meta
+  property="og:site_name"
+  content="{{ shop.name }}"
+>
+<meta
+  property="og:url"
+  content="{{ og_url }}"
+>
+<meta
+  property="og:title"
+  content="{{ og_title | escape }}"
+>
+<meta
+  property="og:type"
+  content="{{ og_type }}"
+>
+<meta
+  property="og:description"
+  content="{{ og_description | escape }}"
+>
+
+{%- comment -%}
+  Social-Sharing-Bild (LimitlessPoster, Stand 02.10.2026)
+  - Produktseiten: Produktbild im Querformat (Raumbild), sonst das Hauptbild des Produkts.
+  - Seiten ohne eigenes Bild (Startseite, Passwortseite, Seiten, Collections ohne Bild):
+    Marken-Bild "limitlessposter-og-1200x630.jpg" aus Inhalte > Dateien.
+  - Ausgabe immer per https und verkleinert (WhatsApp zeigt Bilder ueber ca. 300 KB nicht an).
+{%- endcomment -%}
+{%- liquid
+  assign og_img = page_image
+  if request.page_type == 'product' and product
+    for lp_media in product.media
+      if lp_media.media_type == 'image' and lp_media.preview_image.aspect_ratio >= 1.4
+        assign og_img = lp_media.preview_image
+        break
+      endif
+    endfor
+  endif
+  if og_img == blank
+    assign og_img = images['limitlessposter-og-1200x630.jpg']
+  endif
+  assign og_img_url = ''
+  if og_img != blank
+    if og_img.aspect_ratio >= 1.4
+      assign og_img_w = 1200
+      assign og_img_h = 630
+      assign og_img_url = og_img | image_url: width: 1200, height: 630, crop: 'center'
+    else
+      assign og_img_w = 720
+      assign og_img_h = 720 | divided_by: og_img.aspect_ratio | round
+      assign og_img_url = og_img | image_url: width: 720
+    endif
+    assign og_img_alt = og_img.alt | default: og_title
+  endif
+-%}
+{%- if og_img_url != blank -%}
+  <meta
+    property="og:image"
+    content="https:{{ og_img_url }}"
+  >
+  <meta
+    property="og:image:secure_url"
+    content="https:{{ og_img_url }}"
+  >
+  <meta
+    property="og:image:width"
+    content="{{ og_img_w }}"
+  >
+  <meta
+    property="og:image:height"
+    content="{{ og_img_h }}"
+  >
+  <meta
+    property="og:image:alt"
+    content="{{ og_img_alt | escape }}"
+  >
+{%- endif -%}
+
+{%- if request.page_type == 'product' -%}
+  <meta
+    property="og:price:amount"
+    content="{{ product.price | money_without_currency | strip_html }}"
+  >
+  <meta
+    property="og:price:currency"
+    content="{{ cart.currency.iso_code }}"
+  >
+{%- endif -%}
+
+{%- if settings.social_twitter_link != blank -%}
+  <meta
+    name="twitter:site"
+    content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}"
+  >
+{%- endif -%}
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+>
+<meta
+  name="twitter:title"
+  content="{{ og_title | escape }}"
+>
+<meta
+  name="twitter:description"
+  content="{{ og_description | escape }}"
+>
+{%- if og_img_url != blank -%}
+  <meta
+    name="twitter:image"
+    content="https:{{ og_img_url }}"
+  >
+  <meta
+    name="twitter:image:alt"
+    content="{{ og_img_alt | escape }}"
+  >
+{%- endif -%}
+
+<title>
+  {{ page_title }}
+  {%- if current_tags %} &ndash; Schlagwort: "{{ current_tags | join: ', ' }}"{% endif -%}
+  {%- if current_page != 1 %} &ndash; Seite {{ current_page }}{% endif -%}
+  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+</title>
+
+<link
+  rel="canonical"
+  href="{{ canonical_url }}"
+>
+
+{% if page_description %}
+  <meta
+    name="description"
+    content="{{ page_description | escape }}"
+  >
+{% endif %}

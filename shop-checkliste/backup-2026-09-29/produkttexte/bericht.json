@@ -1,0 +1,98 @@
+{
+  "area": "produkttexte (Querformat-Größenzeilen, Dressurpferd-SEO), Lauf 3 am 30.09.2026",
+  "changes": [
+    {
+      "target": "product:horizontal-framed-poster",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:11:49Z)",
+      "verified": true
+    },
+    {
+      "target": "product:leopard-on-branch-black-white-framed-poster",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:11:45Z)",
+      "verified": true
+    },
+    {
+      "target": "product:framed-poster-watching-eyes-money-tear-wall-art-horizontal",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (war schon korrekt, nur die Größenzeile war falsch) (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:13:10Z)",
+      "verified": true
+    },
+    {
+      "target": "product:marlboro-f1-racing-car-poster-horizontal-framed-print",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (war schon korrekt, nur die Größenzeile war falsch) (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:16:52Z)",
+      "verified": true
+    },
+    {
+      "target": "product:wimbledon-tennis-court-framed-poster",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:16:57Z)",
+      "verified": true
+    },
+    {
+      "target": "product:tennis-court-framed-poster-aerial-tennis-match-wall-art",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:34:47Z)",
+      "verified": true
+    },
+    {
+      "target": "product:framed-poster-be-different-michael-jordan-basketball-print",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:34:50Z)",
+      "verified": true
+    },
+    {
+      "target": "product:framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:34:54Z)",
+      "verified": true
+    },
+    {
+      "target": "product:framed-football-legends-poster-neymar-cristiano-messi-trio-print",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:35:24Z)",
+      "verified": true
+    },
+    {
+      "target": "product:framed-poster-messi-black-white-portrait-wall-art",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:35:28Z)",
+      "verified": true
+    },
+    {
+      "target": "product:focus-framed-poster-motivational-gym-wall-art",
+      "what": "war bereits erledigt",
+      "before": "Größen: ca. 28 × 36 cm (11″ × 14″), ca. 30 × 46 cm (12″ × 18″), ca. 41 × 51 cm (16″ × 20″), ca. 46 × 61 cm (18″ × 24″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) | Mehrere Größen: vom Desk-Setup bis zur Statement-Wand (Stand vor dem Fix, laut backup-2026-09-03 und Audit 29.09.)",
+      "after": "Größen: ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″) | Mehrere Größen: Querformat für Sideboard, Sofa oder Schreibtisch (live, updatedAt 2026-09-29T20:35:40Z)",
+      "verified": true
+    },
+    {
+      "target": "product:dressage-horse-poster-equestrian-art-print-vertical-framed (Dressurpferd – Equestrian-Poster)",
+      "what": "war bereits erledigt (seo.description: „viele Größen“ -> „drei Größen“; Größenzeile war schon korrekt)",
+      "before": "seo.description: „Dressurpferd als gerahmtes Equestrian-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, viele Größen. Jetzt bei LimitlessPoster.“ (backup-2026-09-03)",
+      "after": "seo.title: null (unverändert); seo.description: „Dressurpferd als gerahmtes Equestrian-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, drei Größen. Jetzt bei LimitlessPoster.“; Größen: ca. 30 × 46 cm (12″ × 18″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″) (live, updatedAt 2026-09-29T09:40:03Z)",
+      "verified": true
+    }
+  ],
+  "problems": [],
+  "notes": [
+    "In Lauf 3 keine Mutation ausgeführt: Live-Stand (graphql_query nodes, 15 Produkte) erfüllt bereits alle Vorgaben. updatedAt aller 15 Produkte ist identisch mit ist-querformat-und-dressurpferd-2026-09-30.json; die 11 Querformat-Produkte wurden am 29.09. zwischen 20:11 und 20:35 UTC korrigiert.",
+    "Geprüft je Produkt: Varianten-Titel alle Breite > Höhe (6 Größen 14×11 … 36×24), Größenzeile entspricht exakt der Querformat-Konvention für die vorhandenen Größen, „Mehrere Größen“ = Querformat-Text, GPSR-Box (div class=\"gpsr-info\") unverändert am Ende vorhanden, keine Hochformat-Zeile mehr.",
+    "Dressurpferd: 3 Größen (12″×18″, 20″×30″, 24″×36″), Hochformat. Größenzeile nennt genau diese 3 Größen, „Mehrere Größen“ = Hochformat-Text, beides korrekt.",
+    "Aufgabe 3 (nur lesend): Alle 113 Produkte über die Size-Optionen geprüft. 14 sind Querformat: die 11 genannten plus framed-poster-leopard-with-pearl-necklace-wall-art, tennis-court-framed-art-print-aerial-matchday-poster, tiger-pool-framed-poster-vintage-zoo-photography-wall-art. Diese 3 haben bereits die korrekte Querformat-Größenzeile und den Querformat-Text. Keine weiteren Treffer.",
+    "Alle übrigen 99 Produkte sind Hochformat; nur das Dressurpferd hat weniger als 6 Größen. „viele Größen“ in den SEO-Texten der 14 Querformat-Produkte ist korrekt (je 6 Größen).",
+    "Sicherung des geprüften Live-Stands: vor-lauf3/ist-live-querformat-und-dressurpferd-lauf3.json (keine Änderung erfolgt)."
+  ]
+}

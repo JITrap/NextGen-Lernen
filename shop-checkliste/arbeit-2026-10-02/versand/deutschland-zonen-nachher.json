@@ -1,0 +1,1876 @@
+{
+  "stand": "2026-10-02, nach der Umbenennung (deliveryProfileUpdate, nur Zone Germany)",
+  "hinweis": "Die 2 Profile ohne 'Standard Delivery' (Allgemeines Profil, 11\" x 8\") wurden nicht angefasst und fehlen hier.",
+  "zonen_mit_deutschland": [
+    {
+      "profileId": "gid://shopify/DeliveryProfile/138270966093",
+      "profileName": "Standard: Print Pigeons, 492, 493,Poster,11″ x 14″, 12″ x 18″, 14″ x 11″, 18″ x 12″",
+      "profileVersion": 347,
+      "productVariants": 450,
+      "locationGroupId": "gid://shopify/DeliveryLocationGroup/143356821837",
+      "zoneId": "gid://shopify/DeliveryZone/678674268493",
+      "zoneName": "Germany",
+      "countries": [
+        "DE"
+      ],
+      "methods": [
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382694733",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "26.39",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382727501",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "52.78",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382760269",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "79.17",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382793037",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "105.56",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382825805",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "131.95",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382858573",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "158.34",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382891341",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "184.73",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382924109",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "211.12",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382956877",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "237.51",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294382989645",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "263.9",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294383022413",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "290.29",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294383055181",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "316.68",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.64
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profileId": "gid://shopify/DeliveryProfile/138270998861",
+      "profileName": "Standard: Print Pigeons, 492, 493,Poster,18″ x 24″, 24″ x 18″",
+      "profileVersion": 343,
+      "productVariants": 224,
+      "locationGroupId": "gid://shopify/DeliveryLocationGroup/143356854605",
+      "zoneId": "gid://shopify/DeliveryZone/678676562253",
+      "zoneName": "Germany",
+      "countries": [
+        "DE"
+      ],
+      "methods": [
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410219853",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "26.39",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410252621",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "52.78",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410285389",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "79.17",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410318157",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "105.56",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410350925",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "131.95",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410383693",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "158.34",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410416461",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "184.73",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410449229",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "211.12",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410481997",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "237.51",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410514765",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "263.9",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410547533",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "290.29",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294410580301",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "316.68",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.64
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profileId": "gid://shopify/DeliveryProfile/138271031629",
+      "profileName": "Standard: Print Pigeons, 492, 493,Poster,24″ x 36″, 36″ x 24″",
+      "profileVersion": 346,
+      "productVariants": 226,
+      "locationGroupId": "gid://shopify/DeliveryLocationGroup/143356887373",
+      "zoneId": "gid://shopify/DeliveryZone/678678528333",
+      "zoneName": "Germany",
+      "countries": [
+        "DE"
+      ],
+      "methods": [
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294433812813",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "34.69",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294433845581",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "69.38",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294433878349",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "104.07",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294433911117",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "138.76",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294433943885",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "173.45",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294433976653",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "208.14",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294434009421",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "242.83",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294434042189",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "277.52",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294434074957",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "312.21",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294434107725",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "346.9",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294434140493",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "381.59",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294434173261",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "416.28",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.64
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profileId": "gid://shopify/DeliveryProfile/138271097165",
+      "profileName": "Standard: Print Pigeons, 492, 493,Poster,16\" x 20\", 20\" x 16\"",
+      "profileVersion": 343,
+      "productVariants": 224,
+      "locationGroupId": "gid://shopify/DeliveryLocationGroup/143356920141",
+      "zoneId": "gid://shopify/DeliveryZone/678680494413",
+      "zoneName": "Germany",
+      "countries": [
+        "DE"
+      ],
+      "methods": [
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457405773",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "26.39",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457438541",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "52.78",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457471309",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "79.17",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457504077",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "105.56",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457536845",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "131.95",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457569613",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "158.34",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457602381",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "184.73",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457635149",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "211.12",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457667917",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "237.51",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457700685",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "263.9",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457733453",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "290.29",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294457766221",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "316.68",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.64
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profileId": "gid://shopify/DeliveryProfile/138271129933",
+      "profileName": "Standard: Print Pigeons, 492, 493,Poster,20\" x 30\", 30\" x 20\"",
+      "profileVersion": 346,
+      "productVariants": 226,
+      "locationGroupId": "gid://shopify/DeliveryLocationGroup/143356952909",
+      "zoneId": "gid://shopify/DeliveryZone/678682296653",
+      "zoneName": "Germany",
+      "countries": [
+        "DE"
+      ],
+      "methods": [
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477328717",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "28.99",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477361485",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "57.98",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.22
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477394253",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "86.97",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.44
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477427021",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "115.96",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.66
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477459789",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "144.95",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 0.88
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477492557",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "173.94",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.1
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477525325",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "202.93",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.32
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477558093",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "231.92",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.54
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477590861",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "260.91",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.76
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477623629",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "289.9",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 1.98
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477656397",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "318.89",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.2
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/DeliveryMethodDefinition/1294477689165",
+          "name": "Standardversand (4–10 Werktage)",
+          "description": "",
+          "active": true,
+          "price": {
+            "amount": "347.88",
+            "currencyCode": "USD"
+          },
+          "conditions": [
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "GREATER_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.42
+              }
+            },
+            {
+              "field": "TOTAL_WEIGHT",
+              "operator": "LESS_THAN_OR_EQUAL_TO",
+              "criteria": {
+                "__typename": "Weight",
+                "unit": "POUNDS",
+                "value": 2.64
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

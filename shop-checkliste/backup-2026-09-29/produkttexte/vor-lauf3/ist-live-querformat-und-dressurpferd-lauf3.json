@@ -1,0 +1,404 @@
+{
+ "hinweis": "Lauf 3 (30.09.): Live-Stand per graphql_query (nodes) geprüft. updatedAt aller 15 Produkte identisch mit ist-querformat-und-dressurpferd-2026-09-30.json, Inhalte daher unverändert seit dieser Sicherung. In Lauf 3 wurde nichts geändert.",
+ "produkte": [
+  {
+   "id": "gid://shopify/Product/10753336901965",
+   "handle": "horizontal-framed-poster",
+   "title": "Vintage Formula 1 – Racing-Poster im Ölgemälde-Stil",
+   "updatedAt": "2026-09-29T20:11:49Z",
+   "seo": {
+    "title": null,
+    "description": "Vintage Formel-1-Poster im Ölgemälde-Stil, gerahmt in Museumsqualität. Rahmen in Schwarz oder Weiß, viele Größen. Jetzt bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Röhrende Motoren, weicher Pinselstrich: Dieses Racing-Motiv im Stil eines alten Ölgemäldes verbindet Motorsport-Adrenalin mit galerietauglicher Eleganz — perfekt für Auto-Fans mit Stilbewusstsein.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10762180460877",
+   "handle": "dressage-horse-poster-equestrian-art-print-vertical-framed",
+   "title": "Dressurpferd – Equestrian-Poster",
+   "updatedAt": "2026-09-29T09:40:03Z",
+   "seo": {
+    "title": null,
+    "description": "Dressurpferd als gerahmtes Equestrian-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, drei Größen. Jetzt bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 30 × 46 cm (12″ × 18″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″)",
+   "mehrere_groessen": "vom Desk-Setup bis zur Statement-Wand",
+   "varianten": [
+    "12″ x 18″ / Black",
+    "12″ x 18″ / White",
+    "20\" x 30\" / Black",
+    "20\" x 30\" / White",
+    "24″ x 36″ / Black",
+    "24″ x 36″ / White"
+   ],
+   "descriptionHtml": "<p>Haltung ist alles: Dieses Equestrian-Motiv feiert die Eleganz des Dressurpferdes — Präzision, Kraft und Anmut in einem Bild.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> vom Desk-Setup bis zur Statement-Wand</li>\n<li>\n<strong>Größen:</strong> ca. 30 × 46 cm (12″ × 18″), ca. 51 × 76 cm (20″ × 30″), ca. 61 × 91 cm (24″ × 36″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10762181378381",
+   "handle": "leopard-on-branch-black-white-framed-poster",
+   "title": "Leopard auf Ast – Schwarz-Weiß-Poster",
+   "updatedAt": "2026-09-29T20:11:45Z",
+   "seo": {
+    "title": null,
+    "description": "Leopard auf Ast als gerahmtes Schwarz-Weiß-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, viele Größen. LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Ruhe vor dem Sprung: Der Leopard auf seinem Ast strahlt konzentrierte Kraft aus — ein Schwarz-Weiß-Motiv mit Präsenz für moderne Räume.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10762193961293",
+   "handle": "framed-poster-watching-eyes-money-tear-wall-art-horizontal",
+   "title": "Watching Eyes – Money-Art-Poster (Querformat)",
+   "updatedAt": "2026-09-29T20:13:10Z",
+   "seo": {
+    "title": null,
+    "description": "„Watching Eyes\" Money-Art als gerahmtes Poster im Querformat: Museumsqualität, Rahmen in Schwarz oder Weiß. Bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Der Blick, der alles sieht: Das zerrissene Geldschein-Motiv im Querformat spielt mit Macht, Wert und Wahrnehmung — provokante Money-Art für Büro oder Wohnzimmer.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10762195927373",
+   "handle": "marlboro-f1-racing-car-poster-horizontal-framed-print",
+   "title": "Marlboro F1 – Racing-Poster (Querformat)",
+   "updatedAt": "2026-09-29T20:16:52Z",
+   "seo": {
+    "title": null,
+    "description": "Vintage F1-Racing-Poster im Querformat, gerahmt in Museumsqualität. Rahmen in Schwarz oder Weiß, viele Größen. LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Rennsport-Nostalgie pur: Der legendäre F1-Look im Querformat bringt Vintage-Racing-Flair an deine Wand — für alle, die Motorsport-Geschichte lieben.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10787875193165",
+   "handle": "wimbledon-tennis-court-framed-poster",
+   "title": "Wimbledon von oben – Tennis-Poster",
+   "updatedAt": "2026-09-29T20:16:57Z",
+   "seo": {
+    "title": null,
+    "description": "Wimbledon von oben als gerahmtes Tennis-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, viele Größen. Bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Der heilige Rasen aus der Vogelperspektive: Dieses Wimbledon-Motiv bringt Tennis-Tradition und britische Eleganz an deine Wand — ein Muss für Tennis-Fans.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10787875520845",
+   "handle": "tennis-court-framed-poster-aerial-tennis-match-wall-art",
+   "title": "Tennis Court Aerial – Tennis-Poster",
+   "updatedAt": "2026-09-29T20:34:47Z",
+   "seo": {
+    "title": null,
+    "description": "Tennis Court von oben als gerahmtes Tennis-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, viele Größen. LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Match-Moment von oben: Diese Luftaufnahme eines Tennisplatzes macht aus Sport Geometrie — ein grafisches Motiv für Fans mit Sinn für Ästhetik.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10787889742157",
+   "handle": "framed-poster-be-different-michael-jordan-basketball-print",
+   "title": "Be Different – Jordan Basketball-Poster",
+   "updatedAt": "2026-09-29T20:34:50Z",
+   "seo": {
+    "title": null,
+    "description": "„Be Different\" Jordan-Motiv als gerahmtes Basketball-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß. Bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Legenden passen sich nicht an. Dieses Jordan-Motiv feiert den Mut, anders zu sein — Basketball-Geschichte als tägliche Erinnerung an deiner Wand.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10787890659661",
+   "handle": "framed-poster-vintage-mediterranean-tutto-passa-seaside-portrait",
+   "title": "Tutto Passa – Mediterranes Vintage-Poster",
+   "updatedAt": "2026-09-29T20:34:54Z",
+   "seo": {
+    "title": null,
+    "description": "„Tutto Passa\" als gerahmtes mediterranes Vintage-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß. Jetzt bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Alles geht vorbei — das Schöne wie das Schwere. Dieses mediterrane Vintage-Motiv bringt italienische Gelassenheit und Sommer-Nostalgie in dein Zuhause.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10787978117453",
+   "handle": "framed-football-legends-poster-neymar-cristiano-messi-trio-print",
+   "title": "Neymar, Cristiano & Messi – Legenden-Poster",
+   "updatedAt": "2026-09-29T20:35:24Z",
+   "seo": {
+    "title": null,
+    "description": "Neymar, Cristiano & Messi als gerahmtes Legenden-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß. Jetzt bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Drei Namen, eine Ära: Neymar, Cristiano und Messi auf einem Motiv — für alle, die die größte Fußball-Generation aller Zeiten an ihrer Wand wollen.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10787981263181",
+   "handle": "framed-poster-messi-black-white-portrait-wall-art",
+   "title": "Messi – Portrait-Poster in Schwarz-Weiß",
+   "updatedAt": "2026-09-29T20:35:28Z",
+   "seo": {
+    "title": null,
+    "description": "Messi-Portrait in Schwarz-Weiß als gerahmtes Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, viele Größen. LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Der Größte, reduziert aufs Wesentliche: Dieses Schwarz-Weiß-Portrait zeigt Messi ohne Ablenkung — pure Klasse für deine Wand.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10788000563533",
+   "handle": "focus-framed-poster-motivational-gym-wall-art",
+   "title": "Focus – Gym-Poster",
+   "updatedAt": "2026-09-29T20:35:40Z",
+   "seo": {
+    "title": null,
+    "description": "„Focus\" als gerahmtes Gym-Poster: Museumsqualität, Rahmen in Schwarz oder Weiß, viele Größen. Jetzt bei LimitlessPoster bestellen."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Ein Wort, das alles entscheidet. Dieses Gym-Motiv hängt zwischen dir und jeder Ablenkung — Fokus als tägliches Ritual.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10895383134541",
+   "handle": "framed-poster-leopard-with-pearl-necklace-wall-art",
+   "title": "Leopard mit Perlenkette – Wildlife-Poster (Querformat)",
+   "updatedAt": "2026-09-29T09:29:08Z",
+   "seo": {
+    "title": null,
+    "description": "Leopard mit Perlenkette als gerahmtes Wildlife-Poster im Querformat, Museumsqualität. Rahmen in Schwarz oder Weiß, viele Größen. LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Ein Leopard, dem behandschuhte Hände eine Perlenkette anlegen: verspielt, elegant und ein bisschen frech. Quiet Luxury mit Augenzwinkern — für Wohnzimmer, Flur oder die Gallery Wall.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10895417704781",
+   "handle": "tennis-court-framed-art-print-aerial-matchday-poster",
+   "title": "Matchday von oben – Tennis-Poster (Querformat)",
+   "updatedAt": "2026-09-29T09:29:08Z",
+   "seo": {
+    "title": null,
+    "description": "Tennis-Matchday von oben als gerahmtes Poster im Querformat, Museumsqualität. Rahmen in Schwarz oder Weiß, viele Größen. Jetzt bei LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Gefüllte Ränge, grüner Court, der Moment vor dem Aufschlag: Diese Luftaufnahme fängt die Spannung eines Matchdays ein — Tennis-Atmosphäre im Querformat für Sofa, Sideboard oder Büro.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  },
+  {
+   "id": "gid://shopify/Product/10895456305485",
+   "handle": "tiger-pool-framed-poster-vintage-zoo-photography-wall-art",
+   "title": "Tiger im Pool – Vintage-Wildlife-Poster (Querformat)",
+   "updatedAt": "2026-09-29T12:13:22Z",
+   "seo": {
+    "title": null,
+    "description": "Tiger im Pool als gerahmtes Vintage-Wildlife-Poster im Querformat, Museumsqualität. Rahmen in Schwarz oder Weiß, viele Größen. LimitlessPoster."
+   },
+   "groessen_zeile": "ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)",
+   "mehrere_groessen": "Querformat für Sideboard, Sofa oder Schreibtisch",
+   "varianten": [
+    "14″ x 11″ / Black",
+    "14″ x 11″ / White",
+    "18″ x 12″ / Black",
+    "18″ x 12″ / White",
+    "20\" x 16\" / Black",
+    "20\" x 16\" / White",
+    "24″ x 18″ / Black",
+    "24″ x 18″ / White",
+    "30\" x 20\" / Black",
+    "30\" x 20\" / White",
+    "36″ x 24″ / Black",
+    "36″ x 24″ / White"
+   ],
+   "descriptionHtml": "<p>Sonnenlicht auf dem Wasser, ein Tiger, der sich im flachen Pool streckt: Vintage-Zoo-Fotografie mit goldenen Streifen und ruhiger Kraft — ein warmes, entspanntes Motiv für Wohnzimmer oder Schlafzimmer.</p><h3>Qualität &amp; Details</h3><ul>\n<li>\n<strong>Gerahmt geliefert:</strong> Holzrahmen in Schwarz oder Weiß, mit bruchsicherer Plexiglas-Front</li>\n<li>\n<strong>Museumsqualität:</strong> mattes Archivpapier, farbecht und vergilbungsbeständig</li>\n<li>\n<strong>Brillante Pigmenttinten:</strong> satte Kontraste, die lange halten</li>\n<li>\n<strong>Sofort aufhängbar:</strong> Aufhängung vormontiert — auspacken, aufhängen, fertig</li>\n<li>\n<strong>Mehrere Größen:</strong> Querformat für Sideboard, Sofa oder Schreibtisch</li>\n<li>\n<strong>Größen:</strong> ca. 36 × 28 cm (14″ × 11″), ca. 46 × 30 cm (18″ × 12″), ca. 51 × 41 cm (20″ × 16″), ca. 61 × 46 cm (24″ × 18″), ca. 76 × 51 cm (30″ × 20″), ca. 91 × 61 cm (36″ × 24″)</li>\n</ul><h3>Versand &amp; Garantie</h3><p>Sorgfältig verpackt und versandkostenfrei innerhalb Deutschlands geliefert — in der Regel in 4–10 Werktagen. Es gilt die gesetzliche Gewährleistung von 2 Jahren.</p><p><strong>EU-Verantwortlicher:</strong> LimitlessPoster, limitless.posterje@gmail.com, Eugen-Bolz-Straße 28, 73732 Esslingen, DE<br><strong>Pflegehinweis:</strong> Staub sanft mit einem trockenen, weichen Tuch entfernen.</p>\n<hr><div class=\"gpsr-info\">\n<p><strong>Verantwortlich im Sinne der EU-Produktsicherheitsverordnung (GPSR):</strong><br>LimitlessPoster — Inhaber: Julius Erb<br>Eugen-Bolz-Straße 28, 73732 Esslingen am Neckar, Deutschland<br>E-Mail: limitless.posterje@gmail.com</p>\n<p><em>Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</em></p>\n</div>"
+  }
+ ]
+}
