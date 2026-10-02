@@ -1,0 +1,354 @@
+{%- doc -%}
+  3D-Viewer: gerahmtes Poster als echtes CSS-3D-Objekt — per Drag/Touch
+  drehbar, mit Rahmentiefe und Rückseite. Nutzt das Hero-Produktbild,
+  serverseitig beschnitten via limitless-media. Gut sichtbarer Button
+  öffnet/schließt den Viewer. Reduzierte Bewegung: statische Schrägansicht.
+{%- enddoc -%}
+
+{%- liquid
+  assign p3d_product = closest.product
+  assign p3d_variant = p3d_product.selected_or_first_available_variant
+  assign p3d_white = false
+  assign p3d_size = ''
+  for p3d_opt in p3d_product.options
+    assign p3d_name = p3d_opt | downcase
+    if p3d_name == 'color' or p3d_name == 'colour' or p3d_name == 'farbe'
+      assign p3d_val = p3d_variant.options[forloop.index0] | downcase
+      if p3d_val == 'white'
+        assign p3d_white = true
+      endif
+    elsif p3d_name == 'size' or p3d_name == 'größe' or p3d_name == 'groesse'
+      assign p3d_size = p3d_variant.options[forloop.index0]
+    endif
+  endfor
+
+  comment
+    Kantenlaengen des Wuerfels aus der gewaehlten Groesse: die laengere
+    Seite ist immer 280 px, die kuerzere folgt dem Seitenverhaeltnis.
+    So dreht man bei einem Querformat-Poster auch ein querformatiges Objekt.
+  endcomment
+  assign p3d_w = 0
+  assign p3d_h = 0
+  if p3d_size != blank
+    capture p3d_w_raw
+      render 'limitless-size', value: p3d_size, output: 'w'
+    endcapture
+    capture p3d_h_raw
+      render 'limitless-size', value: p3d_size, output: 'h'
+    endcapture
+    assign p3d_w = p3d_w_raw | strip | plus: 0
+    assign p3d_h = p3d_h_raw | strip | plus: 0
+  endif
+  if p3d_w <= 0 or p3d_h <= 0
+    assign p3d_w = 4
+    assign p3d_h = 5
+  endif
+  assign p3d_long = 280
+  if p3d_w >= p3d_h
+    assign p3d_cw = p3d_long
+    assign p3d_ch = p3d_long | times: p3d_h | divided_by: p3d_w
+    assign p3d_maxcm = p3d_w
+  else
+    assign p3d_ch = p3d_long
+    assign p3d_cw = p3d_long | times: p3d_w | divided_by: p3d_h
+    assign p3d_maxcm = p3d_h
+  endif
+
+  comment
+    Rahmenprofil: 2 cm wie in der Raum-Galerie (--lp-frame-cm). Vorher waren
+    es fest 7 px, also je nach Postergroesse 0,9 bis 2,3 cm — dasselbe Produkt
+    hatte im Viewer je nach Groesse einen anderen Rahmen. Begrenzt auf 6-14 px,
+    damit der Rahmen bei sehr grossen Formaten nicht zum Strich wird.
+  endcomment
+  assign p3d_border = p3d_long | times: 2 | divided_by: p3d_maxcm
+  if p3d_border < 6
+    assign p3d_border = 6
+  endif
+  if p3d_border > 14
+    assign p3d_border = 14
+  endif
+-%}
+
+{%- if p3d_product != blank and p3d_product.media.size > 0 -%}
+  <div
+    class="lp3d{% if p3d_white %} lp3d--white{% endif %}"
+    data-lp3d
+    data-product-id="{{ p3d_product.id }}"
+    style="--lp3d-w: {{ p3d_cw }}px; --lp3d-h: {{ p3d_ch }}px; --lp3d-border: {{ p3d_border }}px;"
+    {{ block.shopify_attributes }}
+  >
+    <button class="lp3d__toggle" type="button" data-lp3d-toggle aria-expanded="false">
+      <span class="lp3d__toggle-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 7l9 5 9-5M12 12v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </span>
+      <span data-lp3d-label>{{ block.settings.button_label | escape }}</span>
+    </button>
+    <div class="lp3d__stage" data-lp3d-stage hidden>
+      <div class="lp3d__scene" tabindex="0" role="img" aria-label="Gerahmtes Poster, drehbar — mit den Pfeiltasten links und rechts drehen">
+        <div class="lp3d__cube" data-lp3d-cube>
+          <span class="lp3d__face lp3d__front">
+            {% render 'limitless-media', product: p3d_product, kind: 'motiv', width: 520, widths: '360, 520', class: 'lp3d__img', alt: p3d_product.title, loading: 'lazy' %}
+          </span>
+          <span class="lp3d__face lp3d__back"><span class="lp3d__back-logo">LIMITLESS</span></span>
+          <span class="lp3d__face lp3d__side lp3d__side--l"></span>
+          <span class="lp3d__face lp3d__side lp3d__side--r"></span>
+          <span class="lp3d__face lp3d__side lp3d__side--t"></span>
+          <span class="lp3d__face lp3d__side lp3d__side--b"></span>
+        </div>
+      </div>
+      <p class="lp3d__hint">{{ block.settings.hint | escape }}</p>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .lp3d { width: 100%; }
+  .lp3d__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    border: 1.5px solid var(--lp-cobalt, #A32235);
+    background: color-mix(in srgb, var(--lp-cobalt, #A32235) 12%, transparent);
+    color: var(--color-foreground);
+    cursor: pointer;
+    font-family: var(--font-subheading--family);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    border-radius: 999px;
+    transition: background-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  }
+  .lp3d__toggle:hover {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--lp-cobalt, #A32235) 24%, transparent);
+    box-shadow: 0 10px 26px color-mix(in srgb, var(--lp-cobalt, #A32235) 30%, transparent);
+  }
+  .lp3d__toggle-icon svg { width: 18px; height: 18px; display: block; color: var(--lp-cobalt-bright, #E4A7B6); }
+  .lp3d__stage { margin-top: 14px; }
+  .lp3d__scene {
+    height: 380px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background:
+      radial-gradient(60% 55% at 50% 30%, color-mix(in srgb, var(--color-foreground) 6%, transparent), transparent 70%),
+      color-mix(in srgb, var(--color-foreground) 3%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-foreground) 9%, transparent);
+    perspective: 1100px;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .lp3d__scene.is-dragging { cursor: grabbing; }
+  .lp3d__cube {
+    position: relative;
+    width: calc(var(--lp3d-w) * var(--lp3d-scale));
+    height: calc(var(--lp3d-h) * var(--lp3d-scale));
+    transform-style: preserve-3d;
+    transform: rotateX(var(--lp3d-rx, -6deg)) rotateY(var(--lp3d-ry, 22deg));
+    will-change: transform;
+  }
+  .lp3d__face { position: absolute; backface-visibility: visible; }
+  .lp3d { --lp3d-frame: #17171A; --lp3d-w: 220px; --lp3d-h: 293px; --lp3d-border: 7px; --lp3d-scale: 1; }
+  .lp3d--white { --lp3d-frame: #F2F0EA; }
+  .lp3d__front {
+    inset: 0;
+    overflow: hidden;
+    background: #101013;
+    border: calc(var(--lp3d-border) * var(--lp3d-scale)) solid var(--lp3d-frame);
+    transform: translateZ(8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
+  /* cover ist hier richtig: der Wuerfel hat seit 20.09.2026 das Format des
+     gewaehlten Posters, es wird also nichts mehr weggeschnitten — und so
+     druckt Printify auch. */
+  .lp3d__img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .lp3d__back {
+    inset: 0;
+    background: #1A1518;
+    border: calc(var(--lp3d-border) * var(--lp3d-scale)) solid var(--lp3d-frame);
+    transform: rotateY(180deg) translateZ(8px);
+    display: grid;
+    place-items: center;
+  }
+  .lp3d__back-logo {
+    font-family: var(--font-accent--family);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    color: rgba(247, 244, 241, 0.35);
+  }
+  /* Die Kanten gehoeren zum Rahmen: bei "Weiss" waren sie vorher fest
+     dunkel, von der Seite sah man dann einen schwarzen Rahmen. */
+  .lp3d__side { background: color-mix(in srgb, var(--lp3d-frame) 76%, #000); }
+  .lp3d__side--l { width: 16px; height: 100%; left: 0; transform: rotateY(-90deg) translateZ(8px); }
+  .lp3d__side--r { width: 16px; height: 100%; left: 0; right: auto; transform: rotateY(90deg) translateZ(calc(var(--lp3d-w) * var(--lp3d-scale) - 8px)); }
+  .lp3d__side--t { width: 100%; height: 16px; top: 0; transform: rotateX(90deg) translateZ(8px); }
+  .lp3d__side--b { width: 100%; height: 16px; top: 0; bottom: auto; transform: rotateX(-90deg) translateZ(calc(var(--lp3d-h) * var(--lp3d-scale) - 8px)); }
+  .lp3d__hint {
+    margin: 10px 0 0;
+    text-align: center;
+    font-family: var(--font-subheading--family);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+  @media (max-width: 599px) {
+    .lp3d { --lp3d-scale: 0.74; }
+    .lp3d__scene { height: 300px; }
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    'use strict';
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var setup = function () {
+      document.querySelectorAll('[data-lp3d]:not([data-lp3d-init])').forEach(function (root) {
+        root.setAttribute('data-lp3d-init', '');
+        var toggle = root.querySelector('[data-lp3d-toggle]');
+        var stage = root.querySelector('[data-lp3d-stage]');
+        var scene = root.querySelector('.lp3d__scene');
+        var cube = root.querySelector('[data-lp3d-cube]');
+        if (!toggle || !stage || !scene || !cube) return;
+
+        var ry = 22, rx = -6, vel = 0, dragging = false, lastX = 0, lastY = 0, raf = null, open = false;
+        function apply() {
+          cube.style.setProperty('--lp3d-ry', ry.toFixed(2) + 'deg');
+          cube.style.setProperty('--lp3d-rx', rx.toFixed(2) + 'deg');
+        }
+        function loop() {
+          if (!open) { raf = null; return; }
+          if (!dragging) {
+            vel *= 0.95;
+            ry += vel + (reduced ? 0 : 0.12); /* sanfte Idle-Rotation */
+            apply();
+          }
+          raf = requestAnimationFrame(loop);
+        }
+        function start() { if (!raf && !reduced) raf = requestAnimationFrame(loop); }
+
+        toggle.addEventListener('click', function () {
+          open = !open;
+          stage.hidden = !open;
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) { apply(); start(); }
+          else if (raf) { cancelAnimationFrame(raf); raf = null; }
+        });
+
+        scene.addEventListener('pointerdown', function (e) {
+          dragging = true;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          vel = 0;
+          scene.classList.add('is-dragging');
+          if (scene.setPointerCapture) scene.setPointerCapture(e.pointerId);
+        });
+        scene.addEventListener('pointermove', function (e) {
+          if (!dragging) return;
+          var dx = e.clientX - lastX;
+          var dy = e.clientY - lastY;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          ry += dx * 0.45;
+          rx = Math.max(-32, Math.min(32, rx - dy * 0.25));
+          vel = dx * 0.3;
+          apply();
+        });
+        var stop = function () {
+          dragging = false;
+          scene.classList.remove('is-dragging');
+        };
+        scene.addEventListener('pointerup', stop);
+        scene.addEventListener('pointercancel', stop);
+        scene.addEventListener('pointerleave', stop);
+
+        /* Der Hinweis "Ziehen zum Drehen" lief fuer Tastaturnutzer ins Leere. */
+        scene.addEventListener('keydown', function (e) {
+          var step = 0;
+          if (e.key === 'ArrowRight') step = 8;
+          else if (e.key === 'ArrowLeft') step = -8;
+          if (!step) return;
+          e.preventDefault();
+          vel = 0;
+          ry += step;
+          apply();
+        });
+
+        /* Der variant:update-Listener haengt weiter unten einmal global —
+           pro Instanz registriert wuerde er sich bei jedem Section-Reload
+           im Theme-Editor vervielfachen. */
+      });
+    };
+    /* Rahmenfarbe UND Format folgen der Variantenauswahl. Rechnet bewusst
+       ueber gerundete Zentimeter — genau wie der Liquid-Teil oben, sonst
+       springt der Wuerfel beim ersten Wechsel um ein paar Pixel. */
+    function parseFormat(value) {
+      var m = String(value || '').replace(/[\u2033\u201D"]/g, '')
+        .match(/(\d+(?:[.,]\d+)?)\s*[x\u00D7]\s*(\d+(?:[.,]\d+)?)/i);
+      if (!m) return null;
+      var w = parseFloat(m[1].replace(',', '.'));
+      var h = parseFloat(m[2].replace(',', '.'));
+      if (!w || !h) return null;
+      return { w: Math.round(w * 2.54), h: Math.round(h * 2.54) };
+    }
+
+    if (!window.__lp3dBound) {
+      window.__lp3dBound = true;
+      document.addEventListener('variant:update', function (event) {
+        var detail = event && event.detail ? event.detail : {};
+        var resource = detail.resource;
+        if (!resource || !resource.options) return;
+        var productId = detail.data ? String(detail.data.productId) : '';
+        var roots = document.querySelectorAll('[data-lp3d]');
+        Array.prototype.forEach.call(roots, function (root) {
+          /* Ohne diesen Abgleich wuerde auch der Viewer eines empfohlenen
+             Produkts weiter unten auf der Seite mitgeaendert. */
+          if (productId && root.getAttribute('data-product-id') !== productId) return;
+
+          var white = resource.options.some(function (v) { return /^white$/i.test(String(v).trim()); });
+          root.classList.toggle('lp3d--white', white);
+
+          var fmt = null;
+          resource.options.forEach(function (v) { if (!fmt) fmt = parseFormat(v); });
+          if (!fmt) return;
+          var LONG = 280;
+          var cw = fmt.w >= fmt.h ? LONG : Math.floor(LONG * fmt.w / fmt.h);
+          var ch = fmt.w >= fmt.h ? Math.floor(LONG * fmt.h / fmt.w) : LONG;
+          var maxcm = Math.max(fmt.w, fmt.h);
+          var border = Math.min(14, Math.max(6, Math.floor(LONG * 2 / maxcm)));
+          root.style.setProperty('--lp3d-w', cw + 'px');
+          root.style.setProperty('--lp3d-h', ch + 'px');
+          root.style.setProperty('--lp3d-border', border + 'px');
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+    if (!window.__lp3dBound) {
+      window.__lp3dBound = true;
+      document.addEventListener('shopify:section:load', setup);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "3D-Viewer",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "button_label", "label": "Button-Text", "default": "In 3D ansehen" },
+    { "type": "text", "id": "hint", "label": "Hinweis", "default": "Ziehen zum Drehen" }
+  ],
+  "presets": [{ "name": "3D-Viewer" }]
+}
+{% endschema %}

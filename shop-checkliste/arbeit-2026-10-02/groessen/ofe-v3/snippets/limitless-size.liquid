@@ -1,0 +1,99 @@
+{%- doc -%}
+  Größen- und Farb-Helfer für die Printify-Optionen.
+
+  Seit 02.10.2026 heißen die Optionen in Shopify „Größe" (Werte wie
+  „28 × 36 cm") und „Rahmen" (Werte „Schwarz" / „Weiß"). Produkte, die
+  erneut aus Printify veröffentlicht werden, können wieder „Size" / „Color"
+  mit Zoll-Werten („11″ x 14″", „16" x 20"") und „Black" / „White" tragen.
+  Der Helfer versteht beide Schreibweisen und gibt für Kunden immer
+  Zentimeter bzw. deutsche Farbnamen aus. Die Optionswerte selbst werden
+  hier nicht verändert (Warenkorb, Printify-Zuordnung über SKU/Varianten-ID).
+
+  @param {string} value - Optionswert, z. B. „28 × 36 cm", „11″ x 14″" oder „Black"
+  @param {string} [option] - Optionsname („Größe"/„Size" bzw. „Rahmen"/„Color"); steuert die Übersetzung
+  @param {string} [output] - 'cm' (Default) → „28 × 36 cm"
+                             'text' → wie 'cm' (für aria-label), Farben deutsch
+                             'label' → HTML-Span mit der cm-Angabe (für Buttons)
+                             'w' / 'h' → Breite / Höhe in cm (Zahl)
+                             'ratio' → CSS-Seitenverhältnis des Drucks „11 / 14"
+                             'in' → „11″ × 14″" (nur intern, nicht für Kunden)
+                             'kind' → „size", „color" oder leer (aus dem Optionsnamen)
+
+  @example
+  {% render 'limitless-size', value: '28 × 36 cm' %}                   → 28 × 36 cm
+  {% render 'limitless-size', value: '11″ x 14″' %}                    → 28 × 36 cm
+  {% render 'limitless-size', value: 'Black', option: 'Color' %}       → Schwarz
+  {% render 'limitless-size', value: 'Weiß', option: 'Rahmen' %}       → Weiß
+{%- enddoc -%}
+
+{%- liquid
+  assign ls_out = output | default: 'cm'
+  assign ls_option = option | default: 'Größe' | strip | downcase
+  assign ls_val = value | strip
+
+  assign ls_color_names = 'color,colour,farbe,rahmen,rahmenfarbe,frame,frame color' | split: ','
+  assign ls_size_names = 'size,größe,grösse,groesse,format,maße,masse' | split: ','
+  assign ls_kind = ''
+  if ls_color_names contains ls_option
+    assign ls_kind = 'color'
+  elsif ls_size_names contains ls_option
+    assign ls_kind = 'size'
+  endif
+
+  if ls_out == 'kind'
+    echo ls_kind
+  elsif ls_kind == 'color'
+    assign ls_low = ls_val | downcase
+    if ls_low == 'black' or ls_low == 'schwarz'
+      echo 'Schwarz'
+    elsif ls_low == 'white' or ls_low == 'weiß' or ls_low == 'weiss' or ls_val == 'Weiß'
+      echo 'Weiß'
+    else
+      echo ls_val | escape
+    endif
+  else
+    assign ls_low = ls_val | downcase
+    assign ls_is_cm = false
+    if ls_low contains 'cm'
+      assign ls_is_cm = true
+    endif
+    assign ls_clean = ls_low | replace: '″', '' | replace: '"', '' | replace: '”', '' | replace: '×', 'x' | replace: ' ', '' | replace: ' ', '' | replace: ' ', '' | replace: 'ca.', '' | replace: 'cm', '' | replace: 'inch', '' | replace: 'in', '' | replace: ',', '.'
+    assign ls_parts = ls_clean | split: 'x'
+    assign ls_a = 0
+    assign ls_b = 0
+    if ls_parts.size == 2
+      assign ls_a = ls_parts[0] | plus: 0
+      assign ls_b = ls_parts[1] | plus: 0
+    endif
+
+    if ls_a > 0 and ls_b > 0
+      if ls_is_cm
+        assign ls_w_cm = ls_a | round
+        assign ls_h_cm = ls_b | round
+        assign ls_w_in = ls_a | divided_by: 2.54 | round
+        assign ls_h_in = ls_b | divided_by: 2.54 | round
+      else
+        assign ls_w_in = ls_a
+        assign ls_h_in = ls_b
+        assign ls_w_cm = ls_a | times: 2.54 | round
+        assign ls_h_cm = ls_b | times: 2.54 | round
+      endif
+      case ls_out
+        when 'w'
+          echo ls_w_cm
+        when 'h'
+          echo ls_h_cm
+        when 'in'
+          echo ls_w_in | append: '″ × ' | append: ls_h_in | append: '″'
+        when 'ratio'
+          echo ls_w_in | append: ' / ' | append: ls_h_in
+        when 'label'
+          echo '<span class="lp-size__cm">' | append: ls_w_cm | append: ' × ' | append: ls_h_cm | append: ' cm</span>'
+        else
+          echo ls_w_cm | append: ' × ' | append: ls_h_cm | append: ' cm'
+      endcase
+    else
+      echo ls_val | escape
+    endif
+  endif
+-%}

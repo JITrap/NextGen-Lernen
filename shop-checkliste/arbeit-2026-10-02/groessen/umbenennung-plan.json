@@ -1,0 +1,6092 @@
+[
+ {
+  "productId": "gid://shopify/Product/10753336901965",
+  "handle": "vintage-formel-1-racing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13555950190925",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287585101",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287355725",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287388493",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287421261",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287454029",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287486797",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13555950223693",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287552333",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8283287617869",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10754859041101",
+  "handle": "yacht-auf-offener-see-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13558637199693",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8291094102349",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291093807437",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291093840205",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291093872973",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291093905741",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291093938509",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13558637232461",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8291094004045",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291094135117",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10754905014605",
+  "handle": "the-world-rewards-action-space-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13558684057933",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157901645",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157606733",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157639501",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157672269",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157705037",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157737805",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13558684090701",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157803341",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8291157934413",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755130753357",
+  "handle": "make-them-wonder-messi-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559041851725",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942840141",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942512461",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942545229",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942577997",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942610765",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942643533",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559041884493",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942709069",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292942872909",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755131310413",
+  "handle": "become-unstoppable-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559044342093",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292948214093",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292947296589",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292947329357",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292947362125",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292947394893",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292947427661",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559044374861",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292947493197",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292948246861",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755131834701",
+  "handle": "stay-focused-stay-dangerous-fitness-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559046242637",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292952211789",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292951720269",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292951753037",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292951785805",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292951818573",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292951851341",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559046275405",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292951916877",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292952244557",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755132391757",
+  "handle": "start-unknown-finish-unforgettable-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559048110413",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956406093",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956045645",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956078413",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956111181",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956143949",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956176717",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559048143181",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956242253",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292956438861",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755132883277",
+  "handle": "set-your-own-standard-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559050043725",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292961059149",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292960469325",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292960502093",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292960534861",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292960567629",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292960600397",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559050076493",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292960665933",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292961091917",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755133407565",
+  "handle": "sacrifice-today-own-tomorrow-boxing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559052140877",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965581133",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965122381",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965155149",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965187917",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965220685",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965253453",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559052173645",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965318989",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292965613901",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755133997389",
+  "handle": "no-excuses-just-results-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559054205261",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971938125",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971413837",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971446605",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971479373",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971512141",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971544909",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559054238029",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971610445",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292971970893",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755134456141",
+  "handle": "money-follows-value-office-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559056105805",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977738061",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977049933",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977082701",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977115469",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977148237",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977181005",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559056138573",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977246541",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292977770829",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755135242573",
+  "handle": "stay-hungry-gym-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559058432333",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292984258893",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292983603533",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292983636301",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292983669069",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292983701837",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292983734605",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559058465101",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8292983800141",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8292984291661",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755470229837",
+  "handle": "prove-yourself-right-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559508140365",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118883661",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118457677",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118490445",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118523213",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118555981",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118588749",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559508173133",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118654285",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294118916429",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755472097613",
+  "handle": "hard-way-builds-the-strongest-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559510270285",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131499341",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131269965",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131302733",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131335501",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131368269",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131401037",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559510303053",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131466573",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294131532109",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755473211725",
+  "handle": "the-goal-never-moves-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559511810381",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141296973",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141034829",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141067597",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141100365",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141133133",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141165901",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559511843149",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141231437",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294141329741",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10755474063693",
+  "handle": "your-dreams-need-you-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559512760653",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143689037",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143459661",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143492429",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143525197",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143557965",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143590733",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13559512793421",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143656269",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8294143721805",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761700245837",
+  "handle": "dont-quit-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571676766541",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330088120653",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330087891277",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330087924045",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330087956813",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330087989581",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330088022349",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571676799309",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330088087885",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330088153421",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761701163341",
+  "handle": "a-lot-can-happen-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571677716813",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094739789",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094510413",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094543181",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094575949",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094608717",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094641485",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571677749581",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094707021",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330094772557",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761777480013",
+  "handle": "pressure-makes-diamonds-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571754000717",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330229154125",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330227614029",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330227646797",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330227679565",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330227712333",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330227745101",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571754066253",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330227810637",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330229186893",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761809199437",
+  "handle": "dont-wait-to-be-happy-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571785294157",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260709709",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260480333",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260513101",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260545869",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260578637",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260611405",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571785326925",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260676941",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330260742477",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761842360653",
+  "handle": "la-dolce-vita-italien-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571818520909",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296721741",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296492365",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296525133",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296557901",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296590669",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296623437",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571818553677",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296688973",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330296754509",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761878536525",
+  "handle": "just-do-it-aviation-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571855122765",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346824013",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346594637",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346627405",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346660173",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346692941",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346725709",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571855155533",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346791245",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330346856781",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761912746317",
+  "handle": "you-were-born-an-original-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571889496397",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387882317",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387652941",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387685709",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387718477",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387751245",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387784013",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571889529165",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387849549",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330387915085",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761913172301",
+  "handle": "you-vs-you-berg-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571889987917",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392568141",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392338765",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392371533",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392404301",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392437069",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392469837",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571890020685",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392535373",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330392600909",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10761946267981",
+  "handle": "whatever-it-takes-portrait-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571923116365",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330428154189",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330427924813",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330427957581",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330427990349",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330428023117",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330428055885",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571923149133",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330428121421",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330428186957",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762022322509",
+  "handle": "work-so-hard-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571963879757",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529505613",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529243469",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529276237",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529309005",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529341773",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529374541",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571963912525",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529440077",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330529538381",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762023567693",
+  "handle": "i-always-win-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571965780301",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330544054605",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330543825229",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330543857997",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330543890765",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330543923533",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330543956301",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13571965813069",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330544021837",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330544087373",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762093166925",
+  "handle": "believe-in-yourself-pokal-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572035477837",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641506637",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641277261",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641310029",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641342797",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641375565",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641408333",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572035510605",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641473869",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330641539405",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762095624525",
+  "handle": "i-win-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572038000973",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657300813",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657071437",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657104205",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657136973",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657169741",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657202509",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572038033741",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657268045",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330657333581",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762128752973",
+  "handle": "i-dont-know-how-gym-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572064346445",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685907277",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685677901",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685710669",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685743437",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685776205",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685808973",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572064379213",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685874509",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330685940045",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762173546829",
+  "handle": "just-do-some-creative-shits-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111368525",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847813965",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847519053",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847551821",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847584589",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847617357",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847650125",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111401293",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847715661",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330847846733",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762173645133",
+  "handle": "only-limit-is-your-mind-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111532365",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850566477",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850337101",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850369869",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850402637",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850435405",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850468173",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111565133",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850533709",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330850599245",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762173677901",
+  "handle": "no-risk-no-story-foto-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111597901",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853646669",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853417293",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853450061",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853482829",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853515597",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853548365",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111630669",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853613901",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330853679437",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762173743437",
+  "handle": "never-too-late-lock-in-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111728973",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856530253",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856300877",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856333645",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856366413",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856399181",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856431949",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572111761741",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856497485",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330856563021",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762174300493",
+  "handle": "jaguar-in-blueten-wildlife-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572112679245",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860560717",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860331341",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860364109",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860396877",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860429645",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860462413",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572112712013",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860527949",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330860593485",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762174660941",
+  "handle": "schwanensee-aquarell-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572113400141",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863280461",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863051085",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863083853",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863116621",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863149389",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863182157",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572113432909",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863247693",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330863313229",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762174923085",
+  "handle": "haie-vor-der-kueste-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572113695053",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865770829",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865541453",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865574221",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865606989",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865639757",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865672525",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572113727821",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865738061",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330865803597",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762175447373",
+  "handle": "dobermann-unter-schafen-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572114284877",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872324429",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872095053",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872127821",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872160589",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872193357",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872226125",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572114317645",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872291661",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330872357197",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762176790861",
+  "handle": "vintage-sportwagen-pferd-retro-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572116021581",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330883105101",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330881302861",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330881335629",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330881368397",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330881401165",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330881433933",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572116054349",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330881499469",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330883137869",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762178003277",
+  "handle": "pferd-oldtimer-surreal-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572117594445",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330892149069",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330891690317",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330891723085",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330891755853",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330891788621",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330891821389",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572117627213",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330891886925",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330892181837",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762179182925",
+  "handle": "vintage-porsche-karussellpferd-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572119003469",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330900078925",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330899652941",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330899685709",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330899718477",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330899751245",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330899784013",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572119036237",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330899849549",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330900111693",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762180460877",
+  "handle": "dressurpferd-equestrian-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572120576333",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330912497997",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330912366925",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330912399693",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572120609101",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330912465229",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330912530765",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762181378381",
+  "handle": "leopard-auf-ast-schwarz-weiss-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572121624909",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921771341",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921541965",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921574733",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921607501",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921640269",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921673037",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572121657677",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921738573",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330921804109",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762186391885",
+  "handle": "leopard-auf-ast-minimal-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572126769485",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330960142669",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330959749453",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330959782221",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330959814989",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330959847757",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330959880525",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572126802253",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330959946061",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330960175437",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762187505997",
+  "handle": "go-get-that-dream-leopard-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572127949133",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330967122253",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330966892877",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330966925645",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330966958413",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330966991181",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330967023949",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572127981901",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8330967089485",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8330967155021",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762192781645",
+  "handle": "ferrari-weisser-hengst-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572136534349",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331021156685",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331020927309",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331020960077",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331020992845",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331021025613",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331021058381",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572136567117",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331021123917",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331021189453",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762193961293",
+  "handle": "watching-eyes-money-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572138697037",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033739597",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033510221",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033542989",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033575757",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033608525",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033641293",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572138729805",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033706829",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331033772365",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762195927373",
+  "handle": "marlboro-f1-racing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572142072141",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054743885",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054514509",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054547277",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054580045",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054612813",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054645581",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572142104909",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054711117",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331054776653",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10762196123981",
+  "handle": "the-world-is-yours-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572142432589",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056677197",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056447821",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056480589",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056513357",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056546125",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056578893",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13572142465357",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056644429",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8331056709965",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787875193165",
+  "handle": "wimbledon-von-oben-tennis-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606916751693",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682963789",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682734413",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682767181",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682799949",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682832717",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682865485",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606916784461",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682931021",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475682996557",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787875389773",
+  "handle": "class-intensity-grit-tennis-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606916981069",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683717453",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683488077",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683520845",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683553613",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683586381",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683619149",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917013837",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683684685",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475683750221",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787875520845",
+  "handle": "tennis-court-aerial-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917210445",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684700493",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684471117",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684503885",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684536653",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684569421",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684602189",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917243213",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684667725",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475684733261",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787875553613",
+  "handle": "green-court-von-oben-tennis-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917275981",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687354701",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687125325",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687158093",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687190861",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687223629",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687256397",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917308749",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687321933",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687387469",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787889545549",
+  "handle": "always-be-better-golf-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917407053",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475688042829",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687813453",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687846221",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687878989",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687911757",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475687944525",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917439821",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475688010061",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475688075597",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787889611085",
+  "handle": "risk-better-than-regret-tennis-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917603661",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690369357",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690139981",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690172749",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690205517",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690238285",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690271053",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917636429",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690336589",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690402125",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787889643853",
+  "handle": "discipline-gym-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917669197",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690893645",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690664269",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690697037",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690729805",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690762573",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690795341",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917701965",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690860877",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475690926413",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787889742157",
+  "handle": "be-different-jordan-basketball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917800269",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691417933",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691188557",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691221325",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691254093",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691286861",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691319629",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606917833037",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691385165",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691450701",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787889938765",
+  "handle": "luke-1-37-faith-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918029645",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475692106061",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691876685",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691909453",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691942221",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475691974989",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475692007757",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918062413",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475692073293",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475692138829",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787889971533",
+  "handle": "if-you-quit-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918095181",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694530893",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694301517",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694334285",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694367053",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694399821",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694432589",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918127949",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694498125",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475694563661",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890233677",
+  "handle": "all-or-nothing-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918390093",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696398669",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696169293",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696202061",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696234829",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696267597",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696300365",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918422861",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696365901",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475696431437",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890299213",
+  "handle": "no-risk-no-story-basketball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918521165",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475699151181",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475698889037",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475698921805",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475698954573",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475698987341",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475699020109",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918553933",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475699085645",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475699183949",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890331981",
+  "handle": "in-god-we-trust-basketball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918586701",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701248333",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475700986189",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701018957",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701051725",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701084493",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701117261",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918619469",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701182797",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475701281101",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890397517",
+  "handle": "no-risk-no-porsche-retro-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918685005",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702919501",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702690125",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702722893",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702755661",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702788429",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702821197",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918717773",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702886733",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475702952269",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890430285",
+  "handle": "self-respect-vintage-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918750541",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704688973",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704459597",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704492365",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704525133",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704557901",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704590669",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918783309",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704656205",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475704721741",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890463053",
+  "handle": "fuck-them-all-street-art-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918816077",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707605325",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707343181",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707375949",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707408717",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707441485",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707474253",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918848845",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707539789",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475707638093",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890495821",
+  "handle": "perfect-time-never-comes-world-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918881613",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710456141",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710193997",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710226765",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710259533",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710292301",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710325069",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918914381",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710390605",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475710488909",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890528589",
+  "handle": "money-talks-franklin-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918947149",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712717133",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712487757",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712520525",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712553293",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712586061",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712618829",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606918979917",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712684365",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475712749901",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890626893",
+  "handle": "monochrome-player-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606919078221",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716649293",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716387149",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716419917",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716452685",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716485453",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716518221",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606919110989",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716583757",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475716682061",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890659661",
+  "handle": "tutto-passa-vintage-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606919143757",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718418765",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718189389",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718222157",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718254925",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718287693",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718320461",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606919176525",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718385997",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475718451533",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787890692429",
+  "handle": "pressure-is-a-privilege-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606919209293",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721367885",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721138509",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721171277",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721204045",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721236813",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721269581",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13606919242061",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721335117",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8475721400653",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787970908493",
+  "handle": "discipline-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607003619661",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684878157",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684648781",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684681549",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684714317",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684747085",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684779853",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607003652429",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684845389",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476684910925",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787973923149",
+  "handle": "signed-icon-portrait-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607006667085",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696871245",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696641869",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696674637",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696707405",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696740173",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696772941",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607006699853",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696838477",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476696904013",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787975987533",
+  "handle": "its-more-than-football-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607009452365",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476703293773",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476702802253",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476702835021",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476702867789",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476702900557",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476702933325",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607009485133",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476702998861",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476703326541",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787976347981",
+  "handle": "where-we-came-from-space-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607009911117",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704964941",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704735565",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704768333",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704801101",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704833869",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704866637",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607009943885",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704932173",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476704997709",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787976675661",
+  "handle": "race-track-loop-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607010271565",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707586381",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707324237",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707357005",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707389773",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707422541",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707455309",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607010304333",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707520845",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476707619149",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787977298253",
+  "handle": "scuderia-ferrari-f1-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607010959693",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711977293",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711616845",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711649613",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711682381",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711715149",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711747917",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607010992461",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476711813453",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476712010061",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787978117453",
+  "handle": "neymar-cristiano-messi-legenden-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607011811661",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476715155789",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476714926413",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476714959181",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476714991949",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476715024717",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476715057485",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607011844429",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476715123021",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476715188557",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787980312909",
+  "handle": "jesus-headband-portrait-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607014596941",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727771469",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727542093",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727574861",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727607629",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727640397",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727673165",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607014629709",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727738701",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476727804237",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787980640589",
+  "handle": "world-cup-moment-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607014957389",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728885581",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728656205",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728688973",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728721741",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728754509",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728787277",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607014990157",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728852813",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476728918349",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787981263181",
+  "handle": "messi-portrait-schwarz-weiss-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607015711053",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733342029",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733112653",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733145421",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733178189",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733210957",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733243725",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607015743821",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733309261",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476733374797",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787981754701",
+  "handle": "goat-vintage-portrait-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607016366413",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736225613",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476735996237",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736029005",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736061773",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736094541",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736127309",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607016399181",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736192845",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476736258381",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787984113997",
+  "handle": "focus-on-you-panther-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607019610445",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476752150861",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476751921485",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476751954253",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476751987021",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476752019789",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476752052557",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607019643213",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476752118093",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476752183629",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787984539981",
+  "handle": "your-only-limit-floral-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607020167501",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755231053",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755001677",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755034445",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755067213",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755099981",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755132749",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607020200269",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755198285",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476755263821",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787986669901",
+  "handle": "whats-behind-you-racing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607022428493",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761588045",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761358669",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761391437",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761424205",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761456973",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761489741",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607022461261",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761555277",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476761620813",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787988308301",
+  "handle": "god-is-with-me-faith-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607024132429",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813361485",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813099341",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813132109",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813164877",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813197645",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813230413",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607024165197",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813295949",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476813394253",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787990929741",
+  "handle": "they-overlooked-me-racing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607026819405",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476818014541",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476817785165",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476817817933",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476817850701",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476817883469",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476817916237",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607026852173",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476817981773",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476818047309",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787992240461",
+  "handle": "trust-god-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607028195661",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821324109",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821061965",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821094733",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821127501",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821160269",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821193037",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607028228429",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821258573",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476821356877",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787993846093",
+  "handle": "red-icon-music-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607029866829",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823814477",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823585101",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823617869",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823650637",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823683405",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823716173",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607029899597",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823781709",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476823847245",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787994992973",
+  "handle": "not-over-until-i-win-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607031046477",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825715021",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825485645",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825518413",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825551181",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825583949",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825616717",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607031079245",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825682253",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476825747789",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787996598605",
+  "handle": "whatever-it-takes-typo-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607032750413",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828303693",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828074317",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828107085",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828139853",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828172621",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828205389",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607032783181",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828270925",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476828336461",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10787998400845",
+  "handle": "crystal-ok-art-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607034585421",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831744333",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831514957",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831547725",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831580493",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831613261",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831646029",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607034618189",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831711565",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476831777101",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788000563533",
+  "handle": "focus-gym-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607036911949",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476837183821",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476836921677",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476836954445",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476836987213",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476837019981",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476837052749",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607036944717",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476837118285",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476837216589",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788002595149",
+  "handle": "red-graffiti-portrait-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607039238477",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842656077",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842426701",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842459469",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842492237",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842525005",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842557773",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607039271245",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842623309",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476842688845",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788002824525",
+  "handle": "do-it-alone-fussball-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607039533389",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843639117",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843409741",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843442509",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843475277",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843508045",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843540813",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607039566157",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843606349",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476843671885",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788004168013",
+  "handle": "signature-minimal-portrait-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607041007949",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846457165",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846227789",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846260557",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846293325",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846326093",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846358861",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607041040717",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846424397",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476846489933",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788005445965",
+  "handle": "its-you-vs-you-ronaldo-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607042318669",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848587085",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848324941",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848357709",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848390477",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848423245",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848456013",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607042351437",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848521549",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476848619853",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788006920525",
+  "handle": "no-risk-no-story-racing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607043858765",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476852093261",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476851831117",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476851863885",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476851896653",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476851929421",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476851962189",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607043891533",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476852027725",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476852126029",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788044996941",
+  "handle": "we-aint-rich-yet-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607072137549",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977824077",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977594701",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977627469",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977660237",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977693005",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977725773",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607072170317",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977791309",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476977856845",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10788045390157",
+  "handle": "perfect-time-never-comes-trader-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607072629069",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980576589",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980347213",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980379981",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980412749",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980445517",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980478285",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13607072661837",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980543821",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8476980609357",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895204450637",
+  "handle": "red-retro-musik-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743503376717",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197331277",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197101901",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197134669",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197167437",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197200205",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197232973",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743503409485",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197298509",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908197364045",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895207989581",
+  "handle": "life-is-tough-motivationsposter",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743507308877",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237373773",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237144397",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237177165",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237209933",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237242701",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237275469",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743507341645",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237341005",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908237406541",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895277588813",
+  "handle": "nobody-is-coming-racing-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743577596237",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323422541",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323193165",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323225933",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323258701",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323291469",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323324237",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743577629005",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323389773",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908323455309",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895312552269",
+  "handle": "what-a-privilege-tennis-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743613018445",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908372345165",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908371558733",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908371591501",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908371624269",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908371657037",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908371689805",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743613051213",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908371755341",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908372377933",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895346762061",
+  "handle": "born-to-win-panther-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743647785293",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908417106253",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908416844109",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908416876877",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908416909645",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908416942413",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908416975181",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743647818061",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908417040717",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908417139021",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895383134541",
+  "handle": "leopard-mit-perlenkette-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743681962317",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470878541",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470616397",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470649165",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470681933",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470714701",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470747469",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743681995085",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470813005",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908470911309",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895417704781",
+  "handle": "matchday-von-oben-tennis-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743712633165",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509380941",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509151565",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509184333",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509217101",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509249869",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509282637",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743712665933",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509348173",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908509413709",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895454175565",
+  "handle": "winning-isnt-for-everyone-medaillen-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743749923149",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561645901",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561154381",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561187149",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561219917",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561252685",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561285453",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743749955917",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561350989",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908561678669",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895456305485",
+  "handle": "tiger-im-pool-vintage-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743752642893",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569575757",
+      "name": "36 × 28 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569313613",
+      "name": "46 × 30 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569346381",
+      "name": "51 × 41 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569379149",
+      "name": "61 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569411917",
+      "name": "76 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569444685",
+      "name": "91 × 61 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743752675661",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569510221",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908569608525",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895490449741",
+  "handle": "focus-skulptur-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743787180365",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607979853",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607750477",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607783245",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607816013",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607848781",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607881549",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743787213133",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908607947085",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908608012621",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10895531114829",
+  "handle": "queens-dont-compete-leoparden-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743841509709",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908679545165",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908678922573",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908678955341",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908678988109",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908679020877",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908679053645",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13743841542477",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8908679119181",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8908679577933",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10908050293069",
+  "handle": "designer-heels-fashion-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13757478961485",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8941742031181",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941741703501",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941741736269",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941741769037",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941741801805",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941741834573",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13757478994253",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8941741900109",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941742063949",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10908064874829",
+  "handle": "noir-pistole-perlen-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13757496066381",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8941780271437",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941779910989",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941779943757",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941779976525",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941780009293",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941780042061",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13757496099149",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8941780107597",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941780304205",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "productId": "gid://shopify/Product/10908072968525",
+  "handle": "batman-silhouette-red-noir-poster",
+  "ops": [
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13757506552141",
+     "name": "Größe"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8941819003213",
+      "name": "28 × 36 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941818708301",
+      "name": "30 × 46 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941818741069",
+      "name": "41 × 51 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941818773837",
+      "name": "46 × 61 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941818806605",
+      "name": "51 × 76 cm"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941818839373",
+      "name": "61 × 91 cm"
+     }
+    ]
+   },
+   {
+    "option": {
+     "id": "gid://shopify/ProductOption/13757506584909",
+     "name": "Rahmen"
+    },
+    "optionValuesToUpdate": [
+     {
+      "id": "gid://shopify/ProductOptionValue/8941818904909",
+      "name": "Schwarz"
+     },
+     {
+      "id": "gid://shopify/ProductOptionValue/8941819035981",
+      "name": "Weiß"
+     }
+    ]
+   }
+  ]
+ }
+]

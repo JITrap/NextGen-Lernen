@@ -1,0 +1,635 @@
+/* ============================================================
+   LimitlessPoster — Raum-Galerie (09/2026)
+   Rahmen-Komponente, Karten-Szene, Raum-Szenen der Produktseite,
+   cm-Labels im Größenwähler. Additiv zu limitless-brand/lab.css.
+   Maßstab: Wandbreite in cm (--lp-wall, per Container-Query an die
+   Bühnenbreite gekoppelt), Poster-Maße in cm (--lp-pw/--lp-ph),
+   Rahmenprofil 2 cm (--lp-frame-cm). 1 cm = var(--lp-cm) — Möbel und
+   Rahmen skalieren damit gemeinsam und bleiben maßstabsgetreu.
+   ============================================================ */
+
+/* ---------- Rahmen-Komponente ---------- */
+.lp-frame {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: var(--lp-frame-ratio, 4 / 5);
+  padding: var(--lp-frame-pad, 3.2%);
+  background: var(--lp-frame-color, #16120F);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    var(--lp-frame-shadow, 0 14px 30px rgba(0, 0, 0, 0.42), 0 3px 8px rgba(0, 0, 0, 0.3));
+}
+.lp-frame--white {
+  --lp-frame-color: #F2F0EA;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(0, 0, 0, 0.07),
+    var(--lp-frame-shadow, 0 14px 30px rgba(0, 0, 0, 0.34), 0 3px 8px rgba(0, 0, 0, 0.22));
+}
+.lp-frame__art {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0B0B0C;
+}
+.lp-frame__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Rahmenfalz + Glas-Reflex */
+.lp-frame__art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.45), inset 0 3px 8px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+.lp-frame__art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(112deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.03) 30%, rgba(255, 255, 255, 0) 48%, rgba(255, 255, 255, 0.04) 100%);
+  pointer-events: none;
+}
+.lp-frame--flat .lp-frame__art::after { display: none; }
+
+/* ---------- Karten-Szene (Produktkarten überall) ---------- */
+.lp-cardscene {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: inline-size;
+  background:
+    radial-gradient(70% 48% at 50% 26%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 72%),
+    linear-gradient(180deg, #EAE6DF 0%, #E1DCD4 76%, #CFC8BC 76.2%, #C7BFB2 100%);
+}
+.lp-cardscene::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 76%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.09);
+}
+.lp-cardscene__shadow {
+  position: absolute;
+  left: 50%;
+  top: 76%;
+  width: 62cqw;
+  height: 6cqw;
+  transform: translate(-50%, -30%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+.lp-cardscene .lp-frame {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: var(--lp-card-frame-w, 54cqw);
+  transform: translate(-50%, -50%);
+  --lp-frame-pad: 2.8%;
+  --lp-frame-shadow: 0 10cqw 18cqw rgba(0, 0, 0, 0.22), 0 2cqw 5cqw rgba(0, 0, 0, 0.18);
+}
+.lp-cardscene--landscape .lp-frame { width: var(--lp-card-frame-w, 76cqw); }
+
+/* Hover-Szene der Produktkarten: dasselbe Motiv, anderer Raum (Wohnzimmer).
+   Ersetzt seit 20.09.2026 das frühere Studiofoto. */
+.lp-cardscene--living {
+  background:
+    radial-gradient(62% 44% at 50% 22%, rgba(255, 232, 206, 0.16), rgba(255, 232, 206, 0) 72%),
+    linear-gradient(180deg, #2E2723 0%, #262019 76%, #1B1512 76.2%, #150F0C 100%);
+}
+.lp-cardscene--living::after { background: rgba(255, 255, 255, 0.06); }
+.lp-cardscene--living .lp-frame {
+  --lp-frame-shadow:
+    0 0 0 1px rgba(244, 237, 234, 0.17),
+    0 10cqw 20cqw rgba(0, 0, 0, 0.55),
+    0 2cqw 6cqw rgba(0, 0, 0, 0.4);
+}
+.lp-cardscene--living .lp-cardscene__shadow {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 70%);
+}
+.lp-cardscene__sofa {
+  position: absolute;
+  left: 50%;
+  bottom: 5cqw;
+  width: 60cqw;
+  height: 17cqw;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.lp-cardscene__sofa .back {
+  position: absolute;
+  inset: 0 6% 46%;
+  display: block;
+  background: #3A2F29;
+  border-radius: 2cqw 2cqw 0 0;
+}
+.lp-cardscene__sofa .seat {
+  position: absolute;
+  inset: 52% 0 12%;
+  display: block;
+  background: #453931;
+  border-radius: 1.6cqw;
+}
+.card-gallery .lp-cardscene { position: absolute; inset: 0; }
+.card-gallery .product-media--scene { position: relative; width: 100%; aspect-ratio: var(--ratio, 4 / 5); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .lp-cardscene .lp-frame { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  product-card:hover .lp-cardscene .lp-frame { transform: translate(-50%, -50%) scale(1.03); }
+}
+
+/* ---------- Größenwähler: cm groß, Zoll klein ---------- */
+.variant-option__button-label__text:has(.lp-size__cm) {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+  gap: 2px;
+}
+.lp-size__cm { font-weight: 600; white-space: nowrap; }
+.lp-size__in {
+  font-size: 0.74em;
+  letter-spacing: 0.02em;
+  opacity: 0.68;
+  white-space: nowrap;
+}
+.variant-option--buttons:has(.lp-size__cm) .variant-option__button-label { min-height: 52px; }
+@media screen and (max-width: 749px) {
+  /* 6 Größen deterministisch als 3 × 2 Raster, damit der Wähler kompakt bleibt */
+  fieldset.variant-option--buttons:has(.lp-size__cm) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  fieldset.variant-option--buttons:has(.lp-size__cm) > legend { grid-column: 1 / -1; }
+  .variant-option--buttons:has(.lp-size__cm) .variant-option__button-label {
+    min-width: 0;
+    padding-inline: 6px;
+    justify-content: center;
+  }
+}
+
+/* ---------- Raum-Galerie (Produktseite) ---------- */
+.lp-rg {
+  --lp-frame-cm: 2;
+  --lp-pw: 41;
+  --lp-ph: 51;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+.lp-rg__stage-wrap { order: 1; position: relative; min-width: 0; }
+.lp-rg__thumbs { order: 2; }
+@media screen and (min-width: 990px) {
+  .lp-rg { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; align-items: stretch; }
+  .lp-rg__thumbs {
+    order: 0;
+    flex-direction: column;
+    height: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(180deg, #000 calc(100% - 28px), transparent);
+  }
+}
+.lp-rg__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  container-type: inline-size;
+  container-name: lp-stage;
+  border-radius: 6px;
+  background: #1A1719;
+  isolation: isolate;
+}
+.lp-rg__stage:focus-visible { outline: 2px solid var(--color-foreground, #F4F1EA); outline-offset: 2px; }
+@media screen and (min-width: 750px) {
+  .lp-rg__stage { aspect-ratio: 4 / 3; }
+}
+
+/* Szene: Wand, Boden, Möbel, Rahmen. --lp-wall folgt der Bühnenbreite
+   (schmale Bühne = näherer Wandausschnitt), --lp-cm = Pixel pro Zentimeter. */
+.lp-rg__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+  /* --lp-wall-base folgt der Buehnenbreite (Container-Query weiter unten).
+     --lp-zoom setzt limitless-rooms.js aus der gewaehlten Postergroesse:
+     kleine Formate bekommen einen naeheren Wandausschnitt, sonst stand das
+     kleinste Poster als rund 75 px grosse Briefmarke in der Szene. Der
+     Groessenvergleich bleibt erhalten, weil --lp-zoom nur zwischen 0,72 und
+     1 laeuft — grosse Formate bleiben sichtbar groesser als kleine. */
+  --lp-wall-base: 345;
+  --lp-wall: calc(var(--lp-wall-base) * var(--lp-zoom, 1));
+  --lp-cm: calc(100cqw / var(--lp-wall));
+  /* Requisiten-Abstaende bleiben relativ zur Buehne konstant. Ohne das
+     rutschten Rack, Hantelscheiben und Lampe auf schmalen Buehnen
+     vollstaendig aus dem Bild. */
+  --lp-spread: calc(var(--lp-wall) / 345);
+}
+@container lp-stage (max-width: 760px) { .lp-rg__scene { --lp-wall-base: 300; } }
+@container lp-stage (max-width: 620px) { .lp-rg__scene { --lp-wall-base: 250; } }
+@container lp-stage (max-width: 500px) { .lp-rg__scene { --lp-wall-base: 200; } }
+@container lp-stage (max-width: 400px) { .lp-rg__scene { --lp-wall-base: 165; } }
+.lp-rg__stage[data-view='scene'] .lp-rg__scene { display: block; }
+.lp-rg__wall { position: absolute; inset: 0 0 26%; }
+.lp-rg__floor { position: absolute; left: 0; right: 0; bottom: 0; height: 26%; }
+.lp-rg__spot {
+  position: absolute;
+  inset: 0 0 26%;
+  background: radial-gradient(60% 55% at 50% 22%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+.lp-rg__furniture { position: absolute; inset: 0; pointer-events: none; }
+.lp-rg__furniture > span { position: absolute; display: block; }
+.lp-rg__frame-wrap {
+  /* Ist seit 20.09.2026 ein <button>: der Klick auf den Rahmen oeffnet die
+     Vergroesserung, weil es keinen eigenen Motiv-Tab mehr gibt. */
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: zoom-in;
+  position: absolute;
+  left: 50%;
+  top: 39%;
+  transform: translate(-50%, -50%);
+  width: calc((var(--lp-pw) + 2 * var(--lp-frame-cm)) * var(--lp-cm));
+  transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.lp-rg__frame-wrap .lp-frame {
+  --lp-frame-ratio: calc(var(--lp-pw) + 2 * var(--lp-frame-cm)) / calc(var(--lp-ph) + 2 * var(--lp-frame-cm));
+  --lp-frame-pad: calc(var(--lp-frame-cm) / (var(--lp-pw) + 2 * var(--lp-frame-cm)) * 100%);
+  --lp-frame-shadow: 0 calc(8 * var(--lp-cm)) calc(16 * var(--lp-cm)) rgba(0, 0, 0, 0.45), 0 calc(2 * var(--lp-cm)) calc(5 * var(--lp-cm)) rgba(0, 0, 0, 0.35);
+}
+.lp-rg__stage[data-scene='gallery'] .lp-rg__frame-wrap .lp-frame {
+  --lp-frame-shadow: 0 calc(8 * var(--lp-cm)) calc(16 * var(--lp-cm)) rgba(0, 0, 0, 0.28), 0 calc(2 * var(--lp-cm)) calc(5 * var(--lp-cm)) rgba(0, 0, 0, 0.2);
+}
+.lp-rg__frame-shadow {
+  position: absolute;
+  left: 50%;
+  top: 74%;
+  width: calc((var(--lp-pw) + 8) * var(--lp-cm));
+  height: calc(14 * var(--lp-cm));
+  transform: translate(-50%, -50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+/* Maßstab-Hinweis am Boden (1 m Referenzlinie) */
+.lp-rg__scale {
+  position: absolute;
+  left: 4%;
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-subheading--family);
+  font-size: clamp(10px, 2.6cqw, 11px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.lp-rg__scale::before { content: ''; width: calc(100 * var(--lp-cm)); height: 1px; background: currentColor; }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__scale { color: rgba(0, 0, 0, 0.72); }
+
+/* --- Szene: Galerie (hell) --- */
+.lp-rg__stage[data-scene='gallery'] .lp-rg__wall { background: linear-gradient(180deg, #ECE8E1 0%, #E2DDD5 100%); }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__floor { background: linear-gradient(180deg, #CFC8BC 0%, #C2BAAD 100%); box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1); }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__spot { background: radial-gradient(60% 55% at 50% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 70%); }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__bench { left: 50%; bottom: 20%; width: calc(118 * var(--lp-cm)); height: calc(7.5 * var(--lp-cm)); transform: translateX(-50%); background: #B7AEA0; border-radius: 2px; box-shadow: 0 calc(5 * var(--lp-cm)) calc(9 * var(--lp-cm)) rgba(0, 0, 0, 0.16); }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__bench::before,
+.lp-rg__stage[data-scene='gallery'] .lp-rg__bench::after { content: ''; position: absolute; top: 100%; width: calc(5 * var(--lp-cm)); height: calc(19 * var(--lp-cm)); background: #A69D8F; }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__bench::before { left: 8%; }
+.lp-rg__stage[data-scene='gallery'] .lp-rg__bench::after { right: 8%; }
+
+/* --- Szene: Wohnzimmer --- */
+.lp-rg__stage[data-scene='living'] .lp-rg__wall { background: linear-gradient(180deg, #2C2521 0%, #241E1B 100%); }
+.lp-rg__stage[data-scene='living'] .lp-rg__floor { background: linear-gradient(180deg, #1D1815 0%, #171310 100%); }
+.lp-rg__stage[data-scene='living'] .lp-rg__sofa-back { left: 50%; bottom: 20%; width: calc(200 * var(--lp-cm)); height: calc(38 * var(--lp-cm)); transform: translateX(-50%); background: #3D302A; border-radius: calc(5.5 * var(--lp-cm)) calc(5.5 * var(--lp-cm)) 0 0; }
+.lp-rg__stage[data-scene='living'] .lp-rg__sofa-seat { left: 50%; bottom: 15%; width: calc(221 * var(--lp-cm)); height: calc(21 * var(--lp-cm)); transform: translateX(-50%); background: #4A3B33; border-radius: calc(4 * var(--lp-cm)); box-shadow: 0 calc(7 * var(--lp-cm)) calc(14 * var(--lp-cm)) rgba(0, 0, 0, 0.4); }
+.lp-rg__stage[data-scene='living'] .lp-rg__cushion { bottom: 25%; width: calc(38 * var(--lp-cm)); height: calc(28 * var(--lp-cm)); background: #5A4A40; border-radius: calc(3.5 * var(--lp-cm)); }
+.lp-rg__stage[data-scene='living'] .lp-rg__cushion--a { left: calc(50% - 70 * var(--lp-cm) * var(--lp-spread)); transform: rotate(-4deg); }
+.lp-rg__stage[data-scene='living'] .lp-rg__cushion--b { left: calc(50% + 28 * var(--lp-cm) * var(--lp-spread)); transform: rotate(3deg); background: #6A574B; }
+.lp-rg__stage[data-scene='living'] .lp-rg__lamp { left: calc(50% + 130 * var(--lp-cm) * var(--lp-spread)); bottom: 15%; width: calc(4 * var(--lp-cm)); height: calc(117 * var(--lp-cm)); background: #3A2F29; }
+.lp-rg__stage[data-scene='living'] .lp-rg__lamp::before { content: ''; position: absolute; top: calc(-7 * var(--lp-cm)); left: 50%; transform: translateX(-50%); width: calc(41 * var(--lp-cm)); height: calc(24 * var(--lp-cm)); background: #4E4038; border-radius: 45% 45% 8% 8%; box-shadow: 0 calc(20 * var(--lp-cm)) calc(34 * var(--lp-cm)) rgba(255, 214, 170, 0.12); }
+.lp-rg__stage[data-scene='living'] .lp-rg__plant { left: calc(50% - 150 * var(--lp-cm) * var(--lp-spread)); bottom: 15%; width: calc(24 * var(--lp-cm)); height: calc(31 * var(--lp-cm)); background: #2C2A26; border-radius: calc(2 * var(--lp-cm)) calc(2 * var(--lp-cm)) calc(3.5 * var(--lp-cm)) calc(3.5 * var(--lp-cm)); }
+.lp-rg__stage[data-scene='living'] .lp-rg__plant::before { content: ''; position: absolute; left: 50%; bottom: 90%; width: calc(55 * var(--lp-cm)); height: calc(55 * var(--lp-cm)); transform: translateX(-50%); background: radial-gradient(circle at 50% 60%, #2E3A2C 0%, #24301F 60%, transparent 62%); }
+
+/* --- Szene: Büro --- */
+.lp-rg__stage[data-scene='office'] .lp-rg__wall { background: linear-gradient(180deg, #24232A 0%, #1E1D24 100%); }
+.lp-rg__stage[data-scene='office'] .lp-rg__floor { background: linear-gradient(180deg, #17161B 0%, #121116 100%); }
+.lp-rg__stage[data-scene='office'] .lp-rg__desk { left: 50%; bottom: 20%; width: calc(214 * var(--lp-cm)); height: calc(7 * var(--lp-cm)); transform: translateX(-50%); background: #35323D; border-radius: 2px; box-shadow: 0 calc(5 * var(--lp-cm)) calc(10 * var(--lp-cm)) rgba(0, 0, 0, 0.45); }
+.lp-rg__stage[data-scene='office'] .lp-rg__desk::before,
+.lp-rg__stage[data-scene='office'] .lp-rg__desk::after { content: ''; position: absolute; top: 100%; width: calc(5 * var(--lp-cm)); height: calc(31 * var(--lp-cm)); background: #2B2932; }
+.lp-rg__stage[data-scene='office'] .lp-rg__desk::before { left: 4%; }
+.lp-rg__stage[data-scene='office'] .lp-rg__desk::after { right: 4%; }
+.lp-rg__stage[data-scene='office'] .lp-rg__monitor { left: 50%; bottom: calc(20% + 7 * var(--lp-cm)); width: calc(66 * var(--lp-cm)); height: calc(35 * var(--lp-cm)); transform: translateX(-50%); background: #111015; border: calc(1.7 * var(--lp-cm)) solid #3B3843; border-radius: calc(2 * var(--lp-cm)); box-shadow: 0 0 calc(20 * var(--lp-cm)) rgba(120, 140, 220, 0.12); }
+.lp-rg__stage[data-scene='office'] .lp-rg__monitor::after { content: ''; position: absolute; left: 50%; top: 100%; width: calc(21 * var(--lp-cm)); height: calc(7 * var(--lp-cm)); transform: translateX(-50%); background: #3B3843; }
+.lp-rg__stage[data-scene='office'] .lp-rg__desklamp { left: calc(50% - 90 * var(--lp-cm) * var(--lp-spread)); bottom: calc(20% + 7 * var(--lp-cm)); width: calc(3.5 * var(--lp-cm)); height: calc(31 * var(--lp-cm)); background: #4A4653; }
+.lp-rg__stage[data-scene='office'] .lp-rg__desklamp::before { content: ''; position: absolute; top: calc(-3.5 * var(--lp-cm)); left: calc(-3.5 * var(--lp-cm)); width: calc(21 * var(--lp-cm)); height: calc(8 * var(--lp-cm)); background: #4A4653; border-radius: calc(3.5 * var(--lp-cm)) calc(3.5 * var(--lp-cm)) 1px 1px; }
+.lp-rg__stage[data-scene='office'] .lp-rg__chair { left: calc(50% + 60 * var(--lp-cm) * var(--lp-spread)); bottom: 10%; width: calc(48 * var(--lp-cm)); height: calc(52 * var(--lp-cm)); background: #26242C; border-radius: calc(7 * var(--lp-cm)) calc(7 * var(--lp-cm)) 2px 2px; }
+
+/* --- Szene: Schlafzimmer --- */
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__wall { background: linear-gradient(180deg, #2A2429 0%, #221D22 100%); }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__floor { background: linear-gradient(180deg, #1B1719 0%, #151214 100%); }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__headboard { left: 50%; bottom: 18%; width: calc(207 * var(--lp-cm)); height: calc(52 * var(--lp-cm)); transform: translateX(-50%); background: #3B3036; border-radius: calc(5 * var(--lp-cm)) calc(5 * var(--lp-cm)) 0 0; }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__mattress { left: 50%; bottom: 10%; width: calc(228 * var(--lp-cm)); height: calc(31 * var(--lp-cm)); transform: translateX(-50%); background: #4B3F45; border-radius: calc(3.5 * var(--lp-cm)); box-shadow: 0 calc(7 * var(--lp-cm)) calc(14 * var(--lp-cm)) rgba(0, 0, 0, 0.4); }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__pillow { bottom: 19%; width: calc(59 * var(--lp-cm)); height: calc(24 * var(--lp-cm)); background: #5E5157; border-radius: calc(4 * var(--lp-cm)); }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__pillow--a { left: calc(50% - 83 * var(--lp-cm) * var(--lp-spread)); }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__pillow--b { left: calc(50% + 21 * var(--lp-cm) * var(--lp-spread)); }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__nightstand { left: calc(50% + 128 * var(--lp-cm) * var(--lp-spread)); bottom: 10%; width: calc(35 * var(--lp-cm)); height: calc(31 * var(--lp-cm)); background: #2A2428; border-radius: 2px; }
+.lp-rg__stage[data-scene='bedroom'] .lp-rg__nightstand::before { content: ''; position: absolute; left: 50%; bottom: 100%; width: calc(14 * var(--lp-cm)); height: calc(17 * var(--lp-cm)); transform: translateX(-50%); background: #3A3238; border-radius: 45% 45% 10% 10%; box-shadow: 0 calc(-3.5 * var(--lp-cm)) calc(17 * var(--lp-cm)) rgba(255, 214, 170, 0.1); }
+
+/* --- Szene: Home-Gym --- */
+.lp-rg__stage[data-scene='gym'] .lp-rg__wall { background: linear-gradient(180deg, #1F1D1F 0%, #191719 100%); }
+.lp-rg__stage[data-scene='gym'] .lp-rg__floor { background: linear-gradient(180deg, #141214 0%, #0F0E0F 100%); }
+.lp-rg__stage[data-scene='gym'] .lp-rg__rack { left: calc(50% - 165 * var(--lp-cm) * var(--lp-spread)); bottom: 10%; width: calc(69 * var(--lp-cm)); height: calc(152 * var(--lp-cm)); border: calc(3.5 * var(--lp-cm)) solid #34313A; border-bottom: 0; border-radius: 2px 2px 0 0; }
+.lp-rg__stage[data-scene='gym'] .lp-rg__rack::before { content: ''; position: absolute; left: calc(-3.5 * var(--lp-cm)); right: calc(-3.5 * var(--lp-cm)); top: 38%; height: calc(3.5 * var(--lp-cm)); background: #4A4650; }
+.lp-rg__stage[data-scene='gym'] .lp-rg__bench { left: 50%; bottom: 14%; width: calc(104 * var(--lp-cm)); height: calc(14 * var(--lp-cm)); transform: translateX(-50%); background: #2B282C; border-radius: calc(3 * var(--lp-cm)); }
+.lp-rg__stage[data-scene='gym'] .lp-rg__bench::before,
+.lp-rg__stage[data-scene='gym'] .lp-rg__bench::after { content: ''; position: absolute; top: 100%; width: calc(4 * var(--lp-cm)); height: calc(17 * var(--lp-cm)); background: #232125; }
+.lp-rg__stage[data-scene='gym'] .lp-rg__bench::before { left: 10%; }
+.lp-rg__stage[data-scene='gym'] .lp-rg__bench::after { right: 10%; }
+.lp-rg__stage[data-scene='gym'] .lp-rg__plate { bottom: 10%; width: calc(38 * var(--lp-cm)); aspect-ratio: 1; border-radius: 50%; background: #232125; border: calc(5.5 * var(--lp-cm)) solid #34313A; }
+.lp-rg__stage[data-scene='gym'] .lp-rg__plate--a { left: calc(50% + 100 * var(--lp-cm) * var(--lp-spread)); }
+.lp-rg__stage[data-scene='gym'] .lp-rg__plate--b { left: calc(50% + 126 * var(--lp-cm) * var(--lp-spread)); width: calc(28 * var(--lp-cm)); }
+
+/* Foto-Ansichten (Studio, Wohnbeispiel, Rahmen-Mockups) */
+
+/* Motiv-Ansicht (Artwork groß, ohne Szene) */
+
+/* Lupe: Die Raum-Galerie hat die Horizon-Lightbox ersetzt — ohne
+   Vergroesserung konnte man Schrift und Koernung vor dem Kauf nicht pruefen. */
+.lp-rg__zoom-hint {
+  position: absolute;
+  right: 3cqw;
+  top: 3cqw;
+  z-index: 3;
+  border: 0;
+  cursor: zoom-in;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(10, 8, 9, 0.66);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #F4EDEA;
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lp-rg__zoom:not([open]) { display: none; }
+.lp-rg__zoom {
+  width: min(96vw, 1400px);
+  max-width: 96vw;
+  max-height: 94svh;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #0F0D0E;
+  color: #F4EDEA;
+  overflow: hidden;
+}
+.lp-rg__zoom::backdrop { background: rgba(6, 5, 6, 0.86); }
+.lp-rg__zoom img { display: block; width: 100%; height: auto; max-height: 94svh; object-fit: contain; }
+.lp-rg__zoom-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(10, 8, 9, 0.7);
+  color: #F4EDEA;
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* Chip mit Szene · Größe (oben links, damit die Maßstabslinie unten frei bleibt) */
+.lp-rg__chip {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(12, 11, 12, 0.72);
+  color: #F5F2EC;
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  z-index: 2;
+}
+.lp-rg__chip[hidden] { display: none; }
+.lp-rg__chip b { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 0.75rem; }
+
+/* Thumbnails / Tabs */
+.lp-rg__thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px;
+  margin: -2px;
+}
+.lp-rg__thumbs::-webkit-scrollbar { display: none; }
+@media screen and (max-width: 749px) {
+  .lp-rg__thumbs {
+    padding: 2px var(--full-page-grid-margin, 16px) 6px;
+    margin: -2px 0 0;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--full-page-grid-margin, 16px);
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+  }
+  .lp-rg__thumb { scroll-snap-align: start; width: 60px; }
+  .lp-rg__stage { border-radius: 0; }
+}
+@media screen and (min-width: 990px) {
+  .lp-rg__thumbs { flex-direction: column; }
+}
+.lp-rg__thumb {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 68px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-foreground);
+  cursor: pointer;
+  font-family: var(--font-subheading--family);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  transition: opacity 0.2s;
+}
+.lp-rg__thumb:hover, .lp-rg__thumb[aria-selected='true'] { opacity: 1; }
+.lp-rg__thumb-tile {
+  position: relative;
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #2A2628;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lp-rg__thumb[aria-selected='true'] .lp-rg__thumb-tile {
+  border-color: var(--color-foreground, #F4F1EA);
+  box-shadow: 0 0 0 1px var(--color-foreground, #F4F1EA), 0 0 0 3px var(--lp-cobalt, #A32235);
+}
+.lp-rg__thumb[aria-selected='true'] > span:last-child { text-decoration: underline; text-underline-offset: 3px; }
+.lp-rg__thumb-tile--scene::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 28%; background: rgba(0, 0, 0, 0.28); }
+.lp-rg__thumb-tile--scene::after { content: ''; position: absolute; left: 50%; top: 38%; width: 36%; aspect-ratio: calc(var(--lp-pw, 4) / var(--lp-ph, 5)); transform: translate(-50%, -50%); background: var(--lp-thumb-frame, #15110F); box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); }
+.lp-rg__thumb-tile--scene .lp-rg__thumb-art { position: absolute; left: 50%; top: 38%; width: 28%; height: auto; aspect-ratio: calc(var(--lp-pw, 4) / var(--lp-ph, 5)); transform: translate(-50%, -50%); z-index: 1; object-fit: cover; }
+.lp-rg__thumb-tile--gallery { background: linear-gradient(180deg, #ECE8E1 0%, #E2DDD5 72%, #C9C2B6 72%); }
+.lp-rg__thumb-tile--gallery::before { background: rgba(0, 0, 0, 0.06); }
+.lp-rg__thumb-tile--living { background: #2C2521; }
+.lp-rg__thumb-tile--office { background: #24232A; }
+.lp-rg__thumb-tile--bedroom { background: #2A2429; }
+.lp-rg__thumb-tile--gym { background: #1F1D1F; }
+
+/* Vier fast gleiche Grautoene waren vor dem Klick nicht auseinanderzuhalten.
+   Jede Szene bekommt deshalb ihre Leitform im Boden-Streifen: Sofa, Tisch,
+   Bett, Hantelscheibe. */
+.lp-rg__thumb-tile--scene::before { background-repeat: no-repeat; }
+.lp-rg__thumb-tile--living::before {
+  background-image: linear-gradient(#6A574B, #6A574B);
+  background-size: 58% 52%;
+  background-position: 50% 78%;
+}
+.lp-rg__thumb-tile--office::before {
+  background-image: linear-gradient(#4A4653, #4A4653), linear-gradient(#4A4653, #4A4653);
+  background-size: 66% 16%, 44% 46%;
+  background-position: 50% 34%, 50% 100%;
+}
+.lp-rg__thumb-tile--bedroom::before {
+  background-image: linear-gradient(#5A4C56, #5A4C56);
+  background-size: 76% 34%;
+  background-position: 50% 100%;
+}
+.lp-rg__thumb-tile--gym::before {
+  background-image: radial-gradient(circle, #45414A 46%, transparent 47%);
+  background-size: 44% 86%;
+  background-position: 50% 70%;
+}
+.lp-rg__thumb:focus-visible { outline: 2px solid var(--color-foreground, #F4F1EA); outline-offset: 2px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-rg__frame-wrap, .lp-cardscene .lp-frame { transition: none; }
+}
+
+/* ---------- Horizon-Grid-Sektionen: volle Spaltenbreite ----------
+   Sektionen mit der Klasse .section sind ein Grid; ihre Inner-Container
+   schrumpfen ohne width:100% auf Content-Breite (Raum-Kacheln standen
+   dadurch untereinander statt nebeneinander). */
+.lp-rooms__inner,
+.lp-gw__inner,
+.lp-stats__grid,
+.lp-help__inner {
+  width: 100%;
+}
+
+/* ---------- Motiv-Thumbnails außerhalb der Karten ----------
+   Warenkorb und Sticky-Leiste rendern jetzt 'limitless-frame' (echtes
+   Motiv + gezeichneter Rahmen in der gewählten Farbe). Der frühere
+   CSS-Rand zog einen schwarzen Rahmen um ein Foto, das bereits einen
+   Rahmen zeigte — bei „Weiß" sogar den falschen. */
+.lp-frame--cart,
+.lp-frame--sticky {
+  --lp-frame-pad: 5%;
+  --lp-frame-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  margin-inline: auto;
+}
+.lp-frame--sticky { max-width: 48px; }
+
+/* ---------- Quick-Add-Fenster (Fix 02.10.2026) ----------
+   Raum-Galerie fuellt die Bildspalte, Thumbnails als Reihe darunter,
+   Kauf-Block im Fenster nicht mehr sticky (verdeckte sonst die Rahmen-Auswahl). */
+.quick-add-modal__content .product-details .buy-buttons-block {
+  position: static;
+  margin-top: 0;
+}
+.quick-add-modal__content .product-details .buy-buttons-block::before { display: none; }
+.quick-add-modal__content .lp-rg__zoom-hint { display: none; }
+.quick-add-modal__content .lp-rg__chip { max-width: calc(100% - 24px); }
+.quick-add-modal__content .lp-rg__chip b { white-space: nowrap; }
+@media screen and (min-width: 750px) {
+  .quick-add-modal__content .lp-rg {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    align-content: start;
+    padding: 16px;
+  }
+  .quick-add-modal__content .lp-rg__stage-wrap { order: 1; }
+  .quick-add-modal__content .lp-rg__stage { aspect-ratio: 4 / 5; }
+  .quick-add-modal__content .lp-rg__thumbs {
+    order: 2;
+    flex-direction: row;
+    height: auto;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2px;
+    margin: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+.quick-add-modal__content .lp-rg__thumb { width: 64px; }
+.quick-add-modal__content .lp-rg__thumb > span:not(.lp-rg__thumb-tile) {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.625rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+@media screen and (max-width: 749px) {
+  .quick-add-modal__content .lp-rg { gap: 0; }
+  .quick-add-modal__content .lp-rg__thumbs,
+  .quick-add-modal__content .lp-rg__chip,
+  .quick-add-modal__content .lp-rg__scale { display: none; }
+  .quick-add-modal__content .lp-rg__stage { aspect-ratio: 4 / 5; border-radius: 6px; }
+}
+
+/* Raum-Labels unter den Thumbnails auf der Produktseite nicht mehr abschneiden */
+.lp-rg__thumb > span:not(.lp-rg__thumb-tile) {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
