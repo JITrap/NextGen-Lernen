@@ -173,9 +173,6 @@ def profil_laden_online(pid):
                   if lg["locationGroupZones"]["pageInfo"]["hasNextPage"]]
         if not weiter:
             return profil
-        if len(d["profileLocationGroups"]) > 1:
-            # Ein Cursor gilt nur fuer eine Standortgruppe; Printify-Profile haben genau eine.
-            sys.exit(f"Profil {pid}: mehrere Standortgruppen mit vielen Zonen, bitte von Hand pruefen.")
         after = weiter[0]["endCursor"]
 
 
@@ -281,15 +278,14 @@ def ohne_info(obj):
 # Pruefung nach dem Anwenden
 # --------------------------------------------------------------------------
 def fingerprint(profil):
-    """Alles ausser Name/Beschreibung der DE-Methoden: Zonen, Laender, Preise, Bedingungen,
-    aktiv, Methoden-IDs. Bedingungs-IDs zaehlen nicht (Shopify vergibt sie beim Speichern neu)."""
+    """Alles ausser Name/Beschreibung der DE-Methoden: Preise, Bedingungen, aktiv, IDs."""
     out = {}
     for lg in profil["profileLocationGroups"]:
         for z in lg["locationGroupZones"]["nodes"]:
             for m in z["methodDefinitions"]["nodes"]:
                 rp = m["rateProvider"]
                 out[m["id"]] = (
-                    z["zone"]["id"], tuple(sorted(laender(z["zone"]))), m["active"],
+                    z["zone"]["id"], m["active"],
                     json.dumps(rp.get("price"), sort_keys=True),
                     json.dumps(sorted((c["field"], c["operator"],
                                        json.dumps(c["conditionCriteria"], sort_keys=True))
@@ -368,18 +364,14 @@ def main():
     fehler = 0
     for pl in plaene:
         v = ohne_info(pl["variables"])
-        if v["id"] not in vorher:
-            # Beim Zuruecksetzen kommt der Plan aus der Datei: Vorher-Stand jetzt laden,
-            # damit die Pruefung unten wirklich vergleicht.
-            vorher[v["id"]] = profil_laden_online(v["id"])
         r = gql(MUTATION, v)["deliveryProfileUpdate"]
         if r["userErrors"]:
             fehler += 1
             print("FEHLER", v["id"], json.dumps(r["userErrors"], ensure_ascii=False))
             continue
         nachher = profil_laden_online(v["id"])
-        ok_rest = fingerprint(vorher[v["id"]]) == fingerprint(nachher)
-        print(f"{'OK' if ok_rest else 'ABWEICHUNG'} {v['id']} Version {r['profile']['version']}, DE-Namen jetzt "
+        ok_rest = (v["id"] not in vorher) or fingerprint(vorher[v["id"]]) == fingerprint(nachher)
+        print(f"OK {v['id']} Version {r['profile']['version']}, DE-Namen jetzt "
               f"{sorted(de_namen(nachher))}, Preise/Bedingungen/andere Laender unveraendert: {ok_rest}")
         if not ok_rest:
             fehler += 1

@@ -103,3 +103,113 @@ Das ist zunächst nur ein Probelauf. Die Ausführung braucht `--anwenden` und ei
 | `shop-checkliste/arbeit-2026-10-02/versand/probeberechnungen.json` | Ergebnisse der Probeberechnungen vorher/nachher |
 | `shop-checkliste/werkzeug/versand_deutsch_umbenennen.py` | Wiederverwendbares Skript: Plan, Variablen, Ausführen mit Prüfung, Zurücksetzen |
 | `shop-checkliste/werkzeug/versand_deutsch_umbenennen.graphql` | Mutation, Prüfabfrage und Probeberechnung mit Ablaufbeschreibung |
+
+---
+
+## Gegenprüfung (02.10.2026)
+
+Ich habe gegen den **Live-Stand in Shopify** (Admin-API) geprüft, nicht nur gegen diesen Bericht. Der Bericht vor der Gegenprüfung liegt in `shop-checkliste/backup-2026-10-02/versand/gegenpruefung/bericht-vor-gegenpruefung.md`. An den Versandprofilen habe ich nichts geändert.
+
+### Ergebnis in einem Satz
+
+Die Umbenennung ist korrekt und vollständig, und es fehlt nichts. Kunden sehen in Deutschland nur noch „Standardversand (4–10 Werktage)“ für **0,00 €**. Behoben habe ich nur zwei kleine Schwächen im Skript (siehe unten).
+
+### 1. Live-Stand gegen die Sicherung (Vergleich per Skript)
+
+Alle 7 Profile habe ich vollständig neu geladen: alle Zonen, Länder, Provinzen, Methoden, Preise und Bedingungen, jeweils mit `hasNextPage = false`. Den Vergleich mit `deliveryProfiles-vorher.json` macht `gegenpruefung/vergleich_live_backup.py`, das Ergebnis steht in `gegenpruefung/vergleich-ergebnis.json`.
+
+| Prüfpunkt | Ergebnis |
+|---|---|
+| Methoden in Zone Germany umbenannt | **60 von 60** (5 Profile × 12): vorher „Standard Delivery“, jetzt „Standardversand (4–10 Werktage)“ mit Halbgeviertstrich (U+2013) und leerer Beschreibung (`""`) |
+| Stand ohne die 60 Namen und Beschreibungen | **identisch** in allen 7 Profilen (SHA-256 vorher = live, auf kanonischem JSON). Verglichen sind Zonen, Länder, 2.466 Provinzen, Preise samt Währung, Rate-IDs, Bedingungen, aktiv-Status und Zähler. |
+| Gelöscht oder neu angelegt | nichts: 3.998 Methoden vorher und live mit denselben IDs, 335 Zonen und 361 Länderzuordnungen unverändert |
+| Deaktiviert | nichts: alle 3.998 Methoden aktiv, `activeMethodDefinitionsCount` unverändert (720 / 720 / 720 / 720 / 720 / 397 / 1) |
+| Versionen | 5 Printify-Profile genau +1 (347, 343, 346, 343, 346); Allgemeines Profil (10) und Profil 11″×8″ (15) unverändert |
+| Neue Bedingungs-IDs | 120 = 60 Methoden × 2 Gewichtsgrenzen, **alle** in Zone Germany, keine anderswo. Die Werte (lb) sind gleich. |
+| Standorte | Gruppen und Standorte unverändert (Printify bzw. Shop-Standort, aktiv) |
+| Belege des Umsetzers | `deutschland-zonen-nachher.json` stimmt in allen 60 Methoden mit live überein. Das Skript erzeugt aus der Sicherung Byte für Byte dieselben 5 Variablen-Dateien wie in `variablen/`. Auf dem Live-Stand meldet es „Nichts zu tun“. |
+
+Gegentest: Ich habe in einer Kopie einen Preis, einen aktiv-Status und eine Provinz geändert und eine Zone gelöscht. Das Vergleichsskript meldet alle vier Abweichungen (Exit-Code 1).
+
+### 2. Probeberechnungen (eigene Fälle, andere Produkte als der Umsetzer)
+
+`draftOrderCalculate`, Lieferadresse Esslingen, automatische Rabatte an. Die Liste der Entwurfsbestellungen war vorher und nachher leer. Einzelwerte: `gegenpruefung/probeberechnungen-gegenpruefung.json`.
+
+| Fall | Angeboten | Gewählt | Versand für Kunden | Gesamt |
+|---|---|---|---|---|
+| 1 Poster 91×61 cm (Profil 24×36) | 2× „Standardversand (4–10 Werktage)“ (30,84 € / 61,68 €) | 30,84 € | **0,00 €** | 108,99 € = Warenwert |
+| 2 Poster: 61×91 cm + 28×36 cm | 4× „Standardversand (4–10 Werktage)“ (54,30 € bis 108,60 €) | 54,30 € | **0,00 €** | 173,98 € = Warenwert |
+| 2× dasselbe Poster 61×91 cm | 2× „Standardversand (4–10 Werktage)“ (61,68 € / 92,52 €) | teuerster Handle → Shopify nimmt 61,68 € | **0,00 €** | 217,98 € = Warenwert |
+
+- Der Rabatt „Kostenloser Versand Deutschland“ ist live **aktiv**: nur DE, kein Enddatum, kein Mindestbestellwert, **keine Obergrenze** für den Versandpreis. Deshalb ist auch jede teurere Stufe kostenlos.
+- Steuer jeweils 0,00 € (§ 19 UStG).
+- Nur der Markt **Deutschland** ist aktiv („Europäische Union“ und „America“ sind Entwürfe). Die englischen Tarife der übrigen 59 Länderzonen sieht also kein Kunde.
+
+### 3. Lieferzeit 4–10 Werktage: überall gleich?
+
+Ja. Live nennen alle diese Stellen „ca. 4–10 Werktage“ (Produktion 2–5 + Versand 2–5):
+- Checkout-Richtlinie „Versand“
+- Checkout-Richtlinie „AGB“
+- Seite `agb`
+- Seite `hilfe-faq`
+- alle **113** Produkttexte („in der Regel in 4–10 Werktagen“, nirgends „business days“ oder 7–15)
+
+Damit passt der neue Name zu allen Shop-Texten. Offen bleibt nur die Frage aus Abschnitt 4, ob Printify diese Zeit auch schafft.
+
+### 4. Weitere englische Texte im Checkout
+
+Geprüft habe ich die Screenshots aus dem Checkout-Test, alle 2.639 Checkout-Texte des Live-Themes, die Produktoptionen aller 113 Produkte, die Rabatt- und Richtlinientitel und die Märkte.
+
+| Text | Wo | Was tun |
+|---|---|---|
+| **„Express Checkout“** | Überschrift über Shop Pay / PayPal / Google Pay | **Julius im Admin** (optional, 2 Minuten): https://admin.shopify.com/store/gexdm4-2q/themes, beim Live-Theme auf „…“ > „Standardinhalte des Themes bearbeiten“ > Tab „Checkout und System“ > nach „Express Checkout“ suchen > `Express-Checkout` eintragen > Speichern. Dasselbe beim Theme „LimitlessPoster OFE v3“. (Steht auch im Checkout-Bericht, Gegenprüfung Punkt 5.) |
+| „Standard Delivery / 7-15 business days“ | Versandart | **erledigt** (siehe oben) |
+| „14″ x 11″ / Black“ | Variante im Screenshot des Checkout-Tests | **Live schon behoben.** Alle 113 Produkte haben die Optionen „Größe“ (cm) und „Rahmen“ (Schwarz/Weiß). Der Screenshot zeigt einen älteren Stand. |
+
+Bewusst **nicht** als Fehler gezählt:
+- „Checkout“ im Browser-Tab und in einigen Hinweisen: Das ist Shopifys eigene deutsche Übersetzung.
+- Markennamen wie Shop Pay, PayPal, Google Pay und Klarna.
+- Die teils englischen Motivnamen der Poster (z. B. „Become Unstoppable – Motivationsposter“): Das sind Produktnamen.
+- Alle übrigen Checkout-Texte sind deutsche Shopify-Standardtexte, und die Richtlinientitel sind deutsch (Kontakt, Impressum, Datenschutzerklärung, Widerrufsrecht, Versand, AGB).
+
+### 5. Was ich behoben habe
+
+Im Skript `shop-checkliste/werkzeug/versand_deutsch_umbenennen.py` (Vorher-Stand: `backup-2026-10-02/versand/gegenpruefung/versand_deutsch_umbenennen.py.vorher`):
+1. **Zurücksetzen prüfte nichts.** Mit `--zuruecksetzen … --anwenden` meldete das Skript immer „Preise/Bedingungen/andere Laender unveraendert: True“, ohne den Vorher-Stand geladen zu haben. Jetzt lädt es jedes Profil vor der Änderung und vergleicht danach wirklich.
+2. **Abweichungen begannen mit „OK“.** Jetzt beginnt die Zeile mit „ABWEICHUNG“ (Exit-Code 1 wie bisher).
+3. Der Vergleich berücksichtigt jetzt auch die **Länder der Zonen**.
+4. Neu ist eine Schutzabfrage: Bei mehreren Standortgruppen mit mehr als 70 Zonen bricht das Skript ab, statt Zonen falsch zusammenzufügen. Printify-Profile haben nur eine Gruppe.
+
+Getestet mit einer simulierten Admin-API auf Basis der echten Sicherung und des Live-Stands:
+- Anwenden: 5 Mutationen, alles OK.
+- Wiederholung: „Nichts zu tun“.
+- Zurücksetzen: Die Namen sind wieder „Standard Delivery / 7-15 business days“, alles OK.
+- Fehlerfall: Ein Server ändert fälschlich Preise. Das Skript meldet ABWEICHUNG und Exit-Code 1, beim Anwenden wie beim Zurücksetzen. Vorher blieb dieser Fehler beim Zurücksetzen unbemerkt.
+
+Die Variablen sind unverändert, also weiter identisch mit den ausgeführten. Gegen die echte API ist das Skript wie beim Umsetzer nicht gelaufen, weil hier kein Token vorhanden ist.
+
+### 6. Übergaben (nicht mein Bereich, nur geprüft)
+
+- **Bereich zahlarten** (`obsidian/LimitlessPoster/vorlagen/`): Die Übergabe des Umsetzers stimmt. In `Order Printer Rechnung (§ 19).liquid` ersetzt Zeile 72 nur „Standard Delivery“, und Zeile 256 setzt den Namen in Klammern. Auf der Rechnung stünde also „Versand (Standardversand (4–10 Werktage))“. Vorschlag für Zeile 72: `| split: " (" | first` anhängen, dann steht dort „Versand (Standardversand)“. Außerdem ist in `Anleitung Benachrichtigungs-Mails (Deutsch + Branding).md` Zeile 56 der Hinweis „Versandart heißt noch englisch“ veraltet.
+- **Bereich admin:** Im Admin-Bericht ist unter „Offene Punkte“ (Zeile 67) „Versandart heißt ‚Standard Delivery‘“ jetzt erledigt.
+- **Bereich checkout:** Punkt B im Checkout-Bericht schlägt „Standardversand · 7–15 Werktage“ vor. Umgesetzt ist „Standardversand (4–10 Werktage)“, passend zu allen Shop-Texten. Die doppelten Optionen (Punkt B, Teil 2) bestehen weiter.
+- **Bereich recht:** Die live verlinkte Checkout-Richtlinie „Versand“ (Stand 25.08.) nennt richtig 4–10 Werktage. Sie spricht aber noch von „Deutschland und der EU“. Die DE-only-Vorlage liegt schon bereit (Recht-Bericht).
+
+### 7. Für Julius
+
+Das kommt zu den Punkten im ursprünglichen Bericht hinzu („4. Wichtig: Lieferzeit“ und „5. Hinweise“ zum Printify-Sync):
+
+1. **Optional:** „Express Checkout“ in „Express-Checkout“ ändern (Klickweg in der Tabelle unter Gegenprüfung Punkt 4).
+2. **Bei der Testbestellung zusätzlich prüfen:**
+   - In Printify unter Orders muss die importierte Bestellung als **Standard**-Versand erscheinen, nicht als Express oder Priority. Bei Printify-Anbindungen wird Express üblicherweise am Wort „Express“ im Namen der Versandart erkannt, so dokumentiert es z. B. Customily für Printify auf Shopify. Der neue Name enthält das Wort nicht. Die Printify-Hilfe selbst war von hier aus nicht abrufbar, deshalb bitte einmal nachsehen.
+   - Auf der Rechnung aus Order Printer darf nicht „Versand (Standardversand (4–10 Werktage))“ stehen. Falls doch, gilt die Übergabe in Gegenprüfung Punkt 6.
+3. **Nach jedem Veröffentlichen in Printify** prüfen, ob die Namen zurückgesetzt wurden (Abschnitt „5. Hinweise“ oben). Das geht auch maschinell: die Profile mit der Abfrage „ProfilVoll“ (steht im Kopf von `gegenpruefung/vergleich_live_backup.py`) laden und mit dem Skript gegen die Sicherung vergleichen.
+
+### Dateien der Gegenprüfung
+
+| Datei | Inhalt |
+|---|---|
+| `shop-checkliste/arbeit-2026-10-02/versand/gegenpruefung/vergleich_live_backup.py` | Vergleich Live-Stand gegen Sicherung (alles außer den 60 Namen/Beschreibungen, Versionen und Bedingungs-IDs) |
+| `shop-checkliste/arbeit-2026-10-02/versand/gegenpruefung/vergleich-ergebnis.json` | Ergebnis: je Profil Hashes, Zähler, Fehler (0) |
+| `shop-checkliste/arbeit-2026-10-02/versand/gegenpruefung/probeberechnungen-gegenpruefung.json` | Die drei Probeberechnungen und der Live-Stand des Rabatts |
+| `shop-checkliste/backup-2026-10-02/versand/gegenpruefung/` | Vorher-Stand von Bericht und Skript |
